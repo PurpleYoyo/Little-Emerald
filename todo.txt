@@ -1,0 +1,160 @@
+General TODO
+----------
+-make every pokemon evolve via some unobtainable item
+Eevee-Partner
+-Mega Baby Pokémon
+-Starters: Squirtle, Snivy, Scorbunny
+Edit Pickup table
+Infinite Rare Candy
+Level caps
+Restore Kit
+Pre-damage/status NPC
+Add encounters to some cities with none
+Add rocks to Route 106
+Add rocks to Route 114
+Separate 111 and desert
+Tate & Liza randomly choose a mega
+Make AI switch more
+Unremovable mega items
+Early smoke ball
+Megas not last
+Pacifidlog salesman fisherman
+Lavaridge baby eggs
+
+Pokémon with type items (for moveset inspection):
+Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
+
+-Wallace's Magikarp
+
+Abilities
+----------
+Magma Armor + Shell Armor
+Steam Engine + Immune to Fire & Water
+Normalize + Scrappy
+
+Slowpoke-Galar -> Gluttony/Quick Draw/Regenerator
+Magikarp -> Swift Swim/Wimp Out
+Munchlax -> Immunity/Thick Fat/Gluttony
+Aipom -> Technician/Pickup/Skill Link
+Sneasel -> Inner Focus/Technician/Pickpocket
+Slugma -> Magma Armor/Flame Body/Drought
+Smoochum -> Oblivious/Dry Skin/Hydration
+Poochyena -> Intimidate/Quick Feet/Rattled
+Wingull -> Drizzle/Hydration/Rain Dish
+Slakoth -> Wimp Out
+Wailmer -> Water Veil/Oblivious/Drizzle
+Espurr -> Psychic Surge/Infiltrator/Own Tempo
+Duraludon -> Light Metal/Heavy Metal/Stamina
+
+Mega Munchlax = Poison Heal
+Mega Toxel A = Punk Rock
+Mega Toxel L = Punk Rock
+Mega Azurill = Immense Power (Huge Power x2)
+
+Types
+----------
+Slowpoke-Galar + Poison
+Seel + Ice
+Horsea + Dragon
+Larvitar -> Rock/Dark
+Mudkip + Ground
+Swablu -> Dragon/Flying
+Turtwig + Ground
+Chimchar + Fighting
+Piplup + Steel
+Burmy-Plant + Grass
+Burmy-Sand + Ground
+Burmy-Trash + Steel
+Darumaka-Galar + Fire
+Fennekin + Psychic
+Fletchling -> Fire/Flying
+Rowlet + Flying
+Litten + Dark
+Popplio + Fairy
+Grubbin + Electric
+Poipole + Dragon
+Rookidee + Steel
+Blipbug + Psychic
+Chewtle + Rock
+Rolycoly + Fire
+Clobbopus + Water
+Nymble + Dark
+Capsakid + Fire
+
+Vulpix-Alola + Fairy
+Basculin-White + Ghost
+
+Learnsets
+----------
+Chimchar + Mach Punch
+Clobbopus + Jet Punch (Maybe OP, if so, Aqua Jet)
+Joltik + Sticky Web
+Magnemite + Mirror Shot
+Electrike + Ember
+Tynamo + Coil
+Chinchou + Fairy Wind
+Charcadet + Shadow Claw, Psycho Cut, Armor Cannon, Bitter Blade
+Igglybuff + Misty Explosion
+Azurill + Misty Explosion
+Type: Null + Zen Headbutt
+Darumaka-Galar + Fire Punch
+Beldum + Agility, Magnet Rise
+Slowpoke-Galar + Poison Jab
+Mudkip + Earthquake, Stealth Rock
+Wimpod + Liquidation, Leech Life, Sucker Punch, Poison Jab, First Impression
+Nymble + First Impression
+Trapinch + First Impression
+Honedge + King's Shield
+Dreepy + Dragon Darts
+Munchlax + Shadow Punch
+Chingling + Expanding Force
+Vulpix-Alola + Moonblast
+Snorunt + Explosion
+Poipole + Dragon Rush
+Toxel + Shift Gear, Overdrive, Boomburst, Poison Jab
+Eevee + Multi-Attack
+
+Moves
+----------
+Thunder Fang, Ice Fang, Fire Fang -> Acc 100
+Mirror Shot -> Acc 100, 30% lower SpD
+Supersonic -> Acc 100
+Charge Beam -> Acc 100
+Fairy Wind -> 60 BP
+Fire Spin, Whirlpool -> Acc 100, 40 BP
+Rock Slide, Rock Tomb, Rock Throw, Rock Blast -> Acc 100
+
+King's Shield -> Sharply Drop Atk on contact
+Triple Axel -> Acc 95 (90)
+Night Daze, Metal Claw -> Acc 100 (95)
+Dragon Rush, Iron Tail -> Acc 80 (75)
+Multi-Attack -> 90 BP (120)
+Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot -> Acc 100 (90)
+
+Items | include/constants/hold_effects.h
+----------
+Electirizer -> Boost Electric 20%, Elekid Mega Stone
+Magmarizer -> Boost Fire 20%, Magby Mega Stone
+Sea Incense + Azurill Mega Stone
+Lucky Egg -> Togepi Mega Stone
+Never-Melt Ice + Smoochum Mega Stone
+Odd Incense + Mime Jr. Mega Stone
+Malicious Armor -> Boost Ghost 20% for Charcadet, Change Charcadet's Typing to Fire/Ghost
+Auspicious Armor -> Boost Psychic 20% for Charcadet, Change Charcadet's Typing to Fire/Psychic
+Eevee, Shiny Stone = Fairy, Leaf Stone = Grass, Fire Stone = Fire, Water Stone = Water, Thunder Stone = Electric, Ice Stone = Ice
+New Item: Pink Bow = Boost Fairy 20%, Igglybuff Mega Stone
+
+Ideas
+----------
+Steven:
+Beldum				
+43				
+Careful				
+Clear Body				
+Eviolite				
+Zen Headbutt				
+Iron Head				
+Agility				
+Magnet Rise
+
+flutes boost sound moves 20%
