@@ -1,7 +1,7 @@
 General TODO
 ----------
 -make every pokemon evolve via some unobtainable item
-Eevee-Partner
+-Eevee-Partner
 -Mega Baby Pokémon
 -Starters: Squirtle, Snivy, Scorbunny
 Edit Pickup table
@@ -9,7 +9,7 @@ Infinite Rare Candy
 Level caps
 Restore Kit
 Pre-damage/status NPC
-Add encounters to some cities with none
+-Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
 Separate 111 and desert

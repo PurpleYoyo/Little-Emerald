@@ -264,8 +264,8 @@
     {
       "id": "LAYOUT_ROUTE111",
       "name": "Route111_Layout",
-      "width": 34,
-      "height": 72,
+      "width": 40,
+      "height": 140,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/Route111/border.bin",
@@ -4410,26 +4410,6 @@
       "secondary_tileset": "gTileset_MysteryEventsHouse",
       "border_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/border.bin",
       "blockdata_filepath": "data/layouts/SootopolisCity_MysteryEventsHouse_1F_StairsUnblocked/map.bin"
-    },
-    {
-      "id": "LAYOUT_ROUTE111DESERT",
-      "name": "Route111Desert_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route111Desert/border.bin",
-      "blockdata_filepath": "data/layouts/Route111Desert/map.bin"
-    },
-    {
-      "id": "LAYOUT_ROUTE111_DESERT",
-      "name": "Route111_Desert_Layout",
-      "width": 20,
-      "height": 20,
-      "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_Petalburg",
-      "border_filepath": "data/layouts/Route111_Desert/border.bin",
-      "blockdata_filepath": "data/layouts/Route111_Desert/map.bin"
     }
   ]
 }
