@@ -1013,8 +1013,9 @@
 #define ITEM_PUNK_INCENSE     841
 
 #define ITEM_INFINITE_CANDY   842
+#define ITEM_MAX_RESTORE      843
 
-#define ITEMS_COUNT 843
+#define ITEMS_COUNT 844
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

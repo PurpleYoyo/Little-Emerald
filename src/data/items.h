@@ -1157,6 +1157,24 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxElixir,
     },
 
+    [ITEM_MAX_RESTORE] =
+    {
+        .name = _("Max Restore"),
+        .price = 3000,
+        .holdEffectParam = 255,
+        .description = COMPOUND_STRING(
+            "Fully restores the\n"
+            "HP, PP, and status\n"
+            "of a Pokémon."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .effect = gItemEffect_FullRestore,
+        .flingPower = 30,
+        .iconPic = gItemIcon_LargePotion,
+        .iconPalette = gItemIconPalette_FullRestore,
+    },
+
     [ITEM_BERRY_JUICE] =
     {
         .name = _("Berry Juice"),
