@@ -1986,10 +1986,30 @@ const struct Item gItemsInfo[] =
         .description = COMPOUND_STRING(
             "Raises the level\n"
             "of a Pokémon by\n"
-            "one."),
+            "one, ignoring\n"
+            "level caps."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
+        .effect = gItemEffect_RareCandy,
+        .flingPower = 30,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
+    },
+
+    [ITEM_INFINITE_CANDY] =
+    {
+        .name = _("Infinite Candy"),
+        .pluralName = _("Rare Candies"),
+        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .description = COMPOUND_STRING(
+            "Raises the level\n"
+            "of a Pokémon by\n"
+            "one until the\n"
+            "next level cap."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRareCandy,
         .effect = gItemEffect_RareCandy,
         .flingPower = 30,
         .iconPic = gItemIcon_RareCandy,

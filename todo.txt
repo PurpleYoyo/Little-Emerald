@@ -20,6 +20,7 @@ Early smoke ball
 Megas not last
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
+Reformat item text
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
