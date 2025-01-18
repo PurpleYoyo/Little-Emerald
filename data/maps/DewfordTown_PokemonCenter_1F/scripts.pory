@@ -1,0 +1,112 @@
+raw `
+.set LOCALID_NURSE, 1
+
+DewfordTown_PokemonCenter_1F_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, DewfordTown_PokemonCenter_1F_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, CableClub_OnResume
+	.byte 0
+
+DewfordTown_PokemonCenter_1F_OnTransition:
+	setrespawn HEAL_LOCATION_DEWFORD_TOWN
+	call Common_EventScript_UpdateBrineyLocation
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Nurse::
+	setvar VAR_0x800B, LOCALID_NURSE
+	call Common_EventScript_PkmnCenterNurse
+	waitmessage
+	waitbuttonpress
+	release
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_PokefanF::
+	msgbox DewfordTown_PokemonCenter_1F_Text_StoneCavern, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_EventScript_Man::
+	msgbox DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM, MSGBOX_NPC
+	end
+
+DewfordTown_PokemonCenter_1F_Text_StoneCavern:
+	.string "There's a stone cavern at the edge\n"
+	.string "of town.\p"
+	.string "I've heard you can find rare stones\n"
+	.string "there.$"
+
+DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
+	.string "Even if a POKéMON faints and can't\n"
+	.string "battle, it can still use a move learned\l"
+	.string "from a HIDDEN MACHINE (HM).$"
+
+`
+script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
+	lock
+	message(format("Would you like to Pre-Damage or Pre-Status one of your Pokémon?"))
+	multichoice(5, 2, MULTI_PREDAMAGE, 0)
+	//if (var(VAR_RESULT) == 0) // PreDamage
+	if (var(VAR_RESULT) == 1) { // PreStatus
+		closemessage
+		msgbox(format("Which Status would you like to give the Pokémon?"))
+		multichoice(5, 2, MULTI_STATUS_INFO, 0)
+		if (var(VAR_RESULT) == 0) { // Poison
+			special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				message("egg")
+				closemessage
+			} else {
+				setstatus1(STATUS1_POISON, VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Inflicted your {STR_VAR_1} with Poison."))
+			}
+		}
+		if (var(VAR_RESULT) == 1) { // Paralysis
+		special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				message("egg")
+				closemessage
+			} else {
+				setstatus1(STATUS1_PARALYSIS, VAR_0x8004)
+			}
+		}
+		if (var(VAR_RESULT) == 2) { // Sleep
+			special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				message("egg")
+				closemessage
+			} else {
+				setstatus1(STATUS1_SLEEP, VAR_0x8004)
+			}
+		}
+		if (var(VAR_RESULT) == 3) { // Burn
+			special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				message("egg")
+				closemessage
+			} else {
+				setstatus1(STATUS1_BURN, VAR_0x8004)
+			}
+		}
+		if (var(VAR_RESULT) == 4) { // Freeze
+			special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				message("egg")
+				closemessage
+			} else {
+				setstatus1(STATUS1_FREEZE, VAR_0x8004)
+			}
+		}
+	}
+	release
+}

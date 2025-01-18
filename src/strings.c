@@ -313,6 +313,7 @@ const u8 gText_WhichMoveToForget[] = _("Which move should be forgotten?{PAUSE_UN
 const u8 gText_12PoofForgotMove[] = _("1, {PAUSE 15}2, and{PAUSE 15}… {PAUSE 15}… {PAUSE 15}… {PAUSE 15}{PLAY_SE SE_BALL_BOUNCE_1}Poof!\p{STR_VAR_1} forgot how to\nuse {STR_VAR_2}.\pAnd…{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnAlreadyKnows[] = _("{STR_VAR_1} already knows\n{STR_VAR_2}.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnHPRestoredByVar2[] = _("{STR_VAR_1}'s HP was restored\nby {STR_VAR_2} point(s).{PAUSE_UNTIL_PRESS}");
+const u8 gText_PkmnMaxRestored[] = _("{STR_VAR_1} was fully restored.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnCuredOfPoison[] = _("{STR_VAR_1} was cured of its\npoisoning.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnCuredOfParalysis[] = _("{STR_VAR_1} was cured of\nparalysis.{PAUSE_UNTIL_PRESS}");
 const u8 gText_PkmnWokeUp2[] = _("{STR_VAR_1} woke up.{PAUSE_UNTIL_PRESS}");
@@ -1569,3 +1570,6 @@ const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");
 const u8 gText_Relearn[] = _("{START_BUTTON} RELEARN"); // future note: don't decap this, because it mimics the summary screen BG graphics which will not get decapped
 const u8 gText_Rename[] = _("RENAME");
+
+const u8 gText_PreDamage[] = _("PREDAMAGE");
+const u8 gText_PreStatus[] = _("PRESTATUS");

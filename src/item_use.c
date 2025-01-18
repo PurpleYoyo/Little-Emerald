@@ -805,6 +805,12 @@ void ItemUseOutOfBattle_Medicine(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_MaxRestore(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_MaxRestore;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_AbilityCapsule(u8 taskId)
 {
     gItemUseCB = ItemUseCB_AbilityCapsule;

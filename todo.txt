@@ -44,6 +44,7 @@ Poochyena -> Intimidate/Quick Feet/Rattled
 Wingull -> Drizzle/Hydration/Rain Dish
 Slakoth -> Wimp Out
 Wailmer -> Water Veil/Oblivious/Drizzle
+Basculin-White -> Rock Head/Adaptability/Mold Breaker
 Espurr -> Psychic Surge/Infiltrator/Own Tempo
 Duraludon -> Light Metal/Heavy Metal/Stamina
 

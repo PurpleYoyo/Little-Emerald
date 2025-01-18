@@ -1168,7 +1168,7 @@ const struct Item gItemsInfo[] =
             "of a Pokémon."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .fieldUseFunc = ItemUseOutOfBattle_MaxRestore,
         .effect = gItemEffect_FullRestore,
         .flingPower = 30,
         .iconPic = gItemIcon_LargePotion,

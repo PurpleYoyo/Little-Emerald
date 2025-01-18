@@ -332,6 +332,7 @@ extern const u8 *const gPocketNamesStringsTable[];
 
 // party menu text
 extern const u8 gText_PkmnHPRestoredByVar2[];
+extern const u8 gText_PkmnMaxRestored[];
 extern const u8 gText_CantBeUsedOnPkmn[];
 extern const u8 gText_CancelParticipation[];
 extern const u8 gText_PkmnWasGivenItem[];
@@ -2710,5 +2711,8 @@ extern const u8 gText_PlayerScurriedBackHome[];
 
 extern const u8 gText_Relearn[]; // move relearner from summary screen
 extern const u8 gText_Rename[]; // change nickname from summary screen
+
+extern const u8 gText_PreDamage[];
+extern const u8 gText_PreStatus[];
 
 #endif // GUARD_STRINGS_H
