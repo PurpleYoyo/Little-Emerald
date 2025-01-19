@@ -80,6 +80,15 @@ static const struct MenuAction MultichoiceList_Statuses[] =
     {gText_Toxic},
 };
 
+static const struct MenuAction MultichoiceList_StatNamesNoHP[] =
+{
+    {gText_Attack3},
+    {gText_Defense3},
+    {gText_SpAtk4},
+    {gText_SpDef4},
+    {gText_Speed2},
+};
+
 static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
 {
     {gText_Dewford},
@@ -925,6 +934,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
     [MULTI_PREDAMAGE]                  = MULTICHOICE(MultichoiceList_PreDamage),
     [MULTI_STATUSES]                   = MULTICHOICE(MultichoiceList_Statuses),
+    [MULTI_STAT_NAMES_NO_HP]           = MULTICHOICE(MultichoiceList_StatNamesNoHP),
 };
 
 const u8 *const gStdStrings[] =

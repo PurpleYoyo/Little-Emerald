@@ -1994,6 +1994,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_YellowMint,
     },
 
+    [ITEM_BLANK_MINT] =
+    {
+        .name = _("Blank Mint"),
+        .price = 20000,
+        .description = COMPOUND_STRING(
+            "Can be changed\n"
+            "into a nature\n"
+            "mint."),
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Mint,
+        .secondaryId = NATURE_SERIOUS,
+        .flingPower = 10,
+        .iconPic = gItemIcon_Mint,
+        .iconPalette = gItemIconPalette_RareBone,
+    },
+
 // Candy
 
     [ITEM_RARE_CANDY] =

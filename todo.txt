@@ -31,6 +31,9 @@ Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
 
+credits:
+
+
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
 

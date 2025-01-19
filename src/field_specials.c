@@ -70,6 +70,7 @@
 #include "constants/metatile_labels.h"
 #include "palette.h"
 #include "battle_util.h"
+#include "../include/constants/abilities.h"
 
 #define TAG_ITEM_ICON 5500
 
@@ -1267,6 +1268,108 @@ void IsGrassTypeInParty(void)
                 gSpecialVar_Result = TRUE;
                 return;
             }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonSteelType(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        if (gSpeciesInfo[species].types[0] == TYPE_STEEL || gSpeciesInfo[species].types[1] == TYPE_STEEL)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonPoisonType(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        if (gSpeciesInfo[species].types[0] == TYPE_POISON || gSpeciesInfo[species].types[1] == TYPE_POISON)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonFireType(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        if (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonIceType(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        if (gSpeciesInfo[species].types[0] == TYPE_ICE || gSpeciesInfo[species].types[1] == TYPE_ICE)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonElectricType(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        if (gSpeciesInfo[species].types[0] == TYPE_ELECTRIC || gSpeciesInfo[species].types[1] == TYPE_ELECTRIC)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void IsChosenMonImmuneToSleepDueToAbility(void)
+{
+    u16 ability;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        ability = GetMonAbility(pokemon);
+        if (ability == ABILITY_INSOMNIA || ability == ABILITY_VITAL_SPIRIT || ability == ABILITY_PURIFYING_SALT || ability == ABILITY_COMATOSE || ability == ABILITY_SWEET_VEIL)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
         }
     }
     gSpecialVar_Result = FALSE;

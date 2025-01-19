@@ -1017,7 +1017,9 @@
 #define ITEM_INFINITE_REPEL   844
 #define ITEM_POKEVIAL         845
 
-#define ITEMS_COUNT 846
+#define ITEM_BLANK_MINT       846
+
+#define ITEMS_COUNT 847
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

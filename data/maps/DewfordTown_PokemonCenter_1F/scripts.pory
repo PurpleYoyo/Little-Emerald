@@ -39,6 +39,92 @@ DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
 	.string "from a HIDDEN MACHINE (HM).$" 	
 
 `
+
+script DewfordTown_PokemonCenter_1F_EventScript_NatureMintNurse {
+	lock
+	message(format("Would you like to make a Nature Mint with a Blank Nature Mint?"))
+	yesnobox(5, 2)
+	if (var(VAR_RESULT) == 1) {
+		checkitem(ITEM_BLANK_MINT, 1)
+		if (var(VAR_RESULT) != 1) {
+			msgbox(format("You do not have any Blank Nature Mints."))
+		} else {
+			msgbox(format("Which stat would you like the mint to increase?"))
+			multichoice(5, 2, MULTI_STAT_NAMES_NO_HP, 0)
+			if (var(VAR_RESULT) == 0) {
+				setvar(RAISE, 0)
+			} elif (var(VAR_RESULT) == 1) {
+				setvar(RAISE, 1)
+			} elif (var(VAR_RESULT) == 2) {
+				setvar(RAISE, 2)
+			} elif (var(VAR_RESULT) == 3) {
+				setvar(RAISE, 3)
+			} elif (var(VAR_RESULT) == 4) {
+				setvar(RAISE, 4)
+			}
+			msgbox(format("Which stat would you like the mint to decrease?"))
+			multichoice(5, 2, MULTI_STAT_NAMES_NO_HP, 0)
+			if (var(VAR_RESULT) == 0) {
+				setvar(LOWER, 0)
+			} elif (var(VAR_RESULT) == 1) {
+				setvar(LOWER, 1)
+			} elif (var(VAR_RESULT) == 2) {
+				setvar(LOWER, 2)
+			} elif (var(VAR_RESULT) == 3) {
+				setvar(LOWER, 3)
+			} elif (var(VAR_RESULT) == 4) {
+				setvar(LOWER, 4)
+			}
+
+			// Neutral Mint
+			if (var(RAISE) == 0 && var(LOWER) == 0
+			    || var(RAISE) == 1 && var(LOWER) == 1
+				|| var(RAISE) == 2 && var(LOWER) == 2
+				|| var(RAISE) == 3 && var(LOWER) == 3
+				|| var(RAISE) == 4 && var(LOWER) == 4) {
+				message(format("Are you sure you want to make a Neutral Nature Mint?"))
+	    	    yesnobox(5, 2)
+				if (var(VAR_RESULT) == 1) {
+					giveitem(ITEM_SERIOUS_MINT)
+					removeitem(ITEM_BLANK_MINT, 1)
+				}
+			}
+
+			// +Atk Mints
+			elif (var(RAISE) == 0 && var(LOWER) == 1) { // +atk -def, lonely
+				message(format("You would like to make a Lonely Nature Mint (+Atk -Def)?"))
+	    	    yesnobox(5, 2)
+				if (var(VAR_RESULT) == 1) {
+					giveitem(ITEM_LONELY_MINT)
+					removeitem(ITEM_BLANK_MINT, 1)
+				}
+			} elif (var(RAISE) == 0 && var(LOWER) == 2) { // +atk -spa, adamant
+				message(format("You would like to make an Adamant Nature Mint (+Atk -SpA)?"))
+	    	    yesnobox(5, 2)
+				if (var(VAR_RESULT) == 1) {
+					giveitem(ITEM_ADAMANT_MINT)
+					removeitem(ITEM_BLANK_MINT, 1)
+				}
+			} elif (var(RAISE) == 0 && var(LOWER) == 3) { // +atk -spd, naughty
+				message(format("You would like to make a Naughty Nature Mint (+Atk -SpD)?"))
+	    	    yesnobox(5, 2)
+				if (var(VAR_RESULT) == 1) {
+					giveitem(ITEM_NAUGHTY_MINT)
+					removeitem(ITEM_BLANK_MINT, 1)
+				}
+			} elif (var(RAISE) == 0 && var(LOWER) == 4) { // +atk -spe, brave
+				message(format("You would like to make a Brave Nature Mint (+Atk -Spe)?"))
+	    	    yesnobox(5, 2)
+				if (var(VAR_RESULT) == 1) {
+					giveitem(ITEM_BRAVE_MINT)
+					removeitem(ITEM_BLANK_MINT, 1)
+				}
+			}
+		}
+	}
+	release
+}
+
 script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 	lock
 	message(format("Would you like to Pre-Damage or Pre-Status one of your Pokémon?"))
@@ -56,88 +142,143 @@ script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 		closemessage
 		msgbox(format("Which Status would you like to give the Pokémon?"))
 		multichoicegrid(5, 2, MULTI_STATUSES, 2, 0)
-		if (var(VAR_RESULT) == 0) { // Poison
+		if (var(VAR_RESULT) == 0) {
+			setvar(STATUS, 0)
+		} elif (var(VAR_RESULT) == 1) {
+			setvar(STATUS, 1)
+		} elif (var(VAR_RESULT) == 2) {
+			setvar(STATUS, 2)
+		} elif (var(VAR_RESULT) == 3) {
+			setvar(STATUS, 3)
+		} elif (var(VAR_RESULT) == 4) {
+			setvar(STATUS, 4)
+		} elif (var(VAR_RESULT) == 5) {
+			setvar(STATUS, 5)
+		}
+		//setvar(STATUS, VAR_RESULT)
+		if (var(STATUS) == 0) { // Poison
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("I can't inflict a Pokémon egg with Poison."))
+				msgbox(format("A Pokémon Egg cannot be Poisoned."))
 			} elif (var(VAR_RESULT) != SPECIES_NONE) {
-				setstatus1(STATUS1_POISON, VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Inflicted your {STR_VAR_1} with Poison."))
+				special(IsChosenMonSteelType)
+				if (var(VAR_RESULT) == TRUE) {
+					msgbox(format("Steel-type Pokémon cannot be Poisoned."))
+				} else {
+					special(IsChosenMonPoisonType)
+					if (var(VAR_RESULT) == TRUE) {
+						msgbox(format("Poison-type Pokémon cannot be Poisoned."))
+					} else {
+				    	setstatus1(STATUS1_POISON, VAR_0x8004)
+				    	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				    	playmoncry(0x8007, 0)
+				    	waitmoncry
+				    	msgbox(format("Inflicted your {STR_VAR_1} with Poison."))
+					}
+				}
 			}
 		}
-		if (var(VAR_RESULT) == 1) { // Paralysis
+		if (var(STATUS) == 1) { // Paralysis
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("A Pokémon egg can't have Paralysis."))
-			} else {
-				setstatus1(STATUS1_PARALYSIS, VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Gave your {STR_VAR_1} Paralysis."))
+				msgbox(format("A Pokémon Egg cannot be Paralyzed."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
+				special(IsChosenMonElectricType)
+				if (var(VAR_RESULT) == TRUE) {
+					msgbox(format("Electric-type Pokémon cannot be Paralyzed."))
+				} else {
+					setstatus1(STATUS1_PARALYSIS, VAR_0x8004)
+					specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+					playmoncry(0x8007, 0)
+					waitmoncry
+					msgbox(format("Inflicted your {STR_VAR_1} with Paralysis."))
+				}
 			}
 		}
-		if (var(VAR_RESULT) == 2) { // Sleep
+		if (var(STATUS) == 2) { // Sleep
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("I can't put a Pokémon egg to Sleep."))
-			} else {
-				setstatus1(STATUS1_SLEEP_TURN(1), VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Put your {STR_VAR_1} to Sleep."))
+				msgbox(format("A Pokémon Egg cannot be put to Sleep."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
+				special(IsChosenMonImmuneToSleepDueToAbility)
+				if (var(VAR_RESULT) == TRUE) {
+					specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+					msgbox(format("{STR_VAR_1}'s ability prevents it from being put to Sleep."))
+				} else {
+					setstatus1(STATUS1_SLEEP_TURN(1), VAR_0x8004)
+					specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+					playmoncry(0x8007, 0)
+					waitmoncry
+					msgbox(format("Inflicted your {STR_VAR_1} with Sleep."))
+				}
 			}
 		}
-		if (var(VAR_RESULT) == 3) { // Burn
+		if (var(STATUS) == 3) { // Burn
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("I can't Burn a Pokémon egg."))
-			} else {
-				setstatus1(STATUS1_BURN, VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Inflicted your {STR_VAR_1} with Burn."))
+				msgbox(format("A Pokémon Egg cannot be burned."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
+				special(IsChosenMonFireType)
+				if (var(VAR_RESULT) == TRUE) {
+					msgbox(format("Fire-type Pokémon cannot be Burned."))
+				} else {
+					setstatus1(STATUS1_BURN, VAR_0x8004)
+					specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+					playmoncry(0x8007, 0)
+					waitmoncry
+					msgbox(format("Inflicted your {STR_VAR_1} with Burn."))
+				}
 			}
 		}
-		if (var(VAR_RESULT) == 4) { // Freeze
+		if (var(STATUS) == 4) { // Freeze
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("I can't Freeze a Pokémon egg."))
-			} else {
-				setstatus1(STATUS1_FREEZE, VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Inflicted your {STR_VAR_1} with Freeze."))
+				msgbox(format("A Pokémon Egg cannot be frozen."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
+				special(IsChosenMonSteelType)
+				if (var(VAR_RESULT) == TRUE) {
+					msgbox(format("Ice-type Pokémon cannot be Frozen."))
+				} else {
+					setstatus1(STATUS1_FREEZE, VAR_0x8004)
+					specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+					playmoncry(0x8007, 0)
+					waitmoncry
+					msgbox(format("Inflicted your {STR_VAR_1} with Freeze."))
+				}
 			}
 		}
-		if (var(VAR_RESULT) == 5) { // Toxic
+		if (var(STATUS) == 5) { // Toxic
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				msgbox(format("I can't inflict a Pokémon egg with Toxic."))
-			} else {
-				setstatus1(STATUS1_TOXIC_POISON, VAR_0x8004)
-				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-				playmoncry(0x8007, 0)
-				waitmoncry
-				msgbox(format("Inflicted your {STR_VAR_1} with Toxic."))
+				msgbox(format("A Pokémon Egg cannot be Badly Poisoned."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
+				special(IsChosenMonSteelType)
+				if (var(VAR_RESULT) == TRUE) {
+					msgbox(format("Steel-type Pokémon cannot be Badly Poisoned."))
+				} else {
+					special(IsChosenMonPoisonType)
+					if (var(VAR_RESULT) == TRUE) {
+						msgbox(format("Poison-type Pokémon cannot be Badly Poisoned."))
+					} else {
+						setstatus1(STATUS1_TOXIC_POISON, VAR_0x8004)
+						specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+						playmoncry(0x8007, 0)
+						waitmoncry
+						msgbox(format("Inflicted your {STR_VAR_1} with Toxic Poison."))
+					}
+				}
 			}
 		}
 	}

@@ -125,6 +125,7 @@
 #define MULTI_BERRY_PLOT                   114
 #define MULTI_PREDAMAGE                    115
 #define MULTI_STATUSES                     116
+#define MULTI_STAT_NAMES_NO_HP             117
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
