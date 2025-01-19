@@ -36,26 +36,33 @@ DewfordTown_PokemonCenter_1F_Text_StoneCavern:
 DewfordTown_PokemonCenter_1F_Text_FaintedMonCanUseHM:
 	.string "Even if a POKéMON faints and can't\n"
 	.string "battle, it can still use a move learned\l"
-	.string "from a HIDDEN MACHINE (HM).$"
+	.string "from a HIDDEN MACHINE (HM).$" 	
 
 `
 script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 	lock
 	message(format("Would you like to Pre-Damage or Pre-Status one of your Pokémon?"))
 	multichoice(5, 2, MULTI_PREDAMAGE, 0)
-	//if (var(VAR_RESULT) == 0) // PreDamage
+	if (var(VAR_RESULT) == 0) { // PreDamage
+		special(ChoosePartyMon)
+		waitstate
+		call(Common_SelectDamage)
+		//setvar(VAR_0x8004, EASY_CHAT_TYPE_GABBY_AND_TY)
+		//call(Common_ShowEasyChatScreen)
+		//specialvar(VAR_RESULT, Script_SelectDamage)
+		sethp(5, VAR_0x8004)
+	}
 	if (var(VAR_RESULT) == 1) { // PreStatus
 		closemessage
 		msgbox(format("Which Status would you like to give the Pokémon?"))
-		multichoice(5, 2, MULTI_STATUS_INFO, 0)
+		multichoicegrid(5, 2, MULTI_STATUSES, 2, 0)
 		if (var(VAR_RESULT) == 0) { // Poison
 			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				message("egg")
-				closemessage
-			} else {
+				msgbox(format("I can't inflict a Pokémon egg with Poison."))
+			} elif (var(VAR_RESULT) != SPECIES_NONE) {
 				setstatus1(STATUS1_POISON, VAR_0x8004)
 				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
 				playmoncry(0x8007, 0)
@@ -64,14 +71,17 @@ script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 			}
 		}
 		if (var(VAR_RESULT) == 1) { // Paralysis
-		special(ChoosePartyMon)
+			special(ChoosePartyMon)
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				message("egg")
-				closemessage
+				msgbox(format("A Pokémon egg can't have Paralysis."))
 			} else {
 				setstatus1(STATUS1_PARALYSIS, VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Gave your {STR_VAR_1} Paralysis."))
 			}
 		}
 		if (var(VAR_RESULT) == 2) { // Sleep
@@ -79,10 +89,13 @@ script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				message("egg")
-				closemessage
+				msgbox(format("I can't put a Pokémon egg to Sleep."))
 			} else {
-				setstatus1(STATUS1_SLEEP, VAR_0x8004)
+				setstatus1(STATUS1_SLEEP_TURN(1), VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Put your {STR_VAR_1} to Sleep."))
 			}
 		}
 		if (var(VAR_RESULT) == 3) { // Burn
@@ -90,10 +103,13 @@ script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				message("egg")
-				closemessage
+				msgbox(format("I can't Burn a Pokémon egg."))
 			} else {
 				setstatus1(STATUS1_BURN, VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Inflicted your {STR_VAR_1} with Burn."))
 			}
 		}
 		if (var(VAR_RESULT) == 4) { // Freeze
@@ -101,10 +117,27 @@ script DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse {
 			waitstate
 			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
 			if (var(VAR_RESULT) == SPECIES_EGG) {
-				message("egg")
-				closemessage
+				msgbox(format("I can't Freeze a Pokémon egg."))
 			} else {
 				setstatus1(STATUS1_FREEZE, VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Inflicted your {STR_VAR_1} with Freeze."))
+			}
+		}
+		if (var(VAR_RESULT) == 5) { // Toxic
+			special(ChoosePartyMon)
+			waitstate
+			specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+			if (var(VAR_RESULT) == SPECIES_EGG) {
+				msgbox(format("I can't inflict a Pokémon egg with Toxic."))
+			} else {
+				setstatus1(STATUS1_TOXIC_POISON, VAR_0x8004)
+				specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+				playmoncry(0x8007, 0)
+				waitmoncry
+				msgbox(format("Inflicted your {STR_VAR_1} with Toxic."))
 			}
 		}
 	}

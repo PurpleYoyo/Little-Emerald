@@ -2295,6 +2295,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_MaxRepel,
     },
 
+    [ITEM_INFINITE_REPEL] =
+    {
+        .name = _("Infinite Repel"),
+        .holdEffectParam = 250,
+        .description = COMPOUND_STRING(
+            "Repels weak wild\n"
+            "Pokémon infinitely\n"
+            "until used again."),
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .flingPower = 30,
+        .iconPic = gItemIcon_Repel,
+        .iconPalette = gItemIconPalette_MaxRepel,
+    },
+
     [ITEM_LURE] =
     {
         .name = _("Lure"),
@@ -12553,6 +12569,21 @@ const struct Item gItemsInfo[] =
         .fieldUseFunc = ItemUseOutOfBattle_PokemonBoxLink,
         .iconPic = gItemIcon_PokemonBoxLink,
         .iconPalette = gItemIconPalette_PokemonBoxLink,
+    },
+
+    [ITEM_POKEVIAL] =
+    {
+        .name = _("Pokévial"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Fully restores\n"
+            "your party."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_Pokevial,
+        .iconPic = gItemIconPalette_BlueFlute,
+        .iconPalette = gItemIconPalette_BlueFlute,
     },
 
     [ITEM_COIN_CASE] =

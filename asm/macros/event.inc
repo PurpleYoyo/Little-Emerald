@@ -2256,6 +2256,17 @@
 	.2byte \slot
 	.endm
 
+	.macro sethp hp:req, slot:req
+	callnative Script_SetHP
+	.2byte \hp
+	.2byte \slot
+	.endm
+
+	.macro selectdamage slot:req
+	callnative Script_SelectDamage
+	.2byte \slot
+	.endm
+
 	@ Sets VAR_RESULT to the Pokémon in \slot's Tera Type
 	.macro checkteratype slot:req
 	callnative CheckTeraType

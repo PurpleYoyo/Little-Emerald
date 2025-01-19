@@ -27,6 +27,7 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
+#include "../include/menu.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -573,6 +574,89 @@ void Script_GetChosenMonDefensiveIVs(void)
     ConvertIntToDecimalStringN(gStringVar1, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar3, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
+}
+
+static const struct WindowTemplate sSelectDamageWindowTemplate =
+{
+    .bg = 0,
+    .tilemapLeft = 6,
+    .tilemapTop = 4,
+    .width = 18,
+    .height = 11,
+    .paletteNum = 15,
+    .baseBlock = 8
+};
+
+static const u8 sText_Amount[] = _("AMOUNT: {STR_VAR_2}");
+
+void Task_SelectDamage(u8 taskId)
+{
+    u32 max_hp = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_MAX_HP);
+    u8 windowId;
+
+    windowId = AddWindow(&sSelectDamageWindowTemplate);
+    SetStandardWindowBorderStyle(windowId, FALSE);
+    PutWindowTilemap(windowId);
+    CopyWindowToVram(windowId, COPYWIN_MAP);
+
+    StringExpandPlaceholders(gStringVar4, sText_Amount);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 0, 0, 0, NULL);
+
+    if (JOY_NEW(DPAD_ANY))
+    {
+        //PlaySE(SE_SELECT);
+
+        if (JOY_NEW(DPAD_UP))
+        {
+            gTasks[taskId].data[3] += 1;
+            if (gTasks[taskId].data[3] >= max_hp)
+                gTasks[taskId].data[3] = max_hp - 1;
+        }
+        if (JOY_NEW(DPAD_DOWN))
+        {
+            gTasks[taskId].data[3] -= 1;
+            if (gTasks[taskId].data[3] < 1)
+                gTasks[taskId].data[3] = 1;
+        }
+        if (JOY_NEW(DPAD_LEFT))
+        {
+            gTasks[taskId].data[3] -= 10;
+            if (gTasks[taskId].data[3] < 1)
+                gTasks[taskId].data[3] = 1;
+        }
+        if (JOY_NEW(DPAD_RIGHT))
+        {
+            gTasks[taskId].data[3] += 1;
+            if (gTasks[taskId].data[3] >= max_hp)
+                gTasks[taskId].data[3] = max_hp - 1;
+        }
+
+        ConvertIntToDecimalStringN(gStringVar2, gTasks[taskId].data[3], STR_CONV_MODE_LEADING_ZEROS, 3);
+        StringExpandPlaceholders(gStringVar4, sText_Amount);
+        AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, 0, 0, 0, NULL);
+    }
+}
+
+void Script_SelectDamage(void)
+{
+    u8 taskId;
+
+    ResetTasks();
+    taskId = CreateTask(Task_SelectDamage, 0);
+}
+
+void Script_SetHP(struct ScriptContext *ctx)
+{
+    u32 hp = VarGet(ScriptReadHalfword(ctx));
+    u32 slot = VarGet(ScriptReadHalfword(ctx));
+
+    u16 species;
+    species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
+            
+    if (species != SPECIES_NONE
+     && species != SPECIES_EGG
+     && GetMonData(&gPlayerParty[slot], MON_DATA_HP) != 0)
+        SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
 }
 
 void Script_SetStatus1(struct ScriptContext *ctx)

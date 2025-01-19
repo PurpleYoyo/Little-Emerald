@@ -542,7 +542,6 @@ const u8 gText_Par[] = _("PAR");
 const u8 gText_Slp[] = _("SLP");
 const u8 gText_Brn[] = _("BRN");
 const u8 gText_Frz[] = _("FRZ");
-const u8 gText_Toxic[] = _("TOXIC"); // Unused
 const u8 gText_Ok3[] = _("OK"); // Unused
 const u8 gText_Quit[] = _("QUIT"); // Unused
 const u8 gText_SawIt[] = _("Saw it");
@@ -1573,3 +1572,8 @@ const u8 gText_Rename[] = _("RENAME");
 
 const u8 gText_PreDamage[] = _("PREDAMAGE");
 const u8 gText_PreStatus[] = _("PRESTATUS");
+const u8 gText_Toxic[] = _("TOXIC");
+
+const u8 gText_InfiniteRepelOn[] = _("Infinite Repel activated.");
+const u8 gText_InfiniteRepelOff[] = _("Infinite Repel deactivated.");
+const u8 gText_Pokevial[] = _("Your party has been fully restored.");

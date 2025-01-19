@@ -5,10 +5,17 @@ General TODO
 -Mega Baby Pokémon
 -Starters: Squirtle, Snivy, Scorbunny
 Edit Pickup table
-Infinite Rare Candy
-Level caps
-Restore Kit
+-Infinite Rare Candy
+-Level caps
+-Restore Kit
+^ animation
 Pre-damage/status NPC
+Infinite repel
+-Portable PC
+-Pokévial
+More options
+^ hm animations
+hm unneed learn
 -Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
@@ -18,6 +25,8 @@ Make AI switch more
 Unremovable mega items
 Early smoke ball
 Megas not last
+Battle coins trader
+Blank nature mints
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text

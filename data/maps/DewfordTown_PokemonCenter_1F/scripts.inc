@@ -84,154 +84,228 @@ DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse::
 	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_0
 # 45 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	multichoice 5, 2, MULTI_PREDAMAGE, 0
-# 47 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 1
+# 46 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 0
 	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_2
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_1:
-# 111 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 55 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_5
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4:
+# 144 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	release
 	return
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_2:
+# 47 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
 # 48 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
+	waitstate
 # 49 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_1
-# 50 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	multichoice 5, 2, MULTI_STATUS_INFO, 0
-# 51 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 0
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_5
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4:
-# 66 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 1
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_8
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_7:
-# 77 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 2
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_14
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_13:
-# 88 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 3
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_20
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_19:
-# 99 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, 4
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_25
+	call Common_SelectDamage
+# 53 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	sethp 5, VAR_0x8004
 	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_1
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_5:
-# 52 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	special ChoosePartyMon
-# 53 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	waitstate
-# 54 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-# 55 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_10
+# 56 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	closemessage
+# 57 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_1
+# 58 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	multichoicegrid 5, 2, MULTI_STATUSES, 2, 0
 # 59 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	setstatus1 STATUS1_POISON, VAR_0x8004
-# 60 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
-# 61 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	playmoncry 0x8007, 0
-# 62 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	waitmoncry
-# 63 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_3
+	compare VAR_RESULT, 0
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_8
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_7:
+# 73 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_11
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_10:
+# 87 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 2
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_18
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_17:
+# 101 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 3
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_24
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_23:
+# 115 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 4
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_30
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_29:
+# 129 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, 5
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_35
 	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_8:
-# 67 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 60 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	special ChoosePartyMon
-# 68 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 61 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	waitstate
-# 69 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 62 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-# 70 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 63 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_16
-# 74 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	setstatus1 STATUS1_PARALYSIS, VAR_0x8004
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_13
+# 65 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, SPECIES_NONE
+	goto_if_ne DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_14
 	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_7
 
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_10:
-# 56 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
-# 57 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_11:
+# 74 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
+# 75 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitstate
+# 76 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+# 77 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_20
+# 80 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	setstatus1 STATUS1_PARALYSIS, VAR_0x8004
+# 81 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 82 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 83 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 84 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_5
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_10
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_13:
+# 64 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_7
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_14:
-# 78 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	special ChoosePartyMon
-# 79 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	waitstate
-# 80 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-# 81 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_22
-# 85 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	setstatus1 STATUS1_SLEEP, VAR_0x8004
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_13
-
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_16:
-# 71 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
-# 72 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
+# 66 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	setstatus1 STATUS1_POISON, VAR_0x8004
+# 67 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 68 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 69 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 70 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_3
 	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_7
 
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_20:
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_18:
+# 88 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
 # 89 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	special ChoosePartyMon
+	waitstate
 # 90 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	waitstate
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
 # 91 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-# 92 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_27
-# 96 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	setstatus1 STATUS1_BURN, VAR_0x8004
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_19
-
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_22:
-# 82 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
-# 83 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_13
-
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_25:
-# 100 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	special ChoosePartyMon
-# 101 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	waitstate
-# 102 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
-# 103 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	compare VAR_RESULT, SPECIES_EGG
-	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_30
-# 107 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	setstatus1 STATUS1_FREEZE, VAR_0x8004
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_1
-
-DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_27:
-# 93 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_26
 # 94 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_19
+	setstatus1 STATUS1_SLEEP_TURN ( 1 ), VAR_0x8004
+# 95 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 96 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 97 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 98 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_7
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_17
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_20:
+# 78 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_4
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_10
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_24:
+# 102 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
+# 103 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitstate
+# 104 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+# 105 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_32
+# 108 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	setstatus1 STATUS1_BURN, VAR_0x8004
+# 109 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 110 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 111 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 112 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_9
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_23
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_26:
+# 92 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_6
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_17
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_30:
-# 104 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	message DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2
-# 105 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	closemessage
-	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_1
+# 116 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
+# 117 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitstate
+# 118 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+# 119 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_37
+# 122 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	setstatus1 STATUS1_FREEZE, VAR_0x8004
+# 123 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 124 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 125 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 126 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_11
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_29
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_32:
+# 106 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_8
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_23
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_35:
+# 130 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	special ChoosePartyMon
+# 131 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitstate
+# 132 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+# 133 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	compare VAR_RESULT, SPECIES_EGG
+	goto_if_eq DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_40
+# 136 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	setstatus1 STATUS1_TOXIC_POISON, VAR_0x8004
+# 137 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 138 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	playmoncry 0x8007, 0
+# 139 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	waitmoncry
+# 140 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_13
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_37:
+# 120 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_10
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_29
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_40:
+# 134 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	msgbox DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_12
+	goto DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_4
 
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_0:
@@ -240,15 +314,60 @@ DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_0:
 	.string "Pre-Status one of your Pokémon?$"
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_1:
-# 49 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 57 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	.string "Which Status would you like to give the\n"
 	.string "Pokémon?$"
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_2:
-# 56 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
-	.string "egg$"
+# 64 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "I can't inflict a Pokémon egg with\n"
+	.string "Poison.$"
 
 DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_3:
-# 63 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+# 70 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
 	.string "Inflicted your {STR_VAR_1} with\n"
 	.string "Poison.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_4:
+# 78 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "A Pokémon egg can't have Paralysis.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_5:
+# 84 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "Gave your {STR_VAR_1} Paralysis.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_6:
+# 92 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "I can't put a Pokémon egg to Sleep.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_7:
+# 98 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "Put your {STR_VAR_1} to Sleep.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_8:
+# 106 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "I can't Burn a Pokémon egg.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_9:
+# 112 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "Inflicted your {STR_VAR_1} with\n"
+	.string "Burn.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_10:
+# 120 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "I can't Freeze a Pokémon egg.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_11:
+# 126 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "Inflicted your {STR_VAR_1} with\n"
+	.string "Freeze.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_12:
+# 134 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "I can't inflict a Pokémon egg with\n"
+	.string "Toxic.$"
+
+DewfordTown_PokemonCenter_1F_EventScript_PreDamageNurse_Text_13:
+# 140 "data/maps/DewfordTown_PokemonCenter_1F/scripts.pory"
+	.string "Inflicted your {STR_VAR_1} with\n"
+	.string "Toxic.$"
