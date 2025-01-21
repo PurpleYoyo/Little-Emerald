@@ -72,3 +72,30 @@ EventScript_AccessPokemonBoxLink::
 	waitstate
 	goto EventScript_TurnOffPC
 	end
+
+EventScript_UseInfiniteRepel::
+	special GetInfiniteRepelFlag
+	goto_if_eq VAR_RESULT, FALSE, EventScript_InfiniteRepelOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_InfiniteRepelOff
+	return
+
+EventScript_InfiniteRepelOn::
+    playse SE_REPEL
+	msgbox gText_InfiniteRepelOn, MSGBOX_DEFAULT
+	setflag FLAG_UNUSED_0x04F
+	closemessage
+	return
+
+EventScript_InfiniteRepelOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_InfiniteRepelOff, MSGBOX_DEFAULT
+	clearflag FLAG_UNUSED_0x04F
+	closemessage
+	return
+
+EventScript_Pokevial::
+	playse SE_USE_ITEM
+	special HealPlayerParty
+	msgbox gText_Pokevial, MSGBOX_DEFAULT
+	closemessage
+	return

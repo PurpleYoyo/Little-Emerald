@@ -4,17 +4,19 @@ General TODO
 -Eevee-Partner
 -Mega Baby Pokémon
 -Starters: Squirtle, Snivy, Scorbunny
-Edit Pickup table
+remove wild held items & pickup, check vs seeker
+game corner separate met location
 -Infinite Rare Candy
 -Level caps
 -Restore Kit
 ^ animation
-Pre-damage/status NPC
+-Pre-damage/status NPC
 -Infinite repel
 -Portable PC
 -Pokévial
-More options
-^ hm animations
+utilities menu
+auto run
+no hm animations
 hm unneed learn
 Battle coins & shop
 -Add encounters to some cities with none

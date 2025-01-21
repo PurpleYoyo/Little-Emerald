@@ -948,7 +948,7 @@ void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
     {
         FlagToggle(OW_FLAG_NO_ENCOUNTER);
         PlaySE(SE_REPEL);
-        if(gTasks[taskId].tUsingRegisteredKeyItem){
+        if(gTasks[taskId].tUsingRegisteredKeyItem) {
             DisplayItemMessageOnField(taskId, gText_InfiniteRepelOn, Task_CloseCantUseKeyItemMessage);
         }
         else{
@@ -958,7 +958,7 @@ void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
     else
     {
         FlagToggle(OW_FLAG_NO_ENCOUNTER);
-        PlaySE(SE_PC_OFF);
+        PlaySE(SE_POKENAV_OFF);
         if (gTasks[taskId].tUsingRegisteredKeyItem){
             DisplayItemMessageOnField(taskId, gText_InfiniteRepelOff, Task_CloseCantUseKeyItemMessage);
         }

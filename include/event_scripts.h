@@ -655,4 +655,8 @@ extern const u8 EventScript_CancelMessageBox[];
 extern const u8 Common_EventScript_ShowPokemonCenterSign[];
 extern const u8 Common_EventScript_ShowPokemartSign[];
 
+extern const u8 EventScript_UseInfiniteRepel[];
+extern const u8 EventScript_InfiniteRepelOn[];
+extern const u8 EventScript_InfiniteRepelOff[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

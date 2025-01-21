@@ -4,6 +4,7 @@
 #include "coord_event_weather.h"
 #include "daycare.h"
 #include "debug.h"
+#include "utilities.h"
 #include "faraway_island.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -150,6 +151,13 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
         }
     }
+
+    // Utilities Menu
+    if ((heldKeys & (L_BUTTON))) // && input->pressedSelectButton)
+    {
+        input->input_field_1_7 = TRUE;
+        input->pressedSelectButton = FALSE;
+    }
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -230,6 +238,15 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();
         Debug_ShowMainMenu();
+        return TRUE;
+    }
+
+    // Utilities Menu
+    if(input->input_field_1_7)
+    {
+        PlaySE(SE_WIN_OPEN);
+        FreezeObjectEvents();
+        Utilities_ShowMainMenu();
         return TRUE;
     }
 

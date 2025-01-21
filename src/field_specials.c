@@ -1390,6 +1390,12 @@ void IsChosenMonImmuneToSleepDueToAbility(void)
     gSpecialVar_Result = FALSE;
 }
 
+void GetInfiniteRepelFlag(void)
+{
+    bool8 infiniteRepelOn = FlagGet(OW_FLAG_NO_ENCOUNTER);
+    gSpecialVar_Result = infiniteRepelOn;
+}
+
 void SpawnCameraObject(void)
 {
     u8 obj = SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_BOY_1,
