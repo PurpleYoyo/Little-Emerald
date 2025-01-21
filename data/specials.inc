@@ -554,11 +554,11 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
-	def_special Script_SelectDamage
+	def_special ShowSelectDamageScreen
 	def_special IsChosenMonSteelType
 	def_special IsChosenMonPoisonType
 	def_special IsChosenMonFireType
 	def_special IsChosenMonIceType
 	def_special IsChosenMonElectricType
 	def_special IsChosenMonImmuneToSleepDueToAbility
-	
+	def_special IsChosenMonFainted

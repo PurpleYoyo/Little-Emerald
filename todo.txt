@@ -10,12 +10,13 @@ Edit Pickup table
 -Restore Kit
 ^ animation
 Pre-damage/status NPC
-Infinite repel
+-Infinite repel
 -Portable PC
 -Pokévial
 More options
 ^ hm animations
 hm unneed learn
+Battle coins & shop
 -Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
@@ -25,14 +26,13 @@ Make AI switch more
 Unremovable mega items
 Early smoke ball
 Megas not last
-Battle coins trader
-Blank nature mints
+-Blank nature mints
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
 
 credits:
-
+Jaizu, Buffel Saft, AkimotoBubble, PokemonCrazy, Scyrous - summary screen ivs
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing

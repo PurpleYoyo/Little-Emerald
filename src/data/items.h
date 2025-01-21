@@ -2035,8 +2035,8 @@ const struct Item gItemsInfo[] =
     [ITEM_INFINITE_CANDY] =
     {
         .name = _("Infinite Candy"),
-        .pluralName = _("Rare Candies"),
-        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
+        .pluralName = _("Infinite Candies"),
+        .price = 0,
         .description = COMPOUND_STRING(
             "Raises the level\n"
             "of a Pokémon by\n"
@@ -2315,14 +2315,14 @@ const struct Item gItemsInfo[] =
     [ITEM_INFINITE_REPEL] =
     {
         .name = _("Infinite Repel"),
-        .holdEffectParam = 250,
+        .price = 0,
         .description = COMPOUND_STRING(
             "Repels weak wild\n"
             "Pokémon infinitely\n"
             "until used again."),
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_BAG_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_Repel,
+        .fieldUseFunc = ItemUseOutOfBattle_InfiniteRepel,
         .flingPower = 30,
         .iconPic = gItemIcon_Repel,
         .iconPalette = gItemIconPalette_MaxRepel,
@@ -12599,7 +12599,7 @@ const struct Item gItemsInfo[] =
         .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_FIELD,
         .fieldUseFunc = ItemUseOutOfBattle_Pokevial,
-        .iconPic = gItemIconPalette_BlueFlute,
+        .iconPic = gItemIcon_Flute,
         .iconPalette = gItemIconPalette_BlueFlute,
     },
 

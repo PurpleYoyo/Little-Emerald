@@ -1290,6 +1290,21 @@ void IsChosenMonSteelType(void)
     gSpecialVar_Result = FALSE;
 }
 
+void IsChosenMonFainted(void)
+{
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        if (GetMonData(pokemon, MON_DATA_HP) == 0)
+        {
+            gSpecialVar_Result = TRUE;
+            return;
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 void IsChosenMonPoisonType(void)
 {
     u16 species;

@@ -87,6 +87,7 @@ static const struct MenuAction MultichoiceList_StatNamesNoHP[] =
     {gText_SpAtk4},
     {gText_SpDef4},
     {gText_Speed2},
+    {gText_Exit},
 };
 
 static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
