@@ -11287,7 +11287,22 @@ bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
     if (itemId == ITEM_ENIGMA_BERRY_E_READER)
         return FALSE;
     else if (DoesSpeciesUseHoldItemToChangeForm(species, itemId))
-        return FALSE;
+        if (species == SPECIES_WURMPLE
+         || species == SPECIES_NINCADA
+         || species == SPECIES_EXEGGCUTE
+         || species == SPECIES_KOFFING
+         || species == SPECIES_PETILIL
+         || species == SPECIES_RUFFLET
+         || species == SPECIES_GOOMY
+         || species == SPECIES_BERGMITE
+         || species == SPECIES_EEVEE
+         || species == SPECIES_EEVEE_STARTER
+         || species == SPECIES_CHARCADET
+         || species == SPECIES_RALTS
+         || species == SPECIES_SNORUNT) // Allow type change held items to be removed
+            return TRUE;
+        else
+            return FALSE;
     else if (holdEffect == HOLD_EFFECT_Z_CRYSTAL)
         return FALSE;
     else if (holdEffect == HOLD_EFFECT_BOOSTER_ENERGY

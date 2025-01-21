@@ -14,7 +14,7 @@ game corner separate met location
 -Infinite repel
 -Portable PC
 -Pokévial
-utilities menu
+-utilities menu
 auto run
 no hm animations
 hm unneed learn
@@ -25,7 +25,8 @@ Add rocks to Route 114
 Separate 111 and desert
 Tate & Liza randomly choose a mega
 Make AI switch more
-Unremovable mega items
+-make type changing held items removable
+Types in ui
 Early smoke ball
 Megas not last
 -Blank nature mints
