@@ -1734,6 +1734,14 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DEEP_WOODS",
+      "name": "DEEP WOODS",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
 
   ]

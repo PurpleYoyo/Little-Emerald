@@ -1159,3 +1159,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DesertOasis/scripts.inc"
 
 	.include "data/maps/Route111_NoMirageTower/scripts.inc"
+
+	.include "data/maps/DeepWoods/scripts.inc"

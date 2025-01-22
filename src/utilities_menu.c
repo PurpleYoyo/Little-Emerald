@@ -267,6 +267,6 @@ static void UtilitiesAction_Pokevial(u8 taskId)
 
 static void UtilitiesAction_WarpPanel(u8 taskId)
 {
-    Utilities_DestroyMenu(taskId);
+    //Utilities_DestroyMenu(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }

@@ -217,7 +217,8 @@
 #define MAPSEC_GAME_CORNER                  0xD5
 #define MAPSEC_DEVON_CORP                   0xD6
 #define MAPSEC_DESERT_OASIS                 0xD7
-#define MAPSEC_NONE                         0xD8
+#define MAPSEC_DEEP_WOODS                   0xD8
+#define MAPSEC_NONE                         0xD9
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

@@ -16,8 +16,9 @@ remove wild held items & pickup
 -Portable PC
 -Pokévial
 -utilities menu
+warp panel bug
 auto run
-no hm animations
+-no hm animations
 -hm unneed learn
 Battle points & shop
 Add encounters to some cities with none
@@ -25,7 +26,7 @@ Add rocks to Route 106
 Add rocks to Route 114
 x Separate 111 and desert (too complicated), removed rock smash encounters
 snowy forest area
-desert oasis
+-desert oasis
 Tate & Liza randomly choose a mega
 Make AI switch more
 -make type changing held items removable
@@ -37,10 +38,6 @@ Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
 -remove disobedience
-
-credits:
-Jaizu, Buffel Saft, AkimotoBubble, PokemonCrazy, Scyrous - summary screen ivs
-devolov - Hms used when in bag
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
