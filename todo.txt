@@ -4,7 +4,7 @@ General TODO
 -Eevee-Partner
 -Mega Baby Pokémon
 -Starters: Squirtle, Snivy, Scorbunny
-remove wild held items & pickup
+-remove wild held items & pickup
 -game corner separate met location
 -fossil separate met location
 -Infinite Rare Candy
@@ -16,7 +16,7 @@ remove wild held items & pickup
 -Portable PC
 -Pokévial
 -utilities menu
-warp panel bug
+-warp panel bug
 auto run
 -no hm animations
 -hm unneed learn
@@ -24,15 +24,15 @@ Battle points & shop
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
-x Separate 111 and desert (too complicated), removed rock smash encounters
-snowy forest area
+-x Separate 111 and desert (too complicated), removed rock smash encounters
+-snowy forest area
 -desert oasis
 Tate & Liza randomly choose a mega
 Make AI switch more
+Megas not last
 -make type changing held items removable
 -Types in ui
 Early smoke ball
-Megas not last
 -Blank nature mints
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
