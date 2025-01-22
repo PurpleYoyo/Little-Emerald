@@ -1710,6 +1710,31 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DEVON_CORP",
+      "name": "DEVON CORP",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GAME_CORNER",
+      "name": "GAME CORNER",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DESERT_OASIS",
+      "name": "DESERT_OASIS",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
+
   ]
 }

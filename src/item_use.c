@@ -45,6 +45,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
+#include "../include/region_map.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -941,6 +942,12 @@ void ItemUseOutOfBattle_Pokevial(u8 taskId)
         DisplayItemMessage(taskId, 1, gText_Pokevial, CloseItemMessage);
     }
 }
+
+void ItemUseOutOfBattle_WarpPanel(u8 taskId)
+{
+    SetMainCallback2(CB2_OpenFlyMap);
+}
+
 void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
 {
     bool8 infiniteRepelOn = FlagGet(OW_FLAG_NO_ENCOUNTER);

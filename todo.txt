@@ -4,8 +4,9 @@ General TODO
 -Eevee-Partner
 -Mega Baby Pokémon
 -Starters: Squirtle, Snivy, Scorbunny
-remove wild held items & pickup, check vs seeker
-game corner separate met location
+remove wild held items & pickup
+-game corner separate met location
+-fossil separate met location
 -Infinite Rare Candy
 -Level caps
 -Restore Kit
@@ -18,21 +19,24 @@ game corner separate met location
 auto run
 no hm animations
 hm unneed learn
-Battle coins & shop
--Add encounters to some cities with none
+Battle points & shop
+Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
-Separate 111 and desert
+x Separate 111 and desert (too complicated), removed rock smash encounters
+forest maze, snowy area
+desert oasis
 Tate & Liza randomly choose a mega
 Make AI switch more
 -make type changing held items removable
-Types in ui
+-Types in ui
 Early smoke ball
 Megas not last
 -Blank nature mints
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
+-remove disobedience
 
 credits:
 Jaizu, Buffel Saft, AkimotoBubble, PokemonCrazy, Scyrous - summary screen ivs

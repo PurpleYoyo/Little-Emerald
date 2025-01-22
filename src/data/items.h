@@ -12863,6 +12863,22 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_DevonParts,
     },
 
+    [ITEM_WARP_PANEL] =
+    {
+        .name = _("Warp Panel"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A device that\n"
+            "allows warping\n"
+            "to visited towns."),
+        .importance = 2,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_WarpPanel,
+        .iconPic = gItemIcon_DevonParts,
+        .iconPalette = gItemIconPalette_DevonParts,
+    },
+
     [ITEM_GO_GOGGLES] =
     {
         .name = _("Go-Goggles"),

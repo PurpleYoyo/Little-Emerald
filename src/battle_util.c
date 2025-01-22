@@ -8503,6 +8503,7 @@ u32 GetMoveTarget(u16 move, u8 setTarget)
 
 u8 GetAttackerObedienceForAction()
 {
+    return OBEYS;
     s32 rnd;
     s32 calc;
     u8 obedienceLevel = 0;
