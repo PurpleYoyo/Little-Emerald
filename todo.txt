@@ -18,13 +18,13 @@ remove wild held items & pickup
 -utilities menu
 auto run
 no hm animations
-hm unneed learn
+-hm unneed learn
 Battle points & shop
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
 x Separate 111 and desert (too complicated), removed rock smash encounters
-forest maze, snowy area
+snowy forest area
 desert oasis
 Tate & Liza randomly choose a mega
 Make AI switch more
@@ -40,6 +40,7 @@ Reformat item text
 
 credits:
 Jaizu, Buffel Saft, AkimotoBubble, PokemonCrazy, Scyrous - summary screen ivs
+devolov - Hms used when in bag
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing

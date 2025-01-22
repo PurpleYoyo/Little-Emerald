@@ -1157,3 +1157,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/DesertOasis/scripts.inc"
+
+	.include "data/maps/Route111_NoMirageTower/scripts.inc"

@@ -3,7 +3,7 @@
   "name": "Route111",
   "layout": "LAYOUT_ROUTE111",
   "music": "MUS_ROUTE110",
-  "region_map_section": "MAPSEC_DESERT_OASIS",
+  "region_map_section": "MAPSEC_ROUTE_111",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,6 +13,11 @@
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
   "connections": [
+    {
+      "map": "MAP_MAUVILLE_CITY",
+      "offset": 0,
+      "direction": "down"
+    },
     {
       "map": "MAP_ROUTE113",
       "offset": 0,
@@ -24,13 +29,8 @@
       "direction": "left"
     },
     {
-      "map": "MAP_MAUVILLE_CITY",
-      "offset": 0,
-      "direction": "down"
-    },
-    {
       "map": "MAP_DESERT_OASIS",
-      "offset": 50,
+      "offset": 46,
       "direction": "right"
     }
   ],
