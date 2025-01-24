@@ -595,6 +595,8 @@ static void Cmd_unused(void);
 static void Cmd_tryworryseed(void);
 static void Cmd_callnative(void);
 
+static void DoHeldItemLostFormChanges(void);
+
 void (* const gBattleScriptingCommandsTable[])(void) =
 {
     Cmd_attackcanceler,                          //0x0
@@ -5646,16 +5648,7 @@ static bool32 TryKnockOffBattleScript(u32 battlerDef)
                 gWishFutureKnock.knockedOffMons[side] |= 1u << gBattlerPartyIndexes[battlerDef];
             }
 
-            u32 targetSpecies;
-            struct Pokemon *party;
-            if ((gBattleMons[battlerDef].species == SPECIES_CHARCADET_GHOST) )
-            //  && gBattleMons[battlerDef].item != ITEM_MALICIOUS_ARMOR)
-            {
-                party = GetBattlerParty(battlerDef);
-                targetSpecies = SPECIES_CHARCADET;
-                SetMonData(&party[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES, &targetSpecies);
-                gBattleMons[battlerDef].species = targetSpecies;
-            }
+            DoHeldItemLostFormChanges();
 
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_KnockedOff;
@@ -5710,11 +5703,6 @@ static void Cmd_moveend(void)
 
     holdEffectAtk = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
     moveType = GetMoveType(gCurrentMove);
-
-    
-    u32 p;
-    u32 targetSpecies;
-    struct Pokemon *party;
 
     do
     {
@@ -6727,18 +6715,8 @@ static void Cmd_moveend(void)
                 TryUpdateEvolutionTracker(EVO_USE_MOVE_TWENTY_TIMES, 1, originallyUsedMove);
             gBattleScripting.moveendState++;
             break;
-        case MOVEEND_CHANGE_FORMS:
-            for (p = 0; p < MAX_BATTLERS_COUNT; p++)
-            {
-                if ((gBattleMons[p].species == SPECIES_CHARCADET_GHOST)
-                  && gBattleMons[p].item != ITEM_MALICIOUS_ARMOR)
-                {
-                    party = GetBattlerParty(p);
-                    targetSpecies = SPECIES_CHARCADET;
-                    SetMonData(&party[gBattlerPartyIndexes[p]], MON_DATA_SPECIES, &targetSpecies);
-                    gBattleMons[p].species = targetSpecies;
-                }
-            }
+        case MOVEEND_CHANGE_FORMS: // Backup in case this function was not called in a move it should be
+            DoHeldItemLostFormChanges();
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_CLEAR_BITS: // Clear/Set bits for things like using a move for all targets and all hits.
@@ -17657,4 +17635,142 @@ void BS_RemoveTerrain(void)
     NATIVE_ARGS();
     RemoveAllTerrains();
     gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+// Ideally, this should be called in any move that removes these species' held items
+// As a backup, in case one such move is missed, this is also called at the end of a turn via `case MOVEEND_CHANGE_FORMS:`
+// List of move functions called in: 
+static void DoHeldItemLostFormChanges(void)
+{
+    u32 p;
+    u32 targetSpecies;
+    struct Pokemon *party;
+
+    for (p = 0; p < MAX_BATTLERS_COUNT; p++)
+    {
+        targetSpecies = SPECIES_NONE;
+        switch (gBattleMons[p].species)
+        {
+            case SPECIES_WURMPLE_POISON:
+                if (gBattleMons[p].item != ITEM_TOXIC_PLATE)
+                    targetSpecies = SPECIES_WURMPLE;
+                break;
+            case SPECIES_NINCADA_GHOST:
+                if (gBattleMons[p].item != ITEM_SPOOKY_PLATE)
+                    targetSpecies = SPECIES_NINCADA;
+                break;
+            case SPECIES_EXEGGCUTE_DRAGON:
+                if (gBattleMons[p].item != ITEM_DRACO_PLATE)
+                    targetSpecies = SPECIES_EXEGGCUTE;
+                break;
+            case SPECIES_KOFFING_FAIRY:
+                if (gBattleMons[p].item != ITEM_PIXIE_PLATE)
+                    targetSpecies = SPECIES_KOFFING;
+                break;
+            case SPECIES_PETILIL_FIGHTING:
+                if (gBattleMons[p].item != ITEM_FIST_PLATE)
+                    targetSpecies = SPECIES_PETILIL;
+                break;
+            case SPECIES_RUFFLET_PSYCHIC:
+                if (gBattleMons[p].item != ITEM_MIND_PLATE)
+                    targetSpecies = SPECIES_RUFFLET;
+                break;
+            case SPECIES_GOOMY_STEEL:
+                if (gBattleMons[p].item != ITEM_IRON_PLATE)
+                    targetSpecies = SPECIES_GOOMY;
+                break;
+            case SPECIES_BERGMITE_ROCK:
+                if (gBattleMons[p].item != ITEM_STONE_PLATE)
+                    targetSpecies = SPECIES_BERGMITE;
+                break;
+            case SPECIES_EEVEE_FIRE:
+                if (gBattleMons[p].item != ITEM_FIRE_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_WATER:
+                if (gBattleMons[p].item != ITEM_WATER_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_ELECTRIC:
+                if (gBattleMons[p].item != ITEM_THUNDER_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_GRASS:
+                if (gBattleMons[p].item != ITEM_LEAF_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_ICE:
+                if (gBattleMons[p].item != ITEM_ICE_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_PSYCHIC:
+                if (gBattleMons[p].item != ITEM_SUN_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_DARK:
+                if (gBattleMons[p].item != ITEM_MOON_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_FAIRY:
+                if (gBattleMons[p].item != ITEM_SHINY_STONE)
+                    targetSpecies = SPECIES_EEVEE;
+                break;
+            case SPECIES_EEVEE_STARTER_FIRE:
+                if (gBattleMons[p].item != ITEM_FIRE_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_WATER:
+                if (gBattleMons[p].item != ITEM_WATER_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_ELECTRIC:
+                if (gBattleMons[p].item != ITEM_THUNDER_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_GRASS:
+                if (gBattleMons[p].item != ITEM_LEAF_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_ICE:
+                if (gBattleMons[p].item != ITEM_ICE_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_PSYCHIC:
+                if (gBattleMons[p].item != ITEM_SUN_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_DARK:
+                if (gBattleMons[p].item != ITEM_MOON_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_EEVEE_STARTER_FAIRY:
+                if (gBattleMons[p].item != ITEM_SHINY_STONE)
+                    targetSpecies = SPECIES_EEVEE_STARTER;
+                break;
+            case SPECIES_CHARCADET_GHOST:
+                if (gBattleMons[p].item != ITEM_MALICIOUS_ARMOR)
+                    targetSpecies = SPECIES_CHARCADET;
+                break;
+            case SPECIES_CHARCADET_PSYCHIC:
+                if (gBattleMons[p].item != ITEM_AUSPICIOUS_ARMOR)
+                    targetSpecies = SPECIES_CHARCADET;
+                break;
+            case SPECIES_RALTS_FIGHTING:
+                if (gBattleMons[p].item != ITEM_DAWN_STONE)
+                    targetSpecies = SPECIES_RALTS;
+                break;
+            case SPECIES_SNORUNT_GHOST:
+                if (gBattleMons[p].item != ITEM_DAWN_STONE)
+                    targetSpecies = SPECIES_SNORUNT;
+                break;
+            
+        }
+        if (targetSpecies != SPECIES_NONE)
+        {
+            party = GetBattlerParty(p);
+            SetMonData(&party[gBattlerPartyIndexes[p]], MON_DATA_SPECIES, &targetSpecies);
+            gBattleMons[p].species = targetSpecies;
+            RecalcBattlerStats(p, &party[gBattlerPartyIndexes[p]], FALSE);
+        }
+    }
 }

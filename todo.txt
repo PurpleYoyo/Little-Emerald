@@ -15,6 +15,7 @@ General TODO
 -Infinite repel
 -Portable PC
 -Pokévial
+Infinite escape rope & add to utilities menu
 -utilities menu
 -warp panel bug
 auto run
