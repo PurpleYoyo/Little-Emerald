@@ -18,9 +18,12 @@ General TODO
 -utilities menu
 -warp panel bug
 auto run
+quick run from battle
+berry stuff
 -no hm animations
 -hm unneed learn
 Battle points & shop
+hyper training npc
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
@@ -28,10 +31,10 @@ Add rocks to Route 114
 -snowy forest area
 -desert oasis
 Tate & Liza randomly choose a mega
-Make AI switch more
-Megas not last
+-Make AI switch more
+-trainers not use items
 -make type changing held items removable
--Types in ui
+^ dynamic type change in battle
 Early smoke ball
 -Blank nature mints
 Pacifidlog salesman fisherman

@@ -5562,7 +5562,13 @@ BattleScript_LocalBattleWonLoseTexts::
 	trainerslidein BS_OPPONENT2
 	waitstate
 	printstring STRINGID_TRAINER2LOSETEXT
+BattleScript_LocalBattleWonBP::
+	getmoneyreward
+	printstring STRINGID_PLAYERGOTBP
+	waitmessage B_WAIT_TIME_LONG
+	end2
 BattleScript_LocalBattleWonReward::
+	jumpifbytenotequal gSpecialVar_0x8003, 0, BattleScript_LocalBattleWonBP
 	getmoneyreward
 	printstring STRINGID_PLAYERGOTMONEY
 	waitmessage B_WAIT_TIME_LONG

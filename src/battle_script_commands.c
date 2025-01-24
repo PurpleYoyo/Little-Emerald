@@ -5646,6 +5646,17 @@ static bool32 TryKnockOffBattleScript(u32 battlerDef)
                 gWishFutureKnock.knockedOffMons[side] |= 1u << gBattlerPartyIndexes[battlerDef];
             }
 
+            u32 targetSpecies;
+            struct Pokemon *party;
+            if ((gBattleMons[battlerDef].species == SPECIES_CHARCADET_GHOST) )
+            //  && gBattleMons[battlerDef].item != ITEM_MALICIOUS_ARMOR)
+            {
+                party = GetBattlerParty(battlerDef);
+                targetSpecies = SPECIES_CHARCADET;
+                SetMonData(&party[gBattlerPartyIndexes[battlerDef]], MON_DATA_SPECIES, &targetSpecies);
+                gBattleMons[battlerDef].species = targetSpecies;
+            }
+
             BattleScriptPushCursor();
             gBattlescriptCurrInstr = BattleScript_KnockedOff;
         }
@@ -5699,6 +5710,11 @@ static void Cmd_moveend(void)
 
     holdEffectAtk = GetBattlerHoldEffect(gBattlerAttacker, TRUE);
     moveType = GetMoveType(gCurrentMove);
+
+    
+    u32 p;
+    u32 targetSpecies;
+    struct Pokemon *party;
 
     do
     {
@@ -6709,6 +6725,20 @@ static void Cmd_moveend(void)
             // If the Pokémon needs to keep track of move usage for its evolutions, do it
             if (originallyUsedMove != MOVE_NONE)
                 TryUpdateEvolutionTracker(EVO_USE_MOVE_TWENTY_TIMES, 1, originallyUsedMove);
+            gBattleScripting.moveendState++;
+            break;
+        case MOVEEND_CHANGE_FORMS:
+            for (p = 0; p < MAX_BATTLERS_COUNT; p++)
+            {
+                if ((gBattleMons[p].species == SPECIES_CHARCADET_GHOST)
+                  && gBattleMons[p].item != ITEM_MALICIOUS_ARMOR)
+                {
+                    party = GetBattlerParty(p);
+                    targetSpecies = SPECIES_CHARCADET;
+                    SetMonData(&party[gBattlerPartyIndexes[p]], MON_DATA_SPECIES, &targetSpecies);
+                    gBattleMons[p].species = targetSpecies;
+                }
+            }
             gBattleScripting.moveendState++;
             break;
         case MOVEEND_CLEAR_BITS: // Clear/Set bits for things like using a move for all targets and all hits.
@@ -8014,38 +8044,46 @@ static void Cmd_getmoneyreward(void)
 {
     CMD_ARGS();
 
-    u32 money;
-    u8 sPartyLevel = 1;
-
-    if (gBattleOutcome == B_OUTCOME_WON)
+    if (VarGet(gSpecialVar_0x8003) != 0)
     {
-        money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
-        AddMoney(&gSaveBlock1Ptr->money, money);
+        GiveFrontierBattlePoints();
+        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 3, gSpecialVar_0x8003);
+        gSpecialVar_0x8003 = 0;
     }
     else
     {
-        s32 i, count;
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
-             && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
-            {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > sPartyLevel)
-                    sPartyLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
-            }
-        }
-        for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
-        {
-            if (FlagGet(sBadgeFlags[i]) == TRUE)
-                ++count;
-        }
-        money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-        RemoveMoney(&gSaveBlock1Ptr->money, money);
-    }
+        u32 money;
+        u8 sPartyLevel = 1;
 
-    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
+        if (gBattleOutcome == B_OUTCOME_WON)
+        {
+            money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
+            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+            AddMoney(&gSaveBlock1Ptr->money, money);
+        }
+        else
+        {
+            s32 i, count;
+            for (i = 0; i < PARTY_SIZE; i++)
+            {
+                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
+                 && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
+                {
+                    if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > sPartyLevel)
+                        sPartyLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+                }
+            }
+            for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
+            {
+                if (FlagGet(sBadgeFlags[i]) == TRUE)
+                    ++count;
+            }
+            money = sWhiteOutBadgeMoney[count] * sPartyLevel;
+            RemoveMoney(&gSaveBlock1Ptr->money, money);
+        }
+        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
+    }
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

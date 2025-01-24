@@ -255,6 +255,13 @@ static bool32 ShouldSwitchIfAllMovesBad(u32 battler)
     }
     else
     {
+        if ((AI_DATA->abilities[battler] == ABILITY_GORILLA_TACTICS
+          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_BAND
+          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_SPECS
+          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_SCARF
+          || gLastMoves[opposingBattler] == MOVE_ENCORE)
+          && AI_GetMoveEffectiveness(gLastMoves[battler], battler, opposingBattler) == AI_EFFECTIVENESS_x0)
+            return SetSwitchinAndSwitch(battler, PARTY_SIZE);
         for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
         {
             aiMove = gBattleMons[battler].moves[moveIndex];

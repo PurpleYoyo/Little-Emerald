@@ -1021,3 +1021,9 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "Let's go to my LAB.$"
 
 `
+
+script TestGuy {
+	setvar(VAR_0x8003, 3)
+	trainerbattle_single(TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat)
+	msgbox(MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE)
+}

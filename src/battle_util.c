@@ -10938,51 +10938,52 @@ bool32 CanMegaEvolve(u32 battler)
     //    return TRUE;
 
     // Baby Megas, check for specific hold item, so that effect still works
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_PICHU && gBattleMons[battler].item == ITEM_LIGHT_INCENSE)
+    u16 species = gBattleMons[battler].species;
+    if (species == SPECIES_PICHU && gBattleMons[battler].item == ITEM_LIGHT_INCENSE)
+        return TRUE; // GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM)
+    if (species == SPECIES_CLEFFA && gBattleMons[battler].item == ITEM_MOON_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_CLEFFA && gBattleMons[battler].item == ITEM_MOON_INCENSE)
+    if (species == SPECIES_IGGLYBUFF && gBattleMons[battler].item == ITEM_PINK_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_IGGLYBUFF && gBattleMons[battler].item == ITEM_PINK_INCENSE)
+    if (species == SPECIES_TOGEPI && gBattleMons[battler].item == ITEM_EGG_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TOGEPI && gBattleMons[battler].item == ITEM_EGG_INCENSE)
+    if (species == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_ATTACK_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_ATTACK_INCENSE)
+    if (species == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_DEFENSE_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_DEFENSE_INCENSE)
+    if (species == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_CALM_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TYROGUE && gBattleMons[battler].item == ITEM_CALM_INCENSE)
+    if (species == SPECIES_SMOOCHUM && gBattleMons[battler].item == ITEM_ICE_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_SMOOCHUM && gBattleMons[battler].item == ITEM_ICE_INCENSE)
+    if (species == SPECIES_ELEKID && gBattleMons[battler].item == ITEM_ELECTIRIZER)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_ELEKID && gBattleMons[battler].item == ITEM_ELECTIRIZER)
+    if (species == SPECIES_MAGBY && gBattleMons[battler].item == ITEM_MAGMARIZER)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_MAGBY && gBattleMons[battler].item == ITEM_MAGMARIZER)
+    if (species == SPECIES_AZURILL && gBattleMons[battler].item == ITEM_SEA_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_AZURILL && gBattleMons[battler].item == ITEM_SEA_INCENSE)
+    if (species == SPECIES_WYNAUT && gBattleMons[battler].item == ITEM_LAX_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_WYNAUT && gBattleMons[battler].item == ITEM_LAX_INCENSE)
+    if (species == SPECIES_BUDEW && gBattleMons[battler].item == ITEM_ROSE_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_BUDEW && gBattleMons[battler].item == ITEM_ROSE_INCENSE)
+    if (species == SPECIES_CHINGLING && gBattleMons[battler].item == ITEM_PURE_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_CHINGLING && gBattleMons[battler].item == ITEM_PURE_INCENSE)
+    if (species == SPECIES_BONSLY && gBattleMons[battler].item == ITEM_ROCK_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_BONSLY && gBattleMons[battler].item == ITEM_ROCK_INCENSE)
+    if (species == SPECIES_MIME_JR && gBattleMons[battler].item == ITEM_ODD_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_MIME_JR && gBattleMons[battler].item == ITEM_ODD_INCENSE)
+    if (species == SPECIES_MIME_JR && gBattleMons[battler].item == ITEM_WEIRD_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_MIME_JR && gBattleMons[battler].item == ITEM_WEIRD_INCENSE)
+    if (species == SPECIES_HAPPINY && gBattleMons[battler].item == ITEM_LUCK_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_HAPPINY && gBattleMons[battler].item == ITEM_LUCK_INCENSE)
+    if (species == SPECIES_RIOLU && gBattleMons[battler].item == ITEM_METAL_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_RIOLU && gBattleMons[battler].item == ITEM_METAL_INCENSE)
+    if (species == SPECIES_MUNCHLAX && gBattleMons[battler].item == ITEM_FULL_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_MUNCHLAX && gBattleMons[battler].item == ITEM_FULL_INCENSE)
+    if (species == SPECIES_MANTYKE && gBattleMons[battler].item == ITEM_WAVE_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_MANTYKE && gBattleMons[battler].item == ITEM_WAVE_INCENSE)
+    if (species == SPECIES_TOXEL && gBattleMons[battler].item == ITEM_SOOTHING_INCENSE)
         return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TOXEL && gBattleMons[battler].item == ITEM_SOOTHING_INCENSE)
-        return TRUE;
-    if (GetBattleFormChangeTargetSpecies(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM) == SPECIES_TOXEL && gBattleMons[battler].item == ITEM_PUNK_INCENSE)
+    if (species == SPECIES_TOXEL && gBattleMons[battler].item == ITEM_PUNK_INCENSE)
         return TRUE;    
 
     // Check if there is an entry in the form change table for Wish Mega Evolution.
@@ -11288,19 +11289,19 @@ bool32 CanBattlerGetOrLoseItem(u32 battler, u16 itemId)
     if (itemId == ITEM_ENIGMA_BERRY_E_READER)
         return FALSE;
     else if (DoesSpeciesUseHoldItemToChangeForm(species, itemId))
-        if (species == SPECIES_WURMPLE
-         || species == SPECIES_NINCADA
-         || species == SPECIES_EXEGGCUTE
-         || species == SPECIES_KOFFING
-         || species == SPECIES_PETILIL
-         || species == SPECIES_RUFFLET
-         || species == SPECIES_GOOMY
-         || species == SPECIES_BERGMITE
-         || species == SPECIES_EEVEE
-         || species == SPECIES_EEVEE_STARTER
-         || species == SPECIES_CHARCADET
-         || species == SPECIES_RALTS
-         || species == SPECIES_SNORUNT) // Allow type change held items to be removed
+        if (species == SPECIES_WURMPLE || species == SPECIES_WURMPLE_POISON
+         || species == SPECIES_NINCADA || species == SPECIES_NINCADA_GHOST
+         || species == SPECIES_EXEGGCUTE || species == SPECIES_EXEGGCUTE_DRAGON
+         || species == SPECIES_KOFFING || species == SPECIES_KOFFING_FAIRY
+         || species == SPECIES_PETILIL || species == SPECIES_PETILIL_FIGHTING
+         || species == SPECIES_RUFFLET || species == SPECIES_RUFFLET_PSYCHIC
+         || species == SPECIES_GOOMY || species == SPECIES_GOOMY_STEEL
+         || species == SPECIES_BERGMITE || species == SPECIES_BERGMITE_ROCK
+         || species == SPECIES_EEVEE || species == SPECIES_EEVEE_FIRE || species == SPECIES_EEVEE_WATER || species == SPECIES_EEVEE_ELECTRIC || species == SPECIES_EEVEE_ICE || species == SPECIES_EEVEE_GRASS || species == SPECIES_EEVEE_PSYCHIC || species == SPECIES_EEVEE_DARK || species == SPECIES_EEVEE_FAIRY
+         || species == SPECIES_EEVEE_STARTER || species == SPECIES_EEVEE_STARTER_FIRE || species == SPECIES_EEVEE_STARTER_ELECTRIC || species == SPECIES_EEVEE_STARTER_WATER || species == SPECIES_EEVEE_STARTER_DARK || species == SPECIES_EEVEE_STARTER_PSYCHIC || species == SPECIES_EEVEE_STARTER_ICE || species == SPECIES_EEVEE_STARTER_GRASS || species == SPECIES_EEVEE_STARTER_FAIRY
+         || species == SPECIES_CHARCADET || species == SPECIES_CHARCADET_PSYCHIC || species == SPECIES_CHARCADET_GHOST
+         || species == SPECIES_RALTS || species == SPECIES_RALTS_FIGHTING
+         || species == SPECIES_SNORUNT || species == SPECIES_SNORUNT_GHOST) // Allow type change held items to be removed
             return TRUE;
         else
             return FALSE;

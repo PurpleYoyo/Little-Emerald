@@ -90,6 +90,23 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
+SPECIES_CHARCADET_GHOST @ Malicious Armor
+Level: 20
+- Splash
+
+Eevee @ Choice Band
+Level: 20
+- Tackle
+- Bite
+
+SPECIES_EXEGGCUTE_DRAGON @ Draco Plate
+Level: 20
+- Switcheroo
+
+Smoochum @ ITEM_ICE_INCENSE
+Level: 20
+- Psychic
+
 Geodude
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
