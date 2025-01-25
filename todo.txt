@@ -31,7 +31,7 @@ General TODO
 
  flutes boost sound moves 20%
  Max restore animation
- Infinite escape rope & add to utilities menu
+-Infinite escape rope & add to utilities menu
  auto run
  quick run from battle
 berry stuff
