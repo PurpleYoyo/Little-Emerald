@@ -96,12 +96,12 @@ static void UtilitiesAction_WarpPanel(u8 taskId);
 static void UtilitiesAction_EscapeRope(u8 taskId);
 static void UtilitiesAction_AutoRun(u8 taskId);
 
-static const u8 sUtilitiesText_InfiniteRepel[] = _("Infinite Repel");
+static const u8 sUtilitiesText_InfiniteRepel[] = _("{STR_VAR_1}Infinite Repel");
 static const u8 sUtilitiesText_PokemonBoxLink[] = _("Pokémon Box Link");
 static const u8 sUtilitiesText_Pokevial[] = _("Pokévial");
 static const u8 sUtilitiesText_WarpPanel[] = _("Warp Panel");
 static const u8 sUtilitiesText_EscapeRope[] = _("Escape Rope");
-static const u8 sUtilitiesText_AutoRun[] = _("Auto Run");
+static const u8 sUtilitiesText_AutoRun[] = _("{STR_VAR_1}Auto Run");
 
 static const struct ListMenuItem sUtilitiesMenu_Items[] =
 {
@@ -232,6 +232,22 @@ static void Utilities_RefreshListMenu(u8 taskId)
 {
     u8 totalItems = 0;
     totalItems = min(totalItems, 51);
+    const u8 sColor_Red[] = _("{COLOR RED}");
+    const u8 sColor_Green[] = _("{COLOR GREEN}");
+
+    if (FlagGet(FLAG_RUNNING_SHOES_TOGGLE))
+    {
+        StringCopy(gStringVar1, sColor_Green);
+        StringExpandPlaceholders(gStringVar4, sUtilitiesText_AutoRun);
+        StringCopy(&sUtilitiesMenuListData->itemNames[3][0], gStringVar4);
+    }
+    else
+    {
+        StringCopy(gStringVar1, sColor_Red);
+        StringExpandPlaceholders(gStringVar4, sUtilitiesText_AutoRun);
+        StringCopy(&sUtilitiesMenuListData->itemNames[3][0], gStringVar4);
+    }
+    sUtilitiesMenuListData->listItems[3].name = &sUtilitiesMenuListData->itemNames[3][0];
     
     // Set list menu data
     gMultiuseListMenuTemplate.items = sUtilitiesMenuListData->listItems;
