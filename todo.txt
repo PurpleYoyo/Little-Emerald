@@ -29,8 +29,8 @@ General TODO
 -remove disobedience
 -win BP from trainers
 
- flutes boost sound moves 20%
- Max restore animation
+-flutes boost sound moves 20%
+-Max restore animation (kinda)
 -Infinite escape rope & add to utilities menu
  auto run
  quick run from battle

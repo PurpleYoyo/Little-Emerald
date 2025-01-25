@@ -659,4 +659,8 @@ extern const u8 EventScript_UseInfiniteRepel[];
 extern const u8 EventScript_InfiniteRepelOn[];
 extern const u8 EventScript_InfiniteRepelOff[];
 
+extern const u8 EventScript_ToggleAutoRun[];
+extern const u8 EventScript_AutoRunOn[];
+extern const u8 EventScript_AutoRunOff[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

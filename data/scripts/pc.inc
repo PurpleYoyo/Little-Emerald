@@ -93,6 +93,26 @@ EventScript_InfiniteRepelOff::
 	closemessage
 	return
 
+EventScript_ToggleAutoRun::
+	special GetAutoRunFlag
+	goto_if_eq VAR_RESULT, FALSE, EventScript_AutoRunOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_AutoRunOff
+	return
+
+EventScript_AutoRunOn::
+    playse SE_POKENAV_ON
+	msgbox gText_AutoRunOn, MSGBOX_DEFAULT
+	setflag FLAG_RUNNING_SHOES_TOGGLE
+	closemessage
+	return
+
+EventScript_AutoRunOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_AutoRunOff, MSGBOX_DEFAULT
+	clearflag FLAG_RUNNING_SHOES_TOGGLE
+	closemessage
+	return
+
 EventScript_Pokevial::
 	playse SE_USE_ITEM
 	special HealPlayerParty

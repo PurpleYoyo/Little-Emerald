@@ -64,14 +64,15 @@
 
 enum UtilitiesMenu
 {
-    UTILITIES_MENU_ITEM_INFINITE_REPEL,
     UTILITIES_MENU_ITEM_POKEMON_BOX_LINK,
     UTILITIES_MENU_ITEM_POKEVIAL,
-    UTILITIES_MENU_ITEM_WARP_PANEL,
+    UTILITIES_MENU_ITEM_INFINITE_REPEL,
+    UTILITIES_MENU_ITEM_AUTO_RUN,
     UTILITIES_MENU_ITEM_ESCAPE_ROPE,
+    UTILITIES_MENU_ITEM_WARP_PANEL,
 };
 
-#define UTILITIES_WINDOW_HEIGHT 5
+#define UTILITIES_WINDOW_HEIGHT 6
 
 struct UtilitiesMenuListData
 {
@@ -93,29 +94,33 @@ static void UtilitiesAction_PokemonBoxLink(u8 taskId);
 static void UtilitiesAction_Pokevial(u8 taskId);
 static void UtilitiesAction_WarpPanel(u8 taskId);
 static void UtilitiesAction_EscapeRope(u8 taskId);
+static void UtilitiesAction_AutoRun(u8 taskId);
 
 static const u8 sUtilitiesText_InfiniteRepel[] = _("Infinite Repel");
 static const u8 sUtilitiesText_PokemonBoxLink[] = _("Pokémon Box Link");
 static const u8 sUtilitiesText_Pokevial[] = _("Pokévial");
 static const u8 sUtilitiesText_WarpPanel[] = _("Warp Panel");
 static const u8 sUtilitiesText_EscapeRope[] = _("Escape Rope");
+static const u8 sUtilitiesText_AutoRun[] = _("Auto Run");
 
 static const struct ListMenuItem sUtilitiesMenu_Items[] =
 {
-    [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = {sUtilitiesText_InfiniteRepel,         UTILITIES_MENU_ITEM_INFINITE_REPEL},
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = {sUtilitiesText_PokemonBoxLink,        UTILITIES_MENU_ITEM_POKEMON_BOX_LINK},
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = {sUtilitiesText_Pokevial,              UTILITIES_MENU_ITEM_POKEVIAL},
+    [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = {sUtilitiesText_InfiniteRepel,         UTILITIES_MENU_ITEM_INFINITE_REPEL},
+    [UTILITIES_MENU_ITEM_AUTO_RUN]                 = {sUtilitiesText_AutoRun,               UTILITIES_MENU_ITEM_AUTO_RUN},
+    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = {sUtilitiesText_EscapeRope,            UTILITIES_MENU_ITEM_ESCAPE_ROPE},
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = {sUtilitiesText_WarpPanel,             UTILITIES_MENU_ITEM_WARP_PANEL},
-    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]               = {sUtilitiesText_EscapeRope,             UTILITIES_MENU_ITEM_ESCAPE_ROPE},
 };
 
 static void (*const sUtilitiesMenu_Actions[])(u8) =
 {
-    [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = UtilitiesAction_InfiniteRepel,
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = UtilitiesAction_PokemonBoxLink,
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = UtilitiesAction_Pokevial,
+    [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = UtilitiesAction_InfiniteRepel,
+    [UTILITIES_MENU_ITEM_AUTO_RUN]                 = UtilitiesAction_AutoRun,
+    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = UtilitiesAction_EscapeRope,
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = UtilitiesAction_WarpPanel,
-    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]               = UtilitiesAction_EscapeRope,
 };
 
 static const struct WindowTemplate sUtilitiesMenuWindowTemplate =
@@ -298,4 +303,12 @@ static void UtilitiesAction_EscapeRope(u8 taskId)
         ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
         RemoveWindow(gTasks[taskId].tWindowId);
     }
+}
+
+static void UtilitiesAction_AutoRun(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
 }

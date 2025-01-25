@@ -935,7 +935,7 @@ void ItemUseOutOfBattle_Pokevial(u8 taskId)
     u32 i;
     for (i = 0; i < gPlayerPartyCount; i++)
         HealPokemon(&gPlayerParty[i]);
-    if(gTasks[taskId].tUsingRegisteredKeyItem) {
+    if (gTasks[taskId].tUsingRegisteredKeyItem) {
         DisplayItemMessageOnField(taskId, gText_Pokevial, Task_CloseCantUseKeyItemMessage);
     }
     else {

@@ -563,3 +563,4 @@ gSpecials::
 	def_special IsChosenMonImmuneToSleepDueToAbility
 	def_special IsChosenMonFainted
 	def_special GetInfiniteRepelFlag
+	def_special GetAutoRunFlag

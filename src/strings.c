@@ -1577,3 +1577,5 @@ const u8 gText_Toxic[] = _("TOXIC");
 const u8 gText_InfiniteRepelOn[] = _("Infinite Repel activated.");
 const u8 gText_InfiniteRepelOff[] = _("Infinite Repel deactivated.");
 const u8 gText_Pokevial[] = _("Your party has been fully restored.");
+const u8 gText_AutoRunOn[] = _("Auto-Run activated.");
+const u8 gText_AutoRunOff[] = _("Auto-Run deactivated.");

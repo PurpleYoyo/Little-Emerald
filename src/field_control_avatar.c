@@ -40,6 +40,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/items.h"
+#include "event_scripts.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -154,10 +155,16 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     }
 
     // Utilities Menu
-    if ((heldKeys & (L_BUTTON))) // && input->pressedSelectButton)
+    if ((newKeys & (L_BUTTON))) // && input->pressedSelectButton)
     {
         input->input_field_1_7 = TRUE;
-        input->pressedSelectButton = FALSE;
+        //input->pressedSelectButton = FALSE;
+    }
+
+    if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked())
+     && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    {
+        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
     }
 }
 

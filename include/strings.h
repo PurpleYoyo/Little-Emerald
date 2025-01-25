@@ -2719,5 +2719,7 @@ extern const u8 gText_Toxic[];
 extern const u8 gText_InfiniteRepelOn[];
 extern const u8 gText_InfiniteRepelOff[];
 extern const u8 gText_Pokevial[];
+extern const u8 gText_AutoRunOn[];
+extern const u8 gText_AutoRunOff[];
 
 #endif // GUARD_STRINGS_H

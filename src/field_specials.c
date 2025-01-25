@@ -1396,6 +1396,12 @@ void GetInfiniteRepelFlag(void)
     gSpecialVar_Result = infiniteRepelOn;
 }
 
+void GetAutoRunFlag(void)
+{
+    bool8 autoRunOn = FlagGet(FLAG_RUNNING_SHOES_TOGGLE);
+    gSpecialVar_Result = autoRunOn;
+}
+
 void SpawnCameraObject(void)
 {
     u8 obj = SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_BOY_1,

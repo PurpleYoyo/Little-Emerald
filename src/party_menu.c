@@ -4620,16 +4620,25 @@ void ItemUseCB_BattleChooseMove(u8 taskId, TaskFunc task)
 void ItemUseCB_MaxRestore(u8 taskId, TaskFunc task)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];
-    //u16 hp = 0;
-    //hp = GetMonData(mon, MON_DATA_HP);
     PlaySE(SE_USE_ITEM);
     HealPokemon(mon);
     GetMonNickname(&gPlayerParty[gPartyMenu.slotId], gStringVar1);
     StringExpandPlaceholders(gStringVar4, gText_PkmnMaxRestored);
     DisplayPartyMenuMessage(gStringVar4, FALSE);
+
+    SetPartyMonAilmentGfx(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
+    if (gSprites[sPartyMenuBoxes[gPartyMenu.slotId].statusSpriteId].invisible)
+        DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+    DisplayPartyPokemonHPCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+    DisplayPartyPokemonMaxHPCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId], 1);
+    DisplayPartyPokemonHPBarCheck(mon, &sPartyMenuBoxes[gPartyMenu.slotId]);
+    
     ScheduleBgCopyTilemapToVram(2);
     HandleBattleLowHpMusicChange();
-    gTasks[taskId].func = task; //Task_ReturnToChooseMonAfterText;
+    if (gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD)
+        gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+    else
+        gTasks[taskId].func = task;
 }
 
 void ItemUseCB_Medicine(u8 taskId, TaskFunc task)
