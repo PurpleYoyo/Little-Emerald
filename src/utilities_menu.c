@@ -60,6 +60,7 @@
 #include "save.h"
 #include "../include/item_use.h"
 #include "../include/item_menu.h"
+#include "../include/field_effect.h"
 
 enum UtilitiesMenu
 {
@@ -67,9 +68,10 @@ enum UtilitiesMenu
     UTILITIES_MENU_ITEM_POKEMON_BOX_LINK,
     UTILITIES_MENU_ITEM_POKEVIAL,
     UTILITIES_MENU_ITEM_WARP_PANEL,
+    UTILITIES_MENU_ITEM_ESCAPE_ROPE,
 };
 
-#define UTILITIES_WINDOW_HEIGHT 4
+#define UTILITIES_WINDOW_HEIGHT 5
 
 struct UtilitiesMenuListData
 {
@@ -90,11 +92,13 @@ static void UtilitiesAction_InfiniteRepel(u8 taskId);
 static void UtilitiesAction_PokemonBoxLink(u8 taskId);
 static void UtilitiesAction_Pokevial(u8 taskId);
 static void UtilitiesAction_WarpPanel(u8 taskId);
+static void UtilitiesAction_EscapeRope(u8 taskId);
 
 static const u8 sUtilitiesText_InfiniteRepel[] = _("Infinite Repel");
 static const u8 sUtilitiesText_PokemonBoxLink[] = _("Pokémon Box Link");
 static const u8 sUtilitiesText_Pokevial[] = _("Pokévial");
 static const u8 sUtilitiesText_WarpPanel[] = _("Warp Panel");
+static const u8 sUtilitiesText_EscapeRope[] = _("Escape Rope");
 
 static const struct ListMenuItem sUtilitiesMenu_Items[] =
 {
@@ -102,6 +106,7 @@ static const struct ListMenuItem sUtilitiesMenu_Items[] =
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = {sUtilitiesText_PokemonBoxLink,        UTILITIES_MENU_ITEM_POKEMON_BOX_LINK},
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = {sUtilitiesText_Pokevial,              UTILITIES_MENU_ITEM_POKEVIAL},
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = {sUtilitiesText_WarpPanel,             UTILITIES_MENU_ITEM_WARP_PANEL},
+    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]               = {sUtilitiesText_EscapeRope,             UTILITIES_MENU_ITEM_ESCAPE_ROPE},
 };
 
 static void (*const sUtilitiesMenu_Actions[])(u8) =
@@ -110,6 +115,7 @@ static void (*const sUtilitiesMenu_Actions[])(u8) =
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = UtilitiesAction_PokemonBoxLink,
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = UtilitiesAction_Pokevial,
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = UtilitiesAction_WarpPanel,
+    [UTILITIES_MENU_ITEM_ESCAPE_ROPE]               = UtilitiesAction_EscapeRope,
 };
 
 static const struct WindowTemplate sUtilitiesMenuWindowTemplate =
@@ -267,6 +273,29 @@ static void UtilitiesAction_Pokevial(u8 taskId)
 
 static void UtilitiesAction_WarpPanel(u8 taskId)
 {
-    //Utilities_DestroyMenu(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
+}
+
+static void UtilitiesAction_EscapeRope(u8 taskId)
+{
+    if (CanUseDigOrEscapeRopeOnCurMap() == TRUE)
+    {
+        ResetInitialPlayerAvatarState();
+        StartEscapeRopeFieldEffect();
+        DestroyListMenuTask(gTasks[taskId].tMenuTaskId, NULL, NULL);
+        ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+        RemoveWindow(gTasks[taskId].tWindowId);
+        DestroyTask(taskId);
+        Overworld_ResetStateAfterDigEscRope();
+        CopyItemName(gSpecialVar_ItemId, gStringVar2);
+        StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
+        gTasks[taskId].data[0] = 0;
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, TRUE);
+        DestroyListMenuTask(gTasks[taskId].tMenuTaskId, NULL, NULL);
+        ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+        RemoveWindow(gTasks[taskId].tWindowId);
+    }
 }

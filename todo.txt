@@ -10,43 +10,47 @@ General TODO
 -Infinite Rare Candy
 -Level caps
 -Restore Kit
-^ animation
 -Pre-damage/status NPC
 -Infinite repel
 -Portable PC
 -Pokévial
-Infinite escape rope & add to utilities menu
 -utilities menu
 -warp panel bug
-auto run
-quick run from battle
-berry stuff
 -no hm animations
 -hm unneed learn
-Battle points & shop
+-x Separate 111 and desert (too complicated), removed rock smash encounters
+-snowy forest area
+-desert oasis
+-Make AI switch more
+-trainers not use items
+-make type changing held items removable
+-^ dynamic type change in battle
+-Blank nature mints
+-remove disobedience
+-win BP from trainers
+
+ flutes boost sound moves 20%
+ Max restore animation
+ Infinite escape rope & add to utilities menu
+ auto run
+ quick run from battle
+berry stuff
+Battle points shop
 hyper training npc
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
--x Separate 111 and desert (too complicated), removed rock smash encounters
--snowy forest area
--desert oasis
 Tate & Liza randomly choose a mega
--Make AI switch more
--trainers not use items
--make type changing held items removable
-^ dynamic type change in battle
-Early smoke ball
--Blank nature mints
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
--remove disobedience
+Early smoke ball
+finish encounters
+check movesets
+check abilities
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
-
--Wallace's Magikarp
 
 Abilities
 ----------
@@ -179,5 +183,3 @@ Zen Headbutt
 Iron Head				
 Agility				
 Magnet Rise
-
-flutes boost sound moves 20%
