@@ -35,26 +35,31 @@ General TODO
 -quick run from battle
 -fast surf
 -hyper training npc
+-hyper trained in pss
 
+code:
 berry stuff
 Battle points shop
-Add encounters to some cities with none
-Add rocks to Route 106
-Add rocks to Route 114
 Tate & Liza randomly choose a mega
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
 Reformat item text
-Early smoke ball
-finish encounters
-check movesets
-check abilities
 egg move learner
 special gift battle bond froakie
 Tms
 BP in trainer card
-hyper trained in pss
+
+porymap:
+Add encounters to some cities with none
+Add rocks to Route 106
+Add rocks to Route 114
+Early smoke ball
+finish encounters
+
+other:
 zorua palette
+check movesets
+check abilities
 
 ideas for the future:
 colored toggleables text in utility menu

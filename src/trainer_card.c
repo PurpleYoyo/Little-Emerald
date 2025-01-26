@@ -717,7 +717,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 
     trainerCard->hasPokedex = FlagGet(FLAG_SYS_POKEDEX_GET);
     trainerCard->caughtAllHoenn = HasAllHoennMons();
-    trainerCard->caughtMonsCount = GetCaughtMonsCount();
+    trainerCard->caughtMonsCount = gSaveBlock2Ptr->frontier.battlePoints; //GetCaughtMonsCount();
 
     trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 

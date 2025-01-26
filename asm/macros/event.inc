@@ -2453,3 +2453,7 @@
 	.2byte \dest
 	.endm
 
+    .macro givebp amount:req
+	callnative GiveBP
+	.2byte \amount
+	.endm

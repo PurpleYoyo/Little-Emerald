@@ -352,6 +352,15 @@ void SetHyperTrainingStat(struct ScriptContext *ctx)
     }
 }
 
+void GiveBP(struct ScriptContext *ctx)
+{
+    u32 amount = VarGet(ScriptReadHalfword(ctx));
+    if (gSaveBlock2Ptr->frontier.battlePoints + amount > MAX_BATTLE_FRONTIER_POINTS)
+        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+    else
+        gSaveBlock2Ptr->frontier.battlePoints = gSaveBlock2Ptr->frontier.battlePoints + amount;
+}
+
 void HasGigantamaxFactor(struct ScriptContext *ctx)
 {
     u32 partyIndex = VarGet(ScriptReadHalfword(ctx));

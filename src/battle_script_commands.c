@@ -8022,11 +8022,11 @@ static void Cmd_getmoneyreward(void)
 {
     CMD_ARGS();
 
-    if (VarGet(gSpecialVar_0x8003) != 0)
+    if (VarGet(gSpecialVar_0x800B) != 0)
     {
         GiveFrontierBattlePoints();
-        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 3, gSpecialVar_0x8003);
-        gSpecialVar_0x8003 = 0;
+        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 3, gSpecialVar_0x800B);
+        gSpecialVar_0x800B = 0;
     }
     else
     {

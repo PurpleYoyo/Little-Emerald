@@ -2043,7 +2043,7 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 
 TestGuy::
 # 1026 "data/maps/LittlerootTown/scripts.pory"
-	setvar VAR_0x8003, 3
+	setvar VAR_0x800B, 3
 # 1027 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 # 1028 "data/maps/LittlerootTown/scripts.pory"
