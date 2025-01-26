@@ -3627,6 +3627,7 @@ static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
     static const u8 sTextNatureDown[] = _("{COLOR}{08}");
     static const u8 sTextNatureUp[] = _("{COLOR}{05}");
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
+    static const u8 sTextHyperTrained[] = _("{COLOR}{13}");
     u8 *txtPtr;
 
     if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
@@ -3637,6 +3638,38 @@ static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
         txtPtr = StringCopy(dst, sTextNatureDown);
     else
         txtPtr = StringCopy(dst, sTextNatureNeutral);
+
+    // 7 = left, 3 = right <- n | (0, 1, 2) hp, atk, def : spatk, spdef spe <- strId
+    if (strId == 0 && n == 7) // HP
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_HP))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
+    else if (strId == 1 && n == 7) // Atk
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_ATK))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
+    else if (strId == 2 && n == 7) // Def
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_DEF))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
+    else if (strId == 0 && n == 3) // SpA
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPATK))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
+    else if (strId == 1 && n == 3) // SpD
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPDEF))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
+    else if (strId == 1 && n == 7) // Spe
+    {
+        if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPEED))
+            txtPtr = StringCopy(dst, sTextHyperTrained);
+    }
 
     ConvertIntToDecimalStringN(txtPtr, stat, STR_CONV_MODE_RIGHT_ALIGN, n);
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(strId, dst);

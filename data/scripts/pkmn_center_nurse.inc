@@ -1414,8 +1414,10 @@ EventScript_HyperTrainNPC_26:
 # 609 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_HyperTrainNPC_Text_5
 # 610 "data/scripts/pkmn_center_nurse.pory"
-	closemessage
+	removeitem ITEM_BOTTLE_CAP, 1
 # 611 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 612 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 

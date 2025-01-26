@@ -34,10 +34,10 @@ General TODO
 -auto run
 -quick run from battle
 -fast surf
+-hyper training npc
 
 berry stuff
 Battle points shop
-hyper training npc
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
@@ -54,13 +54,14 @@ special gift battle bond froakie
 Tms
 BP in trainer card
 hyper trained in pss
+zorua palette
 
 ideas for the future:
 colored toggleables text in utility menu
 fast surf work with auto run
 damp = immune to explosions, not stop
 cherubi flower gift
-hyper training stat in after message
+-hyper training stat in after message
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
