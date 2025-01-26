@@ -28,6 +28,7 @@
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
 #include "../include/menu.h"
+#include "strings.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -241,16 +242,54 @@ void CanHyperTrain(struct ScriptContext *ctx)
 {
     u32 stat = ScriptReadByte(ctx);
     u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    if (stat < NUM_STATS
-     && partyIndex < PARTY_SIZE
-     && !GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP + stat)
-     && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV + stat) < MAX_PER_STAT_IVS)
+    
+    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
     {
-        gSpecialVar_Result = TRUE;
-    }
-    else
-    {
-        gSpecialVar_Result = FALSE;
+        switch (stat)
+        {
+            case 0:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 1:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_ATK)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 2:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_DEF)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 3:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPATK)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 4:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPDEF)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 5:
+                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPEED)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) < MAX_PER_STAT_IVS)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+        }
     }
 }
 
@@ -261,8 +300,55 @@ void HyperTrain(struct ScriptContext *ctx)
     if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
     {
         bool32 data = TRUE;
-        SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP + stat, &data);
+        switch (stat)
+        {
+            case 0:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP, &data);
+                break;
+            case 1:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_ATK, &data);
+                break;
+            case 2:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_DEF, &data);
+                break;
+            case 3:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPATK, &data);
+                break;
+            case 4:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPDEF, &data);
+                break;
+            case 5:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPEED, &data);            
+                break;
+        }
         CalculateMonStats(&gPlayerParty[partyIndex]);
+    }
+}
+
+void SetHyperTrainingStat(struct ScriptContext *ctx)
+{
+
+    u32 stat = VarGet(ScriptReadHalfword(ctx));
+    switch (stat)
+    {
+        case 0: // HP
+            StringCopy(gStringVar3, gText_HP4);
+            break;
+        case 1: // Attack
+            StringCopy(gStringVar3, gText_Attack3);
+            break;
+        case 2: // Defense
+            StringCopy(gStringVar3, gText_Defense3);
+            break;
+        case 3: // Special Attack
+            StringCopy(gStringVar3, gText_SpAtk4);
+            break;
+        case 4: // Special Defense
+            StringCopy(gStringVar3, gText_SpDef4);
+            break;
+        case 5: // Speed
+            StringCopy(gStringVar3, gText_Speed2);
+            break;
     }
 }
 

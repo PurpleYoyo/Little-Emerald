@@ -2202,6 +2202,11 @@
 	.2byte \slot
 	.endm
 
+	.macro sethypertrainstat stat:req
+	callnative SetHyperTrainingStat
+	.2byte \stat
+	.endm
+
 	@ Sets VAR_RESULT to TRUE if the Pokemon has the Gigantamax Factor,
 	@ or to FALSE otherwise.
 	.macro hasgigantamaxfactor slot:req

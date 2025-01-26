@@ -28,12 +28,13 @@ General TODO
 -Blank nature mints
 -remove disobedience
 -win BP from trainers
-
 -flutes boost sound moves 20%
 -Max restore animation (kinda)
 -Infinite escape rope & add to utilities menu
 -auto run
- quick run from battle
+-quick run from battle
+-fast surf
+
 berry stuff
 Battle points shop
 hyper training npc
@@ -48,6 +49,18 @@ Early smoke ball
 finish encounters
 check movesets
 check abilities
+egg move learner
+special gift battle bond froakie
+Tms
+BP in trainer card
+hyper trained in pss
+
+ideas for the future:
+colored toggleables text in utility menu
+fast surf work with auto run
+damp = immune to explosions, not stop
+cherubi flower gift
+hyper training stat in after message
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing

@@ -269,10 +269,10 @@
 #define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
 #define VAR_UNUSED_0x40FA                                0x40FA // Unused Var
 #define VAR_UNUSED_0x40FB                                0x40FB // Unused Var
-#define VAR_UNUSED_0x40FC                                0x40FC // Unused Var
-#define STATUS                                           0x40FD 
-#define LOWER                                            0x40FE
-#define RAISE                                            0x40FF 
+#define STAT                                             0x40FC // Used for Hyper Training
+#define STATUS                                           0x40FD // Used for Pre-Status
+#define LOWER                                            0x40FE // Used for Nature Mint Making
+#define RAISE                                            0x40FF // ^
 
 #define VARS_END                                         0x40FF
 #define VARS_COUNT                                       (VARS_END - VARS_START + 1)
