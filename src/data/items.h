@@ -89,98 +89,80 @@ static const u8 sMewtwoniteDesc[]     = _("This stone enables\n"
                                           "Evolve in battle.");
 
 static const u8 sSeaIncenseDesc[]     = _("This item enables\n"
-                                          "Azurill to evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Water-type moves.");
+                                          "Azurill to evolve\n"
+                                          "in battle.");
 
 static const u8 sOddIncenseDesc[]     = _("This item enables\n"
-                                          "Mime Jr. to evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Psychic-type moves.");
+                                          "Mime Jr. to evolve\n"
+                                          "in battle.");
 
 static const u8 sRockIncenseDesc[]    = _("This item enables\n"
-                                          "Bonsly to evolve in battle\n"
-                                          "raises the power of\n"
-                                          "Rock-type moves.");
+                                          "Bonsly to evolve\n"
+                                          "in battle.");
 
 static const u8 sFullIncenseDesc[]    = _("This item enables\n"
-                                          "Munchlax to evolve in battle\n"
-                                          "and makes the holder\n"
-                                          "move slower.");
+                                          "Munchlax to evolve\n"
+                                          "in battle.");
 
 static const u8 sRoseIncenseDesc[]    = _("This item enables\n"
-                                          "Budew to evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Grass-type moves.");
+                                          "Budew to evolve\n"
+                                          "in battle.");
 
 static const u8 sLightIncenseDesc[]    = _("This item enables\n"
-                                          "Pichu to Evolve in battle\n"
-                                          "and raises the Atk and\n"
-                                          "Sp. Atk of Pichu.");
+                                          "Pichu to evolve\n"
+                                          "in battle.");
 
 static const u8 sMoonIncenseDesc[]    = _("This item enables\n"
-                                          "Cleffa to Evolve in battle\n"
-                                          "and raises Def and SpD.");
+                                          "Cleffa to evolve\n"
+                                          "in battle.");
 
 static const u8 sPinkIncenseDesc[]    = _("This item enables\n"
-                                          "Igglybuff to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Fairy-type moves.");
+                                          "Igglybuff to evolve\n"
+                                          "in battle.");
 
-static const u8 sEggIncenseDesc[]    = _("This item enables\n"
-                                          "Togepi to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Normal-type moves.");
+static const u8 sEggIncenseDesc[]     = _("This item enables\n"
+                                          "Togepi to evolve\n"
+                                          "in battle.");
 
-static const u8 sDefenseIncenseDesc[]    = _("This item enables\n"
-                                          "Tyrogue to Evolve in battle\n"
-                                          "and raises Def and SpD.");
+static const u8 sDefenseIncenseDesc[] = _("This item enables\n"
+                                          "Tyrogue to evolve\n"
+                                          "in battle.");
 
-static const u8 sAttackIncenseDesc[]    = _("This item enables\n"
-                                          "Tyrogue to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Fighting-type moves.");
+static const u8 sAttackIncenseDesc[]  = _("This item enables\n"
+                                          "Tyrogue to evolve\n"
+                                          "in battle");
 
 static const u8 sCalmIncenseDesc[]    = _("This item enables\n"
-                                          "Tyrogue to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "all Physical moves.");
+                                          "Tyrogue to evolve\n"
+                                          "in battle");
 
-static const u8 sIceIncenseDesc[]    = _("This item enables\n"
-                                          "Smoochum to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Ice-type moves.");
+static const u8 sIceIncenseDesc[]     = _("This item enables\n"
+                                          "Smoochum to evolve\n"
+                                          "in battle");
 
-static const u8 sWeirdIncenseDesc[]    = _("This item enables\n"
-                                          "Mime Jr. to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Ice-type moves.");
+static const u8 sWeirdIncenseDesc[]   = _("This item enables\n"
+                                          "Mime Jr. to evolve\n"
+                                          "in battle");
 
-static const u8 sMetalIncenseDesc[]    = _("This item enables\n"
-                                          "Riolu to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Steel-type moves.");
+static const u8 sMetalIncenseDesc[]   = _("This item enables\n"
+                                          "Riolu to evolve\n"
+                                          "in battle");
 
-static const u8 sSoothingIncenseDesc[]    = _("This item enables\n"
-                                          "Toxel to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "all Sound based moves.");
+static const u8 sSoothingIncenseDesc[]= _("This item enables\n"
+                                          "Toxel to evolve\n"
+                                          "in battle");
 
 static const u8 sPunkIncenseDesc[]    = _("This item enables\n"
-                                          "Toxel to Evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "all Sound based moves.");
+                                          "Toxel to evolve\n"
+                                          "in battle");
 
 static const u8 sLuckIncenseDesc[]    = _("This item enables\n"
-                                          "Happiny to evolve in battle\n"
-                                          "and doubles money in\n"
-                                          "battle if the\n"
-                                          "holder takes part.");
+                                          "Happiny to evolve\n"
+                                          "in battle");
 
 static const u8 sPureIncenseDesc[]    = _("This item enables\n"
-                                          "Chingling to evolve in battle\n"
-                                          "and raises the power of\n"
-                                          "Psychic-type moves.");
+                                          "Chingling to evolve\n"
+                                          "in battle");
 
 static const u8 sKingsRockDesc[]      = _("A hold item that\n"
                                           "may cause flinching\n"
@@ -4169,9 +4151,8 @@ const struct Item gItemsInfo[] =
         .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
         .description = COMPOUND_STRING(
             "This item enables\n"
-            "Elekid to evolve in battle\n"
-            "and boosts the power of\n"
-            "Electric-type moves."),
+            "Elekid to evolve\n"
+            "in battle"),
         .pocket = POCKET_ITEMS,
         .type = EVO_HELD_ITEM_TYPE,
         .fieldUseFunc = EVO_HELD_ITEM_FIELD_FUNC,
@@ -4187,9 +4168,8 @@ const struct Item gItemsInfo[] =
         .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
         .description = COMPOUND_STRING(
             "This item enables\n"
-            "Magby to evolve in battle\n"
-            "and boosts the power of\n"
-            "Fire-type moves."),
+            "Magby to evolve\n"
+            "in battle"),
         .pocket = POCKET_ITEMS,
         .type = EVO_HELD_ITEM_TYPE,
         .fieldUseFunc = EVO_HELD_ITEM_FIELD_FUNC,
@@ -4595,9 +4575,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Fighting-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4616,9 +4594,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Poison-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4636,8 +4612,8 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_PLATE,
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
-            "A tablet that ups\n"
-            "the power of\n"
+            "A tablet that\n"
+            "boosts the power of\n"
             "Ground-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4655,8 +4631,8 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_PLATE,
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
-            "A tablet that ups\n"
-            "the power of\n"
+            "A tablet that\n"
+            "boosts the power of\n"
             "Flying-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4675,9 +4651,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Psychic-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4695,8 +4669,8 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_PLATE,
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
-            "A tablet that ups\n"
-            "the power of\n"
+            "A tablet that\n"
+            "boosts the power of\n"
             "Bug-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4715,9 +4689,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Rock-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4736,9 +4708,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Ghost-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4757,9 +4727,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Dragon-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4777,8 +4745,8 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_PLATE,
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
-            "A tablet that ups\n"
-            "the power of\n"
+            "A tablet that\n"
+            "boosts the power of\n"
             "Dark-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4797,9 +4765,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Steel-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -4818,9 +4784,7 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 20,
         .description = COMPOUND_STRING(
             "A tablet that\n"
-            "changes the type\n"
-            "of a certain Pokémon\n"
-            "and boosts the power of\n"
+            "boosts the power of\n"
             "Fairy-type moves."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
@@ -7274,9 +7238,8 @@ const struct Item gItemsInfo[] =
         .holdEffectParam = 10,
         .description = COMPOUND_STRING(
             "This item enables\n"
-            "Wynaut to evole in battle\n"
-            "and makes the holder\n"
-            "move slower."),
+            "Wynaut to evolve\n"
+            "in battle"),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -7322,9 +7285,9 @@ const struct Item gItemsInfo[] =
         .holdEffect = HOLD_EFFECT_LAGGING_TAIL,
         .holdEffectParam = 5,
         .description = COMPOUND_STRING(
-                                "A hold item\n"
-                                "that makes the holder\n"
-                                "move slower."),
+            "This item enables\n"
+            "Munchlax to evolve\n"
+            "in battle"),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -7339,7 +7302,10 @@ const struct Item gItemsInfo[] =
         .price = (I_PRICE >= GEN_7) ? 2000 : 9600,
         .holdEffect = HOLD_EFFECT_WATER_POWER,
         .holdEffectParam = 20,
-        .description = sSeaIncenseDesc,
+        .description = COMPOUND_STRING(
+            "This item enables\n"
+            "Mantyke to evolve\n"
+            "in battle"),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
@@ -8885,7 +8851,10 @@ const struct Item gItemsInfo[] =
         .name = _("Lagging Tail"),
         .price = (I_PRICE >= GEN_9) ? 20000 : ((I_PRICE >= GEN_7) ? 4000 : 200),
         .holdEffect = HOLD_EFFECT_LAGGING_TAIL,
-        .description = sFullIncenseDesc,
+        .description = COMPOUND_STRING(
+            "A held item\n"
+            "that makes the\n"
+            "holder slower");,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

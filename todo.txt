@@ -36,6 +36,8 @@ General TODO
 -fast surf
 -hyper training npc
 -hyper trained in pss
+-BP in trainer card
+-Reformat item text
 
 code:
 berry stuff
@@ -43,11 +45,9 @@ Battle points shop
 Tate & Liza randomly choose a mega
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
-Reformat item text
 egg move learner
 special gift battle bond froakie
 Tms
-BP in trainer card
 
 porymap:
 Add encounters to some cities with none
