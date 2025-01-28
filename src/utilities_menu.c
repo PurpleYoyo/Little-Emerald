@@ -212,7 +212,7 @@ static void Utilities_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate 
     menuTemplate.cursorShadowPal = 3;
     menuTemplate.lettersSpacing = 1;
     menuTemplate.itemVerticalPadding = 0;
-    menuTemplate.scrollMultiple = LIST_NO_MULTIPLE_SCROLL;
+    menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
     menuTemplate.fontId = FONT_NORMAL;
     menuTemplate.cursorKind = 0;
     menuTaskId = ListMenuInit(&menuTemplate, 0, 0);
@@ -263,7 +263,7 @@ static void Utilities_RefreshListMenu(u8 taskId)
     gMultiuseListMenuTemplate.cursorShadowPal = 3;
     gMultiuseListMenuTemplate.lettersSpacing = 1;
     gMultiuseListMenuTemplate.itemVerticalPadding = 0;
-    gMultiuseListMenuTemplate.scrollMultiple = LIST_NO_MULTIPLE_SCROLL;
+    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
     gMultiuseListMenuTemplate.fontId = 1;
     gMultiuseListMenuTemplate.cursorKind = 0;
 }

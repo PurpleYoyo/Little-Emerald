@@ -2722,4 +2722,5 @@ extern const u8 gText_Pokevial[];
 extern const u8 gText_AutoRunOn[];
 extern const u8 gText_AutoRunOff[];
 
+extern const u8 gText_BPShop_Eviolite[];
 #endif // GUARD_STRINGS_H

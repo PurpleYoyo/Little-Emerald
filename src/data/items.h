@@ -8854,7 +8854,7 @@ const struct Item gItemsInfo[] =
         .description = COMPOUND_STRING(
             "A held item\n"
             "that makes the\n"
-            "holder slower");,
+            "holder slower"),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,

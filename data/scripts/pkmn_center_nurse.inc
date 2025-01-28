@@ -1520,6 +1520,180 @@ EventScript_HyperTrainNPC_33:
 	goto EventScript_HyperTrainNPC_26
 
 
+BPShopClerk::
+# 616 "data/scripts/pkmn_center_nurse.pory"
+	special ShowBattlePointsWindow
+# 617 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR
+# 623 "data/scripts/pkmn_center_nurse.pory"
+	special ShowFrontierExchangeCornerItemIconWindow
+# 624 "data/scripts/pkmn_center_nurse.pory"
+	special ShowScrollableMultichoice
+# 625 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 626 "data/scripts/pkmn_center_nurse.pory"
+	special CloseFrontierExchangeCornerItemIconWindow
+# 627 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
+# 628 "data/scripts/pkmn_center_nurse.pory"
+	switch VAR_RESULT
+# 629 "data/scripts/pkmn_center_nurse.pory"
+	case 0, BPShopClerk_3
+BPShopClerk_1:
+# 658 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	return
+
+BPShopClerk_3:
+# 630 "data/scripts/pkmn_center_nurse.pory"
+	msgbox BPShopClerk_Text_0
+# 631 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 632 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq BPShopClerk_5
+BPShopClerk_4:
+# 639 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_EVIOLITE
+# 640 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 641 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 4
+	goto_if_lt BPShopClerk_8
+BPShopClerk_7:
+# 645 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 646 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq BPShopClerk_11
+BPShopClerk_10:
+# 651 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 4
+# 652 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 653 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 654 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 655 "data/scripts/pkmn_center_nurse.pory"
+	msgbox BPShopClerk_Text_3
+# 656 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	goto BPShopClerk_1
+
+BPShopClerk_5:
+# 633 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto BPShopClerk_4
+
+BPShopClerk_8:
+# 642 "data/scripts/pkmn_center_nurse.pory"
+	msgbox BPShopClerk_Text_1
+# 643 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto BPShopClerk_7
+
+BPShopClerk_11:
+# 647 "data/scripts/pkmn_center_nurse.pory"
+	msgbox BPShopClerk_Text_2
+# 648 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto BPShopClerk_10
+
+
+EggMoveTutor::
+# 662 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_0
+# 663 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 664 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 1
+	goto_if_lt EggMoveTutor_2
+EggMoveTutor_1:
+# 668 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_2
+# 669 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 670 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq EggMoveTutor_5
+EggMoveTutor_4:
+# 673 "data/scripts/pkmn_center_nurse.pory"
+	special ChooseMonForMoveRelearner
+# 674 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 675 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
+	goto_if_eq EggMoveTutor_8
+EggMoveTutor_7:
+# 678 "data/scripts/pkmn_center_nurse.pory"
+	special IsSelectedMonEgg
+# 679 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq EggMoveTutor_11
+EggMoveTutor_10:
+# 683 "data/scripts/pkmn_center_nurse.pory"
+	special DoesChosenMonHaveEggMoves
+# 684 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq EggMoveTutor_14
+EggMoveTutor_13:
+# 688 "data/scripts/pkmn_center_nurse.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 689 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_5
+# 690 "data/scripts/pkmn_center_nurse.pory"
+	special TeachEggMove
+# 691 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 692 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 1
+# 693 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 694 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 695 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	return
+
+EggMoveTutor_2:
+# 665 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_1
+# 666 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_1
+
+EggMoveTutor_5:
+# 671 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_4
+
+EggMoveTutor_8:
+# 676 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_7
+
+EggMoveTutor_11:
+# 680 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_3
+# 681 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_10
+
+EggMoveTutor_14:
+# 685 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_4
+# 686 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_13
+
+
+freebp::
+# 744 "data/scripts/pkmn_center_nurse.pory"
+	GiveBP 5
+	return
+
+
 EventScript_NatureMintNPC_Text_0:
 # 131 "data/scripts/pkmn_center_nurse.pory"
 	.string "Would you like to make a Nature Mint\n"
@@ -1771,3 +1945,49 @@ EventScript_HyperTrainNPC_Text_5:
 # 609 "data/scripts/pkmn_center_nurse.pory"
 	.string "Your {STR_VAR_1}'s {STR_VAR_3}\n"
 	.string "has been hyper trained.$"
+
+BPShopClerk_Text_0:
+# 630 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy an Eviolite?$"
+
+BPShopClerk_Text_1:
+# 642 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have enough Battle Points.$"
+
+BPShopClerk_Text_2:
+# 647 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have bag space for this item.$"
+
+BPShopClerk_Text_3:
+# 655 "data/scripts/pkmn_center_nurse.pory"
+	.string "Here is your Eviolite! Thank you very\n"
+	.string "much.$"
+
+EggMoveTutor_Text_0:
+# 662 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can teach one of your Pokémon one of\n"
+	.string "their egg moves in exchange for one\l"
+	.string "Battle Point.$"
+
+EggMoveTutor_Text_1:
+# 665 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have any Battle Points. Come\n"
+	.string "back with some.$"
+
+EggMoveTutor_Text_2:
+# 668 "data/scripts/pkmn_center_nurse.pory"
+	.string "Would you like to do that?$"
+
+EggMoveTutor_Text_3:
+# 680 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can't teach a move to an Egg.$"
+
+EggMoveTutor_Text_4:
+# 685 "data/scripts/pkmn_center_nurse.pory"
+	.string "This Pokémon does not have any egg\n"
+	.string "moves.$"
+
+EggMoveTutor_Text_5:
+# 689 "data/scripts/pkmn_center_nurse.pory"
+	.string "Which move would you like me to teach\n"
+	.string "{STR_VAR_1}?$"

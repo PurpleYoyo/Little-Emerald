@@ -1273,6 +1273,26 @@ void IsGrassTypeInParty(void)
     gSpecialVar_Result = FALSE;
 }
 
+void DoesChosenMonHaveEggMoves(void)
+{
+    u16 species;
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[gSpecialVar_0x8004];
+    const u16 *learnset;
+
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        species = GetMonData(pokemon, MON_DATA_SPECIES);
+        learnset = GetSpeciesEggMoves(species);
+        if (learnset == gSpeciesInfo[SPECIES_NONE].eggMoveLearnset)
+        {
+            gSpecialVar_Result = FALSE;
+            return;
+        }
+    }
+    gSpecialVar_Result = TRUE;
+}
+
 void IsChosenMonSteelType(void)
 {
     u16 species;
@@ -2610,7 +2630,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     },
     [SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR] =
     {
-        gText_Leftovers48BP,
+        gText_BPShop_Eviolite,
         gText_WhiteHerb48BP,
         gText_QuickClaw48BP,
         gText_MentalHerb48BP,

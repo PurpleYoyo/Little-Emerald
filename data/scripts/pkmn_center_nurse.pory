@@ -611,3 +611,135 @@ script EventScript_HyperTrainNPC {
 	closemessage
 	release
 }
+
+script BPShopClerk {
+	special(ShowBattlePointsWindow) // Show the player's BP in a little window on the top left
+	setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR) // Setting the shop items,
+	// I just overwrote the items in SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR in src/field_specials.c with my own text variables
+	// you could also just change the used text variables in src/strings.c
+	// note that you will need to edit src/data/battle_frontier/battle_frontier_exchange_corner.h for the correct items to be displayed
+	// you can just not show/close it here if you don't wanna do that
+	// and add to src/strings.c & include/strings.h for item descriptions, not sure where this text is used tho
+	special(ShowFrontierExchangeCornerItemIconWindow) // Show the little item preview in the bottom left
+	special(ShowScrollableMultichoice) // Show the multichoice, the chosen item index is set to VAR_RESULT
+	waitstate
+	special(CloseFrontierExchangeCornerItemIconWindow) // Close the item preview window when an item is chosen
+	special(CloseBattlePointsWindow) // Close the BP window
+	switch (var(VAR_RESULT)) {
+		case 0:
+			msgbox(format("You would like to buy an Eviolite?"))
+			yesnobox(8, 4)
+			if (var(VAR_RESULT) == 0) { // No
+				goto(End)
+			}
+			// * There doesn't seem to be a need to set 8008 to the price,
+			// just compare to the value instead of a var in 1*
+			// and set 8004 directly to the value instead of a var in 2*
+			//setvar(VAR_0x8008, 4) // Price | *
+			setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
+			specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
+			if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
+				msgbox(format("You don't have enough Battle Points."))
+				goto(End)
+			}
+			checkitemspace(VAR_0x8009) // Check if the player has enough bag space for the item
+			if (var(VAR_RESULT) == FALSE) { // ^ if not
+				msgbox(format("You don't have bag space for this item."))
+				goto(End)
+			}
+			//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
+			setvar(VAR_0x8004, 4) // ^
+			special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
+			playse(SE_SHOP)
+			additem(VAR_0x8009) // Give the player the item
+			msgbox(format("Here is your Eviolite! Thank you very much."))
+			special(UpdateBattlePointsWindow) // Update the window to show the purchase
+	}
+	goto(End)
+}
+
+script EggMoveTutor {
+	msgbox(format("I can teach one of your Pokémon one of their egg moves in exchange for one Battle Point."))
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 1) { // No BP
+		msgbox(format("You don't have any Battle Points. Come back with some."))
+		goto(End)
+	}
+	msgbox(format("Would you like to do that?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	special(ChooseMonForMoveRelearner)
+	waitstate
+	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) { // Pressed 'B' in selection screen
+		goto(End)
+	}
+	special(IsSelectedMonEgg)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't teach a move to an Egg."))
+		goto(End)
+	}
+	special(DoesChosenMonHaveEggMoves)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("This Pokémon does not have any egg moves."))
+		goto(End)
+	}
+	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+	msgbox(format("Which move would you like me to teach {STR_VAR_1}?"))
+	special(TeachEggMove)
+	waitstate
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	goto(End)
+}
+
+// script BPMoveTutor {
+// 	// a move tutor is pretty much the same as a shop with a few differences
+// 	special(ShowBattlePointsWindow) // Show the player's BP in a little window on the top left
+// 	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_1) // Setting the moves,
+// 	// I just overwrote the items in SCROLL_MULTI_BF_MOVE_TUTOR_1 in src/field_specials.c with my own text variables
+// 	// you could also just change the used text variables in src/strings.c
+// 	// note that you will need to edit src/data/battle_frontier/battle_frontier_exchange_corner.h for the correct items to be displayed
+// 	// you can just not show/close it here if you don't wanna do that
+// 	// and add to src/strings.c & include/strings.h for item descriptions, not sure where this text is used tho
+// 	special(ShowScrollableMultichoice) // Show the multichoice, the chosen item index is set to VAR_RESULT
+// 	waitstate
+// 	special(CloseBattlePointsWindow) // Close the BP window
+// 	switch (var(VAR_RESULT)) {
+// 		case 0:
+// 			msgbox(format("You would like to buy an Eviolite?"))
+// 			yesnobox(8, 4)
+// 			if (var(VAR_RESULT) == 0) { // No
+// 				goto(End)
+// 			}
+// 			// * There doesn't seem to be a need to set 8008 to the price,
+// 			// just compare to the value instead of a var in 1*
+// 			// and set 8004 directly to the value instead of a var in 2*
+// 			//setvar(VAR_0x8008, 4) // Price | *
+// 			setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
+// 			specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
+// 			if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
+// 				msgbox(format("You don't have enough Battle Points."))
+// 				goto(End)
+// 			}
+// 			checkitemspace(VAR_0x8009) // Check if the player has enough bag space for the item
+// 			if (var(VAR_RESULT) == FALSE) { // ^ if not
+// 				msgbox(format("You don't have bag space for this item."))
+// 				goto(End)
+// 			}
+// 			//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
+// 			setvar(VAR_0x8004, 4) // ^
+// 			special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
+// 			playse(SE_SHOP)
+// 			additem(VAR_0x8009) // Give the player the item
+// 			msgbox(format("Here is your Eviolite! Thank you very much."))
+// 			special(UpdateBattlePointsWindow) // Update the window to show the purchase
+// 	}
+// 	closemessage
+// }
+
+script freebp {
+	GiveBP(5)
+}

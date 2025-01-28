@@ -564,3 +564,5 @@ gSpecials::
 	def_special IsChosenMonFainted
 	def_special GetInfiniteRepelFlag
 	def_special GetAutoRunFlag
+	def_special TeachEggMove
+	def_special DoesChosenMonHaveEggMoves

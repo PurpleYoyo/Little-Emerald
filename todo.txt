@@ -38,16 +38,21 @@ General TODO
 -hyper trained in pss
 -BP in trainer card
 -Reformat item text
+-hyper training stat in after message
+-Battle points shop
+-check abilities
+-egg move tutor
 
 code:
 berry stuff
-Battle points shop
 Tate & Liza randomly choose a mega
 Pacifidlog salesman fisherman
 Lavaridge baby eggs
-egg move learner
 special gift battle bond froakie
+special gift tough claws rockruff
 Tms
+figure out items for bp shop
+make move tutors infinite
 
 porymap:
 Add encounters to some cities with none
@@ -55,80 +60,27 @@ Add rocks to Route 106
 Add rocks to Route 114
 Early smoke ball
 finish encounters
+static pokemon
 
 other:
 zorua palette
 check movesets
-check abilities
 
 ideas for the future:
 colored toggleables text in utility menu
 fast surf work with auto run
 damp = immune to explosions, not stop
 cherubi flower gift
--hyper training stat in after message
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
 
 Abilities
 ----------
-Magma Armor + Shell Armor
-Steam Engine + Immune to Fire & Water
-Normalize + Scrappy
-
-Slowpoke-Galar -> Gluttony/Quick Draw/Regenerator
-Magikarp -> Swift Swim/Wimp Out
-Munchlax -> Immunity/Thick Fat/Gluttony
-Aipom -> Technician/Pickup/Skill Link
-Sneasel -> Inner Focus/Technician/Pickpocket
-Slugma -> Magma Armor/Flame Body/Drought
-Smoochum -> Oblivious/Dry Skin/Hydration
-Poochyena -> Intimidate/Quick Feet/Rattled
-Wingull -> Drizzle/Hydration/Rain Dish
-Slakoth -> Wimp Out
-Wailmer -> Water Veil/Oblivious/Drizzle
-Basculin-White -> Rock Head/Adaptability/Mold Breaker
-Espurr -> Psychic Surge/Infiltrator/Own Tempo
-Duraludon -> Light Metal/Heavy Metal/Stamina
-
 Mega Munchlax = Poison Heal
 Mega Toxel A = Punk Rock
 Mega Toxel L = Punk Rock
 Mega Azurill = Immense Power (Huge Power x2)
-
-Types
-----------
-Slowpoke-Galar + Poison
-Seel + Ice
-Horsea + Dragon
-Larvitar -> Rock/Dark
-Mudkip + Ground
-Swablu -> Dragon/Flying
-Turtwig + Ground
-Chimchar + Fighting
-Piplup + Steel
-Burmy-Plant + Grass
-Burmy-Sand + Ground
-Burmy-Trash + Steel
-Darumaka-Galar + Fire
-Fennekin + Psychic
-Fletchling -> Fire/Flying
-Rowlet + Flying
-Litten + Dark
-Popplio + Fairy
-Grubbin + Electric
-Poipole + Dragon
-Rookidee + Steel
-Blipbug + Psychic
-Chewtle + Rock
-Rolycoly + Fire
-Clobbopus + Water
-Nymble + Dark
-Capsakid + Fire
-
-Vulpix-Alola + Fairy
-Basculin-White + Ghost
 
 Learnsets
 ----------
@@ -159,6 +111,8 @@ Snorunt + Explosion
 Poipole + Dragon Rush
 Toxel + Shift Gear, Overdrive, Boomburst, Poison Jab
 Eevee + Multi-Attack
+Woobat + Early Skill Swap
+Varoom + Egg[Skill Swap`]
 
 Moves
 ----------

@@ -981,7 +981,7 @@ const u8 gText_TrainerCardName[] = _("NAME: ");
 const u8 gText_TrainerCardIDNo[] = _("IDNo.");
 const u8 gText_TrainerCardMoney[] = _("MONEY");
 const u8 gText_PokeDollar[] = _("¥"); // Unused
-const u8 gText_TrainerCardPokedex[] = _("Battle Points");
+const u8 gText_TrainerCardPokedex[] = _("BP");
 const u8 gText_EmptyString6[] = _("");
 const u8 gText_Colon2[] = _(":");
 const u8 gText_Points[] = _(" points"); // Unused
@@ -1579,3 +1579,5 @@ const u8 gText_InfiniteRepelOff[] = _("Infinite Repel deactivated.");
 const u8 gText_Pokevial[] = _("Your party has been fully restored.");
 const u8 gText_AutoRunOn[] = _("Auto-Run activated.");
 const u8 gText_AutoRunOff[] = _("Auto-Run deactivated.");
+
+const u8 gText_BPShop_Eviolite[] = _("EVIOLITE{CLEAR_TO 0x5E}4BP");
