@@ -66,6 +66,26 @@ other:
 zorua palette
 check movesets
 
+Evil Teams:
+-Slateport Museum
+Archie
+-Mt. Chimney
+Tabitha: Sand
+Maxie
+-Weather Institute
+Shelly: Snow
+-Team Magma Hideout
+Courtney: Grass
+Maxie: Sun
+-Mt. Pyre
+Matt & Archie: Electric + Rain
+-Team Aqua Hideout
+Matt: Electric
+-Seafloor Cavern
+Archie: Rain
+-Mossdeep Space Center
+Courtney & Maxie: Grass + Sun
+
 ideas for the future:
 colored toggleables text in utility menu
 fast surf work with auto run

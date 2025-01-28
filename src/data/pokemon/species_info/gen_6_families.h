@@ -440,6 +440,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sFroakieLevelUpLearnset,
         .teachableLearnset = sFroakieTeachableLearnset,
         .eggMoveLearnset = sFroakieEggMoveLearnset,
+        .formSpeciesIdTable = sFroakieFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_FROGADIER}),
     },
 

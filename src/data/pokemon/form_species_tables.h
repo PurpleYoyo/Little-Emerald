@@ -1309,6 +1309,12 @@ static const u16 sGenesectFormSpeciesIdTable[] = {
 #endif //P_FAMILY_GENESECT
 
 #if P_FAMILY_FROAKIE
+static const u16 sFroakieFormSpeciesIdTable[] = {
+    SPECIES_FROAKIE,
+    SPECIES_FROAKIE_SPECIAL,
+    FORM_SPECIES_END,
+};
+
 static const u16 sGreninjaFormSpeciesIdTable[] = {
     SPECIES_GRENINJA,
     SPECIES_GRENINJA_BATTLE_BOND,
@@ -1595,7 +1601,8 @@ static const u16 sRibombeeFormSpeciesIdTable[] = {
 #if P_FAMILY_ROCKRUFF
 static const u16 sRockruffFormSpeciesIdTable[] = {
     SPECIES_ROCKRUFF,
-    SPECIES_ROCKRUFF_OWN_TEMPO,
+    SPECIES_ROCKRUFF_SPECIAL,
+    //SPECIES_ROCKRUFF_OWN_TEMPO,
     FORM_SPECIES_END,
 };
 
