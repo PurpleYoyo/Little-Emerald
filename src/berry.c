@@ -2084,25 +2084,33 @@ static u8 CalcBerryYieldInternal(u16 max, u16 min, u8 water)
 
 static u8 CalcBerryYield(struct BerryTree *tree)
 {
-    const struct Berry *berry = GetBerryInfo(tree->berry);
-    u8 min = tree->berryYield;
-    u8 max = berry->maxYield;
-    u8 result;
-    if (OW_BERRY_MULCH_USAGE && (tree->mulch == ITEM_TO_MULCH(ITEM_RICH_MULCH) || tree->mulch == ITEM_TO_MULCH(ITEM_AMAZE_MULCH)))
-        min += 2;
-    if (!(OW_BERRY_MOISTURE && OW_BERRY_ALWAYS_WATERABLE))
-        min += berry->minYield;
-    if (min >= max)
-        result = max;
-    else
-        result = CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
+    //const struct Berry *berry = GetBerryInfo(tree->berry);
+    
+    //u8 result;
+    //if (OW_BERRY_MULCH_USAGE && (tree->mulch == ITEM_TO_MULCH(ITEM_RICH_MULCH) || tree->mulch == ITEM_TO_MULCH(ITEM_AMAZE_MULCH)))
+    //    min += 2;
+    //if (!(OW_BERRY_MOISTURE && OW_BERRY_ALWAYS_WATERABLE))
+    //    min += berry->minYield;
+    //if (min >= max)
+    //    result = max;
+    //else
+    //    result = CalcBerryYieldInternal(max, min, BerryTreeGetNumStagesWatered(tree));
+    u32 randMin;
+    u32 randMax;
+    u32 rand;
 
-    return 100;
+    u8 min = 50;
+    u8 max = 100;
+
+    rand = min + Random() % (max - min + 1);
+
+    return rand;
 }
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
 {
-    return gSaveBlock1Ptr->berryTrees[id].berryYield;
+    struct BerryTree *tree = GetBerryTreeInfo(id);
+    return CalcBerryYield(tree); //gSaveBlock1Ptr->berryTrees[id].berryYield;
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)

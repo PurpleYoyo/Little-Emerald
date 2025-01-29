@@ -42,14 +42,12 @@ General TODO
 -Battle points shop
 -check abilities
 -egg move tutor
+-Pacifidlog salesman fisherman
+-Lavaridge baby eggs
+-berry stuff
 
 code:
-berry stuff
 Tate & Liza randomly choose a mega
-Pacifidlog salesman fisherman
-Lavaridge baby eggs
-special gift battle bond froakie
-special gift tough claws rockruff
 Tms
 figure out items for bp shop
 make move tutors infinite
@@ -59,12 +57,19 @@ Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
 Early smoke ball
-finish encounters
-static pokemon
 
 other:
 zorua palette
+remove evolved daycare mons
 check movesets
+
+distribution:
+encounters
+items
+berries
+special gift battle bond froakie
+special gift tough claws rockruff
+static pokemon
 
 Evil Teams:
 -Slateport Museum

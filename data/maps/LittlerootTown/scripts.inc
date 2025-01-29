@@ -2045,8 +2045,19 @@ TestGuy::
 # 1025 "data/maps/LittlerootTown/scripts.pory"
 	setvar VAR_0x800B, 3
 # 1026 "data/maps/LittlerootTown/scripts.pory"
-	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
+	random 2
 # 1027 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TestGuy_2
+# 1031 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_GRUNT_AQUA_HIDEOUT_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
+TestGuy_1:
+# 1033 "data/maps/LittlerootTown/scripts.pory"
 	msgbox MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	return
+
+TestGuy_2:
+# 1028 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
+	goto TestGuy_1
 

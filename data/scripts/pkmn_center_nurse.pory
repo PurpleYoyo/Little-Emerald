@@ -777,7 +777,7 @@ script EventScript_FishermanSalesman {
 			call(TryBuyBarboach)
 		case 8: // Chinchou
 			call(TryBuyChinchou)
-		case 8: // Carvanha
+		case 9: // Carvanha
 			call(TryBuyCarvanha)
 		case 10: // Qwilfish
 			call(TryBuyQwilfish)
@@ -786,6 +786,7 @@ script EventScript_FishermanSalesman {
 		case 12: // Cosmog
 			call(TryBuyCosmog)
 		default:
+			hidemoneybox
 			goto(End)
 	}
 	goto(End)
@@ -812,7 +813,8 @@ script TryBuyMagikarp {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -838,7 +840,8 @@ script TryBuyGoldeen {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -864,7 +867,8 @@ script TryBuyRemoraid {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -872,7 +876,8 @@ script TryBuyRemoraid {
 script TryBuyFeebas {
 	checkmoney(1000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 1000
-	msgbox(format("You don't have enough money to buy Feebas. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Feebas. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Feebas for ¥1000?"))
@@ -895,7 +900,8 @@ script TryBuyFeebas {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -903,7 +909,8 @@ script TryBuyFeebas {
 script TryBuyFinneon {
 	checkmoney(1000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 1000
-	msgbox(format("You don't have enough money to buy Finneon. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Finneon. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Finneon for ¥1000?"))
@@ -926,7 +933,8 @@ script TryBuyFinneon {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -934,7 +942,8 @@ script TryBuyFinneon {
 script TryBuyTynamo {
 	checkmoney(1000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 1000
-	msgbox(format("You don't have enough money to buy Tynamo. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Tynamo. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Tynamo for ¥1000?"))
@@ -957,7 +966,8 @@ script TryBuyTynamo {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -965,7 +975,8 @@ script TryBuyTynamo {
 script TryBuyArrokuda {
 	checkmoney(1000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 1000
-	msgbox(format("You don't have enough money to buy Arrokuda. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Arrokuda. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Arrokuda for ¥1000?"))
@@ -988,7 +999,8 @@ script TryBuyArrokuda {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -996,7 +1008,8 @@ script TryBuyArrokuda {
 script TryBuyBarboach {
 	checkmoney(1000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 1000
-	msgbox(format("You don't have enough money to buy Barboach. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Barboach. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Barboach for ¥1000?"))
@@ -1019,7 +1032,8 @@ script TryBuyBarboach {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1027,7 +1041,8 @@ script TryBuyBarboach {
 script TryBuyChinchou {
 	checkmoney(5000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 5000
-	msgbox(format("You don't have enough money to buy Chinchou. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Chinchou. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Chinchou for ¥5000?"))
@@ -1050,7 +1065,8 @@ script TryBuyChinchou {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1058,7 +1074,8 @@ script TryBuyChinchou {
 script TryBuyCarvanha {
 	checkmoney(5000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 5000
-	msgbox(format("You don't have enough money to buy Carvanha. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Carvanha. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Carvanha for ¥5000?"))
@@ -1081,7 +1098,8 @@ script TryBuyCarvanha {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1089,7 +1107,8 @@ script TryBuyCarvanha {
 script TryBuyQwilfish {
 	checkmoney(10000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 10000
-	msgbox(format("You don't have enough money to buy Qwilfish. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Qwilfish. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Qwilfish for ¥10000?"))
@@ -1112,7 +1131,8 @@ script TryBuyQwilfish {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1120,7 +1140,8 @@ script TryBuyQwilfish {
 script TryBuyBasculin {
 	checkmoney(10000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 10000
-	msgbox(format("You don't have enough money to buy Basculin. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Basculin. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Basculin for ¥10000?"))
@@ -1143,7 +1164,8 @@ script TryBuyBasculin {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1151,7 +1173,8 @@ script TryBuyBasculin {
 script TryBuyCosmog {
 	checkmoney(50000)
 	if (var(VAR_RESULT) == FALSE) { // Player has < 50000
-	msgbox(format("You don't have enough money to buy Cosmog. Come back later with more money."))
+		msgbox(format("You don't have enough money to buy Cosmog. Come back later with more money."))
+		hidemoneybox
 		goto(End)
 	}
 	msgbox(format("You would like to buy Cosmog for ¥50000?"))
@@ -1174,7 +1197,8 @@ script TryBuyCosmog {
 		call(NicknameBoxMon)
 	}
 	else {
-		msgbox(format("You don't have any room for a new Pokémon."))
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		hidemoneybox
 		goto(End)
 	}
 }
@@ -1186,6 +1210,8 @@ script NicknamePartyMon {
 		call(Common_EventScript_GetGiftMonPartySlot)
 		call(Common_EventScript_GetGiftMonPartySlot)
 	}
+	hidemoneybox
+	goto(End)
 }
 
 script NicknameBoxMon {
@@ -1197,10 +1223,11 @@ script NicknameBoxMon {
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
 	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
 	call(Common_EventScript_TransferredToPC)
+	hidemoneybox
+	goto(End)
 }
 
 script End {
 	waitmessage
-	hidemoneybox
 	releaseall
 }
