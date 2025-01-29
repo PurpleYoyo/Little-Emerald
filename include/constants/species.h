@@ -1710,7 +1710,10 @@
 
 #define SPECIES_MAGIKARP_MONSTER                        1576
 
-#define SPECIES_EGG                                     (SPECIES_MAGIKARP_MONSTER + 1)
+#define SPECIES_FROAKIE_SPECIAL                         1577
+#define SPECIES_ROCKRUFF_SPECIAL                        1578
+
+#define SPECIES_EGG                                     (SPECIES_ROCKRUFF_SPECIAL + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

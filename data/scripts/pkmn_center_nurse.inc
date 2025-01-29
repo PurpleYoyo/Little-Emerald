@@ -1694,6 +1694,156 @@ freebp::
 	return
 
 
+EventScript_FishermanSalesman::
+# 748 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 749 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_0
+# 750 "data/scripts/pkmn_center_nurse.pory"
+	checkmoney 500
+# 751 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq EventScript_FishermanSalesman_2
+EventScript_FishermanSalesman_1:
+# 755 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_2
+# 756 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 757 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_FishermanSalesman_5
+EventScript_FishermanSalesman_4:
+# 760 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, SCROLL_MULTI_FISH
+# 761 "data/scripts/pkmn_center_nurse.pory"
+	showmoneybox 0, 0
+# 762 "data/scripts/pkmn_center_nurse.pory"
+	special ShowScrollableMultichoice
+# 763 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 764 "data/scripts/pkmn_center_nurse.pory"
+	switch VAR_RESULT
+# 766 "data/scripts/pkmn_center_nurse.pory"
+	case 0, EventScript_FishermanSalesman_9
+# 791 "data/scripts/pkmn_center_nurse.pory"
+	hidemoneybox
+# 792 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+EventScript_FishermanSalesman_7:
+# 794 "data/scripts/pkmn_center_nurse.pory"
+	hidemoneybox
+# 795 "data/scripts/pkmn_center_nurse.pory"
+	waitmessage
+# 796 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+EventScript_FishermanSalesman_2:
+# 752 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_1
+# 753 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EventScript_FishermanSalesman_1
+
+EventScript_FishermanSalesman_5:
+# 758 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EventScript_FishermanSalesman_4
+
+EventScript_FishermanSalesman_9:
+# 767 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3
+# 768 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 769 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq EventScript_FishermanSalesman_12
+EventScript_FishermanSalesman_11:
+# 773 "data/scripts/pkmn_center_nurse.pory"
+	removemoney 500
+# 774 "data/scripts/pkmn_center_nurse.pory"
+	updatemoneybox
+# 775 "data/scripts/pkmn_center_nurse.pory"
+	givemon SPECIES_MAGIKARP, 5, ITEM_NONE, ITEM_LURE_BALL
+# 776 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq EventScript_FishermanSalesman_14
+# 781 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq EventScript_FishermanSalesman_15
+# 787 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_5
+# 788 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EventScript_FishermanSalesman_7
+
+EventScript_FishermanSalesman_12:
+# 770 "data/scripts/pkmn_center_nurse.pory"
+	hidemoneybox
+# 771 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EventScript_FishermanSalesman_11
+
+EventScript_FishermanSalesman_14:
+# 777 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 778 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_4
+# 779 "data/scripts/pkmn_center_nurse.pory"
+	call NicknamePartyMon
+	goto EventScript_FishermanSalesman_7
+
+EventScript_FishermanSalesman_15:
+# 782 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 783 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_4
+# 784 "data/scripts/pkmn_center_nurse.pory"
+	call NicknameBoxMon
+	goto EventScript_FishermanSalesman_7
+
+
+NicknamePartyMon::
+# 800 "data/scripts/pkmn_center_nurse.pory"
+	msgbox NicknamePartyMon_Text_0
+# 801 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 802 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq NicknamePartyMon_1
+	return
+
+NicknamePartyMon_1:
+# 803 "data/scripts/pkmn_center_nurse.pory"
+	call Common_EventScript_GetGiftMonPartySlot
+# 804 "data/scripts/pkmn_center_nurse.pory"
+	call Common_EventScript_GetGiftMonPartySlot
+	return
+
+
+NicknameBoxMon::
+# 809 "data/scripts/pkmn_center_nurse.pory"
+	msgbox NicknamePartyMon_Text_0
+# 810 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 811 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 1
+	goto_if_eq NicknameBoxMon_2
+NicknameBoxMon_1:
+# 814 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP
+# 815 "data/scripts/pkmn_center_nurse.pory"
+	bufferspeciesname STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES
+# 816 "data/scripts/pkmn_center_nurse.pory"
+	call Common_EventScript_TransferredToPC
+	return
+
+NicknameBoxMon_2:
+# 812 "data/scripts/pkmn_center_nurse.pory"
+	call Common_EventScript_NameReceivedBoxMon
+	goto NicknameBoxMon_1
+
+
 EventScript_NatureMintNPC_Text_0:
 # 131 "data/scripts/pkmn_center_nurse.pory"
 	.string "Would you like to make a Nature Mint\n"
@@ -1991,3 +2141,36 @@ EggMoveTutor_Text_5:
 # 689 "data/scripts/pkmn_center_nurse.pory"
 	.string "Which move would you like me to teach\n"
 	.string "{STR_VAR_1}?$"
+
+EventScript_FishermanSalesman_Text_0:
+# 749 "data/scripts/pkmn_center_nurse.pory"
+	.string "I am the master fisherman. I have\n"
+	.string "travelled all throughout Hoenn and\l"
+	.string "caught every type of fish there is.$"
+
+EventScript_FishermanSalesman_Text_1:
+# 752 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have enough money to buy any\n"
+	.string "fish. Come back later with more money.$"
+
+EventScript_FishermanSalesman_Text_2:
+# 755 "data/scripts/pkmn_center_nurse.pory"
+	.string "Would you like to buy one?$"
+
+EventScript_FishermanSalesman_Text_3:
+# 767 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy Magikarp for\n"
+	.string "¥500?$"
+
+EventScript_FishermanSalesman_Text_4:
+# 778 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Magikarp.$"
+
+EventScript_FishermanSalesman_Text_5:
+# 787 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have any room for a new\n"
+	.string "Pokémon.$"
+
+NicknamePartyMon_Text_0:
+# 800 "data/scripts/pkmn_center_nurse.pory"
+	.string "Do you want to give it a nickame?$"

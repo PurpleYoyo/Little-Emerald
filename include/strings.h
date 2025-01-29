@@ -2723,4 +2723,18 @@ extern const u8 gText_AutoRunOn[];
 extern const u8 gText_AutoRunOff[];
 
 extern const u8 gText_BPShop_Eviolite[];
+
+extern const u8 gText_Fish_Magikarp[];
+extern const u8 gText_Fish_Goldeen[];
+extern const u8 gText_Fish_Chinchou[];
+extern const u8 gText_Fish_Qwilfish[];
+extern const u8 gText_Fish_Remoraid[];
+extern const u8 gText_Fish_Carvanha[];
+extern const u8 gText_Fish_Barboach[];
+extern const u8 gText_Fish_Feebas[];
+extern const u8 gText_Fish_Finneon[];
+extern const u8 gText_Fish_Basculin[];
+extern const u8 gText_Fish_Tynamo[];
+extern const u8 gText_Fish_Arrokuda[];
+extern const u8 gText_Fish_Cosmog[];
 #endif // GUARD_STRINGS_H

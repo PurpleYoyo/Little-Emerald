@@ -90,6 +90,24 @@ static const struct MenuAction MultichoiceList_StatNames[] =
     {gText_Speed2},
 };
 
+static const struct MenuAction MultichoiceList_Fish[] =
+{
+    {gText_Fish_Magikarp},
+    {gText_Fish_Goldeen},
+    {gText_Fish_Remoraid},
+    {gText_Fish_Feebas},
+    {gText_Fish_Finneon},
+    {gText_Fish_Tynamo},
+    {gText_Fish_Arrokuda},
+    {gText_Fish_Barboach},
+    {gText_Fish_Chinchou},
+    {gText_Fish_Carvanha},
+    {gText_Fish_Qwilfish},
+    {gText_Fish_Basculin},
+    {gText_Fish_Cosmog},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_StatNamesNoHP[] =
 {
     {gText_Attack3},
@@ -947,6 +965,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_STATUSES]                   = MULTICHOICE(MultichoiceList_Statuses),
     [MULTI_STAT_NAMES_NO_HP]           = MULTICHOICE(MultichoiceList_StatNamesNoHP),
     [MULTI_STAT_NAMES]                 = MULTICHOICE(MultichoiceList_StatNames),
+    [MULTI_FISH]                       = MULTICHOICE(MultichoiceList_Fish),
 };
 
 const u8 *const gStdStrings[] =

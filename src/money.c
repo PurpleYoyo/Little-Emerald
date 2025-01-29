@@ -136,8 +136,9 @@ void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed)
 
 static u32 CalculateLeadingSpacesForMoney(u32 numDigits)
 {
-    u32 leadingSpaces = CountDigits(INT_MAX) - StringLength(gStringVar1);
-    return (numDigits > 8) ? leadingSpaces : leadingSpaces - 2;
+    //u32 leadingSpaces = CountDigits(INT_MAX) - StringLength(gStringVar1);
+    //return (numDigits > 8) ? leadingSpaces : leadingSpaces - 2;
+    return 0;
 }
 
 void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed)
@@ -174,20 +175,21 @@ void ChangeAmountInMoneyBox(int amount)
 
 u32 CalculateMoneyTextHorizontalPosition(u32 amount)
 {
-    return (CountDigits(amount) > 8) ? 34 : 26;
+    return (CountDigits(amount) > 8) ? 18 : 10;
+    //return (CountDigits(amount) > 8) ? 34 : 26;
 }
 
 void DrawMoneyBox(int amount, u8 x, u8 y)
 {
     struct WindowTemplate template;
 
-    SetWindowTemplateFields(&template, 0, x + 1, y + 1, 10, 2, 15, 8);
+    SetWindowTemplateFields(&template, 0, x + 1, y + 1, 5, 2, 15, 8);
     sMoneyBoxWindowId = AddWindow(&template);
     FillWindowPixelBuffer(sMoneyBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sMoneyBoxWindowId);
     CopyWindowToVram(sMoneyBoxWindowId, COPYWIN_MAP);
     PrintMoneyAmountInMoneyBoxWithBorder(sMoneyBoxWindowId, 0x214, 14, amount);
-    AddMoneyLabelObject((8 * x) + 19, (8 * y) + 11);
+    AddMoneyLabelObject((8 * x) + 19, (8 * y) + 8);
 }
 
 void HideMoneyBox(void)

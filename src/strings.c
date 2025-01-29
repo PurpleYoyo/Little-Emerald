@@ -1581,3 +1581,17 @@ const u8 gText_AutoRunOn[] = _("Auto-Run activated.");
 const u8 gText_AutoRunOff[] = _("Auto-Run deactivated.");
 
 const u8 gText_BPShop_Eviolite[] = _("EVIOLITE{CLEAR_TO 0x5E}4BP");
+
+const u8 gText_Fish_Magikarp[] = _("MAGIKARP{CLEAR_TO 0x5E}¥500");
+const u8 gText_Fish_Goldeen[] = _("GOLDEEN{CLEAR_TO 0x5E}¥500");
+const u8 gText_Fish_Chinchou[] = _("CHINCHOU{CLEAR_TO 0x5E}¥5000");
+const u8 gText_Fish_Qwilfish[] = _("QWILFISH{CLEAR_TO 0x5E}¥10000");
+const u8 gText_Fish_Remoraid[] = _("REMORAID{CLEAR_TO 0x5E}¥500");
+const u8 gText_Fish_Carvanha[] = _("CARVANHA{CLEAR_TO 0x5E}¥5000");
+const u8 gText_Fish_Barboach[] = _("BARBOACH{CLEAR_TO 0x5E}¥1000");
+const u8 gText_Fish_Feebas[] = _("FEEBAS{CLEAR_TO 0x5E}¥1000");
+const u8 gText_Fish_Finneon[] = _("FINNEON{CLEAR_TO 0x5E}¥1000");
+const u8 gText_Fish_Basculin[] = _("BASCULIN{CLEAR_TO 0x5E}¥10000");
+const u8 gText_Fish_Tynamo[] = _("TYNAMO{CLEAR_TO 0x5E}¥1000");
+const u8 gText_Fish_Arrokuda[] = _("ARROKUDA{CLEAR_TO 0x5E}¥1000");
+const u8 gText_Fish_Cosmog[] = _("COSMOG{CLEAR_TO 0x5E}¥50000");

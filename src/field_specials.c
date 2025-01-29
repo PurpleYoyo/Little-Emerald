@@ -2556,6 +2556,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_FISH:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 14;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2716,6 +2726,23 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Underpowered,
         gText_WhenInDanger,
         gText_Exit
+    },
+    [SCROLL_MULTI_FISH] =
+    {
+        gText_Fish_Magikarp,
+        gText_Fish_Goldeen,
+        gText_Fish_Remoraid,
+        gText_Fish_Feebas,
+        gText_Fish_Finneon,
+        gText_Fish_Tynamo,
+        gText_Fish_Arrokuda,
+        gText_Fish_Barboach,
+        gText_Fish_Chinchou,
+        gText_Fish_Carvanha,
+        gText_Fish_Qwilfish,
+        gText_Fish_Basculin,
+        gText_Fish_Cosmog,
+        gText_Exit,
     }
 };
 
