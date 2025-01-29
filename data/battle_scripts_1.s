@@ -6437,6 +6437,24 @@ BattleScript_AngerShellRet:
 	restoreattacker
 	return
 
+BattleScript_BattleBondActivates::
+	saveattacker
+	copybyte gBattlerTarget, gBattlerAttacker
+	call BattleScript_AbilityPopUpTarget
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BattleBondTryAttack
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_BattleBondTryAttack
+	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_RestoreAttackerButItFailed
+BattleScript_BattleBondTryAttack:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	modifybattlerstatstage BS_ATTACKER, STAT_ATK, INCREASE, 1, BattleScript_BattleBondTrySpAtk, ANIM_ON
+BattleScript_BattleBondTrySpAtk:
+	modifybattlerstatstage BS_ATTACKER, STAT_SPATK, INCREASE, 1, BattleScript_BattleBondTrySpeed, ANIM_ON
+BattleScript_BattleBondTrySpeed:
+	modifybattlerstatstage BS_ATTACKER, STAT_SPEED, INCREASE, 1, BattleScript_BattleBondRet, ANIM_ON
+BattleScript_BattleBondRet:
+	restoreattacker
+	return
+
 BattleScript_WindPowerActivates::
 	call BattleScript_AbilityPopUp
 	setcharge BS_TARGET

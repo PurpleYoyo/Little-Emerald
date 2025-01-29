@@ -10785,6 +10785,15 @@ static void Cmd_various(void)
     case VARIOUS_TRY_ACTIVATE_BATTLE_BOND:
     {
         VARIOUS_ARGS();
+        if (gBattleMons[gBattlerAttacker].species == SPECIES_FROAKIE_SPECIAL
+            && HasAttackerFaintedTarget()
+            && CalculateBattlerPartyCount(gBattlerTarget) > 1)
+        {
+            BattleScriptPush(cmd->nextInstr);
+            gLastUsedAbility = ABILITY_BATTLE_BOND;
+            gBattlescriptCurrInstr = BattleScript_BattleBondActivates;
+            return;
+        }
         if (gBattleMons[gBattlerAttacker].species == SPECIES_GRENINJA_BATTLE_BOND
             && HasAttackerFaintedTarget()
             && CalculateBattlerPartyCount(gBattlerTarget) > 1

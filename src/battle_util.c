@@ -9758,7 +9758,7 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
         }
         break;
     case ABILITY_FLOWER_GIFT:
-        if (gBattleMons[battlerAtk].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && IS_MOVE_PHYSICAL(move))
+        if (gBattleMons[battlerAtk].species == SPECIES_CHERUBI && IsBattlerWeatherAffected(battlerAtk, B_WEATHER_SUN) && IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case ABILITY_HUSTLE:

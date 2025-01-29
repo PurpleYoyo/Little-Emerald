@@ -1028,7 +1028,8 @@ script TestGuy {
 		trainerbattle_single(TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat)
 	}
 	else {
-		trainerbattle_single(TRAINER_GRUNT_AQUA_HIDEOUT_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat)
+		//trainerbattle_single(TRAINER_GRUNT_AQUA_HIDEOUT_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat)
+		trainerbattle_single(TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat)
 	}
 	msgbox(MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE)
 }

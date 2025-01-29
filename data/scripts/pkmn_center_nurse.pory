@@ -738,6 +738,7 @@ script EggMoveTutor {
 
 script freebp {
 	GiveBP(5)
+	givemon(SPECIES_FROAKIE_SPECIAL, 100)
 }
 
 script EventScript_FishermanSalesman {
