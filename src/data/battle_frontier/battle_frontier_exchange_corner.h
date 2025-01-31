@@ -36,15 +36,18 @@ static const u16 sFrontierExchangeCorner_Vitamins[] =
 
 static const u16 sFrontierExchangeCorner_HoldItems[] =
 {
+    ITEM_TOXIC_ORB,
+    ITEM_FLAME_ORB,
+    ITEM_FOCUS_SASH,
+    ITEM_EJECT_PACK,
+    ITEM_EJECT_BUTTON,
+    ITEM_BLACK_SLUDGE,
+    ITEM_LEFTOVERS,
+    ITEM_ASSAULT_VEST,
     ITEM_EVIOLITE,
-    ITEM_WHITE_HERB,
-    ITEM_QUICK_CLAW,
-    ITEM_MENTAL_HERB,
-    ITEM_BRIGHT_POWDER,
-    ITEM_CHOICE_BAND,
-    ITEM_KINGS_ROCK,
-    ITEM_FOCUS_BAND,
-    ITEM_SCOPE_LENS,
+    ITEM_ABILITY_PATCH,
+    ITEM_LIFE_ORB,
+    ITEM_RARE_CANDY,
     ITEM_LIST_END
 };
 

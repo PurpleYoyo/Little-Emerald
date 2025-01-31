@@ -1,4 +1,138 @@
 raw `
+.align 2
+OldaleSecondaryMart::
+	.2byte ITEM_AMULET_COIN
+	.2byte ITEM_SMOKE_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+PetalburgSecondaryMart::
+	.2byte ITEM_QUICK_CLAW
+	.2byte ITEM_METRONOME
+	.2byte ITEM_FLOAT_STONE
+	.2byte ITEM_BINDING_BAND
+	.2byte ITEM_GRIP_CLAW
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+RustboroSecondaryMart::
+	.2byte ITEM_RAZOR_CLAW
+	.2byte ITEM_RAZOR_FANG
+	.2byte ITEM_KINGS_ROCK
+	.2byte ITEM_BIG_ROOT
+	.2byte ITEM_SCOPE_LENS
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+SlateportSecondaryMart::
+	.2byte ITEM_MUSCLE_BAND
+	.2byte ITEM_WISE_GLASSES
+	.2byte ITEM_PUNCHING_GLOVE
+	.2byte ITEM_UTILITY_UMBRELLA
+	.2byte ITEM_ABILITY_SHIELD
+	.2byte ITEM_COVERT_CLOAK
+	.2byte ITEM_HEAVY_DUTY_BOOTS
+	.2byte ITEM_SAFETY_GOGGLES
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+MauvilleSecondaryMart::
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_FAIRY_FEATHER
+	.2byte ITEM_MAGNET
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_TWISTED_SPOON
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+VerdanturfSecondaryMart::
+	.2byte ITEM_GRASSY_SEED
+	.2byte ITEM_ELECTRIC_SEED
+	.2byte ITEM_MISTY_SEED
+	.2byte ITEM_PSYCHIC_SEED
+	.2byte ITEM_MENTAL_HERB
+	.2byte ITEM_MIRROR_HERB
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+FallarborSecondaryMart::
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+LavaridgeSecondaryMart::
+	.2byte ITEM_HEAT_ROCK
+	.2byte ITEM_DAMP_ROCK
+	.2byte ITEM_ICY_ROCK
+	.2byte ITEM_SMOOTH_ROCK
+	.2byte ITEM_LIGHT_CLAY
+	.2byte ITEM_TERRAIN_EXTENDER
+	.2byte ITEM_ROOM_SERVICE
+	.2byte ITEM_ZOOM_LENS
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+FortreeSecondaryMart::
+	.2byte ITEM_RED_CARD
+	.2byte ITEM_BLUNDER_POLICY
+	.2byte ITEM_WEAKNESS_POLICY
+	.2byte ITEM_LOADED_DICE
+	.2byte ITEM_AIR_BALLOON
+	.2byte ITEM_ROCKY_HELMET
+	.2byte ITEM_WIDE_LENS
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+MossdeepSecondaryMart::
+	.2byte ITEM_WHITE_HERB
+	.2byte ITEM_POWER_HERB
+	.2byte ITEM_SHED_SHELL
+	.2byte ITEM_THROAT_SPRAY
+	.2byte ITEM_EXPERT_BELT
+	.2byte ITEM_NONE
+	release
+	end
+
+.align 2
+SootopolisSecondaryMart::
+	.2byte ITEM_PROTECTIVE_PADS
+	.2byte ITEM_RING_TARGET
+	.2byte ITEM_CLEAR_AMULET
+	.2byte ITEM_IRON_BALL
+	.2byte ITEM_NONE
+	release
+	end
+
 Common_EventScript_PkmnCenterNurse::
 	lock
 	faceplayer
@@ -609,6 +743,18 @@ script EventScript_HyperTrainNPC {
 }
 
 script BPShopClerk {
+	lockall
+	msgbox(format("I sell certain items in exchange for Battle Points."))
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 1) { // No BP
+		msgbox(format("You don't have any Battle Points. Come back with some."))
+		goto(End)
+	}
+	msgbox(format("Would you like to buy anything?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
 	special(ShowBattlePointsWindow) // Show the player's BP in a little window on the top left
 	setvar(VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR) // Setting the shop items,
 	// I just overwrote the items in SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR in src/field_specials.c with my own text variables
@@ -623,35 +769,316 @@ script BPShopClerk {
 	special(CloseBattlePointsWindow) // Close the BP window
 	switch (var(VAR_RESULT)) {
 		case 0:
-			msgbox(format("You would like to buy an Eviolite?"))
-			yesnobox(8, 4)
-			if (var(VAR_RESULT) == 0) { // No
-				goto(End)
-			}
-			// * There doesn't seem to be a need to set 8008 to the price,
-			// just compare to the value instead of a var in 1*
-			// and set 8004 directly to the value instead of a var in 2*
-			//setvar(VAR_0x8008, 4) // Price | *
-			setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
-			specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
-			if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
-				msgbox(format("You don't have enough Battle Points."))
-				goto(End)
-			}
-			checkitemspace(VAR_0x8009) // Check if the player has enough bag space for the item
-			if (var(VAR_RESULT) == FALSE) { // ^ if not
-				msgbox(format("You don't have bag space for this item."))
-				goto(End)
-			}
-			//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
-			setvar(VAR_0x8004, 4) // ^
-			special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
-			playse(SE_SHOP)
-			additem(VAR_0x8009) // Give the player the item
-			msgbox(format("Here is your Eviolite! Thank you very much."))
-			special(UpdateBattlePointsWindow) // Update the window to show the purchase
+			call(TryBuyToxicOrb)
+		case 1:
+			call(TryBuyFlameOrb)
+		case 2:
+			call(TryBuyFocusSash)
+		case 3:
+			call(TryBuyEjectPack)
+		case 4:
+			call(TryBuyEjectButton)
+		case 5:
+			call(TryBuyBlackSludge)
+		case 6:
+			call(TryBuyLeftovers)
+		case 7:
+			call(TryBuyAssaultVest)
+		case 8:
+			call(TryBuyEviolite)
+		case 9:
+			call(TryBuyAbilityPatch)
+		case 10:
+			call(TryBuyLifeOrb)
+		case 11:
+			call(TryBuyRareCandy)
 	}
 	goto(End)
+}
+
+script TryBuyEviolite {
+	msgbox(format("You would like to buy an Eviolite?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	// * There doesn't seem to be a need to set 8008 to the price,
+	// just compare to the value instead of a var in 1*
+	// and set 8004 directly to the value instead of a var in 2*
+	//setvar(VAR_0x8008, 4) // Price | *
+	setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
+	if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009) // Check if the player has enough bag space for the item
+	if (var(VAR_RESULT) == FALSE) { // ^ if not
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
+	setvar(VAR_0x8004, 4) // ^
+	special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
+	playse(SE_SHOP)
+	additem(VAR_0x8009) // Give the player the item
+	msgbox(format("Here is your Eviolite! Thank you very much."))
+	special(UpdateBattlePointsWindow) // Update the window to show the purchase
+}
+
+script TryBuyRareCandy {
+	msgbox(format("You would like to buy a Rare Candy?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_RARE_CANDY)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 8) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Rare Candy! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyToxicOrb {
+	msgbox(format("You would like to buy a Toxic Orb?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TOXIC_ORB)
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Toxic Orb! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyFlameOrb {
+	msgbox(format("You would like to buy a Flame Orb?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_FLAME_ORB)
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Flame Orb! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyFocusSash {
+	msgbox(format("You would like to buy a Focus Sash?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_FOCUS_SASH)
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Focus Sash! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyEjectPack {
+	msgbox(format("You would like to buy an Eject Pack?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_EJECT_PACK)
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 1)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Eject Pack! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyEjectButton {
+	msgbox(format("You would like to buy an Eject Button?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_EJECT_BUTTON)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Eject Button! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyBlackSludge {
+	msgbox(format("You would like to buy a Black Sludge?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_BLACK_SLUDGE)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Black Sludge! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyLeftovers {
+	msgbox(format("You would like to buy some Leftovers?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_LEFTOVERS)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here are your Leftovers! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyAssaultVest {
+	msgbox(format("You would like to buy an Assault Vest?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_ASSAULT_VEST)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Assault Vest! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyAbilityPatch {
+	msgbox(format("You would like to buy an Ability Patch?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_ABILITY_PATCH)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 4) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 4)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Ability Patch! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyLifeOrb {
+	msgbox(format("You would like to buy a Life Orb?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_LIFE_ORB)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 6) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 6)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Life Orb! Thank you very much."))
+	special(UpdateBattlePointsWindow)
 }
 
 script EggMoveTutor {
@@ -691,56 +1118,6 @@ script EggMoveTutor {
 	goto(End)
 }
 
-// script BPMoveTutor {
-// 	// a move tutor is pretty much the same as a shop with a few differences
-// 	special(ShowBattlePointsWindow) // Show the player's BP in a little window on the top left
-// 	setvar(VAR_0x8004, SCROLL_MULTI_BF_MOVE_TUTOR_1) // Setting the moves,
-// 	// I just overwrote the items in SCROLL_MULTI_BF_MOVE_TUTOR_1 in src/field_specials.c with my own text variables
-// 	// you could also just change the used text variables in src/strings.c
-// 	// note that you will need to edit src/data/battle_frontier/battle_frontier_exchange_corner.h for the correct items to be displayed
-// 	// you can just not show/close it here if you don't wanna do that
-// 	// and add to src/strings.c & include/strings.h for item descriptions, not sure where this text is used tho
-// 	special(ShowScrollableMultichoice) // Show the multichoice, the chosen item index is set to VAR_RESULT
-// 	waitstate
-// 	special(CloseBattlePointsWindow) // Close the BP window
-// 	switch (var(VAR_RESULT)) {
-// 		case 0:
-// 			msgbox(format("You would like to buy an Eviolite?"))
-// 			yesnobox(8, 4)
-// 			if (var(VAR_RESULT) == 0) { // No
-// 				goto(End)
-// 			}
-// 			// * There doesn't seem to be a need to set 8008 to the price,
-// 			// just compare to the value instead of a var in 1*
-// 			// and set 8004 directly to the value instead of a var in 2*
-// 			//setvar(VAR_0x8008, 4) // Price | *
-// 			setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
-// 			specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
-// 			if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
-// 				msgbox(format("You don't have enough Battle Points."))
-// 				goto(End)
-// 			}
-// 			checkitemspace(VAR_0x8009) // Check if the player has enough bag space for the item
-// 			if (var(VAR_RESULT) == FALSE) { // ^ if not
-// 				msgbox(format("You don't have bag space for this item."))
-// 				goto(End)
-// 			}
-// 			//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
-// 			setvar(VAR_0x8004, 4) // ^
-// 			special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
-// 			playse(SE_SHOP)
-// 			additem(VAR_0x8009) // Give the player the item
-// 			msgbox(format("Here is your Eviolite! Thank you very much."))
-// 			special(UpdateBattlePointsWindow) // Update the window to show the purchase
-// 	}
-// 	closemessage
-// }
-
-script freebp {
-	GiveBP(5)
-	givemon(SPECIES_FROAKIE_SPECIAL, 100)
-}
-
 script EventScript_FishermanSalesman {
 	lockall
 	msgbox(format("I am the master fisherman. I have travelled all throughout Hoenn and caught every type of fish there is."))
@@ -758,6 +1135,7 @@ script EventScript_FishermanSalesman {
 	showmoneybox(0, 0)
 	special(ShowScrollableMultichoice)
 	waitstate
+	
 	switch (var(VAR_RESULT))
 	{
 		case 0: // Magikarp
@@ -1231,4 +1609,103 @@ script NicknameBoxMon {
 script End {
 	waitmessage
 	releaseall
+}
+
+script OldaleSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(OldaleSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script PetalburgSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(PetalburgSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script RustboroSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(RustboroSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script SlateportSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(SlateportSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script MauvilleSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MauvilleSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script VerdanturfSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(VerdanturfSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script FallarborSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(FallarborSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script LavaridgeSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(LavaridgeSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script FortreeSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(FortreeSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script MossdeepSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(MossdeepSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script SootopolisSecondaryMart_Clerk {
+	lock
+	message(gText_HowMayIServeYou)
+	waitmessage
+	pokemart(SootopolisSecondaryMart)
+	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
 }

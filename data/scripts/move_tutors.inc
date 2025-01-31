@@ -1,7 +1,7 @@
 SlateportCity_PokemonFanClub_EventScript_SwaggerTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_SWAGGER, MoveTutor_EventScript_SwaggerTaught
+	
 	msgbox MoveTutor_Text_SwaggerTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SwaggerDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -27,7 +27,7 @@ MoveTutor_EventScript_SwaggerTaught::
 MauvilleCity_EventScript_RolloutTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT, MoveTutor_EventScript_RolloutTaught
+	
 	msgbox MoveTutor_Text_RolloutTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_RolloutDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -53,7 +53,7 @@ MoveTutor_EventScript_RolloutTaught::
 VerdanturfTown_PokemonCenter_1F_EventScript_FuryCutterTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER, MoveTutor_EventScript_FuryCutterTaught
+	
 	msgbox MoveTutor_Text_FuryCutterTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_FuryCutterDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -79,7 +79,7 @@ MoveTutor_EventScript_FuryCutterTaught::
 LavaridgeTown_House_EventScript_MimicTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_MIMIC, MoveTutor_EventScript_MimicTaught
+	
 	msgbox MoveTutor_MimicTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_MimicDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -105,7 +105,7 @@ MoveTutor_EventScript_MimicTaught::
 FallarborTown_Mart_EventScript_MetronomeTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_METRONOME, MoveTutor_EventScript_MetronomeTaught
+	
 	msgbox MoveTutor_Text_MetronomeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_MetronomeDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -131,7 +131,7 @@ MoveTutor_EventScript_MetronomeTaught::
 FortreeCity_House2_EventScript_SleepTalkTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK, MoveTutor_EventScript_SleepTalkTaught
+	
 	msgbox MoveTutor_Text_SleepTalkTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SleepTalkDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -157,7 +157,7 @@ MoveTutor_EventScript_SleepTalkTaught::
 LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE, MoveTutor_EventScript_SubstituteTaught
+	
 	msgbox MoveTutor_Text_SubstituteTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_SubstituteDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -183,7 +183,7 @@ MoveTutor_EventScript_SubstituteTaught::
 MossdeepCity_EventScript_DynamicPunchTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH, MoveTutor_EventScript_DynamicPunchTaught
+	
 	msgbox MoveTutor_Text_DynamicPunchTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DynamicPunchDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -209,7 +209,7 @@ MoveTutor_EventScript_DynamicPunchTaught::
 SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE, MoveTutor_EventScript_DoubleEdgeTaught
+	
 	msgbox MoveTutor_Text_DoubleEdgeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DoubleEdgeDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce
@@ -235,7 +235,7 @@ MoveTutor_EventScript_DoubleEdgeTaught::
 PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor::
 	lock
 	faceplayer
-	goto_if_set FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION, MoveTutor_EventScript_ExplosionTaught
+	
 	msgbox MoveTutor_Text_ExplosionTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_ExplosionDeclined
 	call MoveTutor_EventScript_CanOnlyBeLearnedOnce

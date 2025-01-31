@@ -2722,7 +2722,18 @@ extern const u8 gText_Pokevial[];
 extern const u8 gText_AutoRunOn[];
 extern const u8 gText_AutoRunOff[];
 
+extern const u8 gText_BPShop_RareCandy[];
+extern const u8 gText_BPShop_ToxicOrb[];
+extern const u8 gText_BPShop_FlameOrb[];
+extern const u8 gText_BPShop_FocusSash[];
+extern const u8 gText_BPShop_EjectPack[];
+extern const u8 gText_BPShop_EjectButton[];
+extern const u8 gText_BPShop_BlackSludge[];
+extern const u8 gText_BPShop_Leftovers[];
+extern const u8 gText_BPShop_AssaultVest[];
 extern const u8 gText_BPShop_Eviolite[];
+extern const u8 gText_BPShop_AbilityPatch[] ;
+extern const u8 gText_BPShop_LifeOrb[];
 
 extern const u8 gText_Fish_Magikarp[];
 extern const u8 gText_Fish_Goldeen[];

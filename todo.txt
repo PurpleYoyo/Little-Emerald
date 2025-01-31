@@ -45,12 +45,17 @@ General TODO
 -Pacifidlog salesman fisherman
 -Lavaridge baby eggs
 -berry stuff
+-cherubi flower gift
+-make move tutors infinite
+-remove evolved daycare mons
 
 code:
 Tate & Liza randomly choose a mega
 Tms
 figure out items for bp shop
-make move tutors infinite
+pokemarts
+lucky punch happiny
+incense hold effects
 
 porymap:
 Add encounters to some cities with none
@@ -60,7 +65,6 @@ Early smoke ball
 
 other:
 zorua palette
-remove evolved daycare mons
 check movesets
 
 distribution:
@@ -75,12 +79,12 @@ Evil Teams:
 -Slateport Museum
 Archie
 -Mt. Chimney
-Tabitha: Sand
+Courtney: Grass
 Maxie
 -Weather Institute
 Shelly: Snow
 -Team Magma Hideout
-Courtney: Grass
+Tabitha: Sand
 Maxie: Sun
 -Mt. Pyre
 Matt & Archie: Electric + Rain
@@ -91,11 +95,14 @@ Archie: Rain
 -Mossdeep Space Center
 Courtney & Maxie: Grass + Sun
 
+add mt. pyre matt & archie
+remove sfc shelly
+
 ideas for the future:
 colored toggleables text in utility menu
 fast surf work with auto run
 damp = immune to explosions, not stop
-cherubi flower gift
+reaper cloth
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing

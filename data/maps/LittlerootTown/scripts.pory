@@ -1033,3 +1033,8 @@ script TestGuy {
 	}
 	msgbox(MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE)
 }
+
+script freebp {
+	GiveBP(5)
+	givemon(SPECIES_FROAKIE_SPECIAL, 100)
+}

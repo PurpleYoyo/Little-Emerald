@@ -2061,3 +2061,11 @@ TestGuy_2:
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 	goto TestGuy_1
 
+
+freebp::
+# 1038 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 5
+# 1039 "data/maps/LittlerootTown/scripts.pory"
+	givemon SPECIES_FROAKIE_SPECIAL, 100
+	return
+

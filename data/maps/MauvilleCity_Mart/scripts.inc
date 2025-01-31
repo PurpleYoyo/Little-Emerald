@@ -35,68 +35,54 @@ MauvilleCity_Mart_Pokemart:
 # 18 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.2byte ITEM_GREAT_BALL
 # 19 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_QUICK_BALL
 # 20 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_FAST_BALL
 # 21 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_REVIVE
 # 22 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
-# 23 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_X_SPEED
-# 24 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_X_ATTACK
-# 25 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_X_DEFENSE
-# 26 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_GUARD_SPEC
-# 27 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_DIRE_HIT
-# 28 "data/maps/MauvilleCity_Mart/scripts.pory"
-	.2byte ITEM_X_ACCURACY
-# 29 "data/maps/MauvilleCity_Mart/scripts.pory"
 	pokemartlistend
-# 30 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 23 "data/maps/MauvilleCity_Mart/scripts.pory"
 
-# 31 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 24 "data/maps/MauvilleCity_Mart/scripts.pory"
 MauvilleCity_Mart_EventScript_ExpertM::
-# 32 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 25 "data/maps/MauvilleCity_Mart/scripts.pory"
 	msgbox MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats, MSGBOX_NPC
-# 33 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 26 "data/maps/MauvilleCity_Mart/scripts.pory"
 	end
-# 34 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 27 "data/maps/MauvilleCity_Mart/scripts.pory"
 
-# 35 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 28 "data/maps/MauvilleCity_Mart/scripts.pory"
 MauvilleCity_Mart_EventScript_Man::
-# 36 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 29 "data/maps/MauvilleCity_Mart/scripts.pory"
 	msgbox MauvilleCity_Mart_Text_DecisionsDetermineBattle, MSGBOX_NPC
-# 37 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 30 "data/maps/MauvilleCity_Mart/scripts.pory"
 	end
-# 38 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 31 "data/maps/MauvilleCity_Mart/scripts.pory"
 
-# 39 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 32 "data/maps/MauvilleCity_Mart/scripts.pory"
 MauvilleCity_Mart_Text_ItemsToTemporarilyElevateStats:
-# 40 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 33 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "There are items that temporarily\n"
-# 41 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 34 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "elevate the stats of POKéMON.\p"
-# 42 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 35 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "The ones I know you use in battle\n"
-# 43 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 36 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "are X ATTACK and X DEFEND…\p"
-# 44 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 37 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "I do believe that there are others\n"
-# 45 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 38 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "like them.$"
-# 46 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 39 "data/maps/MauvilleCity_Mart/scripts.pory"
 
-# 47 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 40 "data/maps/MauvilleCity_Mart/scripts.pory"
 MauvilleCity_Mart_Text_DecisionsDetermineBattle:
-# 48 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 41 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "Use a certain move, or use an item\n"
-# 49 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 42 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "instead…\p"
-# 50 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 43 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "The TRAINER's decisions determine how\n"
-# 51 "data/maps/MauvilleCity_Mart/scripts.pory"
+# 44 "data/maps/MauvilleCity_Mart/scripts.pory"
 	.string "battles turn out, I think.$"
