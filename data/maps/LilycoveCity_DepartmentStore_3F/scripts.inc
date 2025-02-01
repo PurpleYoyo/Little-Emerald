@@ -31,17 +31,17 @@ LilycoveCity_DepartmentStore_3F_EventScript_ClerkLeft::
 # 16 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
 LilycoveCity_DepartmentStore_3F_Pokemart_Vitamins:
 # 17 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_PROTEIN
+	.2byte ITEM_POWER_ANKLET
 # 18 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_CALCIUM
+	.2byte ITEM_POWER_BAND
 # 19 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_IRON
+	.2byte ITEM_POWER_BELT
 # 20 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_ZINC
+	.2byte ITEM_POWER_BRACER
 # 21 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_CARBOS
+	.2byte ITEM_POWER_LENS
 # 22 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
-	.2byte ITEM_HP_UP
+	.2byte ITEM_POWER_WEIGHT
 # 23 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"
 	pokemartlistend
 # 24 "data/maps/LilycoveCity_DepartmentStore_3F/scripts.pory"

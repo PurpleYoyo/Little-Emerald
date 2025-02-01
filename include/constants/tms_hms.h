@@ -2,11 +2,11 @@
 #define GUARD_CONSTANTS_TMS_HMS_H
 
 #define FOREACH_TM(F) \
-    F(FOCUS_PUNCH) \
+    F(WORK_UP) \
     F(DRAGON_CLAW) \
     F(WATER_PULSE) \
     F(CALM_MIND) \
-    F(ROAR) \
+    F(PSYSHOCK) \
     F(TOXIC) \
     F(HAIL) \
     F(BULK_UP) \
@@ -21,8 +21,8 @@
     F(PROTECT) \
     F(RAIN_DANCE) \
     F(GIGA_DRAIN) \
-    F(SAFEGUARD) \
-    F(FRUSTRATION) \
+    F(ROOST) \
+    F(POWER_GEM) \
     F(SOLAR_BEAM) \
     F(IRON_TAIL) \
     F(THUNDERBOLT) \
@@ -33,7 +33,7 @@
     F(PSYCHIC) \
     F(SHADOW_BALL) \
     F(BRICK_BREAK) \
-    F(DOUBLE_TEAM) \
+    F(LEECH_LIFE) \
     F(REFLECT) \
     F(SHOCK_WAVE) \
     F(FLAMETHROWER) \
@@ -42,16 +42,66 @@
     F(FIRE_BLAST) \
     F(ROCK_TOMB) \
     F(AERIAL_ACE) \
-    F(TORMENT) \
+    F(EARTH_POWER) \
     F(FACADE) \
-    F(SECRET_POWER) \
+    F(FLAME_CHARGE) \
     F(REST) \
     F(ATTRACT) \
     F(THIEF) \
     F(STEEL_WING) \
     F(SKILL_SWAP) \
-    F(SNATCH) \
-    F(OVERHEAT)
+    F(LOW_SWEEP) \
+    F(OVERHEAT) \
+    F(SCALD) \
+    F(AGILITY) \
+    F(FIRE_FANG) \
+    F(THUNDER_FANG) \
+    F(ICE_FANG) \
+    F(PSYCHIC_FANGS) \
+    F(FIRE_PUNCH) \
+    F(THUNDER_PUNCH) \
+    F(ICE_PUNCH) \
+    F(EXPANDING_FORCE) \
+    F(ACROBATICS) \
+    F(PSYBEAM) \
+    F(DISARMING_VOICE) \
+    F(TRAILBLAZE) \
+    F(POUNCE) \
+    F(CHILLING_WATER) \
+    F(STEALTH_ROCK) \
+    F(BULLDOZE) \
+    F(GUNK_SHOT) \
+    F(ICE_SPINNER) \
+    F(LIQUIDATION) \
+    F(SCALE_SHOT) \
+    F(METAL_CLAW) \
+    F(ICY_WIND) \
+    F(DRAINING_KISS) \
+    F(AIR_CUTTER) \
+    F(AIR_SLASH) \
+    F(STORED_POWER) \
+    F(AVALANCHE) \
+    F(VOLT_SWITCH) \
+    F(FLING) \
+    F(IRON_HEAD) \
+    F(ZEN_HEADBUTT) \
+    F(SHADOW_CLAW) \
+    F(FOUL_PLAY) \
+    F(BODY_SLAM) \
+    F(SLEEP_TALK) \
+    F(LASH_OUT) \
+    F(HYPER_VOICE) \
+    F(SEED_BOMB) \
+    F(DRAIN_PUNCH) \
+    F(DAZZLING_GLEAM) \
+    F(PLAY_ROUGH) \
+    F(POISON_JAB) \
+    F(THUNDER_WAVE) \
+    F(ROCK_SLIDE) \
+    F(SWORDS_DANCE) \
+    F(U_TURN) \
+    F(FLASH_CANNON) \
+    F(DARK_PULSE)
 
 #define FOREACH_HM(F) \
     F(CUT) \
