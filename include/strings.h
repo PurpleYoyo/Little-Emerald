@@ -2748,4 +2748,15 @@ extern const u8 gText_Fish_Basculin[];
 extern const u8 gText_Fish_Tynamo[];
 extern const u8 gText_Fish_Arrokuda[];
 extern const u8 gText_Fish_Cosmog[];
+
+extern const u8 gText_GameCorner_PsychicTM[];
+extern const u8 gText_GameCorner_LeechLifeTM[];
+extern const u8 gText_GameCorner_ThunderboltTM[];
+extern const u8 gText_GameCorner_IceBeamTM[];
+extern const u8 gText_GameCorner_ShadowBallTM[] ;
+extern const u8 gText_GameCorner_IceSpinnerTM[] ;
+extern const u8 gText_GameCorner_EarthPowerTM[] ;
+extern const u8 gText_GameCorner_FlashCannonTM[];
+extern const u8 gText_GameCorner_DarkPulseTM[];
+
 #endif // GUARD_STRINGS_H

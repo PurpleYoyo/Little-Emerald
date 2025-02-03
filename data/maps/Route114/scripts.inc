@@ -95,7 +95,7 @@ Route114_EventScript_RoarGentleman::
 # 48 "data/maps/Route114/scripts.pory"
 	msgbox Route114_Text_AllMyMonDoesIsRoarTakeThis, MSGBOX_DEFAULT
 # 49 "data/maps/Route114/scripts.pory"
-	giveitem ITEM_TM_ROAR
+	giveitem ITEM_TM_WORK_UP
 # 50 "data/maps/Route114/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 # 51 "data/maps/Route114/scripts.pory"
@@ -371,9 +371,9 @@ Route114_Text_AllMyMonDoesIsRoarTakeThis:
 # 186 "data/maps/Route114/scripts.pory"
 Route114_Text_ExplainRoar:
 # 187 "data/maps/Route114/scripts.pory"
-	.string "TM05 contains ROAR.\n"
+	.string "TM01 contains WORK UP.\n"
 # 188 "data/maps/Route114/scripts.pory"
-	.string "A ROAR sends POKéMON scurrying.$"
+	.string "It raises Atk and Sp. Atk.$"
 # 189 "data/maps/Route114/scripts.pory"
 
 # 190 "data/maps/Route114/scripts.pory"

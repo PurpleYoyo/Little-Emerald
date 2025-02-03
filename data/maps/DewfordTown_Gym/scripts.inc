@@ -341,7 +341,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 # 171 "data/maps/DewfordTown_Gym/scripts.pory"
 DewfordTown_Gym_EventScript_GiveBulkUp::
 # 172 "data/maps/DewfordTown_Gym/scripts.pory"
-	giveitem ITEM_TM_BULK_UP
+	giveitem ITEM_TM_LOW_SWEEP
 # 173 "data/maps/DewfordTown_Gym/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_BagIsFull
 # 174 "data/maps/DewfordTown_Gym/scripts.pory"
@@ -355,7 +355,7 @@ DewfordTown_Gym_EventScript_GiveBulkUp::
 # 178 "data/maps/DewfordTown_Gym/scripts.pory"
 DewfordTown_Gym_EventScript_GiveBulkUp2:
 # 179 "data/maps/DewfordTown_Gym/scripts.pory"
-	giveitem ITEM_TM_BULK_UP
+	giveitem ITEM_TM_LOW_SWEEP
 # 180 "data/maps/DewfordTown_Gym/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
 # 181 "data/maps/DewfordTown_Gym/scripts.pory"
@@ -823,11 +823,11 @@ DewfordTown_Gym_Text_KnuckleBadgeInfoTakeThis:
 # 412 "data/maps/DewfordTown_Gym/scripts.pory"
 DewfordTown_Gym_Text_ExplainBulkUp:
 # 413 "data/maps/DewfordTown_Gym/scripts.pory"
-	.string "That TM08 contains BULK UP.\p"
+	.string "That TM49 contains LOW SWEEP.\p"
 # 414 "data/maps/DewfordTown_Gym/scripts.pory"
-	.string "It's a move that raises both ATTACK\n"
+	.string "It's an attack that lowers the\n"
 # 415 "data/maps/DewfordTown_Gym/scripts.pory"
-	.string "and DEFENSE stats.\p"
+	.string "target's SPEED.\p"
 # 416 "data/maps/DewfordTown_Gym/scripts.pory"
 	.string "… … … … … …$"
 # 417 "data/maps/DewfordTown_Gym/scripts.pory"

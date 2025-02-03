@@ -48,14 +48,18 @@ General TODO
 -cherubi flower gift
 -make move tutors infinite
 -remove evolved daycare mons
+-figure out items for bp shop
+-tabitha -> courtney mt chimney
 
 code:
+meteor falls courtney
+add mt. pyre matt & archie
+remove sfc shelly
 Tate & Liza randomly choose a mega
+minibosses no bp after cap
 Tms
-figure out items for bp shop
 pokemarts
 lucky punch happiny
-incense hold effects
 
 porymap:
 Add encounters to some cities with none
@@ -94,9 +98,6 @@ Matt: Electric
 Archie: Rain
 -Mossdeep Space Center
 Courtney & Maxie: Grass + Sun
-
-add mt. pyre matt & archie
-remove sfc shelly
 
 ideas for the future:
 colored toggleables text in utility menu
@@ -157,8 +158,9 @@ Fire Spin, Whirlpool -> Acc 100, 40 BP
 Rock Slide, Rock Tomb, Rock Throw, Rock Blast -> Acc 100
 
 King's Shield -> Sharply Drop Atk on contact
+Muddy Water -> Acc 95 (85)
 Triple Axel -> Acc 95 (90)
-Night Daze, Metal Claw -> Acc 100 (95)
+Electroweb, Night Daze, Metal Claw -> Acc 100 (95)
 Dragon Rush, Iron Tail -> Acc 80 (75)
 Multi-Attack -> 90 BP (120)
 Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot -> Acc 100 (90)

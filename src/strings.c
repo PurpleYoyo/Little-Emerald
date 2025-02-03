@@ -1606,3 +1606,13 @@ const u8 gText_Fish_Basculin[] = _("BASCULIN{CLEAR_TO 0x5E}¥10000");
 const u8 gText_Fish_Tynamo[] = _("TYNAMO{CLEAR_TO 0x5E}¥1000");
 const u8 gText_Fish_Arrokuda[] = _("ARROKUDA{CLEAR_TO 0x5E}¥1000");
 const u8 gText_Fish_Cosmog[] = _("COSMOG{CLEAR_TO 0x5E}¥50000");
+
+const u8 gText_GameCorner_PsychicTM[] = _("TM29 PSYCHIC{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_LeechLifeTM[] = _("TM32 LEECH LIFE{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_ThunderboltTM[] = _("TM24 THUNDERBOLT{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_IceBeamTM[] = _("TM13 ICE BEAM{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_ShadowBallTM[] = _("TM30 SHADOW BALL{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_IceSpinnerTM[] = _("TM70 ICE SPINNER{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_EarthPowerTM[] = _("TM41 EARTH POWER{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_FlashCannonTM[] = _("TM99 FLASH CANNON{CLEAR_TO 0x5E}2BP");
+const u8 gText_GameCorner_DarkPulseTM[] = _("TM100 DARK PULSE{CLEAR_TO 0x5E}2BP");

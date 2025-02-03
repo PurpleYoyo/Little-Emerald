@@ -43,7 +43,7 @@ FortreeCity_House2_EventScript_HiddenPowerGiver::
 # 22 "data/maps/FortreeCity_House2/scripts.pory"
 	msgbox FortreeCity_House2_Text_YourHiddenPowerHasAwoken, MSGBOX_DEFAULT
 # 23 "data/maps/FortreeCity_House2/scripts.pory"
-	giveitem ITEM_TM_HIDDEN_POWER
+	giveitem ITEM_TM_IRON_HEAD
 # 24 "data/maps/FortreeCity_House2/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
 # 25 "data/maps/FortreeCity_House2/scripts.pory"
@@ -139,24 +139,26 @@ FortreeCity_House2_Text_YourHiddenPowerHasAwoken:
 # 70 "data/maps/FortreeCity_House2/scripts.pory"
 	.string "Oh! Splendid!\n"
 # 71 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "Your hidden power has awoken!\p"
+	.string "You are correct!\p"
 # 72 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "Here, take this and awaken the hidden\n"
+	.string "Here, take this and awaken the full\n"
 # 73 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "power of your POKéMON.$"
+	.string "potential of your POKéMON.$"
 # 74 "data/maps/FortreeCity_House2/scripts.pory"
 
 # 75 "data/maps/FortreeCity_House2/scripts.pory"
 FortreeCity_House2_Text_ExplainHiddenPower:
 # 76 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "HIDDEN POWER is a move that changes\n"
+	.string "IRON HEAD is an attack that slams\n"
 # 77 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "with the POKéMON.$"
+	.string "the target with a hard head and\n"
 # 78 "data/maps/FortreeCity_House2/scripts.pory"
-
+	.string "may cause flinching.$"
 # 79 "data/maps/FortreeCity_House2/scripts.pory"
-FortreeCity_House2_Text_YouGuessedWrong:
+
 # 80 "data/maps/FortreeCity_House2/scripts.pory"
-	.string "No, too bad.\n"
+FortreeCity_House2_Text_YouGuessedWrong:
 # 81 "data/maps/FortreeCity_House2/scripts.pory"
+	.string "No, too bad.\n"
+# 82 "data/maps/FortreeCity_House2/scripts.pory"
 	.string "You guessed wrong.$"

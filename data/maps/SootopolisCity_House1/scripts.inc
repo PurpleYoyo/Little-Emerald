@@ -17,7 +17,7 @@ SootopolisCity_House1_EventScript_BrickBreakBlackBelt::
 # 9 "data/maps/SootopolisCity_House1/scripts.pory"
 	msgbox SootopolisCity_House1_Text_DevelopedThisTM, MSGBOX_DEFAULT
 # 10 "data/maps/SootopolisCity_House1/scripts.pory"
-	giveitem ITEM_TM_BRICK_BREAK
+	giveitem ITEM_TM_LIQUIDATION
 # 11 "data/maps/SootopolisCity_House1/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 # 12 "data/maps/SootopolisCity_House1/scripts.pory"
@@ -75,7 +75,7 @@ SootopolisCity_House1_Text_DevelopedThisTM:
 # 38 "data/maps/SootopolisCity_House1/scripts.pory"
 SootopolisCity_House1_Text_ExplainBrickBreak:
 # 39 "data/maps/SootopolisCity_House1/scripts.pory"
-	.string "TM31 contains BRICK BREAK! It's a move\n"
+	.string "TM71 contains LIQUIDATION! It's a move\n"
 # 40 "data/maps/SootopolisCity_House1/scripts.pory"
 	.string "so horrible that I can't describe it.$"
 # 41 "data/maps/SootopolisCity_House1/scripts.pory"

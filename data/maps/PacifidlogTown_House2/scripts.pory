@@ -54,11 +54,11 @@ PacifidlogTown_House2_EventScript_PutInEffort::
 
 PacifidlogTown_House2_EventScript_GiveFrustration::
 	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
-	giveitem ITEM_TM_FRUSTRATION
+	giveitem ITEM_TM_FACADE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK
 	special SetPacifidlogTMReceivedDay
-	msgbox PacifidlogTown_House2_Text_ExplainReturnFrustration, MSGBOX_DEFAULT
+	msgbox PacifidlogTown_House2_Text_ExplainFacade, MSGBOX_DEFAULT
 	release
 	end
 
@@ -121,9 +121,11 @@ PacifidlogTown_House2_Text_ViciousPokemonTakeThis:
 
 PacifidlogTown_House2_Text_ExplainReturnFrustration:
 	.string "If a POKéMON likes you a lot, RETURN's\n"
-	.string "power is enhanced.\p"
-	.string "If it doesn't like you, FRUSTRATION's\n"
-	.string "power goes up.$"
+	.string "power is enhanced.$"
+
+PacifidlogTown_House2_Text_ExplainFacade:
+	.string "FACADE doubles the ATTACK of\n"
+	.string "a Pokémon that has a status condition.$"
 
 PacifidlogTown_House2_Text_GetGoodTMInXDays:
 	.string "Oh, yes. In about {STR_VAR_1} or so days,\n"

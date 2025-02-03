@@ -315,11 +315,15 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
 
 static const struct MenuAction MultichoiceList_GameCornerTMs[] =
 {
-    {gText_TM32AndPrice},
-    {gText_TM29AndPrice},
-    {gText_TM35AndPrice},
-    {gText_TM24AndPrice},
-    {gText_TM13AndPrice},
+    {gText_GameCorner_LeechLifeTM},
+    {gText_GameCorner_DarkPulseTM},
+    {gText_GameCorner_EarthPowerTM},
+    {gText_GameCorner_FlashCannonTM},
+    {gText_GameCorner_IceBeamTM},
+    {gText_GameCorner_IceSpinnerTM},
+    {gText_GameCorner_PsychicTM},
+    {gText_GameCorner_ShadowBallTM},
+    {gText_GameCorner_ThunderboltTM},
     {gText_Exit},
 };
 

@@ -44,7 +44,7 @@
     F(AERIAL_ACE) \
     F(EARTH_POWER) \
     F(FACADE) \
-    F(FLAME_CHARGE) \
+    F(SECRET_POWER) \
     F(REST) \
     F(ATTRACT) \
     F(THIEF) \
@@ -63,8 +63,8 @@
     F(ICE_PUNCH) \
     F(EXPANDING_FORCE) \
     F(ACROBATICS) \
-    F(PSYBEAM) \
-    F(DISARMING_VOICE) \
+    F(MIRROR_SHOT) \
+    F(FLAME_CHARGE) \
     F(TRAILBLAZE) \
     F(POUNCE) \
     F(CHILLING_WATER) \

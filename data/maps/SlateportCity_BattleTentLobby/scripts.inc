@@ -407,7 +407,7 @@ SlateportCity_BattleTentLobby_EventScript_TormentGiver::
 # 204 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
 	msgbox SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe, MSGBOX_DEFAULT
 # 205 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	giveitem ITEM_TM_TORMENT
+	giveitem ITEM_TM_THUNDER_WAVE
 # 206 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 # 207 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
@@ -575,17 +575,17 @@ SlateportCity_BattleTentLobby_Text_CouldntFindMonForMe:
 # 288 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
 SlateportCity_BattleTentLobby_Text_ExplainTorment:
 # 289 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	.string "That's, like, TM41, you know?\n"
+	.string "That's, like, TM95, you know?\n"
 # 290 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	.string "Hey, it's TORMENT, you hearing me?\p"
+	.string "Hey, it's THUNDER WAVE, you hearing me?\p"
 # 291 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	.string "Like, it won't let the other guy\n"
+	.string "Like, it paralyzes the other guy\n"
 # 292 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	.string "use the same move twice in a row, see?\p"
+	.string "with a jolt of electricity, see?\p"
 # 293 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
 	.string "Hey, now, you listen here, like,\n"
 # 294 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
-	.string "I'm not laying a torment on you!$"
+	.string "I'm not paralyzing you!$"
 # 295 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"
 
 # 296 "data/maps/SlateportCity_BattleTentLobby/scripts.pory"

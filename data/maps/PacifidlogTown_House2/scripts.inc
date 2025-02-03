@@ -111,7 +111,7 @@ PacifidlogTown_House2_EventScript_GiveFrustration::
 # 56 "data/maps/PacifidlogTown_House2/scripts.pory"
 	msgbox PacifidlogTown_House2_Text_ViciousPokemonTakeThis, MSGBOX_DEFAULT
 # 57 "data/maps/PacifidlogTown_House2/scripts.pory"
-	giveitem ITEM_TM_FRUSTRATION
+	giveitem ITEM_TM_FACADE
 # 58 "data/maps/PacifidlogTown_House2/scripts.pory"
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 # 59 "data/maps/PacifidlogTown_House2/scripts.pory"
@@ -119,7 +119,7 @@ PacifidlogTown_House2_EventScript_GiveFrustration::
 # 60 "data/maps/PacifidlogTown_House2/scripts.pory"
 	special SetPacifidlogTMReceivedDay
 # 61 "data/maps/PacifidlogTown_House2/scripts.pory"
-	msgbox PacifidlogTown_House2_Text_ExplainReturnFrustration, MSGBOX_DEFAULT
+	msgbox PacifidlogTown_House2_Text_ExplainFacade, MSGBOX_DEFAULT
 # 62 "data/maps/PacifidlogTown_House2/scripts.pory"
 	release
 # 63 "data/maps/PacifidlogTown_House2/scripts.pory"
@@ -245,50 +245,54 @@ PacifidlogTown_House2_Text_ExplainReturnFrustration:
 # 123 "data/maps/PacifidlogTown_House2/scripts.pory"
 	.string "If a POKéMON likes you a lot, RETURN's\n"
 # 124 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "power is enhanced.\p"
+	.string "power is enhanced.$"
 # 125 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "If it doesn't like you, FRUSTRATION's\n"
+
 # 126 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "power goes up.$"
+PacifidlogTown_House2_Text_ExplainFacade:
 # 127 "data/maps/PacifidlogTown_House2/scripts.pory"
-
+	.string "FACADE doubles the ATTACK of\n"
 # 128 "data/maps/PacifidlogTown_House2/scripts.pory"
-PacifidlogTown_House2_Text_GetGoodTMInXDays:
+	.string "a Pokémon that has a status condition.$"
 # 129 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "Oh, yes. In about {STR_VAR_1} or so days,\n"
+
 # 130 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "I should be getting a good TM or two.\p"
+PacifidlogTown_House2_Text_GetGoodTMInXDays:
 # 131 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "You should come see me then.\n"
+	.string "Oh, yes. In about {STR_VAR_1} or so days,\n"
 # 132 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "I'll give you a TM that's suitable for\l"
+	.string "I should be getting a good TM or two.\p"
 # 133 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "your POKéMON.$"
+	.string "You should come see me then.\n"
 # 134 "data/maps/PacifidlogTown_House2/scripts.pory"
-
+	.string "I'll give you a TM that's suitable for\l"
 # 135 "data/maps/PacifidlogTown_House2/scripts.pory"
-PacifidlogTown_House2_Text_Rurii:
+	.string "your POKéMON.$"
 # 136 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "AZURILL: Rurii.$"
+
 # 137 "data/maps/PacifidlogTown_House2/scripts.pory"
-
+PacifidlogTown_House2_Text_Rurii:
 # 138 "data/maps/PacifidlogTown_House2/scripts.pory"
-PacifidlogTown_House2_Text_VeryFriendlyWithTrainer:
+	.string "AZURILL: Rurii.$"
 # 139 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "It appears to be very friendly with the\n"
+
 # 140 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "TRAINER.$"
+PacifidlogTown_House2_Text_VeryFriendlyWithTrainer:
 # 141 "data/maps/PacifidlogTown_House2/scripts.pory"
-
+	.string "It appears to be very friendly with the\n"
 # 142 "data/maps/PacifidlogTown_House2/scripts.pory"
-PacifidlogTown_House2_Text_Rururi:
+	.string "TRAINER.$"
 # 143 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "AZURILL: Rururi!$"
-# 144 "data/maps/PacifidlogTown_House2/scripts.pory"
 
+# 144 "data/maps/PacifidlogTown_House2/scripts.pory"
+PacifidlogTown_House2_Text_Rururi:
 # 145 "data/maps/PacifidlogTown_House2/scripts.pory"
-PacifidlogTown_House2_Text_DoesntLikeTrainerVeryMuch:
+	.string "AZURILL: Rururi!$"
 # 146 "data/maps/PacifidlogTown_House2/scripts.pory"
-	.string "It doesn't appear to like the TRAINER\n"
+
 # 147 "data/maps/PacifidlogTown_House2/scripts.pory"
+PacifidlogTown_House2_Text_DoesntLikeTrainerVeryMuch:
+# 148 "data/maps/PacifidlogTown_House2/scripts.pory"
+	.string "It doesn't appear to like the TRAINER\n"
+# 149 "data/maps/PacifidlogTown_House2/scripts.pory"
 	.string "very much.$"

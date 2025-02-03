@@ -10941,10 +10941,10 @@ Level: 27
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_TABITHA_MT_CHIMNEY ===
-Name: TABITHA
+Name: COURTNEY
 Class: Magma Admin
-Pic: Magma Admin
-Gender: Male
+Pic: Magma Admin F
+Gender: Female
 Music: Magma
 Double Battle: No
 AI: Basic Trainer

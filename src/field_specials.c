@@ -2566,6 +2566,16 @@ void ShowScrollableMultichoice(void)
         task->tKeepOpenAfterSelect = FALSE;
         task->tTaskId = taskId;
         break;
+    case SCROLL_MULTI_GAME_CORNER_TMS:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 9;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
     default:
         gSpecialVar_Result = MULTI_B_PRESSED;
         DestroyTask(taskId);
@@ -2745,6 +2755,19 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Fish_Qwilfish,
         gText_Fish_Basculin,
         gText_Fish_Cosmog,
+        gText_Exit,
+    },
+    [SCROLL_MULTI_GAME_CORNER_TMS] =
+    {
+        gText_GameCorner_PsychicTM,
+        gText_GameCorner_LeechLifeTM,
+        gText_GameCorner_ThunderboltTM,
+        gText_GameCorner_IceBeamTM,
+        gText_GameCorner_ShadowBallTM,
+        gText_GameCorner_IceSpinnerTM,
+        gText_GameCorner_EarthPowerTM,
+        gText_GameCorner_FlashCannonTM,
+        gText_GameCorner_DarkPulseTM,
         gText_Exit,
     }
 };

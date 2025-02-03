@@ -742,6 +742,190 @@ script EventScript_HyperTrainNPC {
 	goto(End)
 }
 
+script EventScript_GameCorner_Clerk_TMs {
+	lockall
+	msgbox(format("I sell TMs in exchange for Battle Points."))
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) { // Not Enough BP
+		msgbox(format("You don't have enough Battle Points. Come back with some more."))
+		goto(End)
+	}
+	msgbox(format("Would you like to buy anything?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	special(ShowBattlePointsWindow)
+	setvar(VAR_0x8004, SCROLL_MULTI_GAME_CORNER_TMS)
+	special(ShowScrollableMultichoice)
+	waitstate
+	special(CloseBattlePointsWindow)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			call(TryBuyLeechLifeTM)
+		case 1:
+			call(TryBuyDarkPulseTM)
+		case 2:
+			call(TryBuyEarthPowerTM)
+		case 3:
+			call(TryBuyFlashCannonTM)
+		case 4:
+			call(TryBuyIceBeamTM)
+		case 5:
+			call(TryBuyIceSpinnerTM)
+		case 6:
+			call(TryBuyPsychicTM)
+		case 7:
+			call(TryBuyShadowBallTM)
+		case 8:
+			call(TryBuyThunderboltTM)		
+	}
+}
+
+script TryBuyLeechLifeTM {
+	msgbox(format("You would like to buy TM32 Leech Life?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_LEECH_LIFE)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyDarkPulseTM {
+	msgbox(format("You would like to buy TM100 Dark Pulse?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_DARK_PULSE)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyEarthPowerTM {
+	msgbox(format("You would like to buy TM41 Earth Power?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_EARTH_POWER)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyFlashCannonTM {
+	msgbox(format("You would like to buy TM99 Flash Cannon?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_FLASH_CANNON)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyIceBeamTM {
+	msgbox(format("You would like to buy TM13 Ice Beam?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_ICE_BEAM)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyIceSpinnerTM {
+	msgbox(format("You would like to buy TM70 Ice Spinner?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_ICE_SPINNER)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyPsychicTM {
+	msgbox(format("You would like to buy TM29 Psychic?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_PSYCHIC)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyShadowBallTM {
+	msgbox(format("You would like to buy TM30 Shadow Ball?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_SHADOW_BALL)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyThunderboltTM {
+	msgbox(format("You would like to buy TM24 Thunderbolt?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_THUNDERBOLT)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
 script BPShopClerk {
 	lockall
 	msgbox(format("I sell certain items in exchange for Battle Points."))

@@ -27463,12 +27463,14 @@ F_TRAINER_FEMALE |
     [TRAINER_TABITHA_MT_CHIMNEY] =
     {
 #line 10944
-        .trainerName = _("TABITHA"),
+        .trainerName = _("COURTNEY"),
 #line 10945
         .trainerClass = TRAINER_CLASS_MAGMA_ADMIN,
 #line 10946
-        .trainerPic = TRAINER_PIC_MAGMA_ADMIN,
+        .trainerPic = TRAINER_PIC_MAGMA_ADMIN_F,
         .encounterMusic_gender = 
+#line 10947
+F_TRAINER_FEMALE | 
 #line 10948
             TRAINER_ENCOUNTER_MUSIC_MAGMA,
 #line 10949

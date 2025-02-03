@@ -10761,7 +10761,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .name = COMPOUND_STRING("Mirror Shot"),
         .description = COMPOUND_STRING(
             "Emits a flash of energy to\n"
-            "damage and cut accuracy."),
+            "damage and lower Sp. Def."),
         .effect = EFFECT_HIT,
         .power = 65,
         .type = TYPE_STEEL,
