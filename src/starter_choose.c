@@ -112,8 +112,7 @@ static const u8 sStarterLabelCoords[STARTER_MON_COUNT][2] =
 
 static const u16 sStarterMon[STARTER_MON_COUNT] =
 {
-    SPECIES_EEVEE,
-    //SPECIES_SNIVY,
+    SPECIES_SNIVY,
     SPECIES_SCORBUNNY,
     SPECIES_SQUIRTLE,
 };

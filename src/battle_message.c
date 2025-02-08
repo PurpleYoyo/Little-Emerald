@@ -886,6 +886,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_ELECTRICCURRENTISRUNNING]             = COMPOUND_STRING("An electric current is running across the battlefield!"),
     [STRINGID_SEEMSWEIRD]                           = COMPOUND_STRING("The battlefield seems weird!"),
     [STRINGID_WAGGLINGAFINGER]                      = COMPOUND_STRING("Waggling a finger let it use {B_CURRENT_MOVE}!"),
+    [STRINGID_TRICKWINDROOM]                        = COMPOUND_STRING("The dimensions were twisted and a Tailwind blew from behind {B_ATK_TEAM2} team!"),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -925,6 +926,7 @@ const u16 gStartingStatusStringIds[B_MSG_STARTING_STATUS_COUNT] =
     [B_MSG_SET_WONDER_ROOM]         = STRINGID_BIZARREAREACREATED,
     [B_MSG_SET_TAILWIND_PLAYER]     = STRINGID_TAILWINDBLEW,
     [B_MSG_SET_TAILWIND_OPPONENT]   = STRINGID_TAILWINDBLEW,
+    [B_MSG_SET_TRICKWIND_ROOM]      = STRINGID_TRICKWINDROOM,
 };
 
 const u16 gTerrainStringIds[B_MSG_TERRAIN_COUNT] =

@@ -50,16 +50,13 @@ General TODO
 -remove evolved daycare mons
 -figure out items for bp shop
 -tabitha -> courtney mt chimney
+-Tms
+-pokemarts
 
 code:
-meteor falls courtney
 add mt. pyre matt & archie
-remove sfc shelly
 Tate & Liza randomly choose a mega
 minibosses no bp after cap
-Tms
-pokemarts
-lucky punch happiny
 
 porymap:
 Add encounters to some cities with none
@@ -104,16 +101,10 @@ colored toggleables text in utility menu
 fast surf work with auto run
 damp = immune to explosions, not stop
 reaper cloth
+lucky punch happiny
 
 Pokémon with type items (for moveset inspection):
 Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
-
-Abilities
-----------
-Mega Munchlax = Poison Heal
-Mega Toxel A = Punk Rock
-Mega Toxel L = Punk Rock
-Mega Azurill = Immense Power (Huge Power x2)
 
 Learnsets
 ----------
@@ -129,7 +120,7 @@ Igglybuff + Misty Explosion
 Azurill + Misty Explosion
 Type: Null + Zen Headbutt
 Darumaka-Galar + Fire Punch
-Beldum + Agility, Magnet Rise
+Beldum + Agility, Magnet Rise, Psychic, Flash Cannon, Hyper Beam
 Slowpoke-Galar + Poison Jab
 Mudkip + Earthquake, Stealth Rock
 Wimpod + Liquidation, Leech Life, Sucker Punch, Poison Jab, First Impression
@@ -145,7 +136,19 @@ Poipole + Dragon Rush
 Toxel + Shift Gear, Overdrive, Boomburst, Poison Jab
 Eevee + Multi-Attack
 Woobat + Early Skill Swap
-Varoom + Egg[Skill Swap`]
+Varoom + Egg[Skill Swap]
+Bounsweet + Trop Kick
+Scorbunny + Pyro Ball
+Squirtle + Dark Pulse, Aura Sphere
+Litleo + Dark Pulse
+Skitty + Assist, Hyper Voice
+Ralts + Psyblade, Sacred Sword, Slash, Swords Dance, Leaf Blade, Knock Off
+Budew + Magical Leaf, Toxic
+Fletchling + Will-O-Wisp
+Swablu + Weather Ball, Air Slash
+Riolu + Meteor Mash
+Rookidee + Flash Cannon
+Lotad + Fake Out
 
 Moves
 ----------
@@ -156,37 +159,16 @@ Charge Beam -> Acc 100
 Fairy Wind -> 60 BP
 Fire Spin, Whirlpool -> Acc 100, 40 BP
 Rock Slide, Rock Tomb, Rock Throw, Rock Blast -> Acc 100
+Pyro Ball -> Acc 100
 
 King's Shield -> Sharply Drop Atk on contact
+
+Triple Kick -> 20 BP (10), Acc 100 (90)
 Muddy Water -> Acc 95 (85)
 Triple Axel -> Acc 95 (90)
 Electroweb, Night Daze, Metal Claw -> Acc 100 (95)
 Dragon Rush, Iron Tail -> Acc 80 (75)
 Multi-Attack -> 90 BP (120)
-Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot -> Acc 100 (90)
+Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot, Blaze Kick -> Acc 100 (90)
 
 Items | include/constants/hold_effects.h
-----------
-Electirizer -> Boost Electric 20%, Elekid Mega Stone
-Magmarizer -> Boost Fire 20%, Magby Mega Stone
-Sea Incense + Azurill Mega Stone
-Lucky Egg -> Togepi Mega Stone
-Never-Melt Ice + Smoochum Mega Stone
-Odd Incense + Mime Jr. Mega Stone
-Malicious Armor -> Boost Ghost 20% for Charcadet, Change Charcadet's Typing to Fire/Ghost
-Auspicious Armor -> Boost Psychic 20% for Charcadet, Change Charcadet's Typing to Fire/Psychic
-Eevee, Shiny Stone = Fairy, Leaf Stone = Grass, Fire Stone = Fire, Water Stone = Water, Thunder Stone = Electric, Ice Stone = Ice
-New Item: Pink Bow = Boost Fairy 20%, Igglybuff Mega Stone
-
-Ideas
-----------
-Steven:
-Beldum				
-43				
-Careful				
-Clear Body				
-Eviolite				
-Zen Headbutt				
-Iron Head				
-Agility				
-Magnet Rise

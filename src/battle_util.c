@@ -4418,6 +4418,31 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     effect = 1;
                 }
                 break;
+            case STARTING_STATUS_TRICKWIND_ROOM:
+                if (!(gFieldStatuses & STATUS_FIELD_TRICK_ROOM))
+                {
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_TRICK_ROOM;
+                    gFieldStatuses |= STATUS_FIELD_TRICK_ROOM;
+                    gBattleScripting.animArg1 = B_ANIM_TRICK_ROOM;
+                    if (timerVal == 0)
+                        gFieldTimers.trickRoomTimer = 0;    // infinite
+                    else
+                        gFieldTimers.trickRoomTimer = 5;
+                    effect = 1;
+                }
+                if (!(gSideStatuses[B_SIDE_PLAYER] & SIDE_STATUS_TAILWIND))
+                {
+                    gBattlerAttacker = B_POSITION_PLAYER_LEFT;
+                    gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_TRICKWIND_ROOM;
+                    gSideStatuses[B_SIDE_PLAYER] |= SIDE_STATUS_TAILWIND;
+                    gBattleScripting.animArg1 = B_ANIM_TRICKWIND_ROOM;
+                    if (timerVal == 0)
+                        gSideTimers[B_SIDE_PLAYER].tailwindTimer = 0; // infinite
+                    else
+                        gSideTimers[B_SIDE_PLAYER].tailwindTimer = 5;
+                    effect = 1;
+                }
+                break;
             case STARTING_STATUS_TAILWIND_OPPONENT:
                 if (!(gSideStatuses[B_SIDE_OPPONENT] & SIDE_STATUS_TAILWIND))
                 {
@@ -10064,7 +10089,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
         break;
     case HOLD_EFFECT_DEFENSE_INCENSE:
         if (gBattleMons[battlerDef].species == SPECIES_TYROGUE || gBattleMons[battlerDef].species == SPECIES_TYROGUE_MEGA_C)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
         break;
     case HOLD_EFFECT_PROTECTOR:
         if (gBattleMons[battlerDef].species == SPECIES_RHYHORN)

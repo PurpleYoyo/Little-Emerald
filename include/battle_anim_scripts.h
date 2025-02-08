@@ -999,6 +999,7 @@ extern const u8 gBattleAnimGeneral_TrickRoom[];
 extern const u8 gBattleAnimGeneral_WonderRoom[];
 extern const u8 gBattleAnimGeneral_MagicRoom[];
 extern const u8 gBattleAnimGeneral_Tailwind[];
+extern const u8 gBattleAnimGeneral_TrickwindRoom[];
 extern const u8 gBattleAnimGeneral_Fog[];
 extern const u8 gBattleAnimGeneral_TeraCharge[];
 extern const u8 gBattleAnimGeneral_TeraActivate[];

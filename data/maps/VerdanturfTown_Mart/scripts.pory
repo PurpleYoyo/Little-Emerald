@@ -19,6 +19,7 @@ VerdanturfTown_Mart_Pokemart:
 	.2byte ITEM_NEST_BALL
 	.2byte ITEM_FRIEND_BALL
 	.2byte ITEM_FLUFFY_TAIL
+	.2byte ITEM_ABILITY_CAPSULE
 	.2byte ITEM_REVIVE
 	pokemartlistend
 
