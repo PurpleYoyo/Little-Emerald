@@ -12,32 +12,29 @@ Pic: Steven
 Gender: Male
 Music: Male
 
-Metang
-Brave Nature
-Level: 42
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 252 Def / 6 SpA
-- Light Screen
-- Psychic
+Duraludon @ Eviolite
+Nature: Impish
+Ability: Light Metal
+Level: 48
 - Reflect
-- Metal Claw
+- Light Screen
+- Dragon Tail
+- Metal Burst
 
-Skarmory
-Impish Nature
-Level: 43
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 HP / 6 SpA / 252 SpD
-- Toxic
-- Aerial Ace
-- Protect
-- Steel Wing
+Beldum @ Choice Specs
+Nature: Modest
+Ability: Clear Body
+Level: 49
+- Steel Beam
+- Psychic
+- Flash Cannon
+- Hyper Beam
 
-Aggron
-Adamant Nature
-Level: 44
-IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
-EVs: 252 Atk / 252 SpA / 6 SpD
-- Thunder
-- Protect
-- Solar Beam
-- Dragon Claw
+Pawniard @ Focus Sash
+Nature: Jolly
+Ability: Supreme Overlord
+Level: 50
+- Foul Play
+- Iron Head
+- X-Scissor
+- Brick Break

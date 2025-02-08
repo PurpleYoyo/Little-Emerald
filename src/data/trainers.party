@@ -4594,7 +4594,7 @@ Level: 34
 Ability: Technician
 Nature: Adamant
 - Double Hit
-- ANoibatics
+- Acrobatics
 - Trailblaze
 - Thief
 
@@ -4686,7 +4686,7 @@ Nature: Timid
 - Flamethrower
 
 === TRAINER_TATE_AND_LIZA_1 ===
-Name: TATE & LIZA
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
@@ -5820,7 +5820,7 @@ Nature: Rash
 - Hydro Pump
 - Blizzard
 - Fling
-- ANoibatics
+- Acrobatics
 
 Popplio @ Throat Spray
 Level: 64
@@ -8646,7 +8646,7 @@ Level: 56
 Ability: Gale Wings
 Nature: Jolly
 - Roost
-- ANoibatics
+- Acrobatics
 - Flare Blitz
 - Will-O-Wisp
 
@@ -8926,7 +8926,7 @@ Scorbunny @ Sitrus Berry
 Level: 38
 Ability: Libero
 Nature: Careful
-- ANoibatics
+- Acrobatics
 - Pyro Ball
 - Gunk Shot
 - High Jump Kick
@@ -9322,7 +9322,7 @@ Scorbunny @ Sitrus Berry
 Level: 38
 Ability: Libero
 Nature: Careful
-- ANoibatics
+- Acrobatics
 - Pyro Ball
 - Gunk Shot
 - High Jump Kick
@@ -11566,7 +11566,7 @@ Ability: Synchronize
 Nature: Hardy
 - Confusion
 - Disarming Voice
-- Drowzeesis
+- Hypnosis
 - Teleport
 
 === TRAINER_WALLY_VR_2 ===
@@ -11601,7 +11601,7 @@ Level: 56
 Ability: Gale Wings
 Nature: Jolly
 - Roost
-- ANoibatics
+- Acrobatics
 - Flare Blitz
 - Will-O-Wisp
 
@@ -11664,7 +11664,7 @@ Level: 56
 Ability: Gale Wings
 Nature: Jolly
 - Roost
-- ANoibatics
+- Acrobatics
 - Flare Blitz
 - Will-O-Wisp
 
@@ -11727,7 +11727,7 @@ Level: 56
 Ability: Gale Wings
 Nature: Jolly
 - Roost
-- ANoibatics
+- Acrobatics
 - Flare Blitz
 - Will-O-Wisp
 
@@ -11790,7 +11790,7 @@ Level: 56
 Ability: Gale Wings
 Nature: Jolly
 - Roost
-- ANoibatics
+- Acrobatics
 - Flare Blitz
 - Will-O-Wisp
 
@@ -11853,7 +11853,7 @@ Level: 41
 Ability: Swarm
 Nature: Naughty
 - X-Scissor
-- ANoibatics
+- Acrobatics
 - U-turn
 - Tailwind
 
@@ -11898,7 +11898,7 @@ Level: 39
 Ability: Swarm
 Nature: Naughty
 - X-Scissor
-- ANoibatics
+- Acrobatics
 - U-turn
 - Tailwind
 
@@ -11988,7 +11988,7 @@ Level: 42
 Ability: Swarm
 Nature: Naughty
 - X-Scissor
-- ANoibatics
+- Acrobatics
 - U-turn
 - Tailwind
 
@@ -12241,10 +12241,10 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Magikarp
+Feebas
 Level: 15
 
-Magikarp
+Remoraid
 Level: 25
 
 Magikarp
@@ -12301,7 +12301,7 @@ Music: Hiker
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
+Skrelp
 Level: 31
 
 Tentacool
@@ -12361,7 +12361,7 @@ Music: Twins
 Double Battle: Yes
 AI: Check Bad Move
 
-Yungoos
+Skwovet
 Level: 19
 
 Yungoos
@@ -12740,7 +12740,7 @@ Music: Girl
 Double Battle: No
 AI: Check Bad Move
 
-Tentacool
+Skrelp
 Level: 12
 
 Tentacool
@@ -12914,7 +12914,7 @@ Music: Suspicious
 Double Battle: No
 AI: Check Bad Move
 
-Aron
+Shieldon
 Level: 18
 
 Aron
@@ -13184,17 +13184,59 @@ Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 26
+Silicobra @ Smooth Rock
+Level: 38
+Ability: Sand Spit
+Nature: Careful
+- Stealth Rock
+- Earthquake
+- Scale Shot
+- Sandstorm
 
-Poochyena
-Level: 28
+Trapinch @ Eviolite
+Level: 39
+Ability: Arena Trap
+Nature: Brave
+- First Impression
+- Earthquake
+- Superpower
+- Sandstorm
 
-Zubat
-Level: 30
+Cacnea @ Bright Powder
+Level: 40
+Ability: Sand Veil
+Nature: Relaxed
+- Leech Seed
+- Substitute
+- Leaf Storm
+- Drain Punch
 
-Numel
-Level: 33
+Drilbur @ Choice Band
+Level: 41
+Ability: Sand Force
+Nature: Adamant
+- Earthquake
+- X-Scissor
+- Shadow Claw
+- Iron Head
+
+Bergmite @ Stone Plate
+Level: 42
+Ability: Sturdy
+Nature: Sassy
+- Avalanche
+- Stone Edge
+- Recover
+- Rapid Spin
+
+Gligar @ Toxic Orb
+Level: 43
+Ability: Poison Heal
+Nature: Jolly
+- Protect
+- Fire Fang
+- Earthquake
+- Toxic
 
 === TRAINER_DARCY ===
 Name: DARCY
@@ -13265,7 +13307,7 @@ AI: Check Bad Move
 Sandshrew
 Level: 25
 
-Sandshrew
+Mudbray
 Level: 25
 
 === TRAINER_JOSUE ===
@@ -13322,7 +13364,7 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Electrike
+Yamper
 Level: 24
 
 Taillow
@@ -13343,7 +13385,7 @@ AI: Check Bad Move
 Rookidee
 Level: 25
 
-Rookidee
+Natu
 Level: 25
 
 === TRAINER_CELIA ===
@@ -13373,7 +13415,7 @@ AI: Check Bad Move
 Sandshrew
 Level: 22
 
-Sandshrew
+Mudbray
 Level: 22
 
 === TRAINER_BRANDEN ===
@@ -14516,7 +14558,7 @@ Level: 43
 - Teeter Dance
 - Skill Swap
 - Facade
-- Drowzeesis
+- Hypnosis
 
 Slakoth @ Sitrus Berry
 Level: 45
@@ -14560,7 +14602,7 @@ Level: 48
 - Teeter Dance
 - Skill Swap
 - Facade
-- Drowzeesis
+- Hypnosis
 
 Slakoth @ Sitrus Berry
 Level: 50
@@ -14604,7 +14646,7 @@ Level: 53
 - Teeter Dance
 - Skill Swap
 - Facade
-- Drowzeesis
+- Hypnosis
 
 Slakoth @ Sitrus Berry
 Level: 55
@@ -14651,7 +14693,7 @@ Level: 58
 - Teeter Dance
 - Skill Swap
 - Facade
-- Drowzeesis
+- Hypnosis
 
 Slakoth @ Sitrus Berry
 Level: 60
@@ -14715,7 +14757,7 @@ AI: Basic Trainer / Risky
 
 Hoothoot
 Level: 43
-- Drowzeesis
+- Hypnosis
 - Psychic
 - Reflect
 - Dream Eater
@@ -14766,7 +14808,7 @@ AI: Basic Trainer / Risky
 
 Hoothoot
 Level: 48
-- Drowzeesis
+- Hypnosis
 - Psychic
 - Reflect
 - Dream Eater
@@ -14817,7 +14859,7 @@ AI: Basic Trainer / Risky
 
 Hoothoot
 Level: 53
-- Drowzeesis
+- Hypnosis
 - Psychic
 - Reflect
 - Dream Eater
@@ -14858,7 +14900,7 @@ Level: 60
 - Earthquake
 
 === TRAINER_TATE_AND_LIZA_2 ===
-Name: TATE & LIZA
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
@@ -14902,7 +14944,7 @@ Level: 50
 - Flamethrower
 
 === TRAINER_TATE_AND_LIZA_3 ===
-Name: TATE & LIZA
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
@@ -14912,7 +14954,7 @@ AI: Basic Trainer
 
 Drowzee
 Level: 53
-- Drowzeesis
+- Hypnosis
 - Dream Eater
 - Headbutt
 - Protect
@@ -14953,7 +14995,7 @@ Level: 55
 - Flamethrower
 
 === TRAINER_TATE_AND_LIZA_4 ===
-Name: TATE & LIZA
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
@@ -14963,7 +15005,7 @@ AI: Basic Trainer
 
 Drowzee
 Level: 58
-- Drowzeesis
+- Hypnosis
 - Dream Eater
 - Headbutt
 - Protect
@@ -15004,7 +15046,7 @@ Level: 60
 - Flamethrower
 
 === TRAINER_TATE_AND_LIZA_5 ===
-Name: TATE & LIZA
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
@@ -15014,7 +15056,7 @@ AI: Basic Trainer
 
 Drowzee
 Level: 63
-- Drowzeesis
+- Hypnosis
 - Dream Eater
 - Headbutt
 - Protect
@@ -15065,7 +15107,7 @@ AI: Basic Trainer
 
 Poliwag
 Level: 46
-- Drowzeesis
+- Hypnosis
 - Rain Dance
 - Protect
 - Hydro Pump
@@ -15109,7 +15151,7 @@ AI: Basic Trainer
 
 Poliwag
 Level: 50
-- Drowzeesis
+- Hypnosis
 - Rain Dance
 - Protect
 - Hydro Pump
@@ -15167,7 +15209,7 @@ Level: 58
 
 Poliwag
 Level: 56
-- Drowzeesis
+- Hypnosis
 - Rain Dance
 - Protect
 - Hydro Pump
@@ -15218,7 +15260,7 @@ Level: 63
 
 Politoed
 Level: 61
-- Drowzeesis
+- Hypnosis
 - Rain Dance
 - Hydro Pump
 - Perish Song
@@ -16180,7 +16222,7 @@ Poliwag @ Damp Rock
 Level: 42
 Ability: Drizzle
 Nature: Quiet
-- Drowzeesis
+- Hypnosis
 - Muddy Water
 - Blizzard
 - Helping Hand
@@ -16203,8 +16245,8 @@ Nature: Mild
 - Snarl
 - Electric Terrain
 
-=== TRAINER_MAY_PLACEHOLDER === /* Tate & Liza 2nd team */
-Name: TATE & LIZA
+=== TRAINER_MAY_PLACEHOLDER === /* TATE&LIZA 2nd team */
+Name: TATE&LIZA
 Class: Leader
 Pic: Leader Tate And Liza
 Gender: Male
