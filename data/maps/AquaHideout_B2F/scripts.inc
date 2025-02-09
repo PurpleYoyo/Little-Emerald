@@ -185,7 +185,7 @@ AquaHideout_B2F_EventScript_Grunt8::
 # 93 "data/maps/AquaHideout_B2F/scripts.pory"
 AquaHideout_B2F_Text_MattIntro:
 # 94 "data/maps/AquaHideout_B2F/scripts.pory"
-	.string "Hehehe…\p"
+	.string "Huhuhu…\p"
 # 95 "data/maps/AquaHideout_B2F/scripts.pory"
 	.string "Got here already, did you?\n"
 # 96 "data/maps/AquaHideout_B2F/scripts.pory"
@@ -205,7 +205,7 @@ AquaHideout_B2F_Text_MattIntro:
 # 103 "data/maps/AquaHideout_B2F/scripts.pory"
 AquaHideout_B2F_Text_MattDefeat:
 # 104 "data/maps/AquaHideout_B2F/scripts.pory"
-	.string "Hehehe…\n"
+	.string "Huhuhu…\n"
 # 105 "data/maps/AquaHideout_B2F/scripts.pory"
 	.string "So, I lost, too…$"
 # 106 "data/maps/AquaHideout_B2F/scripts.pory"
@@ -213,7 +213,7 @@ AquaHideout_B2F_Text_MattDefeat:
 # 107 "data/maps/AquaHideout_B2F/scripts.pory"
 AquaHideout_B2F_Text_OurBossGotThroughHisPreparations:
 # 108 "data/maps/AquaHideout_B2F/scripts.pory"
-	.string "Hehehe!\p"
+	.string "Huhuhu!\p"
 # 109 "data/maps/AquaHideout_B2F/scripts.pory"
 	.string "While I was toying with you, our BOSS\n"
 # 110 "data/maps/AquaHideout_B2F/scripts.pory"
@@ -223,7 +223,7 @@ AquaHideout_B2F_Text_OurBossGotThroughHisPreparations:
 # 112 "data/maps/AquaHideout_B2F/scripts.pory"
 AquaHideout_B2F_Text_MattPostBattle:
 # 113 "data/maps/AquaHideout_B2F/scripts.pory"
-	.string "Hehehe!\p"
+	.string "Huhuhu!\p"
 # 114 "data/maps/AquaHideout_B2F/scripts.pory"
 	.string "Our BOSS has already gone on his way to\n"
 # 115 "data/maps/AquaHideout_B2F/scripts.pory"

@@ -429,7 +429,7 @@ MossdeepCity_SpaceCenter_2F_Text_Grunt5PostBattle:
 	.string "at all?$"
 
 MossdeepCity_SpaceCenter_2F_Text_WellTakeCareOfYou:
-	.string "Hehehe!\p"
+	.string "Ahahahaha!\p"
 	.string "We come all the way here to get some\n"
 	.string "fuel, and we're interfered with again!\p"
 	.string "If you're going to mess with us too,\n"

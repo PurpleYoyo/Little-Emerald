@@ -41,7 +41,7 @@ Required fields for Pokemon:
 
 Optional fields for Pokemon:
     - Level (Number between 1 and 100, defaults to 100)
-    - Ability (Ability Name or ABILITY_ABILITY_NAME)
+    - Ability (Ability Name:or ABILITY_ABILITY_NAME)
     - IVs (0 HP / 1 Atk / 2 Def / 3 SpA / 4 SpD / 5 Spe, defaults to all 31)
           (Order does not matter)
     - EVs (252 HP / 128 Spe / 48 Def, defaults to all 0, is not capped at 512 total)
@@ -574,14 +574,61 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Carvanha
-Level: 28
+Amaura @ Icy Rock
+Level: 34
+Ability: Snow Warning
+Nature: Bold
+- Ancient Power
+- Freeze-Dry
+- Thunder Wave
+- Stealth Rock
 
-Poochyena
-Level: 28
+Sandshrew-Alola @ Focus Sash
+Level: 35
+Ability: Slush Rush
+Nature: Adamant
+- Swords Dance
+- Iron Head
+- Ice Spinner
+- Leech Life
 
-/* This fight was removed */
-=== TRAINER_SHELLY_SEAFLOOR_CAVERN ===
+Eevee @ Ice Stone
+Level: 36
+Ability: Adaptability
+Nature: Naughty
+- Multi-Attack
+- Yawn
+- Weather Ball
+- Last Resort
+
+Frigibax @ Loaded Dice
+Level: 37
+Ability: Thermal Exchange
+Nature: Jolly
+- Breaking Swipe
+- Scale Shot
+- Icicle Spear
+- Snowscape
+
+Bergmite @ Leftovers
+Level: 38
+Ability: Ice Body
+Nature: Gentle
+- Protect
+- Ice Fang
+- Crunch
+- Rapid Spin
+
+Sneasel-Hisui @ Air Balloon
+Level: 39
+Ability: Unburden
+Nature: Impish
+- Gunk Shot
+- Close Combat
+- X-Scissor
+- Lash Out
+
+=== TRAINER_SHELLY_SEAFLOOR_CAVERN === /* This fight was removed */
 Name: SHELLY
 Class: Aqua Admin
 Pic: Aqua Admin F
@@ -605,14 +652,59 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 41
+Poliwag @ Damp Rock
+Level: 45
+Ability: Drizzle
+Nature: Impish
+- Belly Drum
+- Waterfall
+- Body Slam
+- Low Kick
 
-Noibat
-Level: 41
+Mantyke @ Eviolite
+Level: 46
+Ability: Swift Swim
+Nature: Bold
+- Hydro Pump
+- Hurricane
+- Agility
+- Rain Dance
 
-Carvanha
-Level: 43
+Nymble @ Bright Powder
+Level: 47
+Ability: Tinted Lens
+Nature: Careful
+- First Impression
+- Sucker Punch
+- Leech Life
+- U-turn
+
+Clauncher @ Life Orb
+Level: 48
+Ability: Mega Launcher
+Nature: Naive
+- Swords Dance
+- Crabhammer
+- Dragon Pulse
+- Aura Sphere
+
+Finizen @ Flying Gem
+Level: 48
+Ability: Water Veil
+Nature: Jolly
+- Acrobatics
+- Zen Headbutt
+- Liquidation
+- Rain Dance
+
+Carvanha @ Focus Sash
+Level: 49
+Ability: Strong Jaw
+Nature: Adamant
+- Ice Fang
+- Liquidation
+- Crunch
+- Psychic Fangs
 
 === TRAINER_LEAH ===
 Name: LEAH
@@ -8537,22 +8629,40 @@ Ekans
 Level: 18
 
 === TRAINER_TABITHA_MOSSDEEP ===
-Name: TABITHA
+Name: COURTNEY
 Class: Magma Admin
-Pic: Magma Admin
-Gender: Male
+Pic: Magma Admin F
+Gender: Female
 Music: Magma
 Double Battle: No
 AI: Check Bad Move
 
-Numel
-Level: 36
+Grookey @ Terrain Extender
+Level: 46
+Ability: Grassy Surge
+Nature: Adamant
+- Grassy Glide
+- Knock Off
+- Drain Punch
+- Fake Out
 
-Poochyena
-Level: 38
+Bounsweet @ Focus Sash
+Level: 47
+Ability: Queenly Majesty
+Nature: Brave
+- Trop Kick
+- Teeter Dance
+- Giga Drain
+- Dazzling Gleam
 
-Zubat
-Level: 40
+Tangela @ Leftovers
+Level: 48
+Ability: Chlorophyll
+Nature: Mild
+- Solar Beam
+- Sludge Bomb
+- Sunny Day
+- Grassy Terrain
 
 === TRAINER_EDWIN_2 ===
 Name: EDWIN
@@ -13262,14 +13372,32 @@ Music: Magma
 Double Battle: No
 AI: Basic Trainer
 
-Poochyena
-Level: 42
+Charmander @ Heat Rock
+Level: 47
+Ability: Drought
+Nature: Bold
+- Dragon Dance
+- Dragon Claw
+- Flare Blitz
+- Shadow Claw
 
-Noibat
-Level: 43
+Numel @ Eviolite
+Level: 48
+Ability: Solid Rock
+Nature: Relaxed
+- Earthquake
+- Rock Slide
+- Scorching Sands
+- Helping Hand
 
-Numel
-Level: 44
+Magby @ Magmarizer
+Level: 49
+Ability: Flame Body
+Nature: Timid
+- Heat Wave
+- Psychic
+- Will-O-Wisp
+- Helping Hand
 
 === TRAINER_PETE ===
 Name: PETE
@@ -14002,123 +14130,113 @@ Level: 52
 - Protect
 - Rock Slide
 
-=== TRAINER_BRAWLY_2 ===
-Name: BRAWLY
-Class: Leader
-Pic: Leader Brawly
+=== TRAINER_BRAWLY_2 === /* Mt Pyre tag Brendan Scorbunny */
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
 Gender: Male
 Music: Male
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Pancham @ Sitrus Berry
-Level: 33
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Meditite
-Level: 33
-- Psychic
-- Light Screen
-- Reflect
-- Focus Punch
-
-Tyrogue
-Level: 35
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Makuhita @ Sitrus Berry
-Level: 37
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_3 ===
-Name: BRAWLY
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Double Battle: Yes
-AI: Basic Trainer
-
-Pancham @ Sitrus Berry
-Level: 38
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Meditite
-Level: 38
-- Psychic
-- Light Screen
-- Reflect
-- Focus Punch
-
-Tyrogue
-Level: 40
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
-
-Makuhita @ Sitrus Berry
-Level: 42
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
-
-=== TRAINER_BRAWLY_4 ===
-Name: BRAWLY
-Class: Leader
-Pic: Leader Brawly
-Gender: Male
-Music: Male
-Double Battle: Yes
-AI: Basic Trainer
-
-Tyrogue
-Level: 40
-- Sky Uppercut
-- Protect
-- Fire Punch
-- Ice Punch
-
-Pancham @ Sitrus Berry
+Seedot @ Focus Sash
 Level: 43
-- Karate Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
 
-Meditite
-Level: 43
-- Focus Punch
-- Light Screen
-- Reflect
-- Psychic
+Litleo @ Sitrus Berry
+Level: 44
+Ability: Unnerve
+Nature: Modest
+- Fire Spin
+- Swift
+- Sunny Day
+- Noble Roar
 
-Tyrogue
+Squirtle @ Eviolite
 Level: 45
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
 
-Makuhita @ Sitrus Berry
-Level: 47
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
+=== TRAINER_BRAWLY_3 === /* Mt Pyre tag Brendan Snivy */
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Wooper @ Mystic Water
+Level: 43
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Rain Dance
+
+Seedot @ Focus Sash
+Level: 44
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
+
+Scorbunny @ Life Orb
+Level: 45
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+=== TRAINER_BRAWLY_4 === /* Mt Pyre tag Brendan Squirtle */
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Litleo @ Sitrus Berry
+Level: 43
+Ability: Unnerve
+Nature: Modest
+- Fire Spin
+- Swift
+- Sunny Day
+- Noble Roar
+
+Wooper @ Mystic Water
+Level: 44
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Rain Dance
+
+Snivy @ Leftovers
+Level: 45
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain
 
 === TRAINER_BRAWLY_5 ===
 Name: BRAWLY
@@ -14899,151 +15017,113 @@ Level: 60
 - Dragon Dance
 - Earthquake
 
-=== TRAINER_TATE_AND_LIZA_2 ===
-Name: TATE&LIZA
-Class: Leader
-Pic: Leader Tate And Liza
-Gender: Male
+=== TRAINER_TATE_AND_LIZA_2 === /* Mt Pyre tag May Scorbunny */
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
 Music: Female
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Slowpoke
-Level: 48
-- Yawn
-- Psychic
-- Calm Mind
-- Protect
-
-Baltoy
-Level: 49
-- Earthquake
-- Ancient Power
-- Psychic
-- Light Screen
-
-Natu @ Chesto Berry
-Level: 49
-- Psychic
-- Rest
-- Confuse Ray
-- Calm Mind
-
-Glimmet @ Chesto Berry
-Level: 50
-- Earthquake
-- Psychic
-- Rest
-- Calm Mind
-
-Rolycoly @ Sitrus Berry
-Level: 50
+Cherubi @ Focus Sash
+Level: 43
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Draining Kiss
+- Grasswhistle
 - Sunny Day
-- Solar Beam
-- Psychic
-- Flamethrower
 
-=== TRAINER_TATE_AND_LIZA_3 ===
-Name: TATE&LIZA
-Class: Leader
-Pic: Leader Tate And Liza
-Gender: Male
+Ponyta @ Sitrus Berry
+Level: 44
+Ability: Flame Body
+Nature: Relaxed
+- Flame Charge
+- Body Slam
+- Double Team
+- Swagger
+
+Squirtle @ Eviolite
+Level: 45
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+=== TRAINER_TATE_AND_LIZA_3 === /* Mt Pyre tag May Snivy */
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
 Music: Female
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Drowzee
-Level: 53
-- Hypnosis
-- Dream Eater
-- Headbutt
-- Protect
+Ducklett @ Sharp Beak
+Level: 43
+Ability: Big Pecks
+Nature: Jolly
+- Aerial Ace
+- Aqua Jet
+- Facade
+- Feather Dance
 
-Slowpoke
-Level: 53
-- Yawn
-- Psychic
-- Calm Mind
-- Protect
-
-Baltoy
-Level: 54
-- Earthquake
-- Explosion
-- Psychic
-- Light Screen
-
-Natu @ Chesto Berry
-Level: 54
-- Psychic
-- Rest
-- Confuse Ray
-- Calm Mind
-
-Glimmet @ Chesto Berry
-Level: 55
-- Earthquake
-- Psychic
-- Rest
-- Calm Mind
-
-Rolycoly @ Sitrus Berry
-Level: 55
+Cherubi @ Focus Sash
+Level: 44
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Draining Kiss
+- Grasswhistle
 - Sunny Day
-- Solar Beam
-- Psychic
-- Flamethrower
 
-=== TRAINER_TATE_AND_LIZA_4 ===
-Name: TATE&LIZA
-Class: Leader
-Pic: Leader Tate And Liza
-Gender: Male
+Scorbunny @ Life Orb
+Level: 45
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+=== TRAINER_TATE_AND_LIZA_4 === /* Mt Pyre tag May Squirtle */
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
 Music: Female
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Drowzee
-Level: 58
-- Hypnosis
-- Dream Eater
-- Headbutt
-- Protect
+Ponyta @ Sitrus Berry
+Level: 43
+Ability: Flame Body
+Nature: Relaxed
+- Flame Charge
+- Body Slam
+- Double Team
+- Swagger
 
-Baltoy
-Level: 59
-- Earthquake
-- Explosion
-- Psychic
-- Light Screen
+Ducklett @ Sharp Beak
+Level: 44
+Ability: Big Pecks
+Nature: Jolly
+- Aerial Ace
+- Aqua Jet
+- Facade
+- Feather Dance
 
-Slowpoke
-Level: 58
-- Yawn
-- Psychic
-- Calm Mind
-- Protect
-
-Natu @ Chesto Berry
-Level: 59
-- Psychic
-- Rest
-- Confuse Ray
-- Calm Mind
-
-Glimmet @ Chesto Berry
-Level: 60
-- Earthquake
-- Psychic
-- Rest
-- Calm Mind
-
-Rolycoly @ Sitrus Berry
-Level: 60
-- Sunny Day
-- Solar Beam
-- Psychic
-- Flamethrower
+Snivy @ Leftovers
+Level: 45
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain
 
 === TRAINER_TATE_AND_LIZA_5 ===
 Name: TATE&LIZA
@@ -16162,16 +16242,50 @@ Double Battle: No
 Wynaut
 Level: 41
 
-=== TRAINER_RED ===
-Name: RED
-Class: Rival
-Pic: Red
+=== TRAINER_RED === /* Oceanic Museum Archie */
+Name: ARCHIE
+Class: Aqua Leader
+Pic: Aqua Leader Archie
 Gender: Male
-Music: Male
+Music: Aqua
 Double Battle: No
+AI: Basic Trainer
 
-Charmander
-Level: 5
+Purrloin @ Normal Gem
+Level: 22
+Ability: Unburden
+Nature: Calm
+- Fake Out
+- Yawn
+- Dark Pulse
+- Sand Attack
+
+Wiglett @ Focus Sash
+Level: 23
+Ability: Gooey
+Nature: Lonely
+- Triple Dive
+- Sand Attack
+- Bulldoze
+- Whirlpool
+
+Kricketot @ Focus Band
+Level: 23
+Ability: Shed Skin
+Nature: Quiet
+- Perish Song
+- Sticky Web
+- Endeavor
+- Struggle Bug
+
+Carvanha @ Eviolite
+Level: 24
+Ability: Rough Skin
+Nature: Adamant
+- Aqua Cutter
+- Ice Fang
+- Poison Fang
+- Swagger
 
 === TRAINER_LEAF === /* Mt. Pyre tag Matt */
 Name: MATT

@@ -52,9 +52,12 @@ General TODO
 -tabitha -> courtney mt chimney
 -Tms
 -pokemarts
+-mossdeep tabitha -> courtney
+-add mt. pyre matt & archie
+-add museum archie
 
 code:
-add mt. pyre matt & archie
+switch back to custom swith func
 Tate & Liza randomly choose a mega
 minibosses no bp after cap
 
@@ -75,26 +78,6 @@ berries
 special gift battle bond froakie
 special gift tough claws rockruff
 static pokemon
-
-Evil Teams:
--Slateport Museum
-Archie
--Mt. Chimney
-Courtney: Grass
-Maxie
--Weather Institute
-Shelly: Snow
--Team Magma Hideout
-Tabitha: Sand
-Maxie: Sun
--Mt. Pyre
-Matt & Archie: Electric + Rain
--Team Aqua Hideout
-Matt: Electric
--Seafloor Cavern
-Archie: Rain
--Mossdeep Space Center
-Courtney & Maxie: Grass + Sun
 
 ideas for the future:
 colored toggleables text in utility menu

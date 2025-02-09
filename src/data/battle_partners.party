@@ -38,3 +38,213 @@ Level: 50
 - Iron Head
 - X-Scissor
 - Brick Break
+
+=== PARTNER_BRENDAN_SNIVY ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Wooper @ Mystic Water
+Level: 43
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Rain Dance
+
+Seedot @ Focus Sash
+Level: 44
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
+
+Scorbunny @ Life Orb
+Level: 45
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+=== PARTNER_BRENDAN_SCORBUNNY ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Seedot @ Focus Sash
+Level: 43
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
+
+Litleo @ Sitrus Berry
+Level: 44
+Ability: Unnerve
+Nature: Modest
+- Fire Spin
+- Swift
+- Sunny Day
+- Noble Roar
+
+Squirtle @ Eviolite
+Level: 45
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+=== PARTNER_BRENDAN_SQUIRTLE ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Litleo @ Sitrus Berry
+Level: 43
+Ability: Unnerve
+Nature: Modest
+- Fire Spin
+- Swift
+- Sunny Day
+- Noble Roar
+
+Wooper @ Mystic Water
+Level: 44
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Rain Dance
+
+Snivy @ Leftovers
+Level: 45
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain
+
+=== PARTNER_MAY_SNIVY ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Ducklett @ Sharp Beak
+Level: 43
+Ability: Big Pecks
+Nature: Jolly
+- Aerial Ace
+- Aqua Jet
+- Facade
+- Feather Dance
+
+Cherubi @ Focus Sash
+Level: 44
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Draining Kiss
+- Grasswhistle
+- Sunny Day
+
+Scorbunny @ Life Orb
+Level: 45
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+=== PARTNER_MAY_SCORBUNNY ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Cherubi @ Focus Sash
+Level: 43
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Draining Kiss
+- Grasswhistle
+- Sunny Day
+
+Ponyta @ Sitrus Berry
+Level: 44
+Ability: Flame Body
+Nature: Relaxed
+- Flame Charge
+- Body Slam
+- Double Team
+- Swagger
+
+Squirtle @ Eviolite
+Level: 45
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+=== PARTNER_MAY_SQUIRTLE ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Ponyta @ Sitrus Berry
+Level: 43
+Ability: Flame Body
+Nature: Relaxed
+- Flame Charge
+- Body Slam
+- Double Team
+- Swagger
+
+Ducklett @ Sharp Beak
+Level: 44
+Ability: Big Pecks
+Nature: Jolly
+- Aerial Ace
+- Aqua Jet
+- Facade
+- Feather Dance
+
+Snivy @ Leftovers
+Level: 45
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain

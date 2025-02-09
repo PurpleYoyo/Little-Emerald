@@ -861,7 +861,7 @@ MossdeepCity_SpaceCenter_2F_Text_Grunt5PostBattle:
 # 431 "data/maps/MossdeepCity_SpaceCenter_2F/scripts.pory"
 MossdeepCity_SpaceCenter_2F_Text_WellTakeCareOfYou:
 # 432 "data/maps/MossdeepCity_SpaceCenter_2F/scripts.pory"
-	.string "Hehehe!\p"
+	.string "Ahahahaha!\p"
 # 433 "data/maps/MossdeepCity_SpaceCenter_2F/scripts.pory"
 	.string "We come all the way here to get some\n"
 # 434 "data/maps/MossdeepCity_SpaceCenter_2F/scripts.pory"

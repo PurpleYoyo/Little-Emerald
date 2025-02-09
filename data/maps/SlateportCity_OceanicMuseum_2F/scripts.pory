@@ -59,6 +59,7 @@ SlateportCity_OceanicMuseum_2F_EventScript_CaptStern::
 	applymovement LOCALID_ARCHIE, SlateportCity_OceanicMuseum_2F_Movement_ArchieApproachPlayer
 	waitmovement 0
 	msgbox SlateportCity_OceanicMuseum_2F_Text_ArchieWarning, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_RED, SlateportCity_OceanicMuseum_2F_Text_ArchieDefeat
 	closemessage
 	savebgm MUS_DUMMY
 	fadedefaultbgm
@@ -343,11 +344,7 @@ SlateportCity_OceanicMuseum_2F_Text_ArchieWarning:
 	.string "Ah, fine…\n"
 	.string "You're still too young to understand\l"
 	.string "our noble objective.\p"
-	.string "But, I warn you, don't even consider\n"
-	.string "interfering with our plans again.\p"
-	.string "The consequences will cost you\n"
-	.string "dearly!\p"
-	.string "And don't you forget it!$"
+	.string "I will crush you right here!$"
 
 SlateportCity_OceanicMuseum_2F_Text_SternThankYouForSavingUs:
 	.string "CAPT. STERN: You're…\n"
@@ -440,4 +437,12 @@ SlateportCity_OceanicMuseum_2F_Text_SSAnneReplica:
 	.string "“A replica of the luxury liner that\n"
 	.string "circles the globe.”$"
 
+SlateportCity_OceanicMuseum_2F_Text_ArchieDefeat:
+	.string "Fufufu...\n"
+	.string "You may have bested me this time,\n"
+	.string "but, I warn you, don't even consider\n"
+	.string "interfering with our plans again.\p"
+	.string "The consequences will cost you\n"
+	.string "dearly!\p"
+	.string "And don't you forget it!$"
 `

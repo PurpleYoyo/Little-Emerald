@@ -4,5 +4,11 @@
 
 #define PARTNER_NONE                0
 #define PARTNER_STEVEN              1
+#define PARTNER_BRENDAN_SNIVY       2
+#define PARTNER_BRENDAN_SCORBUNNY   3
+#define PARTNER_BRENDAN_SQUIRTLE    4
+#define PARTNER_MAY_SNIVY           5
+#define PARTNER_MAY_SCORBUNNY       6
+#define PARTNER_MAY_SQUIRTLE        7
 
 #endif  // GUARD_CONSTANTS_BATTLE_PARTNERS_H

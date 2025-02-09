@@ -8022,46 +8022,38 @@ static void Cmd_getmoneyreward(void)
 {
     CMD_ARGS();
 
-    if (VarGet(gSpecialVar_0x800B) != 0)
+    u32 money;
+    u8 sPartyLevel = 1;
+
+    if (gBattleOutcome == B_OUTCOME_WON)
     {
-        GiveFrontierBattlePoints();
-        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 3, gSpecialVar_0x800B);
-        gSpecialVar_0x800B = 0;
+        money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
+        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+            money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
+        AddMoney(&gSaveBlock1Ptr->money, money);
     }
     else
     {
-        u32 money;
-        u8 sPartyLevel = 1;
-
-        if (gBattleOutcome == B_OUTCOME_WON)
+        s32 i, count;
+        for (i = 0; i < PARTY_SIZE; i++)
         {
-            money = GetTrainerMoneyToGive(gTrainerBattleOpponent_A);
-            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                money += GetTrainerMoneyToGive(gTrainerBattleOpponent_B);
-            AddMoney(&gSaveBlock1Ptr->money, money);
+            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
+             && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
+            {
+                if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > sPartyLevel)
+                    sPartyLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            }
         }
-        else
+        for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
         {
-            s32 i, count;
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
-                 && GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
-                {
-                    if (GetMonData(&gPlayerParty[i], MON_DATA_LEVEL) > sPartyLevel)
-                        sPartyLevel = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
-                }
-            }
-            for (count = 0, i = 0; i < ARRAY_COUNT(sBadgeFlags); i++)
-            {
-                if (FlagGet(sBadgeFlags[i]) == TRUE)
-                    ++count;
-            }
-            money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-            RemoveMoney(&gSaveBlock1Ptr->money, money);
+            if (FlagGet(sBadgeFlags[i]) == TRUE)
+                ++count;
         }
-        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
+        money = sWhiteOutBadgeMoney[count] * sPartyLevel;
+        RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
+
+    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
