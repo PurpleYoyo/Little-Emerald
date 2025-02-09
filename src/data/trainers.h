@@ -45133,7 +45133,7 @@ F_TRAINER_FEMALE |
 #line 16276
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
 #line 16274
-            .ability = ABILITY_SHED_SKIN,
+            .ability = ABILITY_TECHNICIAN,
 #line 16273
             .lvl = 23,
 #line 16275

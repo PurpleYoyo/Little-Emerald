@@ -8356,7 +8356,8 @@
             "MOVE_ENDURE",
             "MOVE_UPROAR",
             "MOVE_IRON_DEFENSE",
-            "MOVE_SCORCHING_SANDS"
+            "MOVE_SCORCHING_SANDS",
+			"MOVE_SHADOW_BONE"
         ],
         "TutorMoves": [
             "MOVE_SCORCHING_SANDS"
@@ -24003,7 +24004,7 @@
             },
             {
                 "Level": 10,
-                "Move": "MOVE_FALSE_SWIPE"
+                "Move": "MOVE_SHADOW_SNEAK"
             },
             {
                 "Level": 15,
@@ -24042,7 +24043,8 @@
             "MOVE_FACADE",
             "MOVE_LEECH_LIFE",
             "MOVE_SLEEP_TALK",
-            "MOVE_SHADOW_BALL"
+            "MOVE_SHADOW_BALL",
+			"MOVE_SHADOW_CLAW"
         ],
         "EggMoves": [
             "MOVE_BUG_BITE",
@@ -24056,7 +24058,8 @@
             "MOVE_ENDURE",
             "MOVE_X_SCISSOR",
             "MOVE_BUG_BUZZ",
-            "MOVE_SKITTER_SMACK"
+            "MOVE_SKITTER_SMACK",
+			"MOVE_PHANTOM_FORCE"
         ],
         "TutorMoves": [
             "MOVE_SKITTER_SMACK"
@@ -67640,7 +67643,8 @@
             "MOVE_DRAGON_PULSE",
             "MOVE_NASTY_PLOT",
             "MOVE_SLUDGE_WAVE",
-            "MOVE_VENOM_DRENCH"
+            "MOVE_VENOM_DRENCH",
+			"MOVE_TWINEEDLE"
         ],
         "TutorMoves": []
     },

@@ -55,10 +55,10 @@ General TODO
 -mossdeep tabitha -> courtney
 -add mt. pyre matt & archie
 -add museum archie
+-Tate & Liza randomly choose a mega
 
 code:
-switch back to custom swith func
-Tate & Liza randomly choose a mega
+rellor learnset
 minibosses no bp after cap
 
 porymap:
@@ -69,7 +69,6 @@ Early smoke ball
 
 other:
 zorua palette
-check movesets
 
 distribution:
 encounters

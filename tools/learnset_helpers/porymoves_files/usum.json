@@ -1408,6 +1408,10 @@
                 "Level": 1,
                 "Move": "MOVE_STRING_SHOT"
             },
+			{
+                "Level": 5,
+                "Move": "MOVE_TWINEEDLE"
+            },
             {
                 "Level": 9,
                 "Move": "MOVE_BUG_BITE"
@@ -35461,21 +35465,48 @@
                 "Level": 1,
                 "Move": "MOVE_STRING_SHOT"
             },
+			{
+                "Level": 5,
+                "Move": "MOVE_STUN_SPORE"
+            },
             {
                 "Level": 5,
-                "Move": "MOVE_POISON_STING"
+                "Move": "MOVE_POISON_POWDER"
             },
             {
                 "Level": 15,
                 "Move": "MOVE_BUG_BITE"
+            },
+			{
+                "Level": 16,
+                "Move": "MOVE_VENOSHOCK"
+            },
+			{
+                "Level": 21,
+                "Move": "MOVE_PSYBEAM"
+            },
+			{
+                "Level": 25,
+                "Move": "MOVE_BUG_BUZZ"
             }
         ],
         "PreEvoMoves": [],
-        "TMMoves": [],
+        "TMMoves": [
+		  "MOVE_TOXIC",
+		  "MOVE_GIGA_DRAIN",
+		  "MOVE_PSYCHIC",
+		  "MOVE_LEECH_LIFE",
+		  "MOVE_U_TURN",
+		  "MOVE_SLUDGE_BOMB"
+		 ],
         "EggMoves": [
             "MOVE_BUG_BITE",
             "MOVE_ELECTROWEB",
-            "MOVE_SNORE"
+            "MOVE_SNORE",
+			"MOVE_MOONLIGHT",
+			"MOVE_TOXIC_SPIKES",
+			"MOVE_QUIVER_DANCE",
+			"MOVE_RAGE_POWDER"
         ],
         "TutorMoves": [
             "MOVE_BUG_BITE",
