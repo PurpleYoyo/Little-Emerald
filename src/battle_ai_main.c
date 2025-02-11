@@ -1865,7 +1865,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_LASER_FOCUS:
             if (gStatuses3[battlerAtk] & STATUS3_LASER_FOCUS)
                 ADJUST_SCORE(-10);
-            else if (aiData->abilities[battlerDef] == ABILITY_SHELL_ARMOR || aiData->abilities[battlerDef] == ABILITY_BATTLE_ARMOR)
+            else if (aiData->abilities[battlerDef] == ABILITY_SHELL_ARMOR || aiData->abilities[battlerDef] == ABILITY_BATTLE_ARMOR || aiData->abilities[battlerDef] == ABILITY_MAGMA_ARMOR)
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_SKETCH:
@@ -3677,7 +3677,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
         }
         break;
     case EFFECT_FORESIGHT:
-        if (aiData->abilities[battlerAtk] == ABILITY_SCRAPPY || aiData->abilities[battlerAtk] == ABILITY_MINDS_EYE)
+        if (aiData->abilities[battlerAtk] == ABILITY_SCRAPPY || aiData->abilities[battlerAtk] == ABILITY_MINDS_EYE || aiData->abilities[battlerAtk] == ABILITY_NORMALIZE)
             break;
         else if (gBattleMons[battlerDef].statStages[STAT_EVASION] > DEFAULT_STAT_STAGE
          || (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GHOST)

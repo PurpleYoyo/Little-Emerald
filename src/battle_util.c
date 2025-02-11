@@ -5997,16 +5997,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_STEAM_ENGINE:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-             && TARGET_TURN_DAMAGED
-             && IsBattlerAlive(battler)
-             && CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN)
+            if (//!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             //&& TARGET_TURN_DAMAGED
+             //&& IsBattlerAlive(battler)
+             CompareStat(battler, STAT_SPEED, MAX_STAT_STAGE, CMP_LESS_THAN)
              && (moveType == TYPE_FIRE || moveType == TYPE_WATER))
             {
                 gEffectBattler = battler;
                 SET_STATCHANGER(STAT_SPEED, 6, FALSE);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaiseRet;
+                gBattlescriptCurrInstr = BattleScript_SteamEngineActivates;
                 effect++;
             }
             break;
@@ -6096,16 +6096,16 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
             }
             break;
         case ABILITY_THERMAL_EXCHANGE:
-            if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-             && TARGET_TURN_DAMAGED
-             && IsBattlerAlive(gBattlerTarget)
-             && CompareStat(gBattlerTarget, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN)
+            if (//!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+             //&& TARGET_TURN_DAMAGED
+             //&& IsBattlerAlive(gBattlerTarget)
+             CompareStat(gBattlerTarget, STAT_ATK, MAX_STAT_STAGE, CMP_LESS_THAN)
              && moveType == TYPE_FIRE)
             {
                 gEffectBattler = gBattlerTarget;
                 SET_STATCHANGER(STAT_ATK, 1, FALSE);
                 BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_TargetAbilityStatRaiseRet;
+                gBattlescriptCurrInstr = BattleScript_ThermalExchangeActivates;
                 effect++;
             }
             break;
@@ -9728,6 +9728,9 @@ static inline u32 CalcAttackStat(struct DamageCalculationData *damageCalcData, u
     switch (atkAbility)
     {
     case ABILITY_HUGE_POWER:
+        if (IS_MOVE_PHYSICAL(move))
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(4.0));
+        break;
     case ABILITY_PURE_POWER:
         if (IS_MOVE_PHYSICAL(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
@@ -10614,7 +10617,7 @@ static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 move
         mod = UQ_4_12(1.0);
     }
     else if ((moveType == TYPE_FIGHTING || moveType == TYPE_NORMAL) && defType == TYPE_GHOST
-        && (abilityAtk == ABILITY_SCRAPPY || abilityAtk == ABILITY_MINDS_EYE)
+        && (abilityAtk == ABILITY_SCRAPPY || abilityAtk == ABILITY_MINDS_EYE || abilityAtk == ABILITY_NORMALIZE)
         && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);
@@ -10717,6 +10720,54 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
             RecordAbilityBattle(battlerDef, ABILITY_LEVITATE);
         }
     }
+    else if (defAbility == ABILITY_STEAM_ENGINE && moveType == TYPE_WATER)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_STEAM_ENGINE;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_WATER_MISS;
+            RecordAbilityBattle(battlerDef, ABILITY_STEAM_ENGINE);
+        }
+    }
+    else if (defAbility == ABILITY_STEAM_ENGINE && moveType == TYPE_FIRE)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_STEAM_ENGINE;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_FIRE_MISS;
+            RecordAbilityBattle(battlerDef, ABILITY_STEAM_ENGINE);
+        }
+    }
+    else if (defAbility == ABILITY_HEATPROOF && moveType == TYPE_FIRE)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_HEATPROOF;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_FIRE_MISS;
+            RecordAbilityBattle(battlerDef, ABILITY_HEATPROOF);
+        }
+    }
+    else if (defAbility == ABILITY_THERMAL_EXCHANGE && moveType == TYPE_FIRE)
+    {
+        modifier = UQ_4_12(0.0);
+        if (recordAbilities)
+        {
+            gLastUsedAbility = ABILITY_THERMAL_EXCHANGE;
+            gMoveResultFlags |= (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE);
+            gLastLandedMoves[battlerDef] = 0;
+            gBattleCommunication[MISS_TYPE] = B_MSG_FIRE_MISS;
+            RecordAbilityBattle(battlerDef, ABILITY_THERMAL_EXCHANGE);
+        }
+    }
     else if (B_SHEER_COLD_IMMUNITY >= GEN_7 && move == MOVE_SHEER_COLD && IS_BATTLER_OF_TYPE(battlerDef, TYPE_ICE))
     {
         modifier = UQ_4_12(0.0);
@@ -10727,6 +10778,16 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(u32 move, u32 mov
         && (GetBattlerType(battlerDef, 0, FALSE) == TYPE_FLYING || GetBattlerType(battlerDef, 1, FALSE) == TYPE_FLYING || GetBattlerType(battlerDef, 2, FALSE) == TYPE_FLYING))
     {
         modifier = UQ_4_12(1.0);
+    }
+
+    if (moveType == TYPE_POISON && gBattleMons[battlerAtk].ability == ABILITY_CORROSION)
+    {
+        if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_FAIRY) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_GRASS))
+            modifier = UQ_4_12(2.0);
+        else if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_ROCK) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_GROUND) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_POISON) || IS_BATTLER_OF_TYPE(battlerDef, TYPE_GHOST))
+            modifier = UQ_4_12(0.5);
+        else
+            modifier = UQ_4_12(1.0);
     }
 
     if (((defAbility == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0))
@@ -10780,6 +10841,12 @@ uq4_12_t CalcPartyMonTypeEffectivenessMultiplier(u16 move, u16 speciesDef, u16 a
 
         if (moveType == TYPE_GROUND && abilityDef == ABILITY_LEVITATE && !(gFieldStatuses & STATUS_FIELD_GRAVITY))
             modifier = UQ_4_12(0.0);
+        if ((moveType == TYPE_FIRE || moveType == TYPE_WATER) && abilityDef == ABILITY_STEAM_ENGINE)
+            modifier = UQ_4_12(0.0);
+        if (moveType == TYPE_FIRE && abilityDef == ABILITY_HEATPROOF)
+            modifier = UQ_4_12(0.0);
+        if (moveType == TYPE_FIRE && abilityDef == ABILITY_THERMAL_EXCHANGE)
+            modifier = UQ_4_12(0.0);
         if (abilityDef == ABILITY_WONDER_GUARD && modifier <= UQ_4_12(1.0) && gMovesInfo[move].power)
             modifier = UQ_4_12(0.0);
     }
@@ -10818,13 +10885,17 @@ uq4_12_t GetOverworldTypeEffectiveness(struct Pokemon *mon, u8 moveType)
             MulByTypeEffectiveness(&modifier, MOVE_POUND, moveType, 0, type2, 0, FALSE);
 
         if ((modifier <= UQ_4_12(1.0)  &&  abilityDef == ABILITY_WONDER_GUARD)
-         || (moveType == TYPE_FIRE     &&  abilityDef == ABILITY_FLASH_FIRE)
+         || (moveType == TYPE_FIRE     &&  (abilityDef == ABILITY_FLASH_FIRE
+                                       || abilityDef == ABILITY_STEAM_ENGINE
+                                       || abilityDef == ABILITY_HEATPROOF
+                                       || abilityDef == ABILITY_THERMAL_EXCHANGE))
          || (moveType == TYPE_GRASS    &&  abilityDef == ABILITY_SAP_SIPPER)
          || (moveType == TYPE_GROUND   && (abilityDef == ABILITY_LEVITATE
                                        ||  abilityDef == ABILITY_EARTH_EATER))
          || (moveType == TYPE_WATER    && (abilityDef == ABILITY_WATER_ABSORB
                                        || abilityDef == ABILITY_DRY_SKIN
-                                       || abilityDef == ABILITY_STORM_DRAIN))
+                                       || abilityDef == ABILITY_STORM_DRAIN
+                                       || abilityDef == ABILITY_STEAM_ENGINE))
          || (moveType == TYPE_ELECTRIC && (abilityDef == ABILITY_LIGHTNING_ROD // TODO: Add Gen 3/4 config check
                                        || abilityDef == ABILITY_VOLT_ABSORB
                                        || abilityDef == ABILITY_MOTOR_DRIVE)))

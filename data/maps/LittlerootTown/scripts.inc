@@ -2040,30 +2040,100 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I have something to show you.\n"
 # 1021 "data/maps/LittlerootTown/scripts.pory"
 	.string "Let's go to my LAB.$"
+# 1022 "data/maps/LittlerootTown/scripts.pory"
+
+# 1023 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_ScaryGuy_Intro:
+# 1024 "data/maps/LittlerootTown/scripts.pory"
+	.string "Prepare to be scared!$"
+# 1025 "data/maps/LittlerootTown/scripts.pory"
+
+# 1026 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_ScaryGuy_Defeat:
+# 1027 "data/maps/LittlerootTown/scripts.pory"
+	.string "Aw man...\n"
+# 1028 "data/maps/LittlerootTown/scripts.pory"
+	.string "I'm scared.$"
 
 TestGuy::
-# 1025 "data/maps/LittlerootTown/scripts.pory"
+# 1032 "data/maps/LittlerootTown/scripts.pory"
 	random 2
-# 1026 "data/maps/LittlerootTown/scripts.pory"
+# 1033 "data/maps/LittlerootTown/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TestGuy_2
-# 1031 "data/maps/LittlerootTown/scripts.pory"
+# 1038 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 TestGuy_1:
-# 1033 "data/maps/LittlerootTown/scripts.pory"
+# 1040 "data/maps/LittlerootTown/scripts.pory"
 	msgbox MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	return
 
 TestGuy_2:
-# 1027 "data/maps/LittlerootTown/scripts.pory"
+# 1034 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 	goto TestGuy_1
 
 
 freebp::
-# 1037 "data/maps/LittlerootTown/scripts.pory"
+# 1044 "data/maps/LittlerootTown/scripts.pory"
 	GiveBP 5
-# 1038 "data/maps/LittlerootTown/scripts.pory"
+# 1045 "data/maps/LittlerootTown/scripts.pory"
 	givemon SPECIES_FROAKIE_SPECIAL, 100
 	return
 
+
+Miniboss_ScaryGuy::
+# 1049 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1050 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_ScaryGuy_Text_0
+# 1051 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_ROXANNE_2, Miniboss_Text_ScaryGuy_Intro, Miniboss_Text_ScaryGuy_Defeat, Miniboss_ScaryGuyDefeated
+# 1052 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1053 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_ScaryGuyDefeated::
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_ScaryGuyDefeated_Text_0
+# 1058 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_RARE_CANDY
+# 1059 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, Miniboss_ScaryGuyBPReward
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_ScaryGuyBPReward::
+# 1065 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 15
+# 1066 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_ScaryGuyBPReward_Text_0
+# 1067 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1068 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_ScaryGuy_Text_0:
+# 1050 "data/maps/LittlerootTown/scripts.pory"
+	.string "The best way to defeat your enemy is to\n"
+	.string "make scare them, so I only use Pokémon\l"
+	.string "with Intimidate!$"
+
+Miniboss_ScaryGuyDefeated_Text_0:
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's a Rare Candy for defeating me.$"
+
+Miniboss_ScaryGuyBPReward_Text_0:
+# 1066 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 15 Battle Points for\n"
+	.string "defeating me before Roxanne. Spend\l"
+	.string "them wisely.$"

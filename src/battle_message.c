@@ -887,6 +887,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT] =
     [STRINGID_SEEMSWEIRD]                           = COMPOUND_STRING("The battlefield seems weird!"),
     [STRINGID_WAGGLINGAFINGER]                      = COMPOUND_STRING("Waggling a finger let it use {B_CURRENT_MOVE}!"),
     [STRINGID_TRICKWINDROOM]                        = COMPOUND_STRING("The dimensions were twisted and a Tailwind blew from behind {B_ATK_TEAM2} team!"),
+    [STRINGID_STEAMENGINEABSORBWATER]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} absorbs Water-type moves!"),
+    [STRINGID_STEAMENGINEABSORBFIRE]                = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} absorbs Fire-type moves!"),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -990,7 +992,9 @@ const u16 gMissStringIds[] =
     [B_MSG_PROTECTED]   = STRINGID_PKMNPROTECTEDITSELF,
     [B_MSG_AVOIDED_ATK] = STRINGID_PKMNAVOIDEDATTACK,
     [B_MSG_AVOIDED_DMG] = STRINGID_AVOIDEDDAMAGE,
-    [B_MSG_GROUND_MISS] = STRINGID_PKMNMAKESGROUNDMISS
+    [B_MSG_GROUND_MISS] = STRINGID_PKMNMAKESGROUNDMISS,
+    [B_MSG_WATER_MISS] = STRINGID_STEAMENGINEABSORBWATER,
+    [B_MSG_FIRE_MISS] = STRINGID_STEAMENGINEABSORBFIRE
 };
 
 const u16 gNoEscapeStringIds[] =

@@ -54,6 +54,7 @@ def construct_compatibility_dict(force_custom_check):
     dict_out = {}
     for pth in glob.glob('./tools/learnset_helpers/porymoves_files/*.json'):
         f = open(pth, 'r')
+        print(pth)
         data = json.load(f)
         for mon in data.keys():
             if not mon in dict_out:

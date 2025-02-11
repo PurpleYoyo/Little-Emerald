@@ -56,16 +56,19 @@ General TODO
 -add mt. pyre matt & archie
 -add museum archie
 -Tate & Liza randomly choose a mega
+-minibosses no bp after cap
+-finish learnsets
 
 code:
-rellor learnset
-minibosses no bp after cap
+move changes
+ability changes
+game corner mons
+setup minibosses
 
 porymap:
 Add encounters to some cities with none
 Add rocks to Route 106
 Add rocks to Route 114
-Early smoke ball
 
 other:
 zorua palette
@@ -84,9 +87,7 @@ fast surf work with auto run
 damp = immune to explosions, not stop
 reaper cloth
 lucky punch happiny
-
-Pokémon with type items (for moveset inspection):
-Charcadet, Ralts, Snorunt, Wurmple, Nincada, Exeggcute, Rufflet, Petilil, Goomy, Bergmite, Koffing
+game corner 2 (mossdeep)
 
 Learnsets
 ----------
@@ -148,7 +149,7 @@ King's Shield -> Sharply Drop Atk on contact
 Triple Kick -> 20 BP (10), Acc 100 (90)
 Muddy Water -> Acc 95 (85)
 Triple Axel -> Acc 95 (90)
-Electroweb, Night Daze, Metal Claw -> Acc 100 (95)
+Electroweb, Night Daze, Metal Claw, Triple Dive -> Acc 100 (95)
 Dragon Rush, Iron Tail -> Acc 80 (75)
 Multi-Attack -> 90 BP (120)
 Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot, Blaze Kick -> Acc 100 (90)

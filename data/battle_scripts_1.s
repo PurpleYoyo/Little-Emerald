@@ -5562,13 +5562,7 @@ BattleScript_LocalBattleWonLoseTexts::
 	trainerslidein BS_OPPONENT2
 	waitstate
 	printstring STRINGID_TRAINER2LOSETEXT
-BattleScript_LocalBattleWonBP::
-	getmoneyreward
-	printstring STRINGID_PLAYERGOTBP
-	waitmessage B_WAIT_TIME_LONG
-	end2
 BattleScript_LocalBattleWonReward::
-	jumpifbytenotequal gSpecialVar_0x800B, 0, BattleScript_LocalBattleWonBP
 	getmoneyreward
 	printstring STRINGID_PLAYERGOTMONEY
 	waitmessage B_WAIT_TIME_LONG
@@ -9744,6 +9738,24 @@ BattleScript_SymbiosisActivates::
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_SYMBIOSISITEMPASS
 	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_SteamEngineActivates::
+	copybyte sSAVED_BATTLER, gBattlerAttacker
+	copybyte gBattlerAbility, gEffectBattler
+	copybyte gBattlerAttacker, gBattlerTarget
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN, BattleScript_TargetAbilityStatRaiseRet_End
+	setgraphicalstatchangevalues
+	call BattleScript_StatUp
+	return
+
+BattleScript_ThermalExchangeActivates::
+	copybyte sSAVED_BATTLER, gBattlerAttacker
+	copybyte gBattlerAbility, gEffectBattler
+	copybyte gBattlerAttacker, gBattlerTarget
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN, BattleScript_TargetAbilityStatRaiseRet_End
+	setgraphicalstatchangevalues
+	call BattleScript_StatUp
 	return
 
 BattleScript_TargetAbilityStatRaiseRet::

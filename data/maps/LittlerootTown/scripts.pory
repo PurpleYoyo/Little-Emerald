@@ -1019,6 +1019,13 @@ LittlerootTown_Text_BirchSomethingToShowYouAtLab:
 	.string "I gave you?\p"
 	.string "I have something to show you.\n"
 	.string "Let's go to my LAB.$"
+
+Miniboss_Text_ScaryGuy_Intro:
+	.string "Prepare to be scared!$"
+
+Miniboss_Text_ScaryGuy_Defeat:
+	.string "Aw man...\n"
+	.string "I'm scared.$"
 `
 
 script TestGuy {
@@ -1036,4 +1043,27 @@ script TestGuy {
 script freebp {
 	GiveBP(5)
 	givemon(SPECIES_FROAKIE_SPECIAL, 100)
+}
+
+script Miniboss_ScaryGuy {
+	lockall
+	msgbox(format("The best way to defeat your enemy is to make scare them, so I only use Pokémon with Intimidate!"))
+	trainerbattle_single(TRAINER_ROXANNE_2, Miniboss_Text_ScaryGuy_Intro, Miniboss_Text_ScaryGuy_Defeat, Miniboss_ScaryGuyDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_ScaryGuyDefeated {
+	msgbox(format("Here's a Rare Candy for defeating me."))
+	giveitem(ITEM_RARE_CANDY)
+	call_if_unset(FLAG_DEFEATED_RUSTBORO_GYM, Miniboss_ScaryGuyBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_ScaryGuyBPReward {
+	GiveBP(15)
+	msgbox(format("And here's 15 Battle Points for defeating me before Roxanne. Spend them wisely."))
+	closemessage
+	releaseall
 }

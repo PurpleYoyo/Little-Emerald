@@ -89,10 +89,15 @@ Gender: Male
 Music: Hiker
 Double Battle: No
 AI: Basic Trainer
-Starting Status: Trickwind Room
 
+Cufant
+Level: 20
+- Flamethrower
+
+/*
 Geodude
 Level: 21
+*/
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
@@ -13955,41 +13960,67 @@ Nature: Hardy
 - Protect
 
 === TRAINER_ROXANNE_2 ===
-Name: ROXANNE
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Double Battle: Yes
+Name: SCARY GUY
+Class: Pkmn Trainer 1
+Pic: Palace Maven Spenser
+Gender: Male
+Music: Male
+Double Battle: No
 AI: Basic Trainer
 
-Larvitar
-Level: 32
-- Protect
-- Rollout
-- Magnitude
-- Explosion
+Ekans @ Air Balloon
+Level: 15
+Ability: Intimidate
+Nature: Naughty
+- Trailblaze
+- Poison Tail
+- Lash Out
+- Glare
 
-Kabuto @ Sitrus Berry
-Level: 35
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
+Growlithe @ Eviolite
+Level: 15
+Ability: Intimidate
+Nature: Quiet
+- Fire Spin
+- Snarl
+- Thunder Fang
+- Dig
 
-Onix
-Level: 35
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
+Snubbull @ Muscle Band
+Level: 15
+Ability: Intimidate
+Nature: Adamant
+- Play Rough
+- Fire Fang
+- Ice Fang
+- Bite
 
-Nosepass @ Sitrus Berry
-Level: 37
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
+Greavard @ Sticky Barb
+Level: 15
+Ability: Intimidate
+Nature: Sassy
+- Bulldoze
+- Phantom Force
+- Trick
+- Pain Split
+
+Electrike @ Focus Sash
+Level: 15
+Ability: Intimidate
+Nature: Timid
+- Electro Ball
+- Agility
+- Thunder Wave
+- Snarl
+
+Stantler @ Kings Rock
+Level: 15
+Ability: Intimidate
+Nature: Impish
+- Stomp
+- Psyshield Bash
+- Dig
+- Hypnosis
 
 === TRAINER_ROXANNE_3 ===
 Name: ROXANNE
