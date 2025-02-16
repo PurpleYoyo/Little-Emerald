@@ -2202,6 +2202,10 @@
 	.2byte \slot
 	.endm
 
+	.macro checkpartydamp
+	callnative CheckPartyDamp
+	.endm
+
 	.macro sethypertrainstat stat:req
 	callnative SetHyperTrainingStat
 	.2byte \stat

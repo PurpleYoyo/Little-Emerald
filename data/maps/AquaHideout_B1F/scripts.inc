@@ -63,11 +63,11 @@ AquaHideout_B1F_EventScript_Electrode1::
 # 32 "data/maps/AquaHideout_B1F/scripts.pory"
 	faceplayer
 # 33 "data/maps/AquaHideout_B1F/scripts.pory"
-	setwildbattle SPECIES_ELECTRODE, 30
+	setwildbattle SPECIES_VOLTORB_HISUI, 45
 # 34 "data/maps/AquaHideout_B1F/scripts.pory"
 	waitse
 # 35 "data/maps/AquaHideout_B1F/scripts.pory"
-	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_VOLTORB_HISUI, CRY_MODE_ENCOUNTER
 # 36 "data/maps/AquaHideout_B1F/scripts.pory"
 	delay 40
 # 37 "data/maps/AquaHideout_B1F/scripts.pory"
@@ -111,11 +111,11 @@ AquaHideout_B1F_EventScript_Electrode2::
 # 56 "data/maps/AquaHideout_B1F/scripts.pory"
 	faceplayer
 # 57 "data/maps/AquaHideout_B1F/scripts.pory"
-	setwildbattle SPECIES_ELECTRODE, 30
+	setwildbattle SPECIES_VOLTORB, 45
 # 58 "data/maps/AquaHideout_B1F/scripts.pory"
 	waitse
 # 59 "data/maps/AquaHideout_B1F/scripts.pory"
-	playmoncry SPECIES_ELECTRODE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_VOLTORB, CRY_MODE_ENCOUNTER
 # 60 "data/maps/AquaHideout_B1F/scripts.pory"
 	delay 40
 # 61 "data/maps/AquaHideout_B1F/scripts.pory"

@@ -1026,6 +1026,61 @@ Miniboss_Text_ScaryGuy_Intro:
 Miniboss_Text_ScaryGuy_Defeat:
 	.string "Aw man...\n"
 	.string "I'm scared.$"
+
+Miniboss_Text_Protector_Intro:
+	.string "You'll never break through my Pokémon!$"
+
+Miniboss_Text_Protector_Defeat:
+	.string "Wow!\n"
+	.string "You're mean!$"
+
+Miniboss_Text_ProtectorNeedTwoMons:
+	.string "You'll need at least two Pokémon\n"
+	.string "if you want to challenge me."
+
+Miniboss_Text_SpeedyChap_Intro:
+	.string "I'll leave you in the dust!$"
+
+Miniboss_Text_SpeedyChap_Defeat:
+	.string "Dang.\n"
+	.string "You're too fast...$"
+
+Miniboss_Text_Collector_Intro:
+	.string "My Pokémon are all so cool!$"
+
+Miniboss_Text_Collector_Defeat:
+	.string "I love seeing new Pokémon!$"
+
+Miniboss_Text_BoomDude_Intro:
+	.string "BOOM!$"
+
+Miniboss_Text_BoomDude_Defeat:
+	.string "Boom...$"
+
+Miniboss_Text_CritMaster_Intro:
+	.string "Prepare to lose!$"
+
+Miniboss_Text_CritMaster_Defeat:
+	.string "How?!\n"
+	.string "How did you win?$"
+
+Miniboss_Text_SlowFella_Intro:
+	.string "what$"
+
+Miniboss_Text_SlowFella_Defeat:
+	.string "huh?$"
+
+Miniboss_Text_Smasher_Intro:
+	.string "Check it out!$"
+
+Miniboss_Text_Smasher_Defeat:
+	.string "Wasn't that so cool?$"
+
+Miniboss_Text_Purkat_Intro:
+	.string "dw$"
+
+Miniboss_Text_Purkat_Defeat:
+	.string "Nice job!$"
 `
 
 script TestGuy {
@@ -1040,11 +1095,6 @@ script TestGuy {
 	msgbox(MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE)
 }
 
-script freebp {
-	GiveBP(5)
-	givemon(SPECIES_FROAKIE_SPECIAL, 100)
-}
-
 script Miniboss_ScaryGuy {
 	lockall
 	msgbox(format("The best way to defeat your enemy is to make scare them, so I only use Pokémon with Intimidate!"))
@@ -1054,8 +1104,8 @@ script Miniboss_ScaryGuy {
 }
 
 script Miniboss_ScaryGuyDefeated {
-	msgbox(format("Here's a Rare Candy for defeating me."))
-	giveitem(ITEM_RARE_CANDY)
+	msgbox(format("Here's an Ability Capsule for defeating me. In case your Growlithe has Flash Fire, yknow?"))
+	giveitem(ITEM_ABILITY_CAPSULE)
 	call_if_unset(FLAG_DEFEATED_RUSTBORO_GYM, Miniboss_ScaryGuyBPReward)
 	closemessage
 	releaseall
@@ -1064,6 +1114,197 @@ script Miniboss_ScaryGuyDefeated {
 script Miniboss_ScaryGuyBPReward {
 	GiveBP(15)
 	msgbox(format("And here's 15 Battle Points for defeating me before Roxanne. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_Protector {
+	lockall
+	msgbox(format("I hate when my Pokémon take too much damage, so I'll do whatever I can to reduce it!"))
+	trainerbattle_double(TRAINER_ROXANNE_3, Miniboss_Text_Protector_Intro, Miniboss_Text_Protector_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_ProtectorDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_ProtectorDefeated {
+	msgbox(format("Here's an Eviolite for defeating me. It'll increase your Pokémon's defenses."))
+	giveitem(ITEM_EVIOLITE)
+	call_if_unset(FLAG_DEFEATED_DEWFORD_GYM, Miniboss_ProtectorBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_ProtectorBPReward {
+	GiveBP(15)
+	msgbox(format("And here's 15 Battle Points for defeating me before Brawly. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_SpeedyChap {
+	lockall
+	msgbox(format("Hahaha! I'm so fast! You can't catch me!"))
+	trainerbattle_single(TRAINER_ROXANNE_4, Miniboss_Text_SpeedyChap_Intro, Miniboss_Text_SpeedyChap_Defeat, Miniboss_SpeedyChapDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SpeedyChapDefeated {
+	msgbox(format("Here's a Salac Berry for defeating me. It'll raise Speed in a pinch."))
+	giveitem(ITEM_SALAC_BERRY)
+	call_if_unset(FLAG_DEFEATED_MAUVILLE_GYM, Miniboss_SpeedyChapBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SpeedyChapBPReward {
+	GiveBP(25)
+	msgbox(format("And here's 25 Battle Points for defeating me before Wattson. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_Collector {
+	lockall
+	msgbox(format("I like collecting Pokémon with forms. Do you have any? Let me see!"))
+	trainerbattle_single(TRAINER_ROXANNE_5, Miniboss_Text_Collector_Intro, Miniboss_Text_Collector_Defeat, Miniboss_CollectorDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_CollectorDefeated {
+	msgbox(format("Here's a Special Froakie for defeating me. It has a very unique ability. So cool!"))
+	givemon(SPECIES_FROAKIE_SPECIAL, 5)
+	call_if_unset(FLAG_DEFEATED_LAVARIDGE_GYM, Miniboss_CollectorBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_CollectorBPReward {
+	GiveBP(25)
+	msgbox(format("And here's 25 Battle Points for defeating me before Flannery. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_BoomDude {
+	lockall
+	checkpartydamp
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("Oho ho, tryna pull one over on me huh? I won't battle you if you have a Pokémon with the ability Damp."))
+		goto(End)
+	}
+	msgbox(format("..................................................."))
+	trainerbattle_single(TRAINER_BRAWLY_5, Miniboss_Text_BoomDude_Intro, Miniboss_Text_BoomDude_Defeat, Miniboss_BoomDudeDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_BoomDudeDefeated {
+	msgbox(format("Here's an Ability Patch for defeating me. Maybe use it to get Damp or something. Always be aware of explosions."))
+	giveitem(ITEM_ABILITY_PATCH)
+	call_if_unset(FLAG_DEFEATED_PETALBURG_GYM, Miniboss_BoomDudeBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_BoomDudeBPReward {
+	GiveBP(30)
+	msgbox(format("And here's 30 Battle Points for defeating me before Norman. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_CritMaster {
+	lockall
+	msgbox(format("I have cheated the system. I have a guaranteed chance to crit every time. There's no way your Pokémon can withstand me!"))
+	trainerbattle_double(TRAINER_WATTSON_2, Miniboss_Text_CritMaster_Intro, Miniboss_Text_CritMaster_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_CritMasterDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_CritMasterDefeated {
+	msgbox(format("Here's a Scope Lens for defeating me. Now you're one step closer to the guaranteed crit..."))
+	giveitem(ITEM_SCOPE_LENS)
+	call_if_unset(FLAG_DEFEATED_FORTREE_GYM, Miniboss_CritMasterBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_CritMasterBPReward {
+	GiveBP(30)
+	msgbox(format("And here's 30 Battle Points for defeating me before Winona. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_SlowFella {
+	lockall
+	msgbox(format("...................................."))
+	trainerbattle_single(TRAINER_WATTSON_3, Miniboss_Text_SlowFella_Intro, Miniboss_Text_SlowFella_Defeat, Miniboss_SlowFellaDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SlowFellaDefeated {
+	msgbox(format("Oh, didn't see you there. Well, here's an Iron Ball for defeating me, I guess. No need to speed through life."))
+	giveitem(ITEM_IRON_BALL)
+	call_if_unset(FLAG_DEFEATED_MOSSDEEP_GYM, Miniboss_SlowFellaBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SlowFellaBPReward {
+	GiveBP(40)
+	msgbox(format("And here's 40 Battle Points for defeating me before Tate & Liza. Spend them wisely or whatever."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_Smasher {
+	lockall
+	goto_if_set(FLAG_DEFEATED_SMASHER, EventScript_ShellSmashTutor)
+	msgbox(format("Check out this sick move I just found!"))
+	trainerbattle_single(TRAINER_WATTSON_4, Miniboss_Text_Smasher_Intro, Miniboss_Text_Smasher_Defeat, Miniboss_SmasherDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SmasherDefeated {
+	msgbox(format("For defeating me, I will teach the move Shell Smash to any of your Pokémon for me. It's a really cool move, check it out!"))
+	setflag(FLAG_DEFEATED_SMASHER)
+	call_if_unset(FLAG_DEFEATED_SOOTOPOLIS_GYM, Miniboss_SmasherBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_SmasherBPReward {
+	GiveBP(45)
+	msgbox(format("And here's 45 Battle Points for defeating me before Roxanne. Spend them wisely."))
+	closemessage
+	releaseall
+}
+
+script Miniboss_Purkat {
+	lockall
+	msgbox(format("Hey! I hope you're enjoying my hack! Prepare to die!"))
+	trainerbattle_single(TRAINER_WATTSON_5, Miniboss_Text_Purkat_Intro, Miniboss_Text_Purkat_Defeat, Miniboss_PurkatDefeated)
+	closemessage
+	releaseall
+}
+
+script Miniboss_PurkatDefeated {
+	msgbox(format("Here's some Blank Nature Mints and Rare Candies for defeating me."))
+	giveitem(ITEM_BLANK_MINT, 5)
+	giveitem(ITEM_RARE_CANDY, 5)
+	call_if_unset(FLAG_DEFEATED_ELITE_4_SIDNEY, Miniboss_PurkatBPReward)
+	closemessage
+	releaseall
+}
+
+script Miniboss_PurkatBPReward {
+	GiveBP(50)
+	msgbox(format("And here's 50 Battle Points for defeating me before the taking on the Pokémon League. Spend them wisely."))
 	closemessage
 	releaseall
 }

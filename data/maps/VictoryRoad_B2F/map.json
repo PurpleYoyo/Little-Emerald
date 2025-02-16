@@ -12,7 +12,7 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
@@ -75,7 +75,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_FULL_HEAL",
+      "trainer_sight_or_berry_tree_id": "ITEM_HASTY_MINT",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_VICTORY_ROAD_B2F_FULL_HEAL"
     },
@@ -136,14 +136,16 @@
       "dest_warp_id": "6"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
       "x": 28,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_ELIXIR",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_ELIXIR"
     },
     {
@@ -151,7 +153,7 @@
       "x": 37,
       "y": 1,
       "elevation": 3,
-      "item": "ITEM_MAX_REPEL",
+      "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_MAX_REPEL"
     }
   ]

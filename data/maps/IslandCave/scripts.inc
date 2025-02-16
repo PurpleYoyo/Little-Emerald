@@ -187,13 +187,13 @@ IslandCave_EventScript_Regice::
 # 94 "data/maps/IslandCave/scripts.pory"
 	waitse
 # 95 "data/maps/IslandCave/scripts.pory"
-	playmoncry SPECIES_REGICE, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_SANDSHREW_ALOLA, CRY_MODE_ENCOUNTER
 # 96 "data/maps/IslandCave/scripts.pory"
 	delay 40
 # 97 "data/maps/IslandCave/scripts.pory"
 	waitmoncry
 # 98 "data/maps/IslandCave/scripts.pory"
-	setwildbattle SPECIES_REGICE, 40
+	setwildbattle SPECIES_SANDSHREW_ALOLA, 40
 # 99 "data/maps/IslandCave/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 100 "data/maps/IslandCave/scripts.pory"

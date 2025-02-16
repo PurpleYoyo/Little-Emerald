@@ -121,13 +121,13 @@ DesertRuins_EventScript_Regirock::
 # 61 "data/maps/DesertRuins/scripts.pory"
 	waitse
 # 62 "data/maps/DesertRuins/scripts.pory"
-	playmoncry SPECIES_REGIROCK, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ROCKRUFF, CRY_MODE_ENCOUNTER
 # 63 "data/maps/DesertRuins/scripts.pory"
 	delay 40
 # 64 "data/maps/DesertRuins/scripts.pory"
 	waitmoncry
 # 65 "data/maps/DesertRuins/scripts.pory"
-	setwildbattle SPECIES_REGIROCK, 40
+	setwildbattle SPECIES_ROCKRUFF_SPECIAL, 40
 # 66 "data/maps/DesertRuins/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 67 "data/maps/DesertRuins/scripts.pory"

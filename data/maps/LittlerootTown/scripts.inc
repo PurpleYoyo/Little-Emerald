@@ -2054,86 +2054,666 @@ Miniboss_Text_ScaryGuy_Defeat:
 	.string "Aw man...\n"
 # 1028 "data/maps/LittlerootTown/scripts.pory"
 	.string "I'm scared.$"
+# 1029 "data/maps/LittlerootTown/scripts.pory"
+
+# 1030 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Protector_Intro:
+# 1031 "data/maps/LittlerootTown/scripts.pory"
+	.string "You'll never break through my Pokémon!$"
+# 1032 "data/maps/LittlerootTown/scripts.pory"
+
+# 1033 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Protector_Defeat:
+# 1034 "data/maps/LittlerootTown/scripts.pory"
+	.string "Wow!\n"
+# 1035 "data/maps/LittlerootTown/scripts.pory"
+	.string "You're mean!$"
+# 1036 "data/maps/LittlerootTown/scripts.pory"
+
+# 1037 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_ProtectorNeedTwoMons:
+# 1038 "data/maps/LittlerootTown/scripts.pory"
+	.string "You'll need at least two Pokémon\n"
+# 1039 "data/maps/LittlerootTown/scripts.pory"
+	.string "if you want to challenge me."
+# 1040 "data/maps/LittlerootTown/scripts.pory"
+
+# 1041 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_SpeedyChap_Intro:
+# 1042 "data/maps/LittlerootTown/scripts.pory"
+	.string "I'll leave you in the dust!$"
+# 1043 "data/maps/LittlerootTown/scripts.pory"
+
+# 1044 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_SpeedyChap_Defeat:
+# 1045 "data/maps/LittlerootTown/scripts.pory"
+	.string "Dang.\n"
+# 1046 "data/maps/LittlerootTown/scripts.pory"
+	.string "You're too fast...$"
+# 1047 "data/maps/LittlerootTown/scripts.pory"
+
+# 1048 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Collector_Intro:
+# 1049 "data/maps/LittlerootTown/scripts.pory"
+	.string "My Pokémon are all so cool!$"
+# 1050 "data/maps/LittlerootTown/scripts.pory"
+
+# 1051 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Collector_Defeat:
+# 1052 "data/maps/LittlerootTown/scripts.pory"
+	.string "I love seeing new Pokémon!$"
+# 1053 "data/maps/LittlerootTown/scripts.pory"
+
+# 1054 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_BoomDude_Intro:
+# 1055 "data/maps/LittlerootTown/scripts.pory"
+	.string "BOOM!$"
+# 1056 "data/maps/LittlerootTown/scripts.pory"
+
+# 1057 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_BoomDude_Defeat:
+# 1058 "data/maps/LittlerootTown/scripts.pory"
+	.string "Boom...$"
+# 1059 "data/maps/LittlerootTown/scripts.pory"
+
+# 1060 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_CritMaster_Intro:
+# 1061 "data/maps/LittlerootTown/scripts.pory"
+	.string "Prepare to lose!$"
+# 1062 "data/maps/LittlerootTown/scripts.pory"
+
+# 1063 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_CritMaster_Defeat:
+# 1064 "data/maps/LittlerootTown/scripts.pory"
+	.string "How?!\n"
+# 1065 "data/maps/LittlerootTown/scripts.pory"
+	.string "How did you win?$"
+# 1066 "data/maps/LittlerootTown/scripts.pory"
+
+# 1067 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_SlowFella_Intro:
+# 1068 "data/maps/LittlerootTown/scripts.pory"
+	.string "what$"
+# 1069 "data/maps/LittlerootTown/scripts.pory"
+
+# 1070 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_SlowFella_Defeat:
+# 1071 "data/maps/LittlerootTown/scripts.pory"
+	.string "huh?$"
+# 1072 "data/maps/LittlerootTown/scripts.pory"
+
+# 1073 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Smasher_Intro:
+# 1074 "data/maps/LittlerootTown/scripts.pory"
+	.string "Check it out!$"
+# 1075 "data/maps/LittlerootTown/scripts.pory"
+
+# 1076 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Smasher_Defeat:
+# 1077 "data/maps/LittlerootTown/scripts.pory"
+	.string "Wasn't that so cool?$"
+# 1078 "data/maps/LittlerootTown/scripts.pory"
+
+# 1079 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Purkat_Intro:
+# 1080 "data/maps/LittlerootTown/scripts.pory"
+	.string "dw$"
+# 1081 "data/maps/LittlerootTown/scripts.pory"
+
+# 1082 "data/maps/LittlerootTown/scripts.pory"
+Miniboss_Text_Purkat_Defeat:
+# 1083 "data/maps/LittlerootTown/scripts.pory"
+	.string "Nice job!$"
 
 TestGuy::
-# 1032 "data/maps/LittlerootTown/scripts.pory"
+# 1087 "data/maps/LittlerootTown/scripts.pory"
 	random 2
-# 1033 "data/maps/LittlerootTown/scripts.pory"
+# 1088 "data/maps/LittlerootTown/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TestGuy_2
-# 1038 "data/maps/LittlerootTown/scripts.pory"
+# 1093 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 TestGuy_1:
-# 1040 "data/maps/LittlerootTown/scripts.pory"
+# 1095 "data/maps/LittlerootTown/scripts.pory"
 	msgbox MagmaHideout_1F_Text_Grunt1PostBattle, MSGBOX_AUTOCLOSE
 	return
 
 TestGuy_2:
-# 1034 "data/maps/LittlerootTown/scripts.pory"
+# 1089 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_SAWYER_1, MagmaHideout_1F_Text_Grunt1Intro, MagmaHideout_1F_Text_Grunt1Defeat
 	goto TestGuy_1
 
 
-freebp::
-# 1044 "data/maps/LittlerootTown/scripts.pory"
-	GiveBP 5
-# 1045 "data/maps/LittlerootTown/scripts.pory"
-	givemon SPECIES_FROAKIE_SPECIAL, 100
-	return
-
-
 Miniboss_ScaryGuy::
-# 1049 "data/maps/LittlerootTown/scripts.pory"
+# 1099 "data/maps/LittlerootTown/scripts.pory"
 	lockall
-# 1050 "data/maps/LittlerootTown/scripts.pory"
+# 1100 "data/maps/LittlerootTown/scripts.pory"
 	msgbox Miniboss_ScaryGuy_Text_0
-# 1051 "data/maps/LittlerootTown/scripts.pory"
+# 1101 "data/maps/LittlerootTown/scripts.pory"
 	trainerbattle_single TRAINER_ROXANNE_2, Miniboss_Text_ScaryGuy_Intro, Miniboss_Text_ScaryGuy_Defeat, Miniboss_ScaryGuyDefeated
-# 1052 "data/maps/LittlerootTown/scripts.pory"
+# 1102 "data/maps/LittlerootTown/scripts.pory"
 	closemessage
-# 1053 "data/maps/LittlerootTown/scripts.pory"
+# 1103 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
 
 Miniboss_ScaryGuyDefeated::
-# 1057 "data/maps/LittlerootTown/scripts.pory"
+# 1107 "data/maps/LittlerootTown/scripts.pory"
 	msgbox Miniboss_ScaryGuyDefeated_Text_0
-# 1058 "data/maps/LittlerootTown/scripts.pory"
-	giveitem ITEM_RARE_CANDY
-# 1059 "data/maps/LittlerootTown/scripts.pory"
+# 1108 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_ABILITY_CAPSULE
+# 1109 "data/maps/LittlerootTown/scripts.pory"
 	call_if_unset FLAG_DEFEATED_RUSTBORO_GYM, Miniboss_ScaryGuyBPReward
-# 1060 "data/maps/LittlerootTown/scripts.pory"
+# 1110 "data/maps/LittlerootTown/scripts.pory"
 	closemessage
-# 1061 "data/maps/LittlerootTown/scripts.pory"
+# 1111 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
 
 Miniboss_ScaryGuyBPReward::
-# 1065 "data/maps/LittlerootTown/scripts.pory"
+# 1115 "data/maps/LittlerootTown/scripts.pory"
 	GiveBP 15
-# 1066 "data/maps/LittlerootTown/scripts.pory"
+# 1116 "data/maps/LittlerootTown/scripts.pory"
 	msgbox Miniboss_ScaryGuyBPReward_Text_0
-# 1067 "data/maps/LittlerootTown/scripts.pory"
+# 1117 "data/maps/LittlerootTown/scripts.pory"
 	closemessage
-# 1068 "data/maps/LittlerootTown/scripts.pory"
+# 1118 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_Protector::
+# 1122 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1123 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_Protector_Text_0
+# 1124 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_double TRAINER_ROXANNE_3, Miniboss_Text_Protector_Intro, Miniboss_Text_Protector_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_ProtectorDefeated
+# 1125 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1126 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_ProtectorDefeated::
+# 1130 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_ProtectorDefeated_Text_0
+# 1131 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_EVIOLITE
+# 1132 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_DEWFORD_GYM, Miniboss_ProtectorBPReward
+# 1133 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1134 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_ProtectorBPReward::
+# 1138 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 15
+# 1139 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_ProtectorBPReward_Text_0
+# 1140 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1141 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SpeedyChap::
+# 1145 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1146 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SpeedyChap_Text_0
+# 1147 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_ROXANNE_4, Miniboss_Text_SpeedyChap_Intro, Miniboss_Text_SpeedyChap_Defeat, Miniboss_SpeedyChapDefeated
+# 1148 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1149 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SpeedyChapDefeated::
+# 1153 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SpeedyChapDefeated_Text_0
+# 1154 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_SALAC_BERRY
+# 1155 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_MAUVILLE_GYM, Miniboss_SpeedyChapBPReward
+# 1156 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1157 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SpeedyChapBPReward::
+# 1161 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 25
+# 1162 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SpeedyChapBPReward_Text_0
+# 1163 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1164 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_Collector::
+# 1168 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1169 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_Collector_Text_0
+# 1170 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_ROXANNE_5, Miniboss_Text_Collector_Intro, Miniboss_Text_Collector_Defeat, Miniboss_CollectorDefeated
+# 1171 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1172 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_CollectorDefeated::
+# 1176 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_CollectorDefeated_Text_0
+# 1177 "data/maps/LittlerootTown/scripts.pory"
+	givemon SPECIES_FROAKIE_SPECIAL, 5
+# 1178 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_LAVARIDGE_GYM, Miniboss_CollectorBPReward
+# 1179 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1180 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_CollectorBPReward::
+# 1184 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 25
+# 1185 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_CollectorBPReward_Text_0
+# 1186 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1187 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_BoomDude::
+# 1191 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1192 "data/maps/LittlerootTown/scripts.pory"
+	checkpartydamp
+# 1193 "data/maps/LittlerootTown/scripts.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq Miniboss_BoomDude_2
+Miniboss_BoomDude_1:
+# 1197 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_BoomDude_Text_1
+# 1198 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_BRAWLY_5, Miniboss_Text_BoomDude_Intro, Miniboss_Text_BoomDude_Defeat, Miniboss_BoomDudeDefeated
+# 1199 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1200 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+Miniboss_BoomDude_2:
+# 1194 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_BoomDude_Text_0
+# 1195 "data/maps/LittlerootTown/scripts.pory"
+	goto End
+	goto Miniboss_BoomDude_1
+
+
+Miniboss_BoomDudeDefeated::
+# 1204 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_BoomDudeDefeated_Text_0
+# 1205 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_ABILITY_PATCH
+# 1206 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_PETALBURG_GYM, Miniboss_BoomDudeBPReward
+# 1207 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1208 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_BoomDudeBPReward::
+# 1212 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 30
+# 1213 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_BoomDudeBPReward_Text_0
+# 1214 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1215 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_CritMaster::
+# 1219 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1220 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_CritMaster_Text_0
+# 1221 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_double TRAINER_WATTSON_2, Miniboss_Text_CritMaster_Intro, Miniboss_Text_CritMaster_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_CritMasterDefeated
+# 1222 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1223 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_CritMasterDefeated::
+# 1227 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_CritMasterDefeated_Text_0
+# 1228 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_SCOPE_LENS
+# 1229 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_FORTREE_GYM, Miniboss_CritMasterBPReward
+# 1230 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1231 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_CritMasterBPReward::
+# 1235 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 30
+# 1236 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_CritMasterBPReward_Text_0
+# 1237 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1238 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SlowFella::
+# 1242 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1243 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SlowFella_Text_0
+# 1244 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_WATTSON_3, Miniboss_Text_SlowFella_Intro, Miniboss_Text_SlowFella_Defeat, Miniboss_SlowFellaDefeated
+# 1245 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1246 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SlowFellaDefeated::
+# 1250 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SlowFellaDefeated_Text_0
+# 1251 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_IRON_BALL
+# 1252 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_MOSSDEEP_GYM, Miniboss_SlowFellaBPReward
+# 1253 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1254 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SlowFellaBPReward::
+# 1258 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 40
+# 1259 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SlowFellaBPReward_Text_0
+# 1260 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1261 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_Smasher::
+# 1265 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1266 "data/maps/LittlerootTown/scripts.pory"
+	goto_if_set FLAG_DEFEATED_SMASHER, EventScript_ShellSmashTutor
+# 1267 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_Smasher_Text_0
+# 1268 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_WATTSON_4, Miniboss_Text_Smasher_Intro, Miniboss_Text_Smasher_Defeat, Miniboss_SmasherDefeated
+# 1269 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1270 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SmasherDefeated::
+# 1274 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SmasherDefeated_Text_0
+# 1275 "data/maps/LittlerootTown/scripts.pory"
+	setflag FLAG_DEFEATED_SMASHER
+# 1276 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_SOOTOPOLIS_GYM, Miniboss_SmasherBPReward
+# 1277 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1278 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_SmasherBPReward::
+# 1282 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 45
+# 1283 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_SmasherBPReward_Text_0
+# 1284 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1285 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_Purkat::
+# 1289 "data/maps/LittlerootTown/scripts.pory"
+	lockall
+# 1290 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_Purkat_Text_0
+# 1291 "data/maps/LittlerootTown/scripts.pory"
+	trainerbattle_single TRAINER_WATTSON_5, Miniboss_Text_Purkat_Intro, Miniboss_Text_Purkat_Defeat, Miniboss_PurkatDefeated
+# 1292 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1293 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_PurkatDefeated::
+# 1297 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_PurkatDefeated_Text_0
+# 1298 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_BLANK_MINT, 5
+# 1299 "data/maps/LittlerootTown/scripts.pory"
+	giveitem ITEM_RARE_CANDY, 5
+# 1300 "data/maps/LittlerootTown/scripts.pory"
+	call_if_unset FLAG_DEFEATED_ELITE_4_SIDNEY, Miniboss_PurkatBPReward
+# 1301 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1302 "data/maps/LittlerootTown/scripts.pory"
+	releaseall
+	return
+
+
+Miniboss_PurkatBPReward::
+# 1306 "data/maps/LittlerootTown/scripts.pory"
+	GiveBP 50
+# 1307 "data/maps/LittlerootTown/scripts.pory"
+	msgbox Miniboss_PurkatBPReward_Text_0
+# 1308 "data/maps/LittlerootTown/scripts.pory"
+	closemessage
+# 1309 "data/maps/LittlerootTown/scripts.pory"
 	releaseall
 	return
 
 
 Miniboss_ScaryGuy_Text_0:
-# 1050 "data/maps/LittlerootTown/scripts.pory"
+# 1100 "data/maps/LittlerootTown/scripts.pory"
 	.string "The best way to defeat your enemy is to\n"
 	.string "make scare them, so I only use Pokémon\l"
 	.string "with Intimidate!$"
 
 Miniboss_ScaryGuyDefeated_Text_0:
-# 1057 "data/maps/LittlerootTown/scripts.pory"
-	.string "Here's a Rare Candy for defeating me.$"
+# 1107 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's an Ability Capsule for defeating\n"
+	.string "me. In case your Growlithe has Flash\l"
+	.string "Fire, yknow?$"
 
 Miniboss_ScaryGuyBPReward_Text_0:
-# 1066 "data/maps/LittlerootTown/scripts.pory"
+# 1116 "data/maps/LittlerootTown/scripts.pory"
 	.string "And here's 15 Battle Points for\n"
 	.string "defeating me before Roxanne. Spend\l"
 	.string "them wisely.$"
+
+Miniboss_Protector_Text_0:
+# 1123 "data/maps/LittlerootTown/scripts.pory"
+	.string "I hate when my Pokémon take too much\n"
+	.string "damage, so I'll do whatever I can to\l"
+	.string "reduce it!$"
+
+Miniboss_ProtectorDefeated_Text_0:
+# 1130 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's an Eviolite for defeating me.\n"
+	.string "It'll increase your Pokémon's defenses.$"
+
+Miniboss_ProtectorBPReward_Text_0:
+# 1139 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 15 Battle Points for\n"
+	.string "defeating me before Brawly. Spend them\l"
+	.string "wisely.$"
+
+Miniboss_SpeedyChap_Text_0:
+# 1146 "data/maps/LittlerootTown/scripts.pory"
+	.string "Hahaha! I'm so fast! You can't catch me!$"
+
+Miniboss_SpeedyChapDefeated_Text_0:
+# 1153 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's a Salac Berry for defeating me.\n"
+	.string "It'll raise Speed in a pinch.$"
+
+Miniboss_SpeedyChapBPReward_Text_0:
+# 1162 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 25 Battle Points for\n"
+	.string "defeating me before Wattson. Spend\l"
+	.string "them wisely.$"
+
+Miniboss_Collector_Text_0:
+# 1169 "data/maps/LittlerootTown/scripts.pory"
+	.string "I like collecting Pokémon with forms. Do\n"
+	.string "you have any? Let me see!$"
+
+Miniboss_CollectorDefeated_Text_0:
+# 1176 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's a Special Froakie for defeating\n"
+	.string "me. It has a very unique ability. So\l"
+	.string "cool!$"
+
+Miniboss_CollectorBPReward_Text_0:
+# 1185 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 25 Battle Points for\n"
+	.string "defeating me before Flannery. Spend\l"
+	.string "them wisely.$"
+
+Miniboss_BoomDude_Text_0:
+# 1194 "data/maps/LittlerootTown/scripts.pory"
+	.string "Oho ho, tryna pull one over on me huh? I\n"
+	.string "won't battle you if you have a Pokémon\l"
+	.string "with the ability Damp.$"
+
+Miniboss_BoomDude_Text_1:
+# 1197 "data/maps/LittlerootTown/scripts.pory"
+	.string "...................................................$"
+
+Miniboss_BoomDudeDefeated_Text_0:
+# 1204 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's an Ability Patch for defeating\n"
+	.string "me. Maybe use it to get Damp or\l"
+	.string "something. Always be aware of\l"
+	.string "explosions.$"
+
+Miniboss_BoomDudeBPReward_Text_0:
+# 1213 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 30 Battle Points for\n"
+	.string "defeating me before Norman. Spend them\l"
+	.string "wisely.$"
+
+Miniboss_CritMaster_Text_0:
+# 1220 "data/maps/LittlerootTown/scripts.pory"
+	.string "I have cheated the system. I have a\n"
+	.string "guaranteed chance to crit every time.\l"
+	.string "There's no way your Pokémon can\l"
+	.string "withstand me!$"
+
+Miniboss_CritMasterDefeated_Text_0:
+# 1227 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's a Scope Lens for defeating me.\n"
+	.string "Now you're one step closer to the\l"
+	.string "guaranteed crit...$"
+
+Miniboss_CritMasterBPReward_Text_0:
+# 1236 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 30 Battle Points for\n"
+	.string "defeating me before Winona. Spend them\l"
+	.string "wisely.$"
+
+Miniboss_SlowFella_Text_0:
+# 1243 "data/maps/LittlerootTown/scripts.pory"
+	.string "....................................$"
+
+Miniboss_SlowFellaDefeated_Text_0:
+# 1250 "data/maps/LittlerootTown/scripts.pory"
+	.string "Oh, didn't see you there. Well, here's an\n"
+	.string "Iron Ball for defeating me, I guess. No\l"
+	.string "need to speed through life.$"
+
+Miniboss_SlowFellaBPReward_Text_0:
+# 1259 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 40 Battle Points for\n"
+	.string "defeating me before Tate & Liza. Spend\l"
+	.string "them wisely or whatever.$"
+
+Miniboss_Smasher_Text_0:
+# 1267 "data/maps/LittlerootTown/scripts.pory"
+	.string "Check out this sick move I just found!$"
+
+Miniboss_SmasherDefeated_Text_0:
+# 1274 "data/maps/LittlerootTown/scripts.pory"
+	.string "For defeating me, I will teach the move\n"
+	.string "Shell Smash to any of your Pokémon for\l"
+	.string "me. It's a really cool move, check it out!$"
+
+Miniboss_SmasherBPReward_Text_0:
+# 1283 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 45 Battle Points for\n"
+	.string "defeating me before Roxanne. Spend\l"
+	.string "them wisely.$"
+
+Miniboss_Purkat_Text_0:
+# 1290 "data/maps/LittlerootTown/scripts.pory"
+	.string "Hey! I hope you're enjoying my hack!\n"
+	.string "Prepare to die!$"
+
+Miniboss_PurkatDefeated_Text_0:
+# 1297 "data/maps/LittlerootTown/scripts.pory"
+	.string "Here's some Blank Nature Mints and Rare\n"
+	.string "Candies for defeating me.$"
+
+Miniboss_PurkatBPReward_Text_0:
+# 1307 "data/maps/LittlerootTown/scripts.pory"
+	.string "And here's 50 Battle Points for\n"
+	.string "defeating me before the taking on the\l"
+	.string "Pokémon League. Spend them wisely.$"

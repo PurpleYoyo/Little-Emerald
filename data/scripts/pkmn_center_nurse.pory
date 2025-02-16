@@ -1267,14 +1267,18 @@ script TryBuyLifeOrb {
 
 script EggMoveTutor {
 	msgbox(format("I can teach one of your Pokémon one of their egg moves in exchange for one Battle Point."))
+	special(ShowBattlePointsWindow)
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
 	if (var(VAR_TEMP_1) < 1) { // No BP
-		msgbox(format("You don't have any Battle Points. Come back with some."))
+		msgbox(format("You don't have any Battle Points. Come back with some if you want me to teach an egg move to one of your Pokémon."))
+		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	msgbox(format("Would you like to do that?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("Come back anytime!"))
+		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	special(ChooseMonForMoveRelearner)
@@ -1298,6 +1302,7 @@ script EggMoveTutor {
 	waitstate
 	setvar(VAR_0x8004, 1)
 	special(TakeFrontierBattlePoints)
+	special(CloseBattlePointsWindow)
 	playse(SE_SHOP)
 	goto(End)
 }
@@ -1313,6 +1318,7 @@ script EventScript_FishermanSalesman {
 	msgbox(format("Would you like to buy one?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind"))
 		goto(End)
 	}
 	setvar(VAR_0x8004, SCROLL_MULTI_FISH)
@@ -1891,5 +1897,205 @@ script SootopolisSecondaryMart_Clerk {
 	waitmessage
 	pokemart(SootopolisSecondaryMart)
 	msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+	release
+}
+
+script RandomEggGuy {
+	lock
+	message(format("Hello there, I have some Pokémon Eggs I can sell to you. They can contain any fully unevolved Pokémon. They'll cost 10 BP each."))
+	waitmessage
+	goto_if_unset(FLAG_EGGGUY_FISRTEGG, FreeRandomEgg)
+	special(ShowBattlePointsWindow)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 10) { // Not enough BP
+		msgbox(format("You don't have enough BP. Come back with 10 BP to buy a random egg."))
+		special(CloseBattlePointsWindow)
+		goto(End)
+	}
+	msgbox(format("Would you like to buy one?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
+		special(CloseBattlePointsWindow)
+		goto(End)
+	}
+	setvar(VAR_0x8004, 10)
+	special(TakeFrontierBattlePoints)
+	special(CloseBattlePointsWindow)
+	goto(GiveRandomEgg)
+}
+
+script FreeRandomEgg {
+	message(format("But, since you're a new customer, the first one is free!"))
+	waitmessage
+	setflag(FLAG_EGGGUY_FISRTEGG)
+	goto(GiveRandomEgg)
+}
+
+script GiveRandomEgg {
+	special(GetRandomEgg)
+	giveegg(VAR_RESULT)
+	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(format("Obtained the egg!"))
+		goto(End)
+	}
+	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+		playfanfare(MUS_OBTAIN_ITEM)
+		msgbox(format("The egg was placed in your PC."))
+		goto(End)
+	}
+	else {
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		goto(End)
+	}
+}
+
+script Static_Tangela_DeepWoods {
+	lock
+	setwildbattle(SPECIES_TANGELA, 25)
+	waitse
+	playmoncry(SPECIES_TANGELA, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_PLAYER_TELEPORTED:
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_WON:
+			setflag(FLAG_STATIC_TANGELA)
+			goto(Common_EventScript_RemoveStaticPokemon)
+	}
+	setflag(FLAG_STATIC_TANGELA)
+	release
+}
+
+script Static_Foongus1_DeepWoods {
+	lock
+	setwildbattle(SPECIES_FOONGUS, 15)
+	waitse
+	playmoncry(SPECIES_FOONGUS, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_PLAYER_TELEPORTED:
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_WON:
+			setflag(FLAG_STATIC_FOONGUS1)
+			goto(Common_EventScript_RemoveStaticPokemon)
+	}
+	setflag(FLAG_STATIC_FOONGUS1)
+	release
+}
+
+script Static_Foongus2_DeepWoods {
+	lock
+	setwildbattle(SPECIES_FOONGUS, 15)
+	waitse
+	playmoncry(SPECIES_FOONGUS, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_PLAYER_TELEPORTED:
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_WON:
+			setflag(FLAG_STATIC_FOONGUS2)
+			goto(Common_EventScript_RemoveStaticPokemon)
+	}
+	setflag(FLAG_STATIC_FOONGUS2)
+	release
+}
+
+script Static_Morelull1_DeepWoods {
+	lock
+	setwildbattle(SPECIES_MORELULL, 15)
+	waitse
+	playmoncry(SPECIES_MORELULL, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_PLAYER_TELEPORTED:
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_WON:
+			setflag(FLAG_STATIC_MORELULL1)
+			goto(Common_EventScript_RemoveStaticPokemon)
+	}
+	setflag(FLAG_STATIC_MORELULL1)
+	release
+}
+
+script Static_Morelull2_DeepWoods {
+	lock
+	setwildbattle(SPECIES_MORELULL, 15)
+	waitse
+	playmoncry(SPECIES_MORELULL, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+	dowildbattle
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	switch(var(VAR_RESULT)) {
+		case B_OUTCOME_PLAYER_TELEPORTED:
+		case B_OUTCOME_RAN:
+		case B_OUTCOME_WON:
+			setflag(FLAG_STATIC_MORELULL2)
+			goto(Common_EventScript_RemoveStaticPokemon)
+	}
+	setflag(FLAG_STATIC_MORELULL2)
+	release
+}
+
+script ChoiceItemsGuy {
+	lock
+	faceplayer
+	msgbox(format("Welcome and congratulations for making it to the Pokémon League! I'm here to hand out useful items to trainers in case they don't have them yet. Let's see here..."))
+	checkitem(ITEM_CHOICE_SCARF)
+	if (var(VAR_RESULT) == FALSE) {
+		checkpcitem(ITEM_CHOICE_SCARF)
+		if (var(VAR_RESULT) == FALSE) {
+			msgbox(format("Since you don't yet have a Choice Scarf, I will give you one. Here you go."))
+			checkitemspace(VAR_0x8009)
+			if (var(VAR_RESULT) == FALSE) {
+				msgbox(format("You don't have bag space for any more items."))
+				goto(End)
+			}
+			giveitem(ITEM_CHOICE_SCARF)
+		}
+	}
+	checkitem(ITEM_CHOICE_SPECS)
+	if (var(VAR_RESULT) == FALSE) {
+		checkpcitem(ITEM_CHOICE_SPECS)
+		if (var(VAR_RESULT) == FALSE) {
+		    msgbox(format("Since you don't yet have a Choice Specs, I will give you one. Here you go."))
+		    checkitemspace(VAR_0x8009)
+		    if (var(VAR_RESULT) == FALSE) {
+		    	msgbox(format("You don't have bag space for any more items."))
+		    	goto(End)
+		    }
+		    giveitem(ITEM_CHOICE_SPECS)
+		}
+	}
+	checkitem(ITEM_CHOICE_BAND)
+	if (var(VAR_RESULT) == FALSE) {
+		checkpcitem(ITEM_CHOICE_BAND)
+		if (var(VAR_RESULT) == FALSE) {
+			msgbox(format("Since you don't yet have a Choice Band, I will give you one. Here you go."))
+			checkitemspace(VAR_0x8009)
+			if (var(VAR_RESULT) == FALSE) {
+				msgbox(format("You don't have bag space for any more items."))
+				goto(End)
+			}
+			giveitem(ITEM_CHOICE_BAND)
+		}
+	}
+	msgbox(format("Look at that! You have all of the choice items, you should be good to go."))
+	msgbox(format("Good luck taking on the Pokémon League!"))
+	closemessage
 	release
 }

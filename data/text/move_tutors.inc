@@ -235,3 +235,19 @@ MoveTutor_Text_ExplosionTaught:
 	.string "to ignite my own EXPLOSION…\p"
 	.string "Maybe it's because deep down,\n"
 	.string "I would rather stay here…$"
+
+MoveTutor_Text_ShellSmashTeach:
+	.string "I will teach one of your Pokémon\n"
+	.string "Shell Smash as promised.$"
+
+MoveTutor_Text_ShellSmashDeclined:
+	.string "Come back whenever you want.\n"
+	.string "See you later!$"
+
+MoveTutor_Text_ShellSmashWhichMon:
+	.string "Which Pokémon do you want to\n"
+	.string "teach Shell Smash to?$"
+
+MoveTutor_Text_ShellSmashTaught:
+	.string "And done! Your Pokémon has learned\n"
+	.string "a sick new move! Make sure to try it out."

@@ -58,28 +58,43 @@ General TODO
 -Tate & Liza randomly choose a mega
 -minibosses no bp after cap
 -finish learnsets
+-ability changes
+-move changes
+-daycare random egg
+-iron fist boost+
+-fossils
+
+krabby aqua cutter
+binacle accelerock
+karrablast water shuriken
+growlithe extreme speed
+zigzagoon-galar obstruct
+chespin fake out, mach punch
+vanillite explosion
+snorunt shadow sneak
+deerling draining kiss, solar blade, triple axel, powder snow, blaze kick, incinerate, lava plume
+both rattata hyper fang
+petilil axe kick, brick break, double kick, triple axel, victory dance
+
+todo in test playthru:
+get all Tms
+check regi accessibility times
 
 code:
-move changes
-ability changes
-game corner mons
-setup minibosses
+-setup minibosses
 
 porymap:
-Add encounters to some cities with none
-Add rocks to Route 106
-Add rocks to Route 114
-
-other:
-zorua palette
+-Add encounters to some cities with none
+-Add rocks to Route 106
+-Add rocks to Route 114
 
 distribution:
-encounters
-items
-berries
-special gift battle bond froakie
-special gift tough claws rockruff
-static pokemon
+-encounters
+-items
+-berries
+-special gift battle bond froakie
+-special gift tough claws rockruff
+-static pokemon
 
 ideas for the future:
 colored toggleables text in utility menu
@@ -88,6 +103,10 @@ damp = immune to explosions, not stop
 reaper cloth
 lucky punch happiny
 game corner 2 (mossdeep)
+revival blessing kys
+cap end at gym battle start
+edge candy
+statics run
 
 Learnsets
 ----------
@@ -132,26 +151,3 @@ Swablu + Weather Ball, Air Slash
 Riolu + Meteor Mash
 Rookidee + Flash Cannon
 Lotad + Fake Out
-
-Moves
-----------
-Thunder Fang, Ice Fang, Fire Fang -> Acc 100
-Mirror Shot -> Acc 100, 30% lower SpD
-Supersonic -> Acc 100
-Charge Beam -> Acc 100
-Fairy Wind -> 60 BP
-Fire Spin, Whirlpool -> Acc 100, 40 BP
-Rock Slide, Rock Tomb, Rock Throw, Rock Blast -> Acc 100
-Pyro Ball -> Acc 100
-
-King's Shield -> Sharply Drop Atk on contact
-
-Triple Kick -> 20 BP (10), Acc 100 (90)
-Muddy Water -> Acc 95 (85)
-Triple Axel -> Acc 95 (90)
-Electroweb, Night Daze, Metal Claw, Triple Dive -> Acc 100 (95)
-Dragon Rush, Iron Tail -> Acc 80 (75)
-Multi-Attack -> 90 BP (120)
-Zen Headbutt, Play Rough, Aqua Tail, Dual Wingbeat, Scale Shot, Blaze Kick -> Acc 100 (90)
-
-Items | include/constants/hold_effects.h

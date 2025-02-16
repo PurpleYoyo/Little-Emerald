@@ -29,7 +29,9 @@
       "direction": "down"
     }
   ],
-  "object_events": [],
+  "object_events": [
+
+  ],
   "warp_events": [
     {
       "x": 57,
@@ -46,7 +48,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
@@ -61,7 +65,7 @@
       "x": 50,
       "y": 36,
       "elevation": 3,
-      "item": "ITEM_HP_UP",
+      "item": "ITEM_PP_UP",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_127_HP_UP"
     },
     {
@@ -69,7 +73,7 @@
       "x": 34,
       "y": 72,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_127_HEART_SCALE"
     },
     {
@@ -77,7 +81,7 @@
       "x": 72,
       "y": 20,
       "elevation": 3,
-      "item": "ITEM_RED_SHARD",
+      "item": "ITEM_CALM_MINT",
       "flag": "FLAG_HIDDEN_ITEM_UNDERWATER_127_RED_SHARD"
     }
   ]

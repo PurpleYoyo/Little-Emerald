@@ -89,6 +89,8 @@ LavaridgeTown_Gym_1F_EventScript_GiveOverheat2::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_OVERHEAT
+	msgbox Gym_Text_AlsoTakeThese, MSGBOX_DEFAULT
+	giveitem ITEM_BLANK_MINT, 3
 	release
 	end
 
@@ -97,6 +99,8 @@ LavaridgeTown_Gym_1F_EventScript_GiveOverheat::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox LavaridgeTown_Gym_1F_Text_ExplainOverheat, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_OVERHEAT
+	msgbox Gym_Text_AlsoTakeThese, MSGBOX_DEFAULT
+	giveitem ITEM_BLANK_MINT, 3
 	return
 
 LavaridgeTown_Gym_1F_EventScript_FlanneryRematch::

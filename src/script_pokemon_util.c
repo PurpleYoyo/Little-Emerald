@@ -104,6 +104,27 @@ static bool8 CheckPartyMonHasHeldItem(u16 item)
     return FALSE;
 }
 
+void CheckPartyDamp(struct ScriptContext *ctx)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 ability;
+        struct Pokemon *pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            ability = GetMonAbility(pokemon);
+            if (ability == ABILITY_DAMP)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 bool8 DoesPartyHaveEnigmaBerry(void)
 {
     bool8 hasItem = CheckPartyMonHasHeldItem(ITEM_ENIGMA_BERRY_E_READER);

@@ -101,38 +101,36 @@ LilycoveCity_DepartmentStore_2F_Pokemart2:
 # 51 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.2byte ITEM_LUMINOUS_MOSS
 # 52 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_BRIGHT_POWDER
 # 53 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_FOCUS_BAND
 # 54 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-	.2byte ITEM_LEEK
+	.2byte ITEM_DESTINY_KNOT
 # 55 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_LAGGING_TAIL
 # 56 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-	.2byte ITEM_LUCKY_PUNCH
-# 57 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	pokemartlistend
+# 57 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+
 # 58 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-
-# 59 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 LilycoveCity_DepartmentStore_2F_Text_LearnToUseItemsProperly:
-# 60 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 59 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "Learn to use items properly.\n"
-# 61 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 60 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "That's basic, really.$"
+# 61 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+
 # 62 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
-
-# 63 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 LilycoveCity_DepartmentStore_2F_Text_GoodGiftForHusband:
-# 64 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 63 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "My husband is waiting at home.\n"
-# 65 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 64 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "What would make a good gift for him?$"
-# 66 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 65 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 
-# 67 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 66 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 LilycoveCity_DepartmentStore_2F_Text_StockUpOnItems:
-# 68 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 67 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "I'm leaving on a long journey soon.\n"
-# 69 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
+# 68 "data/maps/LilycoveCity_DepartmentStore_2F/scripts.pory"
 	.string "I need to stock up on items.$"

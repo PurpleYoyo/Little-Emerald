@@ -566,3 +566,4 @@ gSpecials::
 	def_special GetAutoRunFlag
 	def_special TeachEggMove
 	def_special DoesChosenMonHaveEggMoves
+	def_special GetRandomEgg

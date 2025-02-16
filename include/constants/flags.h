@@ -1223,14 +1223,14 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
 #define FLAG_RUNNING_SHOES_TOGGLE                                   0x493
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
+#define FLAG_UNUSED_0x494                                           0x494 // Dewford Town Pearl
+#define FLAG_UNUSED_0x495                                           0x495 // Lilycove City Wave Incense
+#define FLAG_UNUSED_0x496                                           0x496 // Desert Oasis Stardust
+#define FLAG_UNUSED_0x497                                           0x497 // Desert Oasis Rare Candy
+#define FLAG_UNUSED_0x498                                           0x498 // Desert Oasis Soothing Incense
+#define FLAG_UNUSED_0x499                                           0x499 // Deep Woods Auspicious Armor
+#define FLAG_UNUSED_0x49A                                           0x49A // Deep Woods Odd Incense
+#define FLAG_UNUSED_0x49B                                           0x49B // Deep Woods Rare Candy
 #define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
@@ -1307,14 +1307,14 @@
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
 #define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
-#define FLAG_UNUSED_0x4E8                                           0x4E8 // Unused Flag
-#define FLAG_UNUSED_0x4E9                                           0x4E9 // Unused Flag
-#define FLAG_UNUSED_0x4EA                                           0x4EA // Unused Flag
-#define FLAG_UNUSED_0x4EB                                           0x4EB // Unused Flag
-#define FLAG_UNUSED_0x4EC                                           0x4EC // Unused Flag
-#define FLAG_UNUSED_0x4ED                                           0x4ED // Unused Flag
-#define FLAG_UNUSED_0x4EE                                           0x4EE // Unused Flag
-#define FLAG_UNUSED_0x4EF                                           0x4EF // Unused Flag
+#define FLAG_HIDE_BOOMDUDE                                          0x4E8
+#define FLAG_DEFEATED_SMASHER                                       0x4E9
+#define FLAG_STATIC_MORELULL1                                       0x4EA
+#define FLAG_STATIC_MORELULL2                                       0x4EB
+#define FLAG_STATIC_FOONGUS1                                        0x4EC
+#define FLAG_STATIC_FOONGUS2                                        0x4ED
+#define FLAG_STATIC_TANGELA                                         0x4EE
+#define FLAG_EGGGUY_FISRTEGG                                        0x4EF
 
 #define FLAG_DEFEATED_RUSTBORO_GYM                                  0x4F0
 #define FLAG_DEFEATED_DEWFORD_GYM                                   0x4F1

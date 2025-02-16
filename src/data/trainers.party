@@ -579,14 +579,14 @@ Music: Aqua
 Double Battle: No
 AI: Basic Trainer
 
-Amaura @ Icy Rock
+Vanillite @ Icy Rock
 Level: 34
 Ability: Snow Warning
 Nature: Bold
-- Ancient Power
-- Freeze-Dry
-- Thunder Wave
-- Stealth Rock
+- Aurora Veil
+- Frost Breath
+- Acid Armor
+- Mirror Coat
 
 Sandshrew-Alola @ Focus Sash
 Level: 35
@@ -4800,24 +4800,6 @@ Nature: Bold
 - Light Screen
 - Reflect
 
-Slowpoke Galar @ Quick Claw
-Level: 44
-Ability: Quick Draw
-Nature: Adamant
-- Curse
-- Zen Headbutt
-- Poison Jab
-- Slack Off
-
-Mime Jr. @ Odd Incense
-Level: 45
-Ability: Technician
-Nature: Bold
-- Psychic
-- Dazzling Gleam
-- Psyshock
-- Reflect
-
 Bronzor @ Air Balloon
 Level: 43
 Ability: Heavy Metal
@@ -4827,6 +4809,15 @@ Nature: Lonely
 - Expanding Force
 - Rain Dance
 
+Slowpoke Galar @ Quick Claw
+Level: 44
+Ability: Quick Draw
+Nature: Adamant
+- Curse
+- Zen Headbutt
+- Poison Jab
+- Slack Off
+
 Girafarig @ Eviolite
 Level: 44
 Ability: Sap Sipper
@@ -4835,6 +4826,15 @@ Nature: Modest
 - Stored Power
 - Energy Ball
 - Thunderbolt
+
+Mime Jr. @ Odd Incense
+Level: 45
+Ability: Technician
+Nature: Bold
+- Psychic
+- Dazzling Gleam
+- Psyshock
+- Reflect
 
 Mime Jr. @ ITEM_NEVER_MELT_ICE
 Level: 45
@@ -14023,143 +14023,193 @@ Nature: Impish
 - Hypnosis
 
 === TRAINER_ROXANNE_3 ===
-Name: ROXANNE
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
+Name: PROTECTOR
+Class: Pkmn Trainer 1
+Pic: Dome Ace Tucker
+Gender: Male
+Music: Male
 Double Battle: Yes
 AI: Basic Trainer
 
-Omanyte
-Level: 37
+Munna @ Eviolite
+Level: 20
+Ability: Synchronize
+Nature: Bold
+- Light Screen
+- Moonlight
+- Lucky Chant
+- Helping Hand
+
+Spritzee @ Leftovers
+Level: 20
+Ability: Healer
+Nature: Relaxed
+- Draining Kiss
 - Protect
-- Ice Beam
-- Rock Slide
-- Surf
+- Reflect
+- Attract
 
-Larvitar
-Level: 37
+Tarountula @ Focus Sash
+Level: 20
+Ability: Insomnia
+Nature: Impish
+- Silk Trap
+- Spider Web
+- Spikes
+- Gastro Acid
+
+Cubone @ Thick Club
+Level: 20
+Ability: Battle Armor
+Nature: Sassy
+- Stealth Rock
+- Iron Defense
 - Protect
-- Rollout
-- Magnitude
-- Explosion
+- Bulldoze
 
-Kabuto @ Sitrus Berry
-Level: 40
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
+Mareanie @ Black Sludge
+Level: 20
+Ability: Regenerator
+Nature: Calm
+- Baneful Bunker
+- Toxic Spikes
+- Wide Guard
+- Recover
 
-Onix
-Level: 40
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 42
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
+Snover @ Occa Berry
+Level: 20
+Ability: Snow Warning
+Nature: Careful
+- Aurora Veil
+- Razor Leaf
+- Icy Wind
+- Water Pulse
 
 === TRAINER_ROXANNE_4 ===
-Name: ROXANNE
-Class: Leader
-Pic: Leader Roxanne
-Gender: Female
-Music: Female
-Double Battle: Yes
+Name: SPEEDY KID
+Class: Pkmn Trainer 1
+Pic: Pyramid King Brandon
+Gender: Male
+Music: Male
+Double Battle: No
 AI: Basic Trainer
 
-Omanyte
-Level: 42
-- Protect
-- Ice Beam
-- Rock Slide
-- Surf
+Finizen @ Kings Rock
+Level: 25
+Ability: Water Veil
+Nature: Jolly
+- Waterfall
+- Zen Headbutt
+- Agility
+- Encore
 
-Larvitar
-Level: 42
-- Protect
-- Rollout
-- Earthquake
-- Explosion
+Fletchling @ Focus Sash
+Level: 25
+Ability: Gale Wings
+Nature: Naive
+- Aerial Ace
+- Flame Charge
+- Feather Dance
+- Agility
 
-Kabuto @ Sitrus Berry
-Level: 45
-- Swords Dance
-- Ice Beam
-- Surf
-- Rock Slide
+Onix @ Salac Berry
+Level: 25
+Ability: Sturdy
+Nature: Hasty
+- Bulldoze
+- Rock Tomb
+- Stealth Rock
+- Taunt
 
-Onix
-Level: 45
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
+Chespin @ Eviolite
+Level: 25
+Ability: Bulletproof
+Nature: Gentle
+- Mach Punch
+- Spiky Shield
+- Grassy Glide
+- Grassy Terrain
 
-Nosepass @ Sitrus Berry
-Level: 47
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
+Snorunt @ Sitrus Berry
+Level: 25
+Ability: Inner Focus
+Nature: Brave
+- Ice Shard
+- Trailblaze
+- Shadow Sneak
+- Switcheroo
+
+Voltorb @ Choice Scarf
+Level: 25
+Ability: Static
+Nature: Timid
+- Electro Ball
+- Thunder Wave
+- Taunt
+- Volt Switch
 
 === TRAINER_ROXANNE_5 ===
-Name: ROXANNE
-Class: Leader
-Pic: Leader Roxanne
+Name: COLLECTOR
+Class: Pkmn Trainer 1
+Pic: Arena Tycoon Greta
 Gender: Female
 Music: Female
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Archen
-Level: 47
-- Rock Slide
-- Hyper Beam
-- Supersonic
-- Protect
+Deerling-Spring @ Wide Lens
+Level: 30
+Ability: Sap Sipper
+Nature: Adamant
+- Play Rough
+- Seed Bomb
+- Zen Headbutt
+- Jump Kick
 
-Larvitar
-Level: 47
-- Focus Punch
-- Rollout
-- Earthquake
-- Explosion
+Burmy-Trash @ Focus Sash
+Level: 30
+Ability: Overcoat
+Nature: Quiet
+- Flash Cannon
+- Giga Drain
+- Bug Buzz
+- Psychic
 
-Omanyte
-Level: 47
-- Protect
-- Ice Beam
-- Rock Slide
+Rattata-Alola @ Eviolite
+Level: 30
+Ability: Thick Fat
+Nature: Jolly
+- Super Fang
+- Crunch
+- Hyper Fang
+- Thunder Wave
+
+Meowth-Galar @ Metal Coat
+Level: 30
+Ability: Steely Spirit
+Nature: Hasty
+- Iron Head
+- U-turn
+- Knock Off
+- X-Scissor
+
+Petilil @ Fist Plate
+Level: 30
+Ability: Chlorophyll
+Nature: Sassy
+- Brick Break
+- Seed Bomb
+- Sunny Day
+- Victory Dance
+
+Froakie-Special @ Leftovers
+Level: 30
+Ability: Battle Bond
+Nature: Modest
 - Surf
-
-Kabuto @ Sitrus Berry
-Level: 50
-- Swords Dance
+- Grass Knot
 - Ice Beam
-- Surf
-- Rock Slide
-
-Onix
-Level: 50
-- Iron Tail
-- Explosion
-- Roar
-- Rock Slide
-
-Nosepass @ Sitrus Berry
-Level: 52
-- Double Team
-- Explosion
-- Protect
-- Rock Slide
+- Substitute
 
 === TRAINER_BRAWLY_2 === /* Mt Pyre tag Brendan Scorbunny */
 Name: BRENDAN
@@ -14270,231 +14320,320 @@ Nature: Quiet
 - Giga Drain
 
 === TRAINER_BRAWLY_5 ===
-Name: BRAWLY
-Class: Leader
-Pic: Leader Brawly
+Name: BOOM DUDE
+Class: Pkmn Trainer 1
+Pic: Ruin Maniac
 Gender: Male
 Music: Male
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Tyrogue
-Level: 46
-- Mega Kick
-- Focus Punch
-- Earthquake
-- Bulk Up
+Geodude-Alola @ Air Balloon
+Level: 35
+Ability: Galvanize
+Nature: Brave
+- Explosion
+- Iron Defense
+- Body Press
+- Stone Edge
 
-Tyrogue
-Level: 46
-- Sky Uppercut
-- Protect
-- Fire Punch
-- Ice Punch
-
-Pancham @ Sitrus Berry
-Level: 48
-- Cross Chop
-- Rock Slide
-- Focus Punch
-- Bulk Up
-
-Meditite
-Level: 48
-- Focus Punch
-- Light Screen
-- Reflect
+Baltoy @ Focus Sash
+Level: 35
+Ability: Levitate
+Nature: Relaxed
+- Explosion
+- Foresight
+- Scorching Sands
 - Psychic
 
-Tyrogue
-Level: 50
-- Pursuit
-- Counter
-- Protect
-- Triple Kick
+Koffing @ Pixie Plate
+Level: 35
+Ability: Levitate
+Nature: Modest
+- Misty Explosion
+- Strange Steam
+- Sludge Bomb
+- Pain Split
 
-Makuhita @ Sitrus Berry
-Level: 52
-- Fake Out
-- Focus Punch
-- Belly Drum
-- Earthquake
+Amaura @ Babiri Berry
+Level: 35
+Ability: Refrigerate
+Nature: Lonely
+- Explosion
+- Freeze-Dry
+- Light Screen
+- Reflect
+
+Type: Null @ Life Orb
+Level: 35
+Ability: Battle Armor
+Nature: Adamant
+- Explosion
+- Shadow Claw
+- Flame Charge
+- Iron Head
+
+Elgyem @ Eviolite
+Level: 35
+Ability: Analytic
+Nature: Quiet
+- Mind Blown
+- Nasty Plot
+- Recover
+- Trick Room
 
 === TRAINER_WATTSON_2 ===
-Name: WATTSON
-Class: Leader
-Pic: Leader Wattson
-Gender: Male
-Music: Male
+Name: CRITTER
+Class: Pkmn Trainer 1
+Pic: Salon Maiden Anabel
+Gender: Female
+Music: Female
 Double Battle: Yes
 AI: Basic Trainer
 
-Mareep
-Level: 36
-- Thunder
-- Protect
-- Thunder Wave
-- Light Screen
-
-Voltorb
-Level: 36
-- Rollout
-- Thunder
-- Explosion
-- Rain Dance
-
-Magnemite @ Sitrus Berry
-Level: 38
-- Supersonic
-- Protect
-- Thunder
-- Rain Dance
-
-Electrike @ Sitrus Berry
+Cranidos @ Focus Sash
 Level: 40
-- Bite
+Ability: Mold Breaker
+Nature: Hasty
+- Focus Energy
+- Dragon Cheer
+- Stone Edge
+- Endeavor
+
+Horsea @ Scope Lens
+Level: 40
+Ability: Sniper
+Nature: Mild
+- Muddy Water
+- Dragon Pulse
+- Flash Cannon
+- Blizzard
+
+Farfetchd-Galar @ Leek
+Level: 40
+Ability: Scrappy
+Nature: Adamant
+- Karate Chop
+- Leaf Blade
+- Night Slash
+- Dual Wingbeat
+
+Pidove @ Power Herb
+Level: 40
+Ability: Super Luck
+Nature: Jolly
+- Air Cutter
+- Heat Wave
+- Razor Wind
+- Sky Attack
+
+Dratini @ Lansat Berry
+Level: 40
+Ability: Multiscale
+Nature: Relaxed
+- Dragon Cheer
+- Breaking Swipe
 - Thunder Wave
-- Thunder
-- Protect
+- Extreme Speed
+
+Sprigatito @ Eviolite
+Level: 40
+Ability: Overgrow
+Nature: Sassy
+- Flower Trick
+- Leech Seed
+- Rest
+- Worry Seed
 
 === TRAINER_WATTSON_3 ===
-Name: WATTSON
-Class: Leader
-Pic: Leader Wattson
+Name: SLOW FELLA
+Class: Pkmn Trainer 1
+Pic: Factory Head Noland
 Gender: Male
 Music: Male
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
+Starting Status: Trickwind Room
 
-Pichu
-Level: 39
-- Thunder
-- Slam
-- Rain Dance
-- Shock Wave
-
-Mareep
-Level: 41
-- Thunder
-- Protect
-- Thunder Wave
-- Light Screen
-
-Voltorb
-Level: 41
-- Rollout
-- Thunder
-- Explosion
-- Rain Dance
-
-Magnemite @ Sitrus Berry
-Level: 43
-- Supersonic
-- Protect
-- Thunder
-- Rain Dance
-
-Electrike @ Sitrus Berry
+Ferroseed @ Kings Rock
 Level: 45
-- Bite
-- Thunder Wave
-- Thunder
-- Protect
+Ability: Iron Barbs
+Nature: Sassy
+- Pin Missile
+- Bullet Seed
+- Spike Cannon
+- Leech Seed
+
+Rellor @ Eviolite
+Level: 45
+Ability: Shed Skin
+Nature: Modest
+- Electro Ball
+- Bug Buzz
+- Revival Blessing
+- Rest
+
+Grimer-Alola @ Iron Ball
+Level: 45
+Ability: Poison Touch
+Nature: Adamant
+- Fling
+- Ice Punch
+- Knock Off
+- Gunk Shot
+
+Totodile @ Focus Sash
+Level: 45
+Ability: Torrent
+Nature: Relaxed
+- Fishious Rend
+- Ice Punch
+- Curse
+- Endure
+
+Munchlax @ Leftovers
+Level: 45
+Ability: Thick Fat
+Nature: Impish
+- Stomping Tantrum
+- Encore
+- Substitute
+- Fissure
+
+Wattrel @ Power Bracer
+Level: 45
+Ability: Wind Power
+Nature: Brave
+- Bolt Beak
+- Dual Wingbeat
+- Volt Switch
+- U-turn
 
 === TRAINER_WATTSON_4 ===
-Name: WATTSON
-Class: Leader
-Pic: Leader Wattson
-Gender: Male
-Music: Male
-Double Battle: Yes
+Name: SMASHER
+Class: Pkmn Trainer 1
+Pic: Pike Queen Lucy
+Gender: Female
+Music: Female
+Double Battle: No
 AI: Basic Trainer
 
-Raichu
-Level: 44
-- Thunder
-- Slam
-- Rain Dance
-- Protect
-
-Mareep
-Level: 46
-- Thunder
-- Protect
-- Thunder Wave
-- Light Screen
-
-Voltorb
-Level: 46
-- Rollout
-- Thunder
-- Explosion
-- Rain Dance
-
-Magnemite @ Sitrus Berry
-Level: 48
-- Supersonic
-- Protect
-- Thunder
-- Rain Dance
-
-Electrike @ Sitrus Berry
+Shellder @ Wacan Berry
 Level: 50
-- Bite
-- Thunder Wave
-- Thunder
-- Protect
+Ability: Skill Link
+Nature: Careful
+- Shell Smash
+- Icicle Spear
+- Spike Cannon
+- Rock Blast
+
+Dwebble @ Sitrus Berry
+Level: 50
+Ability: Sturdy
+Nature: Gentle
+- Shell Smash
+- Rock Wrecker
+- X-Scissor
+- Earthquake
+
+Turtwig @ Leftovers
+Level: 50
+Ability: Shell Armor
+Nature: Jolly
+- Shell Smash
+- Headlong Rush
+- Wood Hammer
+- Crunch
+
+Clamperl @ Eviolite
+Level: 50
+Ability: Rattled
+Nature: Timid
+- Shell Smash
+- Ice Beam
+- Scald
+- Supersonic
+
+Sinistea @ Focus Sash
+Level: 50
+Ability: Cursed Body
+Nature: Modest
+- Shell Smash
+- Dark Pulse
+- Shadow Ball
+- Giga Drain
+
+Binacle @ White Herb
+Level: 50
+Ability: Tough Claws
+Nature: Adamant
+- Shell Smash
+- Cross Chop
+- Stone Edge
+- Liquidation
 
 === TRAINER_WATTSON_5 ===
-Name: WATTSON
-Class: Leader
-Pic: Leader Wattson
+Name: PURKAT
+Class: Pkmn Trainer 1
+Pic: Red
 Gender: Male
 Music: Male
-Double Battle: Yes
+Double Battle: No
 AI: Basic Trainer
 
-Electabuzz
-Level: 50
-- Swift
-- Focus Punch
-- Thunder Punch
-- Light Screen
+Litten @ Eviolite
+Level: 62
+Ability: Intimidate
+Nature: Adamant
+- Fake Out
+- Darkest Lariat
+- Flare Blitz
+- Leech Life
 
-Raichu
-Level: 51
-- Thunder
-- Slam
+Surskit @ Focus Sash
+Level: 62
+Ability: Swift Swim
+Nature: Modest
 - Rain Dance
-- Protect
+- Scald
+- Bug Buzz
+- Ice Beam
 
-Mareep
-Level: 51
-- Thunder
-- Protect
-- Thunder Wave
-- Light Screen
+Golett @ Punching Glove
+Level: 62
+Ability: Iron Fist
+Nature: Careful
+- Headlong Rush
+- Shadow Punch
+- Drain Punch
+- Ice Punch
 
-Voltorb
-Level: 53
-- Rollout
-- Thunder
-- Explosion
-- Rain Dance
-
-Magnemite @ Sitrus Berry
-Level: 53
-- Supersonic
+Shelmet @ Leftovers
+Level: 62
+Ability: Shell Armor
+Nature: Calm
+- Toxic
 - Protect
-- Thunder
-- Rain Dance
+- Recover
+- Acid Armor
 
-Electrike @ Sitrus Berry
-Level: 55
-- Bite
-- Thunder Wave
-- Thunder
-- Protect
+Honedge @ Power Herb
+Level: 62
+Ability: Sharpness
+Nature: Jolly
+- Sacred Sword
+- Night Slash
+- Rock Slide
+- Solar Blade
+
+Wynaut @ Lax Incense
+Level: 62
+Ability: Shadow Tag
+Nature: Relaxed
+- Counter
+- Mirror Coat
+- Destiny Bond
+- Encore
 
 === TRAINER_FLANNERY_2 ===
 Name: FLANNERY
@@ -16408,24 +16547,6 @@ Nature: Bold
 - Light Screen
 - Reflect
 
-Slowpoke Galar @ Quick Claw
-Level: 44
-Ability: Quick Draw
-Nature: Adamant
-- Curse
-- Zen Headbutt
-- Poison Jab
-- Slack Off
-
-Mime Jr. @ Twisted Spoon
-Level: 45
-Ability: Technician
-Nature: Bold
-- Psychic
-- Dazzling Gleam
-- Psyshock
-- Reflect
-
 Bronzor @ Air Balloon
 Level: 43
 Ability: Heavy Metal
@@ -16435,6 +16556,15 @@ Nature: Lonely
 - Expanding Force
 - Rain Dance
 
+Slowpoke Galar @ Quick Claw
+Level: 44
+Ability: Quick Draw
+Nature: Adamant
+- Curse
+- Zen Headbutt
+- Poison Jab
+- Slack Off
+
 Girafarig @ Eviolite
 Level: 44
 Ability: Sap Sipper
@@ -16443,6 +16573,15 @@ Nature: Modest
 - Stored Power
 - Energy Ball
 - Thunderbolt
+
+Mime Jr. @ Twisted Spoon
+Level: 45
+Ability: Technician
+Nature: Bold
+- Psychic
+- Dazzling Gleam
+- Psyshock
+- Reflect
 
 Mime Jr. @ Weird Incense
 Level: 45

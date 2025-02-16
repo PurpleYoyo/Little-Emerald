@@ -160,20 +160,23 @@ SlateportCity_Pokemart_EnergyGuru:
 SlateportCity_EventScript_EffortRibbonWoman::
 	lock
 	faceplayer
-	bufferleadmonspeciesname STR_VAR_1
-	msgbox SlateportCity_Text_OhYourPokemon, MSGBOX_DEFAULT
-	specialvar VAR_RESULT, LeadMonHasEffortRibbon
-	call_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_MonHasEffortRibbon
-	specialvar VAR_RESULT, Special_AreLeadMonEVsMaxedOut
-	call_if_eq VAR_RESULT, FALSE, SlateportCity_EventScript_MonEVsNotMaxed
-	msgbox SlateportCity_Text_PleaseGiveItThisEffortRibbon, MSGBOX_DEFAULT
-	playfanfare MUS_OBTAIN_ITEM
-	message SlateportCity_Text_ReceivedEffortRibbon
-	waitfanfare
-	msgbox SlateportCity_Text_PutEffortRibbonOnMon, MSGBOX_DEFAULT
-	special GiveLeadMonEffortRibbon
+	message SlateportCity_Text_OhYourPokemon
+	waitmessage
+	pokemart SlateportCity_Pokemart_HelpfulTMs
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
+
+	.align 2
+SlateportCity_Pokemart_HelpfulTMs:
+	.2byte ITEM_TM_CALM_MIND
+	.2byte ITEM_TM_BULK_UP
+	.2byte ITEM_TM_TAUNT
+	.2byte ITEM_TM_SKILL_SWAP
+	.2byte ITEM_TM_STORED_POWER
+	.2byte ITEM_TM_SWORDS_DANCE
+	.2byte ITEM_TM_U_TURN
+	pokemartlistend
 
 SlateportCity_EventScript_MonEVsNotMaxed::
 	msgbox SlateportCity_Text_GoForItLittleHarder, MSGBOX_DEFAULT
@@ -510,9 +513,24 @@ SlateportCity_EventScript_DollClerk::
 
 	.align 2
 SlateportCity_PokemartDecor_Dolls:
-	.2byte DECOR_AZURILL_DOLL
-	.2byte DECOR_MARILL_DOLL
-	.2byte DECOR_SKITTY_DOLL
+	.2byte ITEM_FIRE_GEM
+	.2byte ITEM_GRASS_GEM
+	.2byte ITEM_WATER_GEM
+	.2byte ITEM_ELECTRIC_GEM
+	.2byte ITEM_PSYCHIC_GEM
+	.2byte ITEM_DARK_GEM
+	.2byte ITEM_GROUND_GEM
+	.2byte ITEM_ROCK_GEM
+	.2byte ITEM_DRAGON_GEM
+	.2byte ITEM_FAIRY_GEM
+	.2byte ITEM_BUG_GEM
+	.2byte ITEM_GHOST_GEM
+	.2byte ITEM_FIGHTING_GEM
+	.2byte ITEM_FLYING_GEM
+	.2byte ITEM_ICE_GEM
+	.2byte ITEM_NORMAL_GEM
+	.2byte ITEM_STEEL_GEM
+	.2byte ITEM_POISON_GEM
 	pokemartlistend
 
 SlateportCity_EventScript_ComeBackWithSecretPower::
@@ -523,7 +541,6 @@ SlateportCity_EventScript_ComeBackWithSecretPower::
 SlateportCity_EventScript_DecorClerk::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_ComeBackWithSecretPower
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemartdecoration SlateportCity_PokemartDecor
@@ -533,20 +550,22 @@ SlateportCity_EventScript_DecorClerk::
 
 	.align 2
 SlateportCity_PokemartDecor:
-	.2byte DECOR_RED_BRICK
-	.2byte DECOR_BLUE_BRICK
-	.2byte DECOR_YELLOW_BRICK
-	.2byte DECOR_RED_BALLOON
-	.2byte DECOR_BLUE_BALLOON
-	.2byte DECOR_YELLOW_BALLOON
-	.2byte DECOR_C_LOW_NOTE_MAT
-	.2byte DECOR_D_NOTE_MAT
-	.2byte DECOR_E_NOTE_MAT
-	.2byte DECOR_F_NOTE_MAT
-	.2byte DECOR_G_NOTE_MAT
-	.2byte DECOR_A_NOTE_MAT
-	.2byte DECOR_B_NOTE_MAT
-	.2byte DECOR_C_HIGH_NOTE_MAT
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	.2byte ITEM_LEEK
+	.2byte ITEM_LIGHT_BALL
+	.2byte ITEM_LUCKY_PUNCH
+	.2byte ITEM_THICK_CLUB
+	.2byte ITEM_PROTECTOR
+	.2byte ITEM_FIRE_STONE
+	.2byte ITEM_WATER_STONE
+	.2byte ITEM_THUNDER_STONE
+	.2byte ITEM_SUN_STONE
+	.2byte ITEM_MOON_STONE
+	.2byte ITEM_LEAF_STONE
+	.2byte ITEM_ICE_STONE
+	.2byte ITEM_SHINY_STONE
+	.2byte ITEM_DAWN_STONE
 	pokemartlistend
 
 SlateportCity_EventScript_PowerTMClerk::
@@ -961,8 +980,8 @@ SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "sell you what you need!$"
 
 SlateportCity_Text_OhYourPokemon:
-	.string "Oh?\n"
-	.string "Your {STR_VAR_1}…$"
+	.string "I sell TMs that might\n"
+	.string "be of strategic use.$"
 
 SlateportCity_Text_PleaseGiveItThisEffortRibbon:
 	.string "Went for it stupendously!\p"

@@ -121,6 +121,9 @@ SootopolisCity_Gym_1F_EventScript_GiveWaterPulse::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
+	msgbox Gym_Text_AlsoTakeThese, MSGBOX_DEFAULT
+	giveitem ITEM_BLANK_MINT, 3
+	giveitem ITEM_BOTTLE_CAP, 5
 	return
 
 SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2::
@@ -128,6 +131,9 @@ SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
+	msgbox Gym_Text_AlsoTakeThese, MSGBOX_DEFAULT
+	giveitem ITEM_BLANK_MINT, 3
+	giveitem ITEM_BOTTLE_CAP, 5
 	release
 	end
 
@@ -317,5 +323,8 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 	.string "You have with you but one POKéMON.\p"
 	.string "I wish that you would return with\n"
 	.string "two, perhaps more, POKéMON, please.$"
+
+Gym_Text_AlsoTakeThese:
+	.string "Here, you can also use these to upgrade your Pokémon.$"
 
 `

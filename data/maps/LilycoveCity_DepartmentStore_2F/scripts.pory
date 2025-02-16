@@ -49,11 +49,10 @@ LilycoveCity_DepartmentStore_2F_Pokemart2:
 	.2byte ITEM_CELL_BATTERY
 	.2byte ITEM_SNOWBALL
 	.2byte ITEM_LUMINOUS_MOSS
-	.2byte ITEM_DEEP_SEA_SCALE
-	.2byte ITEM_DEEP_SEA_TOOTH
-	.2byte ITEM_LEEK
-	.2byte ITEM_LIGHT_BALL
-	.2byte ITEM_LUCKY_PUNCH
+	.2byte ITEM_BRIGHT_POWDER
+	.2byte ITEM_FOCUS_BAND
+	.2byte ITEM_DESTINY_KNOT
+	.2byte ITEM_LAGGING_TAIL
 	pokemartlistend
 
 LilycoveCity_DepartmentStore_2F_Text_LearnToUseItemsProperly:

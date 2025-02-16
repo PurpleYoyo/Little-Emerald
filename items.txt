@@ -26,7 +26,7 @@
  SCOPE LENS
  UTILITY UMBRELLA
 
-SHELL BELL
+ SHELL BELL - unchanged
 
  ABSORB BULB
  CELL BATTERY
@@ -70,7 +70,7 @@ SHELL BELL
  LOADED DICE
  ROCKY HELMET
  SHED SHELL
-STICKY BARB
+ STICKY BARB - minibosses
  THROAT SPRAY
  WIDE LENS
  ZOOM LENS
@@ -82,13 +82,43 @@ STICKY BARB
  TERRAIN EXTENDER
  LIGHT CLAY
 
-GEMS
+ GEMS
 
-PLATES
+ Fist
+ Iron
+ Spooky
+ Stone
+ Draco
+ Malicious Armor
+ Auspicious Armor
+ Dawn Stone
+ Toxic
+ Mind
+ Pixie
 
-INCENSES
-ELECTIRIZER
-MAGMARIZER
+ Pink
+x Full
+ Lax
+ Rock
+ Metal
+ Rose 
+Punk 
+ Soothing 
+ Light 
+ Moon
+ Egg 
+ Attack 
+ Defense 
+ Calm 
+ Weird 
+ Odd 
+ Wave 
+ Sea 
+ Ice 
+ Pure
+x Luck 
+ ELECTIRIZER
+ MAGMARIZER
 
  DEEP SEA SCALE
  DEEP SEA TOOTH
@@ -101,10 +131,3 @@ MAGMARIZER
 CHOICE BAND
 CHOICE SCARF
 CHOICE SPECS
-
-lilycove
-Secondary		
-Bright Powder		
-Focus Band		
-Destiny Knot		
-Lagging Tail		
