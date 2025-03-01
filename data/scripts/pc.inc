@@ -65,7 +65,28 @@ EventScript_AccessHallOfFame::
 	goto EventScript_AccessPC
 	end
 
+EventScript_UseWarpPanel::
+	special IsPlayerInPokemonLeague
+	goto_if_eq VAR_RESULT, TRUE, EventScript_CantUseWarpPanel
+	return
+
+EventScript_CantUseWarpPanel::
+	msgbox gText_CantUseWarpPanel, MSGBOX_DEFAULT
+	closemessage
+	return
+
 EventScript_AccessPokemonBoxLink::
+	special IsPlayerInPokemonLeague
+	goto_if_eq VAR_RESULT, FALSE, EventScript_PokemonBoxLink
+	goto_if_eq VAR_RESULT, TRUE, EventScript_CantUseBoxLink
+	return
+
+EventScript_CantUseBoxLink::
+	msgbox gText_CantUseBoxLink, MSGBOX_DEFAULT
+	closemessage
+	return
+
+EventScript_PokemonBoxLink::
 	playse SE_PC_LOGIN
 	msgbox gText_StorageSystemOpened, MSGBOX_DEFAULT
 	special ShowPokemonStorageSystemPC

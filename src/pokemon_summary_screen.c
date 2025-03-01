@@ -3640,32 +3640,32 @@ static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
         txtPtr = StringCopy(dst, sTextNatureNeutral);
 
     // 7 = left, 3 = right <- n | (0, 1, 2) hp, atk, def : spatk, spdef spe <- strId
-    if (strId == 0 && n == 7) // HP
+    if (strId == 0 && n == 7 && statIndex == 0) // HP
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_HP))
             txtPtr = StringCopy(dst, sTextHyperTrained);
     }
-    else if (strId == 1 && n == 7) // Atk
+    else if (strId == 1 && n == 7 && statIndex == 0) // Atk
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_ATK))
             txtPtr = StringCopy(dst, sTextHyperTrained);
     }
-    else if (strId == 2 && n == 7) // Def
+    else if (strId == 2 && n == 7 && statIndex == 0) // Def
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_DEF))
             txtPtr = StringCopy(dst, sTextHyperTrained);
     }
-    else if (strId == 0 && n == 3) // SpA
+    else if (strId == 0 && n == 3 && statIndex == 9) // SpA
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPATK))
             txtPtr = StringCopy(dst, sTextHyperTrained);
     }
-    else if (strId == 1 && n == 3) // SpD
+    else if (strId == 1 && n == 3 && statIndex == 0) // SpD
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPDEF))
             txtPtr = StringCopy(dst, sTextHyperTrained);
     }
-    else if (strId == 1 && n == 7) // Spe
+    else if (strId == 2 && n == 3 && statIndex == 0) // Spe
     {
         if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_HYPER_TRAINED_SPEED))
             txtPtr = StringCopy(dst, sTextHyperTrained);
@@ -3732,7 +3732,7 @@ static void BufferIvOrEvStats(u8 mode)
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsLeftColumnLayoutIVEV);
         PrintLeftColumnStats();
 
-        BufferStat(gStringVar1, 0, spA, 0, 3);
+        BufferStat(gStringVar1, 9, spA, 0, 3);
         BufferStat(gStringVar2, 0, spD, 1, 3);
         BufferStat(gStringVar3, 0, spe, 2, 3);
         DynamicPlaceholderTextUtil_ExpandPlaceholders(gStringVar4, sStatsRightColumnLayout);

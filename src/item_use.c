@@ -945,7 +945,17 @@ void ItemUseOutOfBattle_Pokevial(u8 taskId)
 
 void ItemUseOutOfBattle_WarpPanel(u8 taskId)
 {
-    SetMainCallback2(CB2_OpenFlyMap);
+    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY_SIDNEYS_ROOM))
+    {
+        if (gTasks[taskId].tUsingRegisteredKeyItem) {
+            DisplayItemMessageOnField(taskId, gText_CantUseWarpPanel, Task_CloseCantUseKeyItemMessage);
+        }
+        else {
+            DisplayItemMessage(taskId, 1, gText_CantUseWarpPanel, CloseItemMessage);
+        }
+        return;
+    }
+    SetMainCallback2(CB2_OpenWarpMap);
 }
 
 void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)

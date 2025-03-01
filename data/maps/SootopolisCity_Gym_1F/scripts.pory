@@ -325,6 +325,7 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 	.string "two, perhaps more, POKéMON, please.$"
 
 Gym_Text_AlsoTakeThese:
-	.string "Here, you can also use these to upgrade your Pokémon.$"
+	.string "Here, you can also use these\n"
+	.string "to upgrade your Pokémon.$"
 
 `

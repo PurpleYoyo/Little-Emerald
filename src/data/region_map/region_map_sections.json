@@ -1742,6 +1742,30 @@
       "y": 4,
       "width": 1,
       "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DAYCARE",
+      "name": "DAYCARE",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WEATHER_INSTITUTE",
+      "name": "WEATHER INSTITUTE",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GAME_CORNER_2",
+      "name": "GAME CORNER",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
     }
 
   ]

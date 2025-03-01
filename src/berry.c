@@ -2104,13 +2104,12 @@ static u8 CalcBerryYield(struct BerryTree *tree)
 
     rand = min + Random() % (max - min + 1);
 
-    return rand;
+    return 50;
 }
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
 {
-    struct BerryTree *tree = GetBerryTreeInfo(id);
-    return CalcBerryYield(tree); //gSaveBlock1Ptr->berryTrees[id].berryYield;
+    return 50; //gSaveBlock1Ptr->berryTrees[id].berryYield;
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)

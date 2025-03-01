@@ -180,8 +180,10 @@ enum ItemHoldEffect
     HOLD_EFFECT_PROTECTOR,
     // Specific to Igglybuff
     HOLD_EFFECT_PINK_BOW,
-    // Specific to Ralts & Snorunt
+    // Specific to Ralts
     HOLD_EFFECT_DAWN_STONE,
+    // Specific to Snorunt
+    HOLD_EFFECT_DUSK_STONE,
 
     HOLD_EFFECT_SOUND_POWER,
 

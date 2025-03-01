@@ -422,7 +422,7 @@ static void HandleInputChooseAction(u32 battler)
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_THROW_BALL, 0);
         PlayerBufferExecCompleted(battler);
     }
-    else if (JOY_NEW(L_BUTTON))
+    else if (JOY_NEW(R_BUTTON))
     {
         if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FIRST_BATTLE)))
         {

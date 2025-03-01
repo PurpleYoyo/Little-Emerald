@@ -231,11 +231,25 @@ MauvilleCity_Gym_EventScript_GymGuide::
 	faceplayer
 	goto_if_set FLAG_DEFEATED_MAUVILLE_GYM, MauvilleCity_Gym_EventScript_GymGuidePostVictory
 	msgbox MauvilleCity_Gym_Text_GymGuideAdvice, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_MEGA_RING, MauvilleCity_Gym_EventScript_GiveMegaRing
+	release
+	end
+
+MauvilleCity_Gym_EventScript_GiveMegaRing::
+	msgbox MauvilleCity_Gym_Text_GiveMegaRing, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
+	release
+	end
+
+MauvilleCity_Gym_EventScript_GiveMegaRingPostGym::
+	msgbox MauvilleCity_Gym_Text_GiveMegaRingPostGym, MSGBOX_DEFAULT
+	giveitem ITEM_MEGA_RING
 	release
 	end
 
 MauvilleCity_Gym_EventScript_GymGuidePostVictory::
 	msgbox MauvilleCity_Gym_Text_GymGuidePostVictory, MSGBOX_DEFAULT
+	goto_if_unset FLAG_RECEIVED_MEGA_RING, MauvilleCity_Gym_EventScript_GiveMegaRingPostGym
 	release
 	end
 
@@ -424,4 +438,15 @@ MauvilleCity_Gym_Text_WattsonRematchNeedTwoMons:
 	.string "Come see me with two or more\n"
 	.string "POKéMON, all right?$"
 
+MauvilleCity_Gym_Text_GiveMegaRing:
+	.string "Oh, by the way, Wattson and all\n"
+	.string "subsequent gym leaders will use Mega\p"
+	.string "Pokémon, so take this to even the\n"
+	.string "playing field!$"
+
+MauvilleCity_Gym_Text_GiveMegaRingPostGym:
+	.string "Oh, by the way, as you've seen,\n"
+	.string "Wattson and all sybsequent gym\p"
+	.string "leaders will use Mega Pokémon, so\n"
+	.string "take this to even the playing field!$"
 `

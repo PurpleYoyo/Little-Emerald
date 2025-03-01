@@ -1231,8 +1231,8 @@
 #define FLAG_UNUSED_0x499                                           0x499 // Deep Woods Auspicious Armor
 #define FLAG_UNUSED_0x49A                                           0x49A // Deep Woods Odd Incense
 #define FLAG_UNUSED_0x49B                                           0x49B // Deep Woods Rare Candy
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
+#define FLAG_UNUSED_0x49C                                           0x49C // Mauville City Rock Incense
+#define FLAG_UNUSED_0x49D                                           0x49D // Desert Oasis Bulldoze TM
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
@@ -1304,9 +1304,8 @@
 #define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
 #define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
-#define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
-#define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
-#define FLAG_UNUSED_0x4E7                                           0x4E7 // Unused Flag
+#define FLAG_RECEIVED_MEGA_RING                                     0x4E5
+#define FLAG_RECEIVED_SPECIAL_FROAKIE                               0x4E7
 #define FLAG_HIDE_BOOMDUDE                                          0x4E8
 #define FLAG_DEFEATED_SMASHER                                       0x4E9
 #define FLAG_STATIC_MORELULL1                                       0x4EA

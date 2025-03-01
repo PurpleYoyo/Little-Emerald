@@ -175,15 +175,17 @@ void ChangeAmountInMoneyBox(int amount)
 
 u32 CalculateMoneyTextHorizontalPosition(u32 amount)
 {
-    return (CountDigits(amount) > 8) ? 18 : 10;
-    //return (CountDigits(amount) > 8) ? 34 : 26;
+    if (gSpecialVar_0x800B == 0)
+        return (CountDigits(amount) > 8) ? 15 : 7;
+    else //(gSpecialVar_0x800B == 1)
+        return (CountDigits(amount) > 8) ? 34 : 26;
 }
 
 void DrawMoneyBox(int amount, u8 x, u8 y)
 {
     struct WindowTemplate template;
 
-    SetWindowTemplateFields(&template, 0, x + 1, y + 1, 5, 2, 15, 8);
+    SetWindowTemplateFields(&template, 0, x + 1, y + 1, 7, 2, 15, 8);
     sMoneyBoxWindowId = AddWindow(&template);
     FillWindowPixelBuffer(sMoneyBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sMoneyBoxWindowId);

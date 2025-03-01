@@ -74,6 +74,11 @@ static void Task_UseFly(u8);
 static void FieldCallback_FlyIntoMap(void);
 static void Task_FlyIntoMap(u8);
 
+static void Task_UseWarp(u8);
+static void FieldCallback_UseWarp(void);
+static void FieldCallback_WarpIntoMap(void);
+static void Task_WarpIntoMap(u8);
+
 static void Task_FallWarpFieldEffect(u8);
 static bool8 FallWarpEffect_Init(struct Task *);
 static bool8 FallWarpEffect_WaitWeather(struct Task *);
@@ -1384,6 +1389,83 @@ static void Task_UseFly(u8 taskId)
     }
 }
 
+void ReturnToFieldFromWarpMapSelect(void)
+{
+    SetMainCallback2(CB2_ReturnToField);
+    gFieldCallback = FieldCallback_UseWarp;
+}
+
+void FieldCallback_UseWarp(void)
+{
+    FadeInFromBlack();
+    CreateTask(Task_UseWarp, 0);
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+}
+
+static void Task_UseWarp(u8 taskId)
+{
+    struct Task *task;
+    task = &gTasks[taskId];
+    if (!task->data[0])
+    {
+        if (!IsWeatherNotFadingIn())
+            return;
+
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+        if ((int)gFieldEffectArguments[0] > PARTY_SIZE - 1)
+            gFieldEffectArguments[0] = 0;
+
+        //FieldEffectStart(FLDEFF_USE_FLY);
+        task->data[0]++;
+    }
+    if (!FieldEffectActiveListContains(FLDEFF_USE_FLY))
+    {
+        Overworld_ResetStateAfterFly();
+        WarpIntoMap();
+        SetMainCallback2(CB2_LoadMap);
+        gFieldCallback = FieldCallback_WarpIntoMap;
+        DestroyTask(taskId);
+    }
+}
+
+static void FieldCallback_WarpIntoMap(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    FadeInFromBlack();
+    CreateTask(Task_WarpIntoMap, 0);
+    //gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
+    {
+        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_WEST);
+    }
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+}
+
+static void Task_WarpIntoMap(u8 taskId)
+{
+    struct Task *task;
+    task = &gTasks[taskId];
+    if (task->data[0] == 0)
+    {
+        if (gPaletteFade.active)
+        {
+            return;
+        }
+        //FieldEffectStart(FLDEFF_FLY_IN);
+        task->data[0]++;
+    }
+    if (!FieldEffectActiveListContains(FLDEFF_FLY_IN))
+    {
+        UnlockPlayerFieldControls();
+        UnfreezeObjectEvents();
+        DestroyTask(taskId);
+    }
+}
+
 static void FieldCallback_FlyIntoMap(void)
 {
     Overworld_PlaySpecialMapMusic();
@@ -1871,7 +1953,7 @@ static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         gFieldEffectArguments[0] = task->tMonId;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
     return FALSE;
@@ -1942,7 +2024,7 @@ static bool8 DiveFieldEffect_ShowMon(struct Task *task)
 {
     LockPlayerFieldControls();
     gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     task->data[0]++;
     return FALSE;
 }

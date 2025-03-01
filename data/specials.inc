@@ -567,3 +567,5 @@ gSpecials::
 	def_special TeachEggMove
 	def_special DoesChosenMonHaveEggMoves
 	def_special GetRandomEgg
+	def_special GiveStarterOranBerry
+	def_special IsPlayerInPokemonLeague

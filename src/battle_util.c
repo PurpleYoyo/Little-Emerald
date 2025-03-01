@@ -10039,7 +10039,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
         switch (GetBattlerAbility(BATTLE_PARTNER(battlerDef)))
         {
         case ABILITY_FLOWER_GIFT:
-            if (gBattleMons[BATTLE_PARTNER(battlerDef)].species == SPECIES_CHERRIM_SUNSHINE && IsBattlerWeatherAffected(BATTLE_PARTNER(battlerDef), B_WEATHER_SUN) && !usesDefStat)
+            if (gBattleMons[BATTLE_PARTNER(battlerDef)].species == SPECIES_CHERUBI && IsBattlerWeatherAffected(BATTLE_PARTNER(battlerDef), B_WEATHER_SUN) && !usesDefStat)
                 modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
             break;
         }
@@ -10091,8 +10091,9 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_DEFENSE_INCENSE:
-        if (gBattleMons[battlerDef].species == SPECIES_TYROGUE || gBattleMons[battlerDef].species == SPECIES_TYROGUE_MEGA_C)
-            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.2));
+        if ((gBattleMons[battlerDef].species == SPECIES_TYROGUE || gBattleMons[battlerDef].species == SPECIES_TYROGUE_MEGA_C)
+         && !usesDefStat)
+            modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_PROTECTOR:
         if (gBattleMons[battlerDef].species == SPECIES_RHYHORN)
@@ -11653,7 +11654,7 @@ void TryRestoreHeldItems(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         // Check if held items should be restored after battle based on generation
-        if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gBattleStruct->itemLost[B_SIDE_PLAYER][i].stolen || returnNPCItems)
+        if (B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gBattleStruct->itemLost[B_SIDE_PLAYER][i].stolen || returnNPCItems || gSpecialVar_0x8007 == 1)
         {
             u16 lostItem = gBattleStruct->itemLost[B_SIDE_PLAYER][i].originalItem;
 

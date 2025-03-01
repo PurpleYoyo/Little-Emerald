@@ -481,7 +481,7 @@ MeteorFalls_1F_1R_EventScript_MetCozmo::
 # 241 "data/maps/MeteorFalls_1F_1R/scripts.pory"
 MeteorFalls_1F_1R_Text_WithThisMeteorite:
 # 242 "data/maps/MeteorFalls_1F_1R/scripts.pory"
-	.string "Hehehe!\p"
+	.string "Ahahaha!\p"
 # 243 "data/maps/MeteorFalls_1F_1R/scripts.pory"
 	.string "With this METEORITE, that thing in\n"
 # 244 "data/maps/MeteorFalls_1F_1R/scripts.pory"

@@ -1592,6 +1592,27 @@ const u8 gText_BPShop_AssaultVest[] = _("ASSAULT VEST{CLEAR_TO 0x5E}2BP");
 const u8 gText_BPShop_Eviolite[] = _("EVIOLITE{CLEAR_TO 0x5E}4BP");
 const u8 gText_BPShop_AbilityPatch[] = _("ABILITY PATCH{CLEAR_TO 0x5E}4BP");
 const u8 gText_BPShop_LifeOrb[] = _("LIFE ORB{CLEAR_TO 0x5E}6BP");
+const u8 gText_BPShop_TM01Covet[] = _("TM01 COVET{CLEAR_TO 0x5E}10BP");
+const u8 gText_BPShop_TM46Thief[] = _("TM46 THIEF{CLEAR_TO 0x5E}10BP");
+const u8 gText_BPShop_BlankMint[] = _("BLANK MINT{CLEAR_TO 0x5E}2BP");
+const u8 gText_BPShop_BottleCap[] = _("BOTTLE CAP{CLEAR_TO 0x5E}8BP");
+
+const u8 gText_BPShop_RareCandyDesc[] = _("Increases a Pokémon's level.\nBypasses level cap.");
+const u8 gText_BPShop_ToxicOrbDesc[] = _("A hold item that badly\npoisons the holder.");
+const u8 gText_BPShop_FlameOrbDesc[] = _("A hold item that burns\nthe holder.");
+const u8 gText_BPShop_FocusSashDesc[] = _("Allows a Pokémon to survive\na fatal blow from full HP.");
+const u8 gText_BPShop_EjectPackDesc[] = _("Switches the Pokémon out when\nits stats get lowered.");
+const u8 gText_BPShop_EjectButtonDesc[] = _("Switched the Pokémon out when\nit takes damage.");
+const u8 gText_BPShop_BlackSludgeDesc[] = _("Heals a Poison-type, hurts all\nothers every turn.");
+const u8 gText_BPShop_LeftoversDesc[] = _("Restores HP each turn.");
+const u8 gText_BPShop_AssaultVestDesc[] = _("Boosts Sp. Def, but prevents\nusing status moves.");
+const u8 gText_BPShop_EvioliteDesc[] = _("Boosts Defense and Sp. Def.");
+const u8 gText_BPShop_AbilityPatchDesc[] = _("Changes the Pokémon's ability\nto its Hidden Ability.");
+const u8 gText_BPShop_LifeOrbDesc[] = _("Boosts damage, but hurts the holder.");
+const u8 gText_BPShop_TM01CovetDesc[] = _("A Fairy-type move that steals\nthe foe's held item.");
+const u8 gText_BPShop_TM46ThiefDesc[] = _("A Dark-type move that steals\nthe foe's held item.");
+const u8 gText_BPShop_BlankMintDesc[] = _("An item that can be used to\nmake a Nature Mint.");
+const u8 gText_BPShop_BottleCapDesc[] = _("An item that can be used for\nhyper training.");
 
 const u8 gText_Fish_Magikarp[] = _("MAGIKARP{CLEAR_TO 0x5E}¥500");
 const u8 gText_Fish_Goldeen[] = _("GOLDEEN{CLEAR_TO 0x5E}¥500");
@@ -1616,3 +1637,8 @@ const u8 gText_GameCorner_IceSpinnerTM[] = _("TM70 ICE SPINNER{CLEAR_TO 0x5E}2BP
 const u8 gText_GameCorner_EarthPowerTM[] = _("TM41 EARTH POWER{CLEAR_TO 0x5E}2BP");
 const u8 gText_GameCorner_FlashCannonTM[] = _("TM99 FLASH CANNON{CLEAR_TO 0x5E}2BP");
 const u8 gText_GameCorner_DarkPulseTM[] = _("TM100 DARK PULSE{CLEAR_TO 0x5E}2BP");
+
+const u8 gText_WarpToWhere[] = _("WARP to where?");
+
+const u8 gText_CantUseBoxLink[] = _("You can't use the Pokemon\nBox Link here.");
+const u8 gText_CantUseWarpPanel[] = _("You can't use the Warp\nPanel here.");

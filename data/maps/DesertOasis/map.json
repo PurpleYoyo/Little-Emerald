@@ -31,7 +31,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_TM_BULLDOZE",
       "script": "Common_EventScript_FindItem",
-      "flag": "0"
+      "flag": "FLAG_UNUSED_0x49D"
     }
   ],
   "warp_events": [

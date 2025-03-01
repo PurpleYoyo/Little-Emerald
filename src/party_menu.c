@@ -5486,7 +5486,7 @@ static void CB2_ReturnToPartyMenuWhileLearningMove(void)
 {
     if (sFinalLevel != 0)
         SetMonData(&gPlayerParty[gPartyMenu.slotId], MON_DATA_LEVEL, &sFinalLevel); // to avoid displaying incorrect level
-    if (ItemId_GetFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_RareCandy && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
+    if ((ItemId_GetFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_RareCandy || ItemId_GetFieldFunc(gSpecialVar_ItemId) == ItemUseOutOfBattle_InfiniteRareCandy) && gPartyMenu.menuType == PARTY_MENU_TYPE_FIELD && CheckBagHasItem(gSpecialVar_ItemId, 1))
         InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
     else
         InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, TRUE, PARTY_MSG_NONE, Task_ReturnToPartyMenuWhileLearningMove, gPartyMenu.exitCallback);
@@ -5607,7 +5607,7 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
     u8 holdEffectParam = ItemId_GetHoldEffectParam(*itemPtr);
 
     sInitialLevel = GetMonData(mon, MON_DATA_LEVEL);
-    if (!(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()))
+    if (!(B_RARE_CANDY_CAP && sInitialLevel >= GetCurrentLevelCap()) && sInitialLevel <= 64)
     {
         BufferMonStatsToTaskData(mon, arrayPtr);
         cannotUseEffect = ExecuteTableBasedItemEffect(mon, *itemPtr, gPartyMenu.slotId, 0);
@@ -5804,9 +5804,10 @@ static void Task_DisplayLevelUpStatsPg1(u8 taskId)
 {
     if (WaitFanfare(FALSE) && IsPartyMenuTextPrinterActive() != TRUE && ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON))))
     {
-        PlaySE(SE_SELECT);
-        DisplayLevelUpStatsPg1(taskId);
-        gTasks[taskId].func = Task_DisplayLevelUpStatsPg2;
+        //PlaySE(SE_SELECT);
+        //DisplayLevelUpStatsPg1(taskId);
+        sInitialLevel += 1; // so the Pokemon doesn't learn a move meant for its previous level
+        gTasks[taskId].func = Task_TryLearnNewMoves; //Task_DisplayLevelUpStatsPg2;
     }
 }
 
@@ -5814,8 +5815,8 @@ static void Task_DisplayLevelUpStatsPg2(u8 taskId)
 {
     if ((JOY_NEW(A_BUTTON)) || (JOY_NEW(B_BUTTON)))
     {
-        PlaySE(SE_SELECT);
-        DisplayLevelUpStatsPg2(taskId);
+        //PlaySE(SE_SELECT);
+        //DisplayLevelUpStatsPg2(taskId);
         sInitialLevel += 1; // so the Pokemon doesn't learn a move meant for its previous level
         gTasks[taskId].func = Task_TryLearnNewMoves;
     }

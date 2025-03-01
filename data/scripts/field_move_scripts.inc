@@ -271,6 +271,7 @@ EventScript_UseWaterfall::
 	checkpartymove MOVE_WATERFALL
 	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantWaterfall
 	setfieldeffectargument 0, VAR_RESULT
+	dofieldeffect FLDEFF_USE_WATERFALL
 	goto EventScript_EndWaterfall
 
 EventScript_CannotUseWaterfall::
@@ -296,10 +297,9 @@ Text_MonUsedWaterfall:
 
 EventScript_UseDive::
 	lockall
-	checkpartymove MOVE_DIVE
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantDive
 	setfieldeffectargument 0, VAR_RESULT
 	setfieldeffectargument 1, 1
+	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndDive
 	end
 
@@ -314,10 +314,9 @@ EventScript_EndDive::
 
 EventScript_UseDiveUnderwater::
 	lockall
-	checkpartymove MOVE_DIVE
-	goto_if_eq VAR_RESULT, PARTY_SIZE, EventScript_CantSurface
 	setfieldeffectargument 0, VAR_RESULT
 	setfieldeffectargument 1, 1
+	dofieldeffect FLDEFF_USE_DIVE
 	goto EventScript_EndSurface
 	end
 

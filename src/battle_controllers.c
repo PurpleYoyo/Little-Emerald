@@ -81,8 +81,8 @@ void SetUpBattleVarsAndBirchZigzagoon(void)
     {
         ZeroEnemyPartyMons();
         CreateMon(&gEnemyParty[0], SPECIES_ZIGZAGOON, 2, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
-        i = 0;
-        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &i);
+        //i = 0;
+        //SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &i);
     }
 }
 

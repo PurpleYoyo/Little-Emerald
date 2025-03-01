@@ -235,10 +235,7 @@ MoveTutor_EventScript_DoubleEdgeTaught::
 PacifidlogTown_PokemonCenter_1F_EventScript_ExplosionTutor::
 	lock
 	faceplayer
-	
 	msgbox MoveTutor_Text_ExplosionTeach, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_ExplosionDeclined
-	
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_ExplosionDeclined
 	msgbox MoveTutor_Text_ExplosionWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, MOVE_EXPLOSION

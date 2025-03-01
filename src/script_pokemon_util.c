@@ -104,7 +104,7 @@ static bool8 CheckPartyMonHasHeldItem(u16 item)
     return FALSE;
 }
 
-void CheckPartyDamp(struct ScriptContext *ctx)
+void CheckPartyDamp(void)
 {
     int i;
 
@@ -116,6 +116,69 @@ void CheckPartyDamp(struct ScriptContext *ctx)
         {
             ability = GetMonAbility(pokemon);
             if (ability == ABILITY_DAMP)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void CheckPartyChoiceScarf(void)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 item;
+        struct Pokemon *pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
+            if (item == ITEM_CHOICE_SCARF)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void CheckPartyChoiceSpecs(void)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 item;
+        struct Pokemon *pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
+            if (item == ITEM_CHOICE_SPECS)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
+void CheckPartyChoiceBand(void)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        u16 item;
+        struct Pokemon *pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
+            if (item == ITEM_CHOICE_BAND)
             {
                 gSpecialVar_Result = TRUE;
                 return;

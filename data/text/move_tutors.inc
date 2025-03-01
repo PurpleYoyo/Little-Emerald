@@ -250,4 +250,4 @@ MoveTutor_Text_ShellSmashWhichMon:
 
 MoveTutor_Text_ShellSmashTaught:
 	.string "And done! Your Pokémon has learned\n"
-	.string "a sick new move! Make sure to try it out."
+	.string "a sick new move! Make sure to try it out.$"

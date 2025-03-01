@@ -422,6 +422,7 @@ void CB2_InitLearnMove(void)
 
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     SetBackdropFromColor(RGB_BLACK);
+    gSpecialVar_0x800B = 0;
     SetMainCallback2(CB2_MoveRelearnerMain);
 }
 
@@ -439,7 +440,11 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
 
     InitMoveRelearnerBackgroundLayers();
     InitMoveRelearnerWindows(sMoveRelearnerMenuSate.showContestInfo);
-    CreateLearnableMovesList();
+
+    if (gSpecialVar_0x800B == 0)
+        CreateLearnableMovesList();
+    else
+        CreateEggMovesList();
 
     LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
     LoadSpritePalette(&sMoveRelearnerPalette);
@@ -1067,6 +1072,7 @@ void CB2_InitLearnEggMove(void)
 
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     SetBackdropFromColor(RGB_BLACK);
+    gSpecialVar_0x800B = 1;
     SetMainCallback2(CB2_MoveRelearnerMain);
 }
 

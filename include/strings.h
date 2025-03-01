@@ -2732,8 +2732,29 @@ extern const u8 gText_BPShop_BlackSludge[];
 extern const u8 gText_BPShop_Leftovers[];
 extern const u8 gText_BPShop_AssaultVest[];
 extern const u8 gText_BPShop_Eviolite[];
-extern const u8 gText_BPShop_AbilityPatch[] ;
+extern const u8 gText_BPShop_AbilityPatch[];
 extern const u8 gText_BPShop_LifeOrb[];
+extern const u8 gText_BPShop_TM01Covet[];
+extern const u8 gText_BPShop_TM46Thief[];
+extern const u8 gText_BPShop_BlankMint[];
+extern const u8 gText_BPShop_BottleCap[];
+
+extern const u8 gText_BPShop_RareCandyDesc[];
+extern const u8 gText_BPShop_ToxicOrbDesc[];
+extern const u8 gText_BPShop_FlameOrbDesc[];
+extern const u8 gText_BPShop_FocusSashDesc[];
+extern const u8 gText_BPShop_EjectPackDesc[];
+extern const u8 gText_BPShop_EjectButtonDesc[];
+extern const u8 gText_BPShop_BlackSludgeDesc[];
+extern const u8 gText_BPShop_LeftoversDesc[];
+extern const u8 gText_BPShop_AssaultVestDesc[];
+extern const u8 gText_BPShop_EvioliteDesc[];
+extern const u8 gText_BPShop_AbilityPatchDesc[];
+extern const u8 gText_BPShop_LifeOrbDesc[];
+extern const u8 gText_BPShop_TM01CovetDesc[];
+extern const u8 gText_BPShop_TM46ThiefDesc[];
+extern const u8 gText_BPShop_BlankMintDesc[];
+extern const u8 gText_BPShop_BottleCapDesc[];
 
 extern const u8 gText_Fish_Magikarp[];
 extern const u8 gText_Fish_Goldeen[];
@@ -2753,10 +2774,15 @@ extern const u8 gText_GameCorner_PsychicTM[];
 extern const u8 gText_GameCorner_LeechLifeTM[];
 extern const u8 gText_GameCorner_ThunderboltTM[];
 extern const u8 gText_GameCorner_IceBeamTM[];
-extern const u8 gText_GameCorner_ShadowBallTM[] ;
-extern const u8 gText_GameCorner_IceSpinnerTM[] ;
-extern const u8 gText_GameCorner_EarthPowerTM[] ;
+extern const u8 gText_GameCorner_ShadowBallTM[];
+extern const u8 gText_GameCorner_IceSpinnerTM[];
+extern const u8 gText_GameCorner_EarthPowerTM[];
 extern const u8 gText_GameCorner_FlashCannonTM[];
 extern const u8 gText_GameCorner_DarkPulseTM[];
+
+extern const u8 gText_WarpToWhere[];
+
+extern const u8 gText_CantUseBoxLink[];
+extern const u8 gText_CantUseWarpPanel[];
 
 #endif // GUARD_STRINGS_H

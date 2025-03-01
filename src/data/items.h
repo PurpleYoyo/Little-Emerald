@@ -3961,8 +3961,12 @@ const struct Item gItemsInfo[] =
     [ITEM_DUSK_STONE] =
     {
         .name = _("Dusk Stone"),
-        .price = (I_PRICE >= GEN_7) ? 3000 : 2100,
-        .description = sEvolutionStoneDesc,
+        .price = (I_PRICE >= GEN_7) ? 10000 : 2100,
+        .holdEffect = HOLD_EFFECT_DUSK_STONE,
+        .description = COMPOUND_STRING(
+            "A hold item\n"
+            "loved by a\n"
+            "certain species."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
@@ -3975,11 +3979,12 @@ const struct Item gItemsInfo[] =
     [ITEM_DAWN_STONE] =
     {
         .name = _("Dawn Stone"),
-        .price = (I_PRICE >= GEN_7) ? 3000 : 2100,
+        .price = (I_PRICE >= GEN_7) ? 10000 : 2100,
+        .holdEffect = HOLD_EFFECT_DAWN_STONE,
         .description = COMPOUND_STRING(
-            "A hold item that\n"
-            "changes the types\n"
-            "of Ralts and Snorunt."),
+            "A hold item\n"
+            "loved by a\n"
+            "certain species."),
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
@@ -4131,7 +4136,8 @@ const struct Item gItemsInfo[] =
     [ITEM_PROTECTOR] =
     {
         .name = _("Protector"),
-        .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_PROTECTOR,
         .description = COMPOUND_STRING(
             "Loved by a certain\n"
             "Pokémon. It's stiff\n"
@@ -4149,6 +4155,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Electirizer"),
         .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
+        .holdEffect = HOLD_EFFECT_ELECTIRIZER,
         .description = COMPOUND_STRING(
             "This item enables\n"
             "Elekid to evolve\n"
@@ -4166,6 +4173,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Magmarizer"),
         .price = (I_PRICE >= GEN_7) ? 2000 * TREASURE_FACTOR : 2100,
+        .holdEffect = HOLD_EFFECT_MAGMARIZER,
         .description = COMPOUND_STRING(
             "This item enables\n"
             "Magby to evolve\n"
@@ -10617,19 +10625,19 @@ const struct Item gItemsInfo[] =
 
 // TMs/HMs. They don't have a set flingPower, as that's handled by GetFlingPowerFromItemId.
 
-    [ITEM_TM_WORK_UP] =
+    [ITEM_TM_COVET] =
     {
         .name = _("TM01"),
         .price = 3000,
         .description = COMPOUND_STRING(
-            "The user is\n"
-            "roused. Raises\n"
-            "Atk and Sp. Atk."),
+            "The user cutely\n"
+            "begs for the\n"
+            "foe's held item."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
-        .secondaryId = MOVE_WORK_UP,
+        .secondaryId = MOVE_COVET,
     },
 
     [ITEM_TM_DRAGON_CLAW] =
@@ -13463,7 +13471,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Loaded Dice"),
         .pluralName = _("Loaded Dice"),
-        .price = 20000,
+        .price = 5000,
         .holdEffect = HOLD_EFFECT_LOADED_DICE,
         .description = COMPOUND_STRING(
             "Rolls high numbers.\n"
@@ -13480,7 +13488,8 @@ const struct Item gItemsInfo[] =
     [ITEM_AUSPICIOUS_ARMOR] =
     {
         .name = _("Auspicious Armor"),
-        .price = 3000,
+        .price = 10000,
+        .holdEffect = HOLD_EFFECT_AUSPICIOUS_ARMOR,
         .description = COMPOUND_STRING(
             "Armor inhabited by\n"
             "auspicious wishes.\n"
@@ -13561,7 +13570,8 @@ const struct Item gItemsInfo[] =
     [ITEM_MALICIOUS_ARMOR] =
     {
         .name = _("Malicious Armor"),
-        .price = 3000,
+        .holdEffect = HOLD_EFFECT_MALICIOUS_ARMOR,
+        .price = 10000,
         .description = COMPOUND_STRING(
             "Armor inhabited by\n"
             "malicious will.\n"

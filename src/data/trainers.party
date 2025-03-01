@@ -90,14 +90,12 @@ Music: Hiker
 Double Battle: No
 AI: Basic Trainer
 
-Cufant
-Level: 20
-- Flamethrower
-
-/*
 Geodude
 Level: 21
-*/
+- Knock Off
+
+Cufant
+/*Level: 21*/
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
@@ -519,7 +517,7 @@ Ability: Flare Boost
 Nature: Timid
 - Protect
 - Thunder
-- Phantom Force
+- Shadow Ball
 - Explosion
 
 Geodude Alola @ Eviolite
@@ -597,7 +595,7 @@ Nature: Adamant
 - Ice Spinner
 - Leech Life
 
-Eevee @ Ice Stone
+Eevee Ice @ Ice Stone
 Level: 36
 Ability: Adaptability
 Nature: Naughty
@@ -4362,9 +4360,9 @@ Exeggcute Dragon @ Draco Plate
 Level: 58
 Ability: Chlorophyll
 Nature: Jolly
-- Leech Seed
+- Reflect
 - Light Screen
-- Swords Dance
+- Wood Hammer
 - Dragon Hammer
 
 Totodile @ Focus Sash
@@ -4407,10 +4405,10 @@ Toxel @ Punk Incense
 Level: 62
 Ability: Technician
 Nature: Timid
-- Overdrive
+- Dragon Dance
 - Poison Jab
+- Spark
 - Boomburst
-- Shift Gear
 
 === TRAINER_ROXANNE_1 ===
 Name: ROXANNE
@@ -4614,7 +4612,7 @@ Nature: Bold
 - Sunny Day
 - Yawn
 
-Charcadet @ Auspicious Armor
+Charcadet Psychic @ Auspicious Armor
 Level: 28
 Ability: Flash Fire
 Nature: Naive
@@ -4741,28 +4739,28 @@ Drifloon @ Sitrus Berry
 Level: 38
 Ability: Unburden
 Nature: Bold
-- Shadow Ball
+- Ominous Wind
 - Air Slash
 - Thunder Wave
 - Destiny Bond
 
-Yanma @ Eviolite
+Scyther @ Sitrus Berry
 Level: 39
-Ability: Speed Boost
-Nature: Modest
-- Bug Buzz
-- Air Slash
-- Supersonic
-- Detect
+Ability: Technician
+Nature: Naughty
+- Bug Bite
+- Dual Wingbeat
+- Thief
+- Trailblaze
 
-Swablu @ Throat Spray
+Doduo @ Eviolite
 Level: 39
-Ability: Pixilate
-Nature: Gentle
-- Dragon Pulse
-- Weather Ball
-- Hurricane
-- Sing
+Ability: Early Bird
+Nature: Careful
+- Drill Peck
+- Earthquake
+- Knock Off
+- Rest
 
 Wingull @ Focus Sash
 Level: 39
@@ -4776,7 +4774,7 @@ Nature: Timid
 Togepi @ Egg Incense
 Level: 40
 Ability: Serene Grace
-Nature: Timid
+Nature: Naive
 - Shadow Ball
 - Moonblast
 - Air Slash
@@ -4869,7 +4867,7 @@ Ability: Wimp Out
 Nature: Jolly
 - Liquidation
 - Leech Life
-- Sucker Punch
+- Throat Chop
 - Poison Jab
 
 Mareanie @ Black Sludge
@@ -8738,23 +8736,23 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Skitty @ Bright Powder
+Skitty @ Eviolite
 Level: 54
 Ability: Wonder Skin
 Nature: Modest
 - Ice Beam
 - Thunderbolt
 - Shadow Ball
-- Hyper Voice
-
-Swablu @ Eviolite
-Level: 55
-Ability: Natural Cure
-Nature: Relaxed
 - Moonblast
+
+Swablu @ Throat Spray
+Level: 55
+Ability: Pixilate
+Nature: Relaxed
+- Hyper Voice
 - Dragon Pulse
 - Hurricane
-- Rest
+- Perish Song
 
 Fletchling @ Flying Gem
 Level: 56
@@ -8774,7 +8772,7 @@ Nature: Calm
 - Flash Cannon
 - Electric Terrain
 
-Ralts @ Dawn Stone
+Ralts Fighting @ Dawn Stone
 Level: 58
 Ability: Pixilate
 Nature: Adamant
@@ -9947,7 +9945,7 @@ Music: Cool
 Double Battle: No
 AI: Basic Trainer
 
-Cacturne
+Cacnea
 Level: 39
 
 === TRAINER_JACKSON_2 ===
@@ -11963,11 +11961,11 @@ Nature: Impish
 - Knock Off
 - Curse
 
-Scyther @ Sitrus Berry
+Gligar @ Sitrus Berry
 Level: 41
-Ability: Swarm
+Ability: Hyper Cutter
 Nature: Naughty
-- X-Scissor
+- Earthquake
 - Acrobatics
 - U-turn
 - Tailwind
@@ -12008,11 +12006,11 @@ Music: Male
 Double Battle: No
 AI: Basic Trainer
 
-Scyther @ Sitrus Berry
+Gligar @ Sitrus Berry
 Level: 39
-Ability: Swarm
+Ability: Hyper Cutter
 Nature: Naughty
-- X-Scissor
+- Earthquake
 - Acrobatics
 - U-turn
 - Tailwind
@@ -12098,11 +12096,11 @@ Nature: Hasty
 - Dark Pulse
 - Psychic Fangs
 
-Scyther @ Sitrus Berry
+Gligar @ Sitrus Berry
 Level: 42
-Ability: Swarm
+Ability: Hyper Cutter
 Nature: Naughty
-- X-Scissor
+- Earthquake
 - Acrobatics
 - U-turn
 - Tailwind
@@ -12139,7 +12137,7 @@ Level: 39
 Ability: Speed Boost
 Nature: Calm
 - Detect
-- Supersonic
+- Dragon Pulse
 - Air Slash
 - Bug Buzz
 
@@ -12229,7 +12227,7 @@ Level: 42
 Ability: Speed Boost
 Nature: Calm
 - Detect
-- Supersonic
+- Dragon Pulse
 - Air Slash
 - Bug Buzz
 
@@ -12283,7 +12281,7 @@ Level: 41
 Ability: Speed Boost
 Nature: Calm
 - Detect
-- Supersonic
+- Dragon Pulse
 - Air Slash
 - Bug Buzz
 
@@ -13335,7 +13333,7 @@ Nature: Adamant
 - Shadow Claw
 - Iron Head
 
-Bergmite @ Stone Plate
+Bergmite Rock @ Stone Plate
 Level: 42
 Ability: Sturdy
 Nature: Sassy
@@ -13990,7 +13988,7 @@ Snubbull @ Muscle Band
 Level: 15
 Ability: Intimidate
 Nature: Adamant
-- Play Rough
+- Covet
 - Fire Fang
 - Ice Fang
 - Bite
@@ -14193,7 +14191,7 @@ Nature: Hasty
 - Knock Off
 - X-Scissor
 
-Petilil @ Fist Plate
+Petilil Fighting @ Fist Plate
 Level: 30
 Ability: Chlorophyll
 Nature: Sassy
@@ -14346,7 +14344,7 @@ Nature: Relaxed
 - Scorching Sands
 - Psychic
 
-Koffing @ Pixie Plate
+Koffing Fairy @ Pixie Plate
 Level: 35
 Ability: Levitate
 Nature: Modest
@@ -15508,7 +15506,7 @@ Level: 63
 - Double Team
 - Fissure
 
-Politoed
+Bidoof
 Level: 61
 - Hypnosis
 - Rain Dance
@@ -16524,10 +16522,10 @@ Toxel @ Soothing Incense
 Level: 44
 Ability: Punk Rock
 Nature: Mild
-- Noble Roar
+- Venoshock
 - Electroweb
 - Snarl
-- Electric Terrain
+- Dragon Breath
 
 === TRAINER_MAY_PLACEHOLDER === /* TATE&LIZA 2nd team */
 Name: TATE&LIZA

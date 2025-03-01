@@ -2127,6 +2127,11 @@ static void Cmd_adjustdamage(void)
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
     }
+    else if (BATTLER_MAX_HP(gBattlerTarget) && gBattleMons[gBattlerTarget].species == SPECIES_RALTS_FIGHTING)
+    {
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
     else if (B_AFFECTION_MECHANICS == TRUE && GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER && affectionScore >= AFFECTION_THREE_HEARTS)
     {
         if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
@@ -12447,6 +12452,11 @@ static void Cmd_tryKO(void)
         gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
         RecordItemEffectBattle(gBattlerTarget, holdEffect);
     }
+    else if (BATTLER_MAX_HP(gBattlerTarget) && gBattleMons[gBattlerTarget].species == SPECIES_RALTS_FIGHTING)
+    {
+        gSpecialStatuses[gBattlerTarget].focusSashed = TRUE;
+        RecordItemEffectBattle(gBattlerTarget, holdEffect);
+    }
 
     if (targetAbility == ABILITY_STURDY)
     {
@@ -17761,7 +17771,7 @@ static void DoHeldItemLostFormChanges(void)
                     targetSpecies = SPECIES_RALTS;
                 break;
             case SPECIES_SNORUNT_GHOST:
-                if (gBattleMons[p].item != ITEM_DAWN_STONE)
+                if (gBattleMons[p].item != ITEM_DUSK_STONE)
                     targetSpecies = SPECIES_SNORUNT;
                 break;
             

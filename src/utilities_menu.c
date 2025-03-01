@@ -68,11 +68,12 @@ enum UtilitiesMenu
     UTILITIES_MENU_ITEM_POKEVIAL,
     UTILITIES_MENU_ITEM_INFINITE_REPEL,
     UTILITIES_MENU_ITEM_AUTO_RUN,
+    UTILITIES_MENU_ITEM_FLASH,
     UTILITIES_MENU_ITEM_ESCAPE_ROPE,
     UTILITIES_MENU_ITEM_WARP_PANEL,
 };
 
-#define UTILITIES_WINDOW_HEIGHT 6
+#define UTILITIES_WINDOW_HEIGHT 7
 
 struct UtilitiesMenuListData
 {
@@ -95,6 +96,7 @@ static void UtilitiesAction_Pokevial(u8 taskId);
 static void UtilitiesAction_WarpPanel(u8 taskId);
 static void UtilitiesAction_EscapeRope(u8 taskId);
 static void UtilitiesAction_AutoRun(u8 taskId);
+static void UtilitiesAction_Flash(u8 taskId);
 
 static const u8 sUtilitiesText_InfiniteRepel[] = _("{STR_VAR_1}Infinite Repel");
 static const u8 sUtilitiesText_PokemonBoxLink[] = _("Pokémon Box Link");
@@ -102,6 +104,7 @@ static const u8 sUtilitiesText_Pokevial[] = _("Pokévial");
 static const u8 sUtilitiesText_WarpPanel[] = _("Warp Panel");
 static const u8 sUtilitiesText_EscapeRope[] = _("Escape Rope");
 static const u8 sUtilitiesText_AutoRun[] = _("{STR_VAR_1}Auto Run");
+static const u8 sUtilitiesText_Flash[] = _("Flash");
 
 static const struct ListMenuItem sUtilitiesMenu_Items[] =
 {
@@ -109,6 +112,7 @@ static const struct ListMenuItem sUtilitiesMenu_Items[] =
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = {sUtilitiesText_Pokevial,              UTILITIES_MENU_ITEM_POKEVIAL},
     [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = {sUtilitiesText_InfiniteRepel,         UTILITIES_MENU_ITEM_INFINITE_REPEL},
     [UTILITIES_MENU_ITEM_AUTO_RUN]                 = {sUtilitiesText_AutoRun,               UTILITIES_MENU_ITEM_AUTO_RUN},
+    [UTILITIES_MENU_ITEM_FLASH]                    = {sUtilitiesText_Flash,                 UTILITIES_MENU_ITEM_FLASH},
     [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = {sUtilitiesText_EscapeRope,            UTILITIES_MENU_ITEM_ESCAPE_ROPE},
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = {sUtilitiesText_WarpPanel,             UTILITIES_MENU_ITEM_WARP_PANEL},
 };
@@ -119,6 +123,7 @@ static void (*const sUtilitiesMenu_Actions[])(u8) =
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = UtilitiesAction_Pokevial,
     [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = UtilitiesAction_InfiniteRepel,
     [UTILITIES_MENU_ITEM_AUTO_RUN]                 = UtilitiesAction_AutoRun,
+    [UTILITIES_MENU_ITEM_FLASH]                    = UtilitiesAction_Flash,
     [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = UtilitiesAction_EscapeRope,
     [UTILITIES_MENU_ITEM_WARP_PANEL]               = UtilitiesAction_WarpPanel,
 };
@@ -288,13 +293,16 @@ static void UtilitiesAction_PokemonBoxLink(u8 taskId)
 static void UtilitiesAction_Pokevial(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
-    ItemUseOutOfBattle_Pokevial(taskId);
+    ScriptContext_SetupScript(EventScript_Pokevial);
+    DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);
 }
 
 static void UtilitiesAction_WarpPanel(u8 taskId)
 {
-    SetMainCallback2(CB2_OpenFlyMap);
+    ScriptContext_SetupScript(EventScript_UseWarpPanel);
+    if (!(gSpecialVar_Result == TRUE))
+        SetMainCallback2(CB2_OpenWarpMap);
 }
 
 static void UtilitiesAction_EscapeRope(u8 taskId)
@@ -325,6 +333,14 @@ static void UtilitiesAction_AutoRun(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
     ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void UtilitiesAction_Flash(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_UseFlash);
     DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);
 }

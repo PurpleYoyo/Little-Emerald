@@ -2206,6 +2206,18 @@
 	callnative CheckPartyDamp
 	.endm
 
+	.macro checkpartychoicescarf
+	callnative CheckPartyChoiceScarf
+	.endm
+
+	.macro checkpartychoicespecs
+	callnative CheckPartyChoiceSpecs
+	.endm
+
+	.macro checkpartychoiceband
+	callnative CheckPartyChoiceBand
+	.endm
+
 	.macro sethypertrainstat stat:req
 	callnative SetHyperTrainingStat
 	.2byte \stat

@@ -383,13 +383,13 @@ Route120_EventScript_StevenBattleKecleon::
 # 192 "data/maps/Route120/scripts.pory"
 	waitse
 # 193 "data/maps/Route120/scripts.pory"
-	playmoncry SPECIES_KECLEON, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_ZORUA, CRY_MODE_ENCOUNTER
 # 194 "data/maps/Route120/scripts.pory"
 	delay 40
 # 195 "data/maps/Route120/scripts.pory"
 	waitmoncry
 # 196 "data/maps/Route120/scripts.pory"
-	setwildbattle SPECIES_KECLEON, 30
+	setwildbattle SPECIES_ZORUA, 30
 # 197 "data/maps/Route120/scripts.pory"
 	setvar VAR_0x8009, 0
 # 198 "data/maps/Route120/scripts.pory"

@@ -5466,6 +5466,7 @@ static void HandleEndTurn_BattleWon(void)
         gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
     }
 
+    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5502,6 +5503,7 @@ static void HandleEndTurn_BattleLost(void)
         gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
 
+    gSpecialVar_0x8007 = 1;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5536,6 +5538,7 @@ static void HandleEndTurn_RanFromBattle(void)
         }
     }
 
+    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5546,6 +5549,7 @@ static void HandleEndTurn_MonFled(void)
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
     gBattlescriptCurrInstr = BattleScript_WildMonFled;
 
+    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5600,7 +5604,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
+        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gSpecialVar_0x8007 == 1)
             TryRestoreHeldItems();
 
         // Undo Dynamax HP multiplier before recalculating stats.

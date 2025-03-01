@@ -161,11 +161,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         //input->pressedSelectButton = FALSE;
     }
 
-    //if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked())
-    // && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
-    //{
-    //    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
-    //}
+    if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
+     && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    {
+        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    }
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -188,7 +188,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
 
-    if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
+    if (input->pressedAButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
     if (input->tookStep)
     {
@@ -300,7 +300,8 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != SecretBase_EventScript_RecordMixingPC
      && script != SecretBase_EventScript_DollInteract
      && script != SecretBase_EventScript_CushionInteract
-     && script != EventScript_PC)
+     && script != EventScript_PC
+     && script != BerryTreeScript)
         PlaySE(SE_SELECT);
 
     ScriptContext_SetupScript(script);

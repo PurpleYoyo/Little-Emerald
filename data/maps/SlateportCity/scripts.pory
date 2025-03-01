@@ -506,7 +506,7 @@ SlateportCity_EventScript_DollClerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor_Dolls
+	pokemart SlateportCity_PokemartDecor_Dolls
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -543,7 +543,7 @@ SlateportCity_EventScript_DecorClerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor
+	pokemart SlateportCity_PokemartDecor
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
@@ -566,6 +566,7 @@ SlateportCity_PokemartDecor:
 	.2byte ITEM_ICE_STONE
 	.2byte ITEM_SHINY_STONE
 	.2byte ITEM_DAWN_STONE
+	.2byte ITEM_DUSK_STONE
 	pokemartlistend
 
 SlateportCity_EventScript_PowerTMClerk::

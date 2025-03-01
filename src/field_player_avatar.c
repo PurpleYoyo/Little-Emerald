@@ -668,7 +668,7 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         }
     }
 
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING || gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
     {
         if (heldKeys & B_BUTTON)
             PlayerWalkFaster(direction);

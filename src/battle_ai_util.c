@@ -1138,7 +1138,7 @@ static bool32 CanEndureHit(u32 battler, u32 battlerTarget, u32 move)
         return FALSE;
     if (gMovesInfo[move].strikeCount > 1 && !(gMovesInfo[move].effect == EFFECT_DRAGON_DARTS && IsValidDoubleBattle(battlerTarget)))
         return FALSE;
-    if (AI_DATA->holdEffects[battlerTarget] == HOLD_EFFECT_FOCUS_SASH)
+    if (AI_DATA->holdEffects[battlerTarget] == HOLD_EFFECT_FOCUS_SASH || gBattleMons[battlerTarget].species == SPECIES_RALTS_FIGHTING)
         return TRUE;
 
     if (!DoesBattlerIgnoreAbilityChecks(AI_DATA->abilities[battler], move))
@@ -1547,7 +1547,7 @@ bool32 ShouldTryOHKO(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbil
     gPotentialItemEffectBattler = battlerDef;
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < AI_DATA->holdEffectParams[battlerDef])
         return FALSE;   //probabilistically speaking, focus band should activate so dont OHKO
-    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && AtMaxHp(battlerDef))
+    else if ((holdEffect == HOLD_EFFECT_FOCUS_SASH || gBattleMons[battlerDef].species == SPECIES_RALTS_FIGHTING) && AtMaxHp(battlerDef))
         return FALSE;
 
     if (!DoesBattlerIgnoreAbilityChecks(atkAbility, move) && defAbility == ABILITY_STURDY)

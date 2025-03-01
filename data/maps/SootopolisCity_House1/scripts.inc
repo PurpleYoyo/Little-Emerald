@@ -49,7 +49,7 @@ SootopolisCity_House1_EventScript_Kecleon::
 # 25 "data/maps/SootopolisCity_House1/scripts.pory"
 	waitse
 # 26 "data/maps/SootopolisCity_House1/scripts.pory"
-	playmoncry SPECIES_KECLEON, CRY_MODE_NORMAL
+	playmoncry SPECIES_ZORUA, CRY_MODE_NORMAL
 # 27 "data/maps/SootopolisCity_House1/scripts.pory"
 	msgbox SootopolisCity_House1_Text_Kecleon, MSGBOX_DEFAULT
 # 28 "data/maps/SootopolisCity_House1/scripts.pory"
@@ -83,4 +83,4 @@ SootopolisCity_House1_Text_ExplainBrickBreak:
 # 42 "data/maps/SootopolisCity_House1/scripts.pory"
 SootopolisCity_House1_Text_Kecleon:
 # 43 "data/maps/SootopolisCity_House1/scripts.pory"
-	.string "KECLEON: Puu puhyaah.$"
+	.string "ZORUA: Puu puhyaah.$"

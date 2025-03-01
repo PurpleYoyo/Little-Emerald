@@ -714,6 +714,9 @@ script EventScript_HyperTrainNPC {
 		setvar(STAT, 5)
 		canhypertrain(5, VAR_0x8004)
 	}
+	else {
+		goto(End)
+	}
 	sethypertrainstat(STAT)
 	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
 	if (var(VAR_RESULT) == FALSE) {
@@ -762,30 +765,36 @@ script EventScript_GameCorner_Clerk_TMs {
 	special(CloseBattlePointsWindow)
 	switch (var(VAR_RESULT)) {
 		case 0:
-			call(TryBuyLeechLifeTM)
+			call(TryBuyPsychicTM)
 		case 1:
-			call(TryBuyDarkPulseTM)
+			call(TryBuyLeechLifeTM)
 		case 2:
-			call(TryBuyEarthPowerTM)
+			call(TryBuyThunderboltTM)
 		case 3:
-			call(TryBuyFlashCannonTM)
+			call(TryBuyIceBeamTM)		
 		case 4:
-			call(TryBuyIceBeamTM)
+			call(TryBuyShadowBallTM)
 		case 5:
 			call(TryBuyIceSpinnerTM)
 		case 6:
-			call(TryBuyPsychicTM)
+			call(TryBuyEarthPowerTM)
 		case 7:
-			call(TryBuyShadowBallTM)
+			call(TryBuyFlashCannonTM)
 		case 8:
-			call(TryBuyThunderboltTM)		
+			call(TryBuyDarkPulseTM)
 	}
 }
 
 script TryBuyLeechLifeTM {
+	checkitem(ITEM_TM_LEECH_LIFE)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM32 Leech Life?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_LEECH_LIFE)
@@ -799,9 +808,15 @@ script TryBuyLeechLifeTM {
 }
 
 script TryBuyDarkPulseTM {
+	checkitem(ITEM_TM_DARK_PULSE)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM100 Dark Pulse?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_DARK_PULSE)
@@ -815,9 +830,15 @@ script TryBuyDarkPulseTM {
 }
 
 script TryBuyEarthPowerTM {
+	checkitem(ITEM_TM_EARTH_POWER)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM41 Earth Power?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_EARTH_POWER)
@@ -831,9 +852,15 @@ script TryBuyEarthPowerTM {
 }
 
 script TryBuyFlashCannonTM {
+	checkitem(ITEM_TM_FLASH_CANNON)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM99 Flash Cannon?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_FLASH_CANNON)
@@ -847,9 +874,15 @@ script TryBuyFlashCannonTM {
 }
 
 script TryBuyIceBeamTM {
+	checkitem(ITEM_TM_ICE_BEAM)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM13 Ice Beam?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_ICE_BEAM)
@@ -863,9 +896,15 @@ script TryBuyIceBeamTM {
 }
 
 script TryBuyIceSpinnerTM {
+	checkitem(ITEM_TM_ICE_SPINNER)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM70 Ice Spinner?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_ICE_SPINNER)
@@ -879,9 +918,15 @@ script TryBuyIceSpinnerTM {
 }
 
 script TryBuyPsychicTM {
+	checkitem(ITEM_TM_PSYCHIC)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM29 Psychic?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_PSYCHIC)
@@ -895,9 +940,15 @@ script TryBuyPsychicTM {
 }
 
 script TryBuyShadowBallTM {
+	checkitem(ITEM_TM_SHADOW_BALL)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM30 Shadow Ball?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_SHADOW_BALL)
@@ -911,9 +962,15 @@ script TryBuyShadowBallTM {
 }
 
 script TryBuyThunderboltTM {
+	checkitem(ITEM_TM_THUNDERBOLT)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
 	msgbox(format("You would like to buy TM24 Thunderbolt?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TM_THUNDERBOLT)
@@ -961,21 +1018,29 @@ script BPShopClerk {
 		case 3:
 			call(TryBuyEjectPack)
 		case 4:
-			call(TryBuyEjectButton)
+			call(TryBuyBlankMint)
 		case 5:
-			call(TryBuyBlackSludge)
+			call(TryBuyEjectButton)
 		case 6:
-			call(TryBuyLeftovers)
+			call(TryBuyBlackSludge)
 		case 7:
-			call(TryBuyAssaultVest)
+			call(TryBuyLeftovers)
 		case 8:
-			call(TryBuyEviolite)
+			call(TryBuyAssaultVest)
 		case 9:
-			call(TryBuyAbilityPatch)
+			call(TryBuyEviolite)
 		case 10:
-			call(TryBuyLifeOrb)
+			call(TryBuyAbilityPatch)
 		case 11:
+			call(TryBuyLifeOrb)
+		case 12:
+			call(TryBuyBottleCap)
+		case 13:
 			call(TryBuyRareCandy)
+		case 14:
+			call(TryBuyTM01Covet)
+		case 15:
+			call(TryBuyTM46Thief)
 	}
 	goto(End)
 }
@@ -984,6 +1049,7 @@ script TryBuyEviolite {
 	msgbox(format("You would like to buy an Eviolite?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	// * There doesn't seem to be a need to set 8008 to the price,
@@ -1014,6 +1080,7 @@ script TryBuyRareCandy {
 	msgbox(format("You would like to buy a Rare Candy?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_RARE_CANDY)
@@ -1039,6 +1106,7 @@ script TryBuyToxicOrb {
 	msgbox(format("You would like to buy a Toxic Orb?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_TOXIC_ORB)
@@ -1059,6 +1127,7 @@ script TryBuyFlameOrb {
 	msgbox(format("You would like to buy a Flame Orb?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_FLAME_ORB)
@@ -1099,6 +1168,7 @@ script TryBuyEjectPack {
 	msgbox(format("You would like to buy an Eject Pack?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_EJECT_PACK)
@@ -1115,10 +1185,37 @@ script TryBuyEjectPack {
 	special(UpdateBattlePointsWindow)
 }
 
+script TryBuyBlankMint {
+	msgbox(format("You would like to buy a Blank Nature Mint?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_BLANK_MINT)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Blank Nautre Mint! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
 script TryBuyEjectButton {
 	msgbox(format("You would like to buy an Eject Button?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_EJECT_BUTTON)
@@ -1144,6 +1241,7 @@ script TryBuyBlackSludge {
 	msgbox(format("You would like to buy a Black Sludge?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_BLACK_SLUDGE)
@@ -1169,6 +1267,7 @@ script TryBuyLeftovers {
 	msgbox(format("You would like to buy some Leftovers?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_LEFTOVERS)
@@ -1194,6 +1293,7 @@ script TryBuyAssaultVest {
 	msgbox(format("You would like to buy an Assault Vest?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_ASSAULT_VEST)
@@ -1219,6 +1319,7 @@ script TryBuyAbilityPatch {
 	msgbox(format("You would like to buy an Ability Patch?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_ABILITY_PATCH)
@@ -1244,6 +1345,7 @@ script TryBuyLifeOrb {
 	msgbox(format("You would like to buy a Life Orb?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		goto(End)
 	}
 	setvar(VAR_0x8009, ITEM_LIFE_ORB)
@@ -1265,6 +1367,94 @@ script TryBuyLifeOrb {
 	special(UpdateBattlePointsWindow)
 }
 
+script TryBuyBottleCap {
+	msgbox(format("You would like to buy a Bottle Cap?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_BOTTLE_CAP)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 8) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 8)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Bottle Cap! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyTM01Covet {
+	checkitem(ITEM_TM_COVET)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
+	msgbox(format("You would like to buy TM01 Covet?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_COVET)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 10) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this TM."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 10)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyTM46Thief {
+	checkitem(ITEM_TM_THIEF)
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("You already own this TM."))
+		goto(End)
+	}
+	msgbox(format("You would like to buy TM46 Thief?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_TM_THIEF)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 10) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this TM."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 10)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your TM! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
 script EggMoveTutor {
 	msgbox(format("I can teach one of your Pokémon one of their egg moves in exchange for one Battle Point."))
 	special(ShowBattlePointsWindow)
@@ -1277,29 +1467,38 @@ script EggMoveTutor {
 	msgbox(format("Would you like to do that?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
-		msgbox(format("Come back anytime!"))
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
 		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	special(ChooseMonForMoveRelearner)
 	waitstate
 	if (var(VAR_0x8004) == PARTY_NOTHING_CHOSEN) { // Pressed 'B' in selection screen
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	special(IsSelectedMonEgg)
 	if (var(VAR_RESULT) == TRUE) {
 		msgbox(format("I can't teach a move to an Egg."))
+		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	special(DoesChosenMonHaveEggMoves)
 	if (var(VAR_RESULT) == FALSE) {
 		msgbox(format("This Pokémon does not have any egg moves."))
+		special(CloseBattlePointsWindow)
 		goto(End)
 	}
 	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
 	msgbox(format("Which move would you like me to teach {STR_VAR_1}?"))
 	special(TeachEggMove)
 	waitstate
+	if (var(VAR_0x8004) == FALSE) {
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		special(CloseBattlePointsWindow)
+		goto(End)
+	}
 	setvar(VAR_0x8004, 1)
 	special(TakeFrontierBattlePoints)
 	special(CloseBattlePointsWindow)
@@ -1322,10 +1521,10 @@ script EventScript_FishermanSalesman {
 		goto(End)
 	}
 	setvar(VAR_0x8004, SCROLL_MULTI_FISH)
+	setvar(VAR_0x800B, 0)
 	showmoneybox(0, 0)
 	special(ShowScrollableMultichoice)
 	waitstate
-	
 	switch (var(VAR_RESULT))
 	{
 		case 0: // Magikarp
@@ -1365,12 +1564,14 @@ script TryBuyMagikarp {
 	msgbox(format("You would like to buy Magikarp for ¥500?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(500)
 	updatemoneybox
 	givemon(SPECIES_MAGIKARP, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Magikarp."))
@@ -1392,12 +1593,14 @@ script TryBuyGoldeen {
 	msgbox(format("You would like to buy Goldeen for ¥500?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(500)
 	updatemoneybox
 	givemon(SPECIES_GOLDEEN, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GOLDEEN)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Goldeen."))
@@ -1419,12 +1622,14 @@ script TryBuyRemoraid {
 	msgbox(format("You would like to buy Remoraid for ¥500?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(500)
 	updatemoneybox
 	givemon(SPECIES_REMORAID, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_REMORAID)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Remoraid."))
@@ -1452,12 +1657,14 @@ script TryBuyFeebas {
 	msgbox(format("You would like to buy Feebas for ¥1000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(1000)
 	updatemoneybox
 	givemon(SPECIES_FEEBAS, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FEEBAS)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Feebas."))
@@ -1485,12 +1692,14 @@ script TryBuyFinneon {
 	msgbox(format("You would like to buy Finneon for ¥1000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(1000)
 	updatemoneybox
 	givemon(SPECIES_FINNEON, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FINNEON)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Finneon."))
@@ -1518,12 +1727,14 @@ script TryBuyTynamo {
 	msgbox(format("You would like to buy Tynamo for ¥1000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(1000)
 	updatemoneybox
 	givemon(SPECIES_TYNAMO, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYNAMO)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Tynamo."))
@@ -1551,12 +1762,14 @@ script TryBuyArrokuda {
 	msgbox(format("You would like to buy Arrokuda for ¥1000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(1000)
 	updatemoneybox
 	givemon(SPECIES_ARROKUDA, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARROKUDA)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Arrokuda."))
@@ -1584,12 +1797,14 @@ script TryBuyBarboach {
 	msgbox(format("You would like to buy Barboach for ¥1000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(1000)
 	updatemoneybox
 	givemon(SPECIES_BARBOACH, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BARBOACH)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Barboach."))
@@ -1617,12 +1832,14 @@ script TryBuyChinchou {
 	msgbox(format("You would like to buy Chinchou for ¥5000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(5000)
 	updatemoneybox
 	givemon(SPECIES_CHINCHOU, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHINCHOU)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Chinchou."))
@@ -1650,12 +1867,14 @@ script TryBuyCarvanha {
 	msgbox(format("You would like to buy Carvanha for ¥5000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(5000)
 	updatemoneybox
 	givemon(SPECIES_CARVANHA, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CARVANHA)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Carvanha."))
@@ -1683,12 +1902,14 @@ script TryBuyQwilfish {
 	msgbox(format("You would like to buy Qwilfish for ¥10000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(10000)
 	updatemoneybox
 	givemon(SPECIES_QWILFISH_HISUI, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_QWILFISH_HISUI)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Qwilfish."))
@@ -1716,12 +1937,14 @@ script TryBuyBasculin {
 	msgbox(format("You would like to buy Basculin for ¥10000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(10000)
 	updatemoneybox
 	givemon(SPECIES_BASCULIN_WHITE_STRIPED, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BASCULIN_WHITE_STRIPED)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Basculin."))
@@ -1749,12 +1972,14 @@ script TryBuyCosmog {
 	msgbox(format("You would like to buy Cosmog for ¥50000?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
 		hidemoneybox
 		goto(End)
 	}
 	removemoney(50000)
 	updatemoneybox
 	givemon(SPECIES_COSMOG, 5, ITEM_NONE, ITEM_LURE_BALL)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_COSMOG)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Cosmog."))
@@ -1777,7 +2002,6 @@ script NicknamePartyMon {
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 1) { // Yes
 		call(Common_EventScript_GetGiftMonPartySlot)
-		call(Common_EventScript_GetGiftMonPartySlot)
 	}
 	hidemoneybox
 	goto(End)
@@ -1789,7 +2013,6 @@ script NicknameBoxMon {
 	if (var(VAR_RESULT) == 1) { // Yes
 		call(Common_EventScript_NameReceivedBoxMon)
 	}
-	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
 	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
 	call(Common_EventScript_TransferredToPC)
 	hidemoneybox
@@ -1797,6 +2020,7 @@ script NicknameBoxMon {
 }
 
 script End {
+	setvar(VAR_0x800B, 1)
 	waitmessage
 	releaseall
 }
@@ -1902,6 +2126,7 @@ script SootopolisSecondaryMart_Clerk {
 
 script RandomEggGuy {
 	lock
+	faceplayer
 	message(format("Hello there, I have some Pokémon Eggs I can sell to you. They can contain any fully unevolved Pokémon. They'll cost 10 BP each."))
 	waitmessage
 	goto_if_unset(FLAG_EGGGUY_FISRTEGG, FreeRandomEgg)
@@ -1926,6 +2151,7 @@ script RandomEggGuy {
 }
 
 script FreeRandomEgg {
+	delay(20)
 	message(format("But, since you're a new customer, the first one is free!"))
 	waitmessage
 	setflag(FLAG_EGGGUY_FISRTEGG)
@@ -1933,11 +2159,12 @@ script FreeRandomEgg {
 }
 
 script GiveRandomEgg {
+	delay(20)
 	special(GetRandomEgg)
 	giveegg(VAR_RESULT)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
-		msgbox(format("Obtained the egg!"))
+		msgbox(format("Obtained the Egg!"))
 		goto(End)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
@@ -1979,14 +2206,8 @@ script Static_Foongus1_DeepWoods {
 	delay(40)
 	waitmoncry
 	dowildbattle
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	switch(var(VAR_RESULT)) {
-		case B_OUTCOME_PLAYER_TELEPORTED:
-		case B_OUTCOME_RAN:
-		case B_OUTCOME_WON:
-			setflag(FLAG_STATIC_FOONGUS1)
-			goto(Common_EventScript_RemoveStaticPokemon)
-	}
+	setflag(FLAG_STATIC_FOONGUS1)
+	goto(Common_EventScript_RemoveStaticPokemon)
 	setflag(FLAG_STATIC_FOONGUS1)
 	release
 }
@@ -1999,14 +2220,8 @@ script Static_Foongus2_DeepWoods {
 	delay(40)
 	waitmoncry
 	dowildbattle
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	switch(var(VAR_RESULT)) {
-		case B_OUTCOME_PLAYER_TELEPORTED:
-		case B_OUTCOME_RAN:
-		case B_OUTCOME_WON:
-			setflag(FLAG_STATIC_FOONGUS2)
-			goto(Common_EventScript_RemoveStaticPokemon)
-	}
+	setflag(FLAG_STATIC_FOONGUS2)
+	goto(Common_EventScript_RemoveStaticPokemon)
 	setflag(FLAG_STATIC_FOONGUS2)
 	release
 }
@@ -2019,14 +2234,8 @@ script Static_Morelull1_DeepWoods {
 	delay(40)
 	waitmoncry
 	dowildbattle
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	switch(var(VAR_RESULT)) {
-		case B_OUTCOME_PLAYER_TELEPORTED:
-		case B_OUTCOME_RAN:
-		case B_OUTCOME_WON:
-			setflag(FLAG_STATIC_MORELULL1)
-			goto(Common_EventScript_RemoveStaticPokemon)
-	}
+	setflag(FLAG_STATIC_MORELULL1)
+	goto(Common_EventScript_RemoveStaticPokemon)
 	setflag(FLAG_STATIC_MORELULL1)
 	release
 }
@@ -2039,14 +2248,8 @@ script Static_Morelull2_DeepWoods {
 	delay(40)
 	waitmoncry
 	dowildbattle
-	specialvar(VAR_RESULT, GetBattleOutcome)
-	switch(var(VAR_RESULT)) {
-		case B_OUTCOME_PLAYER_TELEPORTED:
-		case B_OUTCOME_RAN:
-		case B_OUTCOME_WON:
-			setflag(FLAG_STATIC_MORELULL2)
-			goto(Common_EventScript_RemoveStaticPokemon)
-	}
+	setflag(FLAG_STATIC_MORELULL2)
+	goto(Common_EventScript_RemoveStaticPokemon)
 	setflag(FLAG_STATIC_MORELULL2)
 	release
 }
@@ -2059,43 +2262,132 @@ script ChoiceItemsGuy {
 	if (var(VAR_RESULT) == FALSE) {
 		checkpcitem(ITEM_CHOICE_SCARF)
 		if (var(VAR_RESULT) == FALSE) {
-			msgbox(format("Since you don't yet have a Choice Scarf, I will give you one. Here you go."))
-			checkitemspace(VAR_0x8009)
+			checkpartychoicescarf
 			if (var(VAR_RESULT) == FALSE) {
-				msgbox(format("You don't have bag space for any more items."))
-				goto(End)
+			    msgbox(format("Since you don't yet have a Choice Scarf, I will give you one. Here you go."))
+			    checkitemspace(VAR_0x8009)
+			    if (var(VAR_RESULT) == FALSE) {
+			    	msgbox(format("You don't have bag space for any more items."))
+			    	goto(End)
+			    }
+			    giveitem(ITEM_CHOICE_SCARF)
 			}
-			giveitem(ITEM_CHOICE_SCARF)
 		}
 	}
 	checkitem(ITEM_CHOICE_SPECS)
 	if (var(VAR_RESULT) == FALSE) {
 		checkpcitem(ITEM_CHOICE_SPECS)
 		if (var(VAR_RESULT) == FALSE) {
-		    msgbox(format("Since you don't yet have a Choice Specs, I will give you one. Here you go."))
-		    checkitemspace(VAR_0x8009)
-		    if (var(VAR_RESULT) == FALSE) {
-		    	msgbox(format("You don't have bag space for any more items."))
-		    	goto(End)
-		    }
-		    giveitem(ITEM_CHOICE_SPECS)
+			checkpartychoicespecs
+			if (var(VAR_RESULT) == FALSE) {
+		    	msgbox(format("Since you don't yet have a Choice Specs, I will give you one. Here you go."))
+		    	checkitemspace(VAR_0x8009)
+		    	if (var(VAR_RESULT) == FALSE) {
+		    		msgbox(format("You don't have bag space for any more items."))
+		    		goto(End)
+		    	}
+		    	giveitem(ITEM_CHOICE_SPECS)
+			}
 		}
 	}
 	checkitem(ITEM_CHOICE_BAND)
 	if (var(VAR_RESULT) == FALSE) {
 		checkpcitem(ITEM_CHOICE_BAND)
 		if (var(VAR_RESULT) == FALSE) {
-			msgbox(format("Since you don't yet have a Choice Band, I will give you one. Here you go."))
-			checkitemspace(VAR_0x8009)
+			checkpartychoiceband
 			if (var(VAR_RESULT) == FALSE) {
-				msgbox(format("You don't have bag space for any more items."))
-				goto(End)
+				msgbox(format("Since you don't yet have a Choice Band, I will give you one. Here you go."))
+				checkitemspace(VAR_0x8009)
+				if (var(VAR_RESULT) == FALSE) {
+					msgbox(format("You don't have bag space for any more items."))
+					goto(End)
+				}
+				giveitem(ITEM_CHOICE_BAND)
 			}
-			giveitem(ITEM_CHOICE_BAND)
 		}
 	}
 	msgbox(format("Look at that! You have all of the choice items, you should be good to go."))
 	msgbox(format("Good luck taking on the Pokémon League!"))
 	closemessage
 	release
+}
+
+script WeatherInstituteGift {
+	msgbox(Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon, MSGBOX_DEFAULT)
+	random(4)
+	switch (var(VAR_RESULT)) {
+		case 0:
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LARVITAR)
+			givemon(SPECIES_LARVITAR, 25, ITEM_HARD_STONE, abilityNum=3)
+			if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Larvitar."))
+	        	call(NicknamePartyMon)
+	        }        
+            elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Larvitar."))
+	        	call(NicknameBoxMon)
+	        }        
+	        else {
+	        	msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+	        	goto(End)
+	        }
+		case 1:
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_WAILMER)
+			givemon(SPECIES_WAILMER, 25, ITEM_MYSTIC_WATER, abilityNum=3)
+			if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Wailmer."))
+	        	call(NicknamePartyMon)
+	        }        
+            elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Wailmer."))
+	        	call(NicknameBoxMon)
+	        }        
+	        else {
+	        	msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+	        	goto(End)
+	        }        
+		case 2:
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_VULPIX)
+			givemon(SPECIES_VULPIX, 25, ITEM_CHARCOAL, abilityNum=3)
+			if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Vulpix."))
+	        	call(NicknamePartyMon)
+	        }        
+            elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Vulpix."))
+	        	call(NicknameBoxMon)
+	        }        
+	        else {
+	        	msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+	        	goto(End)
+	        }
+		case 3:
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SNOVER)
+			givemon(SPECIES_SNOVER, 25, ITEM_NEVER_MELT_ICE, abilityNum=1)
+			if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Snover."))
+	        	call(NicknamePartyMon)
+	        }        
+            elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+	        	playfanfare(MUS_OBTAIN_ITEM)
+	        	msgbox(format("Obtained Snover."))
+	        	call(NicknameBoxMon)
+	        }        
+	        else {
+	        	msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+	        	goto(End)
+	        }
+	}
+	msgbox(Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT)
+}
+
+script TestGuy {
+	trainerbattle_no_intro(TRAINER_SAWYER_1, VictoryRoad_1F_Text_WallyEntranceDefeat)	
 }

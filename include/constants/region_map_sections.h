@@ -218,7 +218,10 @@
 #define MAPSEC_DEVON_CORP                   0xD6
 #define MAPSEC_DESERT_OASIS                 0xD7
 #define MAPSEC_DEEP_WOODS                   0xD8
-#define MAPSEC_NONE                         0xD9
+#define MAPSEC_DAYCARE                      0xD9
+#define MAPSEC_WEATHER_INSTITUTE           0xDA
+#define MAPSEC_GAME_CORNER_2                0xDB
+#define MAPSEC_NONE                         0xDC
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

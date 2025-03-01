@@ -653,4 +653,6 @@ SootopolisCity_Gym_1F_Text_JuanRematchNeedTwoMons:
 # 327 "data/maps/SootopolisCity_Gym_1F/scripts.pory"
 Gym_Text_AlsoTakeThese:
 # 328 "data/maps/SootopolisCity_Gym_1F/scripts.pory"
-	.string "Here, you can also use these to upgrade your Pokémon.$"
+	.string "Here, you can also use these\n"
+# 329 "data/maps/SootopolisCity_Gym_1F/scripts.pory"
+	.string "to upgrade your Pokémon.$"

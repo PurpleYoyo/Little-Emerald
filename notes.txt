@@ -1,0 +1,78 @@
+b - pokemart tiles weird                                  | F
+give inf candy later - after rival?                     Y | A
+cut stats box rare candy?                               Y | A
+remove select sound from soil?                          Y | A
+b - stops candying when learn move                        | F
+b - guy in counter @ rustboro mart                        | F
+b - guy on counter @ rustboro pc                          | F
+b - no utility menu pokevial text                         | F
+b - scary guy text                                        | F
+make held items not say on whiteout?                    Y | A
+b - bp shop text                                          | F
+b - egg move tutor                                        | F
+b - egg tutor takes bp if not taught                      | F
+give mega ring                                            | A
+remove old move relearner                                 | A
+b - deep woods exit weirdness                             | F
+b - non sv mon learnsets no work                          | F
+b - minibosses no faceplayer                              | F
+bp get noise?                                           Y | A
+remove thief/covet from levelup?                        Y | A
+b - pressing B on warp panel in util menu -> party        | F
+b - relearn teaching egg moves                            | F
+b - slateport gems shop broken                            | F
+change random egg guy skin                                | A
+t - ralts dawn stone?                                     | T
+t - fly                                                   | T
+switch r and l in battle?                               Y | A
+b - rock incense reappaear                                | F
+b - meteor falls courtney text                            | F
+b - incorrect forms in trainer battles                    | F
+b - power tms shopn't                                     | F
+b - desert oasis collision                                | F
+b - desert oasis tm flag                                  | F
+remove annoying slateport npc                             | A
+b - guy on pc counter petalburg                           | F
+b - desert oasis water tiles                              | F
+dragon breath sound based?                              Y | A
+b - game corner tms wrong tm                              | F
+ralts dawn stone resuable focus sash?                   Y | A
+b - bridge kecleon                                        | F
+doduo ground flying?                                    Y | A
+b - r120 kec                                              | F
+b - hyper trained stat color                              | F
+b - hyper training press b                                | F
+change matt's drifloon                                    | A
+b - dive                                                  | F
+fast dive                                                 | A
+b - shell smash tutor                                     | F
+b - juan's wimpod no like sp?                             | F
+b - wally ralts wrong type                                | F
+wynaut inner focus                                        | A
+make pc unusable in league                                | A
+b - monster magikarp no intim                             | F
+make rare candy only to 65                                | A
+add flash to utility menu                                 | A
+
+b - choice guy tricked if pokemon hold                    | F ?
+b - fisherman salesman magikarp                           | F ?
+winstitute scientsist give 4 weather mons                 | A ?
+winstitue separate location                               | A ?
+give both bikes?                                        Y | A ?
+b - non nickname prompt froakie special                   | F ?
+make daycare separate enc?                              Y | A ?
+starter oran?                                           Y | A
+text when birch gives key items?                        Y | A ?
+b - route 112 -> 111 wall?                                | F ?
+b - auto-run before running shoes                         | F ?
+
+b - tm desc lengths                                       |
+make fidough rarer                                        | A
+b - shop text overlap                                     | F
+b - bp shop tm pics                                       | F
+b - static balls stay, when caught                        | F
+add grass to rustboro?                                  Y | A 
+add title screen                                          |
+
+b - utilities menu auto-run pre-dex                       |
+b - birch says r button for utilities menu                |

@@ -239,7 +239,7 @@ MeteorFalls_1F_1R_EventScript_MetCozmo::
 	end
 
 MeteorFalls_1F_1R_Text_WithThisMeteorite:
-	.string "Hehehe!\p"
+	.string "Ahahaha!\p"
 	.string "With this METEORITE, that thing in\n"
 	.string "MT. CHIMNEY will…$"
 

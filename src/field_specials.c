@@ -1777,6 +1777,22 @@ void IsChosenMonImmuneToSleepDueToAbility(void)
     gSpecialVar_Result = FALSE;
 }
 
+void IsPlayerInPokemonLeague (void)
+{
+    gSpecialVar_Result = gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY_SIDNEYS_ROOM);
+}
+
+void GiveStarterOranBerry(void)
+{
+    struct Pokemon *pokemon;
+    pokemon = &gPlayerParty[GetLeadMonIndex()];
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        int i = 520;
+        SetMonData(pokemon, MON_DATA_HELD_ITEM, &i);
+    }
+}
+
 void GetInfiniteRepelFlag(void)
 {
     bool8 infiniteRepelOn = FlagGet(OW_FLAG_NO_ENCOUNTER);
@@ -2864,7 +2880,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 13;
+        task->tNumItems = 17;
         task->tLeft = 14;
         task->tTop = 1;
         task->tWidth = 15;
@@ -3021,6 +3037,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_BPShop_FlameOrb,
         gText_BPShop_FocusSash,
         gText_BPShop_EjectPack,
+        gText_BPShop_BlankMint,
         gText_BPShop_EjectButton,
         gText_BPShop_BlackSludge,
         gText_BPShop_Leftovers,
@@ -3028,7 +3045,10 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_BPShop_Eviolite,
         gText_BPShop_AbilityPatch,
         gText_BPShop_LifeOrb,
+        gText_BPShop_BottleCap,
         gText_BPShop_RareCandy,
+        gText_BPShop_TM01Covet,
+        gText_BPShop_TM46Thief,
         gText_Exit
     },
     [SCROLL_MULTI_BERRY_POWDER_VENDOR] =

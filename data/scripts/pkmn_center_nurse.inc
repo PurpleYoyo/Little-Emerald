@@ -1645,39 +1645,41 @@ EventScript_HyperTrainNPC_7:
 # 712 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 5
 	goto_if_eq EventScript_HyperTrainNPC_16
-EventScript_HyperTrainNPC_10:
-# 717 "data/scripts/pkmn_center_nurse.pory"
-	sethypertrainstat STAT
 # 718 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+EventScript_HyperTrainNPC_10:
+# 720 "data/scripts/pkmn_center_nurse.pory"
+	sethypertrainstat STAT
+# 721 "data/scripts/pkmn_center_nurse.pory"
 	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
-# 719 "data/scripts/pkmn_center_nurse.pory"
+# 722 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq EventScript_HyperTrainNPC_24
-EventScript_HyperTrainNPC_23:
-# 723 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_eq EventScript_HyperTrainNPC_25
+EventScript_HyperTrainNPC_24:
+# 726 "data/scripts/pkmn_center_nurse.pory"
 	switch STAT
-# 725 "data/scripts/pkmn_center_nurse.pory"
-	case 0, EventScript_HyperTrainNPC_28
-# 727 "data/scripts/pkmn_center_nurse.pory"
-	case 1, EventScript_HyperTrainNPC_29
-# 729 "data/scripts/pkmn_center_nurse.pory"
-	case 2, EventScript_HyperTrainNPC_30
-# 731 "data/scripts/pkmn_center_nurse.pory"
-	case 3, EventScript_HyperTrainNPC_31
-# 733 "data/scripts/pkmn_center_nurse.pory"
-	case 4, EventScript_HyperTrainNPC_32
-# 735 "data/scripts/pkmn_center_nurse.pory"
-	case 5, EventScript_HyperTrainNPC_33
-EventScript_HyperTrainNPC_26:
+# 728 "data/scripts/pkmn_center_nurse.pory"
+	case 0, EventScript_HyperTrainNPC_29
+# 730 "data/scripts/pkmn_center_nurse.pory"
+	case 1, EventScript_HyperTrainNPC_30
+# 732 "data/scripts/pkmn_center_nurse.pory"
+	case 2, EventScript_HyperTrainNPC_31
+# 734 "data/scripts/pkmn_center_nurse.pory"
+	case 3, EventScript_HyperTrainNPC_32
+# 736 "data/scripts/pkmn_center_nurse.pory"
+	case 4, EventScript_HyperTrainNPC_33
 # 738 "data/scripts/pkmn_center_nurse.pory"
-	playmoncry 0x8007, 0
-# 739 "data/scripts/pkmn_center_nurse.pory"
-	waitmoncry
-# 740 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EventScript_HyperTrainNPC_Text_5
+	case 5, EventScript_HyperTrainNPC_34
+EventScript_HyperTrainNPC_27:
 # 741 "data/scripts/pkmn_center_nurse.pory"
-	removeitem ITEM_BOTTLE_CAP, 1
+	playmoncry 0x8007, 0
 # 742 "data/scripts/pkmn_center_nurse.pory"
+	waitmoncry
+# 743 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_HyperTrainNPC_Text_5
+# 744 "data/scripts/pkmn_center_nurse.pory"
+	removeitem ITEM_BOTTLE_CAP, 1
+# 745 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
@@ -1742,2979 +1744,3640 @@ EventScript_HyperTrainNPC_16:
 	canhypertrain 5, VAR_0x8004
 	goto EventScript_HyperTrainNPC_10
 
-EventScript_HyperTrainNPC_24:
-# 720 "data/scripts/pkmn_center_nurse.pory"
+EventScript_HyperTrainNPC_25:
+# 723 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_HyperTrainNPC_Text_4
-# 721 "data/scripts/pkmn_center_nurse.pory"
+# 724 "data/scripts/pkmn_center_nurse.pory"
 	goto End
-	goto EventScript_HyperTrainNPC_23
-
-EventScript_HyperTrainNPC_28:
-# 726 "data/scripts/pkmn_center_nurse.pory"
-	hypertrain 0, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+	goto EventScript_HyperTrainNPC_24
 
 EventScript_HyperTrainNPC_29:
-# 728 "data/scripts/pkmn_center_nurse.pory"
-	hypertrain 1, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+# 729 "data/scripts/pkmn_center_nurse.pory"
+	hypertrain 0, VAR_0x8004
+	goto EventScript_HyperTrainNPC_27
 
 EventScript_HyperTrainNPC_30:
-# 730 "data/scripts/pkmn_center_nurse.pory"
-	hypertrain 2, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+# 731 "data/scripts/pkmn_center_nurse.pory"
+	hypertrain 1, VAR_0x8004
+	goto EventScript_HyperTrainNPC_27
 
 EventScript_HyperTrainNPC_31:
-# 732 "data/scripts/pkmn_center_nurse.pory"
-	hypertrain 3, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+# 733 "data/scripts/pkmn_center_nurse.pory"
+	hypertrain 2, VAR_0x8004
+	goto EventScript_HyperTrainNPC_27
 
 EventScript_HyperTrainNPC_32:
-# 734 "data/scripts/pkmn_center_nurse.pory"
-	hypertrain 4, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+# 735 "data/scripts/pkmn_center_nurse.pory"
+	hypertrain 3, VAR_0x8004
+	goto EventScript_HyperTrainNPC_27
 
 EventScript_HyperTrainNPC_33:
-# 736 "data/scripts/pkmn_center_nurse.pory"
+# 737 "data/scripts/pkmn_center_nurse.pory"
+	hypertrain 4, VAR_0x8004
+	goto EventScript_HyperTrainNPC_27
+
+EventScript_HyperTrainNPC_34:
+# 739 "data/scripts/pkmn_center_nurse.pory"
 	hypertrain 5, VAR_0x8004
-	goto EventScript_HyperTrainNPC_26
+	goto EventScript_HyperTrainNPC_27
 
 
 EventScript_GameCorner_Clerk_TMs::
-# 746 "data/scripts/pkmn_center_nurse.pory"
-	lockall
-# 747 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EventScript_GameCorner_Clerk_TMs_Text_0
-# 748 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
 # 749 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 750 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_GameCorner_Clerk_TMs_Text_0
+# 751 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 752 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_lt EventScript_GameCorner_Clerk_TMs_2
 EventScript_GameCorner_Clerk_TMs_1:
-# 753 "data/scripts/pkmn_center_nurse.pory"
+# 756 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_GameCorner_Clerk_TMs_Text_2
-# 754 "data/scripts/pkmn_center_nurse.pory"
+# 757 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 755 "data/scripts/pkmn_center_nurse.pory"
+# 758 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq EventScript_GameCorner_Clerk_TMs_5
 EventScript_GameCorner_Clerk_TMs_4:
-# 758 "data/scripts/pkmn_center_nurse.pory"
-	special ShowBattlePointsWindow
-# 759 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8004, SCROLL_MULTI_GAME_CORNER_TMS
-# 760 "data/scripts/pkmn_center_nurse.pory"
-	special ShowScrollableMultichoice
 # 761 "data/scripts/pkmn_center_nurse.pory"
-	waitstate
+	special ShowBattlePointsWindow
 # 762 "data/scripts/pkmn_center_nurse.pory"
-	special CloseBattlePointsWindow
+	setvar VAR_0x8004, SCROLL_MULTI_GAME_CORNER_TMS
 # 763 "data/scripts/pkmn_center_nurse.pory"
-	switch VAR_RESULT
+	special ShowScrollableMultichoice
 # 764 "data/scripts/pkmn_center_nurse.pory"
-	case 0, EventScript_GameCorner_Clerk_TMs_8
+	waitstate
+# 765 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
 # 766 "data/scripts/pkmn_center_nurse.pory"
+	switch VAR_RESULT
+# 767 "data/scripts/pkmn_center_nurse.pory"
+	case 0, EventScript_GameCorner_Clerk_TMs_8
+# 769 "data/scripts/pkmn_center_nurse.pory"
 	case 1, EventScript_GameCorner_Clerk_TMs_9
-# 768 "data/scripts/pkmn_center_nurse.pory"
+# 771 "data/scripts/pkmn_center_nurse.pory"
 	case 2, EventScript_GameCorner_Clerk_TMs_10
-# 770 "data/scripts/pkmn_center_nurse.pory"
+# 773 "data/scripts/pkmn_center_nurse.pory"
 	case 3, EventScript_GameCorner_Clerk_TMs_11
-# 772 "data/scripts/pkmn_center_nurse.pory"
+# 775 "data/scripts/pkmn_center_nurse.pory"
 	case 4, EventScript_GameCorner_Clerk_TMs_12
-# 774 "data/scripts/pkmn_center_nurse.pory"
+# 777 "data/scripts/pkmn_center_nurse.pory"
 	case 5, EventScript_GameCorner_Clerk_TMs_13
-# 776 "data/scripts/pkmn_center_nurse.pory"
+# 779 "data/scripts/pkmn_center_nurse.pory"
 	case 6, EventScript_GameCorner_Clerk_TMs_14
-# 778 "data/scripts/pkmn_center_nurse.pory"
+# 781 "data/scripts/pkmn_center_nurse.pory"
 	case 7, EventScript_GameCorner_Clerk_TMs_15
-# 780 "data/scripts/pkmn_center_nurse.pory"
+# 783 "data/scripts/pkmn_center_nurse.pory"
 	case 8, EventScript_GameCorner_Clerk_TMs_16
 	return
 
 EventScript_GameCorner_Clerk_TMs_2:
-# 750 "data/scripts/pkmn_center_nurse.pory"
+# 753 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_GameCorner_Clerk_TMs_Text_1
-# 751 "data/scripts/pkmn_center_nurse.pory"
+# 754 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EventScript_GameCorner_Clerk_TMs_1
 
 EventScript_GameCorner_Clerk_TMs_5:
-# 756 "data/scripts/pkmn_center_nurse.pory"
+# 759 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EventScript_GameCorner_Clerk_TMs_4
 
 EventScript_GameCorner_Clerk_TMs_8:
-# 765 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyLeechLifeTM
+# 768 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyPsychicTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_9:
-# 767 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyDarkPulseTM
+# 770 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyLeechLifeTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_10:
-# 769 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyEarthPowerTM
+# 772 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyThunderboltTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_11:
-# 771 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyFlashCannonTM
-	return
-
-EventScript_GameCorner_Clerk_TMs_12:
-# 773 "data/scripts/pkmn_center_nurse.pory"
+# 774 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyIceBeamTM
 	return
 
+EventScript_GameCorner_Clerk_TMs_12:
+# 776 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyShadowBallTM
+	return
+
 EventScript_GameCorner_Clerk_TMs_13:
-# 775 "data/scripts/pkmn_center_nurse.pory"
+# 778 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyIceSpinnerTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_14:
-# 777 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyPsychicTM
+# 780 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyEarthPowerTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_15:
-# 779 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyShadowBallTM
+# 782 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyFlashCannonTM
 	return
 
 EventScript_GameCorner_Clerk_TMs_16:
-# 781 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyThunderboltTM
+# 784 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyDarkPulseTM
 	return
 
 
 TryBuyLeechLifeTM::
-# 786 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_0
-# 787 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 788 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 789 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_LEECH_LIFE
+# 790 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyLeechLifeTM_2
 TryBuyLeechLifeTM_1:
-# 791 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8009, ITEM_TM_LEECH_LIFE
-# 792 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 793 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8004, 2
 # 794 "data/scripts/pkmn_center_nurse.pory"
-	special TakeFrontierBattlePoints
-# 795 "data/scripts/pkmn_center_nurse.pory"
-	playse SE_SHOP
-# 796 "data/scripts/pkmn_center_nurse.pory"
-	additem VAR_0x8009
-# 797 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyLeechLifeTM_Text_1
-# 798 "data/scripts/pkmn_center_nurse.pory"
+# 795 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 796 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyLeechLifeTM_5
+TryBuyLeechLifeTM_4:
+# 800 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_TM_LEECH_LIFE
+# 801 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 802 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 2
+# 803 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 804 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 805 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 806 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 807 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyLeechLifeTM_2:
-# 789 "data/scripts/pkmn_center_nurse.pory"
+# 791 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 792 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLeechLifeTM_1
 
+TryBuyLeechLifeTM_5:
+# 797 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 798 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyLeechLifeTM_4
+
 
 TryBuyDarkPulseTM::
-# 802 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyDarkPulseTM_Text_0
-# 803 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 804 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 811 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_DARK_PULSE
+# 812 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyDarkPulseTM_2
 TryBuyDarkPulseTM_1:
-# 807 "data/scripts/pkmn_center_nurse.pory"
+# 816 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyDarkPulseTM_Text_0
+# 817 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 818 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyDarkPulseTM_5
+TryBuyDarkPulseTM_4:
+# 822 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_DARK_PULSE
-# 808 "data/scripts/pkmn_center_nurse.pory"
+# 823 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 809 "data/scripts/pkmn_center_nurse.pory"
+# 824 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 810 "data/scripts/pkmn_center_nurse.pory"
+# 825 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 811 "data/scripts/pkmn_center_nurse.pory"
+# 826 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 812 "data/scripts/pkmn_center_nurse.pory"
+# 827 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 813 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 814 "data/scripts/pkmn_center_nurse.pory"
+# 828 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 829 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyDarkPulseTM_2:
-# 805 "data/scripts/pkmn_center_nurse.pory"
+# 813 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 814 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyDarkPulseTM_1
 
+TryBuyDarkPulseTM_5:
+# 819 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 820 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyDarkPulseTM_4
+
 
 TryBuyEarthPowerTM::
-# 818 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyEarthPowerTM_Text_0
-# 819 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 820 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 833 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_EARTH_POWER
+# 834 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyEarthPowerTM_2
 TryBuyEarthPowerTM_1:
-# 823 "data/scripts/pkmn_center_nurse.pory"
+# 838 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEarthPowerTM_Text_0
+# 839 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 840 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyEarthPowerTM_5
+TryBuyEarthPowerTM_4:
+# 844 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_EARTH_POWER
-# 824 "data/scripts/pkmn_center_nurse.pory"
+# 845 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 825 "data/scripts/pkmn_center_nurse.pory"
+# 846 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 826 "data/scripts/pkmn_center_nurse.pory"
+# 847 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 827 "data/scripts/pkmn_center_nurse.pory"
+# 848 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 828 "data/scripts/pkmn_center_nurse.pory"
+# 849 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 829 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 830 "data/scripts/pkmn_center_nurse.pory"
+# 850 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 851 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyEarthPowerTM_2:
-# 821 "data/scripts/pkmn_center_nurse.pory"
+# 835 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 836 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEarthPowerTM_1
 
+TryBuyEarthPowerTM_5:
+# 841 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 842 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyEarthPowerTM_4
+
 
 TryBuyFlashCannonTM::
-# 834 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyFlashCannonTM_Text_0
-# 835 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 836 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 855 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_FLASH_CANNON
+# 856 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyFlashCannonTM_2
 TryBuyFlashCannonTM_1:
-# 839 "data/scripts/pkmn_center_nurse.pory"
+# 860 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyFlashCannonTM_Text_0
+# 861 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 862 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyFlashCannonTM_5
+TryBuyFlashCannonTM_4:
+# 866 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_FLASH_CANNON
-# 840 "data/scripts/pkmn_center_nurse.pory"
+# 867 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 841 "data/scripts/pkmn_center_nurse.pory"
+# 868 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 842 "data/scripts/pkmn_center_nurse.pory"
+# 869 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 843 "data/scripts/pkmn_center_nurse.pory"
+# 870 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 844 "data/scripts/pkmn_center_nurse.pory"
+# 871 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 845 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 846 "data/scripts/pkmn_center_nurse.pory"
+# 872 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 873 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyFlashCannonTM_2:
-# 837 "data/scripts/pkmn_center_nurse.pory"
+# 857 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 858 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFlashCannonTM_1
 
+TryBuyFlashCannonTM_5:
+# 863 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 864 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyFlashCannonTM_4
+
 
 TryBuyIceBeamTM::
-# 850 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyIceBeamTM_Text_0
-# 851 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 852 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 877 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_ICE_BEAM
+# 878 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyIceBeamTM_2
 TryBuyIceBeamTM_1:
-# 855 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8009, ITEM_TM_ICE_BEAM
-# 856 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 857 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8004, 2
-# 858 "data/scripts/pkmn_center_nurse.pory"
-	special TakeFrontierBattlePoints
-# 859 "data/scripts/pkmn_center_nurse.pory"
-	playse SE_SHOP
-# 860 "data/scripts/pkmn_center_nurse.pory"
-	additem VAR_0x8009
-# 861 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 862 "data/scripts/pkmn_center_nurse.pory"
-	special UpdateBattlePointsWindow
-	return
-
-TryBuyIceBeamTM_2:
-# 853 "data/scripts/pkmn_center_nurse.pory"
-	goto End
-	goto TryBuyIceBeamTM_1
-
-
-TryBuyIceSpinnerTM::
-# 866 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyIceSpinnerTM_Text_0
-# 867 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 868 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
-	goto_if_eq TryBuyIceSpinnerTM_2
-TryBuyIceSpinnerTM_1:
-# 871 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8009, ITEM_TM_ICE_SPINNER
-# 872 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 873 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_0x8004, 2
-# 874 "data/scripts/pkmn_center_nurse.pory"
-	special TakeFrontierBattlePoints
-# 875 "data/scripts/pkmn_center_nurse.pory"
-	playse SE_SHOP
-# 876 "data/scripts/pkmn_center_nurse.pory"
-	additem VAR_0x8009
-# 877 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 878 "data/scripts/pkmn_center_nurse.pory"
-	special UpdateBattlePointsWindow
-	return
-
-TryBuyIceSpinnerTM_2:
-# 869 "data/scripts/pkmn_center_nurse.pory"
-	goto End
-	goto TryBuyIceSpinnerTM_1
-
-
-TryBuyPsychicTM::
 # 882 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyPsychicTM_Text_0
+	msgbox TryBuyIceBeamTM_Text_0
 # 883 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
 # 884 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
+	goto_if_eq TryBuyIceBeamTM_5
+TryBuyIceBeamTM_4:
+# 888 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_TM_ICE_BEAM
+# 889 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 890 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 2
+# 891 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 892 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 893 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 894 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 895 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyIceBeamTM_2:
+# 879 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 880 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyIceBeamTM_1
+
+TryBuyIceBeamTM_5:
+# 885 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 886 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyIceBeamTM_4
+
+
+TryBuyIceSpinnerTM::
+# 899 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_ICE_SPINNER
+# 900 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq TryBuyIceSpinnerTM_2
+TryBuyIceSpinnerTM_1:
+# 904 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyIceSpinnerTM_Text_0
+# 905 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 906 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyIceSpinnerTM_5
+TryBuyIceSpinnerTM_4:
+# 910 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_TM_ICE_SPINNER
+# 911 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 912 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 2
+# 913 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 914 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 915 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 916 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 917 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyIceSpinnerTM_2:
+# 901 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 902 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyIceSpinnerTM_1
+
+TryBuyIceSpinnerTM_5:
+# 907 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 908 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyIceSpinnerTM_4
+
+
+TryBuyPsychicTM::
+# 921 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_PSYCHIC
+# 922 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyPsychicTM_2
 TryBuyPsychicTM_1:
-# 887 "data/scripts/pkmn_center_nurse.pory"
+# 926 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyPsychicTM_Text_0
+# 927 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 928 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyPsychicTM_5
+TryBuyPsychicTM_4:
+# 932 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_PSYCHIC
-# 888 "data/scripts/pkmn_center_nurse.pory"
+# 933 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 889 "data/scripts/pkmn_center_nurse.pory"
+# 934 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 890 "data/scripts/pkmn_center_nurse.pory"
+# 935 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 891 "data/scripts/pkmn_center_nurse.pory"
+# 936 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 892 "data/scripts/pkmn_center_nurse.pory"
+# 937 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 893 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 894 "data/scripts/pkmn_center_nurse.pory"
+# 938 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 939 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyPsychicTM_2:
-# 885 "data/scripts/pkmn_center_nurse.pory"
+# 923 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 924 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyPsychicTM_1
 
+TryBuyPsychicTM_5:
+# 929 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 930 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyPsychicTM_4
+
 
 TryBuyShadowBallTM::
-# 898 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyShadowBallTM_Text_0
-# 899 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 900 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 943 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_SHADOW_BALL
+# 944 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyShadowBallTM_2
 TryBuyShadowBallTM_1:
-# 903 "data/scripts/pkmn_center_nurse.pory"
+# 948 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyShadowBallTM_Text_0
+# 949 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 950 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyShadowBallTM_5
+TryBuyShadowBallTM_4:
+# 954 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_SHADOW_BALL
-# 904 "data/scripts/pkmn_center_nurse.pory"
+# 955 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 905 "data/scripts/pkmn_center_nurse.pory"
+# 956 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 906 "data/scripts/pkmn_center_nurse.pory"
+# 957 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 907 "data/scripts/pkmn_center_nurse.pory"
+# 958 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 908 "data/scripts/pkmn_center_nurse.pory"
+# 959 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 909 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 910 "data/scripts/pkmn_center_nurse.pory"
+# 960 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 961 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyShadowBallTM_2:
-# 901 "data/scripts/pkmn_center_nurse.pory"
+# 945 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 946 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyShadowBallTM_1
 
+TryBuyShadowBallTM_5:
+# 951 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 952 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyShadowBallTM_4
+
 
 TryBuyThunderboltTM::
-# 914 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyThunderboltTM_Text_0
-# 915 "data/scripts/pkmn_center_nurse.pory"
-	yesnobox 8, 4
-# 916 "data/scripts/pkmn_center_nurse.pory"
-	compare VAR_RESULT, 0
+# 965 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_THUNDERBOLT
+# 966 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
 	goto_if_eq TryBuyThunderboltTM_2
 TryBuyThunderboltTM_1:
-# 919 "data/scripts/pkmn_center_nurse.pory"
+# 970 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyThunderboltTM_Text_0
+# 971 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 972 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyThunderboltTM_5
+TryBuyThunderboltTM_4:
+# 976 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TM_THUNDERBOLT
-# 920 "data/scripts/pkmn_center_nurse.pory"
+# 977 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 921 "data/scripts/pkmn_center_nurse.pory"
+# 978 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 922 "data/scripts/pkmn_center_nurse.pory"
+# 979 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 923 "data/scripts/pkmn_center_nurse.pory"
+# 980 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 924 "data/scripts/pkmn_center_nurse.pory"
+# 981 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 925 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyLeechLifeTM_Text_1
-# 926 "data/scripts/pkmn_center_nurse.pory"
+# 982 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 983 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyThunderboltTM_2:
-# 917 "data/scripts/pkmn_center_nurse.pory"
+# 967 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 968 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyThunderboltTM_1
 
+TryBuyThunderboltTM_5:
+# 973 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 974 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyThunderboltTM_4
+
 
 BPShopClerk::
-# 930 "data/scripts/pkmn_center_nurse.pory"
+# 987 "data/scripts/pkmn_center_nurse.pory"
 	lockall
-# 931 "data/scripts/pkmn_center_nurse.pory"
+# 988 "data/scripts/pkmn_center_nurse.pory"
 	msgbox BPShopClerk_Text_0
-# 932 "data/scripts/pkmn_center_nurse.pory"
+# 989 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 933 "data/scripts/pkmn_center_nurse.pory"
+# 990 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 1
 	goto_if_lt BPShopClerk_2
 BPShopClerk_1:
-# 937 "data/scripts/pkmn_center_nurse.pory"
+# 994 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_GameCorner_Clerk_TMs_Text_2
-# 938 "data/scripts/pkmn_center_nurse.pory"
+# 995 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 939 "data/scripts/pkmn_center_nurse.pory"
+# 996 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq BPShopClerk_5
 BPShopClerk_4:
-# 942 "data/scripts/pkmn_center_nurse.pory"
+# 999 "data/scripts/pkmn_center_nurse.pory"
 	special ShowBattlePointsWindow
-# 943 "data/scripts/pkmn_center_nurse.pory"
+# 1000 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR
-# 949 "data/scripts/pkmn_center_nurse.pory"
+# 1006 "data/scripts/pkmn_center_nurse.pory"
 	special ShowFrontierExchangeCornerItemIconWindow
-# 950 "data/scripts/pkmn_center_nurse.pory"
+# 1007 "data/scripts/pkmn_center_nurse.pory"
 	special ShowScrollableMultichoice
-# 951 "data/scripts/pkmn_center_nurse.pory"
+# 1008 "data/scripts/pkmn_center_nurse.pory"
 	waitstate
-# 952 "data/scripts/pkmn_center_nurse.pory"
+# 1009 "data/scripts/pkmn_center_nurse.pory"
 	special CloseFrontierExchangeCornerItemIconWindow
-# 953 "data/scripts/pkmn_center_nurse.pory"
+# 1010 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 954 "data/scripts/pkmn_center_nurse.pory"
+# 1011 "data/scripts/pkmn_center_nurse.pory"
 	switch VAR_RESULT
-# 955 "data/scripts/pkmn_center_nurse.pory"
+# 1012 "data/scripts/pkmn_center_nurse.pory"
 	case 0, BPShopClerk_9
-# 957 "data/scripts/pkmn_center_nurse.pory"
+# 1014 "data/scripts/pkmn_center_nurse.pory"
 	case 1, BPShopClerk_10
-# 959 "data/scripts/pkmn_center_nurse.pory"
+# 1016 "data/scripts/pkmn_center_nurse.pory"
 	case 2, BPShopClerk_11
-# 961 "data/scripts/pkmn_center_nurse.pory"
+# 1018 "data/scripts/pkmn_center_nurse.pory"
 	case 3, BPShopClerk_12
-# 963 "data/scripts/pkmn_center_nurse.pory"
+# 1020 "data/scripts/pkmn_center_nurse.pory"
 	case 4, BPShopClerk_13
-# 965 "data/scripts/pkmn_center_nurse.pory"
+# 1022 "data/scripts/pkmn_center_nurse.pory"
 	case 5, BPShopClerk_14
-# 967 "data/scripts/pkmn_center_nurse.pory"
+# 1024 "data/scripts/pkmn_center_nurse.pory"
 	case 6, BPShopClerk_15
-# 969 "data/scripts/pkmn_center_nurse.pory"
+# 1026 "data/scripts/pkmn_center_nurse.pory"
 	case 7, BPShopClerk_16
-# 971 "data/scripts/pkmn_center_nurse.pory"
+# 1028 "data/scripts/pkmn_center_nurse.pory"
 	case 8, BPShopClerk_17
-# 973 "data/scripts/pkmn_center_nurse.pory"
+# 1030 "data/scripts/pkmn_center_nurse.pory"
 	case 9, BPShopClerk_18
-# 975 "data/scripts/pkmn_center_nurse.pory"
+# 1032 "data/scripts/pkmn_center_nurse.pory"
 	case 10, BPShopClerk_19
-# 977 "data/scripts/pkmn_center_nurse.pory"
+# 1034 "data/scripts/pkmn_center_nurse.pory"
 	case 11, BPShopClerk_20
+# 1036 "data/scripts/pkmn_center_nurse.pory"
+	case 12, BPShopClerk_21
+# 1038 "data/scripts/pkmn_center_nurse.pory"
+	case 13, BPShopClerk_22
+# 1040 "data/scripts/pkmn_center_nurse.pory"
+	case 14, BPShopClerk_23
+# 1042 "data/scripts/pkmn_center_nurse.pory"
+	case 15, BPShopClerk_24
 BPShopClerk_7:
-# 980 "data/scripts/pkmn_center_nurse.pory"
+# 1045 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 BPShopClerk_2:
-# 934 "data/scripts/pkmn_center_nurse.pory"
+# 991 "data/scripts/pkmn_center_nurse.pory"
 	msgbox BPShopClerk_Text_1
-# 935 "data/scripts/pkmn_center_nurse.pory"
+# 992 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto BPShopClerk_1
 
 BPShopClerk_5:
-# 940 "data/scripts/pkmn_center_nurse.pory"
+# 997 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto BPShopClerk_4
 
 BPShopClerk_9:
-# 956 "data/scripts/pkmn_center_nurse.pory"
+# 1013 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyToxicOrb
 	goto BPShopClerk_7
 
 BPShopClerk_10:
-# 958 "data/scripts/pkmn_center_nurse.pory"
+# 1015 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyFlameOrb
 	goto BPShopClerk_7
 
 BPShopClerk_11:
-# 960 "data/scripts/pkmn_center_nurse.pory"
+# 1017 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyFocusSash
 	goto BPShopClerk_7
 
 BPShopClerk_12:
-# 962 "data/scripts/pkmn_center_nurse.pory"
+# 1019 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyEjectPack
 	goto BPShopClerk_7
 
 BPShopClerk_13:
-# 964 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyEjectButton
+# 1021 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyBlankMint
 	goto BPShopClerk_7
 
 BPShopClerk_14:
-# 966 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyBlackSludge
+# 1023 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyEjectButton
 	goto BPShopClerk_7
 
 BPShopClerk_15:
-# 968 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyLeftovers
+# 1025 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyBlackSludge
 	goto BPShopClerk_7
 
 BPShopClerk_16:
-# 970 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyAssaultVest
+# 1027 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyLeftovers
 	goto BPShopClerk_7
 
 BPShopClerk_17:
-# 972 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyEviolite
+# 1029 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyAssaultVest
 	goto BPShopClerk_7
 
 BPShopClerk_18:
-# 974 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyAbilityPatch
+# 1031 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyEviolite
 	goto BPShopClerk_7
 
 BPShopClerk_19:
-# 976 "data/scripts/pkmn_center_nurse.pory"
-	call TryBuyLifeOrb
+# 1033 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyAbilityPatch
 	goto BPShopClerk_7
 
 BPShopClerk_20:
-# 978 "data/scripts/pkmn_center_nurse.pory"
+# 1035 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyLifeOrb
+	goto BPShopClerk_7
+
+BPShopClerk_21:
+# 1037 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyBottleCap
+	goto BPShopClerk_7
+
+BPShopClerk_22:
+# 1039 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyRareCandy
+	goto BPShopClerk_7
+
+BPShopClerk_23:
+# 1041 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyTM01Covet
+	goto BPShopClerk_7
+
+BPShopClerk_24:
+# 1043 "data/scripts/pkmn_center_nurse.pory"
+	call TryBuyTM46Thief
 	goto BPShopClerk_7
 
 
 TryBuyEviolite::
-# 984 "data/scripts/pkmn_center_nurse.pory"
+# 1049 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_0
-# 985 "data/scripts/pkmn_center_nurse.pory"
+# 1050 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 986 "data/scripts/pkmn_center_nurse.pory"
+# 1051 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyEviolite_2
 TryBuyEviolite_1:
-# 993 "data/scripts/pkmn_center_nurse.pory"
+# 1059 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_EVIOLITE
-# 994 "data/scripts/pkmn_center_nurse.pory"
+# 1060 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 995 "data/scripts/pkmn_center_nurse.pory"
+# 1061 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 4
 	goto_if_lt TryBuyEviolite_5
 TryBuyEviolite_4:
-# 999 "data/scripts/pkmn_center_nurse.pory"
+# 1065 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1000 "data/scripts/pkmn_center_nurse.pory"
+# 1066 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyEviolite_8
 TryBuyEviolite_7:
-# 1005 "data/scripts/pkmn_center_nurse.pory"
+# 1071 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 4
-# 1006 "data/scripts/pkmn_center_nurse.pory"
+# 1072 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1007 "data/scripts/pkmn_center_nurse.pory"
+# 1073 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1008 "data/scripts/pkmn_center_nurse.pory"
+# 1074 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1009 "data/scripts/pkmn_center_nurse.pory"
+# 1075 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_3
-# 1010 "data/scripts/pkmn_center_nurse.pory"
+# 1076 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyEviolite_2:
-# 987 "data/scripts/pkmn_center_nurse.pory"
+# 1052 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1053 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEviolite_1
 
 TryBuyEviolite_5:
-# 996 "data/scripts/pkmn_center_nurse.pory"
+# 1062 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 997 "data/scripts/pkmn_center_nurse.pory"
+# 1063 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEviolite_4
 
 TryBuyEviolite_8:
-# 1001 "data/scripts/pkmn_center_nurse.pory"
+# 1067 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1002 "data/scripts/pkmn_center_nurse.pory"
+# 1068 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEviolite_7
 
 
 TryBuyRareCandy::
-# 1014 "data/scripts/pkmn_center_nurse.pory"
+# 1080 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyRareCandy_Text_0
-# 1015 "data/scripts/pkmn_center_nurse.pory"
+# 1081 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1016 "data/scripts/pkmn_center_nurse.pory"
+# 1082 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyRareCandy_2
 TryBuyRareCandy_1:
-# 1019 "data/scripts/pkmn_center_nurse.pory"
+# 1086 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_RARE_CANDY
-# 1020 "data/scripts/pkmn_center_nurse.pory"
+# 1087 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1021 "data/scripts/pkmn_center_nurse.pory"
+# 1088 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 8
 	goto_if_lt TryBuyRareCandy_5
 TryBuyRareCandy_4:
-# 1025 "data/scripts/pkmn_center_nurse.pory"
+# 1092 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1026 "data/scripts/pkmn_center_nurse.pory"
+# 1093 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyRareCandy_8
 TryBuyRareCandy_7:
-# 1030 "data/scripts/pkmn_center_nurse.pory"
+# 1097 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1031 "data/scripts/pkmn_center_nurse.pory"
+# 1098 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1032 "data/scripts/pkmn_center_nurse.pory"
+# 1099 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1033 "data/scripts/pkmn_center_nurse.pory"
+# 1100 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1034 "data/scripts/pkmn_center_nurse.pory"
+# 1101 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyRareCandy_Text_1
-# 1035 "data/scripts/pkmn_center_nurse.pory"
+# 1102 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyRareCandy_2:
-# 1017 "data/scripts/pkmn_center_nurse.pory"
+# 1083 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1084 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyRareCandy_1
 
 TryBuyRareCandy_5:
-# 1022 "data/scripts/pkmn_center_nurse.pory"
+# 1089 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1023 "data/scripts/pkmn_center_nurse.pory"
+# 1090 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyRareCandy_4
 
 TryBuyRareCandy_8:
-# 1027 "data/scripts/pkmn_center_nurse.pory"
+# 1094 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1028 "data/scripts/pkmn_center_nurse.pory"
+# 1095 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyRareCandy_7
 
 
 TryBuyToxicOrb::
-# 1039 "data/scripts/pkmn_center_nurse.pory"
+# 1106 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyToxicOrb_Text_0
-# 1040 "data/scripts/pkmn_center_nurse.pory"
+# 1107 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1041 "data/scripts/pkmn_center_nurse.pory"
+# 1108 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyToxicOrb_2
 TryBuyToxicOrb_1:
-# 1044 "data/scripts/pkmn_center_nurse.pory"
+# 1112 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_TOXIC_ORB
-# 1045 "data/scripts/pkmn_center_nurse.pory"
+# 1113 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1046 "data/scripts/pkmn_center_nurse.pory"
+# 1114 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyToxicOrb_5
 TryBuyToxicOrb_4:
-# 1050 "data/scripts/pkmn_center_nurse.pory"
+# 1118 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1051 "data/scripts/pkmn_center_nurse.pory"
+# 1119 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1052 "data/scripts/pkmn_center_nurse.pory"
+# 1120 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1053 "data/scripts/pkmn_center_nurse.pory"
+# 1121 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1054 "data/scripts/pkmn_center_nurse.pory"
+# 1122 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyToxicOrb_Text_1
-# 1055 "data/scripts/pkmn_center_nurse.pory"
+# 1123 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyToxicOrb_2:
-# 1042 "data/scripts/pkmn_center_nurse.pory"
+# 1109 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1110 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyToxicOrb_1
 
 TryBuyToxicOrb_5:
-# 1047 "data/scripts/pkmn_center_nurse.pory"
+# 1115 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1048 "data/scripts/pkmn_center_nurse.pory"
+# 1116 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyToxicOrb_4
 
 
 TryBuyFlameOrb::
-# 1059 "data/scripts/pkmn_center_nurse.pory"
+# 1127 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFlameOrb_Text_0
-# 1060 "data/scripts/pkmn_center_nurse.pory"
+# 1128 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1061 "data/scripts/pkmn_center_nurse.pory"
+# 1129 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyFlameOrb_2
 TryBuyFlameOrb_1:
-# 1064 "data/scripts/pkmn_center_nurse.pory"
+# 1133 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_FLAME_ORB
-# 1065 "data/scripts/pkmn_center_nurse.pory"
+# 1134 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1066 "data/scripts/pkmn_center_nurse.pory"
+# 1135 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyFlameOrb_5
 TryBuyFlameOrb_4:
-# 1070 "data/scripts/pkmn_center_nurse.pory"
+# 1139 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1071 "data/scripts/pkmn_center_nurse.pory"
+# 1140 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1072 "data/scripts/pkmn_center_nurse.pory"
+# 1141 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1073 "data/scripts/pkmn_center_nurse.pory"
+# 1142 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1074 "data/scripts/pkmn_center_nurse.pory"
+# 1143 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFlameOrb_Text_1
-# 1075 "data/scripts/pkmn_center_nurse.pory"
+# 1144 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyFlameOrb_2:
-# 1062 "data/scripts/pkmn_center_nurse.pory"
+# 1130 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1131 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFlameOrb_1
 
 TryBuyFlameOrb_5:
-# 1067 "data/scripts/pkmn_center_nurse.pory"
+# 1136 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1068 "data/scripts/pkmn_center_nurse.pory"
+# 1137 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFlameOrb_4
 
 
 TryBuyFocusSash::
-# 1079 "data/scripts/pkmn_center_nurse.pory"
+# 1148 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFocusSash_Text_0
-# 1080 "data/scripts/pkmn_center_nurse.pory"
+# 1149 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1081 "data/scripts/pkmn_center_nurse.pory"
+# 1150 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyFocusSash_2
 TryBuyFocusSash_1:
-# 1084 "data/scripts/pkmn_center_nurse.pory"
+# 1153 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_FOCUS_SASH
-# 1085 "data/scripts/pkmn_center_nurse.pory"
+# 1154 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1086 "data/scripts/pkmn_center_nurse.pory"
+# 1155 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyFocusSash_5
 TryBuyFocusSash_4:
-# 1090 "data/scripts/pkmn_center_nurse.pory"
+# 1159 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1091 "data/scripts/pkmn_center_nurse.pory"
+# 1160 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1092 "data/scripts/pkmn_center_nurse.pory"
+# 1161 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1093 "data/scripts/pkmn_center_nurse.pory"
+# 1162 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1094 "data/scripts/pkmn_center_nurse.pory"
+# 1163 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFocusSash_Text_1
-# 1095 "data/scripts/pkmn_center_nurse.pory"
+# 1164 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyFocusSash_2:
-# 1082 "data/scripts/pkmn_center_nurse.pory"
+# 1151 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFocusSash_1
 
 TryBuyFocusSash_5:
-# 1087 "data/scripts/pkmn_center_nurse.pory"
+# 1156 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1088 "data/scripts/pkmn_center_nurse.pory"
+# 1157 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFocusSash_4
 
 
 TryBuyEjectPack::
-# 1099 "data/scripts/pkmn_center_nurse.pory"
+# 1168 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEjectPack_Text_0
-# 1100 "data/scripts/pkmn_center_nurse.pory"
+# 1169 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1101 "data/scripts/pkmn_center_nurse.pory"
+# 1170 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyEjectPack_2
 TryBuyEjectPack_1:
-# 1104 "data/scripts/pkmn_center_nurse.pory"
+# 1174 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_EJECT_PACK
-# 1105 "data/scripts/pkmn_center_nurse.pory"
+# 1175 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1106 "data/scripts/pkmn_center_nurse.pory"
+# 1176 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyEjectPack_5
 TryBuyEjectPack_4:
-# 1110 "data/scripts/pkmn_center_nurse.pory"
+# 1180 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1111 "data/scripts/pkmn_center_nurse.pory"
+# 1181 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1112 "data/scripts/pkmn_center_nurse.pory"
+# 1182 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1113 "data/scripts/pkmn_center_nurse.pory"
+# 1183 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1114 "data/scripts/pkmn_center_nurse.pory"
+# 1184 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEjectPack_Text_1
-# 1115 "data/scripts/pkmn_center_nurse.pory"
+# 1185 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyEjectPack_2:
-# 1102 "data/scripts/pkmn_center_nurse.pory"
+# 1171 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1172 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEjectPack_1
 
 TryBuyEjectPack_5:
-# 1107 "data/scripts/pkmn_center_nurse.pory"
+# 1177 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1108 "data/scripts/pkmn_center_nurse.pory"
+# 1178 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEjectPack_4
 
 
-TryBuyEjectButton::
-# 1119 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyEjectButton_Text_0
-# 1120 "data/scripts/pkmn_center_nurse.pory"
+TryBuyBlankMint::
+# 1189 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyBlankMint_Text_0
+# 1190 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1121 "data/scripts/pkmn_center_nurse.pory"
+# 1191 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyBlankMint_2
+TryBuyBlankMint_1:
+# 1195 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_BLANK_MINT
+# 1196 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 1197 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 2
+	goto_if_lt TryBuyBlankMint_5
+TryBuyBlankMint_4:
+# 1201 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 1202 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq TryBuyBlankMint_8
+TryBuyBlankMint_7:
+# 1206 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 2
+# 1207 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 1208 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 1209 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 1210 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyBlankMint_Text_1
+# 1211 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyBlankMint_2:
+# 1192 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1193 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBlankMint_1
+
+TryBuyBlankMint_5:
+# 1198 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_1
+# 1199 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBlankMint_4
+
+TryBuyBlankMint_8:
+# 1203 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_2
+# 1204 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBlankMint_7
+
+
+TryBuyEjectButton::
+# 1215 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEjectButton_Text_0
+# 1216 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 1217 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyEjectButton_2
 TryBuyEjectButton_1:
-# 1124 "data/scripts/pkmn_center_nurse.pory"
+# 1221 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_EJECT_BUTTON
-# 1125 "data/scripts/pkmn_center_nurse.pory"
+# 1222 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1126 "data/scripts/pkmn_center_nurse.pory"
+# 1223 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_lt TryBuyEjectButton_5
 TryBuyEjectButton_4:
-# 1130 "data/scripts/pkmn_center_nurse.pory"
+# 1227 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1131 "data/scripts/pkmn_center_nurse.pory"
+# 1228 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyEjectButton_8
 TryBuyEjectButton_7:
-# 1135 "data/scripts/pkmn_center_nurse.pory"
+# 1232 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 1136 "data/scripts/pkmn_center_nurse.pory"
+# 1233 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1137 "data/scripts/pkmn_center_nurse.pory"
+# 1234 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1138 "data/scripts/pkmn_center_nurse.pory"
+# 1235 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1139 "data/scripts/pkmn_center_nurse.pory"
+# 1236 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEjectButton_Text_1
-# 1140 "data/scripts/pkmn_center_nurse.pory"
+# 1237 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyEjectButton_2:
-# 1122 "data/scripts/pkmn_center_nurse.pory"
+# 1218 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1219 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEjectButton_1
 
 TryBuyEjectButton_5:
-# 1127 "data/scripts/pkmn_center_nurse.pory"
+# 1224 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1128 "data/scripts/pkmn_center_nurse.pory"
+# 1225 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEjectButton_4
 
 TryBuyEjectButton_8:
-# 1132 "data/scripts/pkmn_center_nurse.pory"
+# 1229 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1133 "data/scripts/pkmn_center_nurse.pory"
+# 1230 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyEjectButton_7
 
 
 TryBuyBlackSludge::
-# 1144 "data/scripts/pkmn_center_nurse.pory"
+# 1241 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBlackSludge_Text_0
-# 1145 "data/scripts/pkmn_center_nurse.pory"
+# 1242 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1146 "data/scripts/pkmn_center_nurse.pory"
+# 1243 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyBlackSludge_2
 TryBuyBlackSludge_1:
-# 1149 "data/scripts/pkmn_center_nurse.pory"
+# 1247 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_BLACK_SLUDGE
-# 1150 "data/scripts/pkmn_center_nurse.pory"
+# 1248 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1151 "data/scripts/pkmn_center_nurse.pory"
+# 1249 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_lt TryBuyBlackSludge_5
 TryBuyBlackSludge_4:
-# 1155 "data/scripts/pkmn_center_nurse.pory"
+# 1253 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1156 "data/scripts/pkmn_center_nurse.pory"
+# 1254 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyBlackSludge_8
 TryBuyBlackSludge_7:
-# 1160 "data/scripts/pkmn_center_nurse.pory"
+# 1258 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 1161 "data/scripts/pkmn_center_nurse.pory"
+# 1259 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1162 "data/scripts/pkmn_center_nurse.pory"
+# 1260 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1163 "data/scripts/pkmn_center_nurse.pory"
+# 1261 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1164 "data/scripts/pkmn_center_nurse.pory"
+# 1262 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBlackSludge_Text_1
-# 1165 "data/scripts/pkmn_center_nurse.pory"
+# 1263 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyBlackSludge_2:
-# 1147 "data/scripts/pkmn_center_nurse.pory"
+# 1244 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1245 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBlackSludge_1
 
 TryBuyBlackSludge_5:
-# 1152 "data/scripts/pkmn_center_nurse.pory"
+# 1250 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1153 "data/scripts/pkmn_center_nurse.pory"
+# 1251 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBlackSludge_4
 
 TryBuyBlackSludge_8:
-# 1157 "data/scripts/pkmn_center_nurse.pory"
+# 1255 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1158 "data/scripts/pkmn_center_nurse.pory"
+# 1256 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBlackSludge_7
 
 
 TryBuyLeftovers::
-# 1169 "data/scripts/pkmn_center_nurse.pory"
+# 1267 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyLeftovers_Text_0
-# 1170 "data/scripts/pkmn_center_nurse.pory"
+# 1268 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1171 "data/scripts/pkmn_center_nurse.pory"
+# 1269 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyLeftovers_2
 TryBuyLeftovers_1:
-# 1174 "data/scripts/pkmn_center_nurse.pory"
+# 1273 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_LEFTOVERS
-# 1175 "data/scripts/pkmn_center_nurse.pory"
+# 1274 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1176 "data/scripts/pkmn_center_nurse.pory"
+# 1275 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_lt TryBuyLeftovers_5
 TryBuyLeftovers_4:
-# 1180 "data/scripts/pkmn_center_nurse.pory"
+# 1279 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1181 "data/scripts/pkmn_center_nurse.pory"
+# 1280 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyLeftovers_8
 TryBuyLeftovers_7:
-# 1185 "data/scripts/pkmn_center_nurse.pory"
+# 1284 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 1186 "data/scripts/pkmn_center_nurse.pory"
+# 1285 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1187 "data/scripts/pkmn_center_nurse.pory"
+# 1286 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1188 "data/scripts/pkmn_center_nurse.pory"
+# 1287 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1189 "data/scripts/pkmn_center_nurse.pory"
+# 1288 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyLeftovers_Text_1
-# 1190 "data/scripts/pkmn_center_nurse.pory"
+# 1289 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyLeftovers_2:
-# 1172 "data/scripts/pkmn_center_nurse.pory"
+# 1270 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1271 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLeftovers_1
 
 TryBuyLeftovers_5:
-# 1177 "data/scripts/pkmn_center_nurse.pory"
+# 1276 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1178 "data/scripts/pkmn_center_nurse.pory"
+# 1277 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLeftovers_4
 
 TryBuyLeftovers_8:
-# 1182 "data/scripts/pkmn_center_nurse.pory"
+# 1281 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1183 "data/scripts/pkmn_center_nurse.pory"
+# 1282 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLeftovers_7
 
 
 TryBuyAssaultVest::
-# 1194 "data/scripts/pkmn_center_nurse.pory"
+# 1293 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyAssaultVest_Text_0
-# 1195 "data/scripts/pkmn_center_nurse.pory"
+# 1294 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1196 "data/scripts/pkmn_center_nurse.pory"
+# 1295 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyAssaultVest_2
 TryBuyAssaultVest_1:
-# 1199 "data/scripts/pkmn_center_nurse.pory"
+# 1299 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_ASSAULT_VEST
-# 1200 "data/scripts/pkmn_center_nurse.pory"
+# 1300 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1201 "data/scripts/pkmn_center_nurse.pory"
+# 1301 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 2
 	goto_if_lt TryBuyAssaultVest_5
 TryBuyAssaultVest_4:
-# 1205 "data/scripts/pkmn_center_nurse.pory"
+# 1305 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1206 "data/scripts/pkmn_center_nurse.pory"
+# 1306 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyAssaultVest_8
 TryBuyAssaultVest_7:
-# 1210 "data/scripts/pkmn_center_nurse.pory"
+# 1310 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 2
-# 1211 "data/scripts/pkmn_center_nurse.pory"
+# 1311 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1212 "data/scripts/pkmn_center_nurse.pory"
+# 1312 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1213 "data/scripts/pkmn_center_nurse.pory"
+# 1313 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1214 "data/scripts/pkmn_center_nurse.pory"
+# 1314 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyAssaultVest_Text_1
-# 1215 "data/scripts/pkmn_center_nurse.pory"
+# 1315 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyAssaultVest_2:
-# 1197 "data/scripts/pkmn_center_nurse.pory"
+# 1296 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1297 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAssaultVest_1
 
 TryBuyAssaultVest_5:
-# 1202 "data/scripts/pkmn_center_nurse.pory"
+# 1302 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1203 "data/scripts/pkmn_center_nurse.pory"
+# 1303 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAssaultVest_4
 
 TryBuyAssaultVest_8:
-# 1207 "data/scripts/pkmn_center_nurse.pory"
+# 1307 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1208 "data/scripts/pkmn_center_nurse.pory"
+# 1308 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAssaultVest_7
 
 
 TryBuyAbilityPatch::
-# 1219 "data/scripts/pkmn_center_nurse.pory"
+# 1319 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyAbilityPatch_Text_0
-# 1220 "data/scripts/pkmn_center_nurse.pory"
+# 1320 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1221 "data/scripts/pkmn_center_nurse.pory"
+# 1321 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyAbilityPatch_2
 TryBuyAbilityPatch_1:
-# 1224 "data/scripts/pkmn_center_nurse.pory"
+# 1325 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_ABILITY_PATCH
-# 1225 "data/scripts/pkmn_center_nurse.pory"
+# 1326 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1226 "data/scripts/pkmn_center_nurse.pory"
+# 1327 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 4
 	goto_if_lt TryBuyAbilityPatch_5
 TryBuyAbilityPatch_4:
-# 1230 "data/scripts/pkmn_center_nurse.pory"
+# 1331 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1231 "data/scripts/pkmn_center_nurse.pory"
+# 1332 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyAbilityPatch_8
 TryBuyAbilityPatch_7:
-# 1235 "data/scripts/pkmn_center_nurse.pory"
+# 1336 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 4
-# 1236 "data/scripts/pkmn_center_nurse.pory"
+# 1337 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1237 "data/scripts/pkmn_center_nurse.pory"
+# 1338 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1238 "data/scripts/pkmn_center_nurse.pory"
+# 1339 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1239 "data/scripts/pkmn_center_nurse.pory"
+# 1340 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyAbilityPatch_Text_1
-# 1240 "data/scripts/pkmn_center_nurse.pory"
+# 1341 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyAbilityPatch_2:
-# 1222 "data/scripts/pkmn_center_nurse.pory"
+# 1322 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1323 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAbilityPatch_1
 
 TryBuyAbilityPatch_5:
-# 1227 "data/scripts/pkmn_center_nurse.pory"
+# 1328 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1228 "data/scripts/pkmn_center_nurse.pory"
+# 1329 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAbilityPatch_4
 
 TryBuyAbilityPatch_8:
-# 1232 "data/scripts/pkmn_center_nurse.pory"
+# 1333 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1233 "data/scripts/pkmn_center_nurse.pory"
+# 1334 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyAbilityPatch_7
 
 
 TryBuyLifeOrb::
-# 1244 "data/scripts/pkmn_center_nurse.pory"
+# 1345 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyLifeOrb_Text_0
-# 1245 "data/scripts/pkmn_center_nurse.pory"
+# 1346 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1246 "data/scripts/pkmn_center_nurse.pory"
+# 1347 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyLifeOrb_2
 TryBuyLifeOrb_1:
-# 1249 "data/scripts/pkmn_center_nurse.pory"
+# 1351 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8009, ITEM_LIFE_ORB
-# 1250 "data/scripts/pkmn_center_nurse.pory"
+# 1352 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1251 "data/scripts/pkmn_center_nurse.pory"
+# 1353 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 6
 	goto_if_lt TryBuyLifeOrb_5
 TryBuyLifeOrb_4:
-# 1255 "data/scripts/pkmn_center_nurse.pory"
+# 1357 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 1256 "data/scripts/pkmn_center_nurse.pory"
+# 1358 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyLifeOrb_8
 TryBuyLifeOrb_7:
-# 1260 "data/scripts/pkmn_center_nurse.pory"
+# 1362 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 6
-# 1261 "data/scripts/pkmn_center_nurse.pory"
+# 1363 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1262 "data/scripts/pkmn_center_nurse.pory"
+# 1364 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1263 "data/scripts/pkmn_center_nurse.pory"
+# 1365 "data/scripts/pkmn_center_nurse.pory"
 	additem VAR_0x8009
-# 1264 "data/scripts/pkmn_center_nurse.pory"
+# 1366 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyLifeOrb_Text_1
-# 1265 "data/scripts/pkmn_center_nurse.pory"
+# 1367 "data/scripts/pkmn_center_nurse.pory"
 	special UpdateBattlePointsWindow
 	return
 
 TryBuyLifeOrb_2:
-# 1247 "data/scripts/pkmn_center_nurse.pory"
+# 1348 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1349 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLifeOrb_1
 
 TryBuyLifeOrb_5:
-# 1252 "data/scripts/pkmn_center_nurse.pory"
+# 1354 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_1
-# 1253 "data/scripts/pkmn_center_nurse.pory"
+# 1355 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLifeOrb_4
 
 TryBuyLifeOrb_8:
-# 1257 "data/scripts/pkmn_center_nurse.pory"
+# 1359 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyEviolite_Text_2
-# 1258 "data/scripts/pkmn_center_nurse.pory"
+# 1360 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyLifeOrb_7
 
 
-EggMoveTutor::
-# 1269 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EggMoveTutor_Text_0
-# 1270 "data/scripts/pkmn_center_nurse.pory"
-	special ShowBattlePointsWindow
-# 1271 "data/scripts/pkmn_center_nurse.pory"
+TryBuyBottleCap::
+# 1371 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyBottleCap_Text_0
+# 1372 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 1373 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyBottleCap_2
+TryBuyBottleCap_1:
+# 1377 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_BOTTLE_CAP
+# 1378 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1272 "data/scripts/pkmn_center_nurse.pory"
+# 1379 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 8
+	goto_if_lt TryBuyBottleCap_5
+TryBuyBottleCap_4:
+# 1383 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 1384 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq TryBuyBottleCap_8
+TryBuyBottleCap_7:
+# 1388 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 8
+# 1389 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 1390 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 1391 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 1392 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyBottleCap_Text_1
+# 1393 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyBottleCap_2:
+# 1374 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1375 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBottleCap_1
+
+TryBuyBottleCap_5:
+# 1380 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_1
+# 1381 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBottleCap_4
+
+TryBuyBottleCap_8:
+# 1385 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_2
+# 1386 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyBottleCap_7
+
+
+TryBuyTM01Covet::
+# 1397 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_COVET
+# 1398 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq TryBuyTM01Covet_2
+TryBuyTM01Covet_1:
+# 1402 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyTM01Covet_Text_0
+# 1403 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 1404 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyTM01Covet_5
+TryBuyTM01Covet_4:
+# 1408 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_TM_COVET
+# 1409 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 1410 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 10
+	goto_if_lt TryBuyTM01Covet_8
+TryBuyTM01Covet_7:
+# 1414 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 1415 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq TryBuyTM01Covet_11
+TryBuyTM01Covet_10:
+# 1419 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 10
+# 1420 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 1421 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 1422 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 1423 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 1424 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyTM01Covet_2:
+# 1399 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 1400 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM01Covet_1
+
+TryBuyTM01Covet_5:
+# 1405 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1406 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM01Covet_4
+
+TryBuyTM01Covet_8:
+# 1411 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_1
+# 1412 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM01Covet_7
+
+TryBuyTM01Covet_11:
+# 1416 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyTM01Covet_Text_1
+# 1417 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM01Covet_10
+
+
+TryBuyTM46Thief::
+# 1428 "data/scripts/pkmn_center_nurse.pory"
+	checkitem ITEM_TM_THIEF
+# 1429 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq TryBuyTM46Thief_2
+TryBuyTM46Thief_1:
+# 1433 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyTM46Thief_Text_0
+# 1434 "data/scripts/pkmn_center_nurse.pory"
+	yesnobox 8, 4
+# 1435 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq TryBuyTM46Thief_5
+TryBuyTM46Thief_4:
+# 1439 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8009, ITEM_TM_THIEF
+# 1440 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 1441 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_TEMP_1, 10
+	goto_if_lt TryBuyTM46Thief_8
+TryBuyTM46Thief_7:
+# 1445 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 1446 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq TryBuyTM46Thief_11
+TryBuyTM46Thief_10:
+# 1450 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, 10
+# 1451 "data/scripts/pkmn_center_nurse.pory"
+	special TakeFrontierBattlePoints
+# 1452 "data/scripts/pkmn_center_nurse.pory"
+	playse SE_SHOP
+# 1453 "data/scripts/pkmn_center_nurse.pory"
+	additem VAR_0x8009
+# 1454 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_2
+# 1455 "data/scripts/pkmn_center_nurse.pory"
+	special UpdateBattlePointsWindow
+	return
+
+TryBuyTM46Thief_2:
+# 1430 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyLeechLifeTM_Text_0
+# 1431 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM46Thief_1
+
+TryBuyTM46Thief_5:
+# 1436 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1437 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM46Thief_4
+
+TryBuyTM46Thief_8:
+# 1442 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyEviolite_Text_1
+# 1443 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM46Thief_7
+
+TryBuyTM46Thief_11:
+# 1447 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyTM01Covet_Text_1
+# 1448 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto TryBuyTM46Thief_10
+
+
+EggMoveTutor::
+# 1459 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_0
+# 1460 "data/scripts/pkmn_center_nurse.pory"
+	special ShowBattlePointsWindow
+# 1461 "data/scripts/pkmn_center_nurse.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 1462 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 1
 	goto_if_lt EggMoveTutor_2
 EggMoveTutor_1:
-# 1277 "data/scripts/pkmn_center_nurse.pory"
+# 1467 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EggMoveTutor_Text_2
-# 1278 "data/scripts/pkmn_center_nurse.pory"
+# 1468 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1279 "data/scripts/pkmn_center_nurse.pory"
+# 1469 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq EggMoveTutor_5
 EggMoveTutor_4:
-# 1284 "data/scripts/pkmn_center_nurse.pory"
+# 1474 "data/scripts/pkmn_center_nurse.pory"
 	special ChooseMonForMoveRelearner
-# 1285 "data/scripts/pkmn_center_nurse.pory"
+# 1475 "data/scripts/pkmn_center_nurse.pory"
 	waitstate
-# 1286 "data/scripts/pkmn_center_nurse.pory"
+# 1476 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq EggMoveTutor_8
 EggMoveTutor_7:
-# 1289 "data/scripts/pkmn_center_nurse.pory"
+# 1481 "data/scripts/pkmn_center_nurse.pory"
 	special IsSelectedMonEgg
-# 1290 "data/scripts/pkmn_center_nurse.pory"
+# 1482 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq EggMoveTutor_11
 EggMoveTutor_10:
-# 1294 "data/scripts/pkmn_center_nurse.pory"
+# 1487 "data/scripts/pkmn_center_nurse.pory"
 	special DoesChosenMonHaveEggMoves
-# 1295 "data/scripts/pkmn_center_nurse.pory"
+# 1488 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq EggMoveTutor_14
 EggMoveTutor_13:
-# 1299 "data/scripts/pkmn_center_nurse.pory"
+# 1493 "data/scripts/pkmn_center_nurse.pory"
 	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
-# 1300 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EggMoveTutor_Text_6
-# 1301 "data/scripts/pkmn_center_nurse.pory"
+# 1494 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_5
+# 1495 "data/scripts/pkmn_center_nurse.pory"
 	special TeachEggMove
-# 1302 "data/scripts/pkmn_center_nurse.pory"
+# 1496 "data/scripts/pkmn_center_nurse.pory"
 	waitstate
-# 1303 "data/scripts/pkmn_center_nurse.pory"
+# 1497 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_0x8004, FALSE
+	goto_if_eq EggMoveTutor_17
+EggMoveTutor_16:
+# 1502 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 1
-# 1304 "data/scripts/pkmn_center_nurse.pory"
+# 1503 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1305 "data/scripts/pkmn_center_nurse.pory"
+# 1504 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1306 "data/scripts/pkmn_center_nurse.pory"
+# 1505 "data/scripts/pkmn_center_nurse.pory"
 	playse SE_SHOP
-# 1307 "data/scripts/pkmn_center_nurse.pory"
+# 1506 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 EggMoveTutor_2:
-# 1273 "data/scripts/pkmn_center_nurse.pory"
+# 1463 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EggMoveTutor_Text_1
-# 1274 "data/scripts/pkmn_center_nurse.pory"
+# 1464 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1275 "data/scripts/pkmn_center_nurse.pory"
+# 1465 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EggMoveTutor_1
 
 EggMoveTutor_5:
-# 1280 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EggMoveTutor_Text_3
-# 1281 "data/scripts/pkmn_center_nurse.pory"
+# 1470 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1471 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1282 "data/scripts/pkmn_center_nurse.pory"
+# 1472 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EggMoveTutor_4
 
 EggMoveTutor_8:
-# 1287 "data/scripts/pkmn_center_nurse.pory"
+# 1477 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1478 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
+# 1479 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EggMoveTutor_7
 
 EggMoveTutor_11:
-# 1291 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EggMoveTutor_Text_4
-# 1292 "data/scripts/pkmn_center_nurse.pory"
+# 1483 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_3
+# 1484 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
+# 1485 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EggMoveTutor_10
 
 EggMoveTutor_14:
-# 1296 "data/scripts/pkmn_center_nurse.pory"
-	msgbox EggMoveTutor_Text_5
-# 1297 "data/scripts/pkmn_center_nurse.pory"
+# 1489 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EggMoveTutor_Text_4
+# 1490 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
+# 1491 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EggMoveTutor_13
 
+EggMoveTutor_17:
+# 1498 "data/scripts/pkmn_center_nurse.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 1499 "data/scripts/pkmn_center_nurse.pory"
+	special CloseBattlePointsWindow
+# 1500 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto EggMoveTutor_16
+
 
 EventScript_FishermanSalesman::
-# 1311 "data/scripts/pkmn_center_nurse.pory"
+# 1510 "data/scripts/pkmn_center_nurse.pory"
 	lockall
-# 1312 "data/scripts/pkmn_center_nurse.pory"
+# 1511 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_FishermanSalesman_Text_0
-# 1313 "data/scripts/pkmn_center_nurse.pory"
+# 1512 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 500
-# 1314 "data/scripts/pkmn_center_nurse.pory"
+# 1513 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq EventScript_FishermanSalesman_2
 EventScript_FishermanSalesman_1:
-# 1318 "data/scripts/pkmn_center_nurse.pory"
+# 1517 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_FishermanSalesman_Text_2
-# 1319 "data/scripts/pkmn_center_nurse.pory"
+# 1518 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1320 "data/scripts/pkmn_center_nurse.pory"
+# 1519 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq EventScript_FishermanSalesman_5
 EventScript_FishermanSalesman_4:
-# 1324 "data/scripts/pkmn_center_nurse.pory"
+# 1523 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, SCROLL_MULTI_FISH
-# 1325 "data/scripts/pkmn_center_nurse.pory"
+# 1524 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x800B, 0
+# 1525 "data/scripts/pkmn_center_nurse.pory"
 	showmoneybox 0, 0
-# 1326 "data/scripts/pkmn_center_nurse.pory"
+# 1526 "data/scripts/pkmn_center_nurse.pory"
 	special ShowScrollableMultichoice
-# 1327 "data/scripts/pkmn_center_nurse.pory"
+# 1527 "data/scripts/pkmn_center_nurse.pory"
 	waitstate
-# 1329 "data/scripts/pkmn_center_nurse.pory"
+# 1528 "data/scripts/pkmn_center_nurse.pory"
 	switch VAR_RESULT
-# 1331 "data/scripts/pkmn_center_nurse.pory"
+# 1530 "data/scripts/pkmn_center_nurse.pory"
 	case 0, EventScript_FishermanSalesman_9
-# 1333 "data/scripts/pkmn_center_nurse.pory"
+# 1532 "data/scripts/pkmn_center_nurse.pory"
 	case 1, EventScript_FishermanSalesman_10
-# 1335 "data/scripts/pkmn_center_nurse.pory"
+# 1534 "data/scripts/pkmn_center_nurse.pory"
 	case 2, EventScript_FishermanSalesman_11
-# 1337 "data/scripts/pkmn_center_nurse.pory"
+# 1536 "data/scripts/pkmn_center_nurse.pory"
 	case 3, EventScript_FishermanSalesman_12
-# 1339 "data/scripts/pkmn_center_nurse.pory"
+# 1538 "data/scripts/pkmn_center_nurse.pory"
 	case 4, EventScript_FishermanSalesman_13
-# 1341 "data/scripts/pkmn_center_nurse.pory"
+# 1540 "data/scripts/pkmn_center_nurse.pory"
 	case 5, EventScript_FishermanSalesman_14
-# 1343 "data/scripts/pkmn_center_nurse.pory"
+# 1542 "data/scripts/pkmn_center_nurse.pory"
 	case 6, EventScript_FishermanSalesman_15
-# 1345 "data/scripts/pkmn_center_nurse.pory"
+# 1544 "data/scripts/pkmn_center_nurse.pory"
 	case 7, EventScript_FishermanSalesman_16
-# 1347 "data/scripts/pkmn_center_nurse.pory"
+# 1546 "data/scripts/pkmn_center_nurse.pory"
 	case 8, EventScript_FishermanSalesman_17
-# 1349 "data/scripts/pkmn_center_nurse.pory"
+# 1548 "data/scripts/pkmn_center_nurse.pory"
 	case 9, EventScript_FishermanSalesman_18
-# 1351 "data/scripts/pkmn_center_nurse.pory"
+# 1550 "data/scripts/pkmn_center_nurse.pory"
 	case 10, EventScript_FishermanSalesman_19
-# 1353 "data/scripts/pkmn_center_nurse.pory"
+# 1552 "data/scripts/pkmn_center_nurse.pory"
 	case 11, EventScript_FishermanSalesman_20
-# 1355 "data/scripts/pkmn_center_nurse.pory"
+# 1554 "data/scripts/pkmn_center_nurse.pory"
 	case 12, EventScript_FishermanSalesman_21
-# 1358 "data/scripts/pkmn_center_nurse.pory"
+# 1557 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1359 "data/scripts/pkmn_center_nurse.pory"
+# 1558 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 EventScript_FishermanSalesman_7:
-# 1361 "data/scripts/pkmn_center_nurse.pory"
+# 1560 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 EventScript_FishermanSalesman_2:
-# 1315 "data/scripts/pkmn_center_nurse.pory"
+# 1514 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_FishermanSalesman_Text_1
-# 1316 "data/scripts/pkmn_center_nurse.pory"
+# 1515 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EventScript_FishermanSalesman_1
 
 EventScript_FishermanSalesman_5:
-# 1321 "data/scripts/pkmn_center_nurse.pory"
+# 1520 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_FishermanSalesman_Text_3
-# 1322 "data/scripts/pkmn_center_nurse.pory"
+# 1521 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto EventScript_FishermanSalesman_4
 
 EventScript_FishermanSalesman_9:
-# 1332 "data/scripts/pkmn_center_nurse.pory"
+# 1531 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyMagikarp
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_10:
-# 1334 "data/scripts/pkmn_center_nurse.pory"
+# 1533 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyGoldeen
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_11:
-# 1336 "data/scripts/pkmn_center_nurse.pory"
+# 1535 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyRemoraid
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_12:
-# 1338 "data/scripts/pkmn_center_nurse.pory"
+# 1537 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyFeebas
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_13:
-# 1340 "data/scripts/pkmn_center_nurse.pory"
+# 1539 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyFinneon
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_14:
-# 1342 "data/scripts/pkmn_center_nurse.pory"
+# 1541 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyTynamo
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_15:
-# 1344 "data/scripts/pkmn_center_nurse.pory"
+# 1543 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyArrokuda
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_16:
-# 1346 "data/scripts/pkmn_center_nurse.pory"
+# 1545 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyBarboach
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_17:
-# 1348 "data/scripts/pkmn_center_nurse.pory"
+# 1547 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyChinchou
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_18:
-# 1350 "data/scripts/pkmn_center_nurse.pory"
+# 1549 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyCarvanha
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_19:
-# 1352 "data/scripts/pkmn_center_nurse.pory"
+# 1551 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyQwilfish
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_20:
-# 1354 "data/scripts/pkmn_center_nurse.pory"
+# 1553 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyBasculin
 	goto EventScript_FishermanSalesman_7
 
 EventScript_FishermanSalesman_21:
-# 1356 "data/scripts/pkmn_center_nurse.pory"
+# 1555 "data/scripts/pkmn_center_nurse.pory"
 	call TryBuyCosmog
 	goto EventScript_FishermanSalesman_7
 
 
 TryBuyMagikarp::
-# 1365 "data/scripts/pkmn_center_nurse.pory"
+# 1564 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyMagikarp_Text_0
-# 1366 "data/scripts/pkmn_center_nurse.pory"
+# 1565 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1367 "data/scripts/pkmn_center_nurse.pory"
+# 1566 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyMagikarp_2
 TryBuyMagikarp_1:
-# 1371 "data/scripts/pkmn_center_nurse.pory"
+# 1571 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 500
-# 1372 "data/scripts/pkmn_center_nurse.pory"
+# 1572 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1373 "data/scripts/pkmn_center_nurse.pory"
+# 1573 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_MAGIKARP, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1374 "data/scripts/pkmn_center_nurse.pory"
+# 1574 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP
+# 1575 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyMagikarp_4
-# 1379 "data/scripts/pkmn_center_nurse.pory"
+# 1580 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyMagikarp_5
-# 1385 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1386 "data/scripts/pkmn_center_nurse.pory"
+# 1586 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1587 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1387 "data/scripts/pkmn_center_nurse.pory"
+# 1588 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyMagikarp_2:
-# 1368 "data/scripts/pkmn_center_nurse.pory"
+# 1567 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1568 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1369 "data/scripts/pkmn_center_nurse.pory"
+# 1569 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyMagikarp_1
 
 TryBuyMagikarp_4:
-# 1375 "data/scripts/pkmn_center_nurse.pory"
+# 1576 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1376 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_1
-# 1377 "data/scripts/pkmn_center_nurse.pory"
+# 1577 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_2
+# 1578 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyMagikarp_5:
-# 1380 "data/scripts/pkmn_center_nurse.pory"
+# 1581 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1381 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_1
-# 1382 "data/scripts/pkmn_center_nurse.pory"
+# 1582 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_2
+# 1583 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyGoldeen::
-# 1392 "data/scripts/pkmn_center_nurse.pory"
+# 1593 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyGoldeen_Text_0
-# 1393 "data/scripts/pkmn_center_nurse.pory"
+# 1594 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1394 "data/scripts/pkmn_center_nurse.pory"
+# 1595 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyGoldeen_2
 TryBuyGoldeen_1:
-# 1398 "data/scripts/pkmn_center_nurse.pory"
+# 1600 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 500
-# 1399 "data/scripts/pkmn_center_nurse.pory"
+# 1601 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1400 "data/scripts/pkmn_center_nurse.pory"
+# 1602 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_GOLDEEN, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1401 "data/scripts/pkmn_center_nurse.pory"
+# 1603 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GOLDEEN
+# 1604 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyGoldeen_4
-# 1406 "data/scripts/pkmn_center_nurse.pory"
+# 1609 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyGoldeen_5
-# 1412 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1413 "data/scripts/pkmn_center_nurse.pory"
+# 1615 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1616 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1414 "data/scripts/pkmn_center_nurse.pory"
+# 1617 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyGoldeen_2:
-# 1395 "data/scripts/pkmn_center_nurse.pory"
+# 1596 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1597 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1396 "data/scripts/pkmn_center_nurse.pory"
+# 1598 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyGoldeen_1
 
 TryBuyGoldeen_4:
-# 1402 "data/scripts/pkmn_center_nurse.pory"
+# 1605 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1403 "data/scripts/pkmn_center_nurse.pory"
+# 1606 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyGoldeen_Text_1
-# 1404 "data/scripts/pkmn_center_nurse.pory"
+# 1607 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyGoldeen_5:
-# 1407 "data/scripts/pkmn_center_nurse.pory"
+# 1610 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1408 "data/scripts/pkmn_center_nurse.pory"
+# 1611 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyGoldeen_Text_1
-# 1409 "data/scripts/pkmn_center_nurse.pory"
+# 1612 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyRemoraid::
-# 1419 "data/scripts/pkmn_center_nurse.pory"
+# 1622 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyRemoraid_Text_0
-# 1420 "data/scripts/pkmn_center_nurse.pory"
+# 1623 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1421 "data/scripts/pkmn_center_nurse.pory"
+# 1624 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyRemoraid_2
 TryBuyRemoraid_1:
-# 1425 "data/scripts/pkmn_center_nurse.pory"
+# 1629 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 500
-# 1426 "data/scripts/pkmn_center_nurse.pory"
+# 1630 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1427 "data/scripts/pkmn_center_nurse.pory"
+# 1631 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_REMORAID, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1428 "data/scripts/pkmn_center_nurse.pory"
+# 1632 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_REMORAID
+# 1633 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyRemoraid_4
-# 1433 "data/scripts/pkmn_center_nurse.pory"
+# 1638 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyRemoraid_5
-# 1439 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1440 "data/scripts/pkmn_center_nurse.pory"
+# 1644 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1645 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1441 "data/scripts/pkmn_center_nurse.pory"
+# 1646 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyRemoraid_2:
-# 1422 "data/scripts/pkmn_center_nurse.pory"
+# 1625 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1626 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1423 "data/scripts/pkmn_center_nurse.pory"
+# 1627 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyRemoraid_1
 
 TryBuyRemoraid_4:
-# 1429 "data/scripts/pkmn_center_nurse.pory"
+# 1634 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1430 "data/scripts/pkmn_center_nurse.pory"
+# 1635 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyRemoraid_Text_1
-# 1431 "data/scripts/pkmn_center_nurse.pory"
+# 1636 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyRemoraid_5:
-# 1434 "data/scripts/pkmn_center_nurse.pory"
+# 1639 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1435 "data/scripts/pkmn_center_nurse.pory"
+# 1640 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyRemoraid_Text_1
-# 1436 "data/scripts/pkmn_center_nurse.pory"
+# 1641 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyFeebas::
-# 1446 "data/scripts/pkmn_center_nurse.pory"
+# 1651 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 1000
-# 1447 "data/scripts/pkmn_center_nurse.pory"
+# 1652 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyFeebas_2
 TryBuyFeebas_1:
-# 1452 "data/scripts/pkmn_center_nurse.pory"
+# 1657 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFeebas_Text_1
-# 1453 "data/scripts/pkmn_center_nurse.pory"
+# 1658 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1454 "data/scripts/pkmn_center_nurse.pory"
+# 1659 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyFeebas_5
 TryBuyFeebas_4:
-# 1458 "data/scripts/pkmn_center_nurse.pory"
+# 1664 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 1000
-# 1459 "data/scripts/pkmn_center_nurse.pory"
+# 1665 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1460 "data/scripts/pkmn_center_nurse.pory"
+# 1666 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_FEEBAS, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1461 "data/scripts/pkmn_center_nurse.pory"
+# 1667 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FEEBAS
+# 1668 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyFeebas_7
-# 1466 "data/scripts/pkmn_center_nurse.pory"
+# 1673 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyFeebas_8
-# 1472 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1473 "data/scripts/pkmn_center_nurse.pory"
+# 1679 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1680 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1474 "data/scripts/pkmn_center_nurse.pory"
+# 1681 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyFeebas_2:
-# 1448 "data/scripts/pkmn_center_nurse.pory"
+# 1653 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFeebas_Text_0
-# 1449 "data/scripts/pkmn_center_nurse.pory"
+# 1654 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1450 "data/scripts/pkmn_center_nurse.pory"
+# 1655 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFeebas_1
 
 TryBuyFeebas_5:
-# 1455 "data/scripts/pkmn_center_nurse.pory"
+# 1660 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1661 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1456 "data/scripts/pkmn_center_nurse.pory"
+# 1662 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFeebas_4
 
 TryBuyFeebas_7:
-# 1462 "data/scripts/pkmn_center_nurse.pory"
+# 1669 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1463 "data/scripts/pkmn_center_nurse.pory"
+# 1670 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFeebas_Text_2
-# 1464 "data/scripts/pkmn_center_nurse.pory"
+# 1671 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyFeebas_8:
-# 1467 "data/scripts/pkmn_center_nurse.pory"
+# 1674 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1468 "data/scripts/pkmn_center_nurse.pory"
+# 1675 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFeebas_Text_2
-# 1469 "data/scripts/pkmn_center_nurse.pory"
+# 1676 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyFinneon::
-# 1479 "data/scripts/pkmn_center_nurse.pory"
+# 1686 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 1000
-# 1480 "data/scripts/pkmn_center_nurse.pory"
+# 1687 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyFinneon_2
 TryBuyFinneon_1:
-# 1485 "data/scripts/pkmn_center_nurse.pory"
+# 1692 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFinneon_Text_1
-# 1486 "data/scripts/pkmn_center_nurse.pory"
+# 1693 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1487 "data/scripts/pkmn_center_nurse.pory"
+# 1694 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyFinneon_5
 TryBuyFinneon_4:
-# 1491 "data/scripts/pkmn_center_nurse.pory"
+# 1699 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 1000
-# 1492 "data/scripts/pkmn_center_nurse.pory"
+# 1700 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1493 "data/scripts/pkmn_center_nurse.pory"
+# 1701 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_FINNEON, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1494 "data/scripts/pkmn_center_nurse.pory"
+# 1702 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FINNEON
+# 1703 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyFinneon_7
-# 1499 "data/scripts/pkmn_center_nurse.pory"
+# 1708 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyFinneon_8
-# 1505 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1506 "data/scripts/pkmn_center_nurse.pory"
+# 1714 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1715 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1507 "data/scripts/pkmn_center_nurse.pory"
+# 1716 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyFinneon_2:
-# 1481 "data/scripts/pkmn_center_nurse.pory"
+# 1688 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFinneon_Text_0
-# 1482 "data/scripts/pkmn_center_nurse.pory"
+# 1689 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1483 "data/scripts/pkmn_center_nurse.pory"
+# 1690 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFinneon_1
 
 TryBuyFinneon_5:
-# 1488 "data/scripts/pkmn_center_nurse.pory"
+# 1695 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1696 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1489 "data/scripts/pkmn_center_nurse.pory"
+# 1697 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyFinneon_4
 
 TryBuyFinneon_7:
-# 1495 "data/scripts/pkmn_center_nurse.pory"
+# 1704 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1496 "data/scripts/pkmn_center_nurse.pory"
+# 1705 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFinneon_Text_2
-# 1497 "data/scripts/pkmn_center_nurse.pory"
+# 1706 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyFinneon_8:
-# 1500 "data/scripts/pkmn_center_nurse.pory"
+# 1709 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1501 "data/scripts/pkmn_center_nurse.pory"
+# 1710 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyFinneon_Text_2
-# 1502 "data/scripts/pkmn_center_nurse.pory"
+# 1711 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyTynamo::
-# 1512 "data/scripts/pkmn_center_nurse.pory"
+# 1721 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 1000
-# 1513 "data/scripts/pkmn_center_nurse.pory"
+# 1722 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyTynamo_2
 TryBuyTynamo_1:
-# 1518 "data/scripts/pkmn_center_nurse.pory"
+# 1727 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyTynamo_Text_1
-# 1519 "data/scripts/pkmn_center_nurse.pory"
+# 1728 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1520 "data/scripts/pkmn_center_nurse.pory"
+# 1729 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyTynamo_5
 TryBuyTynamo_4:
-# 1524 "data/scripts/pkmn_center_nurse.pory"
+# 1734 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 1000
-# 1525 "data/scripts/pkmn_center_nurse.pory"
+# 1735 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1526 "data/scripts/pkmn_center_nurse.pory"
+# 1736 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_TYNAMO, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1527 "data/scripts/pkmn_center_nurse.pory"
+# 1737 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYNAMO
+# 1738 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyTynamo_7
-# 1532 "data/scripts/pkmn_center_nurse.pory"
+# 1743 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyTynamo_8
-# 1538 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1539 "data/scripts/pkmn_center_nurse.pory"
+# 1749 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1750 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1540 "data/scripts/pkmn_center_nurse.pory"
+# 1751 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyTynamo_2:
-# 1514 "data/scripts/pkmn_center_nurse.pory"
+# 1723 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyTynamo_Text_0
-# 1515 "data/scripts/pkmn_center_nurse.pory"
+# 1724 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1516 "data/scripts/pkmn_center_nurse.pory"
+# 1725 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyTynamo_1
 
 TryBuyTynamo_5:
-# 1521 "data/scripts/pkmn_center_nurse.pory"
+# 1730 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1731 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1522 "data/scripts/pkmn_center_nurse.pory"
+# 1732 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyTynamo_4
 
 TryBuyTynamo_7:
-# 1528 "data/scripts/pkmn_center_nurse.pory"
+# 1739 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1529 "data/scripts/pkmn_center_nurse.pory"
+# 1740 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyTynamo_Text_2
-# 1530 "data/scripts/pkmn_center_nurse.pory"
+# 1741 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyTynamo_8:
-# 1533 "data/scripts/pkmn_center_nurse.pory"
+# 1744 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1534 "data/scripts/pkmn_center_nurse.pory"
+# 1745 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyTynamo_Text_2
-# 1535 "data/scripts/pkmn_center_nurse.pory"
+# 1746 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyArrokuda::
-# 1545 "data/scripts/pkmn_center_nurse.pory"
+# 1756 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 1000
-# 1546 "data/scripts/pkmn_center_nurse.pory"
+# 1757 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyArrokuda_2
 TryBuyArrokuda_1:
-# 1551 "data/scripts/pkmn_center_nurse.pory"
+# 1762 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyArrokuda_Text_1
-# 1552 "data/scripts/pkmn_center_nurse.pory"
+# 1763 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1553 "data/scripts/pkmn_center_nurse.pory"
+# 1764 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyArrokuda_5
 TryBuyArrokuda_4:
-# 1557 "data/scripts/pkmn_center_nurse.pory"
+# 1769 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 1000
-# 1558 "data/scripts/pkmn_center_nurse.pory"
+# 1770 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1559 "data/scripts/pkmn_center_nurse.pory"
+# 1771 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_ARROKUDA, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1560 "data/scripts/pkmn_center_nurse.pory"
+# 1772 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARROKUDA
+# 1773 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyArrokuda_7
-# 1565 "data/scripts/pkmn_center_nurse.pory"
+# 1778 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyArrokuda_8
-# 1571 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1572 "data/scripts/pkmn_center_nurse.pory"
+# 1784 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1785 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1573 "data/scripts/pkmn_center_nurse.pory"
+# 1786 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyArrokuda_2:
-# 1547 "data/scripts/pkmn_center_nurse.pory"
+# 1758 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyArrokuda_Text_0
-# 1548 "data/scripts/pkmn_center_nurse.pory"
+# 1759 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1549 "data/scripts/pkmn_center_nurse.pory"
+# 1760 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyArrokuda_1
 
 TryBuyArrokuda_5:
-# 1554 "data/scripts/pkmn_center_nurse.pory"
+# 1765 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1766 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1555 "data/scripts/pkmn_center_nurse.pory"
+# 1767 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyArrokuda_4
 
 TryBuyArrokuda_7:
-# 1561 "data/scripts/pkmn_center_nurse.pory"
+# 1774 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1562 "data/scripts/pkmn_center_nurse.pory"
+# 1775 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyArrokuda_Text_2
-# 1563 "data/scripts/pkmn_center_nurse.pory"
+# 1776 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyArrokuda_8:
-# 1566 "data/scripts/pkmn_center_nurse.pory"
+# 1779 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1567 "data/scripts/pkmn_center_nurse.pory"
+# 1780 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyArrokuda_Text_2
-# 1568 "data/scripts/pkmn_center_nurse.pory"
+# 1781 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyBarboach::
-# 1578 "data/scripts/pkmn_center_nurse.pory"
+# 1791 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 1000
-# 1579 "data/scripts/pkmn_center_nurse.pory"
+# 1792 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyBarboach_2
 TryBuyBarboach_1:
-# 1584 "data/scripts/pkmn_center_nurse.pory"
+# 1797 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBarboach_Text_1
-# 1585 "data/scripts/pkmn_center_nurse.pory"
+# 1798 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1586 "data/scripts/pkmn_center_nurse.pory"
+# 1799 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyBarboach_5
 TryBuyBarboach_4:
-# 1590 "data/scripts/pkmn_center_nurse.pory"
+# 1804 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 1000
-# 1591 "data/scripts/pkmn_center_nurse.pory"
+# 1805 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1592 "data/scripts/pkmn_center_nurse.pory"
+# 1806 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_BARBOACH, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1593 "data/scripts/pkmn_center_nurse.pory"
+# 1807 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BARBOACH
+# 1808 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyBarboach_7
-# 1598 "data/scripts/pkmn_center_nurse.pory"
+# 1813 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyBarboach_8
-# 1604 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1605 "data/scripts/pkmn_center_nurse.pory"
+# 1819 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1820 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1606 "data/scripts/pkmn_center_nurse.pory"
+# 1821 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyBarboach_2:
-# 1580 "data/scripts/pkmn_center_nurse.pory"
+# 1793 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBarboach_Text_0
-# 1581 "data/scripts/pkmn_center_nurse.pory"
+# 1794 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1582 "data/scripts/pkmn_center_nurse.pory"
+# 1795 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBarboach_1
 
 TryBuyBarboach_5:
-# 1587 "data/scripts/pkmn_center_nurse.pory"
+# 1800 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1801 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1588 "data/scripts/pkmn_center_nurse.pory"
+# 1802 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBarboach_4
 
 TryBuyBarboach_7:
-# 1594 "data/scripts/pkmn_center_nurse.pory"
+# 1809 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1595 "data/scripts/pkmn_center_nurse.pory"
+# 1810 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBarboach_Text_2
-# 1596 "data/scripts/pkmn_center_nurse.pory"
+# 1811 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyBarboach_8:
-# 1599 "data/scripts/pkmn_center_nurse.pory"
+# 1814 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1600 "data/scripts/pkmn_center_nurse.pory"
+# 1815 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBarboach_Text_2
-# 1601 "data/scripts/pkmn_center_nurse.pory"
+# 1816 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyChinchou::
-# 1611 "data/scripts/pkmn_center_nurse.pory"
+# 1826 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 5000
-# 1612 "data/scripts/pkmn_center_nurse.pory"
+# 1827 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyChinchou_2
 TryBuyChinchou_1:
-# 1617 "data/scripts/pkmn_center_nurse.pory"
+# 1832 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyChinchou_Text_1
-# 1618 "data/scripts/pkmn_center_nurse.pory"
+# 1833 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1619 "data/scripts/pkmn_center_nurse.pory"
+# 1834 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyChinchou_5
 TryBuyChinchou_4:
-# 1623 "data/scripts/pkmn_center_nurse.pory"
+# 1839 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 5000
-# 1624 "data/scripts/pkmn_center_nurse.pory"
+# 1840 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1625 "data/scripts/pkmn_center_nurse.pory"
+# 1841 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_CHINCHOU, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1626 "data/scripts/pkmn_center_nurse.pory"
+# 1842 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHINCHOU
+# 1843 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyChinchou_7
-# 1631 "data/scripts/pkmn_center_nurse.pory"
+# 1848 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyChinchou_8
-# 1637 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1638 "data/scripts/pkmn_center_nurse.pory"
+# 1854 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1855 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1639 "data/scripts/pkmn_center_nurse.pory"
+# 1856 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyChinchou_2:
-# 1613 "data/scripts/pkmn_center_nurse.pory"
+# 1828 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyChinchou_Text_0
-# 1614 "data/scripts/pkmn_center_nurse.pory"
+# 1829 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1615 "data/scripts/pkmn_center_nurse.pory"
+# 1830 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyChinchou_1
 
 TryBuyChinchou_5:
-# 1620 "data/scripts/pkmn_center_nurse.pory"
+# 1835 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1836 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1621 "data/scripts/pkmn_center_nurse.pory"
+# 1837 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyChinchou_4
 
 TryBuyChinchou_7:
-# 1627 "data/scripts/pkmn_center_nurse.pory"
+# 1844 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1628 "data/scripts/pkmn_center_nurse.pory"
+# 1845 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyChinchou_Text_2
-# 1629 "data/scripts/pkmn_center_nurse.pory"
+# 1846 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyChinchou_8:
-# 1632 "data/scripts/pkmn_center_nurse.pory"
+# 1849 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1633 "data/scripts/pkmn_center_nurse.pory"
+# 1850 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyChinchou_Text_2
-# 1634 "data/scripts/pkmn_center_nurse.pory"
+# 1851 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyCarvanha::
-# 1644 "data/scripts/pkmn_center_nurse.pory"
+# 1861 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 5000
-# 1645 "data/scripts/pkmn_center_nurse.pory"
+# 1862 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyCarvanha_2
 TryBuyCarvanha_1:
-# 1650 "data/scripts/pkmn_center_nurse.pory"
+# 1867 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCarvanha_Text_1
-# 1651 "data/scripts/pkmn_center_nurse.pory"
+# 1868 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1652 "data/scripts/pkmn_center_nurse.pory"
+# 1869 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyCarvanha_5
 TryBuyCarvanha_4:
-# 1656 "data/scripts/pkmn_center_nurse.pory"
+# 1874 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 5000
-# 1657 "data/scripts/pkmn_center_nurse.pory"
+# 1875 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1658 "data/scripts/pkmn_center_nurse.pory"
+# 1876 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_CARVANHA, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1659 "data/scripts/pkmn_center_nurse.pory"
+# 1877 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CARVANHA
+# 1878 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyCarvanha_7
-# 1664 "data/scripts/pkmn_center_nurse.pory"
+# 1883 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyCarvanha_8
-# 1670 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1671 "data/scripts/pkmn_center_nurse.pory"
+# 1889 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1890 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1672 "data/scripts/pkmn_center_nurse.pory"
+# 1891 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyCarvanha_2:
-# 1646 "data/scripts/pkmn_center_nurse.pory"
+# 1863 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCarvanha_Text_0
-# 1647 "data/scripts/pkmn_center_nurse.pory"
+# 1864 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1648 "data/scripts/pkmn_center_nurse.pory"
+# 1865 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyCarvanha_1
 
 TryBuyCarvanha_5:
-# 1653 "data/scripts/pkmn_center_nurse.pory"
+# 1870 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1871 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1654 "data/scripts/pkmn_center_nurse.pory"
+# 1872 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyCarvanha_4
 
 TryBuyCarvanha_7:
-# 1660 "data/scripts/pkmn_center_nurse.pory"
+# 1879 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1661 "data/scripts/pkmn_center_nurse.pory"
+# 1880 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCarvanha_Text_2
-# 1662 "data/scripts/pkmn_center_nurse.pory"
+# 1881 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyCarvanha_8:
-# 1665 "data/scripts/pkmn_center_nurse.pory"
+# 1884 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1666 "data/scripts/pkmn_center_nurse.pory"
+# 1885 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCarvanha_Text_2
-# 1667 "data/scripts/pkmn_center_nurse.pory"
+# 1886 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyQwilfish::
-# 1677 "data/scripts/pkmn_center_nurse.pory"
+# 1896 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 10000
-# 1678 "data/scripts/pkmn_center_nurse.pory"
+# 1897 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyQwilfish_2
 TryBuyQwilfish_1:
-# 1683 "data/scripts/pkmn_center_nurse.pory"
+# 1902 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyQwilfish_Text_1
-# 1684 "data/scripts/pkmn_center_nurse.pory"
+# 1903 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1685 "data/scripts/pkmn_center_nurse.pory"
+# 1904 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyQwilfish_5
 TryBuyQwilfish_4:
-# 1689 "data/scripts/pkmn_center_nurse.pory"
+# 1909 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 10000
-# 1690 "data/scripts/pkmn_center_nurse.pory"
+# 1910 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1691 "data/scripts/pkmn_center_nurse.pory"
+# 1911 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_QWILFISH_HISUI, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1692 "data/scripts/pkmn_center_nurse.pory"
+# 1912 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_QWILFISH_HISUI
+# 1913 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyQwilfish_7
-# 1697 "data/scripts/pkmn_center_nurse.pory"
+# 1918 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyQwilfish_8
-# 1703 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1704 "data/scripts/pkmn_center_nurse.pory"
+# 1924 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1925 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1705 "data/scripts/pkmn_center_nurse.pory"
+# 1926 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyQwilfish_2:
-# 1679 "data/scripts/pkmn_center_nurse.pory"
+# 1898 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyQwilfish_Text_0
-# 1680 "data/scripts/pkmn_center_nurse.pory"
+# 1899 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1681 "data/scripts/pkmn_center_nurse.pory"
+# 1900 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyQwilfish_1
 
 TryBuyQwilfish_5:
-# 1686 "data/scripts/pkmn_center_nurse.pory"
+# 1905 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1906 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1687 "data/scripts/pkmn_center_nurse.pory"
+# 1907 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyQwilfish_4
 
 TryBuyQwilfish_7:
-# 1693 "data/scripts/pkmn_center_nurse.pory"
+# 1914 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1694 "data/scripts/pkmn_center_nurse.pory"
+# 1915 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyQwilfish_Text_2
-# 1695 "data/scripts/pkmn_center_nurse.pory"
+# 1916 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyQwilfish_8:
-# 1698 "data/scripts/pkmn_center_nurse.pory"
+# 1919 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1699 "data/scripts/pkmn_center_nurse.pory"
+# 1920 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyQwilfish_Text_2
-# 1700 "data/scripts/pkmn_center_nurse.pory"
+# 1921 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyBasculin::
-# 1710 "data/scripts/pkmn_center_nurse.pory"
+# 1931 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 10000
-# 1711 "data/scripts/pkmn_center_nurse.pory"
+# 1932 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyBasculin_2
 TryBuyBasculin_1:
-# 1716 "data/scripts/pkmn_center_nurse.pory"
+# 1937 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBasculin_Text_1
-# 1717 "data/scripts/pkmn_center_nurse.pory"
+# 1938 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1718 "data/scripts/pkmn_center_nurse.pory"
+# 1939 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyBasculin_5
 TryBuyBasculin_4:
-# 1722 "data/scripts/pkmn_center_nurse.pory"
+# 1944 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 10000
-# 1723 "data/scripts/pkmn_center_nurse.pory"
+# 1945 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1724 "data/scripts/pkmn_center_nurse.pory"
+# 1946 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_BASCULIN_WHITE_STRIPED, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1725 "data/scripts/pkmn_center_nurse.pory"
+# 1947 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BASCULIN_WHITE_STRIPED
+# 1948 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyBasculin_7
-# 1730 "data/scripts/pkmn_center_nurse.pory"
+# 1953 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyBasculin_8
-# 1736 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1737 "data/scripts/pkmn_center_nurse.pory"
+# 1959 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1960 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1738 "data/scripts/pkmn_center_nurse.pory"
+# 1961 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyBasculin_2:
-# 1712 "data/scripts/pkmn_center_nurse.pory"
+# 1933 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBasculin_Text_0
-# 1713 "data/scripts/pkmn_center_nurse.pory"
+# 1934 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1714 "data/scripts/pkmn_center_nurse.pory"
+# 1935 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBasculin_1
 
 TryBuyBasculin_5:
-# 1719 "data/scripts/pkmn_center_nurse.pory"
+# 1940 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1941 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1720 "data/scripts/pkmn_center_nurse.pory"
+# 1942 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyBasculin_4
 
 TryBuyBasculin_7:
-# 1726 "data/scripts/pkmn_center_nurse.pory"
+# 1949 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1727 "data/scripts/pkmn_center_nurse.pory"
+# 1950 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBasculin_Text_2
-# 1728 "data/scripts/pkmn_center_nurse.pory"
+# 1951 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyBasculin_8:
-# 1731 "data/scripts/pkmn_center_nurse.pory"
+# 1954 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1732 "data/scripts/pkmn_center_nurse.pory"
+# 1955 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyBasculin_Text_2
-# 1733 "data/scripts/pkmn_center_nurse.pory"
+# 1956 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 TryBuyCosmog::
-# 1743 "data/scripts/pkmn_center_nurse.pory"
+# 1966 "data/scripts/pkmn_center_nurse.pory"
 	checkmoney 50000
-# 1744 "data/scripts/pkmn_center_nurse.pory"
+# 1967 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryBuyCosmog_2
 TryBuyCosmog_1:
-# 1749 "data/scripts/pkmn_center_nurse.pory"
+# 1972 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCosmog_Text_1
-# 1750 "data/scripts/pkmn_center_nurse.pory"
+# 1973 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1751 "data/scripts/pkmn_center_nurse.pory"
+# 1974 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TryBuyCosmog_5
 TryBuyCosmog_4:
-# 1755 "data/scripts/pkmn_center_nurse.pory"
+# 1979 "data/scripts/pkmn_center_nurse.pory"
 	removemoney 50000
-# 1756 "data/scripts/pkmn_center_nurse.pory"
+# 1980 "data/scripts/pkmn_center_nurse.pory"
 	updatemoneybox
-# 1757 "data/scripts/pkmn_center_nurse.pory"
+# 1981 "data/scripts/pkmn_center_nurse.pory"
 	givemon SPECIES_COSMOG, 5, ITEM_NONE, ITEM_LURE_BALL
-# 1758 "data/scripts/pkmn_center_nurse.pory"
+# 1982 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_COSMOG
+# 1983 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq TryBuyCosmog_7
-# 1763 "data/scripts/pkmn_center_nurse.pory"
+# 1988 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq TryBuyCosmog_8
-# 1769 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1770 "data/scripts/pkmn_center_nurse.pory"
+# 1994 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 1995 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1771 "data/scripts/pkmn_center_nurse.pory"
+# 1996 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 TryBuyCosmog_2:
-# 1745 "data/scripts/pkmn_center_nurse.pory"
+# 1968 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCosmog_Text_0
-# 1746 "data/scripts/pkmn_center_nurse.pory"
+# 1969 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1747 "data/scripts/pkmn_center_nurse.pory"
+# 1970 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyCosmog_1
 
 TryBuyCosmog_5:
-# 1752 "data/scripts/pkmn_center_nurse.pory"
+# 1975 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 1976 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1753 "data/scripts/pkmn_center_nurse.pory"
+# 1977 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto TryBuyCosmog_4
 
 TryBuyCosmog_7:
-# 1759 "data/scripts/pkmn_center_nurse.pory"
+# 1984 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1760 "data/scripts/pkmn_center_nurse.pory"
+# 1985 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCosmog_Text_2
-# 1761 "data/scripts/pkmn_center_nurse.pory"
+# 1986 "data/scripts/pkmn_center_nurse.pory"
 	call NicknamePartyMon
 	return
 
 TryBuyCosmog_8:
-# 1764 "data/scripts/pkmn_center_nurse.pory"
+# 1989 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1765 "data/scripts/pkmn_center_nurse.pory"
+# 1990 "data/scripts/pkmn_center_nurse.pory"
 	msgbox TryBuyCosmog_Text_2
-# 1766 "data/scripts/pkmn_center_nurse.pory"
+# 1991 "data/scripts/pkmn_center_nurse.pory"
 	call NicknameBoxMon
 	return
 
 
 NicknamePartyMon::
-# 1776 "data/scripts/pkmn_center_nurse.pory"
+# 2001 "data/scripts/pkmn_center_nurse.pory"
 	msgbox NicknamePartyMon_Text_0
-# 1777 "data/scripts/pkmn_center_nurse.pory"
+# 2002 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1778 "data/scripts/pkmn_center_nurse.pory"
+# 2003 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq NicknamePartyMon_2
 NicknamePartyMon_1:
-# 1782 "data/scripts/pkmn_center_nurse.pory"
+# 2006 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1783 "data/scripts/pkmn_center_nurse.pory"
+# 2007 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 NicknamePartyMon_2:
-# 1779 "data/scripts/pkmn_center_nurse.pory"
-	call Common_EventScript_GetGiftMonPartySlot
-# 1780 "data/scripts/pkmn_center_nurse.pory"
+# 2004 "data/scripts/pkmn_center_nurse.pory"
 	call Common_EventScript_GetGiftMonPartySlot
 	goto NicknamePartyMon_1
 
 
 NicknameBoxMon::
-# 1787 "data/scripts/pkmn_center_nurse.pory"
+# 2011 "data/scripts/pkmn_center_nurse.pory"
 	msgbox NicknamePartyMon_Text_0
-# 1788 "data/scripts/pkmn_center_nurse.pory"
+# 2012 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1789 "data/scripts/pkmn_center_nurse.pory"
+# 2013 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq NicknameBoxMon_2
 NicknameBoxMon_1:
-# 1792 "data/scripts/pkmn_center_nurse.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP
-# 1793 "data/scripts/pkmn_center_nurse.pory"
+# 2016 "data/scripts/pkmn_center_nurse.pory"
 	bufferspeciesname STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES
-# 1794 "data/scripts/pkmn_center_nurse.pory"
+# 2017 "data/scripts/pkmn_center_nurse.pory"
 	call Common_EventScript_TransferredToPC
-# 1795 "data/scripts/pkmn_center_nurse.pory"
+# 2018 "data/scripts/pkmn_center_nurse.pory"
 	hidemoneybox
-# 1796 "data/scripts/pkmn_center_nurse.pory"
+# 2019 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 NicknameBoxMon_2:
-# 1790 "data/scripts/pkmn_center_nurse.pory"
+# 2014 "data/scripts/pkmn_center_nurse.pory"
 	call Common_EventScript_NameReceivedBoxMon
 	goto NicknameBoxMon_1
 
 
 End::
-# 1800 "data/scripts/pkmn_center_nurse.pory"
+# 2023 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x800B, 1
+# 2024 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1801 "data/scripts/pkmn_center_nurse.pory"
+# 2025 "data/scripts/pkmn_center_nurse.pory"
 	releaseall
 	return
 
 
 OldaleSecondaryMart_Clerk::
-# 1805 "data/scripts/pkmn_center_nurse.pory"
+# 2029 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1806 "data/scripts/pkmn_center_nurse.pory"
+# 2030 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1807 "data/scripts/pkmn_center_nurse.pory"
+# 2031 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1808 "data/scripts/pkmn_center_nurse.pory"
+# 2032 "data/scripts/pkmn_center_nurse.pory"
 	pokemart OldaleSecondaryMart
-# 1809 "data/scripts/pkmn_center_nurse.pory"
+# 2033 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1810 "data/scripts/pkmn_center_nurse.pory"
+# 2034 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 PetalburgSecondaryMart_Clerk::
-# 1814 "data/scripts/pkmn_center_nurse.pory"
+# 2038 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1815 "data/scripts/pkmn_center_nurse.pory"
+# 2039 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1816 "data/scripts/pkmn_center_nurse.pory"
+# 2040 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1817 "data/scripts/pkmn_center_nurse.pory"
+# 2041 "data/scripts/pkmn_center_nurse.pory"
 	pokemart PetalburgSecondaryMart
-# 1818 "data/scripts/pkmn_center_nurse.pory"
+# 2042 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1819 "data/scripts/pkmn_center_nurse.pory"
+# 2043 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 RustboroSecondaryMart_Clerk::
-# 1823 "data/scripts/pkmn_center_nurse.pory"
+# 2047 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1824 "data/scripts/pkmn_center_nurse.pory"
+# 2048 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1825 "data/scripts/pkmn_center_nurse.pory"
+# 2049 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1826 "data/scripts/pkmn_center_nurse.pory"
+# 2050 "data/scripts/pkmn_center_nurse.pory"
 	pokemart RustboroSecondaryMart
-# 1827 "data/scripts/pkmn_center_nurse.pory"
+# 2051 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1828 "data/scripts/pkmn_center_nurse.pory"
+# 2052 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 SlateportSecondaryMart_Clerk::
-# 1832 "data/scripts/pkmn_center_nurse.pory"
+# 2056 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1833 "data/scripts/pkmn_center_nurse.pory"
+# 2057 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1834 "data/scripts/pkmn_center_nurse.pory"
+# 2058 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1835 "data/scripts/pkmn_center_nurse.pory"
+# 2059 "data/scripts/pkmn_center_nurse.pory"
 	pokemart SlateportSecondaryMart
-# 1836 "data/scripts/pkmn_center_nurse.pory"
+# 2060 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1837 "data/scripts/pkmn_center_nurse.pory"
+# 2061 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 MauvilleSecondaryMart_Clerk::
-# 1841 "data/scripts/pkmn_center_nurse.pory"
+# 2065 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1842 "data/scripts/pkmn_center_nurse.pory"
+# 2066 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1843 "data/scripts/pkmn_center_nurse.pory"
+# 2067 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1844 "data/scripts/pkmn_center_nurse.pory"
+# 2068 "data/scripts/pkmn_center_nurse.pory"
 	pokemart MauvilleSecondaryMart
-# 1845 "data/scripts/pkmn_center_nurse.pory"
+# 2069 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1846 "data/scripts/pkmn_center_nurse.pory"
+# 2070 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 VerdanturfSecondaryMart_Clerk::
-# 1850 "data/scripts/pkmn_center_nurse.pory"
+# 2074 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1851 "data/scripts/pkmn_center_nurse.pory"
+# 2075 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1852 "data/scripts/pkmn_center_nurse.pory"
+# 2076 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1853 "data/scripts/pkmn_center_nurse.pory"
+# 2077 "data/scripts/pkmn_center_nurse.pory"
 	pokemart VerdanturfSecondaryMart
-# 1854 "data/scripts/pkmn_center_nurse.pory"
+# 2078 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1855 "data/scripts/pkmn_center_nurse.pory"
+# 2079 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 FallarborSecondaryMart_Clerk::
-# 1859 "data/scripts/pkmn_center_nurse.pory"
+# 2083 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1860 "data/scripts/pkmn_center_nurse.pory"
+# 2084 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1861 "data/scripts/pkmn_center_nurse.pory"
+# 2085 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1862 "data/scripts/pkmn_center_nurse.pory"
+# 2086 "data/scripts/pkmn_center_nurse.pory"
 	pokemart FallarborSecondaryMart
-# 1863 "data/scripts/pkmn_center_nurse.pory"
+# 2087 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1864 "data/scripts/pkmn_center_nurse.pory"
+# 2088 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 LavaridgeSecondaryMart_Clerk::
-# 1868 "data/scripts/pkmn_center_nurse.pory"
+# 2092 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1869 "data/scripts/pkmn_center_nurse.pory"
+# 2093 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1870 "data/scripts/pkmn_center_nurse.pory"
+# 2094 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1871 "data/scripts/pkmn_center_nurse.pory"
+# 2095 "data/scripts/pkmn_center_nurse.pory"
 	pokemart LavaridgeSecondaryMart
-# 1872 "data/scripts/pkmn_center_nurse.pory"
+# 2096 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1873 "data/scripts/pkmn_center_nurse.pory"
+# 2097 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 FortreeSecondaryMart_Clerk::
-# 1877 "data/scripts/pkmn_center_nurse.pory"
+# 2101 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1878 "data/scripts/pkmn_center_nurse.pory"
+# 2102 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1879 "data/scripts/pkmn_center_nurse.pory"
+# 2103 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1880 "data/scripts/pkmn_center_nurse.pory"
+# 2104 "data/scripts/pkmn_center_nurse.pory"
 	pokemart FortreeSecondaryMart
-# 1881 "data/scripts/pkmn_center_nurse.pory"
+# 2105 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1882 "data/scripts/pkmn_center_nurse.pory"
+# 2106 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 MossdeepSecondaryMart_Clerk::
-# 1886 "data/scripts/pkmn_center_nurse.pory"
+# 2110 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1887 "data/scripts/pkmn_center_nurse.pory"
+# 2111 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1888 "data/scripts/pkmn_center_nurse.pory"
+# 2112 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1889 "data/scripts/pkmn_center_nurse.pory"
+# 2113 "data/scripts/pkmn_center_nurse.pory"
 	pokemart MossdeepSecondaryMart
-# 1890 "data/scripts/pkmn_center_nurse.pory"
+# 2114 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1891 "data/scripts/pkmn_center_nurse.pory"
+# 2115 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 SootopolisSecondaryMart_Clerk::
-# 1895 "data/scripts/pkmn_center_nurse.pory"
+# 2119 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1896 "data/scripts/pkmn_center_nurse.pory"
+# 2120 "data/scripts/pkmn_center_nurse.pory"
 	message gText_HowMayIServeYou
-# 1897 "data/scripts/pkmn_center_nurse.pory"
+# 2121 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1898 "data/scripts/pkmn_center_nurse.pory"
+# 2122 "data/scripts/pkmn_center_nurse.pory"
 	pokemart SootopolisSecondaryMart
-# 1899 "data/scripts/pkmn_center_nurse.pory"
+# 2123 "data/scripts/pkmn_center_nurse.pory"
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 1900 "data/scripts/pkmn_center_nurse.pory"
+# 2124 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 
 RandomEggGuy::
-# 1904 "data/scripts/pkmn_center_nurse.pory"
+# 2128 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1905 "data/scripts/pkmn_center_nurse.pory"
+# 2129 "data/scripts/pkmn_center_nurse.pory"
+	faceplayer
+# 2130 "data/scripts/pkmn_center_nurse.pory"
 	message RandomEggGuy_Text_0
-# 1906 "data/scripts/pkmn_center_nurse.pory"
+# 2131 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1907 "data/scripts/pkmn_center_nurse.pory"
+# 2132 "data/scripts/pkmn_center_nurse.pory"
 	goto_if_unset FLAG_EGGGUY_FISRTEGG, FreeRandomEgg
-# 1908 "data/scripts/pkmn_center_nurse.pory"
+# 2133 "data/scripts/pkmn_center_nurse.pory"
 	special ShowBattlePointsWindow
-# 1909 "data/scripts/pkmn_center_nurse.pory"
+# 2134 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 1910 "data/scripts/pkmn_center_nurse.pory"
+# 2135 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_TEMP_1, 10
 	goto_if_lt RandomEggGuy_2
 RandomEggGuy_1:
-# 1915 "data/scripts/pkmn_center_nurse.pory"
+# 2140 "data/scripts/pkmn_center_nurse.pory"
 	msgbox EventScript_FishermanSalesman_Text_2
-# 1916 "data/scripts/pkmn_center_nurse.pory"
+# 2141 "data/scripts/pkmn_center_nurse.pory"
 	yesnobox 8, 4
-# 1917 "data/scripts/pkmn_center_nurse.pory"
+# 2142 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq RandomEggGuy_5
 RandomEggGuy_4:
-# 1922 "data/scripts/pkmn_center_nurse.pory"
+# 2147 "data/scripts/pkmn_center_nurse.pory"
 	setvar VAR_0x8004, 10
-# 1923 "data/scripts/pkmn_center_nurse.pory"
+# 2148 "data/scripts/pkmn_center_nurse.pory"
 	special TakeFrontierBattlePoints
-# 1924 "data/scripts/pkmn_center_nurse.pory"
+# 2149 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1925 "data/scripts/pkmn_center_nurse.pory"
+# 2150 "data/scripts/pkmn_center_nurse.pory"
 	goto GiveRandomEgg
 	return
 
 RandomEggGuy_2:
-# 1911 "data/scripts/pkmn_center_nurse.pory"
+# 2136 "data/scripts/pkmn_center_nurse.pory"
 	msgbox RandomEggGuy_Text_1
-# 1912 "data/scripts/pkmn_center_nurse.pory"
+# 2137 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1913 "data/scripts/pkmn_center_nurse.pory"
+# 2138 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto RandomEggGuy_1
 
 RandomEggGuy_5:
-# 1918 "data/scripts/pkmn_center_nurse.pory"
-	msgbox RandomEggGuy_Text_2
-# 1919 "data/scripts/pkmn_center_nurse.pory"
+# 2143 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_1
+# 2144 "data/scripts/pkmn_center_nurse.pory"
 	special CloseBattlePointsWindow
-# 1920 "data/scripts/pkmn_center_nurse.pory"
+# 2145 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	goto RandomEggGuy_4
 
 
 FreeRandomEgg::
-# 1929 "data/scripts/pkmn_center_nurse.pory"
+# 2154 "data/scripts/pkmn_center_nurse.pory"
+	delay 20
+# 2155 "data/scripts/pkmn_center_nurse.pory"
 	message FreeRandomEgg_Text_0
-# 1930 "data/scripts/pkmn_center_nurse.pory"
+# 2156 "data/scripts/pkmn_center_nurse.pory"
 	waitmessage
-# 1931 "data/scripts/pkmn_center_nurse.pory"
+# 2157 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_EGGGUY_FISRTEGG
-# 1932 "data/scripts/pkmn_center_nurse.pory"
+# 2158 "data/scripts/pkmn_center_nurse.pory"
 	goto GiveRandomEgg
 	return
 
 
 GiveRandomEgg::
-# 1936 "data/scripts/pkmn_center_nurse.pory"
+# 2162 "data/scripts/pkmn_center_nurse.pory"
+	delay 20
+# 2163 "data/scripts/pkmn_center_nurse.pory"
 	special GetRandomEgg
-# 1937 "data/scripts/pkmn_center_nurse.pory"
+# 2164 "data/scripts/pkmn_center_nurse.pory"
 	giveegg VAR_RESULT
-# 1938 "data/scripts/pkmn_center_nurse.pory"
+# 2165 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PARTY
 	goto_if_eq GiveRandomEgg_1
-# 1943 "data/scripts/pkmn_center_nurse.pory"
+# 2170 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, MON_GIVEN_TO_PC
 	goto_if_eq GiveRandomEgg_2
-# 1949 "data/scripts/pkmn_center_nurse.pory"
-	msgbox TryBuyMagikarp_Text_2
-# 1950 "data/scripts/pkmn_center_nurse.pory"
+# 2176 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 2177 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 GiveRandomEgg_1:
-# 1939 "data/scripts/pkmn_center_nurse.pory"
+# 2166 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1940 "data/scripts/pkmn_center_nurse.pory"
+# 2167 "data/scripts/pkmn_center_nurse.pory"
 	msgbox GiveRandomEgg_Text_0
-# 1941 "data/scripts/pkmn_center_nurse.pory"
+# 2168 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 GiveRandomEgg_2:
-# 1944 "data/scripts/pkmn_center_nurse.pory"
+# 2171 "data/scripts/pkmn_center_nurse.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 1945 "data/scripts/pkmn_center_nurse.pory"
+# 2172 "data/scripts/pkmn_center_nurse.pory"
 	msgbox GiveRandomEgg_Text_1
-# 1946 "data/scripts/pkmn_center_nurse.pory"
+# 2173 "data/scripts/pkmn_center_nurse.pory"
 	goto End
 	return
 
 
 Static_Tangela_DeepWoods::
-# 1955 "data/scripts/pkmn_center_nurse.pory"
+# 2182 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1956 "data/scripts/pkmn_center_nurse.pory"
+# 2183 "data/scripts/pkmn_center_nurse.pory"
 	setwildbattle SPECIES_TANGELA, 25
-# 1957 "data/scripts/pkmn_center_nurse.pory"
+# 2184 "data/scripts/pkmn_center_nurse.pory"
 	waitse
-# 1958 "data/scripts/pkmn_center_nurse.pory"
+# 2185 "data/scripts/pkmn_center_nurse.pory"
 	playmoncry SPECIES_TANGELA, CRY_MODE_ENCOUNTER
-# 1959 "data/scripts/pkmn_center_nurse.pory"
+# 2186 "data/scripts/pkmn_center_nurse.pory"
 	delay 40
-# 1960 "data/scripts/pkmn_center_nurse.pory"
+# 2187 "data/scripts/pkmn_center_nurse.pory"
 	waitmoncry
-# 1961 "data/scripts/pkmn_center_nurse.pory"
+# 2188 "data/scripts/pkmn_center_nurse.pory"
 	dowildbattle
-# 1962 "data/scripts/pkmn_center_nurse.pory"
+# 2189 "data/scripts/pkmn_center_nurse.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 1963 "data/scripts/pkmn_center_nurse.pory"
+# 2190 "data/scripts/pkmn_center_nurse.pory"
 	switch VAR_RESULT
-# 1964 "data/scripts/pkmn_center_nurse.pory"
+# 2191 "data/scripts/pkmn_center_nurse.pory"
 	case B_OUTCOME_PLAYER_TELEPORTED, Static_Tangela_DeepWoods_3
-# 1965 "data/scripts/pkmn_center_nurse.pory"
+# 2192 "data/scripts/pkmn_center_nurse.pory"
 	case B_OUTCOME_RAN, Static_Tangela_DeepWoods_3
-# 1966 "data/scripts/pkmn_center_nurse.pory"
+# 2193 "data/scripts/pkmn_center_nurse.pory"
 	case B_OUTCOME_WON, Static_Tangela_DeepWoods_3
 Static_Tangela_DeepWoods_1:
-# 1970 "data/scripts/pkmn_center_nurse.pory"
+# 2197 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_TANGELA
-# 1971 "data/scripts/pkmn_center_nurse.pory"
+# 2198 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 Static_Tangela_DeepWoods_3:
-# 1967 "data/scripts/pkmn_center_nurse.pory"
+# 2194 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_TANGELA
-# 1968 "data/scripts/pkmn_center_nurse.pory"
+# 2195 "data/scripts/pkmn_center_nurse.pory"
 	goto Common_EventScript_RemoveStaticPokemon
 	goto Static_Tangela_DeepWoods_1
 
 
 Static_Foongus1_DeepWoods::
-# 1975 "data/scripts/pkmn_center_nurse.pory"
+# 2202 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1976 "data/scripts/pkmn_center_nurse.pory"
+# 2203 "data/scripts/pkmn_center_nurse.pory"
 	setwildbattle SPECIES_FOONGUS, 15
-# 1977 "data/scripts/pkmn_center_nurse.pory"
+# 2204 "data/scripts/pkmn_center_nurse.pory"
 	waitse
-# 1978 "data/scripts/pkmn_center_nurse.pory"
+# 2205 "data/scripts/pkmn_center_nurse.pory"
 	playmoncry SPECIES_FOONGUS, CRY_MODE_ENCOUNTER
-# 1979 "data/scripts/pkmn_center_nurse.pory"
+# 2206 "data/scripts/pkmn_center_nurse.pory"
 	delay 40
-# 1980 "data/scripts/pkmn_center_nurse.pory"
+# 2207 "data/scripts/pkmn_center_nurse.pory"
 	waitmoncry
-# 1981 "data/scripts/pkmn_center_nurse.pory"
+# 2208 "data/scripts/pkmn_center_nurse.pory"
 	dowildbattle
-# 1982 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
-# 1983 "data/scripts/pkmn_center_nurse.pory"
-	switch VAR_RESULT
-# 1984 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_PLAYER_TELEPORTED, Static_Foongus1_DeepWoods_3
-# 1985 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_RAN, Static_Foongus1_DeepWoods_3
-# 1986 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_WON, Static_Foongus1_DeepWoods_3
-Static_Foongus1_DeepWoods_1:
-# 1990 "data/scripts/pkmn_center_nurse.pory"
+# 2209 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_FOONGUS1
-# 1991 "data/scripts/pkmn_center_nurse.pory"
+# 2210 "data/scripts/pkmn_center_nurse.pory"
+	goto Common_EventScript_RemoveStaticPokemon
+# 2211 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_STATIC_FOONGUS1
+# 2212 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
-
-Static_Foongus1_DeepWoods_3:
-# 1987 "data/scripts/pkmn_center_nurse.pory"
-	setflag FLAG_STATIC_FOONGUS1
-# 1988 "data/scripts/pkmn_center_nurse.pory"
-	goto Common_EventScript_RemoveStaticPokemon
-	goto Static_Foongus1_DeepWoods_1
 
 
 Static_Foongus2_DeepWoods::
-# 1995 "data/scripts/pkmn_center_nurse.pory"
+# 2216 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 1996 "data/scripts/pkmn_center_nurse.pory"
+# 2217 "data/scripts/pkmn_center_nurse.pory"
 	setwildbattle SPECIES_FOONGUS, 15
-# 1997 "data/scripts/pkmn_center_nurse.pory"
+# 2218 "data/scripts/pkmn_center_nurse.pory"
 	waitse
-# 1998 "data/scripts/pkmn_center_nurse.pory"
+# 2219 "data/scripts/pkmn_center_nurse.pory"
 	playmoncry SPECIES_FOONGUS, CRY_MODE_ENCOUNTER
-# 1999 "data/scripts/pkmn_center_nurse.pory"
+# 2220 "data/scripts/pkmn_center_nurse.pory"
 	delay 40
-# 2000 "data/scripts/pkmn_center_nurse.pory"
+# 2221 "data/scripts/pkmn_center_nurse.pory"
 	waitmoncry
-# 2001 "data/scripts/pkmn_center_nurse.pory"
+# 2222 "data/scripts/pkmn_center_nurse.pory"
 	dowildbattle
-# 2002 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
-# 2003 "data/scripts/pkmn_center_nurse.pory"
-	switch VAR_RESULT
-# 2004 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_PLAYER_TELEPORTED, Static_Foongus2_DeepWoods_3
-# 2005 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_RAN, Static_Foongus2_DeepWoods_3
-# 2006 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_WON, Static_Foongus2_DeepWoods_3
-Static_Foongus2_DeepWoods_1:
-# 2010 "data/scripts/pkmn_center_nurse.pory"
+# 2223 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_FOONGUS2
-# 2011 "data/scripts/pkmn_center_nurse.pory"
+# 2224 "data/scripts/pkmn_center_nurse.pory"
+	goto Common_EventScript_RemoveStaticPokemon
+# 2225 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_STATIC_FOONGUS2
+# 2226 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
-
-Static_Foongus2_DeepWoods_3:
-# 2007 "data/scripts/pkmn_center_nurse.pory"
-	setflag FLAG_STATIC_FOONGUS2
-# 2008 "data/scripts/pkmn_center_nurse.pory"
-	goto Common_EventScript_RemoveStaticPokemon
-	goto Static_Foongus2_DeepWoods_1
 
 
 Static_Morelull1_DeepWoods::
-# 2015 "data/scripts/pkmn_center_nurse.pory"
+# 2230 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 2016 "data/scripts/pkmn_center_nurse.pory"
+# 2231 "data/scripts/pkmn_center_nurse.pory"
 	setwildbattle SPECIES_MORELULL, 15
-# 2017 "data/scripts/pkmn_center_nurse.pory"
+# 2232 "data/scripts/pkmn_center_nurse.pory"
 	waitse
-# 2018 "data/scripts/pkmn_center_nurse.pory"
+# 2233 "data/scripts/pkmn_center_nurse.pory"
 	playmoncry SPECIES_MORELULL, CRY_MODE_ENCOUNTER
-# 2019 "data/scripts/pkmn_center_nurse.pory"
+# 2234 "data/scripts/pkmn_center_nurse.pory"
 	delay 40
-# 2020 "data/scripts/pkmn_center_nurse.pory"
+# 2235 "data/scripts/pkmn_center_nurse.pory"
 	waitmoncry
-# 2021 "data/scripts/pkmn_center_nurse.pory"
+# 2236 "data/scripts/pkmn_center_nurse.pory"
 	dowildbattle
-# 2022 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
-# 2023 "data/scripts/pkmn_center_nurse.pory"
-	switch VAR_RESULT
-# 2024 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_PLAYER_TELEPORTED, Static_Morelull1_DeepWoods_3
-# 2025 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_RAN, Static_Morelull1_DeepWoods_3
-# 2026 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_WON, Static_Morelull1_DeepWoods_3
-Static_Morelull1_DeepWoods_1:
-# 2030 "data/scripts/pkmn_center_nurse.pory"
+# 2237 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_MORELULL1
-# 2031 "data/scripts/pkmn_center_nurse.pory"
+# 2238 "data/scripts/pkmn_center_nurse.pory"
+	goto Common_EventScript_RemoveStaticPokemon
+# 2239 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_STATIC_MORELULL1
+# 2240 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
-
-Static_Morelull1_DeepWoods_3:
-# 2027 "data/scripts/pkmn_center_nurse.pory"
-	setflag FLAG_STATIC_MORELULL1
-# 2028 "data/scripts/pkmn_center_nurse.pory"
-	goto Common_EventScript_RemoveStaticPokemon
-	goto Static_Morelull1_DeepWoods_1
 
 
 Static_Morelull2_DeepWoods::
-# 2035 "data/scripts/pkmn_center_nurse.pory"
+# 2244 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 2036 "data/scripts/pkmn_center_nurse.pory"
+# 2245 "data/scripts/pkmn_center_nurse.pory"
 	setwildbattle SPECIES_MORELULL, 15
-# 2037 "data/scripts/pkmn_center_nurse.pory"
+# 2246 "data/scripts/pkmn_center_nurse.pory"
 	waitse
-# 2038 "data/scripts/pkmn_center_nurse.pory"
+# 2247 "data/scripts/pkmn_center_nurse.pory"
 	playmoncry SPECIES_MORELULL, CRY_MODE_ENCOUNTER
-# 2039 "data/scripts/pkmn_center_nurse.pory"
+# 2248 "data/scripts/pkmn_center_nurse.pory"
 	delay 40
-# 2040 "data/scripts/pkmn_center_nurse.pory"
+# 2249 "data/scripts/pkmn_center_nurse.pory"
 	waitmoncry
-# 2041 "data/scripts/pkmn_center_nurse.pory"
+# 2250 "data/scripts/pkmn_center_nurse.pory"
 	dowildbattle
-# 2042 "data/scripts/pkmn_center_nurse.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
-# 2043 "data/scripts/pkmn_center_nurse.pory"
-	switch VAR_RESULT
-# 2044 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_PLAYER_TELEPORTED, Static_Morelull2_DeepWoods_3
-# 2045 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_RAN, Static_Morelull2_DeepWoods_3
-# 2046 "data/scripts/pkmn_center_nurse.pory"
-	case B_OUTCOME_WON, Static_Morelull2_DeepWoods_3
-Static_Morelull2_DeepWoods_1:
-# 2050 "data/scripts/pkmn_center_nurse.pory"
+# 2251 "data/scripts/pkmn_center_nurse.pory"
 	setflag FLAG_STATIC_MORELULL2
-# 2051 "data/scripts/pkmn_center_nurse.pory"
+# 2252 "data/scripts/pkmn_center_nurse.pory"
+	goto Common_EventScript_RemoveStaticPokemon
+# 2253 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_STATIC_MORELULL2
+# 2254 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
-Static_Morelull2_DeepWoods_3:
-# 2047 "data/scripts/pkmn_center_nurse.pory"
-	setflag FLAG_STATIC_MORELULL2
-# 2048 "data/scripts/pkmn_center_nurse.pory"
-	goto Common_EventScript_RemoveStaticPokemon
-	goto Static_Morelull2_DeepWoods_1
-
 
 ChoiceItemsGuy::
-# 2055 "data/scripts/pkmn_center_nurse.pory"
+# 2258 "data/scripts/pkmn_center_nurse.pory"
 	lock
-# 2056 "data/scripts/pkmn_center_nurse.pory"
+# 2259 "data/scripts/pkmn_center_nurse.pory"
 	faceplayer
-# 2057 "data/scripts/pkmn_center_nurse.pory"
+# 2260 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_0
-# 2058 "data/scripts/pkmn_center_nurse.pory"
+# 2261 "data/scripts/pkmn_center_nurse.pory"
 	checkitem ITEM_CHOICE_SCARF
-# 2059 "data/scripts/pkmn_center_nurse.pory"
+# 2262 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ChoiceItemsGuy_2
 ChoiceItemsGuy_1:
-# 2071 "data/scripts/pkmn_center_nurse.pory"
+# 2277 "data/scripts/pkmn_center_nurse.pory"
 	checkitem ITEM_CHOICE_SPECS
-# 2072 "data/scripts/pkmn_center_nurse.pory"
+# 2278 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ChoiceItemsGuy_5
 ChoiceItemsGuy_4:
-# 2084 "data/scripts/pkmn_center_nurse.pory"
+# 2293 "data/scripts/pkmn_center_nurse.pory"
 	checkitem ITEM_CHOICE_BAND
-# 2085 "data/scripts/pkmn_center_nurse.pory"
+# 2294 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ChoiceItemsGuy_10
 ChoiceItemsGuy_9:
-# 2097 "data/scripts/pkmn_center_nurse.pory"
+# 2309 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_5
-# 2098 "data/scripts/pkmn_center_nurse.pory"
+# 2310 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_6
-# 2099 "data/scripts/pkmn_center_nurse.pory"
+# 2311 "data/scripts/pkmn_center_nurse.pory"
 	closemessage
-# 2100 "data/scripts/pkmn_center_nurse.pory"
+# 2312 "data/scripts/pkmn_center_nurse.pory"
 	release
 	return
 
 ChoiceItemsGuy_2:
-# 2060 "data/scripts/pkmn_center_nurse.pory"
+# 2263 "data/scripts/pkmn_center_nurse.pory"
 	checkpcitem ITEM_CHOICE_SCARF
-# 2061 "data/scripts/pkmn_center_nurse.pory"
+# 2264 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ChoiceItemsGuy_7
 	goto ChoiceItemsGuy_1
 
 ChoiceItemsGuy_5:
-# 2073 "data/scripts/pkmn_center_nurse.pory"
+# 2279 "data/scripts/pkmn_center_nurse.pory"
 	checkpcitem ITEM_CHOICE_SPECS
-# 2074 "data/scripts/pkmn_center_nurse.pory"
+# 2280 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ChoiceItemsGuy_12
 	goto ChoiceItemsGuy_4
 
 ChoiceItemsGuy_7:
-# 2062 "data/scripts/pkmn_center_nurse.pory"
-	msgbox ChoiceItemsGuy_Text_1
-# 2063 "data/scripts/pkmn_center_nurse.pory"
-	checkitemspace VAR_0x8009
-# 2064 "data/scripts/pkmn_center_nurse.pory"
+# 2265 "data/scripts/pkmn_center_nurse.pory"
+	checkpartychoicescarf
+# 2266 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq ChoiceItemsGuy_15
-ChoiceItemsGuy_14:
-# 2068 "data/scripts/pkmn_center_nurse.pory"
-	giveitem ITEM_CHOICE_SCARF
+	goto_if_eq ChoiceItemsGuy_14
 	goto ChoiceItemsGuy_1
 
 ChoiceItemsGuy_10:
-# 2086 "data/scripts/pkmn_center_nurse.pory"
+# 2295 "data/scripts/pkmn_center_nurse.pory"
 	checkpcitem ITEM_CHOICE_BAND
-# 2087 "data/scripts/pkmn_center_nurse.pory"
+# 2296 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq ChoiceItemsGuy_17
+	goto_if_eq ChoiceItemsGuy_16
 	goto ChoiceItemsGuy_9
 
 ChoiceItemsGuy_12:
-# 2075 "data/scripts/pkmn_center_nurse.pory"
-	msgbox ChoiceItemsGuy_Text_3
-# 2076 "data/scripts/pkmn_center_nurse.pory"
-	checkitemspace VAR_0x8009
-# 2077 "data/scripts/pkmn_center_nurse.pory"
+# 2281 "data/scripts/pkmn_center_nurse.pory"
+	checkpartychoicespecs
+# 2282 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq ChoiceItemsGuy_20
-ChoiceItemsGuy_19:
-# 2081 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_eq ChoiceItemsGuy_18
+	goto ChoiceItemsGuy_4
+
+ChoiceItemsGuy_14:
+# 2267 "data/scripts/pkmn_center_nurse.pory"
+	msgbox ChoiceItemsGuy_Text_1
+# 2268 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 2269 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq ChoiceItemsGuy_21
+ChoiceItemsGuy_20:
+# 2273 "data/scripts/pkmn_center_nurse.pory"
+	giveitem ITEM_CHOICE_SCARF
+	goto ChoiceItemsGuy_1
+
+ChoiceItemsGuy_16:
+# 2297 "data/scripts/pkmn_center_nurse.pory"
+	checkpartychoiceband
+# 2298 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq ChoiceItemsGuy_23
+	goto ChoiceItemsGuy_9
+
+ChoiceItemsGuy_18:
+# 2283 "data/scripts/pkmn_center_nurse.pory"
+	msgbox ChoiceItemsGuy_Text_3
+# 2284 "data/scripts/pkmn_center_nurse.pory"
+	checkitemspace VAR_0x8009
+# 2285 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq ChoiceItemsGuy_26
+ChoiceItemsGuy_25:
+# 2289 "data/scripts/pkmn_center_nurse.pory"
 	giveitem ITEM_CHOICE_SPECS
 	goto ChoiceItemsGuy_4
 
-ChoiceItemsGuy_15:
-# 2065 "data/scripts/pkmn_center_nurse.pory"
+ChoiceItemsGuy_21:
+# 2270 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_2
-# 2066 "data/scripts/pkmn_center_nurse.pory"
+# 2271 "data/scripts/pkmn_center_nurse.pory"
 	goto End
-	goto ChoiceItemsGuy_14
+	goto ChoiceItemsGuy_20
 
-ChoiceItemsGuy_17:
-# 2088 "data/scripts/pkmn_center_nurse.pory"
+ChoiceItemsGuy_23:
+# 2299 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_4
-# 2089 "data/scripts/pkmn_center_nurse.pory"
+# 2300 "data/scripts/pkmn_center_nurse.pory"
 	checkitemspace VAR_0x8009
-# 2090 "data/scripts/pkmn_center_nurse.pory"
+# 2301 "data/scripts/pkmn_center_nurse.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq ChoiceItemsGuy_23
-ChoiceItemsGuy_22:
-# 2094 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_eq ChoiceItemsGuy_29
+ChoiceItemsGuy_28:
+# 2305 "data/scripts/pkmn_center_nurse.pory"
 	giveitem ITEM_CHOICE_BAND
 	goto ChoiceItemsGuy_9
 
-ChoiceItemsGuy_20:
-# 2078 "data/scripts/pkmn_center_nurse.pory"
+ChoiceItemsGuy_26:
+# 2286 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_2
-# 2079 "data/scripts/pkmn_center_nurse.pory"
+# 2287 "data/scripts/pkmn_center_nurse.pory"
 	goto End
-	goto ChoiceItemsGuy_19
+	goto ChoiceItemsGuy_25
 
-ChoiceItemsGuy_23:
-# 2091 "data/scripts/pkmn_center_nurse.pory"
+ChoiceItemsGuy_29:
+# 2302 "data/scripts/pkmn_center_nurse.pory"
 	msgbox ChoiceItemsGuy_Text_2
-# 2092 "data/scripts/pkmn_center_nurse.pory"
+# 2303 "data/scripts/pkmn_center_nurse.pory"
 	goto End
-	goto ChoiceItemsGuy_22
+	goto ChoiceItemsGuy_28
+
+
+WeatherInstituteGift::
+# 2316 "data/scripts/pkmn_center_nurse.pory"
+	msgbox Route119_WeatherInstitute_2F_Text_ThanksPleaseTakePokemon, MSGBOX_DEFAULT
+# 2317 "data/scripts/pkmn_center_nurse.pory"
+	random 4
+# 2318 "data/scripts/pkmn_center_nurse.pory"
+	switch VAR_RESULT
+# 2319 "data/scripts/pkmn_center_nurse.pory"
+	case 0, WeatherInstituteGift_3
+# 2336 "data/scripts/pkmn_center_nurse.pory"
+	case 1, WeatherInstituteGift_4
+# 2353 "data/scripts/pkmn_center_nurse.pory"
+	case 2, WeatherInstituteGift_5
+# 2370 "data/scripts/pkmn_center_nurse.pory"
+	case 3, WeatherInstituteGift_6
+WeatherInstituteGift_1:
+# 2388 "data/scripts/pkmn_center_nurse.pory"
+	msgbox Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT
+	return
+
+WeatherInstituteGift_3:
+# 2320 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LARVITAR
+# 2321 "data/scripts/pkmn_center_nurse.pory"
+	givemon SPECIES_LARVITAR, 25, ITEM_HARD_STONE, abilityNum = 3
+# 2322 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq WeatherInstituteGift_7
+# 2327 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq WeatherInstituteGift_8
+# 2333 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 2334 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_4:
+# 2337 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_WAILMER
+# 2338 "data/scripts/pkmn_center_nurse.pory"
+	givemon SPECIES_WAILMER, 25, ITEM_MYSTIC_WATER, abilityNum = 3
+# 2339 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq WeatherInstituteGift_12
+# 2344 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq WeatherInstituteGift_13
+# 2350 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 2351 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_5:
+# 2354 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_VULPIX
+# 2355 "data/scripts/pkmn_center_nurse.pory"
+	givemon SPECIES_VULPIX, 25, ITEM_CHARCOAL, abilityNum = 3
+# 2356 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq WeatherInstituteGift_17
+# 2361 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq WeatherInstituteGift_18
+# 2367 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 2368 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_6:
+# 2371 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SNOVER
+# 2372 "data/scripts/pkmn_center_nurse.pory"
+	givemon SPECIES_SNOVER, 25, ITEM_NEVER_MELT_ICE, abilityNum = 1
+# 2373 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PARTY
+	goto_if_eq WeatherInstituteGift_22
+# 2378 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, MON_GIVEN_TO_PC
+	goto_if_eq WeatherInstituteGift_23
+# 2384 "data/scripts/pkmn_center_nurse.pory"
+	msgbox TryBuyMagikarp_Text_3
+# 2385 "data/scripts/pkmn_center_nurse.pory"
+	goto End
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_7:
+# 2323 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2324 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_0
+# 2325 "data/scripts/pkmn_center_nurse.pory"
+	call NicknamePartyMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_8:
+# 2328 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2329 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_0
+# 2330 "data/scripts/pkmn_center_nurse.pory"
+	call NicknameBoxMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_12:
+# 2340 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2341 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_1
+# 2342 "data/scripts/pkmn_center_nurse.pory"
+	call NicknamePartyMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_13:
+# 2345 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2346 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_1
+# 2347 "data/scripts/pkmn_center_nurse.pory"
+	call NicknameBoxMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_17:
+# 2357 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2358 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_2
+# 2359 "data/scripts/pkmn_center_nurse.pory"
+	call NicknamePartyMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_18:
+# 2362 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2363 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_2
+# 2364 "data/scripts/pkmn_center_nurse.pory"
+	call NicknameBoxMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_22:
+# 2374 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2375 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_3
+# 2376 "data/scripts/pkmn_center_nurse.pory"
+	call NicknamePartyMon
+	goto WeatherInstituteGift_1
+
+WeatherInstituteGift_23:
+# 2379 "data/scripts/pkmn_center_nurse.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 2380 "data/scripts/pkmn_center_nurse.pory"
+	msgbox WeatherInstituteGift_Text_3
+# 2381 "data/scripts/pkmn_center_nurse.pory"
+	call NicknameBoxMon
+	goto WeatherInstituteGift_1
+
+
+TestGuy::
+# 2392 "data/scripts/pkmn_center_nurse.pory"
+	trainerbattle_no_intro TRAINER_SAWYER_1, VictoryRoad_1F_Text_WallyEntranceDefeat
+	return
 
 
 EventScript_NatureMintNPC_Text_0:
@@ -4960,463 +5623,494 @@ EventScript_HyperTrainNPC_Text_3:
 	.string "Which stat would you like to train?$"
 
 EventScript_HyperTrainNPC_Text_4:
-# 720 "data/scripts/pkmn_center_nurse.pory"
+# 723 "data/scripts/pkmn_center_nurse.pory"
 	.string "Your {STR_VAR_1}'s {STR_VAR_3}\n"
 	.string "is already at it's maximum!$"
 
 EventScript_HyperTrainNPC_Text_5:
-# 740 "data/scripts/pkmn_center_nurse.pory"
+# 743 "data/scripts/pkmn_center_nurse.pory"
 	.string "Your {STR_VAR_1}'s {STR_VAR_3}\n"
 	.string "has been hyper trained.$"
 
 EventScript_GameCorner_Clerk_TMs_Text_0:
-# 747 "data/scripts/pkmn_center_nurse.pory"
+# 750 "data/scripts/pkmn_center_nurse.pory"
 	.string "I sell TMs in exchange for Battle\n"
 	.string "Points.$"
 
 EventScript_GameCorner_Clerk_TMs_Text_1:
-# 750 "data/scripts/pkmn_center_nurse.pory"
+# 753 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough Battle Points.\n"
 	.string "Come back with some more.$"
 
 EventScript_GameCorner_Clerk_TMs_Text_2:
-# 753 "data/scripts/pkmn_center_nurse.pory"
+# 756 "data/scripts/pkmn_center_nurse.pory"
 	.string "Would you like to buy anything?$"
 
 TryBuyLeechLifeTM_Text_0:
-# 786 "data/scripts/pkmn_center_nurse.pory"
-	.string "You would like to buy TM32 Leech Life?$"
+# 791 "data/scripts/pkmn_center_nurse.pory"
+	.string "You already own this TM.$"
 
 TryBuyLeechLifeTM_Text_1:
-# 797 "data/scripts/pkmn_center_nurse.pory"
+# 794 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy TM32 Leech Life?$"
+
+TryBuyLeechLifeTM_Text_2:
+# 806 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your TM! Thank you very much.$"
 
 TryBuyDarkPulseTM_Text_0:
-# 802 "data/scripts/pkmn_center_nurse.pory"
+# 816 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM100 Dark Pulse?$"
 
 TryBuyEarthPowerTM_Text_0:
-# 818 "data/scripts/pkmn_center_nurse.pory"
+# 838 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM41 Earth Power?$"
 
 TryBuyFlashCannonTM_Text_0:
-# 834 "data/scripts/pkmn_center_nurse.pory"
+# 860 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM99 Flash\n"
 	.string "Cannon?$"
 
 TryBuyIceBeamTM_Text_0:
-# 850 "data/scripts/pkmn_center_nurse.pory"
+# 882 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM13 Ice Beam?$"
 
 TryBuyIceSpinnerTM_Text_0:
-# 866 "data/scripts/pkmn_center_nurse.pory"
+# 904 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM70 Ice Spinner?$"
 
 TryBuyPsychicTM_Text_0:
-# 882 "data/scripts/pkmn_center_nurse.pory"
+# 926 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM29 Psychic?$"
 
 TryBuyShadowBallTM_Text_0:
-# 898 "data/scripts/pkmn_center_nurse.pory"
+# 948 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM30 Shadow Ball?$"
 
 TryBuyThunderboltTM_Text_0:
-# 914 "data/scripts/pkmn_center_nurse.pory"
+# 970 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy TM24 Thunderbolt?$"
 
 BPShopClerk_Text_0:
-# 931 "data/scripts/pkmn_center_nurse.pory"
+# 988 "data/scripts/pkmn_center_nurse.pory"
 	.string "I sell certain items in exchange for\n"
 	.string "Battle Points.$"
 
 BPShopClerk_Text_1:
-# 934 "data/scripts/pkmn_center_nurse.pory"
+# 991 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have any Battle Points. Come\n"
 	.string "back with some.$"
 
 TryBuyEviolite_Text_0:
-# 984 "data/scripts/pkmn_center_nurse.pory"
+# 1049 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy an Eviolite?$"
 
 TryBuyEviolite_Text_1:
-# 996 "data/scripts/pkmn_center_nurse.pory"
+# 1062 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough Battle Points.$"
 
 TryBuyEviolite_Text_2:
-# 1001 "data/scripts/pkmn_center_nurse.pory"
+# 1067 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have bag space for this item.$"
 
 TryBuyEviolite_Text_3:
-# 1009 "data/scripts/pkmn_center_nurse.pory"
+# 1075 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Eviolite! Thank you very\n"
 	.string "much.$"
 
 TryBuyRareCandy_Text_0:
-# 1014 "data/scripts/pkmn_center_nurse.pory"
+# 1080 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Rare Candy?$"
 
 TryBuyRareCandy_Text_1:
-# 1034 "data/scripts/pkmn_center_nurse.pory"
+# 1101 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Rare Candy! Thank you very\n"
 	.string "much.$"
 
 TryBuyToxicOrb_Text_0:
-# 1039 "data/scripts/pkmn_center_nurse.pory"
+# 1106 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Toxic Orb?$"
 
 TryBuyToxicOrb_Text_1:
-# 1054 "data/scripts/pkmn_center_nurse.pory"
+# 1122 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Toxic Orb! Thank you very\n"
 	.string "much.$"
 
 TryBuyFlameOrb_Text_0:
-# 1059 "data/scripts/pkmn_center_nurse.pory"
+# 1127 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Flame Orb?$"
 
 TryBuyFlameOrb_Text_1:
-# 1074 "data/scripts/pkmn_center_nurse.pory"
+# 1143 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Flame Orb! Thank you very\n"
 	.string "much.$"
 
 TryBuyFocusSash_Text_0:
-# 1079 "data/scripts/pkmn_center_nurse.pory"
+# 1148 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Focus Sash?$"
 
 TryBuyFocusSash_Text_1:
-# 1094 "data/scripts/pkmn_center_nurse.pory"
+# 1163 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Focus Sash! Thank you very\n"
 	.string "much.$"
 
 TryBuyEjectPack_Text_0:
-# 1099 "data/scripts/pkmn_center_nurse.pory"
+# 1168 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy an Eject Pack?$"
 
 TryBuyEjectPack_Text_1:
-# 1114 "data/scripts/pkmn_center_nurse.pory"
+# 1184 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Eject Pack! Thank you very\n"
 	.string "much.$"
 
+TryBuyBlankMint_Text_0:
+# 1189 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy a Blank Nature\n"
+	.string "Mint?$"
+
+TryBuyBlankMint_Text_1:
+# 1210 "data/scripts/pkmn_center_nurse.pory"
+	.string "Here is your Blank Nautre Mint! Thank\n"
+	.string "you very much.$"
+
 TryBuyEjectButton_Text_0:
-# 1119 "data/scripts/pkmn_center_nurse.pory"
+# 1215 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy an Eject Button?$"
 
 TryBuyEjectButton_Text_1:
-# 1139 "data/scripts/pkmn_center_nurse.pory"
+# 1236 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Eject Button! Thank you\n"
 	.string "very much.$"
 
 TryBuyBlackSludge_Text_0:
-# 1144 "data/scripts/pkmn_center_nurse.pory"
+# 1241 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Black Sludge?$"
 
 TryBuyBlackSludge_Text_1:
-# 1164 "data/scripts/pkmn_center_nurse.pory"
+# 1262 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Black Sludge! Thank you\n"
 	.string "very much.$"
 
 TryBuyLeftovers_Text_0:
-# 1169 "data/scripts/pkmn_center_nurse.pory"
+# 1267 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy some Leftovers?$"
 
 TryBuyLeftovers_Text_1:
-# 1189 "data/scripts/pkmn_center_nurse.pory"
+# 1288 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here are your Leftovers! Thank you\n"
 	.string "very much.$"
 
 TryBuyAssaultVest_Text_0:
-# 1194 "data/scripts/pkmn_center_nurse.pory"
+# 1293 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy an Assault Vest?$"
 
 TryBuyAssaultVest_Text_1:
-# 1214 "data/scripts/pkmn_center_nurse.pory"
+# 1314 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Assault Vest! Thank you\n"
 	.string "very much.$"
 
 TryBuyAbilityPatch_Text_0:
-# 1219 "data/scripts/pkmn_center_nurse.pory"
+# 1319 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy an Ability Patch?$"
 
 TryBuyAbilityPatch_Text_1:
-# 1239 "data/scripts/pkmn_center_nurse.pory"
+# 1340 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Ability Patch! Thank you\n"
 	.string "very much.$"
 
 TryBuyLifeOrb_Text_0:
-# 1244 "data/scripts/pkmn_center_nurse.pory"
+# 1345 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy a Life Orb?$"
 
 TryBuyLifeOrb_Text_1:
-# 1264 "data/scripts/pkmn_center_nurse.pory"
+# 1366 "data/scripts/pkmn_center_nurse.pory"
 	.string "Here is your Life Orb! Thank you very\n"
 	.string "much.$"
 
+TryBuyBottleCap_Text_0:
+# 1371 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy a Bottle Cap?$"
+
+TryBuyBottleCap_Text_1:
+# 1392 "data/scripts/pkmn_center_nurse.pory"
+	.string "Here is your Bottle Cap! Thank you very\n"
+	.string "much.$"
+
+TryBuyTM01Covet_Text_0:
+# 1402 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy TM01 Covet?$"
+
+TryBuyTM01Covet_Text_1:
+# 1416 "data/scripts/pkmn_center_nurse.pory"
+	.string "You don't have bag space for this TM.$"
+
+TryBuyTM46Thief_Text_0:
+# 1433 "data/scripts/pkmn_center_nurse.pory"
+	.string "You would like to buy TM46 Thief?$"
+
 EggMoveTutor_Text_0:
-# 1269 "data/scripts/pkmn_center_nurse.pory"
+# 1459 "data/scripts/pkmn_center_nurse.pory"
 	.string "I can teach one of your Pokémon one of\n"
 	.string "their egg moves in exchange for one\l"
 	.string "Battle Point.$"
 
 EggMoveTutor_Text_1:
-# 1273 "data/scripts/pkmn_center_nurse.pory"
+# 1463 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have any Battle Points. Come\n"
 	.string "back with some if you want me to teach\l"
 	.string "an egg move to one of your Pokémon.$"
 
 EggMoveTutor_Text_2:
-# 1277 "data/scripts/pkmn_center_nurse.pory"
+# 1467 "data/scripts/pkmn_center_nurse.pory"
 	.string "Would you like to do that?$"
 
 EggMoveTutor_Text_3:
-# 1280 "data/scripts/pkmn_center_nurse.pory"
-	.string "Come back anytime!$"
-
-EggMoveTutor_Text_4:
-# 1291 "data/scripts/pkmn_center_nurse.pory"
+# 1483 "data/scripts/pkmn_center_nurse.pory"
 	.string "I can't teach a move to an Egg.$"
 
-EggMoveTutor_Text_5:
-# 1296 "data/scripts/pkmn_center_nurse.pory"
+EggMoveTutor_Text_4:
+# 1489 "data/scripts/pkmn_center_nurse.pory"
 	.string "This Pokémon does not have any egg\n"
 	.string "moves.$"
 
-EggMoveTutor_Text_6:
-# 1300 "data/scripts/pkmn_center_nurse.pory"
+EggMoveTutor_Text_5:
+# 1494 "data/scripts/pkmn_center_nurse.pory"
 	.string "Which move would you like me to teach\n"
 	.string "{STR_VAR_1}?$"
 
 EventScript_FishermanSalesman_Text_0:
-# 1312 "data/scripts/pkmn_center_nurse.pory"
+# 1511 "data/scripts/pkmn_center_nurse.pory"
 	.string "I am the master fisherman. I have\n"
 	.string "travelled all throughout Hoenn and\l"
 	.string "caught every type of fish there is.$"
 
 EventScript_FishermanSalesman_Text_1:
-# 1315 "data/scripts/pkmn_center_nurse.pory"
+# 1514 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy any\n"
 	.string "fish. Come back later with more money.$"
 
 EventScript_FishermanSalesman_Text_2:
-# 1318 "data/scripts/pkmn_center_nurse.pory"
+# 1517 "data/scripts/pkmn_center_nurse.pory"
 	.string "Would you like to buy one?$"
 
 EventScript_FishermanSalesman_Text_3:
-# 1321 "data/scripts/pkmn_center_nurse.pory"
+# 1520 "data/scripts/pkmn_center_nurse.pory"
 	.string "I'll be here if you change your mind$"
 
 TryBuyMagikarp_Text_0:
-# 1365 "data/scripts/pkmn_center_nurse.pory"
+# 1564 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Magikarp for\n"
 	.string "¥500?$"
 
 TryBuyMagikarp_Text_1:
-# 1376 "data/scripts/pkmn_center_nurse.pory"
-	.string "Obtained Magikarp.$"
+# 1567 "data/scripts/pkmn_center_nurse.pory"
+	.string "I'll be here if you change your mind.$"
 
 TryBuyMagikarp_Text_2:
-# 1385 "data/scripts/pkmn_center_nurse.pory"
+# 1577 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Magikarp.$"
+
+TryBuyMagikarp_Text_3:
+# 1586 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have any room in your boxes\n"
 	.string "for a new Pokémon.$"
 
 TryBuyGoldeen_Text_0:
-# 1392 "data/scripts/pkmn_center_nurse.pory"
+# 1593 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Goldeen for ¥500?$"
 
 TryBuyGoldeen_Text_1:
-# 1403 "data/scripts/pkmn_center_nurse.pory"
+# 1606 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Goldeen.$"
 
 TryBuyRemoraid_Text_0:
-# 1419 "data/scripts/pkmn_center_nurse.pory"
+# 1622 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Remoraid for\n"
 	.string "¥500?$"
 
 TryBuyRemoraid_Text_1:
-# 1430 "data/scripts/pkmn_center_nurse.pory"
+# 1635 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Remoraid.$"
 
 TryBuyFeebas_Text_0:
-# 1448 "data/scripts/pkmn_center_nurse.pory"
+# 1653 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Feebas. Come back later with more\l"
 	.string "money.$"
 
 TryBuyFeebas_Text_1:
-# 1452 "data/scripts/pkmn_center_nurse.pory"
+# 1657 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Feebas for ¥1000?$"
 
 TryBuyFeebas_Text_2:
-# 1463 "data/scripts/pkmn_center_nurse.pory"
+# 1670 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Feebas.$"
 
 TryBuyFinneon_Text_0:
-# 1481 "data/scripts/pkmn_center_nurse.pory"
+# 1688 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Finneon. Come back later with more\l"
 	.string "money.$"
 
 TryBuyFinneon_Text_1:
-# 1485 "data/scripts/pkmn_center_nurse.pory"
+# 1692 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Finneon for\n"
 	.string "¥1000?$"
 
 TryBuyFinneon_Text_2:
-# 1496 "data/scripts/pkmn_center_nurse.pory"
+# 1705 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Finneon.$"
 
 TryBuyTynamo_Text_0:
-# 1514 "data/scripts/pkmn_center_nurse.pory"
+# 1723 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Tynamo. Come back later with more\l"
 	.string "money.$"
 
 TryBuyTynamo_Text_1:
-# 1518 "data/scripts/pkmn_center_nurse.pory"
+# 1727 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Tynamo for ¥1000?$"
 
 TryBuyTynamo_Text_2:
-# 1529 "data/scripts/pkmn_center_nurse.pory"
+# 1740 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Tynamo.$"
 
 TryBuyArrokuda_Text_0:
-# 1547 "data/scripts/pkmn_center_nurse.pory"
+# 1758 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Arrokuda. Come back later with more\l"
 	.string "money.$"
 
 TryBuyArrokuda_Text_1:
-# 1551 "data/scripts/pkmn_center_nurse.pory"
+# 1762 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Arrokuda for\n"
 	.string "¥1000?$"
 
 TryBuyArrokuda_Text_2:
-# 1562 "data/scripts/pkmn_center_nurse.pory"
+# 1775 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Arrokuda.$"
 
 TryBuyBarboach_Text_0:
-# 1580 "data/scripts/pkmn_center_nurse.pory"
+# 1793 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Barboach. Come back later with more\l"
 	.string "money.$"
 
 TryBuyBarboach_Text_1:
-# 1584 "data/scripts/pkmn_center_nurse.pory"
+# 1797 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Barboach for\n"
 	.string "¥1000?$"
 
 TryBuyBarboach_Text_2:
-# 1595 "data/scripts/pkmn_center_nurse.pory"
+# 1810 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Barboach.$"
 
 TryBuyChinchou_Text_0:
-# 1613 "data/scripts/pkmn_center_nurse.pory"
+# 1828 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Chinchou. Come back later with more\l"
 	.string "money.$"
 
 TryBuyChinchou_Text_1:
-# 1617 "data/scripts/pkmn_center_nurse.pory"
+# 1832 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Chinchou for\n"
 	.string "¥5000?$"
 
 TryBuyChinchou_Text_2:
-# 1628 "data/scripts/pkmn_center_nurse.pory"
+# 1845 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Chinchou.$"
 
 TryBuyCarvanha_Text_0:
-# 1646 "data/scripts/pkmn_center_nurse.pory"
+# 1863 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Carvanha. Come back later with more\l"
 	.string "money.$"
 
 TryBuyCarvanha_Text_1:
-# 1650 "data/scripts/pkmn_center_nurse.pory"
+# 1867 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Carvanha for\n"
 	.string "¥5000?$"
 
 TryBuyCarvanha_Text_2:
-# 1661 "data/scripts/pkmn_center_nurse.pory"
+# 1880 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Carvanha.$"
 
 TryBuyQwilfish_Text_0:
-# 1679 "data/scripts/pkmn_center_nurse.pory"
+# 1898 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Qwilfish. Come back later with more\l"
 	.string "money.$"
 
 TryBuyQwilfish_Text_1:
-# 1683 "data/scripts/pkmn_center_nurse.pory"
+# 1902 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Qwilfish for\n"
 	.string "¥10000?$"
 
 TryBuyQwilfish_Text_2:
-# 1694 "data/scripts/pkmn_center_nurse.pory"
+# 1915 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Qwilfish.$"
 
 TryBuyBasculin_Text_0:
-# 1712 "data/scripts/pkmn_center_nurse.pory"
+# 1933 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Basculin. Come back later with more\l"
 	.string "money.$"
 
 TryBuyBasculin_Text_1:
-# 1716 "data/scripts/pkmn_center_nurse.pory"
+# 1937 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Basculin for\n"
 	.string "¥10000?$"
 
 TryBuyBasculin_Text_2:
-# 1727 "data/scripts/pkmn_center_nurse.pory"
+# 1950 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Basculin.$"
 
 TryBuyCosmog_Text_0:
-# 1745 "data/scripts/pkmn_center_nurse.pory"
+# 1968 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough money to buy\n"
 	.string "Cosmog. Come back later with more\l"
 	.string "money.$"
 
 TryBuyCosmog_Text_1:
-# 1749 "data/scripts/pkmn_center_nurse.pory"
+# 1972 "data/scripts/pkmn_center_nurse.pory"
 	.string "You would like to buy Cosmog for\n"
 	.string "¥50000?$"
 
 TryBuyCosmog_Text_2:
-# 1760 "data/scripts/pkmn_center_nurse.pory"
+# 1985 "data/scripts/pkmn_center_nurse.pory"
 	.string "Obtained Cosmog.$"
 
 NicknamePartyMon_Text_0:
-# 1776 "data/scripts/pkmn_center_nurse.pory"
+# 2001 "data/scripts/pkmn_center_nurse.pory"
 	.string "Do you want to give it a nickame?$"
 
 RandomEggGuy_Text_0:
-# 1905 "data/scripts/pkmn_center_nurse.pory"
+# 2130 "data/scripts/pkmn_center_nurse.pory"
 	.string "Hello there, I have some Pokémon Eggs I\n"
 	.string "can sell to you. They can contain any\l"
 	.string "fully unevolved Pokémon. They'll cost\l"
 	.string "10 BP each.$"
 
 RandomEggGuy_Text_1:
-# 1911 "data/scripts/pkmn_center_nurse.pory"
+# 2136 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have enough BP. Come back\n"
 	.string "with 10 BP to buy a random egg.$"
 
-RandomEggGuy_Text_2:
-# 1918 "data/scripts/pkmn_center_nurse.pory"
-	.string "I'll be here if you change your mind.$"
-
 FreeRandomEgg_Text_0:
-# 1929 "data/scripts/pkmn_center_nurse.pory"
+# 2155 "data/scripts/pkmn_center_nurse.pory"
 	.string "But, since you're a new customer, the\n"
 	.string "first one is free!$"
 
 GiveRandomEgg_Text_0:
-# 1940 "data/scripts/pkmn_center_nurse.pory"
-	.string "Obtained the egg!$"
+# 2167 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained the Egg!$"
 
 GiveRandomEgg_Text_1:
-# 1945 "data/scripts/pkmn_center_nurse.pory"
+# 2172 "data/scripts/pkmn_center_nurse.pory"
 	.string "The egg was placed in your PC.$"
 
 ChoiceItemsGuy_Text_0:
-# 2057 "data/scripts/pkmn_center_nurse.pory"
+# 2260 "data/scripts/pkmn_center_nurse.pory"
 	.string "Welcome and congratulations for making\n"
 	.string "it to the Pokémon League! I'm here to\l"
 	.string "hand out useful items to trainers in\l"
@@ -5424,31 +6118,47 @@ ChoiceItemsGuy_Text_0:
 	.string "see here...$"
 
 ChoiceItemsGuy_Text_1:
-# 2062 "data/scripts/pkmn_center_nurse.pory"
+# 2267 "data/scripts/pkmn_center_nurse.pory"
 	.string "Since you don't yet have a Choice Scarf,\n"
 	.string "I will give you one. Here you go.$"
 
 ChoiceItemsGuy_Text_2:
-# 2065 "data/scripts/pkmn_center_nurse.pory"
+# 2270 "data/scripts/pkmn_center_nurse.pory"
 	.string "You don't have bag space for any more\n"
 	.string "items.$"
 
 ChoiceItemsGuy_Text_3:
-# 2075 "data/scripts/pkmn_center_nurse.pory"
+# 2283 "data/scripts/pkmn_center_nurse.pory"
 	.string "Since you don't yet have a Choice\n"
 	.string "Specs, I will give you one. Here you go.$"
 
 ChoiceItemsGuy_Text_4:
-# 2088 "data/scripts/pkmn_center_nurse.pory"
+# 2299 "data/scripts/pkmn_center_nurse.pory"
 	.string "Since you don't yet have a Choice Band,\n"
 	.string "I will give you one. Here you go.$"
 
 ChoiceItemsGuy_Text_5:
-# 2097 "data/scripts/pkmn_center_nurse.pory"
+# 2309 "data/scripts/pkmn_center_nurse.pory"
 	.string "Look at that! You have all of the choice\n"
 	.string "items, you should be good to go.$"
 
 ChoiceItemsGuy_Text_6:
-# 2098 "data/scripts/pkmn_center_nurse.pory"
+# 2310 "data/scripts/pkmn_center_nurse.pory"
 	.string "Good luck taking on the Pokémon\n"
 	.string "League!$"
+
+WeatherInstituteGift_Text_0:
+# 2324 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Larvitar.$"
+
+WeatherInstituteGift_Text_1:
+# 2341 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Wailmer.$"
+
+WeatherInstituteGift_Text_2:
+# 2358 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Vulpix.$"
+
+WeatherInstituteGift_Text_3:
+# 2375 "data/scripts/pkmn_center_nurse.pory"
+	.string "Obtained Snover.$"

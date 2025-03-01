@@ -66,15 +66,14 @@ General TODO
 
 krabby aqua cutter
 binacle accelerock
-karrablast water shuriken
+karrablast water shuriken -e
 growlithe extreme speed
 zigzagoon-galar obstruct
-chespin fake out, mach punch
+chespin fake out -e, mach punch -e
 vanillite explosion
 snorunt shadow sneak
-deerling draining kiss, solar blade, triple axel, powder snow, blaze kick, incinerate, lava plume
-both rattata hyper fang
-petilil axe kick, brick break, double kick, triple axel, victory dance
+deerling draining kiss, solar blade -e, triple axel -e, powder snow, blaze kick, incinerate, lava plume -e
+petilil axe kick, brick break -tm, double kick, triple axel -e, victory dance
 
 todo in test playthru:
 get all Tms
@@ -107,47 +106,45 @@ revival blessing kys
 cap end at gym battle start
 edge candy
 statics run
+berry random
 
 Learnsets
 ----------
 Chimchar + Mach Punch
 Clobbopus + Jet Punch (Maybe OP, if so, Aqua Jet)
 Joltik + Sticky Web
-Magnemite + Mirror Shot
+Magnemite + Mirror Shot -tm
 Electrike + Ember
 Tynamo + Coil
 Chinchou + Fairy Wind
 Charcadet + Shadow Claw, Psycho Cut, Armor Cannon, Bitter Blade
 Igglybuff + Misty Explosion
 Azurill + Misty Explosion
-Type: Null + Zen Headbutt
+Type: Null + Zen Headbutt -tm
 Darumaka-Galar + Fire Punch
-Beldum + Agility, Magnet Rise, Psychic, Flash Cannon, Hyper Beam
-Slowpoke-Galar + Poison Jab
-Mudkip + Earthquake, Stealth Rock
-Wimpod + Liquidation, Leech Life, Sucker Punch, Poison Jab, First Impression
-Nymble + First Impression
-Trapinch + First Impression
+Beldum + Agility -tm, Magnet Rise, Psychic -tm, Flash Cannon -tm, Hyper Beam -tm
+Slowpoke-Galar + Poison Jab -tm
+Mudkip + Earthquake -tm, Stealth Rock -tm
+Wimpod + Liquidation -tm, Leech Life -tm, Sucker Punch, Poison Jab -tm, First Impression
 Honedge + King's Shield
 Dreepy + Dragon Darts
-Munchlax + Shadow Punch
-Chingling + Expanding Force
-Vulpix-Alola + Moonblast
-Snorunt + Explosion
+Munchlax + Shadow Punch -e
+Chingling + Expanding Force -tm
+Snorunt + Explosion -tu
 Poipole + Dragon Rush
-Toxel + Shift Gear, Overdrive, Boomburst, Poison Jab
+Toxel + Shift Gear, Overdrive, Boomburst, Poison Jab, Thunder Punch -tm
 Eevee + Multi-Attack
 Woobat + Early Skill Swap
 Varoom + Egg[Skill Swap]
 Bounsweet + Trop Kick
 Scorbunny + Pyro Ball
-Squirtle + Dark Pulse, Aura Sphere
-Litleo + Dark Pulse
-Skitty + Assist, Hyper Voice
+Squirtle + Dark Pulse -tm, Aura Sphere
+Litleo + Dark Pulse -tm
+Skitty + Hyper Voice -tm
 Ralts + Psyblade, Sacred Sword, Slash, Swords Dance, Leaf Blade, Knock Off
 Budew + Magical Leaf, Toxic
-Fletchling + Will-O-Wisp
-Swablu + Weather Ball, Air Slash
+Fletchling + Will-O-Wisp -e
+Swablu + Weather Ball, Air Slash -tm
 Riolu + Meteor Mash
-Rookidee + Flash Cannon
-Lotad + Fake Out
+Rookidee + Flash Cannon -tm
+Lotad + Fake Out -e

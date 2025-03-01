@@ -40,6 +40,7 @@ static const u16 sFrontierExchangeCorner_HoldItems[] =
     ITEM_FLAME_ORB,
     ITEM_FOCUS_SASH,
     ITEM_EJECT_PACK,
+    ITEM_BLANK_MINT,
     ITEM_EJECT_BUTTON,
     ITEM_BLACK_SLUDGE,
     ITEM_LEFTOVERS,
@@ -47,7 +48,10 @@ static const u16 sFrontierExchangeCorner_HoldItems[] =
     ITEM_EVIOLITE,
     ITEM_ABILITY_PATCH,
     ITEM_LIFE_ORB,
+    ITEM_BOTTLE_CAP,
     ITEM_RARE_CANDY,
+    ITEM_TM01,
+    ITEM_TM46,
     ITEM_LIST_END
 };
 
@@ -88,15 +92,22 @@ static const u8 *const sFrontierExchangeCorner_VitaminsDescriptions[] =
 };
 
 static const u8 *const sFrontierExchangeCorner_HoldItemsDescriptions[] =
-{
-    BattleFrontier_ExchangeServiceCorner_Text_LeftoversDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_WhiteHerbDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_QuickClawDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_MentalHerbDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_BrightpowderDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_ChoiceBandDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_KingsRockDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_FocusBandDesc,
-    BattleFrontier_ExchangeServiceCorner_Text_ScopeLensDesc,
+{ 
+    gText_BPShop_ToxicOrbDesc,
+    gText_BPShop_FlameOrbDesc,
+    gText_BPShop_FocusSashDesc,
+    gText_BPShop_EjectPackDesc,
+    gText_BPShop_BlankMintDesc,
+    gText_BPShop_EjectButtonDesc,
+    gText_BPShop_BlackSludgeDesc,
+    gText_BPShop_LeftoversDesc,
+    gText_BPShop_AssaultVestDesc,
+    gText_BPShop_EvioliteDesc,
+    gText_BPShop_AbilityPatchDesc,
+    gText_BPShop_LifeOrbDesc,
+    gText_BPShop_BottleCapDesc,
+    gText_BPShop_RareCandyDesc,
+    gText_BPShop_TM01CovetDesc,
+    gText_BPShop_TM46ThiefDesc,
     gText_Exit
 };

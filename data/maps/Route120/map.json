@@ -403,7 +403,7 @@
       "flag": "FLAG_ITEM_ROUTE_120_HYPER_POTION"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZORUA)",
       "x": 12,
       "y": 16,
       "elevation": 4,
@@ -482,19 +482,6 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZORUA)",
-      "x": 12,
-      "y": 16,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_120_KECLEON_BRIDGE_SHADOW"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZORUA)",
       "x": 20,
       "y": 11,
       "elevation": 3,
@@ -546,7 +533,7 @@
       "flag": "FLAG_HIDE_ROUTE_120_KECLEON_5"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZORUA)",
       "x": 19,
       "y": 48,
       "elevation": 3,
