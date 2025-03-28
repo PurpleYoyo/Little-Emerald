@@ -107063,7 +107063,8 @@
         "PreEvoMoves": [],
         "TMMoves": [
             "MOVE_POUNCE",
-            "MOVE_ATTRACT"
+            "MOVE_ATTRACT",
+			"MOVE_BULLET_SEED"
         ],
         "EggMoves": [
             "MOVE_DEFENSE_CURL",

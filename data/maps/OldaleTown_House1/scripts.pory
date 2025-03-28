@@ -1,4 +1,6 @@
 raw `
+.set LOCALID_GROWLITHE, 2
+
 OldaleTown_House1_MapScripts::
 	.byte 0
 

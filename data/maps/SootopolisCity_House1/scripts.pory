@@ -1,4 +1,6 @@
 raw `
+.set LOCALID_TURTWIG, 1
+
 SootopolisCity_House1_MapScripts::
 	.byte 0
 

@@ -1,5 +1,6 @@
 raw `
 .set LOCALID_TWIN, 2
+.set LOCALID_VOLTORB, 5
 
 VerdanturfTown_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, VerdanturfTown_OnTransition

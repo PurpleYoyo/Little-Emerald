@@ -1721,7 +1721,7 @@
     },
     {
       "map_section": "MAPSEC_GAME_CORNER",
-      "name": "GAME CORNER",
+      "name": "MAUVILLE GAME CORNER",
       "x": 8,
       "y": 4,
       "width": 1,
@@ -1761,7 +1761,23 @@
     },
     {
       "map_section": "MAPSEC_GAME_CORNER_2",
-      "name": "GAME CORNER",
+      "name": "MOSSDEEP GAME CORNER",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SPACE_CENTER",
+      "name": "SPACE CENTER",
+      "x": 8,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_OCEANIC_MUSEUM",
+      "name": "OCEANIC MUSEUM",
       "x": 8,
       "y": 4,
       "width": 1,

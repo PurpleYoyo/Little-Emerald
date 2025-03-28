@@ -185,6 +185,4 @@ FallarborTown_Text_TownSign:
 # 93 "data/maps/FallarborTown/scripts.pory"
 FallarborTown_Text_MoveTutorSign:
 # 94 "data/maps/FallarborTown/scripts.pory"
-	.string "MOVE TUTOR'S HOUSE\n"
-# 95 "data/maps/FallarborTown/scripts.pory"
-	.string "“New moves taught to POKéMON.”$"
+	.string "FOSSIL SCIENTIST'S HOUSE$"

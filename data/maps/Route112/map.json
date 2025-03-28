@@ -30,7 +30,17 @@
     },
     {
       "map": "MAP_ROUTE111",
-      "offset": 13,
+      "offset": -20,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE111_NO_MIRAGE_TOWER",
+      "offset": -20,
+      "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE111",
+      "offset": -20,
       "direction": "right"
     }
   ],

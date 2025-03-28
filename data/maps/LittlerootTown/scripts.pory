@@ -1087,6 +1087,10 @@ script Miniboss_ScaryGuy {
 	faceplayer
 	lockall
 	msgbox(format("The best way to defeat your enemy is to scare them, so I only use Pokémon with Intimidate!"))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_GROWLITHE)
+	setflag(FLAG_HIDE_SCARY_GUYS_GROWLITHE)
 	trainerbattle_single(TRAINER_ROXANNE_2, Miniboss_Text_ScaryGuy_Intro, Miniboss_Text_ScaryGuy_Defeat, Miniboss_ScaryGuyDefeated)
 	closemessage
 	releaseall
@@ -1103,7 +1107,7 @@ script Miniboss_ScaryGuyDefeated {
 script Miniboss_ScaryGuyBPReward {
 	GiveBP(15)
 	msgbox(format("And here's 15 Battle Points for defeating me before Roxanne. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1112,6 +1116,10 @@ script Miniboss_Protector {
 	faceplayer
 	lockall
 	msgbox(format("I hate when my Pokémon take too much damage, so I'll do whatever I can to reduce it!"))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_SPRITZEE)
+	setflag(FLAG_HIDE_PROTECTORS_SPRITZEE)
 	trainerbattle_double(TRAINER_ROXANNE_3, Miniboss_Text_Protector_Intro, Miniboss_Text_Protector_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_ProtectorDefeated)
 	closemessage
 	releaseall
@@ -1128,7 +1136,7 @@ script Miniboss_ProtectorDefeated {
 script Miniboss_ProtectorBPReward {
 	GiveBP(15)
 	msgbox(format("And here's 15 Battle Points for defeating me before Brawly. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1137,6 +1145,10 @@ script Miniboss_SpeedyChap {
 	faceplayer
 	lockall
 	msgbox(format("Hahaha! I'm so fast! You can't catch me!"))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_VOLTORB)
+	setflag(FLAG_HIDE_SPEEDY_KIDS_VOLTORB)
 	trainerbattle_single(TRAINER_ROXANNE_4, Miniboss_Text_SpeedyChap_Intro, Miniboss_Text_SpeedyChap_Defeat, Miniboss_SpeedyChapDefeated)
 	closemessage
 	releaseall
@@ -1153,7 +1165,7 @@ script Miniboss_SpeedyChapDefeated {
 script Miniboss_SpeedyChapBPReward {
 	GiveBP(25)
 	msgbox(format("And here's 25 Battle Points for defeating me before Wattson. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1161,8 +1173,11 @@ script Miniboss_SpeedyChapBPReward {
 script Miniboss_Collector {
 	faceplayer
 	lockall
-	goto_if_unset(FLAG_RECEIVED_SPECIAL_FROAKIE, TryGiveSpecialFroakie)
 	msgbox(format("I like collecting Pokémon with forms. Do you have any? Let me see!"))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_MEOWTH)
+	setflag(FLAG_HIDE_COLLECTORS_MEOWTH)
 	trainerbattle_single(TRAINER_ROXANNE_5, Miniboss_Text_Collector_Intro, Miniboss_Text_Collector_Defeat, Miniboss_CollectorDefeated)
 	closemessage
 	releaseall
@@ -1171,6 +1186,7 @@ script Miniboss_Collector {
 script Miniboss_CollectorDefeated {
 	msgbox(format("Here's a Special Froakie for defeating me. It has a very unique ability. So cool!"))
 	givemon(SPECIES_FROAKIE_SPECIAL, 5)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FROAKIE_SPECIAL)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained a special Froakie."))
@@ -1186,14 +1202,15 @@ script Miniboss_CollectorDefeated {
 	else {
 		msgbox(format("You don't have any room in your boxes for a new Pokémon. Come back with some extra room."))
 	}
-	call_if_unset(FLAG_DEFEATED_LAVARIDGE_GYM, Miniboss_CollectorBPReward)
 	closemessage
+	call_if_unset(FLAG_DEFEATED_LAVARIDGE_GYM, Miniboss_CollectorBPReward)
 	releaseall
 }
 
 script TryGiveSpecialFroakie {
 	msgbox(format("Here's a Special Froakie for defeating me. It has a very unique ability. So cool!"))
 	givemon(SPECIES_FROAKIE_SPECIAL, 5)
+	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FROAKIE_SPECIAL)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained a special Froakie."))
@@ -1214,7 +1231,7 @@ script TryGiveSpecialFroakie {
 script Miniboss_CollectorBPReward {
 	GiveBP(25)
 	msgbox(format("And here's 25 Battle Points for defeating me before Flannery. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1228,6 +1245,10 @@ script Miniboss_BoomDude {
 		goto(End)
 	}
 	msgbox(format("..................................................."))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_GEODUDE)
+	setflag(FLAG_HIDE_BOOM_DUDES_GEODUDE)
 	trainerbattle_single(TRAINER_BRAWLY_5, Miniboss_Text_BoomDude_Intro, Miniboss_Text_BoomDude_Defeat, Miniboss_BoomDudeDefeated)
 	closemessage
 	releaseall
@@ -1244,7 +1265,7 @@ script Miniboss_BoomDudeDefeated {
 script Miniboss_BoomDudeBPReward {
 	GiveBP(30)
 	msgbox(format("And here's 30 Battle Points for defeating me before Norman. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1253,6 +1274,10 @@ script Miniboss_CritMaster {
 	faceplayer
 	lockall
 	msgbox(format("I have cheated the system. I have a guaranteed chance to crit every time. There's no way your Pokémon can withstand me!"))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_SPRIGATITO)
+	setflag(FLAG_HIDE_CRITTERS_SPRIGATITO)
 	trainerbattle_double(TRAINER_WATTSON_2, Miniboss_Text_CritMaster_Intro, Miniboss_Text_CritMaster_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_CritMasterDefeated)
 	closemessage
 	releaseall
@@ -1269,7 +1294,7 @@ script Miniboss_CritMasterDefeated {
 script Miniboss_CritMasterBPReward {
 	GiveBP(30)
 	msgbox(format("And here's 30 Battle Points for defeating me before Winona. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1277,7 +1302,16 @@ script Miniboss_CritMasterBPReward {
 script Miniboss_SlowFella {
 	faceplayer
 	lockall
-	msgbox(format("...................................."))
+	checkpartytrickroom
+	if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("...................................................no trick room"))
+		goto(End)
+	}
+	msgbox(format("..................................................."))
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_GRIMER)
+	setflag(FLAG_HIDE_SLOW_FELLAS_GRIMER)
 	trainerbattle_single(TRAINER_WATTSON_3, Miniboss_Text_SlowFella_Intro, Miniboss_Text_SlowFella_Defeat, Miniboss_SlowFellaDefeated)
 	closemessage
 	releaseall
@@ -1294,7 +1328,7 @@ script Miniboss_SlowFellaDefeated {
 script Miniboss_SlowFellaBPReward {
 	GiveBP(40)
 	msgbox(format("And here's 40 Battle Points for defeating me before Tate & Liza. Spend them wisely or whatever."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1302,6 +1336,10 @@ script Miniboss_SlowFellaBPReward {
 script Miniboss_Smasher {
 	faceplayer
 	lockall
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_TURTWIG)
+	setflag(FLAG_HIDE_SMASHERS_TURTWIG)
 	goto_if_set(FLAG_DEFEATED_SMASHER, EventScript_ShellSmashTutor)
 	msgbox(format("Check out this sick move I just found!"))
 	trainerbattle_single(TRAINER_WATTSON_4, Miniboss_Text_Smasher_Intro, Miniboss_Text_Smasher_Defeat, Miniboss_SmasherDefeated)
@@ -1320,7 +1358,7 @@ script Miniboss_SmasherDefeated {
 script Miniboss_SmasherBPReward {
 	GiveBP(45)
 	msgbox(format("And here's 45 Battle Points for defeating me before Juan. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }
@@ -1328,6 +1366,10 @@ script Miniboss_SmasherBPReward {
 script Miniboss_Purkat {
 	faceplayer
 	lockall
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_HONEDGE)
+	setflag(FLAG_HIDE_PURKATS_HONEDGE)
 	msgbox(format("Hey! I hope you're enjoying my hack! Prepare to die!"))
 	trainerbattle_single(TRAINER_WATTSON_5, Miniboss_Text_Purkat_Intro, Miniboss_Text_Purkat_Defeat, Miniboss_PurkatDefeated)
 	closemessage
@@ -1346,7 +1388,7 @@ script Miniboss_PurkatDefeated {
 script Miniboss_PurkatBPReward {
 	GiveBP(50)
 	msgbox(format("And here's 50 Battle Points for defeating me before the taking on the Pokémon League. Spend them wisely."))
-	playse(SE_SUCCESS)
+	playse(SE_ITEMFINDER)
 	closemessage
 	releaseall
 }

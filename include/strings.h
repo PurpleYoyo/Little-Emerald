@@ -2785,4 +2785,31 @@ extern const u8 gText_WarpToWhere[];
 extern const u8 gText_CantUseBoxLink[];
 extern const u8 gText_CantUseWarpPanel[];
 
+extern const u8 gText_CantUseFlashHere[];
+extern const u8 gText_AlreadyUsedFlash[];
+extern const u8 gText_UseFlash[];
+
+extern const u8 gText_LittleEmeraldVersion[];
+
+extern const u8 gText_BeforeYouBegin[];
+extern const u8 gText_NormalModeDesc[];
+extern const u8 gText_HardModeDesc[];
+extern const u8 gText_WhichDifficulty[];
+extern const u8 gText_EnableEvs[];
+extern const u8 gText_AreYouSure[];
+
+extern const u8 gText_VersionDifficulty_Hard[];
+extern const u8 gText_VersionDifficulty_Normal[];
+extern const u8 gText_NormalDifficulty[];
+extern const u8 gText_HardDifficulty[];
+
+extern const u8 gText_Version[];
+extern const u8 gText_Difficulty[];
+extern const u8 gText_Enabled[];
+extern const u8 gText_Disabled[];
+extern const u8 gText_EvGain[];
+
+extern const u8 gText_Incenses[];
+extern const u8 gText_Mints[];
+
 #endif // GUARD_STRINGS_H

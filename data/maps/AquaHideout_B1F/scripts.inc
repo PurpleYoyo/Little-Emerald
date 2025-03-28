@@ -63,7 +63,7 @@ AquaHideout_B1F_EventScript_Electrode1::
 # 32 "data/maps/AquaHideout_B1F/scripts.pory"
 	faceplayer
 # 33 "data/maps/AquaHideout_B1F/scripts.pory"
-	setwildbattle SPECIES_VOLTORB_HISUI, 45
+	setwildbattle SPECIES_VOLTORB_HISUI, 40
 # 34 "data/maps/AquaHideout_B1F/scripts.pory"
 	waitse
 # 35 "data/maps/AquaHideout_B1F/scripts.pory"
@@ -111,7 +111,7 @@ AquaHideout_B1F_EventScript_Electrode2::
 # 56 "data/maps/AquaHideout_B1F/scripts.pory"
 	faceplayer
 # 57 "data/maps/AquaHideout_B1F/scripts.pory"
-	setwildbattle SPECIES_VOLTORB, 45
+	setwildbattle SPECIES_VOLTORB, 40
 # 58 "data/maps/AquaHideout_B1F/scripts.pory"
 	waitse
 # 59 "data/maps/AquaHideout_B1F/scripts.pory"

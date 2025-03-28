@@ -170,6 +170,8 @@
 #define STDSTRING_BATTLE_ARENA     27
 #define STDSTRING_BATTLE_PIKE      28
 #define STDSTRING_BATTLE_PYRAMID   29
+#define STDSTRING_INCENSES         30
+#define STDSTRING_MINTS            31
 
 // Dynamic Multichoice Callbacks
 

@@ -3,6 +3,7 @@ raw `
 .set LOCALID_GERALD, 3
 .set LOCALID_AXLE, 4
 .set LOCALID_DANIELLE, 5
+.set LOCALID_CYNDAQUIL, 7
 
 LavaridgeTown_Gym_1F_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LavaridgeTown_Gym_1F_OnTransition
@@ -50,6 +51,10 @@ LavaridgeTown_Gym_1F_EventScript_EndCheckBuryTrainers::
 	return
 
 LavaridgeTown_Gym_1F_EventScript_Flannery::
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_CYNDAQUIL
+	setflag FLAG_HIDE_FLANNERYS_CYNDAQUIL
 	trainerbattle_single TRAINER_FLANNERY_1, LavaridgeTown_Gym_1F_Text_FlanneryIntro, LavaridgeTown_Gym_1F_Text_FlanneryDefeat, LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, LavaridgeTown_Gym_1F_EventScript_FlanneryRematch

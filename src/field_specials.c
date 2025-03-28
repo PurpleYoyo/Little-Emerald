@@ -1777,6 +1777,16 @@ void IsChosenMonImmuneToSleepDueToAbility(void)
     gSpecialVar_Result = FALSE;
 }
 
+void HasPlayerDefeatedWinona(void)
+{
+    if (FlagGet(FLAG_DEFEATED_FORTREE_GYM))
+    {
+        gSpecialVar_Result = TRUE;
+        return;
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 void IsPlayerInPokemonLeague (void)
 {
     gSpecialVar_Result = gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY_SIDNEYS_ROOM);

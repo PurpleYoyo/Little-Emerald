@@ -717,7 +717,7 @@ static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 
     trainerCard->hasPokedex = FlagGet(FLAG_SYS_POKEDEX_GET);
     trainerCard->caughtAllHoenn = HasAllHoennMons();
-    trainerCard->caughtMonsCount = gSaveBlock2Ptr->frontier.battlePoints; //GetCaughtMonsCount();
+    trainerCard->caughtMonsCount = GetCaughtMonsCount();
 
     trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
 
@@ -1227,13 +1227,16 @@ static void BufferLinkBattleResults(void)
 
 static void PrintLinkBattleResultsOnCard(void)
 {
-    if (sData->hasLinkResults)
-    {
-        StringCopy(gStringVar1, sData->textLinkBattleWins);
-        StringCopy(gStringVar2, sData->textLinkBattleLosses);
-        StringExpandPlaceholders(gStringVar4, gText_WinsLosses);
-        PrintStatOnBackOfCard(1, sData->textLinkBattleType, gStringVar4, sTrainerCardTextColors);
-    }
+    //if (sData->hasLinkResults)
+    //{
+    //StringCopy(gStringVar1, sData->textLinkBattleWins);
+    //StringCopy(gStringVar2, sData->textLinkBattleLosses);
+    if (VarGet(VAR_DIFFICULTY) == NORMAL_DIFFICULTY)
+        StringExpandPlaceholders(gStringVar4, gText_NormalDifficulty);
+    else
+        StringExpandPlaceholders(gStringVar4, gText_HardDifficulty);
+    PrintStatOnBackOfCard(1, gText_Difficulty, gStringVar4, sTrainerCardTextColors);
+    //}
 }
 
 static void BufferNumTrades(void)
@@ -1244,20 +1247,22 @@ static void BufferNumTrades(void)
 
 static void PrintTradesStringOnCard(void)
 {
-    if (sData->hasTrades)
-        PrintStatOnBackOfCard(2, gText_PokemonTrades, sData->textNumTrades, sTrainerCardStatColors);
+    //if (sData->hasTrades)
+    StringCopy(sData->textNumTrades, gText_LittleEmeraldVersion);
+    PrintStatOnBackOfCard(2, gText_Version, sData->textNumTrades, sTrainerCardStatColors);
 }
 
 static void BufferBerryCrushPoints(void)
 {
-    if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.linkPoints.berryCrush)
-        ConvertIntToDecimalStringN(sData->textBerryCrushPts, sData->trainerCard.linkPoints.berryCrush, STR_CONV_MODE_RIGHT_ALIGN, 5);
+    //if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.linkPoints.berryCrush)
+    ConvertIntToDecimalStringN(sData->textBerryCrushPts, gSaveBlock2Ptr->frontier.cardBattlePoints, STR_CONV_MODE_RIGHT_ALIGN, 5);
 }
 
 static void PrintBerryCrushStringOnCard(void)
 {
-    if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.linkPoints.berryCrush)
-        PrintStatOnBackOfCard(4, gText_BerryCrush, sData->textBerryCrushPts, sTrainerCardStatColors);
+    //if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.linkPoints.berryCrush)
+    //StringCopy(sData->textNumTrades, gText_LittleEmeraldVersion);
+    PrintStatOnBackOfCard(4, gText_BattlePoints, sData->textBerryCrushPts, sTrainerCardStatColors);
 }
 
 static void BufferUnionRoomStats(void)
@@ -1268,8 +1273,12 @@ static void BufferUnionRoomStats(void)
 
 static void PrintUnionStringOnCard(void)
 {
-    if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.unionRoomNum)
-        PrintStatOnBackOfCard(3, gText_UnionTradesAndBattles, sData->textUnionRoomStats, sTrainerCardStatColors);
+    //if (sData->cardType == CARD_TYPE_FRLG && sData->trainerCard.unionRoomNum)
+    if (VarGet(VAR_EV_GAIN) == 1)
+        StringExpandPlaceholders(gStringVar4, gText_Enabled);
+    else
+        StringExpandPlaceholders(gStringVar4, gText_Disabled);
+    PrintStatOnBackOfCard(3, gText_EvGain, gStringVar4, sTrainerCardStatColors);
 }
 
 static void BufferLinkPokeblocksNum(void)

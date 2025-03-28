@@ -1020,8 +1020,11 @@
 #define ITEM_BLANK_MINT       846
 
 #define ITEM_WARP_PANEL       847
+#define ITEM_CAP_CANDY        848
+#define ITEM_EDGE_CANDY       849
+#define ITEM_FLASHLIGHT       850
 
-#define ITEMS_COUNT 848
+#define ITEMS_COUNT 851
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

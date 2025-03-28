@@ -3832,6 +3832,10 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, u16 item, u8 partyIndex, u8 mov
                         dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
                     }
                 }
+                else if (param == 7) // Cap Candy
+                {
+                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES, NULL)].growthRate][GetCurrentLevelCap()];
+                }
 
                 if (dataUnsigned != 0) // Failsafe
                 {

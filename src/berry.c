@@ -2199,6 +2199,11 @@ void Bag_ChooseBerry(void)
     SetMainCallback2(CB2_ChooseBerry);
 }
 
+void Bag_ChooseFossil(void)
+{
+    SetMainCallback2(CB2_ChooseFossil);
+}
+
 void Bag_ChooseMulch(void)
 {
     SetMainCallback2(CB2_ChooseMulch);

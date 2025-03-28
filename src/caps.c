@@ -3,7 +3,7 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
-
+#include "main_menu.h"
 
 u32 GetCurrentLevelCap(void)
 {
@@ -110,7 +110,7 @@ u32 GetCurrentEVCap(void)
     {
         return VarGet(B_EV_CAP_VARIABLE);
     }
-    else if (B_EV_CAP_TYPE == EV_CAP_NO_GAIN)
+    else if (VarGet(VAR_EV_GAIN) == 0)
     {
         return 0;
     }

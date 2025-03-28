@@ -19,6 +19,7 @@ SootopolisCity_Mart_Pokemart:
 	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_DIVE_BALL
 	.2byte ITEM_DREAM_BALL
+	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_REVIVE
 	pokemartlistend
 

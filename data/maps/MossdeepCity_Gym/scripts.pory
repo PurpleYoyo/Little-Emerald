@@ -1,4 +1,7 @@
 raw `
+.set LOCALID_TATES_MIMEJR, 37
+.set LOCALID_LIZAS_MIMEJR, 38
+
 MossdeepCity_Gym_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, MossdeepCity_Gym_OnTransition
 	map_script MAP_SCRIPT_ON_LOAD, MossdeepCity_Gym_OnLoad
@@ -55,6 +58,12 @@ MossdeepCity_Gym_EventScript_SetSwitch4Metatiles::
 	end
 
 MossdeepCity_Gym_EventScript_TateAndLiza::
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_TATES_MIMEJR
+	setflag FLAG_HIDE_TATES_MIMEJR
+	removeobject LOCALID_LIZAS_MIMEJR
+	setflag FLAG_HIDE_LIZAS_MIMEJR
 	random 2
 	goto_if_eq VAR_RESULT, 0, MossdeepCity_Gym_EventScript_TateAndLiza1
 	goto_if_ne VAR_RESULT, 0, MossdeepCity_Gym_EventScript_TateAndLiza2

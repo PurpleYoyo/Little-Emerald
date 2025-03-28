@@ -147,54 +147,48 @@ Route104_PrettyPetalFlowerShop_EventScript_GiveWailmerPail::
 # 74 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	msgbox Route104_PrettyPetalFlowerShop_Text_YouCanHaveThis, MSGBOX_DEFAULT
 # 75 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-	giveitem ITEM_WAILMER_PAIL
-# 76 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-# 77 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-	msgbox Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation, MSGBOX_DEFAULT
-# 78 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	setflag FLAG_RECEIVED_WAILMER_PAIL
+# 76 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+	release
+# 77 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+	end
+# 78 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+
 # 79 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-	release
-# 80 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-	end
-# 81 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
-
-# 82 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 Route104_PrettyPetalFlowerShop_EventScript_RandomBerryGirl::
-# 83 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 80 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	lock
-# 84 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 81 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	faceplayer
-# 85 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 82 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	dotimebasedevents
-# 86 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 83 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	goto_if_set FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY, Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry
-# 87 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 84 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	msgbox Route104_PrettyPetalFlowerShop_Text_ImGrowingFlowers, MSGBOX_DEFAULT
-# 88 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 85 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	random 8
-# 89 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 86 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	addvar VAR_RESULT, FIRST_BERRY_INDEX
-# 90 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 87 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	giveitem VAR_RESULT
-# 91 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 88 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-# 92 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 89 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	setflag FLAG_DAILY_FLOWER_SHOP_RECEIVED_BERRY
-# 93 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 90 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
-# 94 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 91 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	release
-# 95 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 92 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	end
-# 96 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 93 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 
-# 97 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 94 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 Route104_PrettyPetalFlowerShop_EventScript_AlreadyReceivedBerry::
-# 98 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 95 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	msgbox Route104_PrettyPetalFlowerShop_Text_MachineMixesBerries, MSGBOX_DEFAULT
-# 99 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 96 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	release
-# 100 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
+# 97 "data/maps/Route104_PrettyPetalFlowerShop/scripts.pory"
 	end

@@ -1,6 +1,8 @@
 raw `
 .set LOCALID_WOMAN_1, 19
 .set LOCALID_MAN_1, 20
+.set LOCALID_TYROGUE, 28
+.set LOCALID_PICHU, 29
 
 LilycoveCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, LilycoveCity_OnTransition
@@ -8,12 +10,24 @@ LilycoveCity_MapScripts::
 	.byte 0
 
 LilycoveCity_OnTransition:
+	call_if_eq VAR_DIFFICULTY, 0, RemovePichu
+	call_if_eq VAR_DIFFICULTY, 1, RemoveTyrogue
 	setflag FLAG_VISITED_LILYCOVE_CITY
 	setvar VAR_CONTEST_HALL_STATE, 0
 	setflag FLAG_HIDE_LILYCOVE_CONTEST_HALL_REPORTER
 	call_if_set FLAG_SYS_WEATHER_CTRL, Common_EventScript_SetAbnormalWeather
 	call Common_EventScript_SetupRivalGfxId
 	end
+
+RemoveTyrogue::
+	removeobject LOCALID_TYROGUE
+	setflag FLAG_HIDE_RIVALS_TYROGUE
+	return
+
+RemovePichu::
+	removeobject LOCALID_PICHU
+	setflag FLAG_HIDE_RIVALS_PICHU
+	return
 
 LilycoveCity_OnLoad:
 	call_if_unset FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE, LilycoveCity_EventScript_SetWailmerMetatiles
@@ -244,6 +258,12 @@ LilycoveCity_EventScript_May::
 	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_MayAskToBattle
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineMayBattle
 	msgbox LilycoveCity_Text_MayWontBeBeaten, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_TYROGUE
+	setflag FLAG_HIDE_RIVALS_TYROGUE
+	removeobject LOCALID_PICHU
+	setflag FLAG_HIDE_RIVALS_PICHU
 	switch VAR_STARTER_MON
 	case 0, LilycoveCity_EventScript_BattleMayTreecko
 	case 1, LilycoveCity_EventScript_BattleMayTorchic
@@ -272,6 +292,12 @@ LilycoveCity_EventScript_Brendan::
 	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_BrendanAskToBattle
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineBrendanBattle
 	msgbox LilycoveCity_Text_BrendanWontBeBeaten, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_TYROGUE
+	setflag FLAG_HIDE_RIVALS_TYROGUE
+	removeobject LOCALID_PICHU
+	setflag FLAG_HIDE_RIVALS_PICHU
 	switch VAR_STARTER_MON
 	case 0, LilycoveCity_EventScript_BattleBrendanTreecko
 	case 1, LilycoveCity_EventScript_BattleBrendanTorchic
@@ -295,32 +321,68 @@ LilycoveCity_EventScript_DeclineBrendanBattle::
 	end
 
 LilycoveCity_EventScript_BattleMayTreecko::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleMayTreeckoPW
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TREECKO, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
+LilycoveCity_EventScript_BattleMayTreeckoPW::
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TREECKO_PW, LilycoveCity_Text_MayDefeat
+	goto LilycoveCity_EventScript_DefeatedMay
+	end
+
 LilycoveCity_EventScript_BattleMayTorchic::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleMayTorchicPW
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
+LilycoveCity_EventScript_BattleMayTorchicPW::
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC_PW, LilycoveCity_Text_MayDefeat
+	goto LilycoveCity_EventScript_DefeatedMay
+	end
+
 LilycoveCity_EventScript_BattleMayMudkip::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleMayMudkipPW
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_MUDKIP, LilycoveCity_Text_MayDefeat
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
+LilycoveCity_EventScript_BattleMayMudkipPW::
+	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_MUDKIP_PW, LilycoveCity_Text_MayDefeat
+	goto LilycoveCity_EventScript_DefeatedMay
+	end
+
 LilycoveCity_EventScript_BattleBrendanTreecko::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleBrendanTreeckoPW
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TREECKO, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
+LilycoveCity_EventScript_BattleBrendanTreeckoPW::
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TREECKO_PW, LilycoveCity_Text_BrendanDefeat
+	goto LilycoveCity_EventScript_DefeatedBrendan
+	end
+
 LilycoveCity_EventScript_BattleBrendanTorchic::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleBrendanTorchicPW
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TORCHIC, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
+LilycoveCity_EventScript_BattleBrendanTorchicPW::
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TORCHIC_PW, LilycoveCity_Text_BrendanDefeat
+	goto LilycoveCity_EventScript_DefeatedBrendan
+	end
+
 LilycoveCity_EventScript_BattleBrendanMudkip::
+	goto_if_unset FLAG_DEFEATED_FORTREE_GYM, LilycoveCity_EventScript_BattleBrendanMudkipPW
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_MUDKIP, LilycoveCity_Text_BrendanDefeat
+	goto LilycoveCity_EventScript_DefeatedBrendan
+	end
+
+LilycoveCity_EventScript_BattleBrendanMudkipPW::
+	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_MUDKIP_PW, LilycoveCity_Text_BrendanDefeat
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 

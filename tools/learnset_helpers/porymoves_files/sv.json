@@ -52462,7 +52462,21 @@
             }
         ],
         "PreEvoMoves": [],
-        "TMMoves": [],
+        "TMMoves": [
+		  "MOVE_ROCK_TOMB",
+		  "MOVE_BULLDOZE",
+		  "MOVE_GIGA_DRAIN",
+		  "MOVE_LEECH_LIFE",
+		  "MOVE_U_TURN",
+		  "MOVE_LOW_SWEEP",
+		  "MOVE_BRICK_BREAK",
+		  "MOVE_POISON_JAB",
+		  "MOVE_BULLET_SEED",
+		  "MOVE_THIEF",
+		  "MOVE_COVET",
+		  "MOVE_SWORDS_DANCE",
+		  "MOVE_POUNCE"
+		],
         "EggMoves": [
             "MOVE_STRUGGLE_BUG",
             "MOVE_BUG_BITE",
@@ -52473,7 +52487,7 @@
             "MOVE_POUND",
             "MOVE_MUD_SLAP",
             "MOVE_STRING_SHOT",
-            "MOVE_ABSORB",
+            "MOVE_MEGA_DRAIN",
             "MOVE_TACKLE"
         ],
         "TutorMoves": []
@@ -86685,7 +86699,8 @@
             "MOVE_COMET_PUNCH",
             "MOVE_CIRCLE_THROW",
             "MOVE_ENTRAINMENT",
-            "MOVE_PARTING_SHOT"
+            "MOVE_PARTING_SHOT",
+			"MOVE_BULLET_PUNCH"
         ],
         "TutorMoves": [
             "MOVE_COACHING",
@@ -96883,7 +96898,8 @@
             "MOVE_SNORE",
             "MOVE_BEAT_UP",
             "MOVE_POISON_FANG",
-            "MOVE_INCINERATE"
+            "MOVE_INCINERATE",
+			"MOVE_ENCORE"
         ],
         "TutorMoves": [
             "MOVE_SWAGGER",
@@ -103294,7 +103310,8 @@
             "MOVE_FIRE_BLAST",
             "MOVE_OVERHEAT",
             "MOVE_ATTRACT",
-            "MOVE_WORK_UP"
+            "MOVE_WORK_UP",
+			"MOVE_ZEN_HEADBUTT"
         ],
         "EggMoves": [
             "MOVE_HI_JUMP_KICK",
@@ -105923,16 +105940,22 @@
         "PreEvoMoves": [],
         "TMMoves": [
             "MOVE_POUNCE",
-            "MOVE_ATTRACT"
+            "MOVE_ATTRACT",
+			"MOVE_BULLET_SEED",
+			"MOVE_SOLAR_BEAM",
+			"MOVE_GIGA_DRAIN",
+			"MOVE_PROTECTwi"
         ],
         "EggMoves": [
             "MOVE_DEFENSE_CURL",
             "MOVE_RECYCLE",
             "MOVE_GRASSY_GLIDE",
-            "MOVE_WITHDRAW",
-            "MOVE_ASTONISH"
+            "MOVE_LEECH_SEED",
+			"MOVE_RAGE_POWDER"
         ],
-        "TutorMoves": []
+        "TutorMoves": [
+		    "MOVE_EXPLOSION"
+		]
     },
     "FLAPPLE": {
         "LevelMoves": [
@@ -109108,7 +109131,21 @@
             "MOVE_ICY_WIND",
             "MOVE_SLEEP_TALK",
             "MOVE_REST",
-            "MOVE_ATTRACT"
+            "MOVE_ATTRACT",
+			"MOVE_ICE_BEAM",
+			"MOVE_CHILLING_WATER",
+			"MOVE_GIGA_DRAIN",
+			"MOVE_LEECH_LIFE",
+			"MOVE_DAZZLING_GLEAM",
+			"MOVE_HAIL",
+			"MOVE_ACROBATICS",
+			"MOVE_U_TURN",
+			"MOVE_PLAY_ROUGH",
+			"MOVE_ICE_SPINNER",
+			"MOVE_SOLAR_BEAM",
+			"MOVE_CALM_MIND",
+			"MOVE_REFLECT",
+			"MOVE_LIGHT_SCREEN"
         ],
         "EggMoves": [
             "MOVE_BUG_BITE",
@@ -109123,7 +109160,8 @@
             "MOVE_POWDER_SNOW"
         ],
         "TutorMoves": [
-            "MOVE_SLEEP_TALK"
+            "MOVE_SLEEP_TALK",
+			"MOVE_SUBSTITUTE"
         ]
     },
     "FROSMOTH": {
@@ -117025,7 +117063,8 @@
             "MOVE_KNOCK_OFF",
             "MOVE_PSYCH_UP",
             "MOVE_ENDEAVOR",
-            "MOVE_SKITTER_SMACK"
+            "MOVE_SKITTER_SMACK",
+			"MOVE_SKETCH"
         ],
         "TutorMoves": []
     },
@@ -117794,7 +117833,10 @@
             "MOVE_SOLAR_BEAM",
             "MOVE_FLAMETHROWER",
             "MOVE_OVERHEAT",
-            "MOVE_LASH_OUT"
+            "MOVE_LASH_OUT",
+			"MOVE_FIRE_FANG",
+			"MOVE_FIRE_PUNCH",
+			"MOVE_THUNDER_PUNCH"
         ],
         "EggMoves": [
             "MOVE_INGRAIN",

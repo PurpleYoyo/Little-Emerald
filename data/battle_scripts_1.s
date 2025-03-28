@@ -4570,11 +4570,12 @@ BattleScript_EffectTeleport::
 	getifcantrunfrombattle BS_ATTACKER
 	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FORBIDDEN, BattleScript_ButItFailed
 	jumpifbyte CMP_EQUAL, gBattleCommunication, BATTLE_RUN_FAILURE, BattleScript_PrintAbilityMadeIneffective
-	attackanimation
-	waitanimation
-	printstring STRINGID_PKMNFLEDFROMBATTLE
-	waitmessage B_WAIT_TIME_LONG
-	setoutcomeonteleport BS_ATTACKER
+	call BattleScript_ButItFailed
+	//attackanimation
+	//waitanimation
+	//printstring STRINGID_PKMNFLEDFROMBATTLE
+	//waitmessage B_WAIT_TIME_LONG
+	//setoutcomeonteleport BS_ATTACKER
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectBeatUp::
@@ -6435,19 +6436,31 @@ BattleScript_BattleBondActivates::
 	saveattacker
 	copybyte gBattlerTarget, gBattlerAttacker
 	call BattleScript_AbilityPopUpTarget
-	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BattleBondTryAttack
-	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_BattleBondTryAttack
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_RestoreAttackerButItFailed
-BattleScript_BattleBondTryAttack:
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_ATK, MAX_STAT_STAGE, BattleScript_BattleBondStatRaise
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_BattleBondStatRaise
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPEED, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+BattleScript_BattleBondStatRaise::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
-	modifybattlerstatstage BS_ATTACKER, STAT_ATK, INCREASE, 1, BattleScript_BattleBondTrySpAtk, ANIM_ON
+	playstatchangeanimation BS_ATTACKER, BIT_SPATK | BIT_SPEED | BIT_ATK, 0
+	setstatchanger STAT_ATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BattleBondTrySpAtk
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BattleBondTrySpAtk
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
 BattleScript_BattleBondTrySpAtk:
-	modifybattlerstatstage BS_ATTACKER, STAT_SPATK, INCREASE, 1, BattleScript_BattleBondTrySpeed, ANIM_ON
+	setstatchanger STAT_SPATK, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BattleBondEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BattleBondEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
 BattleScript_BattleBondTrySpeed:
-	modifybattlerstatstage BS_ATTACKER, STAT_SPEED, INCREASE, 1, BattleScript_BattleBondRet, ANIM_ON
-BattleScript_BattleBondRet:
-	restoreattacker
-	return
+	setstatchanger STAT_SPEED, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_BattleBondEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_BattleBondEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_BattleBondEnd:
+	goto BattleScript_MoveEnd
 
 BattleScript_WindPowerActivates::
 	call BattleScript_AbilityPopUp

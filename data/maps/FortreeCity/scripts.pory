@@ -56,8 +56,9 @@ FortreeCity_EventScript_GymSign::
 FortreeCity_EventScript_Kecleon::
 	lock
 	faceplayer
+	setvar VAR_0x8009, 8
 	checkitem ITEM_DEVON_SCOPE
-	goto_if_eq VAR_RESULT, TRUE, FortreeCity_EventScript_AskUseDevonScope
+	goto_if_eq VAR_RESULT, TRUE, EventScript_AskUseDevonScope2
 	msgbox FortreeCity_Text_SomethingUnseeable, MSGBOX_DEFAULT
 	release
 	end
@@ -77,6 +78,11 @@ FortreeCity_EventScript_UseDevonScope::
 	playmoncry SPECIES_ZORUA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
+	setwildbattle SPECIES_ZORUA, 30
+	setvar VAR_0x8009, 0
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	dowildbattle
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	applymovement VAR_LAST_TALKED, FortreeCity_Movement_KecleonFlee
 	waitmovement 0
 	removeobject VAR_LAST_TALKED

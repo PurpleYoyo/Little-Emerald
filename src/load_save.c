@@ -28,6 +28,8 @@ struct LoadedSaveData
  /*0x0130*/ struct ItemSlot TMsHMs[BAG_TMHM_COUNT];
  /*0x0230*/ struct ItemSlot berries[BAG_BERRIES_COUNT];
  /*0x02E8*/ struct Mail mail[MAIL_COUNT];
+ /*0x0230*/ struct ItemSlot incenses[BAG_INCENSES_COUNT];
+ /*0x0230*/ struct ItemSlot mints[BAG_MINTS_COUNT];
 };
 
 // EWRAM DATA
@@ -280,6 +282,12 @@ void LoadPlayerBag(void)
     for (i = 0; i < MAIL_COUNT; i++)
         gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
 
+    for (i = 0; i < BAG_INCENSES_COUNT; i++)
+        gLoadedSaveData.incenses[i] = gSaveBlock1Ptr->bagPocket_Incenses[i];
+
+    for (i = 0; i < BAG_MINTS_COUNT; i++)
+        gLoadedSaveData.mints[i] = gSaveBlock1Ptr->bagPocket_Mints[i];
+
     gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
 }
 
@@ -311,6 +319,12 @@ void SavePlayerBag(void)
     // save mail.
     for (i = 0; i < MAIL_COUNT; i++)
         gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
+
+    for (i = 0; i < BAG_INCENSES_COUNT; i++)
+        gSaveBlock1Ptr->bagPocket_Incenses[i] = gLoadedSaveData.incenses[i];
+
+    for (i = 0; i < BAG_MINTS_COUNT; i++)
+        gSaveBlock1Ptr->bagPocket_Mints[i] = gLoadedSaveData.mints[i];
 
     encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
     gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;

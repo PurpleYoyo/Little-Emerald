@@ -54,7 +54,7 @@ Nature: Brave
 - Yawn
 - Bulldoze
 - Aqua Tail
-- Rain Dance
+- Helping Hand
 
 Seedot @ Focus Sash
 Level: 44
@@ -72,7 +72,7 @@ Nature: Timid
 - Electro Ball
 - Heat Wave
 - Agility
-- Super Fang
+- Helping Hand
 
 === PARTNER_BRENDAN_SCORBUNNY ===
 Name: BRENDAN
@@ -91,18 +91,18 @@ Nature: Sassy
 - Growth
 - Sunny Day
 
-Litleo @ Sitrus Berry
+Litleo @ Eviolite
 Level: 44
 Ability: Unnerve
 Nature: Modest
-- Fire Spin
-- Swift
+- Heat Wave
+- Hyper Voice
 - Sunny Day
 - Noble Roar
 
-Squirtle @ Eviolite
+Squirtle @ Wacan Berry
 Level: 45
-Ability: Torrent
+Ability: Rain Dish
 Nature: Lonely
 - Shell Smash
 - Wave Crash
@@ -117,12 +117,12 @@ Gender: Male
 Music: Male
 Double Battle: No
 
-Litleo @ Sitrus Berry
+Litleo @ Eviolite
 Level: 43
 Ability: Unnerve
 Nature: Modest
-- Fire Spin
-- Swift
+- Heat Wave
+- Hyper Voice
 - Sunny Day
 - Noble Roar
 
@@ -133,7 +133,7 @@ Nature: Brave
 - Yawn
 - Bulldoze
 - Aqua Tail
-- Rain Dance
+- Helping Hand
 
 Snivy @ Leftovers
 Level: 45
@@ -155,10 +155,10 @@ Double Battle: No
 Ducklett @ Sharp Beak
 Level: 43
 Ability: Big Pecks
-Nature: Jolly
-- Aerial Ace
-- Aqua Jet
-- Facade
+Nature: Timid
+- Hurricane
+- Surf
+- Helping Hand
 - Feather Dance
 
 Cherubi @ Focus Sash
@@ -166,8 +166,8 @@ Level: 44
 Ability: Chlorophyll
 Nature: Timid
 - Giga Drain
-- Draining Kiss
-- Grasswhistle
+- Dazzling Gleam
+- Pollen Puff
 - Sunny Day
 
 Scorbunny @ Life Orb
@@ -177,7 +177,7 @@ Nature: Timid
 - Electro Ball
 - Heat Wave
 - Agility
-- Super Fang
+- Helping Hand
 
 === PARTNER_MAY_SCORBUNNY ===
 Name: MAY
@@ -192,22 +192,22 @@ Level: 43
 Ability: Chlorophyll
 Nature: Timid
 - Giga Drain
-- Draining Kiss
-- Grasswhistle
+- Dazzling Gleam
+- Pollen Puff
 - Sunny Day
 
-Ponyta @ Sitrus Berry
+Ponyta @ Eviolite
 Level: 44
 Ability: Flame Body
 Nature: Relaxed
-- Flame Charge
-- Body Slam
-- Double Team
-- Swagger
+- Flare Blitz
+- High Horsepower
+- Play Rough
+- Wild Charge
 
-Squirtle @ Eviolite
+Squirtle @ Wacan Berry
 Level: 45
-Ability: Torrent
+Ability: Rain Dish
 Nature: Lonely
 - Shell Smash
 - Wave Crash
@@ -222,26 +222,236 @@ Gender: Female
 Music: Female
 Double Battle: No
 
-Ponyta @ Sitrus Berry
+Ponyta @ Eviolite
 Level: 43
 Ability: Flame Body
 Nature: Relaxed
-- Flame Charge
-- Body Slam
-- Double Team
-- Swagger
+- Flare Blitz
+- High Horsepower
+- Play Rough
+- Wild Charge
 
 Ducklett @ Sharp Beak
 Level: 44
 Ability: Big Pecks
-Nature: Jolly
-- Aerial Ace
-- Aqua Jet
-- Facade
+Nature: Timid
+- Hurricane
+- Surf
+- Helping Hand
 - Feather Dance
 
 Snivy @ Leftovers
 Level: 45
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain
+
+=== PARTNER_BRENDAN_SNIVY_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Wooper @ Mystic Water
+Level: 38
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Helping Hand
+
+Seedot @ Focus Sash
+Level: 39
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
+
+Scorbunny @ Life Orb
+Level: 40
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Helping Hand
+
+=== PARTNER_BRENDAN_SCORBUNNY_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Seedot @ Focus Sash
+Level: 38
+Ability: Chlorophyll
+Nature: Sassy
+- Bullet Seed
+- Synthesis
+- Growth
+- Sunny Day
+
+Litleo @ Eviolite
+Level: 39
+Ability: Unnerve
+Nature: Modest
+- Heat Wave
+- Hyper Voice
+- Sunny Day
+- Noble Roar
+
+Squirtle @ Wacan Berry
+Level: 40
+Ability: Rain Dish
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+=== PARTNER_BRENDAN_SQUIRTLE_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+
+Litleo @ Eviolite
+Level: 38
+Ability: Unnerve
+Nature: Modest
+- Heat Wave
+- Hyper Voice
+- Sunny Day
+- Noble Roar
+
+Wooper @ Mystic Water
+Level: 39
+Ability: Unaware
+Nature: Brave
+- Yawn
+- Bulldoze
+- Aqua Tail
+- Helping Hand
+
+Snivy @ Leftovers
+Level: 40
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Giga Drain
+
+=== PARTNER_MAY_SNIVY_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Ducklett @ Sharp Beak
+Level: 38
+Ability: Big Pecks
+Nature: Timid
+- Hurricane
+- Surf
+- Helping Hand
+- Feather Dance
+
+Cherubi @ Focus Sash
+Level: 39
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Dazzling Gleam
+- Pollen Puff
+- Sunny Day
+
+Scorbunny @ Life Orb
+Level: 40
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Helping Hand
+
+=== PARTNER_MAY_SCORBUNNY_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Cherubi @ Focus Sash
+Level: 38
+Ability: Chlorophyll
+Nature: Timid
+- Giga Drain
+- Dazzling Gleam
+- Pollen Puff
+- Sunny Day
+
+Ponyta @ Eviolite
+Level: 39
+Ability: Flame Body
+Nature: Relaxed
+- Flare Blitz
+- High Horsepower
+- Play Rough
+- Wild Charge
+
+Squirtle @ Wacan Berry
+Level: 40
+Ability: Rain Dish
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+=== PARTNER_MAY_SQUIRTLE_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+
+Ponyta @ Eviolite
+Level: 38
+Ability: Flame Body
+Nature: Relaxed
+- Flare Blitz
+- High Horsepower
+- Play Rough
+- Wild Charge
+
+Ducklett @ Sharp Beak
+Level: 39
+Ability: Big Pecks
+Nature: Timid
+- Hurricane
+- Surf
+- Helping Hand
+- Feather Dance
+
+Snivy @ Leftovers
+Level: 40
 Ability: Overgrow
 Nature: Quiet
 - Substitute

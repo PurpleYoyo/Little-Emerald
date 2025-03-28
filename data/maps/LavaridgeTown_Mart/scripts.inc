@@ -39,44 +39,46 @@ LavaridgeTown_Mart_Pokemart:
 # 20 "data/maps/LavaridgeTown_Mart/scripts.pory"
 	.2byte ITEM_LOVE_BALL
 # 21 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
+	.2byte ITEM_SUPER_REPEL
 # 22 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	pokemartlistend
+	.2byte ITEM_REVIVE
 # 23 "data/maps/LavaridgeTown_Mart/scripts.pory"
-
+	pokemartlistend
 # 24 "data/maps/LavaridgeTown_Mart/scripts.pory"
-LavaridgeTown_Mart_EventScript_ExpertM::
+
 # 25 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	msgbox LavaridgeTown_Mart_Text_XSpeedFirstStrike, MSGBOX_NPC
+LavaridgeTown_Mart_EventScript_ExpertM::
 # 26 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	end
+	msgbox LavaridgeTown_Mart_Text_XSpeedFirstStrike, MSGBOX_NPC
 # 27 "data/maps/LavaridgeTown_Mart/scripts.pory"
-
-# 28 "data/maps/LavaridgeTown_Mart/scripts.pory"
-LavaridgeTown_Mart_EventScript_OldWoman::
-# 29 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	msgbox LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney, MSGBOX_NPC
-# 30 "data/maps/LavaridgeTown_Mart/scripts.pory"
 	end
+# 28 "data/maps/LavaridgeTown_Mart/scripts.pory"
+
+# 29 "data/maps/LavaridgeTown_Mart/scripts.pory"
+LavaridgeTown_Mart_EventScript_OldWoman::
+# 30 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	msgbox LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney, MSGBOX_NPC
 # 31 "data/maps/LavaridgeTown_Mart/scripts.pory"
-
+	end
 # 32 "data/maps/LavaridgeTown_Mart/scripts.pory"
-LavaridgeTown_Mart_Text_XSpeedFirstStrike:
-# 33 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "Use X SPEED to add to a POKéMON's\n"
-# 34 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "SPEED in battle.\p"
-# 35 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "That will help it get in the first\n"
-# 36 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "strike--a decided advantage!$"
-# 37 "data/maps/LavaridgeTown_Mart/scripts.pory"
 
+# 33 "data/maps/LavaridgeTown_Mart/scripts.pory"
+LavaridgeTown_Mart_Text_XSpeedFirstStrike:
+# 34 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	.string "Use X SPEED to add to a POKéMON's\n"
+# 35 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	.string "SPEED in battle.\p"
+# 36 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	.string "That will help it get in the first\n"
+# 37 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	.string "strike--a decided advantage!$"
 # 38 "data/maps/LavaridgeTown_Mart/scripts.pory"
-LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney:
+
 # 39 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "On MT. CHIMNEY's peak, there's a local\n"
+LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney:
 # 40 "data/maps/LavaridgeTown_Mart/scripts.pory"
-	.string "specialty that you can buy only there.\p"
+	.string "On MT. CHIMNEY's peak, there's a local\n"
 # 41 "data/maps/LavaridgeTown_Mart/scripts.pory"
+	.string "specialty that you can buy only there.\p"
+# 42 "data/maps/LavaridgeTown_Mart/scripts.pory"
 	.string "Give it to a POKéMON--it will be elated.$"

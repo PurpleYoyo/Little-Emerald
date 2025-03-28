@@ -15,51 +15,51 @@ OldaleTown_Mart_EventScript_Clerk::
 # 8 "data/maps/OldaleTown_Mart/scripts.pory"
 	goto_if_set FLAG_ADVENTURE_STARTED, OldaleTown_Mart_ExpandedItems
 # 9 "data/maps/OldaleTown_Mart/scripts.pory"
-	release
+	pokemart OldaleTown_Mart_Pokemart_Basic
 # 10 "data/maps/OldaleTown_Mart/scripts.pory"
-	end
-# 11 "data/maps/OldaleTown_Mart/scripts.pory"
-
-# 12 "data/maps/OldaleTown_Mart/scripts.pory"
-	.align 2
-# 13 "data/maps/OldaleTown_Mart/scripts.pory"
-OldaleTown_Mart_Pokemart_Basic:
-# 14 "data/maps/OldaleTown_Mart/scripts.pory"
-	.2byte ITEM_POTION
-# 15 "data/maps/OldaleTown_Mart/scripts.pory"
-	.2byte ITEM_ANTIDOTE
-# 16 "data/maps/OldaleTown_Mart/scripts.pory"
-	.2byte ITEM_PARALYZE_HEAL
-# 17 "data/maps/OldaleTown_Mart/scripts.pory"
-	.2byte ITEM_AWAKENING
-# 18 "data/maps/OldaleTown_Mart/scripts.pory"
-	pokemartlistend
-# 19 "data/maps/OldaleTown_Mart/scripts.pory"
-
-# 20 "data/maps/OldaleTown_Mart/scripts.pory"
-OldaleTown_Mart_ExpandedItems::
-# 21 "data/maps/OldaleTown_Mart/scripts.pory"
-	message gText_HowMayIServeYou
-# 22 "data/maps/OldaleTown_Mart/scripts.pory"
-	waitmessage
-# 23 "data/maps/OldaleTown_Mart/scripts.pory"
-	pokemart OldaleTown_Mart_Pokemart_Expanded
-# 24 "data/maps/OldaleTown_Mart/scripts.pory"
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
-# 25 "data/maps/OldaleTown_Mart/scripts.pory"
 	release
-# 26 "data/maps/OldaleTown_Mart/scripts.pory"
+# 11 "data/maps/OldaleTown_Mart/scripts.pory"
 	end
-# 27 "data/maps/OldaleTown_Mart/scripts.pory"
+# 12 "data/maps/OldaleTown_Mart/scripts.pory"
 
-# 28 "data/maps/OldaleTown_Mart/scripts.pory"
+# 13 "data/maps/OldaleTown_Mart/scripts.pory"
 	.align 2
-# 29 "data/maps/OldaleTown_Mart/scripts.pory"
+# 14 "data/maps/OldaleTown_Mart/scripts.pory"
+OldaleTown_Mart_Pokemart_Basic:
+# 15 "data/maps/OldaleTown_Mart/scripts.pory"
+	.2byte ITEM_REPEL
+# 16 "data/maps/OldaleTown_Mart/scripts.pory"
+	.2byte ITEM_REVIVE
+# 17 "data/maps/OldaleTown_Mart/scripts.pory"
+	pokemartlistend
+# 18 "data/maps/OldaleTown_Mart/scripts.pory"
+
+# 19 "data/maps/OldaleTown_Mart/scripts.pory"
+OldaleTown_Mart_ExpandedItems::
+# 20 "data/maps/OldaleTown_Mart/scripts.pory"
+	message gText_HowMayIServeYou
+# 21 "data/maps/OldaleTown_Mart/scripts.pory"
+	waitmessage
+# 22 "data/maps/OldaleTown_Mart/scripts.pory"
+	pokemart OldaleTown_Mart_Pokemart_Expanded
+# 23 "data/maps/OldaleTown_Mart/scripts.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 24 "data/maps/OldaleTown_Mart/scripts.pory"
+	release
+# 25 "data/maps/OldaleTown_Mart/scripts.pory"
+	end
+# 26 "data/maps/OldaleTown_Mart/scripts.pory"
+
+# 27 "data/maps/OldaleTown_Mart/scripts.pory"
+	.align 2
+# 28 "data/maps/OldaleTown_Mart/scripts.pory"
 OldaleTown_Mart_Pokemart_Expanded:
-# 30 "data/maps/OldaleTown_Mart/scripts.pory"
+# 29 "data/maps/OldaleTown_Mart/scripts.pory"
 	.2byte ITEM_POKE_BALL
-# 31 "data/maps/OldaleTown_Mart/scripts.pory"
+# 30 "data/maps/OldaleTown_Mart/scripts.pory"
 	.2byte ITEM_CHERISH_BALL
+# 31 "data/maps/OldaleTown_Mart/scripts.pory"
+	.2byte ITEM_REPEL
 # 32 "data/maps/OldaleTown_Mart/scripts.pory"
 	.2byte ITEM_REVIVE
 # 33 "data/maps/OldaleTown_Mart/scripts.pory"

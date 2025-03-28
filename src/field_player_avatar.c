@@ -2179,7 +2179,7 @@ static bool32 Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold(void)
 
 static bool32 Fishing_RollForBite(u32 rod, bool32 isStickyHold)
 {
-    return ((Random() % 100) > CalculateFishingBiteOdds(rod, isStickyHold));
+    return 100; //((Random() % 100) > CalculateFishingBiteOdds(rod, isStickyHold));
 }
 
 static u32 CalculateFishingBiteOdds(u32 rod, bool32 isStickyHold)

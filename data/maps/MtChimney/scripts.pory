@@ -4,7 +4,9 @@ raw `
 .set LOCALID_TABITHA, 3
 .set LOCALID_MAGMA_GRUNT_2, 22
 .set LOCALID_MAGMA_GRUNT_1, 29
-
+.set LOCALID_LITLEO, 31
+.set LOCALID_SKIDDO, 32
+.set LOCALID_GEODUDE, 33
 
 MtChimney_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, MtChimney_OnResume
@@ -51,6 +53,10 @@ MtChimney_EventScript_Maxie::
 	applymovement LOCALID_MAXIE, Common_Movement_Delay48
 	waitmovement 0
 	msgbox MtChimney_Text_MaxieIntro, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_LITLEO
+	setflag FLAG_HIDE_MAXIES_LITLEO
 	trainerbattle_no_intro TRAINER_MAXIE_MT_CHIMNEY, MtChimney_Text_MaxieDefeat
 	msgbox MtChimney_Text_MaxieYouHaventSeenLastOfMagma, MSGBOX_DEFAULT
 	closemessage
@@ -416,6 +422,14 @@ MtChimney_EventScript_BusyAquaGrunt3::
 MtChimney_EventScript_Tabitha::
 	trainerbattle_single TRAINER_TABITHA_MT_CHIMNEY, MtChimney_Text_TabithaIntro, MtChimney_Text_TabithaDefeat
 	msgbox MtChimney_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE
+	end
+
+RemoveSkiddo::
+	setvar VAR_MTCHIMNEY_SKIDDO, 1
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_SKIDDO
+	setflag FLAG_HIDE_COURTNEYS_SKIDDO
 	end
 
 MtChimney_EventScript_Grunt2::

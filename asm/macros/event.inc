@@ -1320,6 +1320,13 @@
 	.byte \disable
 	.endm
 
+	.macro showmoneyboxfish x:req, y:req, disable=0
+	.byte 0xe5
+	.byte \x
+	.byte \y
+	.byte \disable
+	.endm
+
 	@ Destroys the window created by showmoneybox. Consumption of the x and y arguments was dummied out.
 	.macro hidemoneybox
 	.byte 0x94
@@ -1331,6 +1338,13 @@
 	@ If 'disable' is set to anything but 0 then this command does nothing.
 	.macro updatemoneybox disable=0
 	.byte 0x95
+	.byte 0  @ \x
+	.byte 0  @ \y
+	.byte \disable
+	.endm
+
+	.macro updatemoneyboxfish disable=0
+	.byte 0xe6
 	.byte 0  @ \x
 	.byte 0  @ \y
 	.byte \disable
@@ -2204,6 +2218,10 @@
 
 	.macro checkpartydamp
 	callnative CheckPartyDamp
+	.endm
+
+	.macro checkpartytrickroom
+	callnative CheckPartyTrickRoom
 	.endm
 
 	.macro checkpartychoicescarf

@@ -54,25 +54,105 @@ b - monster magikarp no intim                             | F
 make rare candy only to 65                                | A
 add flash to utility menu                                 | A
 
-b - choice guy tricked if pokemon hold                    | F ?
-b - fisherman salesman magikarp                           | F ?
-winstitute scientsist give 4 weather mons                 | A ?
-winstitue separate location                               | A ?
-give both bikes?                                        Y | A ?
-b - non nickname prompt froakie special                   | F ?
-make daycare separate enc?                              Y | A ?
+b - choice guy tricked if pokemon hold                    | F
+b - fisherman salesman magikarp                           | F
+winstitute scientsist give 4 weather mons                 | A
+winstitue separate location                               | A
+give both bikes?                                        Y | A
+b - non nickname prompt froakie special                   | F
+make daycare separate enc?                              Y | A
 starter oran?                                           Y | A
-text when birch gives key items?                        Y | A ?
+text when birch gives key items?                        Y | A
 b - route 112 -> 111 wall?                                | F ?
-b - auto-run before running shoes                         | F ?
+b - auto-run before running shoes                         | F
 
-b - tm desc lengths                                       |
 make fidough rarer                                        | A
 b - shop text overlap                                     | F
 b - bp shop tm pics                                       | F
 b - static balls stay, when caught                        | F
 add grass to rustboro?                                  Y | A 
-add title screen                                          |
 
-b - utilities menu auto-run pre-dex                       |
-b - birch says r button for utilities menu                |
+a - remove the wailmer pail                               | A
+a - remove wild flee moves                                | A
+a - cap candy                                             | A
+a - flash -> flashlight in utilities menu                 | A
+a - item ^                                                | A
+a - rare candies only go 3 above cap                      | A
+a - oldale mart before dex                                | A
+a - evs mode                                              | A
+a - attract any gender                                    | A
+a - type change item abilities                            | A
+a - brawly chimchar hard mode trailblaze                  | A
+a - hof screen version and difficulty                     | A
+a - brendan's litleo 119 flamethrower                     | A
+a - fortree zorua fight                                   | A
+a - scorched slab surf encs                               | A
+a - rhyhorn solid rock                                    | A
+a - rival tag teams upgrade                               | A
+a - clock change utilities menu                           | A
+a - matt drifloon explosion't                             | A
+a - wallace tentacool > froakie                           | A
+a - norman type nulln't/boom dude type nulln't?           | A
+
+a - normal mode                                           | A ?
+a - aces in world                                         | A ?
+
+a - evs viewable in evs mode                              | A
+a - add title screen                                      | A
+a - change bp get sfx                                     | A
+a - fossil shop                                           | A
+a - ban trick room in slow fella                          | A ?
+a - space center separate enc                             | A
+a - oceanic museum ^                                      | A
+
+a - more tms                                              | v1.2
+a - mega stones bag                                       | v1.2
+a - nature mints bag                                      | v1.2
+
+b - pre-mon littleroot grass                              | F
+b - old mega evo item descs                               | F ?
+b - dusk/dawn stone palettes                              | 
+b - safari zone moneybox                                  | F
+b - safari zone encs                                      | F
+b - cap candy stop when learn move                        | F
+b - tm desc lengths                                       | F ?
+b - utilities menu auto-run pre-dex                       | F ?
+b - birch says r button for utilities menu                | F
+b - shop text weird                                       | F
+b - berries are plantable thru bag                        | F
+b - granite cave b2f encs                                 | F
+b - use flashlight x2 freeze                              | F
+b - hail                                                  | F
+b - collector text box                                    | F
+b - fossil falling text                                   | F ?
+
+b - norman's eevee-starter showing up as eevee in calc    |
+b - natures incorrect in set getter                       |
+b - calc import formes                                    |
+
+t - multi-attack type                                     |
+
+f - gyms 6 and 7 non linear
+f - reaper cloth duskull
+f - lucky punch happiny
+f - colored toggleables text in utility menu
+f - fast surf work with auto run
+f - damp = immune to explosions, not stop
+f - game corner 2 (mossdeep)
+f - revival blessing kys
+f - cap end at gym battle start
+f - statics run
+f - berry random
+f - sandbox mode
+f - rusty bottle cap
+f - hp type setter
+f - monotype mode
+f - hof confetti option
+f - dwebble berry juice
+
+b - lure ball $0                                          |
+b - fast ball $0                                          |
+b - updated saves wailmer pail                            |
+b - updated saves littleroot grass                        |
+b - bike dialogue no disappear                            |
+b - fossil dialogue no disappear                          |

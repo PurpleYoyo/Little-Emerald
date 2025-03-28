@@ -229,11 +229,13 @@ const u8 gText_ReturnToVar1[] = _("Return to\n{STR_VAR_1}.");
 
 const u8 *const gPocketNamesStringsTable[] =
 {
-    [ITEMS_POCKET] =    COMPOUND_STRING("ITEMS"),
-    [BALLS_POCKET] =    COMPOUND_STRING("POKé BALLS"),
-    [TMHM_POCKET]  =    COMPOUND_STRING("TMs & HMs"),
-    [BERRIES_POCKET] =  COMPOUND_STRING("BERRIES"),
-    [KEYITEMS_POCKET] = COMPOUND_STRING("KEY ITEMS")
+    [POCKET_ITEMS] =         COMPOUND_STRING("ITEMS"),
+    [POCKET_POKE_BALLS] =    COMPOUND_STRING("POKé BALLS"),
+    [POCKET_TM_HM]  =        COMPOUND_STRING("TMs & HMs"),
+    [POCKET_BERRIES] =       COMPOUND_STRING("BERRIES"),
+    [POCKET_INCENSES] =      COMPOUND_STRING("INCENSES"),
+    [POCKET_MINTS] =         COMPOUND_STRING("MINTS"),
+    [POCKET_KEY_ITEMS] =     COMPOUND_STRING("KEY ITEMS")
 };
 
 const u8 gText_NumberItem_TMBerry[] = _("{NO}{STR_VAR_1}{CLEAR 0x07}{STR_VAR_2}");
@@ -981,7 +983,7 @@ const u8 gText_TrainerCardName[] = _("NAME: ");
 const u8 gText_TrainerCardIDNo[] = _("IDNo.");
 const u8 gText_TrainerCardMoney[] = _("MONEY");
 const u8 gText_PokeDollar[] = _("¥"); // Unused
-const u8 gText_TrainerCardPokedex[] = _("BP");
+const u8 gText_TrainerCardPokedex[] = _("POKéDEX");
 const u8 gText_EmptyString6[] = _("");
 const u8 gText_Colon2[] = _(":");
 const u8 gText_Points[] = _(" points"); // Unused
@@ -1105,7 +1107,7 @@ const u8 gText_PressingSpeedRankings[] = _("Pressing-Speed Rankings");
 const u8 gText_Var1Players[] = _("{STR_VAR_1} PLAYERS");
 const u8 gText_SymbolsEarned[] = _("Symbols Earned");
 const u8 gText_BattleRecord[] = _("Battle Record");
-const u8 gText_BattlePoints[] = _("Battle Points");
+const u8 gText_BattlePoints[] = _("BATTLE POINTS");
 const u8 gText_UnusedCancel[] = _("CANCEL"); // Unused
 const u8 gText_EmptyString7[] = _("");
 const u8 gText_CheckFrontierMap[] = _("Check BATTLE FRONTIER MAP.");
@@ -1640,5 +1642,31 @@ const u8 gText_GameCorner_DarkPulseTM[] = _("TM100 DARK PULSE{CLEAR_TO 0x5E}2BP"
 
 const u8 gText_WarpToWhere[] = _("WARP to where?");
 
-const u8 gText_CantUseBoxLink[] = _("You can't use the Pokemon\nBox Link here.");
-const u8 gText_CantUseWarpPanel[] = _("You can't use the Warp\nPanel here.");
+const u8 gText_CantUseBoxLink[] = _("You can't use the Pokemon Box Link here.");
+const u8 gText_CantUseWarpPanel[] = _("You can't use the Warp Panel here.");
+
+const u8 gText_CantUseFlashHere[] = _("You can't use the Flashlight here.");
+const u8 gText_AlreadyUsedFlash[] = _("You already used the Flashlight here.");
+const u8 gText_UseFlash[] = _("Turned the Flashlight on.");
+
+const u8 gText_LittleEmeraldVersion[] = _("v1.2");
+
+const u8 gText_BeforeYouBegin[] =   _("Before you begin,\nI have just two more questions for you.");
+const u8 gText_NormalModeDesc[] =   _("Some gym leaders and other bosses\nhave fewer Pokémon and generally\pweaker movesets.\pWould you like to\nchoose this difficulty?");
+const u8 gText_HardModeDesc[] =     _("All gym leaders have a full team\nand all bosses have strong movesets.\pWould you like to\nchoose this difficulty?");
+const u8 gText_WhichDifficulty[] =  _("Which difficulty would you\nlike to play?");
+const u8 gText_EnableEvs[] =        _("Would you like to enable EV gain?\n(No trainer has EVs.)");
+const u8 gText_AreYouSure[] =       _("Are you sure?");
+
+const u8 gText_VersionDifficulty_Hard[] = _("HARD MODE v1.2");
+const u8 gText_VersionDifficulty_Normal[] = _("NORMAL MODE v1.2");
+const u8 gText_NormalDifficulty[] = _("NORMAL MODE");
+const u8 gText_HardDifficulty[] = _("HARD MODE");
+const u8 gText_EvGain[] = _("EV GAIN");
+const u8 gText_Version[] = _("VERSION");
+const u8 gText_Difficulty[] = _("DIFFICULTY");
+const u8 gText_Enabled[] = _("ENABLED");
+const u8 gText_Disabled[] = _("DISABLED");
+
+const u8 gText_Incenses[] = _("INCENSES");
+const u8 gText_Mints[] = _("MINTS");

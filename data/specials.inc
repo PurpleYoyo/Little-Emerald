@@ -56,6 +56,7 @@ gSpecials::
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
+	def_special Bag_ChooseFossil
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -569,3 +570,4 @@ gSpecials::
 	def_special GetRandomEgg
 	def_special GiveStarterOranBerry
 	def_special IsPlayerInPokemonLeague
+	def_special HasPlayerDefeatedWinona

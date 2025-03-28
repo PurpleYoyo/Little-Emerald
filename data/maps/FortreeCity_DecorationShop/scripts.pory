@@ -1,4 +1,6 @@
 raw `
+.set LOCALID_SPRIGATITO, 5
+
 FortreeCity_DecorationShop_MapScripts::
 	.byte 0
 

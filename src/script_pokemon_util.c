@@ -125,6 +125,25 @@ void CheckPartyDamp(void)
     gSpecialVar_Result = FALSE;
 }
 
+void CheckPartyTrickRoom(void)
+{
+    int i;
+
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        struct Pokemon *pokemon = &gPlayerParty[i];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            if (MonKnowsMove(&gPlayerParty[i], MOVE_TRICK_ROOM) == TRUE)
+            {
+                gSpecialVar_Result = TRUE;
+                return;
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 void CheckPartyChoiceScarf(void)
 {
     int i;

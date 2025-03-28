@@ -41,70 +41,72 @@ MossdeepCity_Mart_Pokemart:
 # 21 "data/maps/MossdeepCity_Mart/scripts.pory"
 	.2byte ITEM_MOON_BALL
 # 22 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
 # 23 "data/maps/MossdeepCity_Mart/scripts.pory"
-	pokemartlistend
+	.2byte ITEM_REVIVE
 # 24 "data/maps/MossdeepCity_Mart/scripts.pory"
-
+	pokemartlistend
 # 25 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_EventScript_Woman::
+
 # 26 "data/maps/MossdeepCity_Mart/scripts.pory"
-	msgbox MossdeepCity_Mart_Text_ReviveIsFantastic, MSGBOX_NPC
+MossdeepCity_Mart_EventScript_Woman::
 # 27 "data/maps/MossdeepCity_Mart/scripts.pory"
-	end
+	msgbox MossdeepCity_Mart_Text_ReviveIsFantastic, MSGBOX_NPC
 # 28 "data/maps/MossdeepCity_Mart/scripts.pory"
-
+	end
 # 29 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_EventScript_Boy::
+
 # 30 "data/maps/MossdeepCity_Mart/scripts.pory"
-	msgbox MossdeepCity_Mart_Text_MaxRepelLastsLongest, MSGBOX_NPC
+MossdeepCity_Mart_EventScript_Boy::
 # 31 "data/maps/MossdeepCity_Mart/scripts.pory"
-	end
+	msgbox MossdeepCity_Mart_Text_MaxRepelLastsLongest, MSGBOX_NPC
 # 32 "data/maps/MossdeepCity_Mart/scripts.pory"
-
-# 33 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_EventScript_Sailor::
-# 34 "data/maps/MossdeepCity_Mart/scripts.pory"
-	msgbox MossdeepCity_Mart_Text_NetAndDiveBallsRare, MSGBOX_NPC
-# 35 "data/maps/MossdeepCity_Mart/scripts.pory"
 	end
+# 33 "data/maps/MossdeepCity_Mart/scripts.pory"
+
+# 34 "data/maps/MossdeepCity_Mart/scripts.pory"
+MossdeepCity_Mart_EventScript_Sailor::
+# 35 "data/maps/MossdeepCity_Mart/scripts.pory"
+	msgbox MossdeepCity_Mart_Text_NetAndDiveBallsRare, MSGBOX_NPC
 # 36 "data/maps/MossdeepCity_Mart/scripts.pory"
-
+	end
 # 37 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_Text_ReviveIsFantastic:
+
 # 38 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "REVIVE is fantastic!\p"
+MossdeepCity_Mart_Text_ReviveIsFantastic:
 # 39 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "Give it to a fainted POKéMON,\n"
+	.string "REVIVE is fantastic!\p"
 # 40 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "and the POKéMON will arise.\p"
+	.string "Give it to a fainted POKéMON,\n"
 # 41 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "But be careful, REVIVE doesn't restore\n"
+	.string "and the POKéMON will arise.\p"
 # 42 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "the used-up PP of moves.$"
+	.string "But be careful, REVIVE doesn't restore\n"
 # 43 "data/maps/MossdeepCity_Mart/scripts.pory"
-
+	.string "the used-up PP of moves.$"
 # 44 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_Text_MaxRepelLastsLongest:
-# 45 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "MAX REPEL keeps all weak POKéMON away.\p"
-# 46 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "Out of all the REPEL sprays, it lasts\n"
-# 47 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "the longest.$"
-# 48 "data/maps/MossdeepCity_Mart/scripts.pory"
 
+# 45 "data/maps/MossdeepCity_Mart/scripts.pory"
+MossdeepCity_Mart_Text_MaxRepelLastsLongest:
+# 46 "data/maps/MossdeepCity_Mart/scripts.pory"
+	.string "MAX REPEL keeps all weak POKéMON away.\p"
+# 47 "data/maps/MossdeepCity_Mart/scripts.pory"
+	.string "Out of all the REPEL sprays, it lasts\n"
+# 48 "data/maps/MossdeepCity_Mart/scripts.pory"
+	.string "the longest.$"
 # 49 "data/maps/MossdeepCity_Mart/scripts.pory"
-MossdeepCity_Mart_Text_NetAndDiveBallsRare:
+
 # 50 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "The NET and DIVE BALLS are rare POKé\n"
+MossdeepCity_Mart_Text_NetAndDiveBallsRare:
 # 51 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "BALLS that are only made in MOSSDEEP.\p"
+	.string "The NET and DIVE BALLS are rare POKé\n"
 # 52 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "A NET BALL is effective against\n"
+	.string "BALLS that are only made in MOSSDEEP.\p"
 # 53 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "BUG-type and WATER-type POKéMON.\p"
+	.string "A NET BALL is effective against\n"
 # 54 "data/maps/MossdeepCity_Mart/scripts.pory"
-	.string "A DIVE BALL works best on POKéMON\n"
+	.string "BUG-type and WATER-type POKéMON.\p"
 # 55 "data/maps/MossdeepCity_Mart/scripts.pory"
+	.string "A DIVE BALL works best on POKéMON\n"
+# 56 "data/maps/MossdeepCity_Mart/scripts.pory"
 	.string "at the bottom of the sea.$"

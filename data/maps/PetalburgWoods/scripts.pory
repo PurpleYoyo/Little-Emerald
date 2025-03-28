@@ -1,6 +1,7 @@
 raw `
 .set LOCALID_GRUNT, 3
 .set LOCALID_DEVON_EMPLOYEE, 4
+.set LOCALID_SPRITZEE, 14
 
 PetalburgWoods_MapScripts::
 	.byte 0

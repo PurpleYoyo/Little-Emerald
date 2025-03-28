@@ -1931,23 +1931,32 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 
+        if (VarGet(VAR_DIFFICULTY) == NORMAL_DIFFICULTY && trainer->hasNormalParty == TRUE)
+            monsCount = trainer->normalPartySize;
+        else
+            monsCount = trainer->partySize;
+
         if (battleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         {
-            if (trainer->partySize > PARTY_SIZE / 2)
+            if (monsCount > PARTY_SIZE / 2)
                 monsCount = PARTY_SIZE / 2;
-            else
-                monsCount = trainer->partySize;
+            //else
+            //    monsCount = trainer->partySize;
         }
-        else
-        {
-            monsCount = trainer->partySize;
-        }
+        //else
+        //{
+        //    monsCount = trainer->partySize;
+        //}
 
         for (i = 0; i < monsCount; i++)
         {
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, i);
-            const struct TrainerMon *partyData = trainer->party;
+            const struct TrainerMon *partyData;
+            if (VarGet(VAR_DIFFICULTY) == NORMAL_DIFFICULTY && trainer->hasNormalParty == TRUE)
+                partyData = trainer->normalParty;
+            else
+                partyData = trainer->party;
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
             u32 ability = 0;

@@ -1,4 +1,6 @@
 raw `
+.set LOCALID_HONEDGE, 2
+
 EverGrandeCity_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, EverGrandeCity_OnTransition
 	.byte 0

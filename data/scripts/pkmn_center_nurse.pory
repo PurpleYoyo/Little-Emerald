@@ -511,6 +511,8 @@ script EventScript_NatureMintNPC {
 					goto(End)
 			}
 	}
+	msgbox(format("Come back anytime!"))
+	closemessage
 	goto(End)
 }
 
@@ -1094,7 +1096,7 @@ script TryBuyRareCandy {
 		msgbox(format("You don't have bag space for this item."))
 		goto(End)
 	}
-	setvar(VAR_0x8004, 1)
+	setvar(VAR_0x8004, 8)
 	special(TakeFrontierBattlePoints)
 	playse(SE_SHOP)
 	additem(VAR_0x8009)
@@ -1517,12 +1519,11 @@ script EventScript_FishermanSalesman {
 	msgbox(format("Would you like to buy one?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
-		msgbox(format("I'll be here if you change your mind"))
+		msgbox(format("I'll be here if you change your mind."))
 		goto(End)
 	}
 	setvar(VAR_0x8004, SCROLL_MULTI_FISH)
-	setvar(VAR_0x800B, 0)
-	showmoneybox(0, 0)
+	showmoneyboxfish(0, 0)
 	special(ShowScrollableMultichoice)
 	waitstate
 	switch (var(VAR_RESULT))
@@ -1569,17 +1570,19 @@ script TryBuyMagikarp {
 		goto(End)
 	}
 	removemoney(500)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_MAGIKARP, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MAGIKARP)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Magikarp."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Magikarp."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1598,17 +1601,19 @@ script TryBuyGoldeen {
 		goto(End)
 	}
 	removemoney(500)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_GOLDEEN, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_GOLDEEN)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Goldeen."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Goldeen."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1627,17 +1632,19 @@ script TryBuyRemoraid {
 		goto(End)
 	}
 	removemoney(500)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_REMORAID, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_REMORAID)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Remoraid."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Remoraid."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1662,17 +1669,19 @@ script TryBuyFeebas {
 		goto(End)
 	}
 	removemoney(1000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_FEEBAS, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FEEBAS)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Feebas."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Feebas."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1697,17 +1706,19 @@ script TryBuyFinneon {
 		goto(End)
 	}
 	removemoney(1000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_FINNEON, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FINNEON)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Finneon."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Finneon."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1732,17 +1743,19 @@ script TryBuyTynamo {
 		goto(End)
 	}
 	removemoney(1000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_TYNAMO, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYNAMO)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Tynamo."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Tynamo."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1767,17 +1780,19 @@ script TryBuyArrokuda {
 		goto(End)
 	}
 	removemoney(1000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_ARROKUDA, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARROKUDA)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Arrokuda."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Arrokuda."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1802,17 +1817,19 @@ script TryBuyBarboach {
 		goto(End)
 	}
 	removemoney(1000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_BARBOACH, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BARBOACH)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Barboach."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Barboach."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1837,17 +1854,19 @@ script TryBuyChinchou {
 		goto(End)
 	}
 	removemoney(5000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_CHINCHOU, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHINCHOU)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Chinchou."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Chinchou."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1872,17 +1891,19 @@ script TryBuyCarvanha {
 		goto(End)
 	}
 	removemoney(5000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_CARVANHA, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CARVANHA)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Carvanha."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Carvanha."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1907,17 +1928,19 @@ script TryBuyQwilfish {
 		goto(End)
 	}
 	removemoney(10000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_QWILFISH_HISUI, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_QWILFISH_HISUI)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Qwilfish."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Qwilfish."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1942,17 +1965,19 @@ script TryBuyBasculin {
 		goto(End)
 	}
 	removemoney(10000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_BASCULIN_WHITE_STRIPED, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_BASCULIN_WHITE_STRIPED)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Basculin."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Basculin."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -1977,17 +2002,19 @@ script TryBuyCosmog {
 		goto(End)
 	}
 	removemoney(50000)
-	updatemoneybox
+	updatemoneyboxfish
 	givemon(SPECIES_COSMOG, 5, ITEM_NONE, ITEM_LURE_BALL)
 	setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_COSMOG)
 	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Cosmog."))
+		hidemoneybox
 		call(NicknamePartyMon)
 	}
 	elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
 		playfanfare(MUS_OBTAIN_ITEM)
 		msgbox(format("Obtained Cosmog."))
+		hidemoneybox
 		call(NicknameBoxMon)
 	}
 	else {
@@ -2002,8 +2029,8 @@ script NicknamePartyMon {
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 1) { // Yes
 		call(Common_EventScript_GetGiftMonPartySlot)
+		call(Common_EventScript_NameReceivedPartyMon)
 	}
-	hidemoneybox
 	goto(End)
 }
 
@@ -2015,7 +2042,6 @@ script NicknameBoxMon {
 	}
 	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
 	call(Common_EventScript_TransferredToPC)
-	hidemoneybox
 	goto(End)
 }
 
@@ -2388,6 +2414,419 @@ script WeatherInstituteGift {
 	msgbox(Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT)
 }
 
+script FossilScientist {
+	lock
+	msgbox(RustboroCity_DevonCorp_2F_Text_DevelopDeviceToResurrectFossils, MSGBOX_DEFAULT)
+	checkitem(ITEM_HELIX_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_DOME_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_SKULL_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_ARMOR_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_PLUME_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_COVER_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_CLAW_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_ROOT_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_SAIL_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	checkitem(ITEM_JAW_FOSSIL)
+	goto_if_eq(VAR_RESULT, TRUE, ReviveFossil)
+	msgbox(format("If you bring me a fossil, I can revive it for you!"))
+	closemessage
+	release
+}
+
+script ReviveFossil {
+	msgbox(format("Oh! You have a fossil! Would you like me to revive it?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("Aw...okay. Well come back if you change your mind."))
+		goto(End)
+	}
+	msgbox(format("Please give me the fossil you want to revive."))
+	special(Bag_ChooseFossil)
+	waitstate
+	switch (var(VAR_ITEM_ID)) {
+		case ITEM_HELIX_FOSSIL:
+			givemon(SPECIES_OMANYTE, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_OMANYTE)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_OMANYTE)
+		case ITEM_DOME_FOSSIL:
+			givemon(SPECIES_KABUTO, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_KABUTO)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_KABUTO)
+		case ITEM_ROOT_FOSSIL:
+			givemon(SPECIES_LILEEP, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_LILEEP)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_LILEEP)
+		case ITEM_CLAW_FOSSIL:
+			givemon(SPECIES_ANORITH, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_ANORITH)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ANORITH)
+		case ITEM_SKULL_FOSSIL:
+			givemon(SPECIES_CRANIDOS, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_CRANIDOS)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CRANIDOS)
+		case ITEM_ARMOR_FOSSIL:
+			givemon(SPECIES_SHIELDON, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_SHIELDON)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_SHIELDON)
+		case ITEM_PLUME_FOSSIL:
+			givemon(SPECIES_ARCHEN, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_ARCHEN)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARCHEN)
+		case ITEM_COVER_FOSSIL:
+			givemon(SPECIES_TIRTOUGA, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_TIRTOUGA)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TIRTOUGA)
+		case ITEM_SAIL_FOSSIL:
+			givemon(SPECIES_AMAURA, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_AMAURA)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_AMAURA)
+		case ITEM_JAW_FOSSIL:
+			givemon(SPECIES_TYRUNT, 5)
+			bufferspeciesname(STR_VAR_2, SPECIES_TYRUNT)
+			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYRUNT)
+		default:
+			msgbox(format("That's not a fossil!"))
+			goto(End)
+	}
+	closemessage
+	msgbox(format("Awesome, revived your fossil into {STR_VAR_2}!"))
+	setflag(FLAG_REVIVED_FOSSIL)
+	playfanfare(MUS_OBTAIN_ITEM)
+	waitfanfare
+	if (var(VAR_RESULT) == MON_GIVEN_TO_PARTY) {
+		call(NicknamePartyMon)
+	}
+    elif (var(VAR_RESULT) == MON_GIVEN_TO_PC) {
+		call(NicknameBoxMon)
+	}           
+	else {
+		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
+		goto(End)
+	}
+	removeitem(VAR_ITEM_ID)
+	closemessage
+	release
+}
+
+script TabithasDrilbur {
+	faceplayer
+	playmoncry(SPECIES_DRILBUR, CRY_MODE_ENCOUNTER)
+	msgbox(format("DRILBUR: Eerrreeh"))
+	closemessage
+}
+
+script MaxiesLitleo {
+	faceplayer
+	playmoncry(SPECIES_LITLEO, CRY_MODE_ENCOUNTER)
+	msgbox(format("LITLEO: Rrewehweeeew"))
+	closemessage
+}
+
+script RivalsSquirtle {
+	faceplayer
+	playmoncry(SPECIES_SQUIRTLE, CRY_MODE_ENCOUNTER)
+	msgbox(format("SQUIRTLE: Grrwaaoh"))
+	closemessage
+}
+
+script RivalsScorbunny {
+	faceplayer
+	playmoncry(SPECIES_SCORBUNNY, CRY_MODE_ENCOUNTER)
+	msgbox(format("SCORBUNNY: Eyyahh"))
+	closemessage
+}
+
+script RivalsSnivy {
+	faceplayer
+	playmoncry(SPECIES_SNIVY, CRY_MODE_ENCOUNTER)
+	msgbox(format("SNIVY: Wheeeeh"))
+	closemessage
+}
+
+script NormansAipom {
+	faceplayer
+	playmoncry(SPECIES_AIPOM, CRY_MODE_ENCOUNTER)
+	msgbox(format("AIPOM: Uhhweeehuh"))
+	closemessage
+}
+
+script WinonasDoduo {
+	faceplayer
+	playmoncry(SPECIES_DODUO, CRY_MODE_ENCOUNTER)
+	msgbox(format("DODUO: Tititi Chao"))
+	closemessage
+}
+
+script RoxannesNosepass {
+	faceplayer
+	playmoncry(SPECIES_NOSEPASS, CRY_MODE_ENCOUNTER)
+	msgbox(format("NOSEPASS: Uuwheehuu"))
+	closemessage
+}
+
+script BrawlysPancham {
+	faceplayer
+	playmoncry(SPECIES_PANCHAM, CRY_MODE_ENCOUNTER)
+	msgbox(format("PANCHAM: Cweh Uhr"))
+	closemessage
+}
+
+script FlannerysCyndaquil {
+	faceplayer
+	playmoncry(SPECIES_CYNDAQUIL, CRY_MODE_ENCOUNTER)
+	msgbox(format("CYNDAQUIL: Rrrrp"))
+	closemessage
+}
+
+script TatesMimeJr {
+	faceplayer
+	playmoncry(SPECIES_MIME_JR, CRY_MODE_ENCOUNTER)
+	msgbox(format("MIME JR.: Zwhehe Nur"))
+	closemessage
+}
+
+script LizasMimeJr {
+	faceplayer
+	playmoncry(SPECIES_MIME_JR, CRY_MODE_ENCOUNTER)
+	msgbox(format("MIME JR.: Zwhehe Nur"))
+	closemessage
+}
+
+script JuansHorsea {
+	faceplayer
+	playmoncry(SPECIES_AIPOM, CRY_MODE_ENCOUNTER)
+	msgbox(format("HORSEA: Nheeheh"))
+	closemessage
+}
+
+script WattsonsMagnemite {
+	faceplayer
+	playmoncry(SPECIES_MAGNEMITE, CRY_MODE_ENCOUNTER)
+	msgbox(format("MAGNEMITE: Oowheznu"))
+	closemessage
+}
+
+script CourtneysSkiddo {
+	faceplayer
+	playmoncry(SPECIES_SKIDDO, CRY_MODE_ENCOUNTER)
+	msgbox(format("SKIDDO: Wheherr"))
+	closemessage
+}
+
+script RivalsAnorith {
+	faceplayer
+	playmoncry(SPECIES_ANORITH, CRY_MODE_ENCOUNTER)
+	msgbox(format("ANORITH: Creyhhurr"))
+	closemessage
+}
+
+script RivalsAmaura {
+	faceplayer
+	playmoncry(SPECIES_AMAURA, CRY_MODE_ENCOUNTER)
+	msgbox(format("AMAURA: Rheaaaaeh"))
+	closemessage
+}
+
+script SidneysImpidimp {
+	faceplayer
+	playmoncry(SPECIES_IMPIDIMP, CRY_MODE_ENCOUNTER)
+	msgbox(format("IMPIDIMP: Khrwhazede"))
+	closemessage
+}
+
+script PhoebesCharcadet {
+	faceplayer
+	playmoncry(SPECIES_CHARCADET, CRY_MODE_ENCOUNTER)
+	msgbox(format("CHARCADET: Zweewoozoop"))
+	closemessage
+}
+
+script GlaciasSnorunt {
+	faceplayer
+	playmoncry(SPECIES_SNORUNT, CRY_MODE_ENCOUNTER)
+	msgbox(format("SNORUNT: Zwahuhuh"))
+	closemessage
+}
+
+script DrakesTotodile {
+	faceplayer
+	playmoncry(SPECIES_TOTODILE, CRY_MODE_ENCOUNTER)
+	msgbox(format("TOTODILE: Twiurh"))
+	closemessage
+}
+
+script WallacesMagikarp {
+	faceplayer
+	playmoncry(SPECIES_MAGIKARP, CRY_MODE_ENCOUNTER)
+	msgbox(format("MAGIKARP: Uwheeuh"))
+	closemessage
+}
+
+script RivalsTyrogue {
+	faceplayer
+	playmoncry(SPECIES_TYROGUE, CRY_MODE_ENCOUNTER)
+	msgbox(format("TYROGUE: Tsiherm"))
+	closemessage
+}
+
+script NoGrassBeforeStarterLeft {
+	msgbox(format("You don't have a Pokémon yet, better not step into the tall grass!"))
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_LeftOne)
+	closemessage
+}
+
+script Movement_LeftOne {
+	walk_left
+	step_end
+}
+
+script NoGrassBeforeStarterUp {
+	msgbox(format("You don't have a Pokémon yet, better not step into the tall grass!"))
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_UpOne)
+}
+
+script Movement_UpOne {
+	walk_up
+	step_end
+}
+
+script NoGym7Before6 {
+	msgbox(format("You should probably go back to the gym in Fortree City first."))
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_LeftOne)
+}
+
+script FossilShop {
+	if (flag(FLAG_REVIVED_FOSSIL)) {
+		msgbox(format("Welcome! I study fossils and sell any extras I find. Would you like to buy one?"), MSGBOX_YESNO)
+		if (var(VAR_RESULT) == NO) {
+			msgbox(format("I'll be here if you change your mind."))
+			goto(End)
+		}
+		pokemart(FossilPokemart)
+	}
+	else {
+		msgbox(format("Hi! I study fossils."), MSGBOX_YESNO)
+	}
+}
+
+script RivalsPichu {
+	faceplayer
+	playmoncry(SPECIES_PICHU, CRY_MODE_ENCOUNTER)
+	msgbox(format("PICHU: Zwwerp"))
+	closemessage
+}
+
+script WallysRalts {
+	faceplayer
+	playmoncry(SPECIES_RALTS, CRY_MODE_ENCOUNTER)
+	msgbox(format("RALTS: Wheeooh"))
+	closemessage
+}
+
+script ShellysSandshrew {
+	faceplayer
+	playmoncry(SPECIES_SANDSHREW, CRY_MODE_ENCOUNTER)
+	msgbox(format("SANDSHREW: Eewhew"))
+	closemessage
+}
+
+script MattsPorygon {
+	faceplayer
+	playmoncry(SPECIES_PORYGON, CRY_MODE_ENCOUNTER)
+	msgbox(format("PORYGON: Crehuwahiwi"))
+	closemessage
+}
+
+script ScaryGuysGrowlithe {
+	faceplayer
+	playmoncry(SPECIES_GROWLITHE, CRY_MODE_ENCOUNTER)
+	msgbox(format("GROWLITHE: Grweeah"))
+	closemessage
+}
+
+script ProtectorsSpritzee {
+	faceplayer
+	playmoncry(SPECIES_SPRITZEE, CRY_MODE_ENCOUNTER)
+	msgbox(format("SPRITZEE: Twiihoohoohoo"))
+	closemessage
+}
+
+script SpeedyKidsVoltorb {
+	faceplayer
+	playmoncry(SPECIES_VOLTORB, CRY_MODE_ENCOUNTER)
+	msgbox(format("VOLTORB: Krrhwwxx"))
+	closemessage
+}
+
+script CollectorsMeowth {
+	faceplayer
+	playmoncry(SPECIES_MEOWTH, CRY_MODE_ENCOUNTER)
+	msgbox(format("MEOWTH: Dwheeuh"))
+	closemessage
+}
+
+script BoomDudesGeodude {
+	faceplayer
+	playmoncry(SPECIES_GEODUDE, CRY_MODE_ENCOUNTER)
+	msgbox(format("GEODUDE: Grrwaaaah"))
+	closemessage
+}
+
+script CrittersSprigatito {
+	faceplayer
+	playmoncry(SPECIES_SPRIGATITO, CRY_MODE_ENCOUNTER)
+	msgbox(format("SPRIGATITO: Knwhiehw"))
+	closemessage
+}
+
+script SlowFellasGrimer {
+	faceplayer
+	playmoncry(SPECIES_GRIMER, CRY_MODE_ENCOUNTER)
+	msgbox(format("GRIMER: Blaaaaak"))
+	closemessage
+}
+
+script SmashersTurtwig {
+	faceplayer
+	playmoncry(SPECIES_PORYGON, CRY_MODE_ENCOUNTER)
+	msgbox(format("TURTWIG: Ugugug Wihi"))
+	closemessage
+}
+
+script PurkatsHonedge {
+	faceplayer
+	playmoncry(SPECIES_HONEDGE, CRY_MODE_ENCOUNTER)
+	msgbox(format("HONEDGE: Dwingg"))
+	closemessage
+}
+
+script DifficultySwitcher {
+	lock
+	faceplayer
+	if (var(VAR_DIFFICULTY) == 1) {
+		msgbox(format("You are currently playing on Normal Mode."))
+		goto(End)
+	}
+	msgbox(format("You are currently playing on Hard Mode."))
+	msgbox(format("Would you like to switch to Normal Mode? You cannot switch back."), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) {
+		msgbox(format("Have fun!"))
+		goto(End)
+	}
+	setvar(VAR_DIFFICULTY, 1)
+	msgbox(format("Okay, there you go! Switched to Normal Mode."))
+	msgbox(format("Have fun!"))
+	closemessage
+}
+
 script TestGuy {
-	trainerbattle_no_intro(TRAINER_SAWYER_1, VictoryRoad_1F_Text_WallyEntranceDefeat)	
+	trainerbattle_no_intro(TRAINER_WALLY_VR_1, VictoryRoad_1F_Text_WallyEntranceDefeat)	
 }

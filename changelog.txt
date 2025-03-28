@@ -1,0 +1,277 @@
+Version 1.1 - Updated the version number to v1.1!
+Changes since the last release (v1.0):
+
+Feature Additions:
+Added a Hatch Egg option to the Utilities Menu.
+Rydel now gives you both bikes.
+Added a basic Pokémart to Oldale Town that can be accessed before getting the Pokédex.
+Added Repels to most Pokémarts.
+Added a Flashlight key item that does the same as the option in the Utilities Menu.
+Added the Cap Candy Key item, raises a Pokémon level directly to the level cap.
+Removed the Wailmer Pail.
+Made the Zorua in Fortree City a battle.
+Added Surf & Fishing encounters to Scorched Slab.
+Disabled the confetti in the Hall of Fame (for better screenshots).
+Added option to enable EV gain when starting a new game.
+Added option to choose a difficulty when starting a new game.
+Added a trigger to prevent the played from entering the Mossdeep Gym before obtaining the 6th gym badge.
+Added overworld partners to most boss fights.
+Changed the chance to hook a Pokémon when fishing to 100%.
+Removed the fishing "minigame". (All rods get a bite on the first cast.)
+Fishing now has no time limit.
+Added Surf & Fishing encounters to Shoal Cave High Tide Entrance Room and Shoal Cave High Tide Inner Room.
+Replaced the Move Relearner in Fallarbor Town with an NPC that sells fossils after you have already revived the fossil from Mirage Tower.
+You can now view a Pokémon's EVs in its summary screen if EV gain is enabled.
+Added the current difficulty to the back of the trainer card.
+Added whether or not EV gain is enabled to the back of the trainer card.
+Added the romhack version to the back of the trainer card.
+You can change from Hard Mode to Normal Mode by talking to Professor Birch's aide in the lab in Littleroot town.
+  You cannot go from Normal Mode to Hard Mode.
+
+Feature Changes:
+Rare Candies can now only raise a Pokémon's level to 3 above the current level cap.
+Edited item prices.
+Renamed Flash in the Utilities Menu to Flashlight.
+Rock Smash now has a 100% chance to lower the target's Defense.
+Teleport no longer ends a wild battle when used by the wild Pokémon.
+It is now always raining on Route 119.
+Armor Cannon, Lava Plume, & Psybeam are now Pulse moves (boosted by Mega Launcher).
+Attract now works regardless of gender.
+Changed Battle Bond's description.
+Changed Battle Bond's activation animation.
+Changed the Move Relearner's house sign text.
+Moved Battle Points to the back of the trainer card.
+Changed the sound effect for when a Mini-Boss gives you BP.
+
+Bugfixes:
+Fixed Professor Birch's incorrect text when giving utility items.
+Fixed issue with shop text overlap.
+Fixed Collector giving Froakie-Special before the battle.
+Fixed scientist not noticing other fossils.
+Fixed incorrect text after taking the fossil.
+Fixed issue with using the Flashlight repeatedly froze the game.
+Fixed wall appearing between Route 112 and Route 111.
+Fixed issue with money box at the Safari Zone Entrance.
+Fixed Granite Cave B2F encounters.
+Fixed Safari Zone encounters.
+Fixed Route 123 encounters.
+Fixed a bug where berries were plantable via the bag.
+Fixed a bug where Rare Candies only cost 1 BP.
+Fixed Glacia's Smoochum's incorrect level.
+Fixed incorrect item descriptions (from older builds).
+Fixed up some TM descriptions that were too long.
+
+Boss Changes:
+Changed some boss fights to scale in level depending on if the player has defeated Winona:
+> Aqua Admin Matt & Aqua Leader Archie | Mt. Pyre
+  Pre-Winona: 36, 37, 38, 37, 38, 39
+  Post-Winona: 41, 42, 43, 42, 43, 44
+> Partner Rival | Mt. Pyre
+  Pre-Winona: 38, 39, 40
+  Post-Winona: 43, 44, 45
+> Aqua Admin Matt | Aqua Hideout
+  Pre-Winona: 36, 36, 36, 37, 37, 38
+  Post-Winona: 41, 41, 41, 42, 42, 43
+> Magma Admin Tabitha | Magma Hideout
+  Pre-Winona: 36, 36, 36, 37, 37, 38
+  Post-Winona: 41, 41, 41, 42, 42, 43
+> Magma Leader Maxie | Magma Hideout
+  Pre-Winona: 37, 37, 38, 38, 38, 39
+  Post-Winona: 42, 42, 43, 43, 43, 44
+> Rival | Lilycove City
+  Pre-Winona: 34, 35, 36, 37, 38, 39
+  Post-Winona: 39, 40, 41, 42, 43, 44
+Changed the levels of Rival Wally (Victory Road)'s team:
+  - 60, 60, 60, 60, 61, 62
+> Changed Leader Flannery's team:
+  - Salandit
+  + Cyndaquil @ Focus Sash
+    Level 29, Timid, Blaze
+    Eruption/Flamethrower/Scorching Sands/Infernal Parade
+  Edited Magby - Nature: Modest, Moves: Flamethrower/Psychic/Scorching Sands/Will-O-Wisp
+  Edited Charcadet-Psychic - Ability: Mega Launcher, Moves: Lava Plume/Psybeam/Sunny Day/Destiny Bond
+  Edited Darumaka-Galar - Ability: Gorilla Tactics, Item: Choice Scarf
+> Changed Champion Wallace's team:
+  - Froakie
+  + Toedscool @ Leftovers
+  Level 64, Lax, Mycelium Might
+  Toxic/Earth Power/Giga Drain/Protect
+> Changed Leader Brawly's team:
+  Edited Chimchar - Moves: Mach Punch/Flame Charge/Fling/Trailblaze
+> Changed Leaders Tate & Liza's team:
+  Edited Bronzor - Moves: Heavy Slam/Expanding Force/Reflect/Light Screen
+  Edited Espurr - Ability: Prankster, Moves: Fake Out/Psychic Terrain/Rain Dance/Expanding Force
+> Changed Leader Winona's team:
+  Edited Drifloon - Moves: Hex/Air Slash/Thunder Wave/Destiny Bond
+> Changed two of Brendan's teams (Route 119 Scorbunny & Route 119 Squirtle):
+  Edited Litleo - Moves: Crunch/Facade/Acrobatics/Will-O-Wisp
+> Changed May (Lilycove City)'s team:
+  Edited Cherubi - Moves: Swords Dance/Weather Ball/Solar Blade/Sunny Day
+> Changed Aqua Admin Shelly's team:
+  Edited Eevee-Ice - Ability: Snow Cloak
+> Changed Elite Four Sidney's team:
+  Edited Zorua - Item: Wise Glasses
+> Changed Elite Four Phoebe's team:
+  Edited Charcadet-Ghost - Ability: Sharpness
+  Edited Dreepy - Moves: Dragon Darts/Poltergeist/Shadow Sneak/Dragon Tail
+  Edited Munchlax - Moves: Curse/Shadow Punch/Earthquake/Giga Impact
+> Changed Elite Four Drake's team:
+  Edited Exeggcute-Dragon - Moves: Reflect/Leech Seed/Wood Hammer/Dragon Hammer
+> Changed Magma Admin Tabitha's team:
+  Edited Drilbur - Ability: Sand Rush
+> Changed Partner Rival's team:
+  Edited Litleo - Moves: Heat Wave/Hyper Voice/Sunny Day/Helping Hand, Item: Eviolite
+  Edited Scorbunny - Moves: Electro Ball/Heat Wave/Agility/Helping Hand
+  Edited Ponyta - Moves: Flare Blitz/High Horsepower/Play Rough/Wild Charge, Item: Eviolite
+  Edited Squirtle - Item: Wacan Berry, Ability: Rain Dish
+  Edited Wooper - Moves: Yawn/Bulldoze/Aqua Tail/Helping Hand
+  Edited Ducklett - Moves: Hurricane/Surf/Helping Hand/Feather Dance, Nature: Timid
+  Edited Cherubi - Moves: Giga Drain/Dazzling Gleam/Pollen Puff/Sunny Day
+> Changed Rival (Lilycove City)'s team:
+  Edited Litleo - Moves: Hyper Voice/Flamethrower/Dark Pulse/Will-O-Wisp
+> Changed Rival (Route 119)'s team:
+  Edited Litleo - Moves: Crunch/Facade/Acrobatics/Psychic Fangs
+> Changed Aqua Admin Matt's team:
+  Edited Drifloon - Moves: Protect/Thunder/Shadow Ball/Psychic
+> Changed Leader Norman's team:
+  Edited Type: Null - Moves: Iron Defense/Crush Claw/Flame Charge/Crunch
+  Edited Igglybuff - Moves: Misty Explosion/Hyper Voice/Alluring Voice/Psychic
+> Changed Miniboss Boom Dude's team:
+  Edited Amaura - Nature: Adamant
+  - Type: Null
+  + Pineco @ Choice Band
+  Level 35, Lonely, Sturdy
+  Explosion/Ice Spinner/Drill Run/Gyro Ball
+> Changed Miniboss Protector's team:
+  Edited Munna - Moves: Round/Moonlight/Lucky Chant/Helping Hand
+  Edited Spritzee - Moves: Draining Kiss/Protect/Reflect/Light Screen
+  Edited Tarountula - Moves: Silk Trap/Spider Web/Spikes/Counter
+  Edited Mareanie - Moves: Baneful Bunker/Toxic Spikes/Toxic/Recover
+> Changed Miniboss Slow Fella's team:
+  Edited Munchlax - Moves: Stomping Tantrum/Encore/Ice Punch/Fissure
+
+Pokémon Changes:
+Added ability changes to most Pokémon that have a held item form.
+Bunnelby is now Normal/Ground type.
+Charmander is now Fire/Dragon type.
+Rhyhorn's abilities are now Solid Rock/Rock Head/Reckless.
+Zorua's abilities are now Illusion/None/Imposter.
+Zorua-Hisui's abilities are now Illusion/None/Imposter.
+Caterpie, Weedle, Wurmple, Beldum, Kricketot, Combee, Tynamo, Scatterbug, Cosmog, Blipbug, and Applin are no longer TM Illiterate.
+  (They can learn universal moves.)
+Changed Igglybuff-Mega's ability to Competitive.
+
+Learnset Changes:
+Migrated egg move learnsets from all generations for each Pokémon.
+  (Each Pokémon has all of the egg moves it had from every generation excluding the move listed below.)
+Removed the following moves from all Egg Move learnsets:
+- Covet, Iron Tail, Crunch, Double-Edge, Close Combat, Flare Blitz, Hydro Pump, Aqua Tail, Dragon Rush, Gunk Shot, Seed Bomb,
+- Focus Blast, Heavy Slam, Iron Head, Giga Impact, Hyper Beam, Leaf Storm, Thrash, Outrage, Play Rough, Hyper Voice, Boomburst,
+- Hurricane, Stone Edge, Heat Wave
+Edited Bidoof's learnset:
+- Level-Up: + Aqua Jet (15), Aqua Tail (26)
+Edited Doduo's learnset:
+- Level-Up: + Stomping Tantrum (32)
+Edited Pawniard's learnset:
+- Level-Up: + Sucker Punch (46)
+Edited Phanpy's learnset:
+- Level-Up: + Ice Shard (1)
+Edited Applin's learnset:
+- Level-Up: Draco Meteor (65)
+- TM: + Bullet Seed, Solar Beam, Giga Drain, Seed Bomb, Protect
+- Tutor: + Explosion
+- Egg: + Leech Seed
+Edited Scorunny's learnset:
+- TM: + Zen Headbutt, Brick Break
+Edited Skrelp's learnset:
+- TM: + Poison Jab
+Edited Clobbopus's learnset:
+- Level-Up: + Force Palm (26)
+- TM: + Low Sweep, Water Pulse
+Edited Froakie's learnset:
+- TM: + Dark Pulse
+Edited Growlithe's learnset:
+- Level-Up: + Close Combat (52) | - Reversal (52)
+- Egg: + Reversal
+Edited Growlithe-Hisui's learnset:
+- Level-Up: + Stone Edge (48), Close Combat (52) | - Rock Slide (48), Reversal (52)
+- Egg: + Reversal
+Edited Cyndaquils's learnset:
+- Level-Up: + Infernal Parade (34), Scorching Sands (49) | - Rollout (49)
+- Egg: + Rollout
+Edited Magby's learnset:
+- Level-Up: + Scorching Sands (34)
+Edited Croagunk's learnset:
+- Level-Up: + Close Combat (50)
+Edited Trapinch's learnset:
+- Level-Up: + First Impression (46)
+Edited Meowth-Galar's learnset:
+- Level-Up: + Iron Head (26)
+- Egg: + Bullet Punch
+Edited Pancham's learnset:
+- Egg: + Bullet Punch
+Edited Shroodle's learnset:
+- Level-Up: + Doodle (17)
+- Egg: + Sketch
+Edited Wiglett's learnset:
+- Level-Up: > Water Pulse (20 > 22), + Triple Dive (26)
+Edited Wattrel's learnset:
+- Level-Up: > Bolt Beak (36 > 51)
+Edited Larvesta's learnset:
+- Level-Up: > Flare Blitz (66 > 63)
+Edited Totodile's learnset:
+- Level-Up: + Fishious Rend (51)
+Edited Salandit's learnset:
+- Egg: + Encore
+Edited Capsakid's learnset:
+- TM: + Fire Fang, Fire Punch, Thunder Punch
+- Egg: + Spicy Extract
+Edited Tarountula's learnset:
+- Level-Up: + Silk Trap (1), Sucker Punch (35)
+Edited Mareanie's learnset:
+- Level-Up: + Baneful Bunker (31)
+Edited Rolycoly's learnset:
+- Level-Up: + Flame Wheel (14), Flame Charge (22), Flamethrower (31)
+Edited Scorbunny's learnset:
+- Level-Up: > Pyro Ball (41 > 50), + Sucker Punch (41)
+- Egg: + Coaching, Court Change
+Edited Squirtle's learnset:
+- Level-Up: > Wave Crash (36 > 50), + Dragon Pulse (41)
+- Egg: - Aura Sphere, Dragon Pulse
+Edited Snivy's learnset:
+- Level-Up: - Magical Leaf (16) | + Leaf Tornado (16) | > Leaf Storm (40 > 50), + Superpower (56), Draco Meteor (65)
+Edited Tinkatink's learnset:
+- Level-Up: + Gigaton Hammer (53)
+Edited Snom's learnset:
+- Level-Up: + String Shot (4), Infestation (6), Mist (7), Stun Spore (11), Attract (14), Icy Wind (16), Signal Beam (22),
+  Ice Beam (27), Freeze-Dry (33), Bug Buzz (35), Quiver Dance (41), Blizzard (46)
+- TM: + Ice Beam, Chilling Water, Giga Drain, Dazzling Gleam, Leech Life, Snowscape, Acrobatics, U-turn, Play Rough,
+  Ice Spinner, Solar Beam, Calm Mind, Reflect, Light Screen
+- Tutor: Substitute
+- Egg: + Mega Drain, Aurora Beam, Aurora Veil, Sleep Powder, Ice Shard, Defog, Feather Dance, Haze, Tailwind, Wide Guard
+Edited Kricketot's learnset:
+- Level-Up: + Struggle Bug (1), Fury Cutter (6), Absorb (7), Focus Energy (12), Sing (18), Slash (20), Fell Stinger (21),
+  Aerial Ace (27), Lunge (30), Pin Missile (32), Night Slash (35), Knock Off (40), Bug Buzz (41) | - Struggle Bug (6)
+- TM: + Rock Tomb, Low Sweep, Bulldoze, Brick Break, Poison Jab, Leech Life, U-turn, Giga Drain, Bullet Seed, Thief, Covet, Pounce
+- Egg: + Mega Drain, Endeavor, Snore, Perish Song, Mud Shot, Mud Slap, Sticky Web, Taunt, Silk Trap, Helping Hand
+Edited Scatterbug's learnset:
+- Egg: + Silk Trap
+Edited Crabrawler's learnset:
+- Level-Up: - Close Combat (49) | + Hammer Arm (49), Ice Hammer (50), Close Combat (53), Dragon Hammer (63)
+Edited Krabby's learnset:
+- Level-Up: + Hammer Arm (50), Dragon Hammer (63)
+Edited Sneasel-Hisui's learnset:
+- Level-Up: + Dire Claw (64)
+Edited Cherubi's learnset:
+- Level-Up: + Solar Blade (45)
+Edited Ralts's learnset:
+- Level-Up: + Moonblast (42)
+Edited Dreepy's learnset:
+- Level-Up: + Poltergeist (37)
+Edited Litleo's learnset:
+- Egg: + Howl
+Edited Ponyta's learnset:
+- Egg: + Heal Pulse
+
+Calculator:
+Updated changed moves.

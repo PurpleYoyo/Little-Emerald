@@ -98,6 +98,9 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->input_field_1_1 = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
+    input->input_field_1_5 = FALSE;
+    input->input_field_1_6 = FALSE;
+    input->input_field_1_7 = FALSE;
     input->dpadDirection = 0;
 }
 
@@ -154,6 +157,18 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         }
     }
 
+    // Diving
+    if ((heldKeys & (B_BUTTON)) && input->pressedAButton)
+    {
+        input->input_field_1_5 = TRUE;
+    }
+
+    // Emerging
+    if ((heldKeys & (A_BUTTON)) && input->pressedBButton)
+    {
+        input->input_field_1_6 = TRUE;
+    }
+
     // Utilities Menu
     if ((newKeys & (L_BUTTON))) // && input->pressedSelectButton)
     {
@@ -161,11 +176,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         //input->pressedSelectButton = FALSE;
     }
 
-    if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
-     && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
-    {
-        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
-    }
+    //if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
+    // && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    //{
+    //    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    //}
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -188,7 +203,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
 
-    if (input->pressedAButton && TrySetupDiveEmergeScript() == TRUE)
+    if ((input->input_field_1_6) && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
     if (input->tookStep)
     {
@@ -230,7 +245,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         if (TryDoorWarp(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
-    if (input->pressedAButton && TrySetupDiveDownScript() == TRUE)
+    if ((input->input_field_1_5) && TrySetupDiveDownScript() == TRUE)
         return TRUE;
     if (input->pressedStartButton)
     {

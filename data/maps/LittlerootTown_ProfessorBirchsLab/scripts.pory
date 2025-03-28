@@ -531,11 +531,13 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExtraItems, MSGBOX_DEFAULT
 	giveitem ITEM_MAX_RESTORE
 	giveitem ITEM_INFINITE_CANDY
+	giveitem ITEM_CAP_CANDY
 	giveitem ITEM_ESCAPE_ROPE
 	giveitem ITEM_WARP_PANEL
 	giveitem ITEM_POKEVIAL
 	giveitem ITEM_POKEMON_BOX_LINK
 	giveitem ITEM_INFINITE_REPEL
+	giveitem ITEM_FLASHLIGHT
 	releaseall
 	end
 
@@ -1014,5 +1016,5 @@ LittlerootTown_ProfessorBirchsLab_Text_ExtraItems:
 	.string "They may be useful to you during\p"
 	.string "your adventure. You can also access\n"
 	.string "a utilities menu by pressing the\p"
-	.string "R Button!$"
+	.string "L Button!$"
 `

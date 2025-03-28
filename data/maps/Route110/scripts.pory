@@ -3,6 +3,8 @@ raw `
 .set LOCALID_RIVAL, 28
 .set LOCALID_RIVAL_ON_BIKE, 29
 .set LOCALID_BIRCH, 36
+.set LOCALID_ANORITH, 37
+.set LOCALID_AMAURA, 38
 
 Route110_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, Route110_OnResume
@@ -15,10 +17,23 @@ Route110_OnResume:
 	end
 
 Route110_OnTransition:
+	checkplayergender
+	call_if_eq VAR_RESULT, MALE, RemoveAnorith
+	call_if_eq VAR_RESULT, FEMALE, RemoveAmaura
 	call Common_EventScript_SetupRivalGfxId
 	call Common_EventScript_SetupRivalOnBikeGfxId
 	call_if_eq VAR_CYCLING_CHALLENGE_STATE, 1, Route110_EventScript_SaveCyclingMusic
 	end
+
+RemoveAmaura::
+	removeobject LOCALID_AMAURA
+	setflag FLAG_HIDE_RIVALS_AMAURA
+	return
+
+RemoveAnorith::
+	removeobject LOCALID_ANORITH
+	setflag FLAG_HIDE_RIVALS_ANORITH
+	return
 
 Route110_EventScript_SaveCyclingMusic::
 	savebgm MUS_CYCLING
@@ -405,6 +420,10 @@ Route110_EventScript_PlayBrendanMusic::
 
 Route110_EventScript_MayBattle::
 	msgbox Route110_Text_MayLetsBattle, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_AMAURA
+	setflag FLAG_HIDE_RIVALS_AMAURA
 	switch VAR_STARTER_MON
 	case 0, Route110_EventScript_MayBattleTreecko
 	case 1, Route110_EventScript_MayBattleTorchic
@@ -435,6 +454,10 @@ Route110_EventScript_MayDefeated::
 
 Route110_EventScript_BrendanBattle::
 	msgbox Route110_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_ANORITH
+	setflag FLAG_HIDE_RIVALS_ANORITH
 	switch VAR_STARTER_MON
 	case 0, Route110_EventScript_BrendanBattleTreecko
 	case 1, Route110_EventScript_BrendanBattleTorchic

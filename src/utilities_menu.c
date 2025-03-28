@@ -67,13 +67,15 @@ enum UtilitiesMenu
     UTILITIES_MENU_ITEM_POKEMON_BOX_LINK,
     UTILITIES_MENU_ITEM_POKEVIAL,
     UTILITIES_MENU_ITEM_INFINITE_REPEL,
+    UTILITIES_MENU_ITEM_HATCH_EGG,
+    UTILITIES_MENU_ITEM_CHANGE_TIME,
     UTILITIES_MENU_ITEM_AUTO_RUN,
     UTILITIES_MENU_ITEM_FLASH,
     UTILITIES_MENU_ITEM_ESCAPE_ROPE,
     UTILITIES_MENU_ITEM_WARP_PANEL,
 };
 
-#define UTILITIES_WINDOW_HEIGHT 7
+#define UTILITIES_WINDOW_HEIGHT 9
 
 struct UtilitiesMenuListData
 {
@@ -91,26 +93,34 @@ static void Utilities_RefreshListMenu(u8 taskId);
 static void UtilitiesTask_HandleMenuInput(u8 taskId);
 
 static void UtilitiesAction_InfiniteRepel(u8 taskId);
+static void UtilitiesAction_HatchEgg(u8 taskId);
 static void UtilitiesAction_PokemonBoxLink(u8 taskId);
 static void UtilitiesAction_Pokevial(u8 taskId);
 static void UtilitiesAction_WarpPanel(u8 taskId);
 static void UtilitiesAction_EscapeRope(u8 taskId);
 static void UtilitiesAction_AutoRun(u8 taskId);
 static void UtilitiesAction_Flash(u8 taskId);
+static void UtilitiesAction_ChangeTime(u8 taskId);
+
+extern const u8 PlayersHouse_2F_EventScript_SetWallClock[];
 
 static const u8 sUtilitiesText_InfiniteRepel[] = _("{STR_VAR_1}Infinite Repel");
+static const u8 sUtilitiesText_HatchEgg[] = _("Hatch Egg");
 static const u8 sUtilitiesText_PokemonBoxLink[] = _("Pokémon Box Link");
 static const u8 sUtilitiesText_Pokevial[] = _("Pokévial");
 static const u8 sUtilitiesText_WarpPanel[] = _("Warp Panel");
 static const u8 sUtilitiesText_EscapeRope[] = _("Escape Rope");
 static const u8 sUtilitiesText_AutoRun[] = _("{STR_VAR_1}Auto Run");
-static const u8 sUtilitiesText_Flash[] = _("Flash");
+static const u8 sUtilitiesText_Flash[] = _("Flashlight");
+static const u8 sUtilitiesText_ChangeTime[] = _("Change Time");
 
 static const struct ListMenuItem sUtilitiesMenu_Items[] =
 {
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = {sUtilitiesText_PokemonBoxLink,        UTILITIES_MENU_ITEM_POKEMON_BOX_LINK},
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = {sUtilitiesText_Pokevial,              UTILITIES_MENU_ITEM_POKEVIAL},
     [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = {sUtilitiesText_InfiniteRepel,         UTILITIES_MENU_ITEM_INFINITE_REPEL},
+    [UTILITIES_MENU_ITEM_HATCH_EGG]                = {sUtilitiesText_HatchEgg,              UTILITIES_MENU_ITEM_HATCH_EGG},
+    [UTILITIES_MENU_ITEM_CHANGE_TIME]              = {sUtilitiesText_ChangeTime,            UTILITIES_MENU_ITEM_CHANGE_TIME},
     [UTILITIES_MENU_ITEM_AUTO_RUN]                 = {sUtilitiesText_AutoRun,               UTILITIES_MENU_ITEM_AUTO_RUN},
     [UTILITIES_MENU_ITEM_FLASH]                    = {sUtilitiesText_Flash,                 UTILITIES_MENU_ITEM_FLASH},
     [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = {sUtilitiesText_EscapeRope,            UTILITIES_MENU_ITEM_ESCAPE_ROPE},
@@ -122,6 +132,8 @@ static void (*const sUtilitiesMenu_Actions[])(u8) =
     [UTILITIES_MENU_ITEM_POKEMON_BOX_LINK]         = UtilitiesAction_PokemonBoxLink,
     [UTILITIES_MENU_ITEM_POKEVIAL]                 = UtilitiesAction_Pokevial,
     [UTILITIES_MENU_ITEM_INFINITE_REPEL]           = UtilitiesAction_InfiniteRepel,
+    [UTILITIES_MENU_ITEM_HATCH_EGG]                = UtilitiesAction_HatchEgg,
+    [UTILITIES_MENU_ITEM_CHANGE_TIME]              = UtilitiesAction_ChangeTime,
     [UTILITIES_MENU_ITEM_AUTO_RUN]                 = UtilitiesAction_AutoRun,
     [UTILITIES_MENU_ITEM_FLASH]                    = UtilitiesAction_Flash,
     [UTILITIES_MENU_ITEM_ESCAPE_ROPE]              = UtilitiesAction_EscapeRope,
@@ -129,8 +141,7 @@ static void (*const sUtilitiesMenu_Actions[])(u8) =
 };
 
 static const struct WindowTemplate sUtilitiesMenuWindowTemplate =
-{
-    .bg = 0,
+{.bg = 0,
     .tilemapLeft = 1,
     .tilemapTop = 1,
     .width = 14,
@@ -332,7 +343,8 @@ static void UtilitiesAction_EscapeRope(u8 taskId)
 static void UtilitiesAction_AutoRun(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
-    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    if ((FlagGet(FLAG_SYS_B_DASH)))
+        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
     DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);
 }
@@ -340,7 +352,33 @@ static void UtilitiesAction_AutoRun(u8 taskId)
 static void UtilitiesAction_Flash(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
-    ScriptContext_SetupScript(EventScript_UseFlash);
+    if (!(gMapHeader.cave == TRUE))
+        ScriptContext_SetupScript(EventScript_CantUseFlashHere);
+    else if (FlagGet(FLAG_SYS_USE_FLASH))
+        ScriptContext_SetupScript(EventScript_AlreadyUsedFlash);
+    else
+    {
+        ScriptContext_SetupScript(EventScript_UseFlash);
+        PlaySE(SE_M_REFLECT);
+        AnimateFlash(1);
+        SetFlashLevel(0);
+    }
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void UtilitiesAction_HatchEgg(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_HatchEgg);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void UtilitiesAction_ChangeTime(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(PlayersHouse_2F_EventScript_SetWallClock);
     DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);
 }

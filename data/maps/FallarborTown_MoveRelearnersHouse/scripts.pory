@@ -1,6 +1,20 @@
 raw `
 .set LOCALID_MOVE_RELEARNER, 1
 
+	.align 2
+FossilPokemart:
+	.2byte ITEM_DOME_FOSSIL
+	.2byte ITEM_HELIX_FOSSIL
+	.2byte ITEM_ROOT_FOSSIL
+	.2byte ITEM_CLAW_FOSSIL
+	.2byte ITEM_ARMOR_FOSSIL
+	.2byte ITEM_SKULL_FOSSIL
+	.2byte ITEM_COVER_FOSSIL
+	.2byte ITEM_PLUME_FOSSIL
+	.2byte ITEM_JAW_FOSSIL
+	.2byte ITEM_SAIL_FOSSIL
+	pokemartlistend
+
 FallarborTown_MoveRelearnersHouse_MapScripts::
 	.byte 0
 

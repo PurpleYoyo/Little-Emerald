@@ -1,5 +1,8 @@
 raw `
 .set LOCALID_RIVAL, 2
+.set LOCALID_SQUIRTLE, 21
+.set LOCALID_SCORBUNNY, 22
+.set LOCALID_SNIVY, 23
 
 Route103_MapScripts::
 	map_script MAP_SCRIPT_ON_TRANSITION, Route103_OnTransition
@@ -7,6 +10,9 @@ Route103_MapScripts::
 	.byte 0
 
 Route103_OnTransition:
+	call_if_eq VAR_STARTER_MON, 0, RemoveStarters_Snivy
+	call_if_eq VAR_STARTER_MON, 1, RemoveStarters_Scorbunny
+	call_if_eq VAR_STARTER_MON, 2, RemoveStarters_Squirtle
 	call Common_EventScript_SetupRivalGfxId
 	call ProfBirch_EventScript_UpdateLocation
 	end
@@ -14,6 +20,27 @@ Route103_OnTransition:
 Route103_OnLoad:
 	call Route103_EventScript_OpenAlteringCave
 	end
+
+RemoveStarters_Snivy::
+	removeobject LOCALID_SNIVY
+	removeobject LOCALID_SQUIRTLE
+	setflag FLAG_HIDE_RIVALS_SNIVY
+	setflag FLAG_HIDE_RIVALS_SQUIRTLE
+	return
+
+RemoveStarters_Scorbunny::
+	removeobject LOCALID_SCORBUNNY
+	removeobject LOCALID_SNIVY
+	setflag FLAG_HIDE_RIVALS_SCORBUNNY
+	setflag FLAG_HIDE_RIVALS_SNIVY
+	return
+
+RemoveStarters_Squirtle::
+	removeobject LOCALID_SCORBUNNY
+	removeobject LOCALID_SQUIRTLE
+	setflag FLAG_HIDE_RIVALS_SCORBUNNY
+	setflag FLAG_HIDE_RIVALS_SQUIRTLE
+	return
 
 Route103_EventScript_OpenAlteringCave::
 	setmetatile 45, 5, METATILE_General_CaveEntrance_Top, TRUE
@@ -38,6 +65,14 @@ Route103_EventScript_RivalMay::
 	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	msgbox Route103_Text_MayLetsBattle, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_SCORBUNNY
+	removeobject LOCALID_SQUIRTLE
+	removeobject LOCALID_SNIVY
+	setflag FLAG_HIDE_RIVALS_SCORBUNNY
+	setflag FLAG_HIDE_RIVALS_SNIVY
+	setflag FLAG_HIDE_RIVALS_SQUIRTLE
 	switch VAR_STARTER_MON
 	case 0, Route103_EventScript_StartMayBattleTreecko
 	case 1, Route103_EventScript_StartMayBattleTorchic
@@ -55,6 +90,14 @@ Route103_EventScript_RivalBrendan::
 	applymovement LOCALID_RIVAL, Common_Movement_Delay48
 	waitmovement 0
 	msgbox Route103_Text_BrendanLetsBattle, MSGBOX_DEFAULT
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_SCORBUNNY
+	removeobject LOCALID_SQUIRTLE
+	removeobject LOCALID_SNIVY
+	setflag FLAG_HIDE_RIVALS_SCORBUNNY
+	setflag FLAG_HIDE_RIVALS_SNIVY
+	setflag FLAG_HIDE_RIVALS_SQUIRTLE
 	switch VAR_STARTER_MON
 	case 0, Route103_EventScript_StartBrendanBattleTreecko
 	case 1, Route103_EventScript_StartBrendanBattleTorchic

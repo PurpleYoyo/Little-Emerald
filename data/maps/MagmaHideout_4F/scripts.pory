@@ -1,11 +1,14 @@
 raw `
 .set LOCALID_GROUDON, 1
 .set LOCALID_GRUNT_1, 2
-.set LOCALID_GRUNT_2, 3
-.set LOCALID_GRUNT_3, 4
-.set LOCALID_TABITHA, 5
-.set LOCALID_MAXIE, 6
-.set LOCALID_GROUDON_SLEEPING, 7
+.set LOCALID_GRUNT_2, 7
+.set LOCALID_GRUNT_3, 8
+.set LOCALID_TABITHA, 3
+.set LOCALID_MAXIE, 4
+.set LOCALID_GROUDON_SLEEPING, 5
+.set LOCALID_DRILBUR, 9
+.set LOCALID_NUMEL, 10
+.set LOCALID_TABITHA_2, 11
 
 MagmaHideout_4F_MapScripts::
 	.byte 0
@@ -63,7 +66,12 @@ MagmaHideout_4F_EventScript_Maxie::
 	waitmovement 0
 	msgbox MagmaHideout_4F_Text_MaxieOhItWasYou, MSGBOX_DEFAULT
 	closemessage
-	trainerbattle_no_intro TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat
+	playse SE_M_BATON_PASS
+	waitse
+	removeobject LOCALID_NUMEL
+	setflag FLAG_HIDE_MAXIES_NUMEL
+	call_if_unset FLAG_DEFEATED_FORTREE_GYM, MagmaHideout_4F_EventScript_Maxie_PreWinona
+	call_if_set FLAG_DEFEATED_FORTREE_GYM, MagmaHideout_4F_EventScript_Maxie_PostWinona
 	msgbox MagmaHideout_4F_Text_MaxieImGoingAfterGroudon, MSGBOX_DEFAULT
 	closemessage
 	clearflag FLAG_HIDE_SLATEPORT_CITY_CAPTAIN_STERN
@@ -76,7 +84,7 @@ MagmaHideout_4F_EventScript_Maxie::
 	removeobject LOCALID_GRUNT_1
 	removeobject LOCALID_GRUNT_2
 	removeobject LOCALID_GRUNT_3
-	removeobject LOCALID_TABITHA
+	removeobject LOCALID_TABITHA_2
 	setflag FLAG_HIDE_MAGMA_HIDEOUT_GRUNTS
 	fadescreen FADE_FROM_BLACK
 	releaseall
@@ -232,3 +240,35 @@ MagmaHideout_4F_Text_MaxieImGoingAfterGroudon:
 	.string "I am going after GROUDON, so this\n"
 	.string "is where we part!$"
 `
+
+script Tabitha {
+	playse(SE_M_BATON_PASS)
+	waitse
+	removeobject(LOCALID_DRILBUR)
+	setflag(FLAG_HIDE_TABITHAS_DRILBUR)
+	if (flag(FLAG_DEFEATED_FORTREE_GYM)) {
+		trainerbattle_single(TRAINER_TABITHA_MAGMA_HIDEOUT, MagmaHideout_4F_Text_TabithaIntro, MagmaHideout_4F_Text_TabithaDefeat)
+		msgbox(MagmaHideout_4F_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE)
+	}
+	else {
+		trainerbattle_single(TRAINER_WINONA_2, MagmaHideout_4F_Text_TabithaIntro, MagmaHideout_4F_Text_TabithaDefeat)
+		msgbox(MagmaHideout_4F_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE)
+	}
+	setflag(FLAG_HIDE_TABITHA)
+	removeobject(LOCALID_TABITHA)
+}
+
+script MagmaHideout_4F_EventScript_Maxie_PreWinona {
+	trainerbattle_no_intro(TRAINER_WINONA_3, MagmaHideout_4F_Text_MaxieDefeat)
+	return
+}
+
+script MagmaHideout_4F_EventScript_Maxie_PostWinona {
+	trainerbattle_no_intro(TRAINER_MAXIE_MAGMA_HIDEOUT, MagmaHideout_4F_Text_MaxieDefeat)
+	return
+}
+
+script TabithaPostBattle {
+	faceplayer
+	msgbox(MagmaHideout_4F_Text_TabithaPostBattle, MSGBOX_AUTOCLOSE)
+}

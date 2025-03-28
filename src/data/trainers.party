@@ -92,10 +92,9 @@ AI: Basic Trainer
 
 Geodude
 Level: 21
-- Knock Off
 
 Cufant
-/*Level: 21*/
+Level: 21
 
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
@@ -512,16 +511,16 @@ Nature: Rash
 - Explosion
 
 Drifloon @ Flame Orb
-Level: 39
+Level: 41
 Ability: Flare Boost
 Nature: Timid
 - Protect
 - Thunder
 - Shadow Ball
-- Explosion
+- Psychic
 
 Geodude Alola @ Eviolite
-Level: 40
+Level: 41
 Ability: Galvanize
 Nature: Careful
 - Stone Edge
@@ -530,7 +529,7 @@ Nature: Careful
 - Explosion
 
 Tynamo @ Air Balloon
-Level: 38
+Level: 42
 Ability: Surge Surfer
 Nature: Modest
 - Charge Beam
@@ -597,7 +596,7 @@ Nature: Adamant
 
 Eevee Ice @ Ice Stone
 Level: 36
-Ability: Adaptability
+Ability: Snow Cloak
 Nature: Naughty
 - Multi-Attack
 - Yawn
@@ -4248,7 +4247,7 @@ Nature: Jolly
 
 Charcadet Ghost @ Malicious Armor
 Level: 60
-Ability: Flame Body
+Ability: Sharpness
 Nature: Impish
 - Bitter Blade
 - Will-O-Wisp
@@ -4338,7 +4337,7 @@ Nature: Impish
 - Metal Claw
 
 Smoochum @ Ice Incense
-Level: 45
+Level: 62
 Ability: Hydration
 Nature: Bold
 - Psychic
@@ -4419,7 +4418,7 @@ Music: Female
 Double Battle: No
 AI: Basic Trainer
 
-Roggenrola @ Sitrus Berry
+Roggenrola @ Custap Berry
 Level: 13
 Ability: Sturdy
 Nature: Adamant
@@ -4504,7 +4503,7 @@ Nature: Hasty
 - Mach Punch
 - Flame Charge
 - Fling
-- Grass Knot
+- Trailblaze
 
 Pancham @ Muscle Band
 Level: 19
@@ -4614,30 +4613,30 @@ Nature: Bold
 
 Charcadet Psychic @ Auspicious Armor
 Level: 28
-Ability: Flash Fire
+Ability: Mega Launcher
 Nature: Naive
-- Flamethrower
-- Psycho Cut
+- Lava Plume
+- Psybeam
 - Sunny Day
 - Destiny Bond
 
-Darumaka Galar @ Eviolite
+Darumaka Galar @ Choice Scarf
 Level: 29
-Ability: Inner Focus
+Ability: Gorilla Tactics
 Nature: Adamant
 - Fire Punch
 - Zen Headbutt
 - Superpower
 - Ice Punch
 
-Salandit @ Focus Sash
+Cyndaquil @ Focus Sash
 Level: 29
-Ability: Corrosion
-Nature: Modest
+Ability: Blaze
+Nature: Timid
+- Eruption
 - Flamethrower
-- Venoshock
-- Dragon Pulse
-- Toxic
+- Scorching Sands
+- Infernal Parade
 
 Rolycoly @ Air Balloon
 Level: 29
@@ -4651,10 +4650,10 @@ Nature: Hasty
 Magby @ Magmarizer
 Level: 30
 Ability: Flame Body
-Nature: Naughty
-- Fire Spin
-- Confuse Ray
-- Fire Punch
+Nature: Modest
+- Flamethrower
+- Psychic
+- Scorching Sands
 - Will-O-Wisp
 
 === TRAINER_NORMAN_1 ===
@@ -4699,7 +4698,7 @@ Ability: Battle Armor
 Nature: Careful
 - Iron Defense
 - Crush Claw
-- Zen Headbutt
+- Flame Charge
 - Crunch
 
 Eevee Starter Fairy @ Shiny Stone
@@ -4716,6 +4715,9 @@ Level: 35
 Ability: Cute Charm
 Nature: Modest
 - Misty Explosion
+- Hyper Voice
+- Alluring Voice
+- Psychic
 
 === TRAINER_WINONA_1 ===
 Name: WINONA
@@ -4739,7 +4741,7 @@ Drifloon @ Sitrus Berry
 Level: 38
 Ability: Unburden
 Nature: Bold
-- Ominous Wind
+- Hex
 - Air Slash
 - Thunder Wave
 - Destiny Bond
@@ -4791,21 +4793,21 @@ AI: Basic Trainer
 
 Espurr @ Terrain Extender
 Level: 43
-Ability: Psychic Surge
+Ability: Prankster
 Nature: Bold
 - Fake Out
+- Psychic Terrain
+- Rain Dance
 - Expanding Force
-- Light Screen
-- Reflect
 
 Bronzor @ Air Balloon
 Level: 43
 Ability: Heavy Metal
 Nature: Lonely
 - Heavy Slam
-- Ice Spinner
 - Expanding Force
-- Rain Dance
+- Reflect
+- Light Screen
 
 Slowpoke Galar @ Quick Claw
 Level: 44
@@ -5908,14 +5910,14 @@ Nature: Hasty
 - Earthquake
 - Heavy Slam
 
-Froakie @ Focus Sash
+Toedscool @ Leftovers
 Level: 64
-Ability: Protean
+Ability: Mycelium Might
 Nature: Rash
-- Hydro Pump
-- Blizzard
-- Fling
-- Acrobatics
+- Toxic
+- Earth Power
+- Giga Drain
+- Protect
 
 Popplio @ Throat Spray
 Level: 64
@@ -8737,7 +8739,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Skitty @ Eviolite
-Level: 54
+Level: 60
 Ability: Wonder Skin
 Nature: Modest
 - Ice Beam
@@ -8746,7 +8748,7 @@ Nature: Modest
 - Moonblast
 
 Swablu @ Throat Spray
-Level: 55
+Level: 60
 Ability: Pixilate
 Nature: Relaxed
 - Hyper Voice
@@ -8755,7 +8757,7 @@ Nature: Relaxed
 - Perish Song
 
 Fletchling @ Flying Gem
-Level: 56
+Level: 60
 Ability: Gale Wings
 Nature: Jolly
 - Roost
@@ -8764,7 +8766,7 @@ Nature: Jolly
 - Will-O-Wisp
 
 Magnemite @ Leftovers
-Level: 57
+Level: 60
 Ability: Sturdy
 Nature: Calm
 - Protect
@@ -8773,7 +8775,7 @@ Nature: Calm
 - Electric Terrain
 
 Ralts Fighting @ Dawn Stone
-Level: 58
+Level: 61
 Ability: Pixilate
 Nature: Adamant
 - Psyblade
@@ -8782,7 +8784,7 @@ Nature: Adamant
 - Swords Dance
 
 Budew-Mega @ Rose Incense
-Level: 58
+Level: 62
 Ability: Technician
 Nature: Bold
 - Magical Leaf
@@ -8875,8 +8877,8 @@ Ability: Moxie
 Nature: Lonely
 - Crunch
 - Facade
-- Flamethrower
-- Will-O-Wisp
+- Acrobatics
+- Psychic Fangs
 
 Anorith @ Focus Sash
 Level: 35
@@ -9156,8 +9158,8 @@ Ability: Moxie
 Nature: Lonely
 - Crunch
 - Facade
-- Flamethrower
-- Will-O-Wisp
+- Acrobatics
+- Psychic Fangs
 
 Wooper Paldea @ Eviolite
 Level: 37
@@ -10668,7 +10670,7 @@ Double Battle: No
 AI: Basic Trainer
 
 Charmander @ Heat Rock
-Level: 40
+Level: 42
 Ability: Drought
 Nature: Modest
 - Scary Face
@@ -10677,7 +10679,7 @@ Nature: Modest
 - Will-O-Wisp
 
 Helioptile @ Life Orb
-Level: 41
+Level: 42
 Ability: Solar Power
 Nature: Timid
 - Parabolic Charge
@@ -10686,7 +10688,7 @@ Nature: Timid
 - Grass Knot
 
 Ponyta @ Eviolite
-Level: 42
+Level: 43
 Ability: Flash Fire
 Nature: Jolly
 - Solar Blade
@@ -11948,9 +11950,9 @@ Level: 39
 Ability: Unnerve
 Nature: Hasty
 - Hyper Voice
-- Heat Wave
+- Flamethrower
 - Dark Pulse
-- Psychic Fangs
+- Will-O-Wisp
 
 Anorith @ Eviolite
 Level: 40
@@ -12092,9 +12094,9 @@ Level: 41
 Ability: Unnerve
 Nature: Hasty
 - Hyper Voice
-- Heat Wave
+- Flamethrower
 - Dark Pulse
-- Psychic Fangs
+- Will-O-Wisp
 
 Gligar @ Sitrus Berry
 Level: 42
@@ -12217,9 +12219,9 @@ Cherubi @ Focus Sash
 Level: 41
 Ability: Flower Gift
 Nature: Modest
-- Solar Beam
+- Swords Dance
 - Weather Ball
-- Pollen Puff
+- Solar Blade
 - Sunny Day
 
 Yanma @ Sitrus Berry
@@ -12262,9 +12264,9 @@ Cherubi @ Focus Sash
 Level: 39
 Ability: Flower Gift
 Nature: Modest
-- Solar Beam
+- Swords Dance
 - Weather Ball
-- Pollen Puff
+- Solar Blade
 - Sunny Day
 
 Amaura @ Assault Vest
@@ -13298,7 +13300,7 @@ Double Battle: No
 AI: Check Bad Move
 
 Silicobra @ Smooth Rock
-Level: 38
+Level: 41
 Ability: Sand Spit
 Nature: Careful
 - Stealth Rock
@@ -13307,7 +13309,7 @@ Nature: Careful
 - Sandstorm
 
 Trapinch @ Eviolite
-Level: 39
+Level: 41
 Ability: Arena Trap
 Nature: Brave
 - First Impression
@@ -13316,7 +13318,7 @@ Nature: Brave
 - Sandstorm
 
 Cacnea @ Bright Powder
-Level: 40
+Level: 41
 Ability: Sand Veil
 Nature: Relaxed
 - Leech Seed
@@ -13325,8 +13327,8 @@ Nature: Relaxed
 - Drain Punch
 
 Drilbur @ Choice Band
-Level: 41
-Ability: Sand Force
+Level: 42
+Ability: Sand Rush
 Nature: Adamant
 - Earthquake
 - X-Scissor
@@ -14033,7 +14035,7 @@ Munna @ Eviolite
 Level: 20
 Ability: Synchronize
 Nature: Bold
-- Light Screen
+- Round
 - Moonlight
 - Lucky Chant
 - Helping Hand
@@ -14045,7 +14047,7 @@ Nature: Relaxed
 - Draining Kiss
 - Protect
 - Reflect
-- Attract
+- Light Screen
 
 Tarountula @ Focus Sash
 Level: 20
@@ -14054,7 +14056,7 @@ Nature: Impish
 - Silk Trap
 - Spider Web
 - Spikes
-- Gastro Acid
+- Counter
 
 Cubone @ Thick Club
 Level: 20
@@ -14071,7 +14073,7 @@ Ability: Regenerator
 Nature: Calm
 - Baneful Bunker
 - Toxic Spikes
-- Wide Guard
+- Toxic
 - Recover
 
 Snover @ Occa Berry
@@ -14356,20 +14358,20 @@ Nature: Modest
 Amaura @ Babiri Berry
 Level: 35
 Ability: Refrigerate
-Nature: Lonely
+Nature: Adamant
 - Explosion
 - Freeze-Dry
 - Light Screen
 - Reflect
 
-Type: Null @ Life Orb
+Pineco @ Choice Band
 Level: 35
-Ability: Battle Armor
-Nature: Adamant
+Ability: Sturdy
+Nature: Lonely
 - Explosion
-- Shadow Claw
-- Flame Charge
-- Iron Head
+- Ice Spinner
+- Drill Run
+- Gyro Ball
 
 Elgyem @ Eviolite
 Level: 35
@@ -14495,7 +14497,7 @@ Ability: Thick Fat
 Nature: Impish
 - Stomping Tantrum
 - Encore
-- Substitute
+- Ice Punch
 - Fissure
 
 Wattrel @ Power Bracer
@@ -14988,100 +14990,131 @@ Level: 60
 - Thunderbolt
 - Shadow Ball
 
-=== TRAINER_WINONA_2 ===
-Name: WINONA
-Class: Leader
-Pic: Leader Winona
-Gender: Female
-Music: Female
-Double Battle: Yes
-AI: Basic Trainer / Risky
+=== TRAINER_WINONA_2 === /* Tabitha Pre-Winona */
+Name: TABITHA
+Class: Magma Admin
+Pic: Magma Admin
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Check Bad Move
 
-Dratini @ Sitrus Berry
-Level: 40
-- Thunder Wave
-- Thunderbolt
-- Protect
-- Ice Beam
+Silicobra @ Smooth Rock
+Level: 36
+Ability: Sand Spit
+Nature: Careful
+- Stealth Rock
+- Earthquake
+- Scale Shot
+- Sandstorm
 
-Hoppip
+Trapinch @ Eviolite
+Level: 36
+Ability: Arena Trap
+Nature: Brave
+- First Impression
+- Earthquake
+- Superpower
+- Sandstorm
+
+Cacnea @ Bright Powder
+Level: 36
+Ability: Sand Veil
+Nature: Relaxed
+- Leech Seed
+- Substitute
+- Leaf Storm
+- Drain Punch
+
+Drilbur @ Choice Band
+Level: 37
+Ability: Sand Force
+Nature: Adamant
+- Earthquake
+- X-Scissor
+- Shadow Claw
+- Iron Head
+
+Bergmite Rock @ Stone Plate
+Level: 37
+Ability: Sturdy
+Nature: Sassy
+- Avalanche
+- Stone Edge
+- Recover
+- Rapid Spin
+
+Gligar @ Toxic Orb
 Level: 38
-- Sunny Day
-- Aerial Ace
-- Solar Beam
-- Earthquake
-
-Wingull
-Level: 41
-- Surf
-- Supersonic
+Ability: Poison Heal
+Nature: Jolly
 - Protect
-- Aerial Ace
-
-Rookidee
-Level: 43
-- Whirlwind
-- Spikes
-- Steel Wing
-- Aerial Ace
-
-Swablu @ Chesto Berry
-Level: 45
-- Aerial Ace
-- Rest
-- Dragon Dance
+- Fire Fang
 - Earthquake
+- Toxic
 
-=== TRAINER_WINONA_3 ===
-Name: WINONA
-Class: Leader
-Pic: Leader Winona
-Gender: Female
-Music: Female
-Double Battle: Yes
-AI: Basic Trainer / Risky
+=== TRAINER_WINONA_3 === /* Maxie Magma Hideout Pre-Winona */
+Name: MAXIE
+Class: Magma Leader
+Pic: Magma Leader Maxie
+Gender: Male
+Music: Magma
+Double Battle: No
+AI: Basic Trainer
 
-Hoothoot
-Level: 43
-- Hypnosis
-- Psychic
-- Reflect
-- Dream Eater
+Charmander @ Heat Rock
+Level: 37
+Ability: Drought
+Nature: Modest
+- Scary Face
+- Dragon Pulse
+- Flamethrower
+- Will-O-Wisp
 
-Hoppip
-Level: 43
-- Sunny Day
-- Aerial Ace
-- Solar Beam
-- Earthquake
-
-Dratini @ Sitrus Berry
-Level: 45
-- Thunder Wave
+Helioptile @ Life Orb
+Level: 37
+Ability: Solar Power
+Nature: Timid
+- Parabolic Charge
 - Thunderbolt
-- Protect
-- Ice Beam
+- Dark Pulse
+- Grass Knot
 
-Wingull
-Level: 46
-- Surf
-- Supersonic
-- Protect
-- Aerial Ace
+Ponyta @ Eviolite
+Level: 38
+Ability: Flash Fire
+Nature: Jolly
+- Solar Blade
+- Play Rough
+- Flare Blitz
+- Sunny Day
 
-Rookidee
-Level: 48
-- Whirlwind
-- Spikes
-- Steel Wing
-- Aerial Ace
+Yamask @ Black Sludge
+Level: 38
+Ability: Mummy
+Nature: Calm
+- Will-O-Wisp
+- Hex
+- Trick
+- Destiny Bond
 
-Swablu @ Chesto Berry
-Level: 50
-- Aerial Ace
-- Rest
-- Dragon Dance
+Capsakid @ White Herb
+Level: 38
+Ability: Chlorophyll
+Nature: Hasty
+- Lash Out
+- Overheat
+- Leaf Storm
+- Zen Headbutt
+
+Numel @ Leftovers
+Level: 39
+Ability: Magma Armor
+Nature: Adamant
+- Curse
+- Amnesia
 - Earthquake
+- Flare Blitz
 
 === TRAINER_WINONA_4 ===
 Name: WINONA
@@ -15344,144 +15377,140 @@ Level: 65
 - Psychic
 - Flamethrower
 
-=== TRAINER_JUAN_2 ===
-Name: JUAN
-Class: Leader
-Pic: Leader Juan
+=== TRAINER_JUAN_2 === /* Mt. Pyre tag Matt Pre-Winona */
+Name: MATT
+Class: Aqua Admin
+Pic: Aqua Admin M
 Gender: Male
-Music: Male
-Double Battle: Yes
+Music: Aqua
+Double Battle: No
 AI: Basic Trainer
 
-Poliwag
-Level: 46
-- Hypnosis
+Voltorb-Hisui @ Terrain Extender
+Level: 36
+Ability: Electric Surge
+Nature: Brave
+- Reflect
+- Wild Charge
+- Bullet Seed
+- Foul Play
+
+Chinchou @ Eviolite
+Level: 37
+Ability: Volt Absorb
+Nature: Impish
+- Aqua Ring
+- Flail
+- Liquidation
+- Wild Charge
+
+Porygon @ Leftovers
+Level: 38
+Ability: Trace
+Nature: Quiet
+- Icy Wind
 - Rain Dance
-- Protect
-- Hydro Pump
+- Thunder
+- Recover
 
-Barboach
-Level: 46
-- Rain Dance
-- Water Pulse
-- Double Team
-- Fissure
-
-Spheal
-Level: 48
-- Water Pulse
-- Body Slam
-- Protect
-- Ice Beam
-
-Corphish @ Chesto Berry
-Level: 48
-- Rest
-- Crabhammer
-- Taunt
-- Double Team
-
-Horsea @ Chesto Berry
-Level: 51
-- Water Pulse
-- Double Team
-- Ice Beam
-- Rest
-
-=== TRAINER_JUAN_3 ===
-Name: JUAN
-Class: Leader
-Pic: Leader Juan
+=== TRAINER_JUAN_3 === /* Mt. Pyre tag Archie Pre-Winona */
+Name: ARCHIE
+Class: Aqua Leader
+Pic: Aqua Leader Archie
 Gender: Male
-Music: Male
-Double Battle: Yes
+Music: Aqua
+Double Battle: No
 AI: Basic Trainer
 
-Poliwag
-Level: 50
+Poliwag @ Damp Rock
+Level: 37
+Ability: Drizzle
+Nature: Quiet
 - Hypnosis
-- Rain Dance
-- Protect
-- Hydro Pump
+- Muddy Water
+- Blizzard
+- Helping Hand
 
-Barboach
-Level: 51
-- Rain Dance
+Clauncher @ Choice Specs
+Level: 38
+Ability: Mega Launcher
+Nature: Modest
+- Terrain Pulse
 - Water Pulse
-- Double Team
-- Fissure
+- Dragon Pulse
+- Dark Pulse
 
-Spheal
-Level: 53
-- Water Pulse
-- Body Slam
-- Protect
-- Ice Beam
+Toxel @ Soothing Incense
+Level: 39
+Ability: Punk Rock
+Nature: Mild
+- Venoshock
+- Electroweb
+- Snarl
+- Dragon Breath
 
-Corphish @ Chesto Berry
-Level: 53
-- Rest
-- Guillotine
-- Taunt
-- Double Team
-
-Horsea @ Chesto Berry
-Level: 56
-- Water Pulse
-- Double Team
-- Ice Beam
-- Rest
-
-=== TRAINER_JUAN_4 ===
-Name: JUAN
-Class: Leader
-Pic: Leader Juan
+=== TRAINER_JUAN_4 === /* Aqua Hideout Matt Pre-Winona */
+Name: MATT
+Class: Aqua Admin
+Pic: Aqua Admin M
 Gender: Male
-Music: Male
-Double Battle: Yes
+Music: Aqua
+Double Battle: No
 AI: Basic Trainer
 
-Shellder
-Level: 56
-- Hydro Pump
-- Perish Song
-- Ice Beam
-- Confuse Ray
+Voltorb-Hisui @ Terrain Extender
+Level: 36
+Ability: Electric Surge
+Nature: Rash
+- Chloroblast
+- Electro Ball
+- Volt Switch
+- Explosion
 
-Barboach
-Level: 58
-- Rain Dance
-- Water Pulse
-- Double Team
-- Fissure
-
-Poliwag
-Level: 56
-- Hypnosis
-- Rain Dance
+Drifloon @ Flame Orb
+Level: 36
+Ability: Flare Boost
+Nature: Timid
 - Protect
-- Hydro Pump
+- Thunder
+- Shadow Ball
+- Psychic
 
-Spheal
-Level: 58
-- Water Pulse
+Geodude Alola @ Eviolite
+Level: 36
+Ability: Galvanize
+Nature: Careful
+- Stone Edge
 - Body Slam
-- Protect
-- Ice Beam
+- Earthquake
+- Explosion
 
-Corphish @ Chesto Berry
-Level: 58
-- Rest
-- Guillotine
-- Taunt
-- Double Team
+Tynamo @ Air Balloon
+Level: 37
+Ability: Surge Surfer
+Nature: Modest
+- Charge Beam
+- Giga Drain
+- Hex
+- Thunder Wave
 
-Horsea @ Chesto Berry
-Level: 61
-- Water Pulse
-- Double Team
+Shinx @ Choice Scarf
+Level: 37
+Ability: Intimidate
+Nature: Rash
+- Rising Voltage
+- Wild Charge
+- Crunch
+- Volt Switch
+
+Porygon @ Leftovers
+Level: 38
+Ability: Analytic
+Nature: Quiet
+- Tri Attack
+- Recover
 - Ice Beam
-- Rest
+- Thunderbolt
 
 === TRAINER_JUAN_5 ===
 Name: JUAN
@@ -16443,8 +16472,8 @@ Ability: Technician
 Nature: Quiet
 - Perish Song
 - Sticky Web
-- Endeavor
-- Struggle Bug
+- Trailblaze
+- Rock Tomb
 
 Carvanha @ Eviolite
 Level: 24
@@ -16455,7 +16484,7 @@ Nature: Adamant
 - Poison Fang
 - Swagger
 
-=== TRAINER_LEAF === /* Mt. Pyre tag Matt */
+=== TRAINER_LEAF === /* Mt. Pyre tag Matt Post-Winona */
 Name: MATT
 Class: Aqua Admin
 Pic: Aqua Admin M
@@ -16491,7 +16520,7 @@ Nature: Quiet
 - Thunder
 - Recover
 
-=== TRAINER_BRENDAN_PLACEHOLDER === /* Mt. Pyre tag Archie */
+=== TRAINER_BRENDAN_PLACEHOLDER === /* Mt. Pyre tag Archie Post-Winona */
 Name: ARCHIE
 Class: Aqua Leader
 Pic: Aqua Leader Archie
@@ -16538,21 +16567,21 @@ AI: Basic Trainer
 
 Espurr @ Terrain Extender
 Level: 43
-Ability: Psychic Surge
+Ability: Prankster
 Nature: Bold
 - Fake Out
+- Psychic Terrain
+- Rain Dance
 - Expanding Force
-- Light Screen
-- Reflect
 
 Bronzor @ Air Balloon
 Level: 43
 Ability: Heavy Metal
 Nature: Lonely
 - Heavy Slam
-- Ice Spinner
 - Expanding Force
-- Rain Dance
+- Reflect
+- Light Screen
 
 Slowpoke Galar @ Quick Claw
 Level: 44
@@ -16589,3 +16618,381 @@ Nature: Bold
 - Ice Beam
 - Recover
 - Light Screen
+
+=== TRAINER_BRENDAN_LILYCOVE_MUDKIP_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Litleo @ Life Orb
+Level: 34
+Ability: Unnerve
+Nature: Hasty
+- Hyper Voice
+- Flamethrower
+- Dark Pulse
+- Will-O-Wisp
+
+Anorith @ Eviolite
+Level: 35
+Ability: Battle Armor
+Nature: Impish
+- X-Scissor
+- Rock Slide
+- Knock Off
+- Curse
+
+Gligar @ Sitrus Berry
+Level: 36
+Ability: Hyper Cutter
+Nature: Naughty
+- Earthquake
+- Acrobatics
+- U-turn
+- Tailwind
+
+Frillish @ Colbur Berry
+Level: 37
+Ability: Cursed Body
+Nature: Timid
+- Water Spout
+- Recover
+- Shadow Ball
+- Giga Drain
+
+Snivy @ Leftovers
+Level: 38
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Synthesis
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch
+
+=== TRAINER_BRENDAN_LILYCOVE_TREECKO_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Gligar @ Sitrus Berry
+Level: 34
+Ability: Hyper Cutter
+Nature: Naughty
+- Earthquake
+- Acrobatics
+- U-turn
+- Tailwind
+
+Anorith @ Eviolite
+Level: 45
+Ability: Battle Armor
+Nature: Impish
+- X-Scissor
+- Rock Slide
+- Knock Off
+- Curse
+
+Seedot @ Focus Sash
+Level: 36
+Ability: Wind Rider
+Nature: Brave
+- Sucker Punch
+- Trailblaze
+- Grassy Glide
+- Grassy Terrain
+
+Frillish @ Colbur Berry
+Level: 37
+Ability: Cursed Body
+Nature: Timid
+- Water Spout
+- Recover
+- Shadow Ball
+- Giga Drain
+
+Scorbunny @ Life Orb
+Level: 38
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch
+
+=== TRAINER_BRENDAN_LILYCOVE_TORCHIC_PW ===
+Name: BRENDAN
+Class: Rival
+Pic: Brendan
+Gender: Male
+Music: Male
+Double Battle: No
+AI: Basic Trainer
+
+Seedot @ Focus Sash
+Level: 34
+Ability: Wind Rider
+Nature: Brave
+- Sucker Punch
+- Trailblaze
+- Grassy Glide
+- Grassy Terrain
+
+Anorith @ Eviolite
+Level: 35
+Ability: Battle Armor
+Nature: Impish
+- X-Scissor
+- Rock Slide
+- Knock Off
+- Curse
+
+Litleo @ Life Orb
+Level: 36
+Ability: Unnerve
+Nature: Hasty
+- Hyper Voice
+- Flamethrower
+- Dark Pulse
+- Will-O-Wisp
+
+Gligar @ Sitrus Berry
+Level: 37
+Ability: Hyper Cutter
+Nature: Naughty
+- Earthquake
+- Acrobatics
+- U-turn
+- Tailwind
+
+Squirtle @ Eviolite
+Level: 38
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch
+
+=== TRAINER_MAY_LILYCOVE_MUDKIP_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Yanma @ Sitrus Berry
+Level: 34
+Ability: Speed Boost
+Nature: Calm
+- Detect
+- Dragon Pulse
+- Air Slash
+- Bug Buzz
+
+Amaura @ Assault Vest
+Level: 35
+Ability: Snow Warning
+Nature: Naughty
+- Avalanche
+- Iron Head
+- Stone Edge
+- Outrage
+
+Ducklett @ Eviolite
+Level: 36
+Ability: Big Pecks
+Nature: Jolly
+- Roost
+- Tailwind
+- Liquidation
+- Brave Bird
+
+Litwick @ Focus Sash
+Level: 37
+Ability: Flash Fire
+Nature: Modest
+- Shadow Ball
+- Flamethrower
+- Energy Ball
+- Calm Mind
+
+Snivy @ Leftovers
+Level: 38
+Ability: Overgrow
+Nature: Quiet
+- Substitute
+- Leech Seed
+- Synthesis
+- Synthesis
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch
+
+=== TRAINER_MAY_LILYCOVE_TREECKO_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Ducklett @ Eviolite
+Level: 34
+Ability: Big Pecks
+Nature: Jolly
+- Roost
+- Tailwind
+- Liquidation
+- Brave Bird
+
+Amaura @ Assault Vest
+Level: 35
+Ability: Snow Warning
+Nature: Naughty
+- Avalanche
+- Iron Head
+- Stone Edge
+- Outrage
+
+Cherubi @ Focus Sash
+Level: 36
+Ability: Flower Gift
+Nature: Modest
+- Swords Dance
+- Weather Ball
+- Solar Blade
+- Sunny Day
+
+Yanma @ Sitrus Berry
+Level: 37
+Ability: Speed Boost
+Nature: Calm
+- Detect
+- Dragon Pulse
+- Air Slash
+- Bug Buzz
+
+Scorbunny @ Life Orb
+Level: 38
+Ability: Libero
+Nature: Timid
+- Electro Ball
+- Heat Wave
+- Agility
+- Super Fang
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch
+
+=== TRAINER_MAY_LILYCOVE_TORCHIC_PW ===
+Name: MAY
+Class: Rival
+Pic: May
+Gender: Female
+Music: Female
+Double Battle: No
+AI: Basic Trainer
+
+Cherubi @ Focus Sash
+Level: 34
+Ability: Flower Gift
+Nature: Modest
+- Swords Dance
+- Weather Ball
+- Solar Blade
+- Sunny Day
+
+Amaura @ Assault Vest
+Level: 35
+Ability: Snow Warning
+Nature: Naughty
+- Avalanche
+- Iron Head
+- Stone Edge
+- Outrage
+
+Yanma @ Sitrus Berry
+Level: 36
+Ability: Speed Boost
+Nature: Calm
+- Detect
+- Dragon Pulse
+- Air Slash
+- Bug Buzz
+
+Litwick @ Focus Sash
+Level: 37
+Ability: Flash Fire
+Nature: Modest
+- Shadow Ball
+- Flamethrower
+- Energy Ball
+- Calm Mind
+
+Squirtle @ Eviolite
+Level: 38
+Ability: Torrent
+Nature: Lonely
+- Shell Smash
+- Wave Crash
+- Ice Spinner
+- Double-Edge
+
+Tyrogue @ Calm Incense
+Level: 39
+Ability: Guts
+Nature: Adamant
+- Fake Out
+- Triple Kick
+- Bullet Punch
+- Sucker Punch

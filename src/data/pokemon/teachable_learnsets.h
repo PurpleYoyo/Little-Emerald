@@ -23066,8 +23066,22 @@ static const u16 sBibarelTeachableLearnset[] = {
 
 #if P_FAMILY_KRICKETOT
 static const u16 sKricketotTeachableLearnset[] = {
+    MOVE_BRICK_BREAK,
+    MOVE_BULLDOZE,
+    MOVE_BULLET_SEED,
+    MOVE_COVET,
+    MOVE_GIGA_DRAIN,
+    MOVE_LEECH_LIFE,
+    MOVE_LOW_SWEEP,
+    MOVE_POISON_JAB,
+    MOVE_POUNCE,
+    MOVE_ROCK_TOMB,
+    MOVE_SWORDS_DANCE,
+    MOVE_THIEF,
+    MOVE_U_TURN,
     MOVE_MUD_SLAP,
     MOVE_SNORE,
+    MOVE_SWORDS_DANCE,
     MOVE_UNAVAILABLE,
 };
 
@@ -39004,6 +39018,7 @@ static const u16 sScorbunnyTeachableLearnset[] = {
     MOVE_TAUNT,
     MOVE_TRAILBLAZE,
     MOVE_U_TURN,
+    MOVE_ZEN_HEADBUTT,
     MOVE_COUNTER,
     MOVE_DOUBLE_EDGE,
     MOVE_ENDURE,
@@ -39731,8 +39746,12 @@ static const u16 sCoalossalTeachableLearnset[] = {
 #if P_FAMILY_APPLIN
 static const u16 sApplinTeachableLearnset[] = {
     MOVE_ATTRACT,
+    MOVE_BULLET_SEED,
+    MOVE_GIGA_DRAIN,
     MOVE_POUNCE,
+    MOVE_SOLAR_BEAM,
     MOVE_DEFENSE_CURL,
+    MOVE_EXPLOSION,
     MOVE_UNAVAILABLE,
 };
 
@@ -40509,13 +40528,27 @@ static const u16 sPincurchinTeachableLearnset[] = {
 
 #if P_FAMILY_SNOM
 static const u16 sSnomTeachableLearnset[] = {
+    MOVE_ACROBATICS,
     MOVE_ATTRACT,
+    MOVE_CALM_MIND,
+    MOVE_CHILLING_WATER,
+    MOVE_DAZZLING_GLEAM,
     MOVE_FACADE,
+    MOVE_GIGA_DRAIN,
+    MOVE_HAIL,
+    MOVE_ICE_BEAM,
+    MOVE_ICE_SPINNER,
     MOVE_ICY_WIND,
+    MOVE_LEECH_LIFE,
+    MOVE_LIGHT_SCREEN,
+    MOVE_PLAY_ROUGH,
     MOVE_POUNCE,
     MOVE_PROTECT,
+    MOVE_REFLECT,
     MOVE_REST,
     MOVE_SLEEP_TALK,
+    MOVE_SOLAR_BEAM,
+    MOVE_U_TURN,
     MOVE_ENDURE,
     MOVE_ICY_WIND,
     MOVE_SLEEP_TALK,
@@ -42862,6 +42895,8 @@ static const u16 sKlawfTeachableLearnset[] = {
 static const u16 sCapsakidTeachableLearnset[] = {
     MOVE_BULLET_SEED,
     MOVE_FACADE,
+    MOVE_FIRE_FANG,
+    MOVE_FIRE_PUNCH,
     MOVE_FLAMETHROWER,
     MOVE_GIGA_DRAIN,
     MOVE_LASH_OUT,
@@ -42874,10 +42909,13 @@ static const u16 sCapsakidTeachableLearnset[] = {
     MOVE_SOLAR_BEAM,
     MOVE_SUNNY_DAY,
     MOVE_THIEF,
+    MOVE_THUNDER_PUNCH,
     MOVE_TRAILBLAZE,
     MOVE_ZEN_HEADBUTT,
     MOVE_ENDURE,
+    MOVE_FIRE_PUNCH,
     MOVE_SLEEP_TALK,
+    MOVE_THUNDER_PUNCH,
     MOVE_UNAVAILABLE,
 };
 

@@ -42,7 +42,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAGMA_MEMBER_F",
-      "x": 12,
+      "x": 11,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
@@ -403,6 +403,45 @@
       "trainer_sight_or_berry_tree_id": "6",
       "script": "MtChimney_EventScript_Sawyer",
       "flag": "FLAG_HIDE_MT_CHIMNEY_TRAINERS"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(LITLEO)",
+      "x": 13,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "MaxiesLitleo",
+      "flag": "FLAG_HIDE_MAXIES_LITLEO"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(SKIDDO)",
+      "x": 11,
+      "y": 12,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "CourtneysSkiddo",
+      "flag": "FLAG_HIDE_COURTNEYS_SKIDDO"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SPECIES(GEODUDE_ALOLA)",
+      "x": 30,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BoomDudesGeodude",
+      "flag": "FLAG_HIDE_BOOM_DUDES_GEODUDE"
     }
   ],
   "warp_events": [
@@ -436,7 +475,15 @@
     }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 10,
+      "y": 12,
+      "elevation": 0,
+      "var": "VAR_MTCHIMNEY_SKIDDO",
+      "var_value": "0",
+      "script": "RemoveSkiddo"
+    }
   ],
   "bg_events": [
     {

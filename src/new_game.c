@@ -45,6 +45,7 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 #include "constants/items.h"
+#include "main_menu.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -206,6 +207,14 @@ void NewGameInitData(void)
     ResetTrainerHillResults();
     ResetContestLinkResults();
     ResetItemFlags();
+    if (gNormalMode == 1)
+        VarSet(VAR_DIFFICULTY, NORMAL_DIFFICULTY);
+    else
+        VarSet(VAR_DIFFICULTY, HARD_DIFFICULTY);
+    if (gEvGain == 1)
+        VarSet(VAR_EV_GAIN, 1);
+    else
+        VarSet(VAR_EV_GAIN, 0);
 }
 
 static void ResetMiniGamesRecords(void)

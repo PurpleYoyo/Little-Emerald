@@ -3634,7 +3634,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             gOverworldPalette_Wynaut,
             gShinyOverworldPalette_Wynaut
         )
-        .tmIlliterate = TRUE,
         .levelUpLearnset = sWynautLevelUpLearnset,
         .teachableLearnset = sWynautTeachableLearnset,
         .formSpeciesIdTable = sWynautFormSpeciesIdTable,
@@ -3716,7 +3715,6 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             SHADOW_SIZE_M,
             TRACKS_FOOT
         )
-        .tmIlliterate = TRUE,
         .levelUpLearnset = sWobbuffetLevelUpLearnset,
         .teachableLearnset = sWobbuffetTeachableLearnset,
     },

@@ -134,6 +134,37 @@ EventScript_AutoRunOff::
 	closemessage
 	return
 
+EventScript_HatchEgg::
+	lockall
+	getpartysize
+	goto_if_eq VAR_RESULT, 0, EventScript_NoPokemon
+	special ChoosePartyMon
+	waitstate
+	goto_if_ge VAR_0x8004, PARTY_SIZE, EventScript_HatchEgg_End
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_ne VAR_RESULT, SPECIES_EGG, EventScript_HatchEgg_CantForceHatch
+	special EggHatch
+	waitstate
+EventScript_HatchEgg_End::
+	releaseall
+	end
+
+EventScript_NoPokemon::
+	msgbox EventScript_Text_EmptyParty, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_HatchEgg_CantForceHatch::
+	msgbox EventScript_HatchEgg_Text_NotAnEgg, MSGBOX_DEFAULT
+	releaseall
+	end
+
+EventScript_Text_EmptyParty::
+	.string "You have no Pokémon nor Eggs.$"
+
+EventScript_HatchEgg_Text_NotAnEgg::
+	.string "That's not a Pokémon Egg.$"
+
 EventScript_Pokevial::
 	playse SE_USE_ITEM
 	special HealPlayerParty

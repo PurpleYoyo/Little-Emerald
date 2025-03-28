@@ -733,17 +733,17 @@ void ItemUseOutOfBattle_PowderJar(u8 taskId)
 
 void ItemUseOutOfBattle_Berry(u8 taskId)
 {
-    if (IsPlayerFacingEmptyBerryTreePatch() == TRUE)
-    {
-        sItemUseOnFieldCB = ItemUseOnFieldCB_Berry;
-        gFieldCallback = FieldCB_UseItemOnField;
-        gBagMenu->newScreenCallback = CB2_ReturnToField;
-        Task_FadeAndCloseBagMenu(taskId);
-    }
-    else
-    {
-        ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
-    }
+    //if (IsPlayerFacingEmptyBerryTreePatch() == TRUE)
+    //{
+    //    sItemUseOnFieldCB = ItemUseOnFieldCB_Berry;
+    //    gFieldCallback = FieldCB_UseItemOnField;
+    //    gBagMenu->newScreenCallback = CB2_ReturnToField;
+    //    Task_FadeAndCloseBagMenu(taskId);
+    //}
+    //else
+    //{
+    ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
+    //}
 }
 
 static void ItemUseOnFieldCB_Berry(u8 taskId)
@@ -872,6 +872,18 @@ void ItemUseOutOfBattle_InfiniteRareCandy(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+void ItemUseOutOfBattle_CapCandy(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_CapCandy;
+    SetUpItemUseCallback(taskId);
+}
+
+void ItemUseOutOfBattle_EdgeCandy(u8 taskId)
+{
+    gItemUseCB = ItemUseCB_EdgeCandy;
+    SetUpItemUseCallback(taskId);
+}
+
 void ItemUseOutOfBattle_DynamaxCandy(u8 taskId)
 {
     gItemUseCB = ItemUseCB_DynamaxCandy;
@@ -956,6 +968,40 @@ void ItemUseOutOfBattle_WarpPanel(u8 taskId)
         return;
     }
     SetMainCallback2(CB2_OpenWarpMap);
+}
+
+void ItemUseOutOfBattle_Flashlight(u8 taskId)
+{
+    if (!(gMapHeader.cave == TRUE))
+    {
+        if (gTasks[taskId].tUsingRegisteredKeyItem) {
+            DisplayItemMessageOnField(taskId, gText_CantUseFlashHere, Task_CloseCantUseKeyItemMessage);
+        }
+        else {
+            DisplayItemMessage(taskId, 1, gText_CantUseFlashHere, CloseItemMessage);
+        }
+    }
+    if (FlagGet(FLAG_SYS_USE_FLASH))
+    {
+        if(gTasks[taskId].tUsingRegisteredKeyItem) {
+            DisplayItemMessageOnField(taskId, gText_AlreadyUsedFlash, Task_CloseCantUseKeyItemMessage);
+        }
+        else {
+            DisplayItemMessage(taskId, 1, gText_AlreadyUsedFlash, CloseItemMessage);
+        }
+    }
+    else
+    {
+        if(gTasks[taskId].tUsingRegisteredKeyItem) {
+            DisplayItemMessageOnField(taskId, gText_UseFlash, Task_CloseCantUseKeyItemMessage);
+        }
+        else {
+            DisplayItemMessage(taskId, 1, gText_UseFlash, CloseItemMessage);
+        }
+        PlaySE(SE_M_REFLECT);
+        AnimateFlash(1);
+        SetFlashLevel(0);
+    }
 }
 
 void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
