@@ -2795,7 +2795,8 @@ extern const u8 gText_BeforeYouBegin[];
 extern const u8 gText_NormalModeDesc[];
 extern const u8 gText_HardModeDesc[];
 extern const u8 gText_WhichDifficulty[];
-extern const u8 gText_EnableEvs[];
+extern const u8 gText_WhichMonotype[];
+extern const u8 gText_SandboxDesc[];
 extern const u8 gText_AreYouSure[];
 
 extern const u8 gText_VersionDifficulty_Hard[];
@@ -2807,9 +2808,55 @@ extern const u8 gText_Version[];
 extern const u8 gText_Difficulty[];
 extern const u8 gText_Enabled[];
 extern const u8 gText_Disabled[];
-extern const u8 gText_EvGain[];
+extern const u8 gText_SandboxMode[];
+extern const u8 gText_Monotype[];
+extern const u8 gText_MonotypeDesc[];
 
 extern const u8 gText_Incenses[];
 extern const u8 gText_Mints[];
+
+extern const u8 gText_Fire[];
+extern const u8 gText_Water[];
+extern const u8 gText_Grass[];
+extern const u8 gText_Electric[];
+extern const u8 gText_Bug[];
+extern const u8 gText_Rock[] ;
+extern const u8 gText_Ground[];
+extern const u8 gText_Figting[];
+extern const u8 gText_Dark[];
+extern const u8 gText_Psychic[];
+extern const u8 gText_Fairy[];
+extern const u8 gText_Steel[];
+extern const u8 gText_MonotypeIce[];
+extern const u8 gText_Ghost[];
+extern const u8 gText_Dragon[];
+extern const u8 gText_MonotypePoison[];
+extern const u8 gText_Flying[];
+
+extern const u8 gText_ChooseFire[];
+extern const u8 gText_ChooseWater[];
+extern const u8 gText_ChooseGrass[];
+extern const u8 gText_ChooseElectric[];
+extern const u8 gText_ChooseBug[];
+extern const u8 gText_ChooseRock[];
+extern const u8 gText_ChooseGround[];
+extern const u8 gText_ChooseFigting[];
+extern const u8 gText_ChooseDark[];
+extern const u8 gText_ChoosePsychic[];
+extern const u8 gText_ChooseFairy[];
+extern const u8 gText_ChooseSteel[];
+extern const u8 gText_ChooseIce[];
+extern const u8 gText_ChooseGhost[];
+extern const u8 gText_ChooseDragon[];
+extern const u8 gText_ChoosePoison[];
+extern const u8 gText_ChooseFlying[];
+extern const u8 gText_ChooseNormal[];
+
+extern const u8 gText_NoMonotype[];
+
+extern const u8 gText_CantModifyEgg[];
+extern const u8 gText_WhichStat[];
+extern const u8 gText_SetIvTo[];
+extern const u8 gText_SetEvTo[];
 
 #endif // GUARD_STRINGS_H

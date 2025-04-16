@@ -414,45 +414,7 @@ script LavaridgeTown_EventScript_EggWoman {
 	message(LavaridgeTown_Text_ReceivedTheEgg)
 	waitfanfare
 	random(19)
-	switch (var(VAR_RESULT)) {
-		case 0:
-			giveegg(SPECIES_PICHU)
-		case 1:
-			giveegg(SPECIES_CLEFFA)
-		case 2:
-			giveegg(SPECIES_IGGLYBUFF)
-		case 3:
-			giveegg(SPECIES_TOGEPI)
-		case 4:
-			giveegg(SPECIES_TYROGUE)
-		case 5:
-			giveegg(SPECIES_SMOOCHUM)
-		case 6:
-			giveegg(SPECIES_ELEKID)
-		case 7:
-			giveegg(SPECIES_MAGBY)
-		case 8:
-			giveegg(SPECIES_AZURILL)
-		case 9:
-			giveegg(SPECIES_WYNAUT)
-		case 10:
-			giveegg(SPECIES_BUDEW)
-		case 11:
-			giveegg(SPECIES_CHINGLING)
-		case 12:
-			giveegg(SPECIES_BONSLY)
-		case 13:
-			giveegg(SPECIES_MIME_JR)
-		case 14:
-			giveegg(SPECIES_HAPPINY)
-		case 15:
-			giveegg(SPECIES_MUNCHLAX)
-		case 16:
-			giveegg(SPECIES_RIOLU)
-		case 17:
-			giveegg(SPECIES_MANTYKE)
-		case 18:
-			giveegg(SPECIES_TOXEL)
-	}
+	special(GetRandomBabyEgg)
+	giveegg(VAR_RESULT)
 	release
 }

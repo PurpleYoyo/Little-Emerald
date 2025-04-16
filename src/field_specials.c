@@ -1657,7 +1657,828 @@ void GetRandomEgg(void)
         SPECIES_TOXEL
     };
 
-    gSpecialVar_Result = sPokemon[Random() % 358];
+    static const u16 sFire[] = {
+        SPECIES_SUNKERN,
+        SPECIES_DEERLING_SUMMER,
+        SPECIES_CAPSAKID,
+        SPECIES_SIZZLIPEDE,
+        SPECIES_LARVESTA,
+        SPECIES_LITLEO,
+        SPECIES_CHIMCHAR,
+        SPECIES_HOUNDOUR,
+        SPECIES_LITTEN,
+        SPECIES_TORCHIC,
+        SPECIES_VULPIX,
+        SPECIES_CYNDAQUIL,
+        SPECIES_DARUMAKA,
+        SPECIES_FUECOCO,
+        SPECIES_FLETCHLING,
+        SPECIES_GROWLITHE,
+        SPECIES_PONYTA,
+        SPECIES_TEPIG,
+        SPECIES_SCORBUNNY,
+        SPECIES_NUMEL,
+        SPECIES_GROWLITHE_HISUI,
+        SPECIES_ROLYCOLY,
+        SPECIES_CHARMANDER,
+        SPECIES_SLUGMA,
+        SPECIES_SALANDIT,
+        SPECIES_PANSEAR,
+        SPECIES_FENNEKIN,
+        SPECIES_DARUMAKA_GALAR,
+        SPECIES_LITWICK,
+        SPECIES_CHARCADET,
+        SPECIES_MAGBY
+    };
+
+    static const u16 sDark[] = {
+        SPECIES_NYMBLE,
+        SPECIES_ZIGZAGOON_GALAR,
+        SPECIES_RATTATA_ALOLA,
+        SPECIES_SCRAGGY,
+        SPECIES_IMPIDIMP,
+        SPECIES_POOCHYENA,
+        SPECIES_PURRLOIN,
+        SPECIES_MASCHIFF,
+        SPECIES_NICKIT,
+        SPECIES_MEOWTH_ALOLA,
+        SPECIES_CARVANHA,
+        SPECIES_INKAY,
+        SPECIES_VULLABY,
+        SPECIES_STUNKY,
+        SPECIES_SANDILE,
+        SPECIES_HOUNDOUR,
+        SPECIES_LARVITAR,
+        SPECIES_DEINO,
+        SPECIES_ZORUA,
+        SPECIES_GRIMER_ALOLA,
+        SPECIES_PAWNIARD,
+        SPECIES_LITTEN,
+        SPECIES_MURKROW,
+        SPECIES_QWILFISH_HISUI,
+        SPECIES_SNEASEL
+    };
+
+    static const u16 sGrass[] = {
+        SPECIES_GOSSIFLEUR,
+        SPECIES_CHERUBI,
+        SPECIES_SUNKERN,
+        SPECIES_ODDISH,
+        SPECIES_BELLSPROUT,
+        SPECIES_CHIKORITA,
+        SPECIES_HOPPIP,
+        SPECIES_LOTAD,
+        SPECIES_SEEDOT,
+        SPECIES_SEWADDLE,
+        SPECIES_COTTONEE,
+        SPECIES_PETILIL,
+        SPECIES_SMOLIV,
+        SPECIES_BOUNSWEET,
+        SPECIES_DEERLING_AUTUMN,
+        SPECIES_DEERLING_WINTER,
+        SPECIES_DEERLING_SUMMER,
+        SPECIES_DEERLING_SPRING,
+        SPECIES_BUDEW,
+        SPECIES_SKIDDO,
+        SPECIES_SPRIGATITO,
+        SPECIES_VOLTORB_HISUI,
+        SPECIES_CACNEA,
+        SPECIES_BRAMBLIN,
+        SPECIES_PARAS,
+        SPECIES_BULBASAUR,
+        SPECIES_LILEEP,
+        SPECIES_TREECKO,
+        SPECIES_SHROOMISH,
+        SPECIES_EXEGGCUTE,
+        SPECIES_TURTWIG,
+        SPECIES_BURMY_PLANT,
+        SPECIES_POLTCHAGEIST,
+        SPECIES_SNIVY,
+        SPECIES_PANSAGE,
+        SPECIES_FOONGUS,
+        SPECIES_CHESPIN,
+        SPECIES_PHANTUMP,
+        SPECIES_PUMPKABOO,
+        SPECIES_ROWLET,
+        SPECIES_CAPSAKID,
+        SPECIES_TOEDSCOOL,
+        SPECIES_FOMANTIS,
+        SPECIES_MORELULL,
+        SPECIES_GROOKEY,
+        SPECIES_APPLIN,
+        SPECIES_SNOVER,
+        SPECIES_FERROSEED,
+        SPECIES_TANGELA
+    };
+
+    static const u16 sWater[] = {
+        SPECIES_LOTAD,
+        SPECIES_SURSKIT,
+        SPECIES_WIMPOD,
+        SPECIES_DEWPIDER,
+        SPECIES_BIDOOF,
+        SPECIES_CLOBBOPUS,
+        SPECIES_POPPLIO,
+        SPECIES_CARVANHA,
+        SPECIES_BUIZEL,
+        SPECIES_WOOPER,
+        SPECIES_MUDKIP,
+        SPECIES_SHELLOS,        
+        SPECIES_TYMPOLE,
+        SPECIES_SOBBLE,
+        SPECIES_WINGULL,
+        SPECIES_KRABBY,
+        SPECIES_WIGLETT,
+        SPECIES_MAREANIE,
+        SPECIES_TENTACOOL,
+        SPECIES_FRILLISH,
+        SPECIES_HORSEA,
+        SPECIES_STARYU,
+        SPECIES_REMORAID,
+        SPECIES_WAILMER,
+        SPECIES_CORPHISH,
+        SPECIES_CLAMPERL,
+        SPECIES_BINACLE,
+        SPECIES_SKRELP,
+        SPECIES_CLAUNCHER,
+        SPECIES_FINIZEN,        
+        SPECIES_ARROKUDA,
+        SPECIES_SPHEAL,
+        SPECIES_SEEL,
+        SPECIES_SHELLDER,
+        SPECIES_SQUIRTLE,
+        SPECIES_PSYDUCK,
+        SPECIES_POLIWAG,
+        SPECIES_SLOWPOKE,
+        SPECIES_GOLDEEN,
+        SPECIES_MAGIKARP,
+        SPECIES_TOTODILE,
+        SPECIES_BARBOACH,
+        SPECIES_FEEBAS,
+        SPECIES_FINNEON,
+        SPECIES_OSHAWOTT,
+        SPECIES_DUCKLETT,
+        SPECIES_FROAKIE,
+        SPECIES_QUAXLY,
+        SPECIES_CHEWTLE,
+        SPECIES_PANPOUR,
+        SPECIES_PIPLUP,
+        SPECIES_CHINCHOU,
+        SPECIES_BASCULIN_WHITE_STRIPED,
+        SPECIES_OMANYTE,
+        SPECIES_KABUTO,
+        SPECIES_TIRTOUGA,
+        SPECIES_MANTYKE
+    };
+
+    static const u16 sPoison[] = {
+        SPECIES_ODDISH,
+        SPECIES_BELLSPROUT,
+        SPECIES_BUDEW,
+        SPECIES_BULBASAUR,
+        SPECIES_FOONGUS,
+        SPECIES_SKORUPI,
+        SPECIES_VENONAT,
+        SPECIES_SPINARAK,
+        SPECIES_VENIPEDE,
+        SPECIES_SHROODLE,
+        SPECIES_CROAGUNK,
+        SPECIES_SNEASEL_HISUI,
+        SPECIES_STUNKY,
+        SPECIES_GRIMER_ALOLA,
+        SPECIES_QWILFISH_HISUI,
+        SPECIES_SALANDIT,
+        SPECIES_MAREANIE,
+        SPECIES_TENTACOOL,
+        SPECIES_SKRELP,
+        SPECIES_WOOPER_PALDEA,
+        SPECIES_POIPOLE,
+        SPECIES_ZUBAT,
+        SPECIES_EKANS,
+        SPECIES_NIDORAN_F,
+        SPECIES_NIDORAN_M,
+        SPECIES_GULPIN,
+        SPECIES_TOXEL,
+        SPECIES_SLOWPOKE_GALAR,
+        SPECIES_VAROOM,
+        SPECIES_TRUBBISH,
+        SPECIES_GLIMMET,
+        SPECIES_KOFFING,
+        SPECIES_GRIMER,
+        SPECIES_GASTLY
+    };
+
+    static const u16 sFlying[] = {
+        SPECIES_HOPPIP,
+        SPECIES_ROWLET,
+        SPECIES_COMBEE,
+        SPECIES_LEDYBA,
+        SPECIES_SCYTHER,
+        SPECIES_PIDGEY,
+        SPECIES_SPEAROW,
+        SPECIES_HOOTHOOT,
+        SPECIES_TAILLOW,
+        SPECIES_STARLY,
+        SPECIES_PIDOVE,
+        SPECIES_RUFFLET,
+        SPECIES_PIKIPEK,
+        SPECIES_VULLABY,
+        SPECIES_FLETCHLING,
+        SPECIES_WINGULL,
+        SPECIES_DUCKLETT,
+        SPECIES_MANTYKE,
+        SPECIES_WATTREL,
+        SPECIES_DODUO,
+        SPECIES_GLIGAR,
+        SPECIES_NOIBAT,
+        SPECIES_NATU,
+        SPECIES_ROOKIDEE,
+        SPECIES_ZUBAT,
+        SPECIES_WOOBAT,
+        SPECIES_DRIFLOON,
+        SPECIES_ARCHEN
+    };
+
+    static const u16 sRock[] = {
+        SPECIES_ANORITH,
+        SPECIES_DWEBBLE,
+        SPECIES_LARVITAR,
+        SPECIES_GROWLITHE_HISUI,
+        SPECIES_ROLYCOLY,
+        SPECIES_BINACLE,
+        SPECIES_CHEWTLE,
+        SPECIES_OMANYTE,
+        SPECIES_KABUTO,
+        SPECIES_TIRTOUGA,
+        SPECIES_RHYHORN,
+        SPECIES_GEODUDE,
+        SPECIES_ONIX,
+        SPECIES_TYRUNT,
+        SPECIES_LILEEP,
+        SPECIES_ARCHEN,
+        SPECIES_GLIMMET,
+        SPECIES_ARON,
+        SPECIES_SHIELDON,
+        SPECIES_CRANIDOS,
+        SPECIES_NOSEPASS,
+        SPECIES_BONSLY
+    };
+
+    static const u16 sGhost[] = {
+        SPECIES_BRAMBLIN,
+        SPECIES_POLTCHAGEIST,
+        SPECIES_PHANTUMP,
+        SPECIES_PUMPKABOO,
+        SPECIES_ZORUA_HISUI,
+        SPECIES_FRILLISH,
+        SPECIES_BASCULIN_WHITE_STRIPED,
+        SPECIES_SANDYGAST,
+        SPECIES_GOLETT,
+        SPECIES_YAMASK_GALAR,
+        SPECIES_DREEPY,
+        SPECIES_DRIFLOON,
+        SPECIES_GASTLY,
+        SPECIES_HONEDGE,
+        SPECIES_SHUPPET,
+        SPECIES_DUSKULL,
+        SPECIES_YAMASK,
+        SPECIES_SINISTEA,
+        SPECIES_GREAVARD,
+        SPECIES_GIMMIGHOUL,
+        SPECIES_MISDREAVUS,
+        SPECIES_CORSOLA_GALAR
+    };
+
+    static const u16 sPsychic[] = {
+        SPECIES_EXEGGCUTE,
+        SPECIES_BLIPBUG,
+        SPECIES_GIRAFARIG,
+        SPECIES_MEDITITE,
+        SPECIES_RALTS,
+        SPECIES_PONYTA_GALAR,
+        SPECIES_MIME_JR,
+        SPECIES_INKAY,
+        SPECIES_FENNEKIN,
+        SPECIES_SLOWPOKE,
+        SPECIES_PSYDUCK,
+        SPECIES_BALTOY,
+        SPECIES_NATU,
+        SPECIES_WOOBAT,
+        SPECIES_BRONZOR,
+        SPECIES_BELDUM,
+        SPECIES_SPOINK,
+        SPECIES_DROWZEE,
+        SPECIES_MUNNA,
+        SPECIES_GOTHITA,
+        SPECIES_SOLOSIS,
+        SPECIES_HATENNA,
+        SPECIES_ELGYEM,
+        SPECIES_ABRA,
+        SPECIES_ESPURR,
+        SPECIES_FLITTLE,
+        SPECIES_COSMOG,
+        SPECIES_WYNAUT,
+        SPECIES_CHINGLING
+    };
+
+    static const u16 sSteel[] = {
+        SPECIES_BURMY_TRASH,
+        SPECIES_FERROSEED,
+        SPECIES_SHELMET,
+        SPECIES_TINKATINK,
+        SPECIES_PAWNIARD,
+        SPECIES_PIPLUP,
+        SPECIES_MAGNEMITE,
+        SPECIES_DIGLETT_ALOLA,
+        SPECIES_DURALUDON,
+        SPECIES_SANDSHREW_ALOLA,
+        SPECIES_ROOKIDEE,
+        SPECIES_VAROOM,
+        SPECIES_MELTAN,
+        SPECIES_CUFANT,
+        SPECIES_ARON,
+        SPECIES_BRONZOR,
+        SPECIES_BELDUM,
+        SPECIES_HONEDGE,
+        SPECIES_KLINK,
+        SPECIES_MEOWTH_GALAR,
+        SPECIES_SHIELDON
+    };
+
+    static const u16 sIce[] = {
+        SPECIES_DEERLING_WINTER,
+        SPECIES_SNOVER,
+        SPECIES_SNOM,
+        SPECIES_VULPIX_ALOLA,
+        SPECIES_DARUMAKA_GALAR,
+        SPECIES_SPHEAL,
+        SPECIES_SEEL,
+        SPECIES_SWINUB,
+        SPECIES_FRIGIBAX,
+        SPECIES_BERGMITE,
+        SPECIES_SNORUNT,
+        SPECIES_VANILLITE,
+        SPECIES_CETODDLE,
+        SPECIES_SANDSHREW_ALOLA,
+        SPECIES_CUBCHOO,
+        SPECIES_AMAURA,
+        SPECIES_SMOOCHUM
+    };
+
+    static const u16 sDragon[] = {
+        SPECIES_APPLIN,
+        SPECIES_YANMA,
+        SPECIES_SWABLU,
+        SPECIES_DEINO,
+        SPECIES_CHARMANDER,
+        SPECIES_HORSEA,
+        SPECIES_GIBLE,
+        SPECIES_GOOMY,
+        SPECIES_DREEPY,
+        SPECIES_DRATINI,
+        SPECIES_JANGMO_O,
+        SPECIES_BAGON,
+        SPECIES_AXEW,
+        SPECIES_NOIBAT,
+        SPECIES_FRIGIBAX,
+        SPECIES_POIPOLE,
+        SPECIES_DURALUDON,
+        SPECIES_TYRUNT
+    };
+
+    static const u16 sGround[] = {
+        SPECIES_TURTWIG,
+        SPECIES_BURMY_SANDY,
+        SPECIES_TOEDSCOOL,
+        SPECIES_NINCADA,
+        SPECIES_BUNNELBY,
+        SPECIES_SANDILE,
+        SPECIES_NUMEL,
+        SPECIES_WOOPER,
+        SPECIES_MUDKIP,
+        SPECIES_BARBOACH,
+        SPECIES_WOOPER_PALDEA,
+        SPECIES_SANDYGAST,
+        SPECIES_DODUO,
+        SPECIES_SANDSHREW,
+        SPECIES_RHYHORN,
+        SPECIES_PHANPY,
+        SPECIES_HIPPOPOTAS,
+        SPECIES_MUDBRAY,
+        SPECIES_TRAPINCH,
+        SPECIES_SILICOBRA,
+        SPECIES_DRILBUR,
+        SPECIES_DIGLETT_ALOLA,
+        SPECIES_SWINUB,
+        SPECIES_DIGLETT,
+        SPECIES_GEODUDE,
+        SPECIES_ONIX,
+        SPECIES_CUBONE,
+        SPECIES_BALTOY,
+        SPECIES_GIBLE,
+        SPECIES_GOLETT,
+        SPECIES_YAMASK_GALAR,
+        SPECIES_GLIGAR
+    };
+
+    static const u16 sElectric[] = {
+        SPECIES_VOLTORB_HISUI,
+        SPECIES_GRUBBIN,
+        SPECIES_JOLTIK,
+        SPECIES_HELIOPTILE,
+        SPECIES_CHINCHOU,
+        SPECIES_PAWMI,
+        SPECIES_TADBULB,
+        SPECIES_WATTREL,
+        SPECIES_MAREEP,
+        SPECIES_ELECTRIKE,
+        SPECIES_SHINX,
+        SPECIES_BLITZLE,
+        SPECIES_TYNAMO,
+        SPECIES_GEODUDE_ALOLA,
+        SPECIES_MAGNEMITE,
+        SPECIES_VOLTORB,
+        SPECIES_YAMPER,
+        SPECIES_TOXEL,
+        SPECIES_PICHU,
+        SPECIES_ELEKID
+    };
+
+    static const u16 sBug[] = {
+        SPECIES_SEWADDLE,
+        SPECIES_PARAS,
+        SPECIES_BURMY_PLANT,
+        SPECIES_BURMY_TRASH,
+        SPECIES_BURMY_SANDY,
+        SPECIES_COMBEE,
+        SPECIES_KRICKETOT,
+        SPECIES_LEDYBA,
+        SPECIES_SURSKIT,
+        SPECIES_KARRABLAST,
+        SPECIES_SHELMET,
+        SPECIES_GRUBBIN,
+        SPECIES_CUTIEFLY,
+        SPECIES_TAROUNTULA,
+        SPECIES_NYMBLE,
+        SPECIES_CATERPIE,
+        SPECIES_WEEDLE,
+        SPECIES_WURMPLE,
+        SPECIES_SCATTERBUG,
+        SPECIES_BLIPBUG,
+        SPECIES_SIZZLIPEDE,
+        SPECIES_SKORUPI,
+        SPECIES_WIMPOD,
+        SPECIES_DWEBBLE,
+        SPECIES_RELLOR,
+        SPECIES_DEWPIDER,
+        SPECIES_VENONAT,
+        SPECIES_SPINARAK,
+        SPECIES_PINECO,
+        SPECIES_NINCADA,
+        SPECIES_VENIPEDE,
+        SPECIES_SNOM,
+        SPECIES_SCYTHER,
+        SPECIES_YANMA,
+        SPECIES_ANORITH
+    };
+
+    static const u16 sNormal[] = {
+        SPECIES_SMOLIV,
+        SPECIES_DEERLING_AUTUMN,
+        SPECIES_RATTATA,
+        SPECIES_MEOWTH,
+        SPECIES_EEVEE,
+        SPECIES_SENTRET,
+        SPECIES_TEDDIURSA,
+        SPECIES_ZIGZAGOON,
+        SPECIES_WHISMUR,
+        SPECIES_SKITTY,
+        SPECIES_BIDOOF,
+        SPECIES_GLAMEOW,
+        SPECIES_PATRAT,
+        SPECIES_LILLIPUP,
+        SPECIES_MINCCINO,
+        SPECIES_BUNNELBY,
+        SPECIES_YUNGOOS,
+        SPECIES_SHROODLE,
+        SPECIES_TANDEMAUS,
+        SPECIES_LECHONK,
+        SPECIES_SKWOVET,
+        SPECIES_ZIGZAGOON_GALAR,
+        SPECIES_RATTATA_ALOLA,
+        SPECIES_WOOLOO,
+        SPECIES_PIDGEY,
+        SPECIES_SPEAROW,
+        SPECIES_HOOTHOOT,
+        SPECIES_TAILLOW,
+        SPECIES_STARLY,
+        SPECIES_PIDOVE,
+        SPECIES_RUFFLET,
+        SPECIES_PIKIPEK,
+        SPECIES_LICKITUNG,
+        SPECIES_DUNSPARCE,
+        SPECIES_LITLEO,
+        SPECIES_HELIOPTILE,
+        SPECIES_SLAKOTH,
+        SPECIES_BUNEARY,
+        SPECIES_STUFFUL,
+        SPECIES_ZORUA_HISUI,
+        SPECIES_PORYGON,
+        SPECIES_AIPOM,
+        SPECIES_GIRAFARIG,
+        SPECIES_STANTLER,
+        SPECIES_TYPE_NULL,
+        SPECIES_HAPPINY,
+        SPECIES_MUNCHLAX,
+        SPECIES_IGGLYBUFF,
+        SPECIES_AZURILL
+    };
+
+    static const u16 sFighting[] = {
+        SPECIES_STUFFUL,
+        SPECIES_MANKEY,
+        SPECIES_MACHOP,
+        SPECIES_TIMBURR,
+        SPECIES_SCRAGGY,
+        SPECIES_MIENFOO,
+        SPECIES_PANCHAM,
+        SPECIES_CROAGUNK,
+        SPECIES_CRABRAWLER,
+        SPECIES_CLOBBOPUS,
+        SPECIES_MAKUHITA,
+        SPECIES_CHIMCHAR,
+        SPECIES_MEDITITE,
+        SPECIES_SNEASEL_HISUI,
+        SPECIES_FARFETCHD_GALAR,
+        SPECIES_KUBFU,
+        SPECIES_TYROGUE,
+        SPECIES_RIOLU
+    };
+
+    static const u16 sFairy[] = {
+        SPECIES_CHIKORITA,
+        SPECIES_COTTONEE,
+        SPECIES_DEERLING_SPRING,
+        SPECIES_MORELULL,
+        SPECIES_CUTIEFLY,
+        SPECIES_IGGLYBUFF,
+        SPECIES_AZURILL,
+        SPECIES_SNUBBULL,
+        SPECIES_RALTS,
+        SPECIES_POPPLIO,
+        SPECIES_FLABEBE,
+        SPECIES_SPRITZEE,
+        SPECIES_SWIRLIX,
+        SPECIES_PONYTA_GALAR,
+        SPECIES_VULPIX_ALOLA,
+        SPECIES_IMPIDIMP,
+        SPECIES_SWABLU,
+        SPECIES_FIDOUGH,
+        SPECIES_TINKATINK,
+        SPECIES_MILCERY,
+        SPECIES_CLEFFA,
+        SPECIES_TOGEPI,
+        SPECIES_MIME_JR
+    };
+
+    u16 length;
+
+    switch (VarGet(VAR_MONOTYPE))
+    {
+        default:
+        case MONOTYPE_NONE:
+            gSpecialVar_Result = sPokemon[Random() % 358];
+            break;
+        case MONOTYPE_FIRE:
+            length = 31;
+            gSpecialVar_Result = sFire[Random() % length];
+            break;
+        case MONOTYPE_GRASS:
+            length = 50;
+            gSpecialVar_Result = sGrass[Random() % length];
+            break;
+        case MONOTYPE_WATER:
+            length = 57;
+            gSpecialVar_Result = sWater[Random() % length];
+            break;
+        case MONOTYPE_DARK:
+            length = 25;
+            gSpecialVar_Result = sDark[Random() % length];
+            break;
+        case MONOTYPE_POISON:
+            length = 34;
+            gSpecialVar_Result = sPoison[Random() % length];
+            break;
+        case MONOTYPE_FLYING:
+            length = 28;
+            gSpecialVar_Result = sFlying[Random() % length];
+            break;
+        case MONOTYPE_ROCK:
+            length = 22;
+            gSpecialVar_Result = sRock[Random() % length];
+            break;
+        case MONOTYPE_GHOST:
+            length = 22;
+            gSpecialVar_Result = sGhost[Random() % length];
+            break;
+        case MONOTYPE_PSYCHIC:
+            length = 29;
+            gSpecialVar_Result = sPsychic[Random() % length];
+            break;
+        case MONOTYPE_STEEL:
+            length = 21;
+            gSpecialVar_Result = sSteel[Random() % length];
+            break;
+        case MONOTYPE_ICE:
+            length = 17;
+            gSpecialVar_Result = sIce[Random() % length];
+            break;
+        case MONOTYPE_DRAGON:
+            length = 18;
+            gSpecialVar_Result = sDragon[Random() % length];
+            break;
+        case MONOTYPE_GROUND:
+            length = 32;
+            gSpecialVar_Result = sGround[Random() % length];
+            break;
+        case MONOTYPE_ELECTRIC:
+            length = 20;
+            gSpecialVar_Result = sElectric[Random() % length];
+            break;
+        case MONOTYPE_BUG:
+            length = 35;
+            gSpecialVar_Result = sBug[Random() % length];
+            break;
+        case MONOTYPE_NORMAL:
+            length = 49;
+            gSpecialVar_Result = sNormal[Random() % length];
+            break;
+        case MONOTYPE_FIGHTING:
+            length = 18;
+            gSpecialVar_Result = sFighting[Random() % length];
+            break;
+        case MONOTYPE_FAIRY:
+            length = 23;
+            gSpecialVar_Result = sFairy[Random() % length];
+            break;
+    }
+}
+
+void GetRandomBabyEgg(void)
+{
+    static const u16 sElectricBabies[] = {
+        SPECIES_PICHU,
+        SPECIES_TOXEL,
+        SPECIES_ELEKID
+    };
+
+    static const u16 sNormalBabies[] = {
+        SPECIES_IGGLYBUFF,
+        SPECIES_AZURILL,
+        SPECIES_HAPPINY,
+        SPECIES_MUNCHLAX
+    };
+
+    static const u16 sFairyBabies[] = {
+        SPECIES_IGGLYBUFF,
+        SPECIES_AZURILL,
+        SPECIES_CLEFFA,
+        SPECIES_IGGLYBUFF,
+        SPECIES_MIME_JR
+    };
+
+    static const u16 sPsychicBabies[] = {
+        SPECIES_WYNAUT,
+        SPECIES_SMOOCHUM,
+        SPECIES_CHINGLING,
+        SPECIES_MIME_JR
+    };
+
+    static const u16 sFightingBabies[] = {
+        SPECIES_RIOLU,
+        SPECIES_TYROGUE
+    };
+
+    static const u16 sPoisonBabies[] = {
+        SPECIES_BUDEW,
+        SPECIES_TOXEL
+    };
+
+    static const u16 sBabies[] = {
+        SPECIES_PICHU,
+        SPECIES_CLEFFA,
+        SPECIES_IGGLYBUFF,
+        SPECIES_TOGEPI,
+        SPECIES_TYROGUE,
+        SPECIES_SMOOCHUM,
+        SPECIES_ELEKID,
+        SPECIES_MAGBY,
+        SPECIES_AZURILL,
+        SPECIES_WYNAUT,
+        SPECIES_CHINGLING,
+        SPECIES_BUDEW,
+        SPECIES_BONSLY,
+        SPECIES_HAPPINY,
+        SPECIES_MIME_JR,
+        SPECIES_MUNCHLAX,
+        SPECIES_RIOLU,
+        SPECIES_MANTYKE,
+        SPECIES_TOXEL
+    };
+
+    switch (VarGet(VAR_MONOTYPE))
+    {
+        default:
+        case MONOTYPE_NONE:
+            gSpecialVar_Result = sBabies[Random() % 18];
+            break;
+        case MONOTYPE_ELECTRIC:
+            gSpecialVar_Result = sElectricBabies[Random() % 3];
+            break;
+        case MONOTYPE_NORMAL:
+            gSpecialVar_Result = sNormalBabies[Random() % 4];
+            break;
+        case MONOTYPE_FAIRY:
+            gSpecialVar_Result = sFairyBabies[Random() % 5];
+            break;
+        case MONOTYPE_PSYCHIC:
+            gSpecialVar_Result = sPsychicBabies[Random() % 4];
+            break;
+        case MONOTYPE_FIGHTING:
+            gSpecialVar_Result = sFightingBabies[Random() % 2];
+            break;
+        case MONOTYPE_POISON:
+            gSpecialVar_Result = sPoisonBabies[Random() % 2];
+            break;
+        case MONOTYPE_ICE:
+            gSpecialVar_Result = SPECIES_SMOOCHUM;
+            break;
+        case MONOTYPE_FIRE:
+            gSpecialVar_Result = SPECIES_MAGBY;
+            break;
+        case MONOTYPE_ROCK:
+            gSpecialVar_Result = SPECIES_BONSLY;
+            break;
+        case MONOTYPE_GRASS:
+            gSpecialVar_Result = SPECIES_BUDEW;
+            break;
+        case MONOTYPE_FLYING:
+        case MONOTYPE_WATER:
+            gSpecialVar_Result = SPECIES_MANTYKE;
+            break;
+    }
+}
+
+void GetRandomFossil(void)
+{
+    static const u16 sWaterFossils[] = {
+        ITEM_HELIX_FOSSIL,
+        ITEM_DOME_FOSSIL,
+        ITEM_COVER_FOSSIL
+    };
+
+    static const u16 sFossils[] = {
+        ITEM_HELIX_FOSSIL,
+        ITEM_DOME_FOSSIL,
+        ITEM_ROOT_FOSSIL,
+        ITEM_CLAW_FOSSIL,
+        ITEM_SKULL_FOSSIL,
+        ITEM_ARMOR_FOSSIL,
+        ITEM_COVER_FOSSIL,
+        ITEM_PLUME_FOSSIL,
+        ITEM_JAW_FOSSIL,
+        ITEM_SAIL_FOSSIL
+    };
+
+    switch (VarGet(VAR_MONOTYPE))
+    {
+        default:
+        case MONOTYPE_NONE:
+        case MONOTYPE_ROCK:
+            gSpecialVar_Result = sFossils[Random() % 10];
+            break;
+        case MONOTYPE_WATER:
+            gSpecialVar_Result = sWaterFossils[Random() % 3];
+            break;
+        case MONOTYPE_BUG:
+            gSpecialVar_Result = ITEM_CLAW_FOSSIL;
+            break;
+        case MONOTYPE_GRASS:
+            gSpecialVar_Result = ITEM_ROOT_FOSSIL;
+            break;
+        case MONOTYPE_FLYING:
+            gSpecialVar_Result = ITEM_PLUME_FOSSIL;
+            break;
+        case MONOTYPE_ICE:
+            gSpecialVar_Result = ITEM_SAIL_FOSSIL;
+            break;
+        case MONOTYPE_DRAGON:
+            gSpecialVar_Result = ITEM_JAW_FOSSIL;
+            break;
+        case MONOTYPE_STEEL:
+            gSpecialVar_Result = ITEM_ARMOR_FOSSIL;
+            break;
+    }
 }
 
 void IsChosenMonSteelType(void)

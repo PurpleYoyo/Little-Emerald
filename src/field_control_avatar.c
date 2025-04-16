@@ -267,10 +267,20 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     // Utilities Menu
     if(input->input_field_1_7)
     {
-        PlaySE(SE_WIN_OPEN);
-        FreezeObjectEvents();
-        Utilities_ShowMainMenu();
-        return TRUE;
+        if (VarGet(VAR_SANDBOX_MODE) == 1)
+        {
+            PlaySE(SE_WIN_OPEN);
+            FreezeObjectEvents();
+            Base_ShowMainMenu();
+            return TRUE;
+        }
+        else
+        {
+            PlaySE(SE_WIN_OPEN);
+            FreezeObjectEvents();
+            Utilities_ShowMainMenu();
+            return TRUE;
+        }
     }
 
     return FALSE;

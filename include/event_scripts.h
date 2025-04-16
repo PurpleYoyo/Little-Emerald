@@ -670,4 +670,6 @@ extern const u8 EventScript_Pokevial[];
 
 extern const u8 EventScript_HatchEgg[];
 
+extern const u8 EventScript_SetIvs[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

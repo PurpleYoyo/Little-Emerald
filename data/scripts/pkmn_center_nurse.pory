@@ -2202,6 +2202,7 @@ script GiveRandomEgg {
 		msgbox(format("You don't have any room in your boxes for a new Pokémon."))
 		goto(End)
 	}
+	goto(End)
 }
 
 script Static_Tangela_DeepWoods {
@@ -2412,6 +2413,7 @@ script WeatherInstituteGift {
 	        }
 	}
 	msgbox(Route119_WeatherInstitute_2F_Text_PokemonChangesWithWeather, MSGBOX_DEFAULT)
+	goto(End)
 }
 
 script FossilScientist {
@@ -2680,7 +2682,7 @@ script RivalsTyrogue {
 script NoGrassBeforeStarterLeft {
 	msgbox(format("You don't have a Pokémon yet, better not step into the tall grass!"))
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_LeftOne)
-	closemessage
+	goto(End)
 }
 
 script Movement_LeftOne {
@@ -2691,6 +2693,7 @@ script Movement_LeftOne {
 script NoGrassBeforeStarterUp {
 	msgbox(format("You don't have a Pokémon yet, better not step into the tall grass!"))
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_UpOne)
+	goto(End)
 }
 
 script Movement_UpOne {
@@ -2701,6 +2704,7 @@ script Movement_UpOne {
 script NoGym7Before6 {
 	msgbox(format("You should probably go back to the gym in Fortree City first."))
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_LeftOne)
+	goto(End)
 }
 
 script FossilShop {
@@ -2715,6 +2719,7 @@ script FossilShop {
 	else {
 		msgbox(format("Hi! I study fossils."), MSGBOX_YESNO)
 	}
+	goto(End)
 }
 
 script RivalsPichu {

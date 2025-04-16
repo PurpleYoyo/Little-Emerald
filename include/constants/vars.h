@@ -266,9 +266,9 @@
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
 #define VAR_GYM6_DEFEATED                                0x40F7
 #define VAR_UNUSED_0x40F8                                0x40F8 // Unused Var
-#define VAR_UNUSED_0x40F9                                0x40F9 // Unused Var
+#define VAR_MONOTYPE                                     0x40F9
 #define VAR_DIFFICULTY                                   0x40FA
-#define VAR_EV_GAIN                                      0x40FB
+#define VAR_SANDBOX_MODE                                 0x40FB
 #define STAT                                             0x40FC // Used for Hyper Training
 #define STATUS                                           0x40FD // Used for Pre-Status
 #define LOWER                                            0x40FE // Used for Nature Mint Making

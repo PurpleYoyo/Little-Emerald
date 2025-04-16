@@ -1672,7 +1672,7 @@ static void ChangeSummaryState (s16 *taskData, u8 taskId)
             currentStat = STAT_IVS;
             break;
         case STAT_IVS:
-            if (VarGet(VAR_EV_GAIN) == 1)
+            if (VarGet(VAR_SANDBOX_MODE) == 1)
             {
                 FillBgTilemapBufferRect(1, EVS_STATS_BLOCK, STATS_CORD_X, STATS_CORD_Y, 1, 1, 2);
                 FillBgTilemapBufferRect(1, EVS_STATS_BLOCK + 1, STATS_CORD_X + 1, STATS_CORD_Y, 1, 1, 2);
@@ -3648,9 +3648,10 @@ static void BufferStat(u8 *dst, u8 statIndex, u32 stat, u32 strId, u32 n)
     static const u8 sTextNatureUp[] = _("{COLOR}{05}");
     static const u8 sTextNatureNeutral[] = _("{COLOR}{01}");
     static const u8 sTextHyperTrained[] = _("{COLOR}{11}");
+    static const u8 sTextUnTrained[] = _("{COLOR}{02}");
     u8 *txtPtr;
-
-    if (statIndex == 0 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
+    // ivs = 0, evs = 2
+    if (statIndex == 0 || statIndex == 2 || !SUMMARY_SCREEN_NATURE_COLORS || gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statDown)
         txtPtr = StringCopy(dst, sTextNatureNeutral);
     else if (statIndex == gNaturesInfo[sMonSummaryScreen->summary.mintNature].statUp)
         txtPtr = StringCopy(dst, sTextNatureUp);

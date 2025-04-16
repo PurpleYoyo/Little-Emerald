@@ -556,6 +556,7 @@ gSpecials::
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
 	def_special ShowSelectDamageScreen
+	def_special ShowSelectIvsScreen
 	def_special IsChosenMonSteelType
 	def_special IsChosenMonPoisonType
 	def_special IsChosenMonFireType
@@ -571,3 +572,5 @@ gSpecials::
 	def_special GiveStarterOranBerry
 	def_special IsPlayerInPokemonLeague
 	def_special HasPlayerDefeatedWinona
+	def_special GetRandomFossil
+	def_special GetRandomBabyEgg

@@ -62,6 +62,401 @@
 #include "../include/item_menu.h"
 #include "../include/field_effect.h"
 
+enum BaseMenu
+{
+    BASE_MENU_ITEM_SANDBOX_MENU,
+    BASE_MENU_ITEM_UTILITIES_MENU
+};
+
+#define BASE_WINDOW_HEIGHT 2
+
+struct BaseMenuListData
+{
+    struct ListMenuItem listItems[20 + 1];
+    u8 itemNames[51][26];
+    u8 listId;
+};
+
+static EWRAM_DATA struct BaseMenuListData *sBaseMenuListData = NULL;
+
+void Base_ShowMainMenu(void);
+static void Base_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
+static void Base_DestroyMenu(u8 taskId);
+static void Base_DestroyMenu_Cancel(u8 taskId);
+static void Base_RefreshListMenu(u8 taskId);
+static void BaseTask_HandleMenuInput(u8 taskId);
+
+void Utilities_ShowMainMenu(void);
+static void Utilities_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
+static void Utilities_DestroyMenu(u8 taskId);
+static void Utilities_DestroyMenu_Cancel(u8 taskId);
+static void Utilities_RefreshListMenu(u8 taskId);
+static void UtilitiesTask_HandleMenuInput(u8 taskId);
+
+void Sandbox_ShowMainMenu(void);
+static void Sandbox_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
+static void Sandbox_DestroyMenu(u8 taskId);
+static void Sandbox_DestroyMenu_Cancel(u8 taskId);
+static void Sandbox_RefreshListMenu(u8 taskId);
+static void SandboxTask_HandleMenuInput(u8 taskId);
+
+static void BaseAction_SandboxMenu(u8 taskId);
+static void BaseAction_UtilitiesMenu(u8 taskId);
+
+static const u8 sBaseText_SandboxMenu[] = _("Sandbox Menu");
+static const u8 sBaseText_UtilitiesMenu[] = _("Utilities Menu");
+
+static const struct ListMenuItem sBaseMenu_Items[] =
+{
+    [BASE_MENU_ITEM_UTILITIES_MENU]                 = {sBaseText_UtilitiesMenu,              BASE_MENU_ITEM_UTILITIES_MENU},
+    [BASE_MENU_ITEM_SANDBOX_MENU]                   = {sBaseText_SandboxMenu,                BASE_MENU_ITEM_SANDBOX_MENU},
+};
+
+static void (*const sBaseMenu_Actions[])(u8) =
+{
+    [BASE_MENU_ITEM_SANDBOX_MENU]                   = BaseAction_SandboxMenu,
+    [BASE_MENU_ITEM_UTILITIES_MENU]                 = BaseAction_UtilitiesMenu
+};
+
+static const struct WindowTemplate sBaseMenuWindowTemplate =
+{.bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 14,
+    .height = 2 * BASE_WINDOW_HEIGHT,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static const struct ListMenuTemplate sBaseMenu_ListTemplate =
+{
+    .items = sBaseMenu_Items,
+    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
+    .totalItems = ARRAY_COUNT(sBaseMenu_Items),
+};
+
+#define tMenuTaskId   data[0]
+#define tWindowId     data[1]
+
+static void Base_DestroyMenu_SubMenu(u8 taskId)
+{
+    DestroyListMenuTask(gTasks[taskId].tMenuTaskId, NULL, NULL);
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+    RemoveWindow(gTasks[taskId].tWindowId);
+    DestroyTask(taskId);
+    Free(sBaseMenuListData);
+}
+
+static void Base_DestroyMenu(u8 taskId)
+{
+    DestroyListMenuTask(gTasks[taskId].tMenuTaskId, NULL, NULL);
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+    RemoveWindow(gTasks[taskId].tWindowId);
+    DestroyTask(taskId);
+    ScriptContext_Enable();
+    UnfreezeObjectEvents();
+    Free(sBaseMenuListData);
+}
+
+static void Base_DestroyMenu_Cancel(u8 taskId)
+{
+    SetMainCallback2(CB2_Overworld);
+    Base_DestroyMenu(taskId);
+}
+
+void Base_ShowMainMenu(void)
+{
+    sBaseMenuListData = AllocZeroed(sizeof(*sBaseMenuListData));
+
+    Base_ShowMenu(BaseTask_HandleMenuInput, sBaseMenu_ListTemplate);
+}
+
+static void BaseTask_HandleMenuInput(u8 taskId)
+{
+    void (*func)(u8);
+    u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuTaskId);
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        if ((func = sBaseMenu_Actions[input]) != NULL)
+            func(taskId);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        Base_DestroyMenu_Cancel(taskId);
+    }
+}
+
+static void Base_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate)
+{
+    struct ListMenuTemplate menuTemplate;
+    u8 windowId;
+    u8 menuTaskId;
+    u8 inputTaskId;
+
+    // create window
+    HideMapNamePopUpWindow();
+    LoadMessageBoxAndBorderGfx();
+    windowId = AddWindow(&sBaseMenuWindowTemplate);
+    DrawStdWindowFrame(windowId, FALSE);
+
+    // create list menu
+    menuTemplate = LMtemplate;
+    menuTemplate.maxShowed = BASE_WINDOW_HEIGHT;
+    menuTemplate.windowId = windowId;
+    menuTemplate.header_X = 0;
+    menuTemplate.item_X = 8;
+    menuTemplate.cursor_X = 0;
+    menuTemplate.upText_Y = 1;
+    menuTemplate.cursorPal = 2;
+    menuTemplate.fillValue = 1;
+    menuTemplate.cursorShadowPal = 3;
+    menuTemplate.lettersSpacing = 1;
+    menuTemplate.itemVerticalPadding = 0;
+    menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
+    menuTemplate.fontId = FONT_NORMAL;
+    menuTemplate.cursorKind = 0;
+    menuTaskId = ListMenuInit(&menuTemplate, 0, 0);
+
+    // create input handler task
+    inputTaskId = CreateTask(HandleInput, 3);
+    gTasks[inputTaskId].tMenuTaskId = menuTaskId;
+    gTasks[inputTaskId].tWindowId = windowId;
+
+    Base_RefreshListMenu(inputTaskId);
+
+    // draw everything
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+static void Base_RefreshListMenu(u8 taskId)
+{
+    u8 totalItems = 0;
+    totalItems = min(totalItems, 51);
+    const u8 sColor_Red[] = _("{COLOR RED}");
+    const u8 sColor_Green[] = _("{COLOR GREEN}");
+
+    sBaseMenuListData->listItems[3].name = &sBaseMenuListData->itemNames[3][0];
+    
+    // Set list menu data
+    gMultiuseListMenuTemplate.items = sBaseMenuListData->listItems;
+    gMultiuseListMenuTemplate.totalItems = totalItems;
+    gMultiuseListMenuTemplate.maxShowed = BASE_WINDOW_HEIGHT;
+    gMultiuseListMenuTemplate.windowId = gTasks[taskId].tWindowId;
+    gMultiuseListMenuTemplate.header_X = 0;
+    gMultiuseListMenuTemplate.item_X = 8;
+    gMultiuseListMenuTemplate.cursor_X = 0;
+    gMultiuseListMenuTemplate.upText_Y = 1;
+    gMultiuseListMenuTemplate.cursorPal = 2;
+    gMultiuseListMenuTemplate.fillValue = 1;
+    gMultiuseListMenuTemplate.cursorShadowPal = 3;
+    gMultiuseListMenuTemplate.lettersSpacing = 1;
+    gMultiuseListMenuTemplate.itemVerticalPadding = 0;
+    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
+    gMultiuseListMenuTemplate.fontId = 1;
+    gMultiuseListMenuTemplate.cursorKind = 0;
+}
+
+static void BaseAction_SandboxMenu(u8 taskId)
+{
+    PlaySE(SE_WIN_OPEN);
+    Base_DestroyMenu_SubMenu(taskId);
+    Sandbox_ShowMainMenu();
+}
+
+static void BaseAction_UtilitiesMenu(u8 taskId)
+{
+    PlaySE(SE_WIN_OPEN);
+    Base_DestroyMenu_SubMenu(taskId);
+    Utilities_ShowMainMenu();
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+enum SandboxMenu
+{
+    SANDBOX_MENU_ITEM_SET_IVS,
+    SANDBOX_MENU_ITEM_SET_EVS
+};
+
+#define SANDBOX_WINDOW_HEIGHT 2
+
+struct SandboxMenuListData
+{
+    struct ListMenuItem listItems[20 + 1];
+    u8 itemNames[51][26];
+    u8 listId;
+};
+
+static EWRAM_DATA struct SandboxMenuListData *sSandboxMenuListData = NULL;
+
+static void SandboxAction_SetIvs(u8 taskId);
+static void SandboxAction_SetEvs(u8 taskId);
+
+static const u8 sSandboxText_SetIvs[] = _("Set IVs");
+static const u8 sSandboxText_SetEvs[] = _("Set EVs");
+
+static const struct ListMenuItem sSandboxMenu_Items[] =
+{
+    [SANDBOX_MENU_ITEM_SET_IVS]                 = {sSandboxText_SetIvs,              SANDBOX_MENU_ITEM_SET_IVS},
+    [SANDBOX_MENU_ITEM_SET_EVS]                 = {sSandboxText_SetEvs,              SANDBOX_MENU_ITEM_SET_EVS},
+};
+
+static void (*const sSandboxMenu_Actions[])(u8) =
+{
+    [SANDBOX_MENU_ITEM_SET_IVS]                   = SandboxAction_SetIvs,
+    [SANDBOX_MENU_ITEM_SET_EVS]                   = SandboxAction_SetEvs
+};
+
+static const struct WindowTemplate sSandboxMenuWindowTemplate =
+{.bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 14,
+    .height = 2 * SANDBOX_WINDOW_HEIGHT,
+    .paletteNum = 15,
+    .baseBlock = 1,
+};
+
+static const struct ListMenuTemplate sSandboxMenu_ListTemplate =
+{
+    .items = sSandboxMenu_Items,
+    .moveCursorFunc = ListMenuDefaultCursorMoveFunc,
+    .totalItems = ARRAY_COUNT(sSandboxMenu_Items),
+};
+
+#define tMenuTaskId   data[0]
+#define tWindowId     data[1]
+
+static void Sandbox_DestroyMenu(u8 taskId)
+{
+    DestroyListMenuTask(gTasks[taskId].tMenuTaskId, NULL, NULL);
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, TRUE);
+    RemoveWindow(gTasks[taskId].tWindowId);
+    DestroyTask(taskId);
+    ScriptContext_Enable();
+    UnfreezeObjectEvents();
+    Free(sSandboxMenuListData);
+}
+
+static void Sandbox_DestroyMenu_Cancel(u8 taskId)
+{
+    SetMainCallback2(CB2_Overworld);
+    Sandbox_DestroyMenu(taskId);
+}
+
+void Sandbox_ShowMainMenu(void)
+{
+    sSandboxMenuListData = AllocZeroed(sizeof(*sSandboxMenuListData));
+
+    Sandbox_ShowMenu(SandboxTask_HandleMenuInput, sSandboxMenu_ListTemplate);
+}
+
+static void SandboxTask_HandleMenuInput(u8 taskId)
+{
+    void (*func)(u8);
+    u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuTaskId);
+
+    if (JOY_NEW(A_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        if ((func = sSandboxMenu_Actions[input]) != NULL)
+            func(taskId);
+    }
+    else if (JOY_NEW(B_BUTTON))
+    {
+        PlaySE(SE_SELECT);
+        Sandbox_DestroyMenu_Cancel(taskId);
+    }
+}
+
+static void Sandbox_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate)
+{
+    struct ListMenuTemplate menuTemplate;
+    u8 windowId;
+    u8 menuTaskId;
+    u8 inputTaskId;
+
+    // create window
+    HideMapNamePopUpWindow();
+    LoadMessageBoxAndBorderGfx();
+    windowId = AddWindow(&sSandboxMenuWindowTemplate);
+    DrawStdWindowFrame(windowId, FALSE);
+
+    // create list menu
+    menuTemplate = LMtemplate;
+    menuTemplate.maxShowed = SANDBOX_WINDOW_HEIGHT;
+    menuTemplate.windowId = windowId;
+    menuTemplate.header_X = 0;
+    menuTemplate.item_X = 8;
+    menuTemplate.cursor_X = 0;
+    menuTemplate.upText_Y = 1;
+    menuTemplate.cursorPal = 2;
+    menuTemplate.fillValue = 1;
+    menuTemplate.cursorShadowPal = 3;
+    menuTemplate.lettersSpacing = 1;
+    menuTemplate.itemVerticalPadding = 0;
+    menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
+    menuTemplate.fontId = FONT_NORMAL;
+    menuTemplate.cursorKind = 0;
+    menuTaskId = ListMenuInit(&menuTemplate, 0, 0);
+
+    // create input handler task
+    inputTaskId = CreateTask(HandleInput, 3);
+    gTasks[inputTaskId].tMenuTaskId = menuTaskId;
+    gTasks[inputTaskId].tWindowId = windowId;
+
+    Sandbox_RefreshListMenu(inputTaskId);
+
+    // draw everything
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+static void Sandbox_RefreshListMenu(u8 taskId)
+{
+    u8 totalItems = 0;
+    totalItems = min(totalItems, 51);
+    const u8 sColor_Red[] = _("{COLOR RED}");
+    const u8 sColor_Green[] = _("{COLOR GREEN}");
+
+    sSandboxMenuListData->listItems[3].name = &sSandboxMenuListData->itemNames[3][0];
+    
+    // Set list menu data
+    gMultiuseListMenuTemplate.items = sSandboxMenuListData->listItems;
+    gMultiuseListMenuTemplate.totalItems = totalItems;
+    gMultiuseListMenuTemplate.maxShowed = SANDBOX_WINDOW_HEIGHT;
+    gMultiuseListMenuTemplate.windowId = gTasks[taskId].tWindowId;
+    gMultiuseListMenuTemplate.header_X = 0;
+    gMultiuseListMenuTemplate.item_X = 8;
+    gMultiuseListMenuTemplate.cursor_X = 0;
+    gMultiuseListMenuTemplate.upText_Y = 1;
+    gMultiuseListMenuTemplate.cursorPal = 2;
+    gMultiuseListMenuTemplate.fillValue = 1;
+    gMultiuseListMenuTemplate.cursorShadowPal = 3;
+    gMultiuseListMenuTemplate.lettersSpacing = 1;
+    gMultiuseListMenuTemplate.itemVerticalPadding = 0;
+    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
+    gMultiuseListMenuTemplate.fontId = 1;
+    gMultiuseListMenuTemplate.cursorKind = 0;
+}
+
+static void SandboxAction_SetIvs(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_SetIvs);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_SetEvs(u8 taskId)
+{
+    return;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 enum UtilitiesMenu
 {
     UTILITIES_MENU_ITEM_POKEMON_BOX_LINK,
@@ -85,12 +480,6 @@ struct UtilitiesMenuListData
 };
 
 static EWRAM_DATA struct UtilitiesMenuListData *sUtilitiesMenuListData = NULL;
-
-static void Utilities_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
-static void Utilities_DestroyMenu(u8 taskId);
-static void Utilities_DestroyMenu_Cancel(u8 taskId);
-static void Utilities_RefreshListMenu(u8 taskId);
-static void UtilitiesTask_HandleMenuInput(u8 taskId);
 
 static void UtilitiesAction_InfiniteRepel(u8 taskId);
 static void UtilitiesAction_HatchEgg(u8 taskId);
@@ -343,7 +732,7 @@ static void UtilitiesAction_EscapeRope(u8 taskId)
 static void UtilitiesAction_AutoRun(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
-    if ((FlagGet(FLAG_SYS_B_DASH)))
+       if ((FlagGet(FLAG_SYS_B_DASH)))
         ScriptContext_SetupScript(EventScript_ToggleAutoRun);
     DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);

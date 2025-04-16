@@ -114,6 +114,76 @@ EventScript_InfiniteRepelOff::
 	closemessage
 	return
 
+EventScript_SetIvs::
+	special ChoosePartyMon
+	waitstate
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_EGG, EventScript_CantModifyEgg
+	msgbox gText_WhichStat, MSGBOX_DEFAULT
+	multichoicegrid 10, 4, MULTI_STAT_NAMES, 2, 0
+	call_if_eq VAR_RESULT, 0, SetStatHP
+	call_if_eq VAR_RESULT, 1, SetStatAtk
+	call_if_eq VAR_RESULT, 2, SetStatDef
+	call_if_eq VAR_RESULT, 3, SetStatSpA
+	call_if_eq VAR_RESULT, 4, SetStatSpD
+	call_if_eq VAR_RESULT, 5, SetStatSpe
+	call Common_ShowSelectIvsScreen
+	waitstate
+	sethypertrainstat STAT
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+	playmoncry 0x8007, 0
+	waitmoncry
+	msgbox gText_SetIvTo, MSGBOX_DEFAULT
+	closemessage
+	return
+
+EventScript_SetEvs::
+	special ChoosePartyMon
+	waitstate
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_EGG, EventScript_CantModifyEgg
+	msgbox gText_WhichStat, MSGBOX_DEFAULT
+	multichoicegrid 10, 4, MULTI_STAT_NAMES, 2, 0
+	call_if_eq VAR_RESULT, 0, SetStatHP
+	call_if_eq VAR_RESULT, 1, SetStatAtk
+	call_if_eq VAR_RESULT, 2, SetStatDef
+	call_if_eq VAR_RESULT, 3, SetStatSpA
+	call_if_eq VAR_RESULT, 4, SetStatSpD
+	call_if_eq VAR_RESULT, 5, SetStatSpe
+	call Common_ShowSelectEvsScreen
+	waitstate
+	sethypertrainstat STAT
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+	playmoncry 0x8007, 0
+	waitmoncry
+	msgbox gText_SetEvTo, MSGBOX_DEFAULT
+	closemessage
+	return
+
+SetStatHP::
+	setvar STAT, 0
+	return
+SetStatAtk::
+	setvar STAT, 1
+	return
+SetStatDef::
+	setvar STAT, 2
+	return
+SetStatSpA::
+	setvar STAT, 3
+	return
+SetStatSpD::
+	setvar STAT, 4
+	return
+SetStatSpe::
+	setvar STAT, 5
+	return
+
+EventScript_CantModifyEgg::
+	msgbox gText_CantModifyEgg, MSGBOX_DEFAULT
+	closemessage
+	return
+
 EventScript_ToggleAutoRun::
 	special GetAutoRunFlag
 	goto_if_eq VAR_RESULT, FALSE, EventScript_AutoRunOn

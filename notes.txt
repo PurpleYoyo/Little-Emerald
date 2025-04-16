@@ -94,8 +94,8 @@ a - matt drifloon explosion't                             | A
 a - wallace tentacool > froakie                           | A
 a - norman type nulln't/boom dude type nulln't?           | A
 
-a - normal mode                                           | A ?
-a - aces in world                                         | A ?
+a - normal mode                                           | A
+a - aces in world                                         | A
 
 a - evs viewable in evs mode                              | A
 a - add title screen                                      | A
@@ -115,8 +115,8 @@ b - dusk/dawn stone palettes                              |
 b - safari zone moneybox                                  | F
 b - safari zone encs                                      | F
 b - cap candy stop when learn move                        | F
-b - tm desc lengths                                       | F ?
-b - utilities menu auto-run pre-dex                       | F ?
+b - tm desc lengths                                       | F
+b - utilities menu auto-run pre-dex                       | F
 b - birch says r button for utilities menu                | F
 b - shop text weird                                       | F
 b - berries are plantable thru bag                        | F
@@ -124,13 +124,11 @@ b - granite cave b2f encs                                 | F
 b - use flashlight x2 freeze                              | F
 b - hail                                                  | F
 b - collector text box                                    | F
-b - fossil falling text                                   | F ?
+b - fossil falling text                                   | F
 
 b - norman's eevee-starter showing up as eevee in calc    |
 b - natures incorrect in set getter                       |
 b - calc import formes                                    |
-
-t - multi-attack type                                     |
 
 f - gyms 6 and 7 non linear
 f - reaper cloth duskull

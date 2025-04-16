@@ -211,10 +211,8 @@ void NewGameInitData(void)
         VarSet(VAR_DIFFICULTY, NORMAL_DIFFICULTY);
     else
         VarSet(VAR_DIFFICULTY, HARD_DIFFICULTY);
-    if (gEvGain == 1)
-        VarSet(VAR_EV_GAIN, 1);
-    else
-        VarSet(VAR_EV_GAIN, 0);
+    VarSet(VAR_SANDBOX_MODE, gSandboxMode);
+    VarSet(VAR_MONOTYPE, gMonotype);
 }
 
 static void ResetMiniGamesRecords(void)

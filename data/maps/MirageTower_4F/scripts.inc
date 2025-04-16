@@ -23,7 +23,7 @@ MirageTower_4F_EventScript_RootFossil::
 # 12 "data/maps/MirageTower_4F/scripts.pory"
 	goto_if_eq VAR_RESULT, NO, MirageTower_4F_EventScript_LeaveRootFossil
 # 13 "data/maps/MirageTower_4F/scripts.pory"
-	randomelement ITEM_DOME_FOSSIL, ITEM_HELIX_FOSSIL, ITEM_ROOT_FOSSIL, ITEM_CLAW_FOSSIL, ITEM_SKULL_FOSSIL, ITEM_ARMOR_FOSSIL, ITEM_COVER_FOSSIL, ITEM_PLUME_FOSSIL, ITEM_JAW_FOSSIL, ITEM_SAIL_FOSSIL
+	special GetRandomFossil
 # 14 "data/maps/MirageTower_4F/scripts.pory"
 	giveitem VAR_RESULT
 # 15 "data/maps/MirageTower_4F/scripts.pory"

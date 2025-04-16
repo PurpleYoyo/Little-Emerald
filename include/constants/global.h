@@ -9,6 +9,26 @@
 #include "config/pokemon.h"
 #include "config/overworld.h"
 
+#define MONOTYPE_NONE     0
+#define MONOTYPE_FIRE     1
+#define MONOTYPE_WATER    2
+#define MONOTYPE_GRASS    3
+#define MONOTYPE_ELECTRIC 4
+#define MONOTYPE_BUG      5
+#define MONOTYPE_ROCK     6
+#define MONOTYPE_GROUND   7
+#define MONOTYPE_FIGHTING 8
+#define MONOTYPE_DARK     9
+#define MONOTYPE_PSYCHIC  10
+#define MONOTYPE_FAIRY    11
+#define MONOTYPE_STEEL    12
+#define MONOTYPE_ICE      13
+#define MONOTYPE_GHOST    14
+#define MONOTYPE_DRAGON   15
+#define MONOTYPE_POISON   16
+#define MONOTYPE_FLYING   17
+#define MONOTYPE_NORMAL   18
+
 // Invalid Versions show as "----------" in Gen 4 and Gen 5's summary screen.
 // In Gens 6 and 7, invalid versions instead show "a distant land" in the summary screen.
 // In Gen 4 only, migrated Pokémon with Diamond, Pearl, or Platinum's ID show as "----------".

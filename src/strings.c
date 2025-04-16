@@ -1649,20 +1649,23 @@ const u8 gText_CantUseFlashHere[] = _("You can't use the Flashlight here.");
 const u8 gText_AlreadyUsedFlash[] = _("You already used the Flashlight here.");
 const u8 gText_UseFlash[] = _("Turned the Flashlight on.");
 
-const u8 gText_LittleEmeraldVersion[] = _("v1.2");
-
-const u8 gText_BeforeYouBegin[] =   _("Before you begin,\nI have just two more questions for you.");
+const u8 gText_BeforeYouBegin[] =   _("Before you begin,\nI have a few more questions for you.");
 const u8 gText_NormalModeDesc[] =   _("Some gym leaders and other bosses\nhave fewer Pokémon and generally\pweaker movesets.\pWould you like to\nchoose this difficulty?");
 const u8 gText_HardModeDesc[] =     _("All gym leaders have a full team\nand all bosses have strong movesets.\pWould you like to\nchoose this difficulty?");
 const u8 gText_WhichDifficulty[] =  _("Which difficulty would you\nlike to play?");
-const u8 gText_EnableEvs[] =        _("Would you like to enable EV gain?\n(No trainer has EVs.)");
+const u8 gText_WhichMonotype[] =  _("Which monotype would you\nlike to choose?");
+const u8 gText_SandboxDesc[] =      _("Would you like to enable Sandbox Mode?\pEV gain is enabled,\nyou can directly modify a\pPokémon's IVs and EVs, and more.");
+const u8 gText_MonotypeDesc[] =     _("Would you like to choose a Monotype?\pYour starters and all gift\nPokémon will be of your chosen type.");
 const u8 gText_AreYouSure[] =       _("Are you sure?");
 
-const u8 gText_VersionDifficulty_Hard[] = _("HARD MODE v1.2");
-const u8 gText_VersionDifficulty_Normal[] = _("NORMAL MODE v1.2");
+const u8 gText_LittleEmeraldVersion[] = _("v1.3");
+const u8 gText_VersionDifficulty_Hard[] = _("HARD MODE v1.3");
+const u8 gText_VersionDifficulty_Normal[] = _("NORMAL MODE v1.3");
+
 const u8 gText_NormalDifficulty[] = _("NORMAL MODE");
 const u8 gText_HardDifficulty[] = _("HARD MODE");
-const u8 gText_EvGain[] = _("EV GAIN");
+const u8 gText_SandboxMode[] = _("SANDBOX MODE");
+const u8 gText_Monotype[] = _("MONOTYPE");
 const u8 gText_Version[] = _("VERSION");
 const u8 gText_Difficulty[] = _("DIFFICULTY");
 const u8 gText_Enabled[] = _("ENABLED");
@@ -1670,3 +1673,47 @@ const u8 gText_Disabled[] = _("DISABLED");
 
 const u8 gText_Incenses[] = _("INCENSES");
 const u8 gText_Mints[] = _("MINTS");
+
+const u8 gText_Fire[]     = _("FIRE");
+const u8 gText_Water[]    = _("WATER");
+const u8 gText_Grass[]    = _("GRASS");
+const u8 gText_Electric[] = _("ELECTRIC");
+const u8 gText_Bug[]      = _("BUG");
+const u8 gText_Rock[]     = _("ROCK");
+const u8 gText_Ground[]   = _("GROUND");
+const u8 gText_Figting[]  = _("FIGHTING");
+const u8 gText_Dark[]     = _("DARK");
+const u8 gText_Psychic[]  = _("PSYCHIC");
+const u8 gText_Fairy[]    = _("FAIRY");
+const u8 gText_Steel[]    = _("STEEL");
+const u8 gText_MonotypeIce[]      = _("ICE");
+const u8 gText_Ghost[]    = _("GHOST");
+const u8 gText_Dragon[]   = _("DRAGON");
+const u8 gText_MonotypePoison[]   = _("POISON");
+const u8 gText_Flying[]   = _("FLYING");
+
+const u8 gText_ChooseFire[]     = _("Are you sure you want to choose\nFIRE as your monotype?");
+const u8 gText_ChooseWater[]    = _("Are you sure you want to choose\nWATER as your monotype?");
+const u8 gText_ChooseGrass[]    = _("Are you sure you want to choose\nGRASS as your monotype?");
+const u8 gText_ChooseElectric[] = _("Are you sure you want to choose\nELECTRIC as your monotype?");
+const u8 gText_ChooseBug[]      = _("Are you sure you want to choose\nBUG as your monotype?");
+const u8 gText_ChooseRock[]     = _("Are you sure you want to choose\nROCK as your monotype?");
+const u8 gText_ChooseGround[]   = _("Are you sure you want to choose\nGROUND as your monotype?");
+const u8 gText_ChooseFigting[]  = _("Are you sure you want to choose\nFIGHTING as your monotype?");
+const u8 gText_ChooseDark[]     = _("Are you sure you want to choose\nDARK as your monotype?");
+const u8 gText_ChoosePsychic[]  = _("Are you sure you want to choose\nPSYCHIC as your monotype?");
+const u8 gText_ChooseFairy[]    = _("Are you sure you want to choose\nFAIRY as your monotype?");
+const u8 gText_ChooseSteel[]    = _("Are you sure you want to choose\nSTEEL as your monotype?");
+const u8 gText_ChooseIce[]      = _("Are you sure you want to choose\nICE as your monotype?");
+const u8 gText_ChooseGhost[]    = _("Are you sure you want to choose\nGHOST as your monotype?");
+const u8 gText_ChooseDragon[]   = _("Are you sure you want to choose\nDRAGON as your monotype?");
+const u8 gText_ChoosePoison[]   = _("Are you sure you want to choose\nPOISON as your monotype?");
+const u8 gText_ChooseFlying[]   = _("Are you sure you want to choose\nFLYING as your monotype?");
+const u8 gText_ChooseNormal[]   = _("Are you sure you want to choose\nNORMAL as your monotype?");
+
+const u8 gText_NoMonotype[] = _("Are you sure you do not want\nto choose a monotype?");
+
+const u8 gText_CantModifyEgg[] = _("You can't modify a Pokémon Egg.");
+const u8 gText_WhichStat[] = _("Which stat would you like to modify?");
+const u8 gText_SetIvTo[] = _("Set your {STR_VAR_1}'s {STR_VAR_3} IV to {STR_VAR_2}.");
+const u8 gText_SetEvTo[] = _("Set your {STR_VAR_1}'s {STR_VAR_3} EV to {STR_VAR_2}.");
