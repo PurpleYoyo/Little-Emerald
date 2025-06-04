@@ -3513,7 +3513,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].types[0] = gSpeciesInfo[gBattleMons[battler].species].types[0];
                 gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
                 gBattleMons[battler].types[2] = TYPE_MYSTERY;
-                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].lockedAbility);
                 gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)] = gBattleMons[battler].hp;
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
@@ -5921,32 +5921,40 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
         break;
     case EFFECT_HIDDEN_POWER:
         {
-            u32 typeBits = 0;
-            if (gMain.inBattle)
+            u8 hiddenPowerType = GetMonData(mon, MON_DATA_HIDDEN_POWER_TYPE);
+            if (hiddenPowerType == TYPE_NONE)
             {
-                typeBits = ((gBattleMons[battler].hpIV & 1) << 0)
-                        | ((gBattleMons[battler].attackIV & 1) << 1)
-                        | ((gBattleMons[battler].defenseIV & 1) << 2)
-                        | ((gBattleMons[battler].speedIV & 1) << 3)
-                        | ((gBattleMons[battler].spAttackIV & 1) << 4)
-                        | ((gBattleMons[battler].spDefenseIV & 1) << 5);
+                u32 typeBits = 0;
+                if (gMain.inBattle)
+                {
+                    typeBits = ((gBattleMons[battler].hpIV & 1) << 0)
+                            | ((gBattleMons[battler].attackIV & 1) << 1)
+                            | ((gBattleMons[battler].defenseIV & 1) << 2)
+                            | ((gBattleMons[battler].speedIV & 1) << 3)
+                            | ((gBattleMons[battler].spAttackIV & 1) << 4)
+                            | ((gBattleMons[battler].spDefenseIV & 1) << 5);
+                }
+                else
+                {
+                    typeBits = ((GetMonData(mon, MON_DATA_HP_IV) & 1) << 0)
+                            | ((GetMonData(mon, MON_DATA_ATK_IV) & 1) << 1)
+                            | ((GetMonData(mon, MON_DATA_DEF_IV) & 1) << 2)
+                            | ((GetMonData(mon, MON_DATA_SPEED_IV) & 1) << 3)
+                            | ((GetMonData(mon, MON_DATA_SPATK_IV) & 1) << 4)
+                            | ((GetMonData(mon, MON_DATA_SPDEF_IV) & 1) << 5);
+                }
+    
+                // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
+                // The final + 2 skips past TYPE_NONE and Normal.
+                moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
+                if (moveType >= TYPE_MYSTERY)
+                    moveType++;
+                return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
             }
             else
             {
-                typeBits = ((GetMonData(mon, MON_DATA_HP_IV) & 1) << 0)
-                        | ((GetMonData(mon, MON_DATA_ATK_IV) & 1) << 1)
-                        | ((GetMonData(mon, MON_DATA_DEF_IV) & 1) << 2)
-                        | ((GetMonData(mon, MON_DATA_SPEED_IV) & 1) << 3)
-                        | ((GetMonData(mon, MON_DATA_SPATK_IV) & 1) << 4)
-                        | ((GetMonData(mon, MON_DATA_SPDEF_IV) & 1) << 5);
+                return ((hiddenPowerType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
             }
-
-            // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
-            // The final + 2 skips past TYPE_NONE and Normal.
-            moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
-            if (moveType >= TYPE_MYSTERY)
-                moveType++;
-            return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
         }
         break;
     case EFFECT_CHANGE_TYPE_ON_ITEM:

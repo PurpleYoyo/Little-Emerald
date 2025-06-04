@@ -83,21 +83,18 @@ void Base_ShowMainMenu(void);
 static void Base_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
 static void Base_DestroyMenu(u8 taskId);
 static void Base_DestroyMenu_Cancel(u8 taskId);
-static void Base_RefreshListMenu(u8 taskId);
 static void BaseTask_HandleMenuInput(u8 taskId);
 
 void Utilities_ShowMainMenu(void);
 static void Utilities_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
 static void Utilities_DestroyMenu(u8 taskId);
 static void Utilities_DestroyMenu_Cancel(u8 taskId);
-static void Utilities_RefreshListMenu(u8 taskId);
 static void UtilitiesTask_HandleMenuInput(u8 taskId);
 
 void Sandbox_ShowMainMenu(void);
 static void Sandbox_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtemplate);
 static void Sandbox_DestroyMenu(u8 taskId);
 static void Sandbox_DestroyMenu_Cancel(u8 taskId);
-static void Sandbox_RefreshListMenu(u8 taskId);
 static void SandboxTask_HandleMenuInput(u8 taskId);
 
 static void BaseAction_SandboxMenu(u8 taskId);
@@ -225,38 +222,8 @@ static void Base_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LMtem
     gTasks[inputTaskId].tMenuTaskId = menuTaskId;
     gTasks[inputTaskId].tWindowId = windowId;
 
-    Base_RefreshListMenu(inputTaskId);
-
     // draw everything
     CopyWindowToVram(windowId, COPYWIN_FULL);
-}
-
-static void Base_RefreshListMenu(u8 taskId)
-{
-    u8 totalItems = 0;
-    totalItems = min(totalItems, 51);
-    const u8 sColor_Red[] = _("{COLOR RED}");
-    const u8 sColor_Green[] = _("{COLOR GREEN}");
-
-    sBaseMenuListData->listItems[3].name = &sBaseMenuListData->itemNames[3][0];
-    
-    // Set list menu data
-    gMultiuseListMenuTemplate.items = sBaseMenuListData->listItems;
-    gMultiuseListMenuTemplate.totalItems = totalItems;
-    gMultiuseListMenuTemplate.maxShowed = BASE_WINDOW_HEIGHT;
-    gMultiuseListMenuTemplate.windowId = gTasks[taskId].tWindowId;
-    gMultiuseListMenuTemplate.header_X = 0;
-    gMultiuseListMenuTemplate.item_X = 8;
-    gMultiuseListMenuTemplate.cursor_X = 0;
-    gMultiuseListMenuTemplate.upText_Y = 1;
-    gMultiuseListMenuTemplate.cursorPal = 2;
-    gMultiuseListMenuTemplate.fillValue = 1;
-    gMultiuseListMenuTemplate.cursorShadowPal = 3;
-    gMultiuseListMenuTemplate.lettersSpacing = 1;
-    gMultiuseListMenuTemplate.itemVerticalPadding = 0;
-    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
-    gMultiuseListMenuTemplate.fontId = 1;
-    gMultiuseListMenuTemplate.cursorKind = 0;
 }
 
 static void BaseAction_SandboxMenu(u8 taskId)
@@ -278,10 +245,16 @@ static void BaseAction_UtilitiesMenu(u8 taskId)
 enum SandboxMenu
 {
     SANDBOX_MENU_ITEM_SET_IVS,
-    SANDBOX_MENU_ITEM_SET_EVS
+    SANDBOX_MENU_ITEM_SET_EVS,
+    SANDBOX_MENU_ITEM_GIVE_MONEY,
+    SANDBOX_MENU_ITEM_GIVE_BP,
+    SANDBOX_MENU_ITEM_TOGGLE_EV_GAIN,
+    SANDBOX_MENU_ITEM_TOGGLE_ALWAYS_CATCH,
+    SANDBOX_MENU_ITEM_TOGGLE_NO_TRAINERS,
+    SANDBOX_MENU_ITEM_TOGGLE_WALK_THROUGH_WALLS,
 };
 
-#define SANDBOX_WINDOW_HEIGHT 2
+#define SANDBOX_WINDOW_HEIGHT 8
 
 struct SandboxMenuListData
 {
@@ -294,20 +267,44 @@ static EWRAM_DATA struct SandboxMenuListData *sSandboxMenuListData = NULL;
 
 static void SandboxAction_SetIvs(u8 taskId);
 static void SandboxAction_SetEvs(u8 taskId);
+static void SandboxAction_GiveMaxMoney(u8 taskId);
+static void SandboxAction_GiveMaxBP(u8 taskId);
+static void SandboxAction_ToggleEVGain(u8 taskId);
+static void SandboxAction_ToggleAlwaysCatch(u8 taskId);
+static void SandboxAction_ToggleNoTrainers(u8 taskId);
+static void SandboxAction_ToggleWalkThroughWalls(u8 taskId);
 
 static const u8 sSandboxText_SetIvs[] = _("Set IVs");
 static const u8 sSandboxText_SetEvs[] = _("Set EVs");
+static const u8 sSandboxText_GiveMoney[] = _("Give Max Money");
+static const u8 sSandboxText_GiveBP[] = _("Give Max BP");
+static const u8 sSandboxText_EvGain[] = _("{STR_VAR_1}EV Gain");
+static const u8 sSandboxText_AlwaysCatch[] = _("{STR_VAR_1}100% Catch Rate");
+static const u8 sSandboxText_NoTrainers[] = _("{STR_VAR_1}No Trainer Battles");
+static const u8 sSandboxText_WalkThroughWalls[] = _("{STR_VAR_1}Walk Through Walls");
 
 static const struct ListMenuItem sSandboxMenu_Items[] =
 {
-    [SANDBOX_MENU_ITEM_SET_IVS]                 = {sSandboxText_SetIvs,              SANDBOX_MENU_ITEM_SET_IVS},
-    [SANDBOX_MENU_ITEM_SET_EVS]                 = {sSandboxText_SetEvs,              SANDBOX_MENU_ITEM_SET_EVS},
+    [SANDBOX_MENU_ITEM_SET_IVS]                   = {sSandboxText_SetIvs,              SANDBOX_MENU_ITEM_SET_IVS},
+    [SANDBOX_MENU_ITEM_SET_EVS]                   = {sSandboxText_SetEvs,              SANDBOX_MENU_ITEM_SET_EVS},
+    [SANDBOX_MENU_ITEM_GIVE_MONEY]                = {sSandboxText_GiveMoney,           SANDBOX_MENU_ITEM_GIVE_MONEY},
+    [SANDBOX_MENU_ITEM_GIVE_BP]                   = {sSandboxText_GiveBP,              SANDBOX_MENU_ITEM_GIVE_BP},
+    [SANDBOX_MENU_ITEM_TOGGLE_EV_GAIN]            = {sSandboxText_EvGain,              SANDBOX_MENU_ITEM_TOGGLE_EV_GAIN},
+    [SANDBOX_MENU_ITEM_TOGGLE_ALWAYS_CATCH]       = {sSandboxText_AlwaysCatch,         SANDBOX_MENU_ITEM_TOGGLE_ALWAYS_CATCH}, 
+    [SANDBOX_MENU_ITEM_TOGGLE_NO_TRAINERS]        = {sSandboxText_NoTrainers,          SANDBOX_MENU_ITEM_TOGGLE_NO_TRAINERS}, 
+    [SANDBOX_MENU_ITEM_TOGGLE_WALK_THROUGH_WALLS] = {sSandboxText_WalkThroughWalls,    SANDBOX_MENU_ITEM_TOGGLE_WALK_THROUGH_WALLS}, 
 };
 
 static void (*const sSandboxMenu_Actions[])(u8) =
 {
     [SANDBOX_MENU_ITEM_SET_IVS]                   = SandboxAction_SetIvs,
-    [SANDBOX_MENU_ITEM_SET_EVS]                   = SandboxAction_SetEvs
+    [SANDBOX_MENU_ITEM_SET_EVS]                   = SandboxAction_SetEvs,
+    [SANDBOX_MENU_ITEM_GIVE_MONEY]                = SandboxAction_GiveMaxMoney,
+    [SANDBOX_MENU_ITEM_GIVE_BP]                   = SandboxAction_GiveMaxBP,
+    [SANDBOX_MENU_ITEM_TOGGLE_EV_GAIN]            = SandboxAction_ToggleEVGain,
+    [SANDBOX_MENU_ITEM_TOGGLE_ALWAYS_CATCH]       = SandboxAction_ToggleAlwaysCatch,
+    [SANDBOX_MENU_ITEM_TOGGLE_NO_TRAINERS]        = SandboxAction_ToggleNoTrainers,
+    [SANDBOX_MENU_ITEM_TOGGLE_WALK_THROUGH_WALLS] = SandboxAction_ToggleWalkThroughWalls,
 };
 
 static const struct WindowTemplate sSandboxMenuWindowTemplate =
@@ -401,45 +398,96 @@ static void Sandbox_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate LM
     menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
     menuTemplate.fontId = FONT_NORMAL;
     menuTemplate.cursorKind = 0;
+
+    u8 totalItems = 8;
+    const u8 sColor_Red[] = _("{COLOR RED}");
+    const u8 sColor_Green[] = _("{COLOR GREEN}");
+    u8 const *name = NULL;
+    u32 i;
+
+    for (i = 0; i < totalItems; i++)
+    {
+        name = sSandboxMenu_Items[i].name;
+
+        if (i == 4)
+        {
+            if (VarGet(VAR_EV_GAIN) == 1)
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else if (i == 5)
+        {
+            if (VarGet(VAR_ALWAYS_CATCH) == 1)
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else if (i == 6)
+        {
+            if (FlagGet(FLAG_NO_TRAINERS))
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else if (i == 7)
+        {
+            if (FlagGet(FLAG_WALK_THROUGH_WALLS))
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sSandboxMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else
+        {
+            StringCopy(&sSandboxMenuListData->itemNames[i][0], name);
+        }
+
+        sSandboxMenuListData->listItems[i].name = &sSandboxMenuListData->itemNames[i][0];
+        sSandboxMenuListData->listItems[i].id = i;
+    }
+    
+    menuTemplate.items = sSandboxMenuListData->listItems;
+
     menuTaskId = ListMenuInit(&menuTemplate, 0, 0);
 
     // create input handler task
     inputTaskId = CreateTask(HandleInput, 3);
     gTasks[inputTaskId].tMenuTaskId = menuTaskId;
     gTasks[inputTaskId].tWindowId = windowId;
-
-    Sandbox_RefreshListMenu(inputTaskId);
-
     // draw everything
     CopyWindowToVram(windowId, COPYWIN_FULL);
-}
-
-static void Sandbox_RefreshListMenu(u8 taskId)
-{
-    u8 totalItems = 0;
-    totalItems = min(totalItems, 51);
-    const u8 sColor_Red[] = _("{COLOR RED}");
-    const u8 sColor_Green[] = _("{COLOR GREEN}");
-
-    sSandboxMenuListData->listItems[3].name = &sSandboxMenuListData->itemNames[3][0];
-    
-    // Set list menu data
-    gMultiuseListMenuTemplate.items = sSandboxMenuListData->listItems;
-    gMultiuseListMenuTemplate.totalItems = totalItems;
-    gMultiuseListMenuTemplate.maxShowed = SANDBOX_WINDOW_HEIGHT;
-    gMultiuseListMenuTemplate.windowId = gTasks[taskId].tWindowId;
-    gMultiuseListMenuTemplate.header_X = 0;
-    gMultiuseListMenuTemplate.item_X = 8;
-    gMultiuseListMenuTemplate.cursor_X = 0;
-    gMultiuseListMenuTemplate.upText_Y = 1;
-    gMultiuseListMenuTemplate.cursorPal = 2;
-    gMultiuseListMenuTemplate.fillValue = 1;
-    gMultiuseListMenuTemplate.cursorShadowPal = 3;
-    gMultiuseListMenuTemplate.lettersSpacing = 1;
-    gMultiuseListMenuTemplate.itemVerticalPadding = 0;
-    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
-    gMultiuseListMenuTemplate.fontId = 1;
-    gMultiuseListMenuTemplate.cursorKind = 0;
 }
 
 static void SandboxAction_SetIvs(u8 taskId)
@@ -452,7 +500,58 @@ static void SandboxAction_SetIvs(u8 taskId)
 
 static void SandboxAction_SetEvs(u8 taskId)
 {
-    return;
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_SetEvs);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_GiveMaxMoney(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_GiveMaxMoney);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_GiveMaxBP(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_GiveMaxBP);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_ToggleEVGain(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_ToggleEvGain);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_ToggleAlwaysCatch(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_ToggleAlwaysCatch);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_ToggleNoTrainers(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_ToggleNoTrainers);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
+}
+
+static void SandboxAction_ToggleWalkThroughWalls(u8 taskId)
+{
+    Utilities_DestroyMenu(taskId);
+    ScriptContext_SetupScript(EventScript_ToggleWalkThroughWalls);
+    DestroyTask(taskId);
+    SetMainCallback2(CB2_Overworld);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -620,57 +719,66 @@ static void Utilities_ShowMenu(void (*HandleInput)(u8), struct ListMenuTemplate 
     menuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
     menuTemplate.fontId = FONT_NORMAL;
     menuTemplate.cursorKind = 0;
+
+    u8 totalItems = 9;
+    const u8 sColor_Red[] = _("{COLOR RED}");
+    const u8 sColor_Green[] = _("{COLOR GREEN}");
+    u8 const *name = NULL;
+    u32 i;
+
+    for (i = 0; i < totalItems; i++)
+    {
+        name = sUtilitiesMenu_Items[i].name;
+
+        if (i == 2)
+        {
+            if (FlagGet(FLAG_UNUSED_0x04F))
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sUtilitiesMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sUtilitiesMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else if (i == 5)
+        {
+            if (FlagGet(FLAG_RUNNING_SHOES_TOGGLE))
+            {
+                StringCopy(gStringVar1, sColor_Green);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sUtilitiesMenuListData->itemNames[i][0], gStringVar4);
+            }
+            else
+            {
+                StringCopy(gStringVar1, sColor_Red);
+                StringExpandPlaceholders(gStringVar4, name);
+                StringCopy(&sUtilitiesMenuListData->itemNames[i][0], gStringVar4);
+            }
+        }
+        else
+        {
+            StringCopy(&sUtilitiesMenuListData->itemNames[i][0], name);
+        }
+
+        sUtilitiesMenuListData->listItems[i].name = &sUtilitiesMenuListData->itemNames[i][0];
+        sUtilitiesMenuListData->listItems[i].id = i;
+    }
+    
+    menuTemplate.items = sUtilitiesMenuListData->listItems;
+
     menuTaskId = ListMenuInit(&menuTemplate, 0, 0);
 
     // create input handler task
     inputTaskId = CreateTask(HandleInput, 3);
     gTasks[inputTaskId].tMenuTaskId = menuTaskId;
     gTasks[inputTaskId].tWindowId = windowId;
-
-    Utilities_RefreshListMenu(inputTaskId);
-
     // draw everything
     CopyWindowToVram(windowId, COPYWIN_FULL);
-}
-
-static void Utilities_RefreshListMenu(u8 taskId)
-{
-    u8 totalItems = 0;
-    totalItems = min(totalItems, 51);
-    const u8 sColor_Red[] = _("{COLOR RED}");
-    const u8 sColor_Green[] = _("{COLOR GREEN}");
-
-    if (FlagGet(FLAG_RUNNING_SHOES_TOGGLE))
-    {
-        StringCopy(gStringVar1, sColor_Green);
-        StringExpandPlaceholders(gStringVar4, sUtilitiesText_AutoRun);
-        StringCopy(&sUtilitiesMenuListData->itemNames[3][0], gStringVar4);
-    }
-    else
-    {
-        StringCopy(gStringVar1, sColor_Red);
-        StringExpandPlaceholders(gStringVar4, sUtilitiesText_AutoRun);
-        StringCopy(&sUtilitiesMenuListData->itemNames[3][0], gStringVar4);
-    }
-    sUtilitiesMenuListData->listItems[3].name = &sUtilitiesMenuListData->itemNames[3][0];
-    
-    // Set list menu data
-    gMultiuseListMenuTemplate.items = sUtilitiesMenuListData->listItems;
-    gMultiuseListMenuTemplate.totalItems = totalItems;
-    gMultiuseListMenuTemplate.maxShowed = UTILITIES_WINDOW_HEIGHT;
-    gMultiuseListMenuTemplate.windowId = gTasks[taskId].tWindowId;
-    gMultiuseListMenuTemplate.header_X = 0;
-    gMultiuseListMenuTemplate.item_X = 8;
-    gMultiuseListMenuTemplate.cursor_X = 0;
-    gMultiuseListMenuTemplate.upText_Y = 1;
-    gMultiuseListMenuTemplate.cursorPal = 2;
-    gMultiuseListMenuTemplate.fillValue = 1;
-    gMultiuseListMenuTemplate.cursorShadowPal = 3;
-    gMultiuseListMenuTemplate.lettersSpacing = 1;
-    gMultiuseListMenuTemplate.itemVerticalPadding = 0;
-    gMultiuseListMenuTemplate.scrollMultiple = LIST_MULTIPLE_SCROLL_DPAD;
-    gMultiuseListMenuTemplate.fontId = 1;
-    gMultiuseListMenuTemplate.cursorKind = 0;
 }
 
 // Actions
@@ -732,7 +840,7 @@ static void UtilitiesAction_EscapeRope(u8 taskId)
 static void UtilitiesAction_AutoRun(u8 taskId)
 {
     Utilities_DestroyMenu(taskId);
-       if ((FlagGet(FLAG_SYS_B_DASH)))
+    if ((FlagGet(FLAG_SYS_B_DASH)))
         ScriptContext_SetupScript(EventScript_ToggleAutoRun);
     DestroyTask(taskId);
     SetMainCallback2(CB2_Overworld);

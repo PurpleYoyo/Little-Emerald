@@ -659,17 +659,20 @@ extern const u8 Common_EventScript_ShowPokemonCenterSign[];
 extern const u8 Common_EventScript_ShowPokemartSign[];
 
 extern const u8 EventScript_UseInfiniteRepel[];
-extern const u8 EventScript_InfiniteRepelOn[];
-extern const u8 EventScript_InfiniteRepelOff[];
 
 extern const u8 EventScript_ToggleAutoRun[];
-extern const u8 EventScript_AutoRunOn[];
-extern const u8 EventScript_AutoRunOff[];
 
 extern const u8 EventScript_Pokevial[];
 
 extern const u8 EventScript_HatchEgg[];
 
 extern const u8 EventScript_SetIvs[];
+extern const u8 EventScript_SetEvs[];
+extern const u8 EventScript_GiveMaxMoney[];
+extern const u8 EventScript_GiveMaxBP[];
+extern const u8 EventScript_ToggleEvGain[];
+extern const u8 EventScript_ToggleAlwaysCatch[];
+extern const u8 EventScript_ToggleNoTrainers[];
+extern const u8 EventScript_ToggleWalkThroughWalls[];
 
 #endif // GUARD_EVENT_SCRIPTS_H

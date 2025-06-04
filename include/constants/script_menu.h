@@ -128,6 +128,8 @@
 #define MULTI_STAT_NAMES_NO_HP             117
 #define MULTI_STAT_NAMES                   118
 #define MULTI_FISH                         119
+#define MULTI_HYPERTRAIN                   120
+#define MULTI_LETTERS                      121
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

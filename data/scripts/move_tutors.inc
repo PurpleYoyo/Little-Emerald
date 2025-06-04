@@ -209,10 +209,8 @@ MoveTutor_EventScript_DynamicPunchTaught::
 SootopolisCity_PokemonCenter_1F_EventScript_DoubleEdgeTutor::
 	lock
 	faceplayer
-	
 	msgbox MoveTutor_Text_DoubleEdgeTeach, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DoubleEdgeDeclined
-	
 	goto_if_eq VAR_RESULT, NO, MoveTutor_EventScript_DoubleEdgeDeclined
 	msgbox MoveTutor_Text_DoubleEdgeWhichMon, MSGBOX_DEFAULT
 	setvar VAR_0x8005, MOVE_DOUBLE_EDGE
@@ -254,7 +252,7 @@ MoveTutor_EventScript_ExplosionTaught::
 	msgbox MoveTutor_Text_ExplosionTaught, MSGBOX_DEFAULT
 	release
 	end
-
+ 
 MoveTutor_EventScript_OpenPartyMenu::
 	special ChooseMonForMoveTutor
 	waitstate

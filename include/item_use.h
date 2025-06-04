@@ -15,6 +15,7 @@ void ItemUseOutOfBattle_Medicine(u8);
 void ItemUseOutOfBattle_MaxRestore(u8);
 void ItemUseOutOfBattle_AbilityCapsule(u8);
 void ItemUseOutOfBattle_AbilityPatch(u8);
+void ItemUseOutOfBattle_AbilityToken(u8);
 void ItemUseOutOfBattle_Mint(u8);
 void ItemUseOutOfBattle_ResetEVs(u8);
 void ItemUseOutOfBattle_ReduceEV(u8);

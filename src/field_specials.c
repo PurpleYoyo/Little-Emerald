@@ -2636,6 +2636,34 @@ void GetAutoRunFlag(void)
     gSpecialVar_Result = autoRunOn;
 }
 
+void GetNoTrainersFlag(void)
+{
+    bool8 noTrainersOn = FlagGet(FLAG_NO_TRAINERS);
+    gSpecialVar_Result = noTrainersOn;
+}
+
+void GetWalkThroughWallsFlag(void)
+{
+    bool8 walkThroughWallsOn = FlagGet(FLAG_WALK_THROUGH_WALLS);
+    gSpecialVar_Result = walkThroughWallsOn;
+}
+
+void GetEvGainVar(void)
+{
+    if (VarGet(VAR_EV_GAIN) == 1)
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+}
+
+void GetAlwaysCatchVar(void)
+{
+    if (VarGet(VAR_ALWAYS_CATCH) == 1)
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+}
+
 void SpawnCameraObject(void)
 {
     u8 obj = SpawnSpecialObjectEventParameterized(OBJ_EVENT_GFX_BOY_1,
@@ -3711,7 +3739,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BF_EXCHANGE_CORNER_HOLD_ITEM_VENDOR:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 17;
+        task->tNumItems = 18;
         task->tLeft = 14;
         task->tTop = 1;
         task->tWidth = 15;
@@ -3773,6 +3801,16 @@ void ShowScrollableMultichoice(void)
     case SCROLL_MULTI_FISH:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
         task->tNumItems = 14;
+        task->tLeft = 17;
+        task->tTop = 1;
+        task->tWidth = 12;
+        task->tHeight = 12;
+        task->tKeepOpenAfterSelect = FALSE;
+        task->tTaskId = taskId;
+        break;
+    case SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES:
+        task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
+        task->tNumItems = 20;
         task->tLeft = 17;
         task->tTop = 1;
         task->tWidth = 12;
@@ -3875,6 +3913,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_BPShop_AssaultVest,
         gText_BPShop_Eviolite,
         gText_BPShop_AbilityPatch,
+        gText_BPShop_GoldBottleCap,
         gText_BPShop_LifeOrb,
         gText_BPShop_BottleCap,
         gText_BPShop_RareCandy,
@@ -3973,6 +4012,29 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_Fish_Qwilfish,
         gText_Fish_Basculin,
         gText_Fish_Cosmog,
+        gText_Exit,
+    },
+    [SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES] =
+    {
+        gText_GameCorner_CloseCombat,
+        gText_GameCorner_Crunch,
+        gText_GameCorner_FlareBlitz,
+        gText_GameCorner_HydroPump,
+        gText_GameCorner_AquaTail,
+        gText_GameCorner_DragonRush,
+        gText_GameCorner_FocusBlast,
+        gText_GameCorner_HeavySlam,
+        gText_GameCorner_LeafStorm,
+        gText_GameCorner_Thrash,
+        gText_GameCorner_Outrage,
+        gText_GameCorner_Boomburst,
+        gText_GameCorner_Hurricane,
+        gText_GameCorner_StoneEdge,
+        gText_GameCorner_HeatWave,
+        gText_GameCorner_PowerWhip,
+        gText_GameCorner_RagingFury,
+        gText_GameCorner_PsychoBoost,
+        gText_GameCorner_Overheat,
         gText_Exit,
     },
     [SCROLL_MULTI_GAME_CORNER_TMS] =
@@ -4596,20 +4658,20 @@ void ScrollableMultichoice_ClosePersistentMenu(void)
 }
 
 // Undefine Scrollable Multichoice task data macros
-#undef tMaxItemsOnScreen
-#undef tNumItems
-#undef tLeft
-#undef tTop
-#undef tWidth
-#undef tHeight
-#undef tKeepOpenAfterSelect
-#undef tScrollOffset
-#undef tSelectedRow
-#undef tScrollMultiId
-#undef tScrollArrowId
-#undef tWindowId
-#undef tListTaskId
-#undef tTaskId
+// #undef tMaxItemsOnScreen
+// #undef tNumItems
+// #undef tLeft
+// #undef tTop
+// #undef tWidth
+// #undef tHeight
+// #undef tKeepOpenAfterSelect
+// #undef tScrollOffset
+// #undef tSelectedRow
+// #undef tScrollMultiId
+// #undef tScrollArrowId
+// #undef tWindowId
+// #undef tListTaskId
+// #undef tTaskId
 
 #define DEOXYS_ROCK_LEVELS 11
 
@@ -5756,3 +5818,1063 @@ void UseBlankMessageToCancelPokemonPic(void)
     AddTextPrinterParameterized(0, FONT_NORMAL, &t, 0, 1, 0, NULL);
     ScriptMenu_HidePokemonPic();
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// ability tutor
+#define tSelectedAbility     data[9]   
+#define tAbilityTutor        data[10]
+static void ScrollingMonData_ProcessInput(u8 taskId);
+
+static const u16 sAAbilities[] = {
+    ABILITY_ARENA_TRAP,
+    ABILITY_AIR_LOCK,
+    ABILITY_ANGER_POINT,
+    ABILITY_ADAPTABILITY,
+    ABILITY_AFTERMATH,
+    ABILITY_ANTICIPATION,
+    ABILITY_ANALYTIC,
+    ABILITY_AROMA_VEIL,
+    ABILITY_AERILATE,
+    ABILITY_AURA_BREAK,
+    ABILITY_AS_ONE_ICE_RIDER,
+    ABILITY_AS_ONE_SHADOW_RIDER,
+    ABILITY_ANGER_SHELL,
+    ABILITY_ARMOR_TAIL
+};
+
+static const u16 sBAbilities[] = {
+    ABILITY_BATTLE_BOND,
+    ABILITY_BATTLE_ARMOR,
+    ABILITY_BLAZE,
+    ABILITY_BAD_DREAMS,
+    ABILITY_BIG_PECKS,
+    ABILITY_BULLETPROOF,
+    ABILITY_BERSERK,
+    ABILITY_BATTERY,
+    ABILITY_BEAST_BOOST,
+    ABILITY_BALL_FETCH,
+    ABILITY_BEADS_OF_RUIN
+};
+
+static const u16 sCAbilities[] = {
+    ABILITY_COMMANDER,
+    ABILITY_CLOUD_NINE,
+    ABILITY_COMPOUND_EYES,
+    ABILITY_COLOR_CHANGE,
+    ABILITY_CLEAR_BODY,
+    ABILITY_CHLOROPHYLL,
+    ABILITY_CUTE_CHARM,
+    ABILITY_CONTRARY,
+    ABILITY_CURSED_BODY,
+    ABILITY_CHEEK_POUCH,
+    ABILITY_COMPETITIVE,
+    ABILITY_CORROSION,
+    ABILITY_COMATOSE,
+    ABILITY_COTTON_DOWN,
+    ABILITY_CURIOUS_MEDICINE,
+    ABILITY_CHILLING_NEIGH,
+    ABILITY_CUD_CHEW,
+    ABILITY_COSTAR
+};
+
+static const u16 sDAbilities[] = {
+    ABILITY_DISGUISE,
+    ABILITY_DRIZZLE,
+    ABILITY_DAMP,
+    ABILITY_DROUGHT,
+    ABILITY_DRY_SKIN,
+    ABILITY_DOWNLOAD,
+    ABILITY_DEFIANT,
+    ABILITY_DEFEATIST,
+    ABILITY_DARK_AURA,
+    ABILITY_DESOLATE_LAND,
+    ABILITY_DELTA_STREAM,
+    ABILITY_DANCER,
+    ABILITY_DAZZLING,
+    ABILITY_DAUNTLESS_SHIELD,
+    ABILITY_DRAGONS_MAW
+};
+
+static const u16 sEAbilities[] = {
+    ABILITY_EMBODY_ASPECT_TEAL_MASK,
+    ABILITY_EMBODY_ASPECT_HEARTHFLAME_MASK,
+    ABILITY_EMBODY_ASPECT_WELLSPRING_MASK,
+    ABILITY_EMBODY_ASPECT_CORNERSTONE_MASK,
+    ABILITY_EFFECT_SPORE,
+    ABILITY_EARLY_BIRD,
+    ABILITY_EMERGENCY_EXIT,
+    ABILITY_ELECTRIC_SURGE,
+    ABILITY_ELECTROMORPHOSIS,
+    ABILITY_EARTH_EATER
+};
+
+static const u16 sFAbilities[] = {
+    ABILITY_FORECAST,
+    ABILITY_FLOWER_GIFT,
+    ABILITY_FLASH_FIRE,
+    ABILITY_FLAME_BODY,
+    ABILITY_FOREWARN,
+    ABILITY_FILTER,
+    ABILITY_FRISK,
+    ABILITY_FRIEND_GUARD,
+    ABILITY_FLARE_BOOST,
+    ABILITY_FLOWER_VEIL,
+    ABILITY_FUR_COAT,
+    ABILITY_FAIRY_AURA,
+    ABILITY_FLUFFY,
+    ABILITY_FULL_METAL_BODY
+};
+
+static const u16 sGAbilities[] = {
+    ABILITY_GULP_MISSILE,
+    ABILITY_GUTS,
+    ABILITY_GLUTTONY,
+    ABILITY_GALE_WINGS,
+    ABILITY_GRASS_PELT,
+    ABILITY_GOOEY,
+    ABILITY_GALVANIZE,
+    ABILITY_GRASSY_SURGE,
+    ABILITY_GORILLA_TACTICS,
+    ABILITY_GRIM_NEIGH,
+    ABILITY_GUARD_DOG,
+    ABILITY_GOOD_AS_GOLD
+};
+
+static const u16 sHAbilities[] = {
+    ABILITY_HUNGER_SWITCH,
+    ABILITY_HUGE_POWER,
+    ABILITY_HYPER_CUTTER,
+    ABILITY_HUSTLE,
+    ABILITY_HEATPROOF,
+    ABILITY_HYDRATION,
+    ABILITY_HONEY_GATHER,
+    ABILITY_HEALER,
+    ABILITY_HEAVY_METAL,
+    ABILITY_HARVEST,
+    ABILITY_HADRON_ENGINE,
+    ABILITY_HOSPITALITY
+};
+
+static const u16 sIAbilities[] = {
+    ABILITY_ICE_FACE,
+    ABILITY_INSOMNIA,
+    ABILITY_IMMUNITY,
+    ABILITY_INTIMIDATE,
+    ABILITY_ILLUMINATE,
+    ABILITY_INNER_FOCUS,
+    ABILITY_IRON_FIST,
+    ABILITY_ICE_BODY,
+    ABILITY_ILLUSION,
+    ABILITY_IMPOSTER,
+    ABILITY_INFILTRATOR,
+    ABILITY_IRON_BARBS,
+    ABILITY_INNARDS_OUT,
+    ABILITY_INTREPID_SWORD,
+    ABILITY_ICE_SCALES
+};
+
+static const u16 sJAbilities[] = {
+    ABILITY_JUSTIFIED
+};
+
+static const u16 sKAbilities[] = {
+    ABILITY_KEEN_EYE,
+    ABILITY_KLUTZ
+};
+
+static const u16 sLAbilities[] = {
+    ABILITY_LIMBER,
+    ABILITY_LEVITATE,
+    ABILITY_LIGHTNING_ROD,
+    ABILITY_LIQUID_OOZE,
+    ABILITY_LEAF_GUARD,
+    ABILITY_LIGHT_METAL,
+    ABILITY_LONG_REACH,
+    ABILITY_LIQUID_VOICE,
+    ABILITY_LIBERO,
+    ABILITY_LINGERING_AROMA
+};
+
+static const u16 sMAbilities[] = {
+    ABILITY_MULTITYPE,
+    ABILITY_MAGMA_ARMOR,
+    ABILITY_MAGNET_PULL,
+    ABILITY_MINUS,
+    ABILITY_MARVEL_SCALE,
+    ABILITY_MOTOR_DRIVE,
+    ABILITY_MAGIC_GUARD,
+    ABILITY_MOLD_BREAKER,
+    ABILITY_MULTISCALE,
+    ABILITY_MOODY,
+    ABILITY_MUMMY,
+    ABILITY_MOXIE,
+    ABILITY_MAGIC_BOUNCE,
+    ABILITY_MAGICIAN,
+    ABILITY_MEGA_LAUNCHER,
+    ABILITY_MERCILESS,
+    ABILITY_MISTY_SURGE,
+    ABILITY_MIRROR_ARMOR,
+    ABILITY_MIMICRY,
+    ABILITY_MYCELIUM_MIGHT,
+    ABILITY_MINDS_EYE
+};
+
+static const u16 sNAbilities[] = {
+    ABILITY_NATURAL_CURE,
+    ABILITY_NORMALIZE,
+    ABILITY_NO_GUARD,
+    ABILITY_NEUROFORCE,
+    ABILITY_NEUTRALIZING_GAS
+};
+
+static const u16 sOAbilities[] = {
+    ABILITY_ORICHALCUM_PULSE,
+    ABILITY_OBLIVIOUS,
+    ABILITY_OWN_TEMPO,
+    ABILITY_OVERGROW,
+    ABILITY_OVERCOAT,
+    ABILITY_OPPORTUNIST
+};
+
+static const u16 sPAbilities[] = {
+    ABILITY_POWER_CONSTRUCT,
+    ABILITY_POWER_OF_ALCHEMY,
+    ABILITY_POISON_POINT,
+    ABILITY_PRESSURE,
+    ABILITY_PICKUP,
+    ABILITY_PLUS,
+    ABILITY_PURE_POWER,
+    ABILITY_POISON_HEAL,
+    ABILITY_PICKPOCKET,
+    ABILITY_POISON_TOUCH,
+    ABILITY_PRANKSTER,
+    ABILITY_PROTEAN,
+    ABILITY_PIXILATE,
+    ABILITY_PARENTAL_BOND,
+    ABILITY_PRIMORDIAL_SEA,
+    ABILITY_PSYCHIC_SURGE,
+    ABILITY_PRISM_ARMOR,
+    ABILITY_PROPELLER_TAIL,
+    ABILITY_PUNK_ROCK,
+    ABILITY_POWER_SPOT,
+    ABILITY_PERISH_BODY,
+    ABILITY_PASTEL_VEIL,
+    ABILITY_PURIFYING_SALT,
+    ABILITY_PROTOSYNTHESIS,
+    ABILITY_POISON_PUPPETEER
+};
+
+static const u16 sQAbilities[] = {
+    ABILITY_QUICK_FEET,
+    ABILITY_QUICK_DRAW,
+    ABILITY_QUEENLY_MAJESTY,
+    ABILITY_QUARK_DRIVE
+};
+
+static const u16 sRAbilities[] = {
+    ABILITY_RKS_SYSTEM,
+    ABILITY_ROUGH_SKIN,
+    ABILITY_RAIN_DISH,
+    ABILITY_RUN_AWAY,
+    ABILITY_ROCK_HEAD,
+    ABILITY_RIVALRY,
+    ABILITY_RECKLESS,
+    ABILITY_REGENERATOR,
+    ABILITY_RATTLED,
+    ABILITY_REFRIGERATE,
+    ABILITY_RECEIVER,
+    ABILITY_RIPEN,
+    ABILITY_ROCKY_PAYLOAD
+};
+
+static const u16 sSAbilities[] = {
+    ABILITY_STANCE_CHANGE,
+    ABILITY_SHIELDS_DOWN,
+    ABILITY_SCHOOLING,
+    ABILITY_STENCH,
+    ABILITY_SPEED_BOOST,
+    ABILITY_STURDY,
+    ABILITY_SAND_VEIL,
+    ABILITY_STATIC,
+    ABILITY_SHIELD_DUST,
+    ABILITY_SUCTION_CUPS,
+    ABILITY_SHADOW_TAG,
+    ABILITY_SYNCHRONIZE,
+    ABILITY_SERENE_GRACE,
+    ABILITY_SWIFT_SWIM,
+    ABILITY_SAND_STREAM,
+    ABILITY_SOUNDPROOF,
+    ABILITY_STICKY_HOLD,
+    ABILITY_SHED_SKIN,
+    ABILITY_SWARM,
+    ABILITY_SHELL_ARMOR,
+    ABILITY_STEADFAST,
+    ABILITY_SNOW_CLOAK,
+    ABILITY_SIMPLE,
+    ABILITY_SKILL_LINK,
+    ABILITY_SOLAR_POWER,
+    ABILITY_SNIPER,
+    ABILITY_STALL,
+    ABILITY_SUPER_LUCK,
+    ABILITY_SLOW_START,
+    ABILITY_SCRAPPY,
+    ABILITY_STORM_DRAIN,
+    ABILITY_SOLID_ROCK,
+    ABILITY_SNOW_WARNING,
+    ABILITY_SHEER_FORCE,
+    ABILITY_SAND_RUSH,
+    ABILITY_SAP_SIPPER,
+    ABILITY_SAND_FORCE,
+    ABILITY_STRONG_JAW,
+    ABILITY_SWEET_VEIL,
+    ABILITY_SYMBIOSIS,
+    ABILITY_STAMINA,
+    ABILITY_STAKEOUT,
+    ABILITY_STEELWORKER,
+    ABILITY_SLUSH_RUSH,
+    ABILITY_SURGE_SURFER,
+    ABILITY_SOUL_HEART,
+    ABILITY_SHADOW_SHIELD,
+    ABILITY_STALWART,
+    ABILITY_STEAM_ENGINE,
+    ABILITY_SAND_SPIT,
+    ABILITY_SCREEN_CLEANER,
+    ABILITY_STEELY_SPIRIT,
+    ABILITY_SEED_SOWER,
+    ABILITY_SWORD_OF_RUIN,
+    ABILITY_SHARPNESS,
+    ABILITY_SUPREME_OVERLORD,
+    ABILITY_SUPERSWEET_SYRUP
+};
+
+static const u16 sTAbilities[] = {
+    ABILITY_TERA_SHIFT,
+    ABILITY_TERA_SHELL,
+    ABILITY_TERAFORM_ZERO,
+    ABILITY_TRACE,
+    ABILITY_THICK_FAT,
+    ABILITY_TRUANT,
+    ABILITY_TORRENT,
+    ABILITY_TANGLED_FEET,
+    ABILITY_TECHNICIAN,
+    ABILITY_TINTED_LENS,
+    ABILITY_TOXIC_BOOST,
+    ABILITY_TELEPATHY,
+    ABILITY_TURBOBLAZE,
+    ABILITY_TERAVOLT,
+    ABILITY_TOUGH_CLAWS,
+    ABILITY_TRIAGE,
+    ABILITY_TANGLING_HAIR,
+    ABILITY_TRANSISTOR,
+    ABILITY_THERMAL_EXCHANGE,
+    ABILITY_TABLETS_OF_RUIN,
+    ABILITY_TOXIC_DEBRIS,
+    ABILITY_TOXIC_CHAIN
+};
+
+static const u16 sUAbilities[] = {
+    ABILITY_UNBURDEN,
+    ABILITY_UNAWARE,
+    ABILITY_UNNERVE,
+    ABILITY_UNSEEN_FIST
+};
+
+static const u16 sVAbilities[] = {
+    ABILITY_VOLT_ABSORB,
+    ABILITY_VITAL_SPIRIT,
+    ABILITY_VICTORY_STAR,
+    ABILITY_VESSEL_OF_RUIN
+};
+
+static const u16 sWAbilities[] = {
+    ABILITY_WATER_ABSORB,
+    ABILITY_WONDER_GUARD,
+    ABILITY_WATER_VEIL,
+    ABILITY_WHITE_SMOKE,
+    ABILITY_WEAK_ARMOR,
+    ABILITY_WONDER_SKIN,
+    ABILITY_WIMP_OUT,
+    ABILITY_WATER_COMPACTION,
+    ABILITY_WATER_BUBBLE,
+    ABILITY_WANDERING_SPIRIT,
+    ABILITY_WELL_BAKED_BODY,
+    ABILITY_WIND_RIDER,
+    ABILITY_WIND_POWER
+};
+
+static const u16 sZAbilities[] = {
+    ABILITY_ZERO_TO_HERO,
+    ABILITY_ZEN_MODE
+};
+
+static void ExitAbilityTutor(u8 taskId)
+{
+    SetMainCallback2(CB2_Overworld);
+    CloseScrollableMultichoice(taskId);
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, FALSE);
+    DestroyTask(taskId);
+    ScriptContext_Enable();
+    UnfreezeObjectEvents();
+}
+
+static void Task_WaitInputThenReturnToList(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    RunTextPrinters();
+    if (!IsTextPrinterActive(sTutorMoveAndElevatorWindowId))
+        task->func = ScrollingMonData_ProcessInput;
+}
+
+static void Task_TryTeachAbility(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u16 toTeach = (u16)task->tSelectedAbility;
+
+    SetMonData(mon, MON_DATA_LOCKED_ABILITY, &toTeach);
+    u8 abilityNum = 3;
+    SetMonData(mon, MON_DATA_ABILITY_NUM, &abilityNum);
+    gSpecialVar_Result = 0;
+    ExitAbilityTutor(taskId);
+}
+
+static const u8 sText_AlreadyHasAbility[] = _("{STR_VAR_3} already has {STR_VAR_1}!\p");
+
+static void ScrollingMonData_ProcessInput(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    s32 input = ListMenu_ProcessInput(task->tListTaskId);
+    u16 selection;
+
+    ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
+
+    switch (input)
+    {
+    case LIST_NOTHING_CHOSEN:
+        break;
+    case LIST_CANCEL:
+        gSpecialVar_Result = MULTI_B_PRESSED;
+        ExitAbilityTutor(taskId);
+        break;
+    default:
+        switch (gSpecialVar_Result)
+        {
+            default:
+            case 0: // A
+                task->tSelectedAbility = sAAbilities[selection];
+                break;
+            case 1: // B
+                task->tSelectedAbility = sBAbilities[selection];
+                break;
+            case 2: // C
+                task->tSelectedAbility = sCAbilities[selection];
+                break;
+            case 3: // D
+                task->tSelectedAbility = sDAbilities[selection];
+                break;
+            case 4: // E
+                task->tSelectedAbility = sEAbilities[selection];
+                break;
+            case 5: // F
+                task->tSelectedAbility = sFAbilities[selection];
+                break;
+            case 6: // G
+                task->tSelectedAbility = sGAbilities[selection];
+                break;
+            case 7: // H
+                task->tSelectedAbility = sHAbilities[selection];
+                break;
+            case 8: // I
+                task->tSelectedAbility = sIAbilities[selection];
+                break;
+            case 9: // J
+                task->tSelectedAbility = sJAbilities[selection];
+                break;
+            case 10: // K
+                task->tSelectedAbility = sKAbilities[selection];
+                break;
+            case 11: // L
+                task->tSelectedAbility = sLAbilities[selection];
+                break;
+            case 12: // M
+                task->tSelectedAbility = sMAbilities[selection];
+                break;
+            case 13: // N
+                task->tSelectedAbility = sNAbilities[selection];
+                break;
+            case 14: // O
+                task->tSelectedAbility = sOAbilities[selection];
+                break;
+            case 15: // P
+                task->tSelectedAbility = sPAbilities[selection];
+                break;
+            case 16: // Q
+                task->tSelectedAbility = sQAbilities[selection];
+                break;
+            case 17: // R
+                task->tSelectedAbility = sRAbilities[selection];
+                break;
+            case 18: // S
+                task->tSelectedAbility = sSAbilities[selection];
+                break;
+            case 19: // T
+                task->tSelectedAbility = sTAbilities[selection];
+                break;
+            case 20: // U
+                task->tSelectedAbility = sUAbilities[selection];
+                break;
+            case 21: // V
+                task->tSelectedAbility = sVAbilities[selection];
+                break;
+            case 22: // W
+                task->tSelectedAbility = sWAbilities[selection];
+                break;
+            case 23: // Z
+                task->tSelectedAbility = sZAbilities[selection];
+                break;
+        }
+        
+        FillWindowPixelBuffer(sTutorMoveAndElevatorWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
+        StringCopy(gStringVar1, gAbilitiesInfo[task->tSelectedAbility].name);
+
+        if (GetMonAbility(&gPlayerParty[gSpecialVar_0x8004]) == task->tSelectedAbility)
+        {
+            PlaySE(SE_FAILURE);
+            StringExpandPlaceholders(gStringVar2, sText_AlreadyHasAbility);
+            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 0, gStringVar2, 2, 3, 1, 0);
+            CopyWindowToVram(sTutorMoveAndElevatorWindowId, 2);
+            task->func = Task_WaitInputThenReturnToList;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            task->func = Task_TryTeachAbility;
+        }
+        break;
+    }
+}
+
+static void Task_ShowScrollableAbilityNames(u8 taskId)
+{
+    u32 width;
+    u8 i, windowId;
+    struct WindowTemplate template;
+    struct Task *task = &gTasks[taskId];
+    const u8 *text;
+
+    gScrollableMultichoice_ScrollOffset = 0;
+    sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
+    sScrollableMultichoice_ListMenuItem = AllocZeroed(task->tNumItems * 8);
+
+    InitScrollableMultichoice();
+    for (width = 0, i = 0; i < task->tNumItems; i++)
+    {
+        switch (gSpecialVar_Result)
+        {
+            default:
+            case 0: // A
+                text = gAbilitiesInfo[sAAbilities[i]].name;
+                break;
+            case 1: // B
+                text = gAbilitiesInfo[sBAbilities[i]].name;
+                break;
+            case 2: // C
+                text = gAbilitiesInfo[sCAbilities[i]].name;
+                break;
+            case 3: // D
+                text = gAbilitiesInfo[sDAbilities[i]].name;
+                break;
+            case 4: // E
+                text = gAbilitiesInfo[sEAbilities[i]].name;
+                break;
+            case 5: // F
+                text = gAbilitiesInfo[sFAbilities[i]].name;
+                break;
+            case 6: // G
+                text = gAbilitiesInfo[sGAbilities[i]].name;
+                break;
+            case 7: // H
+                text = gAbilitiesInfo[sHAbilities[i]].name;
+                break;
+            case 8: // I
+                text = gAbilitiesInfo[sIAbilities[i]].name;
+                break;
+            case 9: // J
+                text = gAbilitiesInfo[sJAbilities[i]].name;
+                break;
+            case 10: // K
+                text = gAbilitiesInfo[sKAbilities[i]].name;
+                break;
+            case 11: // L
+                text = gAbilitiesInfo[sLAbilities[i]].name;
+                break;
+            case 12: // M
+                text = gAbilitiesInfo[sMAbilities[i]].name;
+                break;
+            case 13: // N
+                text = gAbilitiesInfo[sNAbilities[i]].name;
+                break;
+            case 14: // O
+                text = gAbilitiesInfo[sOAbilities[i]].name;
+                break;
+            case 15: // P
+                text = gAbilitiesInfo[sPAbilities[i]].name;
+                break;
+            case 16: // Q
+                text = gAbilitiesInfo[sQAbilities[i]].name;
+                break;
+            case 17: // R
+                text = gAbilitiesInfo[sRAbilities[i]].name;
+                break;
+            case 18: // S
+                text = gAbilitiesInfo[sSAbilities[i]].name;
+                break;
+            case 19: // T
+                text = gAbilitiesInfo[sTAbilities[i]].name;
+                break;
+            case 20: // U
+                text = gAbilitiesInfo[sUAbilities[i]].name;
+                break;
+            case 21: // V
+                text = gAbilitiesInfo[sVAbilities[i]].name;
+                break;
+            case 22: // W
+                text = gAbilitiesInfo[sWAbilities[i]].name;
+                break;
+            case 23: // Z
+                text = gAbilitiesInfo[sZAbilities[i]].name;
+                break;
+        }
+        
+        sScrollableMultichoice_ListMenuItem[i].name = text;
+        sScrollableMultichoice_ListMenuItem[i].id = i;
+        width = DisplayTextAndGetWidth(text, width);
+    }
+
+    task->tWidth = ConvertPixelWidthToTileWidth(width);
+
+    if (task->tLeft + task->tWidth > MAX_MULTICHOICE_WIDTH + 1)
+    {
+        int adjustedLeft = MAX_MULTICHOICE_WIDTH + 1 - task->tWidth;
+        if (adjustedLeft < 0)
+            task->tLeft = 0;
+        else
+            task->tLeft = adjustedLeft;
+    }
+
+    template = CreateWindowTemplate(0, task->tLeft, task->tTop, task->tWidth, task->tHeight, 0xF, 0x64);
+    windowId = AddWindow(&template);
+    task->tWindowId = windowId;
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    gScrollableMultichoice_ListMenuTemplate.totalItems = task->tNumItems;
+    gScrollableMultichoice_ListMenuTemplate.maxShowed = task->tMaxItemsOnScreen;
+    gScrollableMultichoice_ListMenuTemplate.windowId = task->tWindowId;
+
+    ScrollableMultichoice_UpdateScrollArrows(taskId);
+    task->tListTaskId = ListMenuInit(&gScrollableMultichoice_ListMenuTemplate, task->tScrollOffset, task->tSelectedRow);
+    ScheduleBgCopyTilemapToVram(0);
+    gTasks[taskId].func = ScrollingMonData_ProcessInput;
+}
+
+void AbilityTutor(void)
+{
+    u8 taskId = CreateTask(Task_ShowScrollableAbilityNames, 8);
+    struct Task *task = &gTasks[taskId];
+    task->tAbilityTutor = gSpecialVar_0x8000;
+
+    task->tTaskId = taskId;
+    task->tScrollMultiId = 0;   //unused
+
+    task->tMaxItemsOnScreen = 6;
+    
+    switch (gSpecialVar_Result)
+    {
+        default:
+        case 0: // A
+            task->tNumItems = NELEMS(sAAbilities);
+            break;
+        case 1: // B
+            task->tNumItems = NELEMS(sBAbilities);
+            break;
+        case 2: // C
+            task->tNumItems = NELEMS(sCAbilities);
+            break;
+        case 3: // D
+            task->tNumItems = NELEMS(sDAbilities);
+            break;
+        case 4: // E
+            task->tNumItems = NELEMS(sEAbilities);
+            break;
+        case 5: // F
+            task->tNumItems = NELEMS(sFAbilities);
+            break;
+        case 6: // G
+            task->tNumItems = NELEMS(sGAbilities);
+            break;
+        case 7: // H
+            task->tNumItems = NELEMS(sHAbilities);
+            break;
+        case 8: // I
+            task->tNumItems = NELEMS(sIAbilities);
+            break;
+        case 9: // J
+            task->tNumItems = NELEMS(sJAbilities);
+            break;
+        case 10: // K
+            task->tNumItems = NELEMS(sKAbilities);
+            break;
+        case 11: // L
+            task->tNumItems = NELEMS(sLAbilities);
+            break;
+        case 12: // M
+            task->tNumItems = NELEMS(sMAbilities);
+            break;
+        case 13: // N
+            task->tNumItems = NELEMS(sNAbilities);
+            break;
+        case 14: // O
+            task->tNumItems = NELEMS(sOAbilities);
+            break;
+        case 15: // P
+            task->tNumItems = NELEMS(sPAbilities);
+            break;
+        case 16: // Q
+            task->tNumItems = NELEMS(sQAbilities);
+            break;
+        case 17: // R
+            task->tNumItems = NELEMS(sRAbilities);
+            break;
+        case 18: // S
+            task->tNumItems = NELEMS(sSAbilities);
+            break;
+        case 19: // T
+            task->tNumItems = NELEMS(sTAbilities);
+            break;
+        case 20: // U
+            task->tNumItems = NELEMS(sUAbilities);
+            break;
+        case 21: // V
+            task->tNumItems = NELEMS(sVAbilities);
+            break;
+        case 22: // W
+            task->tNumItems = NELEMS(sWAbilities);
+            break;
+        case 23: // Z
+            task->tNumItems = NELEMS(sZAbilities);
+            break;
+    }
+
+    task->tKeepOpenAfterSelect = TRUE;
+    task->tTop = 1;
+    task->tLeft = 1;
+    task->tHeight = 12; //default
+    task->tWidth = 7;   //default, updated in Task_ShowScrollableMultichoice 
+}
+
+#undef tSelectedAbility     
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// hp type changer
+#define tHPType     data[9]   
+
+static void ScrollingTypeData_ProcessInput(u8 taskId);
+
+static const u16 sTypes[] = {
+    TYPE_FIRE,
+    TYPE_WATER,
+    TYPE_GRASS,
+    TYPE_ELECTRIC,
+    TYPE_BUG,
+    TYPE_ROCK,
+    TYPE_GROUND,
+    TYPE_FIGHTING,
+    TYPE_DARK,
+    TYPE_PSYCHIC,
+    TYPE_FAIRY,
+    TYPE_STEEL,
+    TYPE_ICE,
+    TYPE_GHOST,
+    TYPE_DRAGON,
+    TYPE_POISON,
+    TYPE_FLYING,
+    TYPE_NORMAL,
+    TYPE_STELLAR
+};
+
+static void ExitHPTypeChanger(u8 taskId)
+{
+    SetMainCallback2(CB2_Overworld);
+    CloseScrollableMultichoice(taskId);
+    ClearStdWindowAndFrame(gTasks[taskId].tWindowId, FALSE);
+    DestroyTask(taskId);
+    ScriptContext_Enable();
+    UnfreezeObjectEvents();
+}
+
+static void Task_WaitInputThenReturnToListHP(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+
+    RunTextPrinters();
+    if (!IsTextPrinterActive(sTutorMoveAndElevatorWindowId))
+        task->func = ScrollingTypeData_ProcessInput;
+}
+
+static void Task_TryChangeHPType(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    struct Pokemon *mon = &gPlayerParty[gSpecialVar_0x8004];
+    u8 newType = (u8)task->tHPType;
+
+    SetMonData(mon, MON_DATA_HIDDEN_POWER_TYPE, &newType);
+    gSpecialVar_Result = 0;
+    ExitHPTypeChanger(taskId);
+}
+
+static const u8 sText_AlreadyHasHPType[] = _("{STR_VAR_3}'s Hidden Power type is already {STR_VAR_1}!\p");
+
+static void ScrollingTypeData_ProcessInput(u8 taskId)
+{
+    struct Task *task = &gTasks[taskId];
+    s32 input = ListMenu_ProcessInput(task->tListTaskId);
+    u16 selection;
+
+    ListMenuGetCurrentItemArrayId(task->tListTaskId, &selection);
+
+    switch (input)
+    {
+    case LIST_NOTHING_CHOSEN:
+        break;
+    case LIST_CANCEL:
+        gSpecialVar_Result = MULTI_B_PRESSED;
+        ExitAbilityTutor(taskId);
+        break;
+    default:
+        task->tHPType = sTypes[selection];
+        
+        FillWindowPixelBuffer(sTutorMoveAndElevatorWindowId, PIXEL_FILL(TEXT_COLOR_WHITE));
+        switch (selection)
+        {
+            default:
+            case 0:
+                StringCopy(gStringVar1, gText_Fire);
+                break;
+            case 1:
+                StringCopy(gStringVar1, gText_Water);
+                break;
+            case 2:
+                StringCopy(gStringVar1, gText_Grass);
+                break;
+            case 3:
+                StringCopy(gStringVar1, gText_Electric);
+                break;
+            case 4:
+                StringCopy(gStringVar1, gText_Bug);
+                break;
+            case 5:
+                StringCopy(gStringVar1, gText_Rock);
+                break;
+            case 6:
+                StringCopy(gStringVar1, gText_Ground);
+                break;
+            case 7:
+                StringCopy(gStringVar1, gText_Figting);
+                break;
+            case 8:
+                StringCopy(gStringVar1, gText_Dark);
+                break;
+            case 9:
+                StringCopy(gStringVar1, gText_Psychic);
+                break;
+            case 10:
+                StringCopy(gStringVar1, gText_Fairy);
+                break;
+            case 11:
+                StringCopy(gStringVar1, gText_Steel);
+                break;
+            case 12:
+                StringCopy(gStringVar1, gText_MonotypeIce);
+                break;
+            case 13:
+                StringCopy(gStringVar1, gText_Ghost);
+                break;
+            case 14:
+                StringCopy(gStringVar1, gText_Dragon);
+                break;
+            case 15:
+                StringCopy(gStringVar1, gText_MonotypePoison);
+                break;
+            case 16:
+                StringCopy(gStringVar1, gText_Flying);
+                break;
+            case 17:
+                StringCopy(gStringVar1, gText_Normal);
+                break;
+            case 18:
+                StringCopy(gStringVar1, gText_Stellar);
+                break;
+        }
+
+        if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HIDDEN_POWER_TYPE) == task->tHPType)
+        {
+            PlaySE(SE_FAILURE);
+            StringExpandPlaceholders(gStringVar2, sText_AlreadyHasHPType);
+            AddTextPrinterParameterized(sTutorMoveAndElevatorWindowId, 0, gStringVar2, 2, 3, 1, 0);
+            CopyWindowToVram(sTutorMoveAndElevatorWindowId, 2);
+            task->func = Task_WaitInputThenReturnToListHP;
+        }
+        else
+        {
+            PlaySE(SE_SELECT);
+            task->func = Task_TryChangeHPType;
+        }
+        break;
+    }
+}
+
+static void Task_ShowScrollableTypeNames(u8 taskId)
+{
+    u32 width;
+    u8 i, windowId;
+    struct WindowTemplate template;
+    struct Task *task = &gTasks[taskId];
+    const u8 *text;
+
+    gScrollableMultichoice_ScrollOffset = 0;
+    sScrollableMultichoice_ItemSpriteId = MAX_SPRITES;
+    sScrollableMultichoice_ListMenuItem = AllocZeroed(task->tNumItems * 8);
+
+    InitScrollableMultichoice();
+    for (width = 0, i = 0; i < task->tNumItems; i++)
+    {
+        switch (i)
+        {
+            default:
+            case 0:
+                text = gText_Fire;
+                break;
+            case 1:
+                text = gText_Water;
+                break;
+            case 2:
+                text = gText_Grass;
+                break;
+            case 3:
+                text = gText_Electric;
+                break;
+            case 4:
+                text = gText_Bug;
+                break;
+            case 5:
+                text = gText_Rock;
+                break;
+            case 6:
+                text = gText_Ground;
+                break;
+            case 7:
+                text = gText_Figting;
+                break;
+            case 8:
+                text = gText_Dark;
+                break;
+            case 9:
+                text = gText_Psychic;
+                break;
+            case 10:
+                text = gText_Fairy;
+                break;
+            case 11:
+                text = gText_Steel;
+                break;
+            case 12:
+                text = gText_MonotypeIce;
+                break;
+            case 13:
+                text = gText_Ghost;
+                break;
+            case 14:
+                text = gText_Dragon;
+                break;
+            case 15:
+                text = gText_MonotypePoison;
+                break;
+            case 16:
+                text = gText_Flying;
+                break;
+            case 17:
+                text = gText_Normal;
+                break;
+            case 18:
+                text = gText_Stellar;
+                break;
+        }
+        
+        sScrollableMultichoice_ListMenuItem[i].name = text;
+        sScrollableMultichoice_ListMenuItem[i].id = i;
+        width = DisplayTextAndGetWidth(text, width);
+    }
+
+    task->tWidth = ConvertPixelWidthToTileWidth(width);
+
+    if (task->tLeft + task->tWidth > MAX_MULTICHOICE_WIDTH + 1)
+    {
+        int adjustedLeft = MAX_MULTICHOICE_WIDTH + 1 - task->tWidth;
+        if (adjustedLeft < 0)
+            task->tLeft = 0;
+        else
+            task->tLeft = adjustedLeft;
+    }
+
+    template = CreateWindowTemplate(0, task->tLeft, task->tTop, task->tWidth, task->tHeight, 0xF, 0x64);
+    windowId = AddWindow(&template);
+    task->tWindowId = windowId;
+    SetStandardWindowBorderStyle(windowId, 0);
+
+    gScrollableMultichoice_ListMenuTemplate.totalItems = task->tNumItems;
+    gScrollableMultichoice_ListMenuTemplate.maxShowed = task->tMaxItemsOnScreen;
+    gScrollableMultichoice_ListMenuTemplate.windowId = task->tWindowId;
+
+    ScrollableMultichoice_UpdateScrollArrows(taskId);
+    task->tListTaskId = ListMenuInit(&gScrollableMultichoice_ListMenuTemplate, task->tScrollOffset, task->tSelectedRow);
+    ScheduleBgCopyTilemapToVram(0);
+    gTasks[taskId].func = ScrollingTypeData_ProcessInput;
+}
+
+void HPTypeChanger(void)
+{
+    u8 taskId = CreateTask(Task_ShowScrollableTypeNames, 8);
+    struct Task *task = &gTasks[taskId];
+
+    task->tTaskId = taskId;
+    task->tScrollMultiId = 0;   //unused
+
+    task->tMaxItemsOnScreen = 6;
+    task->tNumItems = NELEMS(sTypes);
+
+    task->tKeepOpenAfterSelect = TRUE;
+    task->tTop = 1;
+    task->tLeft = 1;
+    task->tHeight = 12; //default
+    task->tWidth = 7;   //default, updated in Task_ShowScrollableMultichoice 
+}
+
+// Undefine Scrollable Multichoice task data macros
+#undef tMaxItemsOnScreen  
+#undef tNumItems           
+#undef tLeft               
+#undef tTop                 
+#undef tWidth              
+#undef tHeight             
+#undef tKeepOpenAfterSelect 
+#undef tScrollOffset      
+#undef tSelectedRow   
+#undef tHPType     
+#undef tScrollMultiId       
+#undef tScrollArrowId       
+#undef tWindowId            
+#undef tListTaskId         
+#undef tTaskId

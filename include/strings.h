@@ -2738,6 +2738,7 @@ extern const u8 gText_BPShop_TM01Covet[];
 extern const u8 gText_BPShop_TM46Thief[];
 extern const u8 gText_BPShop_BlankMint[];
 extern const u8 gText_BPShop_BottleCap[];
+extern const u8 gText_BPShop_GoldBottleCap[];
 
 extern const u8 gText_BPShop_RareCandyDesc[];
 extern const u8 gText_BPShop_ToxicOrbDesc[];
@@ -2755,6 +2756,7 @@ extern const u8 gText_BPShop_TM01CovetDesc[];
 extern const u8 gText_BPShop_TM46ThiefDesc[];
 extern const u8 gText_BPShop_BlankMintDesc[];
 extern const u8 gText_BPShop_BottleCapDesc[];
+extern const u8 gText_BPShop_GoldBottleCapDesc[];
 
 extern const u8 gText_Fish_Magikarp[];
 extern const u8 gText_Fish_Goldeen[];
@@ -2832,6 +2834,7 @@ extern const u8 gText_Ghost[];
 extern const u8 gText_Dragon[];
 extern const u8 gText_MonotypePoison[];
 extern const u8 gText_Flying[];
+extern const u8 gText_Stellar[];
 
 extern const u8 gText_ChooseFire[];
 extern const u8 gText_ChooseWater[];
@@ -2859,4 +2862,66 @@ extern const u8 gText_WhichStat[];
 extern const u8 gText_SetIvTo[];
 extern const u8 gText_SetEvTo[];
 
+extern const u8 gText_HyperTrain[];
+extern const u8 gText_UnTrain[]; 
+
+extern const u8 gText_A[];
+extern const u8 gText_B[];
+extern const u8 gText_C[];
+extern const u8 gText_D[];
+extern const u8 gText_E[];
+extern const u8 gText_F[];
+extern const u8 gText_G[];
+extern const u8 gText_H[];
+extern const u8 gText_I[];
+extern const u8 gText_J[];
+extern const u8 gText_K[];
+extern const u8 gText_L[];
+extern const u8 gText_M[];
+extern const u8 gText_N[];
+extern const u8 gText_O[];
+extern const u8 gText_P[];
+extern const u8 gText_Q[];
+extern const u8 gText_R[];
+extern const u8 gText_S[];
+extern const u8 gText_T[];
+extern const u8 gText_U[];
+extern const u8 gText_V[];
+extern const u8 gText_W[];
+extern const u8 gText_X[];
+extern const u8 gText_Y[];
+extern const u8 gText_Z[];
+extern const u8 gText_Other[];
+
+extern const u8 gText_EvGainOn[];
+extern const u8 gText_EvGainOff[];
+extern const u8 gText_AlwaysCatchOn[];
+extern const u8 gText_AlwaysCatchOff[];
+extern const u8 gText_NoTrainersOn[];
+extern const u8 gText_NoTrainersOff[];
+extern const u8 gText_WalkThroughWallsOn[];
+extern const u8 gText_WalkThroughWallsOff[];
+
+extern const u8 gText_GameCorner_CloseCombat[];
+extern const u8 gText_GameCorner_Crunch[];
+extern const u8 gText_GameCorner_FlareBlitz[];
+extern const u8 gText_GameCorner_HydroPump[];
+extern const u8 gText_GameCorner_AquaTail[];
+extern const u8 gText_GameCorner_DragonRush[];
+extern const u8 gText_GameCorner_FocusBlast[];
+extern const u8 gText_GameCorner_HeavySlam[];
+extern const u8 gText_GameCorner_LeafStorm[];
+extern const u8 gText_GameCorner_Thrash[];
+extern const u8 gText_GameCorner_Outrage[];
+extern const u8 gText_GameCorner_Boomburst[];
+extern const u8 gText_GameCorner_Hurricane[];
+extern const u8 gText_GameCorner_StoneEdge[];
+extern const u8 gText_GameCorner_HeatWave[];
+extern const u8 gText_GameCorner_PowerWhip[];
+extern const u8 gText_GameCorner_RagingFury[];
+extern const u8 gText_GameCorner_PsychoBoost[];
+extern const u8 gText_GameCorner_Overheat[];
+
+extern const u8 gText_VersionDifficulty_Normal_Sandbox[];
+extern const u8 gText_VersionDifficulty_Hard_Sandbox[];
 #endif // GUARD_STRINGS_H

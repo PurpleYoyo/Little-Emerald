@@ -185,6 +185,9 @@ enum ItemHoldEffect
     // Specific to Snorunt
     HOLD_EFFECT_DUSK_STONE,
 
+    // Specific to Duskull
+    HOLD_EFFECT_REAPER_CLOTH,
+
     HOLD_EFFECT_SOUND_POWER,
 
     // Specific to Cleffa

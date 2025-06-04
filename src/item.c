@@ -131,8 +131,8 @@ bool8 CheckBagHasItem(u16 itemId, u16 count)
     u8 i;
     u8 pocket;
 
-    if (ItemId_GetPocket(itemId) == 0)
-        return FALSE;
+    //if (ItemId_GetPocket(itemId) == 0)
+    //    return FALSE;
     if (InBattlePyramid() || FlagGet(FLAG_STORING_ITEMS_IN_PYRAMID_BAG) == TRUE)
         return CheckPyramidBagHasItem(itemId, count);
     pocket = ItemId_GetPocket(itemId);

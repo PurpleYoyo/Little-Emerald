@@ -2469,3 +2469,11 @@ static const u16 sWeezingFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_KOFFING
+
+#if P_FAMILY_FEEBAS
+static const u16 sFeebasFormSpeciesIdTable[] = {
+    SPECIES_FEEBAS,
+    SPECIES_FEEBAS_FAIRY,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_FEEBAS

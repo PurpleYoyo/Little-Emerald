@@ -3738,6 +3738,73 @@ const struct SpeciesInfo gSpeciesInfo[] =
                                 {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_LYCANROC_MIDNIGHT}),
     },
 
+    [SPECIES_FEEBAS_FAIRY] =
+    {
+        .baseHP        = 20,
+        .baseAttack    = 15,
+        .baseDefense   = 20,
+        .baseSpeed     = 80,
+        .baseSpAttack  = 10,
+        .baseSpDefense = 55,
+        .types = MON_TYPES(TYPE_WATER, TYPE_FAIRY),
+        .catchRate = 255,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 40 : 61,
+        .evYield_Speed = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_ERRATIC,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_DRAGON),
+        .abilities = { ABILITY_MULTISCALE, ABILITY_MARVEL_SCALE, ABILITY_PRISM_ARMOR },
+        .bodyColor = BODY_COLOR_BROWN,
+        .speciesName = _("Feebas"),
+        .cryId = CRY_FEEBAS,
+        .natDexNum = NATIONAL_DEX_FEEBAS,
+        .categoryName = _("Fish"),
+        .height = 6,
+        .weight = 74,
+        .description = COMPOUND_STRING(
+            "Feebas live in ponds that are heavily\n"
+            "infested with weeds. Because of its\n"
+            "hopelessly shabby appearance, it\n"
+            "seems as if few Trainers raise it."),
+        .pokemonScale = 423,
+        .pokemonOffset = -4,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Feebas,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(32, 48) : MON_COORDS_SIZE(40, 48),
+        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 13 : 10,
+        .frontAnimFrames = sAnims_Feebas,
+        .frontAnimId = ANIM_BOUNCE_ROTATE_TO_SIDES_SLOW,
+        .backPic = gMonBackPic_Feebas,
+        .backPicSize = MON_COORDS_SIZE(48, 56),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 7 : 6,
+        .backAnimId = BACK_ANIM_H_SPRING,
+        .palette = gMonPalette_Feebas,
+        .shinyPalette = gMonShinyPalette_Feebas,
+        .iconSprite = gMonIcon_Feebas,
+        .iconPalIndex = 2,
+        SHADOW(-2, 2, SHADOW_SIZE_S)
+        FOOTPRINT(Feebas)
+        OVERWORLD(
+            sPicTable_Feebas,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_SPOT,
+            gOverworldPalette_Feebas,
+            gShinyOverworldPalette_Feebas
+        )
+        .levelUpLearnset = sFeebasLevelUpLearnset,
+        .teachableLearnset = sFeebasTeachableLearnset,
+        .eggMoveLearnset = sFeebasEggMoveLearnset,
+        .formSpeciesIdTable = sFeebasFormSpeciesIdTable,
+        .formChangeTable = sFeebasFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MILOTIC},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MILOTIC},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MILOTIC}),
+    },
+
     /* You may add any custom species below this point based on the following structure: */
 
     /*

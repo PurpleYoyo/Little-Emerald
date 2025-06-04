@@ -88,8 +88,8 @@
 #define FLAG_UNUSED_0x04A    0x4A // Unused Flag
 #define FLAG_UNUSED_0x04B    0x4B // Unused Flag
 #define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
-#define FLAG_UNUSED_0x04E    0x4E // Unused Flag
+#define FLAG_NO_TRAINERS     0x4D
+#define FLAG_WALK_THROUGH_WALLS    0x4E
 #define FLAG_UNUSED_0x04F    0x4F // Used | Infinite Repel
 
 // Scripts
@@ -1264,7 +1264,7 @@
 #define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
 #define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
 #define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
+#define FLAG_HIDE_ABILITY_CHANGER                                   0x4BD
 #define FLAG_HIDE_SCARY_GUYS_GROWLITHE                              0x4BE
 #define FLAG_HIDE_PROTECTORS_SPRITZEE                               0x4BF
 #define FLAG_HIDE_SPEEDY_KIDS_VOLTORB                               0x4C0

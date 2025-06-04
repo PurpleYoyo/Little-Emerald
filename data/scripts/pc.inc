@@ -184,6 +184,16 @@ EventScript_CantModifyEgg::
 	closemessage
 	return
 
+EventScript_GiveMaxMoney::
+	addmoney 999999
+	playse SE_SHOP
+	return
+
+EventScript_GiveMaxBP::
+	givebp 100
+	playse SE_ITEMFINDER
+	return
+
 EventScript_ToggleAutoRun::
 	special GetAutoRunFlag
 	goto_if_eq VAR_RESULT, FALSE, EventScript_AutoRunOn
@@ -201,6 +211,86 @@ EventScript_AutoRunOff::
     playse SE_POKENAV_OFF
 	msgbox gText_AutoRunOff, MSGBOX_DEFAULT
 	clearflag FLAG_RUNNING_SHOES_TOGGLE
+	closemessage
+	return	
+
+EventScript_ToggleEvGain::
+	special GetEvGainVar
+	goto_if_eq VAR_RESULT, FALSE, EventScript_EvGainOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_EvGainOff
+	return
+
+EventScript_EvGainOn::
+    playse SE_POKENAV_ON
+	msgbox gText_EvGainOn, MSGBOX_DEFAULT
+	setvar VAR_EV_GAIN, 1
+	closemessage
+	return
+
+EventScript_EvGainOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_EvGainOff, MSGBOX_DEFAULT
+	setvar VAR_EV_GAIN, 0
+	closemessage
+	return
+
+EventScript_ToggleAlwaysCatch::
+	special GetAlwaysCatchVar
+	goto_if_eq VAR_RESULT, FALSE, EventScript_AlwaysCatchOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_AlwaysCatchOff
+	return
+
+EventScript_AlwaysCatchOn::
+    playse SE_POKENAV_ON
+	msgbox gText_AlwaysCatchOn, MSGBOX_DEFAULT
+	setvar VAR_ALWAYS_CATCH, 1
+	closemessage
+	return
+
+EventScript_AlwaysCatchOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_AlwaysCatchOff, MSGBOX_DEFAULT
+	setvar VAR_ALWAYS_CATCH, 0
+	closemessage
+	return
+
+EventScript_ToggleNoTrainers::
+	special GetNoTrainersFlag
+	goto_if_eq VAR_RESULT, FALSE, EventScript_NoTrainersOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_NoTrainersOff
+	return
+
+EventScript_NoTrainersOn::
+    playse SE_POKENAV_ON
+	msgbox gText_NoTrainersOn, MSGBOX_DEFAULT
+	setflag FLAG_NO_TRAINERS
+	closemessage
+	return
+
+EventScript_NoTrainersOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_NoTrainersOff, MSGBOX_DEFAULT
+	clearflag FLAG_NO_TRAINERS
+	closemessage
+	return
+
+EventScript_ToggleWalkThroughWalls::
+	special GetWalkThroughWallsFlag
+	goto_if_eq VAR_RESULT, FALSE, EventScript_WalkThroughWallsOn
+    goto_if_eq VAR_RESULT, TRUE, EventScript_WalkThroughWallsOff
+	return
+
+EventScript_WalkThroughWallsOn::
+    playse SE_POKENAV_ON
+	msgbox gText_WalkThroughWallsOn, MSGBOX_DEFAULT
+	setflag FLAG_WALK_THROUGH_WALLS
+	closemessage
+	return
+
+EventScript_WalkThroughWallsOff::
+    playse SE_POKENAV_OFF
+	msgbox gText_WalkThroughWallsOff, MSGBOX_DEFAULT
+	clearflag FLAG_WALK_THROUGH_WALLS
 	closemessage
 	return
 

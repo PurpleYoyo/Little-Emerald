@@ -110,7 +110,7 @@ u32 GetCurrentEVCap(void)
     {
         return VarGet(B_EV_CAP_VARIABLE);
     }
-    else if (VarGet(VAR_SANDBOX_MODE) == 0)
+    else if (VarGet(VAR_EV_GAIN) == 0)
     {
         return 0;
     }

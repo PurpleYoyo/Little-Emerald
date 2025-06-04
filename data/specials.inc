@@ -557,6 +557,7 @@ gSpecials::
 	def_special UseBlankMessageToCancelPokemonPic
 	def_special ShowSelectDamageScreen
 	def_special ShowSelectIvsScreen
+	def_special ShowSelectEvsScreen
 	def_special IsChosenMonSteelType
 	def_special IsChosenMonPoisonType
 	def_special IsChosenMonFireType
@@ -574,3 +575,9 @@ gSpecials::
 	def_special HasPlayerDefeatedWinona
 	def_special GetRandomFossil
 	def_special GetRandomBabyEgg
+	def_special AbilityTutor
+	def_special HPTypeChanger
+	def_special GetEvGainVar
+	def_special GetAlwaysCatchVar
+	def_special GetWalkThroughWallsFlag
+	def_special GetNoTrainersFlag

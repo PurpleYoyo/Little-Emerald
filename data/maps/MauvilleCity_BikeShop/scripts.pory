@@ -40,6 +40,7 @@ MauvilleCity_BikeShop_EventScript_YesFar::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	giveitem ITEM_MACH_BIKE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	closemessage
 	end
 
 MauvilleCity_BikeShop_EventScript_GetMachBike::

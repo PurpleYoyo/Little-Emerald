@@ -1427,19 +1427,19 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_NYMBLE,
+            .species = SPECIES_DUSKULL,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_BRIGHT_POWDER,
+            .heldItem = ITEM_REAPER_CLOTH,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-            .ability = ABILITY_TINTED_LENS,
+            .ability = ABILITY_LEVITATE,
             .lvl = 47,
             .nature = NATURE_CAREFUL,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-                MOVE_FIRST_IMPRESSION,
-                MOVE_SUCKER_PUNCH,
+                MOVE_WILL_O_WISP,
+                MOVE_POLTERGEIST,
                 MOVE_LEECH_LIFE,
-                MOVE_U_TURN,
+                MOVE_PAIN_SPLIT,
             },
             },
             {
@@ -9003,7 +9003,7 @@ F_TRAINER_FEMALE |
             .moves = {
                 MOVE_SYNTHESIS,
                 MOVE_EXTRASENSORY,
-                MOVE_WOOD_HAMMER,
+                MOVE_EGG_BOMB,
                 MOVE_DRAGON_HAMMER
             },
             },
@@ -9102,7 +9102,7 @@ F_TRAINER_FEMALE |
             .moves = {
                 MOVE_REFLECT,
                 MOVE_LEECH_SEED,
-                MOVE_WOOD_HAMMER,
+                MOVE_EGG_BOMB,
                 MOVE_DRAGON_HAMMER,
             },
             },
@@ -9721,7 +9721,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_CHARCADET,
+            .species = SPECIES_CHARCADET_PSYCHIC,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_AUSPICIOUS_ARMOR,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -9986,7 +9986,7 @@ F_TRAINER_FEMALE |
             .heldItem = ITEM_EVIOLITE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .ability = ABILITY_ILLUSION,
-            .lvl = 33,
+            .lvl = 35,
             .nature = NATURE_TIMID,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
@@ -10311,7 +10311,7 @@ F_TRAINER_FEMALE |
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_SITRUS_BERRY,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-            .ability = ABILITY_EARLY_BIRD,
+            .ability = ABILITY_CUD_CHEW,
             .lvl = 44,
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -10531,7 +10531,7 @@ F_TRAINER_FEMALE |
                 MOVE_TOXIC,
                 MOVE_VENOSHOCK,
                 MOVE_PROTECT,
-                MOVE_RECOVER
+                MOVE_SOAK
             },
             },
             {
@@ -18516,7 +18516,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -18609,13 +18609,13 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
                 MOVE_PSYCHIC,
-                MOVE_MOONBLAST,
+                MOVE_DRAINING_KISS,
                 MOVE_LIFE_DEW,
-                MOVE_CHARM,
+                MOVE_CALM_MIND,
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -19994,7 +19994,7 @@ F_TRAINER_FEMALE |
             {
             .species = SPECIES_PONYTA_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_PASSHO_BERRY,
+            .heldItem = ITEM_BABIRI_BERRY,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .ability = ABILITY_PASTEL_VEIL,
             .lvl = 34,
@@ -20019,7 +20019,7 @@ F_TRAINER_FEMALE |
             .moves = {
                 MOVE_THUNDER_WAVE,
                 MOVE_ICE_BEAM,
-                MOVE_GROWL,
+                MOVE_POWER_GEM,
                 MOVE_ENCORE
             },
             },
@@ -20404,7 +20404,7 @@ F_TRAINER_FEMALE |
             .moves = {
                 MOVE_THUNDER_WAVE,
                 MOVE_ICE_BEAM,
-                MOVE_GROWL,
+                MOVE_POWER_GEM,
                 MOVE_ENCORE
             },
             },
@@ -20427,7 +20427,7 @@ F_TRAINER_FEMALE |
             {
             .species = SPECIES_PONYTA_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_LIFE_ORB,
+            .heldItem = ITEM_BABIRI_BERRY,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .ability = ABILITY_PASTEL_VEIL,
             .lvl = 37,
@@ -20792,14 +20792,14 @@ F_TRAINER_FEMALE |
             .moves = {
                 MOVE_THUNDER_WAVE,
                 MOVE_ICE_BEAM,
-                MOVE_GROWL,
+                MOVE_POWER_GEM,
                 MOVE_ENCORE
             },
             },
             {
             .species = SPECIES_PONYTA_GALAR,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .heldItem = ITEM_PASSHO_BERRY,
+            .heldItem = ITEM_BABIRI_BERRY,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .ability = ABILITY_PASTEL_VEIL,
             .lvl = 36,
@@ -25590,7 +25590,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -25700,7 +25700,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -25810,7 +25810,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -25920,7 +25920,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BUDEW_MEGA,
+            .species = SPECIES_BUDEW,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_ROSE_INCENSE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -36180,7 +36180,7 @@ F_TRAINER_FEMALE |
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_SITRUS_BERRY,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
-            .ability = ABILITY_EARLY_BIRD,
+            .ability = ABILITY_CUD_CHEW,
             .lvl = 44,
             .nature = NATURE_MODEST,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,

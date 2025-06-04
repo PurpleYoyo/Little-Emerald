@@ -2216,6 +2216,18 @@
 	.2byte \slot
 	.endm
 
+	.macro canuntrain stat:req, slot:req
+	callnative CanUnTrain
+	.byte \stat
+	.2byte \slot
+	.endm
+
+	.macro untrain stat:req, slot:req
+	callnative UnTrain
+	.byte \stat
+	.2byte \slot
+	.endm
+
 	.macro checkpartydamp
 	callnative CheckPartyDamp
 	.endm

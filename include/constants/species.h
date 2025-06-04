@@ -1713,7 +1713,9 @@
 #define SPECIES_FROAKIE_SPECIAL                         1577
 #define SPECIES_ROCKRUFF_SPECIAL                        1578
 
-#define SPECIES_EGG                                     (SPECIES_ROCKRUFF_SPECIAL + 1)
+#define SPECIES_FEEBAS_FAIRY                            1579
+
+#define SPECIES_EGG                                     (SPECIES_FEEBAS_FAIRY + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

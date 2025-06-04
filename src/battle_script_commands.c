@@ -1295,8 +1295,10 @@ static void Cmd_attackcanceler(void)
     else if (gMovesInfo[gCurrentMove].magicCoatAffected && !gBattleStruct->bouncedMoveIsUsed)
     {
         u32 battler = gBattlerTarget;
+        u32 holdEffectDef = GetBattlerHoldEffect(battler, TRUE);
 
-        if (GetBattlerAbility(gBattlerTarget) == ABILITY_MAGIC_BOUNCE)
+        if (GetBattlerAbility(gBattlerTarget) == ABILITY_MAGIC_BOUNCE
+        || (gBattleMons[battler].species == SPECIES_DUSKULL && holdEffectDef == HOLD_EFFECT_REAPER_CLOTH))
         {
             battler = gBattlerTarget;
             gBattleStruct->bouncedMoveIsUsed = TRUE;
@@ -1855,7 +1857,7 @@ static inline u32 GetHoldEffectCritChanceIncrease(u32 battler, u32 holdEffect)
         critStageIncrease = 1;
         break;
     case HOLD_EFFECT_LUCKY_PUNCH:
-        if (gBattleMons[battler].species == SPECIES_CHANSEY)
+        if (gBattleMons[battler].species == SPECIES_HAPPINY)
             critStageIncrease = 2;
         break;
     case HOLD_EFFECT_LEEK:
@@ -1874,6 +1876,7 @@ static inline u32 GetHoldEffectCritChanceIncrease(u32 battler, u32 holdEffect)
 #define CRITICAL_HIT_ALWAYS  -2
 s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 recordAbility, u32 abilityAtk, u32 abilityDef, u32 holdEffectAtk)
 {
+    u32 holdEffectDef = GetBattlerHoldEffect(battlerDef, TRUE);
     s32 critChance = 0;
 
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT)
@@ -1900,7 +1903,11 @@ s32 CalcCritChanceStageArgs(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
             critChance = ARRAY_COUNT(sCriticalHitOdds) - 1;
     }
 
-    if (critChance != CRITICAL_HIT_BLOCKED && (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || abilityDef == ABILITY_MAGMA_ARMOR))
+    if (critChance != CRITICAL_HIT_BLOCKED &&
+       (abilityDef == ABILITY_BATTLE_ARMOR
+     || abilityDef == ABILITY_SHELL_ARMOR
+     || abilityDef == ABILITY_MAGMA_ARMOR
+     || (gBattleMons[battlerDef].species == SPECIES_RHYHORN && holdEffectDef == HOLD_EFFECT_PROTECTOR)))
     {
         // Record ability only if move had 100% chance to get a crit
         if (recordAbility)
@@ -1949,6 +1956,7 @@ s32 CalcCritChanceStageGen1(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     u32 abilityAtk = GetBattlerAbility(battlerAtk);
     u32 abilityDef = GetBattlerAbility(battlerDef);
     u32 holdEffectAtk = GetBattlerHoldEffect(battlerAtk, TRUE);
+    u32 holdEffectDef = GetBattlerHoldEffect(battlerDef, TRUE);
     u16 baseSpeed = gSpeciesInfo[gBattleMons[battlerAtk].species].baseSpeed;
 
     critChance = baseSpeed / 2;
@@ -1965,8 +1973,8 @@ s32 CalcCritChanceStageGen1(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
 
     if (holdEffectAtk == HOLD_EFFECT_SCOPE_LENS)
         critChance = critChance * scopeLensScaler;
-    else if (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_CHANSEY)
-        critChance = critChance * luckyPunchScaler;
+    else if (holdEffectAtk == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[battlerAtk].species == SPECIES_HAPPINY)
+        critChance = -2;
     else if (IsBattlerLeekAffected(battlerAtk, holdEffectAtk))
         critChance = critChance * farfetchdLeekScaler;
 
@@ -1979,7 +1987,10 @@ s32 CalcCritChanceStageGen1(u32 battlerAtk, u32 battlerDef, u32 move, bool32 rec
     // Prevented crits
     if (gSideStatuses[battlerDef] & SIDE_STATUS_LUCKY_CHANT)
         critChance = -1;
-    else if (abilityDef == ABILITY_BATTLE_ARMOR || abilityDef == ABILITY_SHELL_ARMOR || abilityDef == ABILITY_MAGMA_ARMOR)
+    else if (abilityDef == ABILITY_BATTLE_ARMOR
+          || abilityDef == ABILITY_SHELL_ARMOR
+          || abilityDef == ABILITY_MAGMA_ARMOR
+          || (gBattleMons[battlerDef].species == SPECIES_RHYHORN && holdEffectDef == HOLD_EFFECT_PROTECTOR))
     {
         if (recordAbility)
             RecordAbilityBattle(battlerDef, abilityDef);
@@ -5899,7 +5910,7 @@ static void Cmd_moveend(void)
                 gBattlescriptCurrInstr = BattleScript_MoveEffectRecoil;
                 effect = TRUE;
             }
-            else if (gMovesInfo[gCurrentMove].effect == EFFECT_EXPLOSION && !IsAbilityOnField(ABILITY_DAMP))
+            else if (gMovesInfo[gCurrentMove].effect == EFFECT_EXPLOSION) //&& !IsAbilityOnField(ABILITY_DAMP))
             {
                 gBattleMoveDamage = 0;
                 BattleScriptPushCursor();
@@ -6906,7 +6917,7 @@ static void Cmd_switchindataupdate(void)
     gBattleMons[battler].types[0] = gSpeciesInfo[gBattleMons[battler].species].types[0];
     gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
     gBattleMons[battler].types[2] = TYPE_MYSTERY;
-    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
+    gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].lockedAbility);
     #if TESTING
     if (gTestRunnerEnabled)
     {
@@ -10783,9 +10794,9 @@ static void Cmd_various(void)
     case VARIOUS_TRY_ACTIVATE_BATTLE_BOND:
     {
         VARIOUS_ARGS();
-        if (gBattleMons[gBattlerAttacker].species == SPECIES_FROAKIE_SPECIAL
-            && HasAttackerFaintedTarget()
-            && CalculateBattlerPartyCount(gBattlerTarget) > 1)
+        if (HasAttackerFaintedTarget()
+            && CalculateBattlerPartyCount(gBattlerTarget) > 1
+            && gBattleMons[gBattlerAttacker].ability == ABILITY_BATTLE_BOND)
         {
             BattleScriptPush(cmd->nextInstr);
             gLastUsedAbility = ABILITY_BATTLE_BOND;
@@ -13406,6 +13417,7 @@ static void Cmd_healpartystatus(void)
         {
             u16 species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
             u8 abilityNum = GetMonData(&party[i], MON_DATA_ABILITY_NUM);
+            u16 lockedAbility = GetMonData(&party[i], MON_DATA_LOCKED_ABILITY);
 
             if (species != SPECIES_NONE && species != SPECIES_EGG)
             {
@@ -13423,7 +13435,7 @@ static void Cmd_healpartystatus(void)
                     ability = GetBattlerAbility(partner);
                 else
                 {
-                    ability = GetAbilityBySpecies(species, abilityNum);
+                    ability = GetAbilityBySpecies(species, abilityNum, lockedAbility);
                     #if TESTING
                     if (gTestRunnerEnabled)
                     {
@@ -15434,6 +15446,9 @@ static void Cmd_handleballthrow(void)
 
         if (gBattleResults.catchAttempts[ballId] < 255)
             gBattleResults.catchAttempts[ballId]++;
+
+        if (VarGet(VAR_ALWAYS_CATCH) == 1)
+            odds = 255; 
 
         if (odds > 254) // mon caught
         {
@@ -17581,17 +17596,18 @@ static void UpdatePokeFlutePartyStatus(struct Pokemon* party, u8 position)
     s32 i;
     u8 battler;
     u32 monToCheck, status;
-    u16 species, abilityNum;
+    u16 species, abilityNum, lockedAbility;
     monToCheck = 0;
     for (i = 0; i < PARTY_SIZE; i++)
     {
         species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
         abilityNum = GetMonData(&party[i], MON_DATA_ABILITY_NUM);
+        lockedAbility = GetMonData(&party[i], MON_DATA_LOCKED_ABILITY);
         status = GetMonData(&party[i], MON_DATA_STATUS);
         if (species != SPECIES_NONE
             && species != SPECIES_EGG
             && status & AILMENT_FNT
-            && GetAbilityBySpecies(species, abilityNum) != ABILITY_SOUNDPROOF)
+            && GetAbilityBySpecies(species, abilityNum, lockedAbility) != ABILITY_SOUNDPROOF)
             monToCheck |= (1 << i);
     }
     if (monToCheck)

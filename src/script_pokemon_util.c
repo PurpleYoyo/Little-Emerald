@@ -428,6 +428,94 @@ void HyperTrain(struct ScriptContext *ctx)
     }
 }
 
+void CanUnTrain(struct ScriptContext *ctx)
+{
+    u32 stat = ScriptReadByte(ctx);
+    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
+    
+    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
+    {
+        switch (stat)
+        {
+            case 0:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 1:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 2:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 3:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 4:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+            case 5:
+                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) == 0)
+                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) > 0)
+                    gSpecialVar_Result = TRUE;
+                else
+                    gSpecialVar_Result = FALSE;
+                break;
+        }
+    }
+}
+
+void UnTrain(struct ScriptContext *ctx)
+{
+    u32 stat = ScriptReadByte(ctx);
+    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
+    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
+    {
+        //bool32 data = TRUE;
+        u32 data = 0;
+        switch (stat)
+        {
+            case 0:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV, &data);
+                break;
+            case 1:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV, &data);
+                break;
+            case 2:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV, &data);
+                break;
+            case 3:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV, &data);
+                break;
+            case 4:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV, &data);
+                break;
+            case 5:
+                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV, &data);            
+                break;
+        }
+        CalculateMonStats(&gPlayerParty[partyIndex]);
+    }
+}
+
 void SetHyperTrainingStat(struct ScriptContext *ctx)
 {
 
@@ -586,11 +674,11 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
     {
         abilityNum = GetMonData(&mon, MON_DATA_PERSONALITY) & 1;
     }
-    else if (abilityNum > NUM_NORMAL_ABILITY_SLOTS || GetAbilityBySpecies(species, abilityNum) == ABILITY_NONE)
+    else if (abilityNum > NUM_NORMAL_ABILITY_SLOTS || GetAbilityBySpecies(species, abilityNum, ABILITY_NONE) == ABILITY_NONE)
     {
         do {
             abilityNum = Random() % NUM_ABILITY_SLOTS; // includes hidden abilities
-        } while (GetAbilityBySpecies(species, abilityNum) == ABILITY_NONE);
+        } while (GetAbilityBySpecies(species, abilityNum, ABILITY_NONE) == ABILITY_NONE);
     }
     SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
 

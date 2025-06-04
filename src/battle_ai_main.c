@@ -717,6 +717,11 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
     u32 i;
     u32 weather;
     u32 predictedMove = aiData->lastUsedMove[battlerDef];
+    u32 holdEffectDef = GetBattlerHoldEffect(battlerDef, TRUE);
+
+    if (gMovesInfo[move].magicCoatAffected
+    && (gBattleMons[battlerDef].species == SPECIES_DUSKULL && holdEffectDef == HOLD_EFFECT_REAPER_CLOTH))
+        RETURN_SCORE_MINUS(20);
 
     if (IS_TARGETING_PARTNER(battlerAtk, battlerDef))
         return score;
@@ -1865,7 +1870,10 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_LASER_FOCUS:
             if (gStatuses3[battlerAtk] & STATUS3_LASER_FOCUS)
                 ADJUST_SCORE(-10);
-            else if (aiData->abilities[battlerDef] == ABILITY_SHELL_ARMOR || aiData->abilities[battlerDef] == ABILITY_BATTLE_ARMOR || aiData->abilities[battlerDef] == ABILITY_MAGMA_ARMOR)
+            else if (aiData->abilities[battlerDef] == ABILITY_SHELL_ARMOR
+                  || aiData->abilities[battlerDef] == ABILITY_BATTLE_ARMOR
+                  || aiData->abilities[battlerDef] == ABILITY_MAGMA_ARMOR
+                  || (gBattleMons[battlerDef].species == SPECIES_RHYHORN && holdEffectDef == HOLD_EFFECT_PROTECTOR))
                 ADJUST_SCORE(-8);
             break;
         case EFFECT_SKETCH:

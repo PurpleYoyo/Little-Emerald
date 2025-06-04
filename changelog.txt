@@ -1,52 +1,36 @@
 Version 1.3 - Updated the version number to v1.3!
 Changes since the last release (v1.2.1):
 
-Feature Additions:
-Added Monotype Mode:
-- When starting a new game, you can choose a monotype.
-- Your starters will be three random Pokémon of the chosen type.
-  - Snivy will always be a starter if Grass is chosen.
-  - Scorbunny will always be a starter if Fire is chosen.
-  - Squirtle will always be a starter if Water is chosen.
-- The random fossil you pick up in Mirage Tower will match the chosen type if possible.
-- Pokémon hatched from eggs bought from the man in the Daycare will match the chosen type.
-- The Pokémon hatched from the egg given to you by the old woman in Lavaridge Town will match the chosen type.
+Pokémon Changes:
 
-TODO:
-psyduck psychic
-tm move names
+
+Boss Changes:
+
+
+Feature Changes:
+
+
+Feature Additions:
+
+
+Bugfixes:
+
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c
 include/debug.h
 
 NOTES:
-b - dusk/dawn stone palettes                              | 
-b - lure ball $0                                          |
-b - fast ball $0                                          |
-b - updated saves wailmer pail                            |
-b - updated saves littleroot grass                        |
-b - bike dialogue no disappear                            |
-b - fossil dialogue no disappear                          |
-
+b - dusk/dawn stone palettes                              |
 b - norman's eevee-starter showing up as eevee in calc    |
 b - natures incorrect in set getter                       |
 b - calc import formes                                    |
 
+f - random weather/terrain miniboss
+f - illegal abilities miniboss
 f - gyms 6 and 7 non linear
-f - reaper cloth duskull
-f - lucky punch happiny
-f - colored toggleables text in utility menu
 f - fast surf work with auto run
-f - damp = immune to explosions, not stop
-f - game corner 2 (mossdeep)
 f - revival blessing kys
-f - cap end at gym battle start
 f - statics run
 f - berry random
-f - sandbox mode
-f - rusty bottle cap
-f - hp type setter
-f - monotype mode
 f - hof confetti option
-f - dwebble berry juice

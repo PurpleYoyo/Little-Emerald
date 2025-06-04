@@ -1113,10 +1113,20 @@ static void HallOfFame_PrintWelcomeText(u8 unusedPossiblyWindowId, u8 unused2)
     FillWindowPixelBuffer(0, PIXEL_FILL(0));
     PutWindowTilemap(0);
     AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_WelcomeToHOF, 0xD0), 1, sMonInfoTextColors, 0, gText_WelcomeToHOF);
-    if (VarGet(VAR_DIFFICULTY) == 1)
-        AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Normal, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Normal);
+    if (VarGet(VAR_SANDBOX_MODE) == 1)
+    {
+        if (VarGet(VAR_DIFFICULTY) == 1)
+            AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Normal_Sandbox, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Normal_Sandbox);
+        else
+            AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Hard_Sandbox, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Hard_Sandbox);
+    }
     else
-        AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Hard, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Hard);
+    {
+        if (VarGet(VAR_DIFFICULTY) == 1)
+            AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Normal, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Normal);
+        else
+            AddTextPrinterParameterized3(0, FONT_NORMAL, GetStringCenterAlignXOffset(FONT_NORMAL, gText_VersionDifficulty_Hard, 0xD0), 15, sMonInfoTextColors, 0, gText_VersionDifficulty_Hard);
+    }
     CopyWindowToVram(0, COPYWIN_FULL);
 }
 

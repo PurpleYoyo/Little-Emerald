@@ -17,7 +17,12 @@ RusturfTunnel_OnFrame:
 
 RusturfTunnel_OnTransition:
 	call_if_eq VAR_RUSTURF_TUNNEL_STATE, 2, RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos
+	call_if_eq VAR_SANDBOX_MODE, 0, RusturfTunnel_HideAbilityChanger
 	end
+
+RusturfTunnel_HideAbilityChanger:
+	setflag FLAG_HIDE_ABILITY_CHANGER
+	return
 
 RusturfTunnel_EventScript_SetAquaGruntAndPeekoPos::
 	setobjectxyperm LOCALID_PEEKO, 13, 4

@@ -667,99 +667,179 @@ script EventScript_PreDamageNPC {
 
 script EventScript_HyperTrainNPC {
 	lock
-	msgbox(format("Would you like to Hyper Train one of your Pokémon?"))
-	yesnobox(8, 4)
-	if (var(VAR_RESULT) == 0) { // No
+	msgbox(format("I can Hyper Train or Untrain one of your Pokémon in exchange for Bottle Caps."))
+	msgbox(format("Would you like to Hyper Train or Untrain one of your Pokémon?"))
+	multichoice(10, 4, MULTI_HYPERTRAIN, 0)
+	if (var(VAR_RESULT) == 0) { // Hyper Train
+		checkitem(ITEM_BOTTLE_CAP, 1)
+		if (var(VAR_RESULT) != 1) { // No Bottle Caps
+			msgbox(format("You do not have any Bottle Caps."))
+			goto(End)
+		}
+		special(ChoosePartyMon)
+		waitstate
+		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+		if (var(VAR_RESULT) == SPECIES_EGG) {
+			msgbox(format("A Pokémon Egg cannot be Hyper Trained."))
+			goto(End)
+		}
+		msgbox(format("Which stat would you like to train?"))
+		multichoicegrid(10, 4, MULTI_STAT_NAMES, 2, 0)
+		if (var(VAR_RESULT) == 0)
+		{
+			setvar(STAT, 0)
+			canhypertrain(0, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 1)
+		{
+			setvar(STAT, 1)
+			canhypertrain(1, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 2)
+		{
+			setvar(STAT, 2)
+			canhypertrain(2, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 3)
+		{
+			setvar(STAT, 3)
+			canhypertrain(3, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 4)
+		{
+			setvar(STAT, 4)
+			canhypertrain(4, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 5)
+		{
+			setvar(STAT, 5)
+			canhypertrain(5, VAR_0x8004)
+		}
+		else {
+			goto(End)
+		}
+		sethypertrainstat(STAT)
+		specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+		if (var(VAR_RESULT) == FALSE) {
+			msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} is already at it's maximum!"))
+			goto(End)
+		}
+		switch (var(STAT))
+		{
+			case 0: // HP
+				hypertrain(0, VAR_0x8004)
+			case 1: // Attack
+				hypertrain(1, VAR_0x8004)
+			case 2: // Defense
+				hypertrain(2, VAR_0x8004)
+			case 3: // Special Attack
+				hypertrain(3, VAR_0x8004)
+			case 4: // Special Defense
+				hypertrain(4, VAR_0x8004)
+			case 5: // Speed
+				hypertrain(5, VAR_0x8004)
+		}
+		playmoncry(0x8007, 0)
+		waitmoncry
+		msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} has been hyper trained."))
+		removeitem(ITEM_BOTTLE_CAP, 1)
 		goto(End)
 	}
-	checkitem(ITEM_BOTTLE_CAP, 1)
-	if (var(VAR_RESULT) != 1) { // No Bottle Caps
-		msgbox(format("You do not have any Bottle Caps."))
+	elif (var(VAR_RESULT) == 0) { // Untrain
+		checkitem(ITEM_GOLD_BOTTLE_CAP, 1)
+		if (var(VAR_RESULT) != 1) { // No Gold Bottle Caps
+			msgbox(format("You do not have any Gold Bottle Caps."))
+			goto(End)
+		}
+		special(ChoosePartyMon)
+		waitstate
+		specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
+		if (var(VAR_RESULT) == SPECIES_EGG) {
+			msgbox(format("A Pokémon Egg cannot be Untrained."))
+			goto(End)
+		}
+		msgbox(format("Which stat would you like to untrain?"))
+		multichoicegrid(10, 4, MULTI_STAT_NAMES, 2, 0)
+		if (var(VAR_RESULT) == 0)
+		{
+			setvar(STAT, 0)
+			canuntrain(0, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 1)
+		{
+			setvar(STAT, 1)
+			canuntrain(1, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 2)
+		{
+			setvar(STAT, 2)
+			canuntrain(2, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 3)
+		{
+			setvar(STAT, 3)
+			canuntrain(3, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 4)
+		{
+			setvar(STAT, 4)
+			canuntrain(4, VAR_0x8004)
+		}
+		elif (var(VAR_RESULT) == 5)
+		{
+			setvar(STAT, 5)
+			canuntrain(5, VAR_0x8004)
+		}
+		else {
+			goto(End)
+		}
+		sethypertrainstat(STAT)
+		specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+		if (var(VAR_RESULT) == FALSE) {
+			msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} is already at it's minimum!"))
+			goto(End)
+		}
+		switch (var(STAT))
+		{
+			case 0: // HP
+				untrain(0, VAR_0x8004)
+			case 1: // Attack
+				untrain(1, VAR_0x8004)
+			case 2: // Defense
+				untrain(2, VAR_0x8004)
+			case 3: // Special Attack
+				untrain(3, VAR_0x8004)
+			case 4: // Special Defense
+				untrain(4, VAR_0x8004)
+			case 5: // Speed
+				untrain(5, VAR_0x8004)
+		}
+		playmoncry(0x8007, 0)
+		waitmoncry
+		msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} has been untrained."))
+		removeitem(ITEM_GOLD_BOTTLE_CAP, 1)
 		goto(End)
 	}
-	special(ChoosePartyMon)
-	waitstate
-	specialvar(VAR_RESULT, ScriptGetPartyMonSpecies)
-	if (var(VAR_RESULT) == SPECIES_EGG) {
-		msgbox(format("A Pokémon Egg cannot be Hyper Trained."))
-		goto(End)
-	}
-	msgbox(format("Which stat would you like to train?"))
-	multichoicegrid(10, 4, MULTI_STAT_NAMES, 2, 0)
-	if (var(VAR_RESULT) == 0)
-	{
-		setvar(STAT, 0)
-		canhypertrain(0, VAR_0x8004)
-	}
-	elif (var(VAR_RESULT) == 1)
-	{
-		setvar(STAT, 1)
-		canhypertrain(1, VAR_0x8004)
-	}
-	elif (var(VAR_RESULT) == 2)
-	{
-		setvar(STAT, 2)
-		canhypertrain(2, VAR_0x8004)
-	}
-	elif (var(VAR_RESULT) == 3)
-	{
-		setvar(STAT, 3)
-		canhypertrain(3, VAR_0x8004)
-	}
-	elif (var(VAR_RESULT) == 4)
-	{
-		setvar(STAT, 4)
-		canhypertrain(4, VAR_0x8004)
-	}
-	elif (var(VAR_RESULT) == 5)
-	{
-		setvar(STAT, 5)
-		canhypertrain(5, VAR_0x8004)
-	}
-	else {
-		goto(End)
-	}
-	sethypertrainstat(STAT)
-	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
-	if (var(VAR_RESULT) == FALSE) {
-		msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} is already at it's maximum!"))
-		goto(End)
-	}
-	switch (var(STAT))
-	{
-		case 0: // HP
-			hypertrain(0, VAR_0x8004)
-		case 1: // Attack
-			hypertrain(1, VAR_0x8004)
-		case 2: // Defense
-			hypertrain(2, VAR_0x8004)
-		case 3: // Special Attack
-			hypertrain(3, VAR_0x8004)
-		case 4: // Special Defense
-			hypertrain(4, VAR_0x8004)
-		case 5: // Speed
-			hypertrain(5, VAR_0x8004)
-	}
-	playmoncry(0x8007, 0)
-	waitmoncry
-	msgbox(format("Your {STR_VAR_1}'s {STR_VAR_3} has been hyper trained."))
-	removeitem(ITEM_BOTTLE_CAP, 1)
-	goto(End)
 }
 
 script EventScript_GameCorner_Clerk_TMs {
 	lockall
-	msgbox(format("I sell TMs in exchange for Battle Points."))
+	msgbox(format("I sell TMs in exchange for 2 Battle Points."))
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
 	if (var(VAR_TEMP_1) < 2) { // Not Enough BP
 		msgbox(format("You don't have enough Battle Points. Come back with some more."))
-		goto(End)
+		closemessage
+		releaseall
+		end
 	}
 	msgbox(format("Would you like to buy anything?"))
 	yesnobox(8, 4)
 	if (var(VAR_RESULT) == 0) { // No
-		goto(End)
+		closemessage
+		releaseall
+		end
 	}
+	closemessage
 	special(ShowBattlePointsWindow)
 	setvar(VAR_0x8004, SCROLL_MULTI_GAME_CORNER_TMS)
 	special(ShowScrollableMultichoice)
@@ -785,6 +865,7 @@ script EventScript_GameCorner_Clerk_TMs {
 		case 8:
 			call(TryBuyDarkPulseTM)
 	}
+	releaseall
 }
 
 script TryBuyLeechLifeTM {
@@ -1034,14 +1115,16 @@ script BPShopClerk {
 		case 10:
 			call(TryBuyAbilityPatch)
 		case 11:
-			call(TryBuyLifeOrb)
+			call(TryBuyGoldBottleCap)
 		case 12:
-			call(TryBuyBottleCap)
+			call(TryBuyLifeOrb)
 		case 13:
-			call(TryBuyRareCandy)
+			call(TryBuyBottleCap)
 		case 14:
-			call(TryBuyTM01Covet)
+			call(TryBuyRareCandy)
 		case 15:
+			call(TryBuyTM01Covet)
+		case 16:
 			call(TryBuyTM46Thief)
 	}
 	goto(End)
@@ -1340,6 +1423,32 @@ script TryBuyAbilityPatch {
 	playse(SE_SHOP)
 	additem(VAR_0x8009)
 	msgbox(format("Here is your Ability Patch! Thank you very much."))
+	special(UpdateBattlePointsWindow)
+}
+
+script TryBuyGoldBottleCap {
+	msgbox(format("You would like to buy a Gold Bottle Cap?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(gText_PleaseComeAgain, MSGBOX_DEFAULT)
+		goto(End)
+	}
+	setvar(VAR_0x8009, ITEM_GOLD_BOTTLE_CAP)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 4) {
+		msgbox(format("You don't have enough Battle Points."))
+		goto(End)
+	}
+	checkitemspace(VAR_0x8009)
+	if (var(VAR_RESULT) == FALSE) {
+		msgbox(format("You don't have bag space for this item."))
+		goto(End)
+	}
+	setvar(VAR_0x8004, 4)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	additem(VAR_0x8009)
+	msgbox(format("Here is your Gold Bottle Cap! Thank you very much."))
 	special(UpdateBattlePointsWindow)
 }
 
@@ -2445,10 +2554,13 @@ script FossilScientist {
 }
 
 script ReviveFossil {
+	lock
 	msgbox(format("Oh! You have a fossil! Would you like me to revive it?"), MSGBOX_YESNO)
 	if (var(VAR_RESULT) == FALSE) {
 		msgbox(format("Aw...okay. Well come back if you change your mind."))
-		goto(End)
+		closemessage
+		release
+		end
 	}
 	msgbox(format("Please give me the fossil you want to revive."))
 	special(Bag_ChooseFossil)
@@ -2496,7 +2608,9 @@ script ReviveFossil {
 			setvar(VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TYRUNT)
 		default:
 			msgbox(format("That's not a fossil!"))
-			goto(End)
+			closemessage
+			release
+			end
 	}
 	closemessage
 	msgbox(format("Awesome, revived your fossil into {STR_VAR_2}!"))
@@ -2832,6 +2946,177 @@ script DifficultySwitcher {
 	closemessage
 }
 
+script AbilityChanger {
+	lock
+	faceplayer
+	msgbox(format("Psst...I can give your Pokemon any ability. It'll cost you though...10 BP. Interested?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+		msgbox(format("I'll be here if you change your mind."))
+    	goto(End)
+	}
+	special(ShowBattlePointsWindow)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 10) {
+		msgbox(format("You don't have enough Battle Points. Come back with some more."))
+		special(CloseBattlePointsWindow)
+		goto(End)
+	}
+    msgbox(format("Who should I give a new ability?"), MSGBOX_AUTOCLOSE)
+    special(ChoosePartyMon)
+    waitstate
+    if (var(VAR_0x8004) == 255) {
+    	goto(End)
+	}
+    special(IsSelectedMonEgg)
+    if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't give an ability to an egg."))
+    	goto(End)
+	}
+    specialvar(VAR_0x8008 GetSelectedMonNicknameAndSpecies)
+    bufferspeciesname(2, VAR_0x8008)
+	msgbox(format("Which abilities would you like to view?"), MSGBOX_AUTOCLOSE)
+	multichoicegrid(8, 2, MULTI_LETTERS, 4, 0)
+	msgbox(format("Which ability should I give to {STR_VAR_3}?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    closemessage
+    special(AbilityTutor)
+    waitstate
+    if (var(VAR_RESULT) == MULTI_B_PRESSED) {
+    	goto(End)
+	}
+    msgbox(format("And... Done! {STR_VAR_3} now has {STR_VAR_1}!"), MSGBOX_AUTOCLOSE)
+	setvar(VAR_0x8004, 10)
+	special(TakeFrontierBattlePoints)
+	special(CloseBattlePointsWindow)
+	playse(SE_SHOP)
+	release
+}
+
+script HPTypeChangerNPC {
+	lock
+	faceplayer
+	msgbox(format("I can change your Pokemon's Hidden Power type for 2 BP. Interested?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+		msgbox(format("I'll be here if you change your mind."))
+		closemessage
+    	goto(End)
+	}
+	special(ShowBattlePointsWindow)
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) {
+		msgbox(format("You don't have enough Battle Points. Come back with some more."))
+		special(CloseBattlePointsWindow)
+		closemessage
+		goto(End)
+	}
+    msgbox(format("Who's Hidden Power type needs changing?"), MSGBOX_AUTOCLOSE)
+    special(ChoosePartyMon)
+    waitstate
+    if (var(VAR_0x8004) == 255) {
+    	goto(End)
+	}
+    special(IsSelectedMonEgg)
+    if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't change an egg's Hidden Power type."))
+    	goto(End)
+	}
+    specialvar(VAR_0x8008 GetSelectedMonNicknameAndSpecies)
+    bufferspeciesname(2, VAR_0x8008)
+	msgbox(format("Which type would you like {STR_VAR_3}'s Hidden Power to be?"), MSGBOX_AUTOCLOSE)
+    waitmessage
+    closemessage
+    special(HPTypeChanger)
+    waitstate
+    if (var(VAR_RESULT) == MULTI_B_PRESSED) {
+    	goto(End)
+	}
+    msgbox(format("And... Done! Changed {STR_VAR_3}'s Hidden Power type to {STR_VAR_1}!"), MSGBOX_AUTOCLOSE)
+	setvar(VAR_0x8004, 2)
+	special(TakeFrontierBattlePoints)
+	special(CloseBattlePointsWindow)
+	playse(SE_SHOP)
+	release
+}
+
+script BPMoveTutor {
+	lockall
+	faceplayer
+	msgbox(format("I can teach your Pokémon a powerful move in exchange for 5 Battle Points."))
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	if (var(VAR_TEMP_1) < 2) { // Not Enough BP
+		msgbox(format("You don't have enough Battle Points. Come back with some more."))
+		closemessage
+		releaseall
+		end
+	}
+	msgbox(format("Would you like me to teach your Pokémon a move?"))
+	yesnobox(8, 4)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."))
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	special(ShowBattlePointsWindow)
+	setvar(VAR_0x8004, SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES)
+	special(ShowScrollableMultichoice)
+	waitstate
+	special(CloseBattlePointsWindow)
+	switch (var(VAR_RESULT)) {
+		default:
+			msgbox(format("I'll be here if you change your mind."))
+			closemessage
+			end
+		case 0:
+			setvar(VAR_0x8005, MOVE_CLOSE_COMBAT)
+		case 1:
+			setvar(VAR_0x8005, MOVE_CRUNCH)
+		case 2:
+			setvar(VAR_0x8005, MOVE_FLARE_BLITZ)
+		case 3:
+			setvar(VAR_0x8005, MOVE_HYDRO_PUMP)
+		case 4:
+			setvar(VAR_0x8005, MOVE_AQUA_TAIL)
+		case 5:
+			setvar(VAR_0x8005, MOVE_DRAGON_RUSH)
+		case 6:
+			setvar(VAR_0x8005, MOVE_FOCUS_BLAST)
+		case 7:
+			setvar(VAR_0x8005, MOVE_HEAVY_SLAM)
+		case 8:
+			setvar(VAR_0x8005, MOVE_LEAF_STORM)
+		case 9:
+			setvar(VAR_0x8005, MOVE_THRASH)
+		case 10:
+			setvar(VAR_0x8005, MOVE_OUTRAGE)
+		case 11:
+			setvar(VAR_0x8005, MOVE_BOOMBURST)
+		case 12:
+			setvar(VAR_0x8005, MOVE_HURRICANE)
+		case 13:
+			setvar(VAR_0x8005, MOVE_STONE_EDGE)
+		case 14:
+			setvar(VAR_0x8005, MOVE_HEAT_WAVE)
+		case 15:
+			setvar(VAR_0x8005, MOVE_POWER_WHIP)
+		case 16:
+			setvar(VAR_0x8005, MOVE_RAGING_FURY)
+		case 17:
+			setvar(VAR_0x8005, MOVE_PSYCHO_BOOST)
+		case 18:
+			setvar(VAR_0x8005, MOVE_OVERHEAT)
+	}
+	special(ChooseMonForMoveTutor)
+	waitstate
+	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
+	setvar(VAR_0x8004, 5)
+	special(TakeFrontierBattlePoints)
+	playse(SE_SHOP)
+	special(UpdateBattlePointsWindow)
+	releaseall
+}
+
 script TestGuy {
 	trainerbattle_no_intro(TRAINER_WALLY_VR_1, VictoryRoad_1F_Text_WallyEntranceDefeat)	
-}
+}	

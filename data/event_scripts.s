@@ -713,6 +713,10 @@ Common_ShowSelectIvsScreen::
 	special ShowSelectIvsScreen
 	return
 
+Common_ShowSelectEvsScreen::
+	special ShowSelectEvsScreen
+	return
+
 Common_EventScript_ReadyPetalburgGymForBattle::
 	clearflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
