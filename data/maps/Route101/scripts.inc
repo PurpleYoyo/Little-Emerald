@@ -473,138 +473,134 @@ Route101_EventScript_BirchsBag::
 # 237 "data/maps/Route101/scripts.pory"
 	special HealPlayerParty
 # 238 "data/maps/Route101/scripts.pory"
-	special GiveStarterOranBerry
-# 239 "data/maps/Route101/scripts.pory"
-	special SetStarterAbility
-# 240 "data/maps/Route101/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_ZIGZAGOON_BATTLE
-# 241 "data/maps/Route101/scripts.pory"
+# 239 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
-# 242 "data/maps/Route101/scripts.pory"
+# 240 "data/maps/Route101/scripts.pory"
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
-# 243 "data/maps/Route101/scripts.pory"
+# 241 "data/maps/Route101/scripts.pory"
 	setvar VAR_BIRCH_LAB_STATE, 2
-# 244 "data/maps/Route101/scripts.pory"
+# 242 "data/maps/Route101/scripts.pory"
 	setvar VAR_ROUTE101_STATE, 3
-# 245 "data/maps/Route101/scripts.pory"
+# 243 "data/maps/Route101/scripts.pory"
 	setvar VAR_HAS_STARTER, 2
-# 246 "data/maps/Route101/scripts.pory"
+# 244 "data/maps/Route101/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 247 "data/maps/Route101/scripts.pory"
+# 245 "data/maps/Route101/scripts.pory"
 	checkplayergender
-# 248 "data/maps/Route101/scripts.pory"
+# 246 "data/maps/Route101/scripts.pory"
 	call_if_eq VAR_RESULT, MALE, Route101_EventScript_HideMayInBedroom
-# 249 "data/maps/Route101/scripts.pory"
+# 247 "data/maps/Route101/scripts.pory"
 	call_if_eq VAR_RESULT, FEMALE, Route101_EventScript_HideBrendanInBedroom
-# 250 "data/maps/Route101/scripts.pory"
+# 248 "data/maps/Route101/scripts.pory"
 	warp MAP_LITTLEROOT_TOWN_PROFESSOR_BIRCHS_LAB, 6, 5
-# 251 "data/maps/Route101/scripts.pory"
+# 249 "data/maps/Route101/scripts.pory"
 	waitstate
-# 252 "data/maps/Route101/scripts.pory"
+# 250 "data/maps/Route101/scripts.pory"
 	release
-# 253 "data/maps/Route101/scripts.pory"
+# 251 "data/maps/Route101/scripts.pory"
 	end
-# 254 "data/maps/Route101/scripts.pory"
+# 252 "data/maps/Route101/scripts.pory"
 
-# 255 "data/maps/Route101/scripts.pory"
+# 253 "data/maps/Route101/scripts.pory"
 Route101_EventScript_HideMayInBedroom::
-# 256 "data/maps/Route101/scripts.pory"
+# 254 "data/maps/Route101/scripts.pory"
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_MAYS_HOUSE_RIVAL_BEDROOM
+# 255 "data/maps/Route101/scripts.pory"
+	return
+# 256 "data/maps/Route101/scripts.pory"
+
 # 257 "data/maps/Route101/scripts.pory"
-	return
-# 258 "data/maps/Route101/scripts.pory"
-
-# 259 "data/maps/Route101/scripts.pory"
 Route101_EventScript_HideBrendanInBedroom::
-# 260 "data/maps/Route101/scripts.pory"
+# 258 "data/maps/Route101/scripts.pory"
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BRENDANS_HOUSE_RIVAL_BEDROOM
-# 261 "data/maps/Route101/scripts.pory"
+# 259 "data/maps/Route101/scripts.pory"
 	return
-# 262 "data/maps/Route101/scripts.pory"
+# 260 "data/maps/Route101/scripts.pory"
 
-# 263 "data/maps/Route101/scripts.pory"
+# 261 "data/maps/Route101/scripts.pory"
 Route101_Movement_BirchApproachPlayer:
-# 264 "data/maps/Route101/scripts.pory"
+# 262 "data/maps/Route101/scripts.pory"
 	walk_right
-# 265 "data/maps/Route101/scripts.pory"
+# 263 "data/maps/Route101/scripts.pory"
 	step_end
-# 266 "data/maps/Route101/scripts.pory"
+# 264 "data/maps/Route101/scripts.pory"
 
-# 267 "data/maps/Route101/scripts.pory"
+# 265 "data/maps/Route101/scripts.pory"
 Route101_Text_HelpMe:
-# 268 "data/maps/Route101/scripts.pory"
+# 266 "data/maps/Route101/scripts.pory"
 	.string "H-help me!$"
-# 269 "data/maps/Route101/scripts.pory"
+# 267 "data/maps/Route101/scripts.pory"
 
-# 270 "data/maps/Route101/scripts.pory"
+# 268 "data/maps/Route101/scripts.pory"
 Route101_Text_PleaseHelp:
-# 271 "data/maps/Route101/scripts.pory"
+# 269 "data/maps/Route101/scripts.pory"
 	.string "Hello! You over there!\n"
-# 272 "data/maps/Route101/scripts.pory"
+# 270 "data/maps/Route101/scripts.pory"
 	.string "Please! Help!\p"
-# 273 "data/maps/Route101/scripts.pory"
+# 271 "data/maps/Route101/scripts.pory"
 	.string "In my BAG!\n"
-# 274 "data/maps/Route101/scripts.pory"
+# 272 "data/maps/Route101/scripts.pory"
 	.string "There's a POKé BALL!$"
-# 275 "data/maps/Route101/scripts.pory"
+# 273 "data/maps/Route101/scripts.pory"
 
-# 276 "data/maps/Route101/scripts.pory"
+# 274 "data/maps/Route101/scripts.pory"
 Route101_Text_DontLeaveMe:
-# 277 "data/maps/Route101/scripts.pory"
+# 275 "data/maps/Route101/scripts.pory"
 	.string "Wh-Where are you going?!\n"
-# 278 "data/maps/Route101/scripts.pory"
+# 276 "data/maps/Route101/scripts.pory"
 	.string "Don't leave me like this!$"
-# 279 "data/maps/Route101/scripts.pory"
+# 277 "data/maps/Route101/scripts.pory"
 
-# 280 "data/maps/Route101/scripts.pory"
+# 278 "data/maps/Route101/scripts.pory"
 Route101_Text_YouSavedMe:
-# 281 "data/maps/Route101/scripts.pory"
+# 279 "data/maps/Route101/scripts.pory"
 	.string "PROF. BIRCH: Whew…\p"
-# 282 "data/maps/Route101/scripts.pory"
+# 280 "data/maps/Route101/scripts.pory"
 	.string "I was in the tall grass studying wild\n"
-# 283 "data/maps/Route101/scripts.pory"
+# 281 "data/maps/Route101/scripts.pory"
 	.string "POKéMON when I was jumped.\p"
-# 284 "data/maps/Route101/scripts.pory"
+# 282 "data/maps/Route101/scripts.pory"
 	.string "You saved me.\n"
-# 285 "data/maps/Route101/scripts.pory"
+# 283 "data/maps/Route101/scripts.pory"
 	.string "Thanks a lot!\p"
-# 286 "data/maps/Route101/scripts.pory"
+# 284 "data/maps/Route101/scripts.pory"
 	.string "Oh?\p"
-# 287 "data/maps/Route101/scripts.pory"
+# 285 "data/maps/Route101/scripts.pory"
 	.string "Hi, you're {PLAYER}{KUN}!\p"
-# 288 "data/maps/Route101/scripts.pory"
+# 286 "data/maps/Route101/scripts.pory"
 	.string "This is not the place to chat, so come\n"
-# 289 "data/maps/Route101/scripts.pory"
+# 287 "data/maps/Route101/scripts.pory"
 	.string "by my POKéMON LAB later, okay?$"
-# 290 "data/maps/Route101/scripts.pory"
+# 288 "data/maps/Route101/scripts.pory"
 
-# 291 "data/maps/Route101/scripts.pory"
+# 289 "data/maps/Route101/scripts.pory"
 Route101_Text_TakeTiredPokemonToPokeCenter:
-# 292 "data/maps/Route101/scripts.pory"
+# 290 "data/maps/Route101/scripts.pory"
 	.string "If POKéMON get tired, take them to\n"
-# 293 "data/maps/Route101/scripts.pory"
+# 291 "data/maps/Route101/scripts.pory"
 	.string "a POKéMON CENTER.\p"
-# 294 "data/maps/Route101/scripts.pory"
+# 292 "data/maps/Route101/scripts.pory"
 	.string "There's a POKéMON CENTER in OLDALE\n"
-# 295 "data/maps/Route101/scripts.pory"
+# 293 "data/maps/Route101/scripts.pory"
 	.string "TOWN right close by.$"
-# 296 "data/maps/Route101/scripts.pory"
+# 294 "data/maps/Route101/scripts.pory"
 
-# 297 "data/maps/Route101/scripts.pory"
+# 295 "data/maps/Route101/scripts.pory"
 Route101_Text_WildPokemonInTallGrass:
-# 298 "data/maps/Route101/scripts.pory"
+# 296 "data/maps/Route101/scripts.pory"
 	.string "Wild POKéMON will jump out at you in\n"
-# 299 "data/maps/Route101/scripts.pory"
+# 297 "data/maps/Route101/scripts.pory"
 	.string "tall grass.\p"
-# 300 "data/maps/Route101/scripts.pory"
+# 298 "data/maps/Route101/scripts.pory"
 	.string "If you want to catch POKéMON, you have\n"
-# 301 "data/maps/Route101/scripts.pory"
+# 299 "data/maps/Route101/scripts.pory"
 	.string "to go into the tall grass and search.$"
-# 302 "data/maps/Route101/scripts.pory"
+# 300 "data/maps/Route101/scripts.pory"
 
-# 303 "data/maps/Route101/scripts.pory"
+# 301 "data/maps/Route101/scripts.pory"
 Route101_Text_RouteSign:
-# 304 "data/maps/Route101/scripts.pory"
+# 302 "data/maps/Route101/scripts.pory"
 	.string "ROUTE 101\n"
-# 305 "data/maps/Route101/scripts.pory"
+# 303 "data/maps/Route101/scripts.pory"
 	.string "{UP_ARROW} OLDALE TOWN$"

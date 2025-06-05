@@ -2613,40 +2613,6 @@ void IsPlayerInPokemonLeague (void)
     gSpecialVar_Result = gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY_SIDNEYS_ROOM);
 }
 
-void SetStarterAbility(void)
-{
-    u16 species;
-    struct Pokemon *pokemon;
-    pokemon = &gPlayerParty[GetLeadMonIndex()];
-    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-    {
-        species = GetMonData(pokemon, MON_DATA_SPECIES);
-        if (species == SPECIES_SNIVY
-         || species == SPECIES_SCORBUNNY
-         || species == SPECIES_SQUIRTLE)
-        {
-            int num = 1 + Random() % (2 - 1 + 1);
-            SetMonData(pokemon, MON_DATA_ABILITY_NUM, &num);
-        }
-        else
-        {
-            int num = 1;
-            SetMonData(pokemon, MON_DATA_ABILITY_NUM, &num);
-        }
-    }
-}
-
-void GiveStarterOranBerry(void)
-{
-    struct Pokemon *pokemon;
-    pokemon = &gPlayerParty[GetLeadMonIndex()];
-    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-    {
-        int i = 520;
-        SetMonData(pokemon, MON_DATA_HELD_ITEM, &i);
-    }
-}
-
 void GetInfiniteRepelFlag(void)
 {
     bool8 infiniteRepelOn = FlagGet(OW_FLAG_NO_ENCOUNTER);
