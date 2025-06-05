@@ -571,6 +571,7 @@ gSpecials::
 	def_special DoesChosenMonHaveEggMoves
 	def_special GetRandomEgg
 	def_special GiveStarterOranBerry
+	def_special SetStarterAbility
 	def_special IsPlayerInPokemonLeague
 	def_special HasPlayerDefeatedWinona
 	def_special GetRandomFossil

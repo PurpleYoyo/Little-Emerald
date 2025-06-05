@@ -244,6 +244,7 @@ MauvilleCity_Gym_EventScript_GymGuide::
 MauvilleCity_Gym_EventScript_GiveMegaRing::
 	msgbox MauvilleCity_Gym_Text_GiveMegaRing, MSGBOX_DEFAULT
 	giveitem ITEM_MEGA_RING
+	setflag FLAG_RECEIVED_MEGA_RING
 	release
 	end
 

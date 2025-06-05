@@ -176,11 +176,11 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         //input->pressedSelectButton = FALSE;
     }
 
-    //if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
-    // && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
-    //{
-    //    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
-    //}
+    if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
+     && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    {
+        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    }
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)

@@ -9933,7 +9933,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_EEVEE,
+            .species = SPECIES_EEVEE_FAIRY,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_SHINY_STONE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
@@ -29164,7 +29164,7 @@ F_TRAINER_FEMALE |
             },
             },
             {
-            .species = SPECIES_BERGMITE,
+            .species = SPECIES_BERGMITE_ROCK,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .heldItem = ITEM_STONE_PLATE,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),

@@ -528,6 +528,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedex::
 	setvar VAR_OLDALE_TOWN_STATE, 1
 	setvar VAR_LITTLEROOT_RIVAL_STATE, 4
 	setvar VAR_LITTLEROOT_TOWN_STATE, 3
+	faceplayer
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_ExtraItems, MSGBOX_DEFAULT
 	giveitem ITEM_MAX_RESTORE
 	giveitem ITEM_INFINITE_CANDY
