@@ -1017,10 +1017,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     {
         .baseHP        = 45,
         .baseAttack    = 30,
-        .baseDefense   = 35,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 20,
+        .baseDefense   = 40,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_BUG),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 39 : 53,
@@ -1072,6 +1072,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sCaterpieLevelUpLearnset,
         .teachableLearnset = sCaterpieTeachableLearnset,
+        .eggMoveLearnset = sCaterpieEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_METAPOD}),
     },
 
@@ -1289,11 +1290,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_WEEDLE] =
     {
         .baseHP        = 40,
-        .baseAttack    = 35,
+        .baseAttack    = 60,
         .baseDefense   = 30,
-        .baseSpeed     = 50,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 20,
+        .baseSpeed     = 100,
+        .baseSpAttack  = 10,
+        .baseSpDefense = 45,
         .types = MON_TYPES(TYPE_BUG, TYPE_POISON),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 39 : 52,
@@ -1346,6 +1347,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sWeedleLevelUpLearnset,
         .teachableLearnset = sWeedleTeachableLearnset,
+        .eggMoveLearnset = sWeedleEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_KAKUNA}),
     },
 
@@ -1552,10 +1554,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PIDGEY] =
     {
         .baseHP        = 40,
-        .baseAttack    = 45,
+        .baseAttack    = 55,
         .baseDefense   = 40,
-        .baseSpeed     = 56,
-        .baseSpAttack  = 35,
+        .baseSpeed     = 66,
+        .baseSpAttack  = 45,
         .baseSpDefense = 35,
         .types = MON_TYPES(TYPE_NORMAL, TYPE_FLYING),
         .catchRate = 255,
@@ -4342,7 +4344,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     {
         .baseHP        = 50,
         .baseAttack    = 25,
-        .baseDefense   = 28,
+        .baseDefense   = 55,
         .baseSpeed     = 15,
         .baseSpAttack  = 45,
         .baseSpDefense = 55,
@@ -4822,11 +4824,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_IGGLYBUFF] =
     {
         .baseHP        = 90,
-        .baseAttack    = 30,
-        .baseDefense   = 15,
+        .baseAttack    = 50,
+        .baseDefense   = 35,
         .baseSpeed     = 15,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 20,
+        .baseSpAttack  = 55,
+        .baseSpDefense = 40,
         .types = JIGGLYPUFF_FAMILY_TYPES,
         .catchRate = 170,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 42 : 39,
@@ -12948,11 +12950,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_GEN_4_CROSS_EVOS
     [SPECIES_HAPPINY] =
     {
-        .baseHP        = 100,
+        .baseHP        = 150,
         .baseAttack    = 5,
         .baseDefense   = 5,
         .baseSpeed     = 30,
-        .baseSpAttack  = 15,
+        .baseSpAttack  = 35,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 130,
@@ -13828,8 +13830,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_Staryu,
             gShinyOverworldPalette_Staryu
         )
+        .formSpeciesIdTable = sStaryuFormSpeciesIdTable,
         .levelUpLearnset = sStaryuLevelUpLearnset,
         .teachableLearnset = sStaryuTeachableLearnset,
+        .eggMoveLearnset = sStaryuEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_STARMIE}),
     },
 
@@ -15392,12 +15396,12 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_MAGIKARP
     [SPECIES_MAGIKARP] =
     {
-        .baseHP        = 20,
-        .baseAttack    = 10,
+        .baseHP        = 35,
+        .baseAttack    = 40,
         .baseDefense   = 55,
-        .baseSpeed     = 80,
+        .baseSpeed     = 100,
         .baseSpAttack  = 15,
-        .baseSpDefense = 20,
+        .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 40 : 20,
@@ -15461,6 +15465,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
         .levelUpLearnset = sMagikarpLevelUpLearnset,
         .teachableLearnset = sMagikarpTeachableLearnset,
+        .eggMoveLearnset = sMagikarpEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GYARADOS}),
     },
 

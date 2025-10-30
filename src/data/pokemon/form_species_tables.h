@@ -2477,3 +2477,9 @@ static const u16 sFeebasFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_FEEBAS
+
+static const u16 sStaryuFormSpeciesIdTable[] = {
+    SPECIES_STARYU,
+    SPECIES_STARYU_SPECIAL,
+    FORM_SPECIES_END,
+};

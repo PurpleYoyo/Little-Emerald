@@ -1280,11 +1280,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_WURMPLE] =
     {
         .baseHP        = 45,
-        .baseAttack    = 45,
-        .baseDefense   = 35,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 30,
+        .baseAttack    = 50,
+        .baseDefense   = 50,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_BUG),
         .catchRate = 255,
     #if P_UPDATED_EXP_YIELDS >= GEN_7
@@ -1342,6 +1342,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sWurmpleLevelUpLearnset,
         .teachableLearnset = sWurmpleTeachableLearnset,
+        .eggMoveLearnset = sWurmpleEggMoveLearnset,
         .formSpeciesIdTable = sWurmpleFormSpeciesIdTable,
         .formChangeTable = sWurmpleFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SILCOON},
@@ -1650,12 +1651,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_LOTAD
     [SPECIES_LOTAD] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 30,
-        .baseDefense   = 30,
-        .baseSpeed     = 30,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 50,
+        .baseHP        = 50,
+        .baseAttack    = 35,
+        .baseDefense   = 40,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 70,
         .types = MON_TYPES(TYPE_WATER, TYPE_GRASS),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 44 : 74,
@@ -1857,11 +1858,11 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_SEEDOT] =
     {
         .baseHP        = 40,
-        .baseAttack    = 40,
-        .baseDefense   = 50,
-        .baseSpeed     = 30,
-        .baseSpAttack  = 30,
-        .baseSpDefense = 30,
+        .baseAttack    = 60,
+        .baseDefense   = 45,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 45,
+        .baseSpDefense = 45,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 44 : 74,
@@ -2360,12 +2361,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_RALTS] =
     {
-        .baseHP        = 28,
+        .baseHP        = 43,
         .baseAttack    = 25,
-        .baseDefense   = 25,
+        .baseDefense   = 35,
         .baseSpeed     = 40,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 35,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_PSYCHIC, RALTS_FAMILY_TYPE2),
         .catchRate = 235,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 40 : 70,
@@ -3213,7 +3214,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
     [SPECIES_NINCADA] =
     {
         .baseHP        = 31,
-        .baseAttack    = 45,
+        .baseAttack    = 60,
         .baseDefense   = 90,
         .baseSpeed     = 40,
         .baseSpAttack  = 30,
@@ -7836,12 +7837,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_FEEBAS
     [SPECIES_FEEBAS] =
     {
-        .baseHP        = 20,
-        .baseAttack    = 15,
-        .baseDefense   = 20,
-        .baseSpeed     = 80,
-        .baseSpAttack  = 10,
-        .baseSpDefense = 55,
+        .baseHP        = 40,
+        .baseAttack    = 10,
+        .baseDefense   = 40,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 75,
         .types = MON_TYPES(TYPE_WATER),
         .catchRate = 255,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 40 : 61,
@@ -10183,6 +10184,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         )
         .levelUpLearnset = sBeldumLevelUpLearnset,
         .teachableLearnset = sBeldumTeachableLearnset,
+        .eggMoveLearnset = sBeldumEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_METANG}),
     },
 

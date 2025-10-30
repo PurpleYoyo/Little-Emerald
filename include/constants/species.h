@@ -1715,7 +1715,9 @@
 
 #define SPECIES_FEEBAS_FAIRY                            1579
 
-#define SPECIES_EGG                                     (SPECIES_FEEBAS_FAIRY + 1)
+#define SPECIES_STARYU_SPECIAL                          1580
+
+#define SPECIES_EGG                                     (SPECIES_STARYU_SPECIAL + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

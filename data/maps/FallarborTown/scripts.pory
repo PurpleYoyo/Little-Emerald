@@ -91,6 +91,6 @@ FallarborTown_Text_TownSign:
 	.string "“A farm community with small gardens.”$"
 
 FallarborTown_Text_MoveTutorSign:
-	.string "FOSSIL SCIENTIST'S HOUSE$"
+	.string "MOVE TUTOR'S HOUSE$"
 
 `

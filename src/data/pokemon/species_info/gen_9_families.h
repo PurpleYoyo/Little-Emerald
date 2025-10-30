@@ -570,8 +570,8 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_LECHONK
     [SPECIES_LECHONK] =
     {
-        .baseHP        = 54,
-        .baseAttack    = 45,
+        .baseHP        = 69,
+        .baseAttack    = 55,
         .baseDefense   = 40,
         .baseSpeed     = 35,
         .baseSpAttack  = 35,
@@ -6081,7 +6081,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_GIMMIGHOUL
     [SPECIES_GIMMIGHOUL_CHEST] =
     {
-        .baseHP        = 45,
+        .baseHP        = 1,
         .baseAttack    = 30,
         .baseDefense   = 70,
         .baseSpeed     = 10,
@@ -6096,7 +6096,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_RATTLED, ABILITY_GOOD_AS_GOLD, ABILITY_WONDER_GUARD },
+        .abilities = { ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD },
         .bodyColor = BODY_COLOR_RED,
         .speciesName = _("Gimmighoul"),
         .cryId = CRY_GIMMIGHOUL,
@@ -6138,6 +6138,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sGimmighoulLevelUpLearnset,
         .teachableLearnset = sGimmighoulTeachableLearnset,
+        .eggMoveLearnset = sGimmighoulEggMoveLearnset,
         .formSpeciesIdTable = sGimmighoulFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GHOLDENGO}),
     },
@@ -6193,6 +6194,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         FOOTPRINT(GimmighoulRoaming)
         .levelUpLearnset = sGimmighoulLevelUpLearnset,
         .teachableLearnset = sGimmighoulTeachableLearnset,
+        .eggMoveLearnset = sGimmighoulEggMoveLearnset,
         .formSpeciesIdTable = sGimmighoulFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GHOLDENGO}),
     },

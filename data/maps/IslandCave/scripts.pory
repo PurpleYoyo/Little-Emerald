@@ -92,10 +92,10 @@ IslandCave_EventScript_Regice::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_SANDSHREW_ALOLA, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_STARYU, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_SANDSHREW_ALOLA, 40
+	setwildbattle SPECIES_STARYU_SPECIAL, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	waitstate

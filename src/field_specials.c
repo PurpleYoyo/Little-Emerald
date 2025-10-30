@@ -3779,7 +3779,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BATTLE_TENT_RULES:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 7;
+        task->tNumItems = 16;
         task->tLeft = 17;
         task->tTop = 1;
         task->tWidth = 12;
@@ -3799,7 +3799,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 20;
+        task->tNumItems = 24;
         task->tLeft = 17;
         task->tTop = 1;
         task->tWidth = 12;
@@ -3978,12 +3978,21 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     },
     [SCROLL_MULTI_BATTLE_TENT_RULES] =
     {
-        gText_BattleTrainers,
-        gText_BattleBasics,
-        gText_PokemonNature,
-        gText_PokemonMoves,
-        gText_Underpowered,
-        gText_WhenInDanger,
+        gText_GameCorner_Crunch,
+        gText_GameCorner_AquaTail,
+        gText_GameCorner_HeavySlam,
+        gText_GameCorner_HeatWave,
+        gText_GameCorner_EnergyBall,
+        gText_GameCorner_HighHorsepower,
+        gText_GameCorner_ThroatChop,
+        gText_GameCorner_JumpKick,
+        gText_GameCorner_Lunge,
+        gText_GameCorner_DragonPulse,
+        gText_GameCorner_MuddyWater,
+        gText_GameCorner_HammerArm,
+        gText_GameCorner_ScorchingSands,
+        gText_GameCorner_DrillRun,
+        gText_GameCorner_BodyPress,
         gText_Exit
     },
     [SCROLL_MULTI_FISH] =
@@ -4006,24 +4015,28 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     [SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES] =
     {
         gText_GameCorner_CloseCombat,
-        gText_GameCorner_Crunch,
+        gText_GameCorner_WildCharge,
         gText_GameCorner_FlareBlitz,
         gText_GameCorner_HydroPump,
-        gText_GameCorner_AquaTail,
         gText_GameCorner_DragonRush,
         gText_GameCorner_FocusBlast,
-        gText_GameCorner_HeavySlam,
         gText_GameCorner_LeafStorm,
         gText_GameCorner_Thrash,
         gText_GameCorner_Outrage,
         gText_GameCorner_Boomburst,
         gText_GameCorner_Hurricane,
         gText_GameCorner_StoneEdge,
-        gText_GameCorner_HeatWave,
         gText_GameCorner_PowerWhip,
         gText_GameCorner_RagingFury,
         gText_GameCorner_PsychoBoost,
-        gText_GameCorner_Overheat,
+        gText_GameCorner_HighJumpKick,
+        gText_GameCorner_DracoMeteor,
+        gText_GameCorner_Megahorn,
+        gText_GameCorner_HeadSmash,
+        gText_GameCorner_Superpower,
+        gText_GameCorner_SolarBlade,
+        gText_GameCorner_SkyAttack,
+        gText_GameCorner_MeteorBeam,
         gText_Exit,
     },
     [SCROLL_MULTI_GAME_CORNER_TMS] =

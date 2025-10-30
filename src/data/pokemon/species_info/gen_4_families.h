@@ -990,11 +990,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_KRICKETOT
     [SPECIES_KRICKETOT] =
     {
-        .baseHP        = 37,
-        .baseAttack    = 25,
+        .baseHP        = 57,
+        .baseAttack    = 55,
         .baseDefense   = 41,
-        .baseSpeed     = 25,
-        .baseSpAttack  = 25,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 35,
         .baseSpDefense = 41,
         .types = MON_TYPES(TYPE_BUG),
         .catchRate = 255,
@@ -1626,8 +1626,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         .baseAttack    = 29,
         .baseDefense   = 45,
         .baseSpeed     = 36,
-        .baseSpAttack  = 29,
-        .baseSpDefense = 45,
+        .baseSpAttack  = 69,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_BUG, TYPE_GRASS),
         .catchRate = 120,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 45 : 61,
@@ -1678,10 +1678,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_BurmyPlant,
             gShinyOverworldPalette_BurmyPlant
         )
-        .levelUpLearnset = sBurmyLevelUpLearnset,
-        .teachableLearnset = sBurmyTeachableLearnset,
+        .levelUpLearnset = sBurmyPlantLevelUpLearnset,
+        .teachableLearnset = sBurmyPlantTeachableLearnset,
+        .eggMoveLearnset = sBurmyPlantEggMoveLearnset,
         .formSpeciesIdTable = sBurmyFormSpeciesIdTable,
-        .formChangeTable = sBurmyFormChangeTable,
+        //.formChangeTable = sBurmyFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_WORMADAM_PLANT},
                                 {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MOTHIM_PLANT}),
     },
@@ -1689,8 +1690,8 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_BURMY_SANDY] =
     {
         .baseHP        = 40,
-        .baseAttack    = 29,
-        .baseDefense   = 45,
+        .baseAttack    = 69,
+        .baseDefense   = 65,
         .baseSpeed     = 36,
         .baseSpAttack  = 29,
         .baseSpDefense = 45,
@@ -1744,10 +1745,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_BurmySandy,
             gShinyOverworldPalette_BurmySandy
         )
-        .levelUpLearnset = sBurmyLevelUpLearnset,
-        .teachableLearnset = sBurmyTeachableLearnset,
+        .levelUpLearnset = sBurmySandyLevelUpLearnset,
+        .teachableLearnset = sBurmySandyTeachableLearnset,
+        .eggMoveLearnset = sBurmySandyEggMoveLearnset,
         .formSpeciesIdTable = sBurmyFormSpeciesIdTable,
-        .formChangeTable = sBurmyFormChangeTable,
+        //.formChangeTable = sBurmyFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_WORMADAM_SANDY},
                                 {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MOTHIM_SANDY}),
     },
@@ -1755,11 +1757,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_BURMY_TRASH] =
     {
         .baseHP        = 40,
-        .baseAttack    = 29,
-        .baseDefense   = 45,
+        .baseAttack    = 49,
+        .baseDefense   = 55,
         .baseSpeed     = 36,
-        .baseSpAttack  = 29,
-        .baseSpDefense = 45,
+        .baseSpAttack  = 49,
+        .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_BUG, TYPE_STEEL),
         .catchRate = 120,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 45 : 61,
@@ -1810,10 +1812,11 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
             gOverworldPalette_BurmyTrash,
             gShinyOverworldPalette_BurmyTrash
         )
-        .levelUpLearnset = sBurmyLevelUpLearnset,
-        .teachableLearnset = sBurmyTeachableLearnset,
+        .levelUpLearnset = sBurmyTrashLevelUpLearnset,
+        .teachableLearnset = sBurmyTrashTeachableLearnset,
+        .eggMoveLearnset = sBurmyTrashEggMoveLearnset,
         .formSpeciesIdTable = sBurmyFormSpeciesIdTable,
-        .formChangeTable = sBurmyFormChangeTable,
+        //.formChangeTable = sBurmyFormChangeTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_WORMADAM_TRASH},
                                 {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MOTHIM_TRASH}),
     },

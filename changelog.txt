@@ -4,21 +4,26 @@ Changes since the last release (v1.2.1):
 Pokémon Changes:
 
 
+Learnset Changes:
+
+
 Boss Changes:
+    
+
+Feature Additions:
 
 
 Feature Changes:
 
 
-Feature Additions:
-
-
 Bugfixes:
 
 
+IDEAS:
+
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c
-include/debug.h
+include/debug.h9
 
 NOTES:
 b - dusk/dawn stone palettes                              |
@@ -33,4 +38,3 @@ f - fast surf work with auto run
 f - revival blessing kys
 f - statics run
 f - berry random
-f - hof confetti option

@@ -45,7 +45,7 @@
 #define SCROLL_MULTI_GAME_CORNER_TUTOR_MOVES              15
 
 #define MAX_SCROLL_MULTI_ON_SCREEN 6
-#define MAX_SCROLL_MULTI_LENGTH 20
+#define MAX_SCROLL_MULTI_LENGTH 30
 
 // Dept Store Floor Numbers
 #define DEPT_STORE_FLOORNUM_B4F       0

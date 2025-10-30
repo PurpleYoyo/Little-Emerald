@@ -1120,12 +1120,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_BLIPBUG
     [SPECIES_BLIPBUG] =
     {
-        .baseHP        = 25,
+        .baseHP        = 35,
         .baseAttack    = 20,
-        .baseDefense   = 20,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 25,
-        .baseSpDefense = 45,
+        .baseDefense   = 40,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
         .catchRate = 255,
         .expYield = 36,
@@ -1368,11 +1368,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_NICKIT
     [SPECIES_NICKIT] =
     {
-        .baseHP        = 40,
+        .baseHP        = 55,
         .baseAttack    = 28,
         .baseDefense   = 28,
         .baseSpeed     = 50,
-        .baseSpAttack  = 47,
+        .baseSpAttack  = 67,
         .baseSpDefense = 52,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 255,
@@ -3223,12 +3223,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_TOXEL
     [SPECIES_TOXEL] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 38,
-        .baseDefense   = 35,
-        .baseSpeed     = 40,
-        .baseSpAttack  = 54,
-        .baseSpDefense = 35,
+        .baseHP        = 45,
+        .baseAttack    = 48,
+        .baseDefense   = 40,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 64,
+        .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_POISON),
         .catchRate = 75,
         .expYield = 48,
@@ -4094,7 +4094,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 39,
         .baseSpAttack  = 56,
         .baseSpDefense = 53,
-        .types = MON_TYPES(TYPE_PSYCHIC),
+        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FAIRY),
         .catchRate = 235,
         .expYield = 53,
         .evYield_SpAttack = 1,
@@ -4946,12 +4946,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_SNOM
     [SPECIES_SNOM] =
     {
-        .baseHP        = 30,
-        .baseAttack    = 25,
-        .baseDefense   = 35,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 30,
+        .baseHP        = 35,
+        .baseAttack    = 30,
+        .baseDefense   = 40,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_ICE, TYPE_BUG),
         .catchRate = 190,
         .expYield = 37,

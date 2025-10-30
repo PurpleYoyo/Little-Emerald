@@ -3319,11 +3319,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     [SPECIES_BOUNSWEET] =
     {
         .baseHP        = 42,
-        .baseAttack    = 30,
-        .baseDefense   = 38,
+        .baseAttack    = 50,
+        .baseDefense   = 58,
         .baseSpeed     = 32,
         .baseSpAttack  = 30,
-        .baseSpDefense = 38,
+        .baseSpDefense = 58,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 235,
         .expYield = 42,
@@ -3704,7 +3704,7 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
     {
         .baseHP        = 25,
         .baseAttack    = 35,
-        .baseDefense   = 40,
+        .baseDefense   = 100,
         .baseSpeed     = 80,
         .baseSpAttack  = 20,
         .baseSpDefense = 30,

@@ -185,4 +185,4 @@ FallarborTown_Text_TownSign:
 # 93 "data/maps/FallarborTown/scripts.pory"
 FallarborTown_Text_MoveTutorSign:
 # 94 "data/maps/FallarborTown/scripts.pory"
-	.string "FOSSIL SCIENTIST'S HOUSE$"
+	.string "MOVE TUTOR'S HOUSE$"

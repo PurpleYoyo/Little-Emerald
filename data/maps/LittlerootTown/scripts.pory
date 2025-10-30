@@ -1086,6 +1086,7 @@ Miniboss_Text_Purkat_Defeat:
 script Miniboss_ScaryGuy {
 	faceplayer
 	lockall
+	goto_if_set(FLAG_DEFEATED_DEWFORD_GYM, Miniboss_ScaryGuyNoFight)
 	msgbox(format("The best way to defeat your enemy is to scare them, so I only use Pokémon with Intimidate!"))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1094,6 +1095,12 @@ script Miniboss_ScaryGuy {
 	trainerbattle_single(TRAINER_ROXANNE_2, Miniboss_Text_ScaryGuy_Intro, Miniboss_Text_ScaryGuy_Defeat, Miniboss_ScaryGuyDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_ScaryGuyNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_ScaryGuyDefeated {
@@ -1115,6 +1122,7 @@ script Miniboss_ScaryGuyBPReward {
 script Miniboss_Protector {
 	faceplayer
 	lockall
+	goto_if_set(FLAG_DEFEATED_MAUVILLE_GYM, Miniboss_ProtectorNoFight)
 	msgbox(format("I hate when my Pokémon take too much damage, so I'll do whatever I can to reduce it!"))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1123,6 +1131,12 @@ script Miniboss_Protector {
 	trainerbattle_double(TRAINER_ROXANNE_3, Miniboss_Text_Protector_Intro, Miniboss_Text_Protector_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_ProtectorDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_ProtectorNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_ProtectorDefeated {
@@ -1144,6 +1158,7 @@ script Miniboss_ProtectorBPReward {
 script Miniboss_SpeedyChap {
 	faceplayer
 	lockall
+	goto_if_set(FLAG_DEFEATED_LAVARIDGE_GYM, Miniboss_SpeedyChapNoFight)
 	msgbox(format("Hahaha! I'm so fast! You can't catch me!"))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1152,6 +1167,12 @@ script Miniboss_SpeedyChap {
 	trainerbattle_single(TRAINER_ROXANNE_4, Miniboss_Text_SpeedyChap_Intro, Miniboss_Text_SpeedyChap_Defeat, Miniboss_SpeedyChapDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_SpeedyChapNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_SpeedyChapDefeated {
@@ -1173,6 +1194,7 @@ script Miniboss_SpeedyChapBPReward {
 script Miniboss_Collector {
 	faceplayer
 	lockall
+	goto_if_set(FLAG_DEFEATED_PETALBURG_GYM, Miniboss_CollectorNoFight)
 	msgbox(format("I like collecting Pokémon with forms. Do you have any? Let me see!"))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1181,6 +1203,12 @@ script Miniboss_Collector {
 	trainerbattle_single(TRAINER_ROXANNE_5, Miniboss_Text_Collector_Intro, Miniboss_Text_Collector_Defeat, Miniboss_CollectorDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_CollectorNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_CollectorDefeated {
@@ -1244,6 +1272,7 @@ script Miniboss_BoomDude {
 		msgbox(format("Oho ho, tryna pull one over on me huh? I won't battle you if you have a Pokémon with the ability Damp."))
 		goto(End)
 	}
+	goto_if_set(FLAG_DEFEATED_FORTREE_GYM, Miniboss_BoomDudeNoFight)
 	msgbox(format("..................................................."))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1252,6 +1281,12 @@ script Miniboss_BoomDude {
 	trainerbattle_single(TRAINER_BRAWLY_5, Miniboss_Text_BoomDude_Intro, Miniboss_Text_BoomDude_Defeat, Miniboss_BoomDudeDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_BoomDudeNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_BoomDudeDefeated {
@@ -1273,6 +1308,7 @@ script Miniboss_BoomDudeBPReward {
 script Miniboss_CritMaster {
 	faceplayer
 	lockall
+	goto_if_set(FLAG_DEFEATED_MOSSDEEP_GYM, Miniboss_CritMasterNoFight)
 	msgbox(format("I have cheated the system. I have a guaranteed chance to crit every time. There's no way your Pokémon can withstand me!"))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1281,6 +1317,12 @@ script Miniboss_CritMaster {
 	trainerbattle_double(TRAINER_WATTSON_2, Miniboss_Text_CritMaster_Intro, Miniboss_Text_CritMaster_Defeat, Miniboss_Text_ProtectorNeedTwoMons, Miniboss_CritMasterDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_CritMasterNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_CritMasterDefeated {
@@ -1307,6 +1349,7 @@ script Miniboss_SlowFella {
 		msgbox(format("...................................................no trick room"))
 		goto(End)
 	}
+	goto_if_set(FLAG_DEFEATED_SOOTOPOLIS_GYM, Miniboss_SlowFellaNoFight)
 	msgbox(format("..................................................."))
 	playse(SE_M_BATON_PASS)
 	waitse
@@ -1315,6 +1358,12 @@ script Miniboss_SlowFella {
 	trainerbattle_single(TRAINER_WATTSON_3, Miniboss_Text_SlowFella_Intro, Miniboss_Text_SlowFella_Defeat, Miniboss_SlowFellaDefeated)
 	closemessage
 	releaseall
+}
+
+script Miniboss_SlowFellaNoFight {
+	msgbox(format("I can tell you're too strong for me at this point, you can find someone else who is on your level."), MSGBOX_AUTOCLOSE)
+	releaseall
+	end
 }
 
 script Miniboss_SlowFellaDefeated {

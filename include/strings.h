@@ -2920,7 +2920,30 @@ extern const u8 gText_GameCorner_HeatWave[];
 extern const u8 gText_GameCorner_PowerWhip[];
 extern const u8 gText_GameCorner_RagingFury[];
 extern const u8 gText_GameCorner_PsychoBoost[];
-extern const u8 gText_GameCorner_Overheat[];
+extern const u8 gText_GameCorner_EnergyBall[];
+extern const u8 gText_GameCorner_WildCharge[];
+extern const u8 gText_GameCorner_HighHorsepower[];
+extern const u8 gText_GameCorner_ThroatChop[];
+extern const u8 gText_GameCorner_HighJumpKick[];
+extern const u8 gText_GameCorner_JumpKick[];
+extern const u8 gText_GameCorner_MeteorMash[];
+
+extern const u8 gText_GameCorner_DracoMeteor[];
+extern const u8 gText_GameCorner_Lunge[];
+extern const u8 gText_GameCorner_Megahorn[];
+extern const u8 gText_GameCorner_DragonPulse[];
+extern const u8 gText_GameCorner_HeadSmash[];
+extern const u8 gText_GameCorner_Superpower[];
+extern const u8 gText_GameCorner_SolarBlade[];
+extern const u8 gText_GameCorner_SkyAttack[];
+extern const u8 gText_GameCorner_MuddyWater[];
+extern const u8 gText_GameCorner_HammerArm[];
+extern const u8 gText_GameCorner_MeteorBeam[];
+extern const u8 gText_GameCorner_ScorchingSands[];
+extern const u8 gText_GameCorner_DrillRun[];
+extern const u8 gText_GameCorner_BodyPress[];
+
+//extern const u8 gText_GameCorner_[];
 
 extern const u8 gText_VersionDifficulty_Normal_Sandbox[];
 extern const u8 gText_VersionDifficulty_Hard_Sandbox[];

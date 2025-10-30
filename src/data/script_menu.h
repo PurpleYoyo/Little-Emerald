@@ -873,7 +873,6 @@ static const struct MenuAction MultichoiceList_PreDamage[] =
 {
     {gText_PreDamage},
     {gText_PreStatus},
-    {gText_Exit},
 };
 
 struct MultichoiceListStruct

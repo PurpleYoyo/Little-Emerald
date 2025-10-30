@@ -1659,7 +1659,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
     [SPECIES_PIDOVE] =
     {
         .baseHP        = 50,
-        .baseAttack    = 55,
+        .baseAttack    = 70,
         .baseDefense   = 50,
         .baseSpeed     = 43,
         .baseSpAttack  = 36,
@@ -6949,9 +6949,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
             gOverworldPalette_DeerlingSpring,
             gShinyOverworldPalette_DeerlingSpring
         )
-        .levelUpLearnset = sDeerlingLevelUpLearnset,
-        .teachableLearnset = sDeerlingTeachableLearnset,
-        .eggMoveLearnset = sDeerlingEggMoveLearnset,
+        .levelUpLearnset = sDeerlingSpringLevelUpLearnset,
+        .teachableLearnset = sDeerlingSpringTeachableLearnset,
+        .eggMoveLearnset = sDeerlingSpringEggMoveLearnset,
         .formSpeciesIdTable = sDeerlingFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SAWSBUCK_SPRING}),
     },
@@ -7013,9 +7013,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
             gOverworldPalette_DeerlingSummer,
             gShinyOverworldPalette_DeerlingSummer
         )
-        .levelUpLearnset = sDeerlingLevelUpLearnset,
-        .teachableLearnset = sDeerlingTeachableLearnset,
-        .eggMoveLearnset = sDeerlingEggMoveLearnset,
+        .levelUpLearnset = sDeerlingSummerLevelUpLearnset,
+        .teachableLearnset = sDeerlingSummerTeachableLearnset,
+        .eggMoveLearnset = sDeerlingSummerEggMoveLearnset,
         .formSpeciesIdTable = sDeerlingFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SAWSBUCK_SUMMER}),
     },
@@ -7077,9 +7077,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
             gOverworldPalette_DeerlingAutumn,
             gShinyOverworldPalette_DeerlingAutumn
         )
-        .levelUpLearnset = sDeerlingLevelUpLearnset,
-        .teachableLearnset = sDeerlingTeachableLearnset,
-        .eggMoveLearnset = sDeerlingEggMoveLearnset,
+        .levelUpLearnset = sDeerlingAutumnLevelUpLearnset,
+        .teachableLearnset = sDeerlingAutumnTeachableLearnset,
+        .eggMoveLearnset = sDeerlingAutumnEggMoveLearnset,
         .formSpeciesIdTable = sDeerlingFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SAWSBUCK_AUTUMN}),
     },
@@ -7141,9 +7141,9 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
             gOverworldPalette_DeerlingWinter,
             gShinyOverworldPalette_DeerlingWinter
         )
-        .levelUpLearnset = sDeerlingLevelUpLearnset,
-        .teachableLearnset = sDeerlingTeachableLearnset,
-        .eggMoveLearnset = sDeerlingEggMoveLearnset,
+        .levelUpLearnset = sDeerlingWinterLevelUpLearnset,
+        .teachableLearnset = sDeerlingWinterTeachableLearnset,
+        .eggMoveLearnset = sDeerlingWinterEggMoveLearnset,
         .formSpeciesIdTable = sDeerlingFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SAWSBUCK_WINTER}),
     },
@@ -8453,6 +8453,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         )
         .levelUpLearnset = sTynamoLevelUpLearnset,
         .teachableLearnset = sTynamoTeachableLearnset,
+        .eggMoveLearnset = sTynamoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_EELEKTRIK}),
     },
 

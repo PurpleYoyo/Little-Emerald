@@ -997,12 +997,12 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 #if P_FAMILY_SCATTERBUG
 #define SCATTERBUG_SPECIES_INFO(evolution)                                                  \
     {                                                                                       \
-        .baseHP        = 38,                                                                \
-        .baseAttack    = 35,                                                                \
+        .baseHP        = 58,                                                                \
+        .baseAttack    = 50,                                                                \
         .baseDefense   = 40,                                                                \
-        .baseSpeed     = 35,                                                                \
-        .baseSpAttack  = 27,                                                                \
-        .baseSpDefense = 25,                                                                \
+        .baseSpeed     = 45,                                                                \
+        .baseSpAttack  = 37,                                                                \
+        .baseSpDefense = 50,                                                                \
         .types = MON_TYPES(TYPE_BUG),                                                       \
         .catchRate = 255,                                                                   \
         .expYield = 40,                                                                     \

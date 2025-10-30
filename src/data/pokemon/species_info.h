@@ -2858,12 +2858,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_RALTS_FIGHTING] =
     {
-        .baseHP        = 28,
-        .baseAttack    = 45,
-        .baseDefense   = 25,
+        .baseHP        = 43,
+        .baseAttack    = 80,
+        .baseDefense   = 35,
         .baseSpeed     = 40,
         .baseSpAttack  = 25,
-        .baseSpDefense = 35,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FIGHTING),
         .catchRate = 235,
         .expYield = 70,
@@ -2996,11 +2996,11 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_WURMPLE_POISON] =
     {
         .baseHP        = 45,
-        .baseAttack    = 45,
-        .baseDefense   = 35,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 30,
+        .baseAttack    = 50,
+        .baseDefense   = 50,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 50,
         .types = { TYPE_BUG, TYPE_POISON },
         .catchRate = 255,
     #if P_UPDATED_EXP_YIELDS >= GEN_7
@@ -3069,8 +3069,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_NINCADA_GHOST] =
     {
-        .baseHP        = 31,
-        .baseAttack    = 45,
+        .baseHP        = 1,
+        .baseAttack    = 60,
         .baseDefense   = 90,
         .baseSpeed     = 40,
         .baseSpAttack  = 30,
@@ -3085,7 +3085,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_BUG),
-        .abilities = { ABILITY_COMPOUND_EYES, ABILITY_INFILTRATOR, ABILITY_WONDER_GUARD },
+        .abilities = { ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD, ABILITY_WONDER_GUARD },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Nincada"),
         .cryId = CRY_NINCADA,
@@ -3611,7 +3611,72 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMagikarpLevelUpLearnset,
         .teachableLearnset = sMagikarpTeachableLearnset,
-    }, 
+    },
+
+    [SPECIES_STARYU_SPECIAL] =
+    {
+        .baseHP        = 30,
+        .baseAttack    = 55,
+        .baseDefense   = 55,
+        .baseSpeed     = 85,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 55,
+        .types = MON_TYPES(TYPE_WATER),
+        .catchRate = 225,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 68 : 106,
+        .evYield_Speed = 1,
+                        .genderRatio = MON_GENDERLESS,
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_SLOW,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
+        .abilities = { ABILITY_PURE_POWER, ABILITY_NONE, ABILITY_NONE },
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = TRUE,
+        .speciesName = _("Staryu"),
+        .cryId = CRY_STARYU,
+        .natDexNum = NATIONAL_DEX_STARYU,
+        .categoryName = _("Star Shape"),
+        .height = 8,
+        .weight = 345,
+        .description = COMPOUND_STRING(
+            "It gathers with others in the night and\n"
+            "makes its red core glow on and off with\n"
+            "the twinkling stars. It can regenerate\n"
+            "limbs if they are severed from its body."),
+        .pokemonScale = 326,
+        .pokemonOffset = 1,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Staryu,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 48) : MON_COORDS_SIZE(40, 48),
+        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 10 : 11,
+        .frontAnimFrames = sAnims_Staryu,
+        .frontAnimId = ANIM_TWIST_TWICE,
+        .backPic = gMonBackPic_Staryu,
+        .backPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(48, 40) : MON_COORDS_SIZE(56, 56),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 13 : 6,
+        .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+        .palette = gMonPalette_Staryu,
+        .shinyPalette = gMonShinyPalette_Staryu,
+        .iconSprite = gMonIcon_Staryu,
+        .iconPalIndex = 2,
+        SHADOW(-1, 2, SHADOW_SIZE_M)
+        FOOTPRINT(Staryu)
+        OVERWORLD(
+            sPicTable_Staryu,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Staryu,
+            gShinyOverworldPalette_Staryu
+        )
+        .formSpeciesIdTable = sStaryuFormSpeciesIdTable,
+        .levelUpLearnset = sStaryuLevelUpLearnset,
+        .eggMoveLearnset = sStaryuEggMoveLearnset,
+        .teachableLearnset = sStaryuTeachableLearnset,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_STARMIE}),
+    },
 
     [SPECIES_FROAKIE_SPECIAL] =
     {
