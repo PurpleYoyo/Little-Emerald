@@ -9850,6 +9850,7 @@ static const u16 sPatratEggMoveLearnset[] = {
     MOVE_SAND_ATTACK,
     MOVE_HYPNOSIS,
     MOVE_MEAN_LOOK,
+    MOVE_GRAVITY,
     MOVE_BATON_PASS,
     MOVE_FOCUS_ENERGY,
     MOVE_NASTY_PLOT,

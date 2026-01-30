@@ -5,21 +5,34 @@ Pokémon Changes:
 
 
 Learnset Changes:
-
+Changed Patrat's lernset:
+ - Level-Up: + Hone Claws (14)
+ - Egg: + Gravity
 
 Boss Changes:
-    
+
 
 Feature Additions:
-
+Added something I call "Route Bosses".
+Route Bosses are mandatory trainers found throughout Hoenn that have crafted teams.
+ - The idea is that they're the strongest trainer in their area.
+ - Their teams are docmented in the Important Trainers sheets.
 
 Feature Changes:
-
+Raised the level of most random trainer Pokémon.
+Added more Pokémon to most random trainers.
+Changed many random trainers' Pokémon.
 
 Bugfixes:
 
 
 IDEAS:
+Wide & Zoom Lens buffs
+Scald Tepig
+Block Gym 3 Entrance until Badge 2
+Explosion Cosmog
+Buff Astonish
+Mirror Shot Horsea
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c
