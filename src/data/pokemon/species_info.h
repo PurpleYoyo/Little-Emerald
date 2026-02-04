@@ -2107,10 +2107,10 @@ const struct SpeciesInfo gSpeciesInfo[] =
     [SPECIES_CHARCADET_PSYCHIC] =
     {
         .baseHP        = 40,
-        .baseAttack    = 50,
-        .baseDefense   = 40,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 50,
+        .baseAttack    = 30,
+        .baseDefense   = 80,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 80,
         .baseSpDefense = 40,
         .types = { TYPE_FIRE, TYPE_PSYCHIC },
         .catchRate = 90,
@@ -2170,12 +2170,12 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_CHARCADET_GHOST] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 50,
+        .baseHP        = 30,
+        .baseAttack    = 80,
         .baseDefense   = 40,
-        .baseSpeed     = 35,
-        .baseSpAttack  = 50,
-        .baseSpDefense = 40,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 80,
         .types = { TYPE_FIRE, TYPE_GHOST },
         .catchRate = 90,
         .expYield = 51,
@@ -3676,6 +3676,74 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .eggMoveLearnset = sStaryuEggMoveLearnset,
         .teachableLearnset = sStaryuTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_STARMIE}),
+    },
+
+    [SPECIES_TEDDIURSA_BLOOMOON] =
+    {
+        .baseHP        = 60,
+        .baseAttack    = 50,
+        .baseDefense   = 50,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 80,
+        .baseSpDefense = 50,
+        .types = MON_TYPES(TYPE_NORMAL, TYPE_GROUND),
+        .catchRate = 120,
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 66 : 124,
+        .evYield_Attack = 1,
+                .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
+    #if P_UPDATED_ABILITIES >= GEN_4
+        .abilities = { ABILITY_MINDS_EYE, ABILITY_MINDS_EYE, ABILITY_MINDS_EYE },
+    #else
+        .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_HONEY_GATHER },
+    #endif
+        .bodyColor = BODY_COLOR_BROWN,
+        .noFlip = TRUE,
+        .speciesName = _("Teddiursa"),
+        .cryId = CRY_TEDDIURSA,
+        .natDexNum = NATIONAL_DEX_TEDDIURSA,
+        .categoryName = _("Little Bear"),
+        .height = 6,
+        .weight = 88,
+        .description = COMPOUND_STRING(
+            "It licks its palms that are sweetened by\n"
+            "being soaked in honey. A Teddiursa makes\n"
+            "its own honey by blending fruits and pollen\n"
+            "collected by Beedrill."),
+        .pokemonScale = 455,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Teddiursa,
+        .frontPicSize = P_GBA_STYLE_SPECIES_GFX ? MON_COORDS_SIZE(32, 40) : MON_COORDS_SIZE(40, 40),
+        .frontPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 13 : 12,
+        .frontAnimFrames = sAnims_Teddiursa,
+        .frontAnimId = ANIM_V_STRETCH,
+        .backPic = gMonBackPic_Teddiursa,
+        .backPicSize = MON_COORDS_SIZE(48, 48),
+        .backPicYOffset = P_GBA_STYLE_SPECIES_GFX ? 8 : 10,
+        .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+        .palette = gMonPalette_Teddiursa,
+        .shinyPalette = gMonShinyPalette_Teddiursa,
+        .iconSprite = gMonIcon_Teddiursa,
+        .iconPalIndex = 0,
+        SHADOW(-2, 1, SHADOW_SIZE_S)
+        FOOTPRINT(Teddiursa)
+        OVERWORLD(
+            sPicTable_Teddiursa,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            gOverworldPalette_Teddiursa,
+            gShinyOverworldPalette_Teddiursa
+        )
+        .levelUpLearnset = sTeddiursaBloodmoonLevelUpLearnset,
+        .teachableLearnset = sTeddiursaBloodmoonTeachableLearnset,
+        .eggMoveLearnset = sTeddiursaBloodmoonEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_URSARING}),
     },
 
     [SPECIES_FROAKIE_SPECIAL] =

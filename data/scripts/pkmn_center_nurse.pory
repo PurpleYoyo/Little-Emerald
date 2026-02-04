@@ -580,16 +580,28 @@ script EventScript_PreDamageNPC {
 				if (var(VAR_RESULT) == TRUE) {
 					getseenmon(757) // Salandit
 					if (var(VAR_RESULT) == FALSE) {
-						msgbox(format("Steel-type Pokémon cannot be Poisoned."), MSGBOX_AUTOCLOSE)
-						goto(End)
+						getseenmon(1358) // Glimmet
+						if (var(VAR_RESULT) == FALSE) {
+							getseenmon(41) // Zubat
+							if (var(VAR_RESULT) == FALSE) {
+								msgbox(format("Steel-type Pokémon cannot be Poisoned."), MSGBOX_AUTOCLOSE)
+								goto(End)
+							}
+						}
 					}
 				}
 				special(IsChosenMonPoisonType)
 				if (var(VAR_RESULT) == TRUE) {
 					getseenmon(757) // Salandit
 					if (var(VAR_RESULT) == FALSE) {
-						msgbox(format("Poison-type Pokémon cannot be Poisoned."), MSGBOX_AUTOCLOSE)
-						goto(End)
+						getseenmon(1358) // Glimmet
+						if (var(VAR_RESULT) == FALSE) {
+							getseenmon(41) // Zubat
+							if (var(VAR_RESULT) == FALSE) {
+								msgbox(format("Poison-type Pokémon cannot be Poisoned."), MSGBOX_AUTOCLOSE)
+								goto(End)
+							}
+						}
 					}					
 				}
 				setstatus1(STATUS1_POISON, VAR_0x8004)

@@ -803,10 +803,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_POOCHYENA
     [SPECIES_POOCHYENA] =
     {
-        .baseHP        = 35,
-        .baseAttack    = 55,
-        .baseDefense   = 35,
-        .baseSpeed     = 35,
+        .baseHP        = 50,
+        .baseAttack    = 70,
+        .baseDefense   = 50,
+        .baseSpeed     = 50,
         .baseSpAttack  = 30,
         .baseSpDefense = 30,
         .types = MON_TYPES(TYPE_DARK),
@@ -3405,12 +3405,12 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_WHISMUR
     [SPECIES_WHISMUR] =
     {
-        .baseHP        = 64,
+        .baseHP        = 74,
         .baseAttack    = 51,
-        .baseDefense   = 23,
-        .baseSpeed     = 28,
+        .baseDefense   = 33,
+        .baseSpeed     = 48,
         .baseSpAttack  = 51,
-        .baseSpDefense = 23,
+        .baseSpDefense = 43,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 190,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 48 : 68,

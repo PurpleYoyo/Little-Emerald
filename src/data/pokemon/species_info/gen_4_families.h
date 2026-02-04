@@ -991,7 +991,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
     [SPECIES_KRICKETOT] =
     {
         .baseHP        = 57,
-        .baseAttack    = 55,
+        .baseAttack    = 65,
         .baseDefense   = 41,
         .baseSpeed     = 45,
         .baseSpAttack  = 35,
@@ -2080,17 +2080,17 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_COMBEE
     [SPECIES_COMBEE] =
     {
-        .baseHP        = 30,
-        .baseAttack    = 30,
-        .baseDefense   = 42,
-        .baseSpeed     = 70,
-        .baseSpAttack  = 30,
-        .baseSpDefense = 42,
+        .baseHP        = 50,
+        .baseAttack    = 40,
+        .baseDefense   = 62,
+        .baseSpeed     = 40,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 62,
         .types = MON_TYPES(TYPE_BUG, TYPE_FLYING),
         .catchRate = 120,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 49 : 63,
         .evYield_Speed = 1,
-                .genderRatio = PERCENT_FEMALE(12.5),
+        .genderRatio = MON_FEMALE,
         .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,

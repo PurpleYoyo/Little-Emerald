@@ -877,7 +877,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 57,
         .baseSpAttack  = 33,
         .baseSpDefense = 35,
-        .types = MON_TYPES(TYPE_FLYING, TYPE_STEEL),
+        .types = MON_TYPES(TYPE_FLYING),
         .catchRate = 255,
         .expYield = 49,
         .evYield_Speed = 1,
@@ -1495,11 +1495,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_GOSSIFLEUR] =
     {
         .baseHP        = 40,
-        .baseAttack    = 40,
+        .baseAttack    = 30,
         .baseDefense   = 60,
         .baseSpeed     = 10,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 60,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 190,
         .expYield = 50,
@@ -2056,9 +2056,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_ROLYCOLY
     [SPECIES_ROLYCOLY] =
     {
-        .baseHP        = 30,
+        .baseHP        = 70,
         .baseAttack    = 40,
-        .baseDefense   = 50,
+        .baseDefense   = 70,
         .baseSpeed     = 30,
         .baseSpAttack  = 40,
         .baseSpDefense = 50,

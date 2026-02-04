@@ -1,8 +1,267 @@
-Version 1.3 - Updated the version number to v1.3!
-Changes since the last release (v1.2.1):
+Version 1.5 - Updated the version number to v1.5!
+Changes since the last release (v1.4):
 
 Pokémon Changes:
+Pawmi is now Electric/Fighting type.
+Staryu is now Water/Psychic type.
+Misdreavus is now Ghost/Fairy type.
+Rookidee is no longer Steel type.
+Psyduck is no longer Psychic type.
+Phanpy's abilities are now: Sturdy/Cute Charm/Sand Veil
+Sneasel's abilities are now: Inner Focus/Pickpocket/Technician
+Sneasel-Hisui's abilities are now: Inner Focus/Pickpocket/Unburden
+Pumpkaboo's abilities are now: Insomnia/Frisk/Heatproof
 
+Changed Cleffa's base stats (from v1.4):
+ HP: 50 -> 60
+ Atk: 25
+ Def: 55
+ SpA: 45 -> 60
+ SpD: 55 -> 70
+ Spe: 15
+ Total: 245 -> 285
+ 
+Changed Lechonk's base stats (from v1.4):
+ HP: 69 -> 74
+ Atk: 55
+ Def: 40
+ SpA: 35
+ SpD: 45
+ Spe: 35
+ Total: 279 -> 284
+  
+Changed Kricketot's base stats (from v1.4):
+ HP: 57
+ Atk: 55 -> 65
+ Def: 41
+ SpA: 25
+ SpD: 41
+ Spe: 25
+ Total: 274 -> 284
+ 
+Changed Scatterbug's base stats (from v1.4):
+ HP: 58
+ Atk: 50 -> 35
+ Def: 40 -> 45
+ SpA: 37 -> 57
+ SpD: 40 -> 45
+ Spe: 45 -> 55
+ Total: 270 -> 295
+ 
+Changed Bounsweet's base stats (from v1.4):
+ HP: 42
+ Atk: 50 -> 55
+ Def: 58
+ SpA: 30
+ SpD: 58
+ Spe: 32 -> 42
+ Total: 270 -> 285
+ 
+Changed Skitty's base stats (from Vanilla):
+ HP: 50 -> 60
+ Atk: 45 -> 50
+ Def: 45 -> 50
+ SpA: 35
+ SpD: 35
+ Spe: 50 -> 70
+ Total: 260 -> 300
+ 
+Changed Cosmog's base stats (from Vanilla):
+ HP: 43 -> 103
+ Atk: 29 -> 54
+ Def: 31 -> 21
+ SpA: 29 -> 54
+ SpD: 31 -> 21
+ Spe: 37
+ Total: 200 -> 290
+ 
+Changed Pichu's base stats (from Vanilla):
+ HP: 20 -> 30
+ Atk: 40 -> 50
+ Def: 15 -> 25
+ SpA: 35 -> 50
+ SpD: 35 -> 55
+ Spe: 60 -> 80
+ Total: 205 -> 290
+ 
+Changed Tyrogue's base stats (from Vanilla):
+ HP: 35 -> 50
+ Atk: 35 -> 40
+ Def: 35
+ SpA: 35
+ SpD: 35 -> 70
+ Spe: 35 -> 50
+ Total: 210 -> 280
+ 
+Changed Poochyena's base stats (from Vanilla):
+ HP: 35 -> 50
+ Atk: 55 -> 70
+ Def: 35 -> 50
+ SpA: 30
+ SpD: 30
+ Spe: 35 -> 50
+ Total: 220 -> 280
+
+Changed Wooper's base stats (from Vanilla):
+ HP: 55 -> 70
+ Atk: 45 -> 60
+ Def: 45 -> 60
+ SpA: 25 -> 40
+ SpD: 25 -> 40
+ Spe: 15
+ Total: 210 -> 285
+
+Changed Wooper-Paldea's base stats (from Vanilla):
+ HP: 55 -> 80
+ Atk: 45
+ Def: 45
+ SpA: 25
+ SpD: 25 -> 75
+ Spe: 15
+ Total: 210 -> 285
+
+Changed Pawmi's base stats (from Vanilla):
+ HP: 45
+ Atk: 50 -> 70
+ Def: 20 -> 45
+ SpA: 40 -> 45
+ SpD: 25 -> 30
+ Spe: 60
+ Total: 240 -> 295
+
+Changed Rolycoly's base stats (from Vanilla):
+ HP: 30 -> 70
+ Atk: 40
+ Def: 50 -> 70
+ SpA: 40
+ SpD: 50
+ Spe: 30
+ Total: 240 -> 300
+ 
+Changed Charcadet-Psychic's base stats (from v1.4):
+ HP: 40
+ Atk: 50 -> 30
+ Def: 40 -> 80
+ SpA: 50 -> 80
+ SpD: 40
+ Spe: 35 -> 50
+ Total: 255 -> 320
+ 
+Changed Charcadet-Ghost's base stats (from v1.4):
+ HP: 40 -> 30
+ Atk: 50 -> 80
+ Def: 40
+ SpA: 50 -> 30
+ SpD: 40 -> 80
+ Spe: 35 -> 60
+ Total: 255 -> 320
+ 
+Changed Whismur's base stats (from Vanilla):
+ HP: 64 -> 74
+ Atk: 51
+ Def: 23 -> 33
+ SpA: 51
+ SpD: 23 -> 43
+ Spe: 28 -> 48
+ Total: 240 -> 300
+ 
+Changed Combee's base stats (from Vanilla):
+ HP: 30 -> 50
+ Atk: 30 -> 40
+ Def: 42 -> 62
+ SpA: 30 -> 40
+ SpD: 42 -> 62
+ Spe: 70 -> 40
+ Total: 244 -> 294 
+ 
+Changed Wiglett's base stats (from Vanilla):
+ HP: 10
+ Atk: 55 -> 95
+ Def: 25
+ SpA: 35
+ SpD: 25
+ Spe: 95
+ Total: 245 -> 285
+ 
+Changed Noibat's base stats (from Vanilla):
+ HP: 40
+ Atk: 30
+ Def: 35 -> 40
+ SpA: 45 -> 60
+ SpD: 40
+ Spe: 55 -> 75
+ Total: 245 -> 285 
+ 
+Changed Zubat's base stats (from Vanilla):
+ HP: 40
+ Atk: 45 -> 50
+ Def: 35 -> 40
+ SpA: 30 -> 40
+ SpD: 40
+ Spe: 55 -> 100
+ Total: 245 -> 310
+ 
+Changed Flittle's base stats (from Vanilla):
+ HP: 30 -> 50
+ Atk: 35
+ Def: 30
+ SpA: 55 -> 60
+ SpD: 30
+ Spe: 75
+ Total: 255 -> 280 
+ 
+Changed Spinarak's base stats (from Vanilla):
+ HP: 40
+ Atk: 60 -> 95
+ Def: 40
+ SpA: 40
+ SpD: 40
+ Spe: 30
+ Total: 250 -> 285 
+ 
+Changed Slugma's base stats (from Vanilla):
+ HP: 40
+ Atk: 40
+ Def: 40 -> 60
+ SpA: 70
+ SpD: 40
+ Spe: 20
+ Total: 250 -> 270 
+ 
+Changed Swinub's base stats (from Vanilla):
+ HP: 50 -> 60
+ Atk: 50 -> 70
+ Def: 40 -> 50
+ SpA: 30
+ SpD: 30
+ Spe: 50
+ Total: 250 -> 290 
+ 
+Changed Fomantis's base stats (from Vanilla):
+ HP: 40
+ Atk: 55 -> 65
+ Def: 35 -> 50
+ SpA: 50 -> 40
+ SpD: 35 -> 50
+ Spe: 35 -> 30
+ Total: 250 -> 275
+ 
+Changed Gossifleur's base stats (from Vanilla):
+ HP: 40
+ Atk: 40 -> 30
+ Def: 60
+ SpA: 40 -> 50
+ SpD: 60 -> 90
+ Spe: 10
+ Total: 250 -> 280 
+ 
+Set Teddiursa-Bloodmoon's base stats:
+ HP: 60
+ Atk: 50
+ Def: 50
+ SpA: 80
+ SpD: 50
+ Spe: 40
 
 Learnset Changes:
 Changed Patrat's lernset:
@@ -14,14 +273,21 @@ Boss Changes:
 
 Feature Additions:
 Added something I call "Route Bosses".
-Route Bosses are mandatory trainers found throughout Hoenn that have crafted teams.
+Route Bosses are (mostly) mandatory trainers found throughout Hoenn that have crafted teams in Hard Mode.
  - The idea is that they're the strongest trainer in their area.
- - Their teams are docmented in the Important Trainers sheets.
+ - Their teams are docmented in the Hard Mode Important Trainers sheet.
+ - Their Pokémon have Hardy natures, no items (mostly), and level-up moves in Normal Mode.
+*Note: All trainer Pokémon not in the Important Trainers documents have a Hardy nature and level-up moves.
+Combee and Salandit are now always female.
+Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye ability, an added Ground type, and a separate learnet.
 
 Feature Changes:
+Seeing Zubat or Glimmet now also allows you to pre-poison a Steel or Poison type.
 Raised the level of most random trainer Pokémon.
 Added more Pokémon to most random trainers.
 Changed many random trainers' Pokémon.
+Made the entrance to Deep Woods a bit more noticeable.
+Moved Speedy Kid to Route 117.
 
 Bugfixes:
 
@@ -33,6 +299,10 @@ Block Gym 3 Entrance until Badge 2
 Explosion Cosmog
 Buff Astonish
 Mirror Shot Horsea
+Ancient Power, Ominous Wind, Weather Ball, Fling, Headbutt, Skitty
+Gender Changer
+Priority for Spinarak
+Teddiursa-Bloodmoon
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c

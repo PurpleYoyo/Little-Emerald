@@ -570,7 +570,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_LECHONK
     [SPECIES_LECHONK] =
     {
-        .baseHP        = 69,
+        .baseHP        = 74,
         .baseAttack    = 55,
         .baseDefense   = 40,
         .baseSpeed     = 35,
@@ -1012,12 +1012,12 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_PAWMI] =
     {
         .baseHP        = 45,
-        .baseAttack    = 50,
-        .baseDefense   = 20,
+        .baseAttack    = 70,
+        .baseDefense   = 45,
         .baseSpeed     = 60,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 25,
-        .types = MON_TYPES(TYPE_ELECTRIC),
+        .baseSpAttack  = 45,
+        .baseSpDefense = 30,
+        .types = MON_TYPES(TYPE_ELECTRIC, TYPE_FIGHTING),
         .catchRate = 190,
         .expYield = 48,
         .evYield_Speed = 1,
@@ -3408,11 +3408,11 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
 #if P_FAMILY_FLITTLE
     [SPECIES_FLITTLE] =
     {
-        .baseHP        = 30,
+        .baseHP        = 50,
         .baseAttack    = 35,
         .baseDefense   = 30,
         .baseSpeed     = 75,
-        .baseSpAttack  = 55,
+        .baseSpAttack  = 60,
         .baseSpDefense = 30,
         .types = MON_TYPES(TYPE_PSYCHIC),
         .catchRate = 120,
@@ -3726,7 +3726,7 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
     [SPECIES_WIGLETT] =
     {
         .baseHP        = 10,
-        .baseAttack    = 55,
+        .baseAttack    = 95,
         .baseDefense   = 25,
         .baseSpeed     = 95,
         .baseSpAttack  = 35,
