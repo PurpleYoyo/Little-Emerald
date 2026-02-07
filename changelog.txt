@@ -283,6 +283,7 @@ Combee and Salandit are now always female.
 Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye ability, an added Ground type, and a separate learnet.
 
 Feature Changes:
+Changed the static Pawniard in Ancient Tomb to a Teddiursa-Bloodmoon.
 Revised the in-game trades from vanilla.
 Seeing Zubat or Glimmet now also allows you to pre-poison a Steel or Poison type.
 Raised the level of most random trainer Pokémon.
