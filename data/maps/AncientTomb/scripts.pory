@@ -59,10 +59,10 @@ AncientTomb_EventScript_Registeel::
 	lock
 	faceplayer
 	waitse
-	playmoncry SPECIES_PAWNIARD, CRY_MODE_ENCOUNTER
+	playmoncry SPECIES_TEDDIURSA, CRY_MODE_ENCOUNTER
 	delay 40
 	waitmoncry
-	setwildbattle SPECIES_PAWNIARD, 40
+	setwildbattle SPECIES_TEDDIURSA_BLOODMOON, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	special StartRegiBattle
 	waitstate

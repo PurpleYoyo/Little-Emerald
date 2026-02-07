@@ -8,6 +8,7 @@ Misdreavus is now Ghost/Fairy type.
 Rookidee is no longer Steel type.
 Psyduck is no longer Psychic type.
 Phanpy's abilities are now: Sturdy/Cute Charm/Sand Veil
+Lileep's abilities are now: Suction Cups/Storm Drain/Poison Heal
 Sneasel's abilities are now: Inner Focus/Pickpocket/Technician
 Sneasel-Hisui's abilities are now: Inner Focus/Pickpocket/Unburden
 Pumpkaboo's abilities are now: Insomnia/Frisk/Heatproof
@@ -282,6 +283,7 @@ Combee and Salandit are now always female.
 Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye ability, an added Ground type, and a separate learnet.
 
 Feature Changes:
+Revised the in-game trades from vanilla.
 Seeing Zubat or Glimmet now also allows you to pre-poison a Steel or Poison type.
 Raised the level of most random trainer Pokémon.
 Added more Pokémon to most random trainers.
@@ -302,7 +304,8 @@ Mirror Shot Horsea
 Ancient Power, Ominous Wind, Weather Ball, Fling, Headbutt, Skitty
 Gender Changer
 Priority for Spinarak
-Teddiursa-Bloodmoon
+Mega Drain Kabuto
+Leech Seed, Baton Pass Lileep
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c

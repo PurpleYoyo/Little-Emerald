@@ -1717,7 +1717,9 @@
 
 #define SPECIES_STARYU_SPECIAL                          1580
 
-#define SPECIES_EGG                                     (SPECIES_STARYU_SPECIAL + 1)
+#define SPECIES_TEDDIURSA_BLOODMOON                     1581
+
+#define SPECIES_EGG                                     (SPECIES_TEDDIURSA_BLOODMOON + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

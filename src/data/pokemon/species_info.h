@@ -3678,7 +3678,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_STARMIE}),
     },
 
-    [SPECIES_TEDDIURSA_BLOOMOON] =
+    [SPECIES_TEDDIURSA_BLOODMOON] =
     {
         .baseHP        = 60,
         .baseAttack    = 50,
