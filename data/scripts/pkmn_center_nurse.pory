@@ -1158,7 +1158,7 @@ script TryBuyEviolite {
 	//setvar(VAR_0x8008, 4) // Price | *
 	setvar(VAR_0x8009, ITEM_EVIOLITE) // Item to give the player
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints) // Get the player's BP
-	if (var(VAR_TEMP_1) < 4) { // If not enough BP | 1*
+	if (var(VAR_TEMP_1) < 3) { // If not enough BP | 1*
 		msgbox(format("You don't have enough Battle Points. Come back later when you have some."), MSGBOX_AUTOCLOSE)
 		goto(End)
 	}
@@ -1168,7 +1168,7 @@ script TryBuyEviolite {
 		goto(End)
 	}
 	//copyvar(VAR_0x8004, VAR_0x8008) // Set 8004 to 8008 | 2*
-	setvar(VAR_0x8004, 4) // ^
+	setvar(VAR_0x8004, 3) // ^
 	special(TakeFrontierBattlePoints) // Take the amount of BP in 8004
 	playse(SE_SHOP)
 	additem(VAR_0x8009) // Give the player the item
@@ -1388,7 +1388,7 @@ script TryBuyAssaultVest {
 	}
 	setvar(VAR_0x8009, ITEM_ASSAULT_VEST)
 	specialvar(VAR_TEMP_1, GetFrontierBattlePoints)
-	if (var(VAR_TEMP_1) < 2) {
+	if (var(VAR_TEMP_1) < 3) {
 		msgbox(format("You don't have enough Battle Points. Come back later when you have some."), MSGBOX_AUTOCLOSE)
 		goto(End)
 	}
@@ -1397,7 +1397,7 @@ script TryBuyAssaultVest {
 		msgbox(format("You don't have bag space for this item."), MSGBOX_AUTOCLOSE)
 		goto(End)
 	}
-	setvar(VAR_0x8004, 2)
+	setvar(VAR_0x8004, 3)
 	special(TakeFrontierBattlePoints)
 	playse(SE_SHOP)
 	additem(VAR_0x8009)
@@ -2802,6 +2802,12 @@ script NoGym7Before6 {
 	goto(End)
 }
 
+script NoGym3Before2 {
+	msgbox(format("You should probably go back to the gym in Dewford Town first."), MSGBOX_AUTOCLOSE)
+	applymovement(OBJ_EVENT_ID_PLAYER, Movement_LeftOne)
+	goto(End)
+}
+
 script FossilShop {
 	if (flag(FLAG_REVIVED_FOSSIL)) {
 		msgbox(format("FOSSILS are so… Wonderful… They're so dreamy… Since you seem to be a fellow FOSSIL connoissuer, I'll let you buy my extras… Interested?"), MSGBOX_YESNO)
@@ -3039,6 +3045,46 @@ script HPTypeChangerNPC {
 	special(TakeFrontierBattlePoints)
 	special(CloseBattlePointsWindow)
 	playse(SE_SHOP)
+	release
+}
+
+script GenderChangerNPC {
+	lock
+	faceplayer
+	msgbox(format("I can change your Pokemon's Gender for free. Would you like me to do that?"), MSGBOX_YESNO)
+    if (var(VAR_RESULT) == NO) {
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+    	goto(End)
+	}
+    msgbox(format("Who's gender do you want to change?"), MSGBOX_AUTOCLOSE)
+    special(ChoosePartyMon)
+    waitstate
+    if (var(VAR_0x8004) == 255) {
+    	goto(End)
+	}
+    special(IsSelectedMonEgg)
+    if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't change an egg's gender."), MSGBOX_AUTOCLOSE)
+    	goto(End)
+	}
+	special(IsMonGenderless)
+    if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't change a genderless Pokémon's gender."), MSGBOX_AUTOCLOSE)
+    	goto(End)
+	}
+	special(IsMonMonoGender)
+    if (var(VAR_RESULT) == TRUE) {
+		msgbox(format("I can't change a mono gender Pokémon's gender."), MSGBOX_AUTOCLOSE)
+    	goto(End)
+	}
+    specialvar(VAR_0x8008 GetSelectedMonNicknameAndSpecies)
+    bufferspeciesname(2, VAR_0x8008)
+    special(ChangeMonGender)
+    if (var(VAR_RESULT) == MULTI_B_PRESSED) {
+    	goto(End)
+	}
+    msgbox(format("And... Done! Changed {STR_VAR_3}'s gender!"), MSGBOX_AUTOCLOSE)
 	release
 }
 

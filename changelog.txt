@@ -265,9 +265,173 @@ Set Teddiursa-Bloodmoon's base stats:
  Spe: 40
 
 Learnset Changes:
-Changed Patrat's lernset:
+Toxic has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Poison type Pokémon (except Sneasel-Hisui) can learn Toxic via TM.
+The full list of non Poison type Pokémon with access to Toxic is:
+ - Happiny
+ - Lechonk
+ - Milcery
+ - Wurmple
+ - Eevee
+ - Goomy
+ - Lileep
+ - Combee
+
+Sandstorm has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Rock/Ground type Pokémon can learn Sandstorm via TM.
+The full list of non Rock/Ground type Pokémon with access to Sandstorm is:
+ - Bergmite
+ - Teddiursa
+ - Nidoran♀
+ - Nidoran♂
+ - Lechonk
+ - Lickitung
+ - Rellor
+ - Cufant
+ - Tympole
+ - Shellos
+ - Lillipup
+ - Greavard
+ - Cacnea
+ - Helioptile
+ - Wiglett
+
+Rain Dance has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Water type Pokémon (except for Wimpod and Clobbopus) can learn Rain Dance via TM.
+The full list of non Water type Pokémon with access to Rain Dance is:
+ - Eevee
+ - Goomy
+ - Cubchoo
+ - Azurill
+ - Qwilfish-Hisui
+ - Anorith
+ - Smoochum
+ - Shelmet
+ - Paras
+ - Helioptile
+ - Croagunk
+ - Morelull
+
+Snowscape has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Ice type Pokémon can learn Snowscape via TM.
+The full list of non Ice type Pokémon with access to Snowscape is:
+ - Clamperl
+ - Eevee
+ - Mime Jr.
+ - Shellder
+ - Crabrawler
+ - Slowpoke
+ - Slowpoke-Galar
+
+Sunny Day has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Fire type Pokémon can learn Sunny Day via TM.
+The full list of non Fire type Pokémon with access to Sunny Day is:
+ - Ponyta-Galar
+ - Eevee
+ - Cubone
+ - Bulbasaur
+ - Oddish
+ - Bellsprout
+ - Exeggcute
+ - Tangela
+ - Hoppip
+ - Seedot
+ - Cherubi
+ - Sewaddle
+ - Cottonee
+ - Petilil
+ - Deerling-Spring
+ - Deerling-Autumn
+ - Deerling-Winter
+ - Chikorita
+ - Budew
+ - Fomantis
+ - Bounsweet
+ - Helioptile
+
+Changed Honedge's learnset:
+ - TM: - Rock Smash, Shock Wave
+       + Light Screen
+ - Tutor: + Power Whip, Meteor Beam, Outrage, Thrash, Drill Run, Heavy Slam, Stone Edge, Megahorn, Focus Blast
+
+Changed Machop's learnset:
+ - TM: - Fire Blast, Light Screen, Flamethrower
+ - Tutor: - Metronome
+          + Hammer Arm, Stone Edge, Head Smash
+ - Egg: - Mega Kick, Double Team, Curse, Mud-Slap, Captivate, Fissure
+
+Changed Tirtouga's learnset:
+ - Egg: - Iron Defense
+        + Shelter
+
+Changed Turtwig's learnset:
+ - Egg: + Shelter
+
+Changed Chewtle's learnset:
+ - Egg: + Shelter
+
+Changed Dwebble's learnset:
+ - Egg: - Iron Defense, Confide, Counter
+        + Shelter
+
+Changed Abra's learnset:
+ - Level-Up: + Confusion (6), Safeguard (7), Psybeam (16), Psycho Cut (17), Recover (20), Psyshock (23), Future Sight (25), Psychic (28), Calm Mind (31)
+ - TM: - Body Slam, Foul Play, Thief
+       + Hyper Beam, Brick Break, Agility, Expanding Force
+ - Tutor: - Double-Edge, Swagger
+          + Focus Blast, Psycho Boost
+ - Egg: - Curse, Counter
+        + Tri Attack, Confuse Ray, Sucker Punch
+
+Changed Patrat's learnset:
  - Level-Up: + Hone Claws (14)
  - Egg: + Gravity
+
+Changed Skitty's learnset:
+ - TM: + Fling
+ - Egg: + Ancient Power, Ominous Wind, Headbutt, Weather Ball
+
+Changed Horsea's learnset:
+ - TM: + Mirror Shot
+
+Changed Fomantis's learnset:
+ - Level-Up: + First Impression (31)
+
+Changed Spinarak's learnset:
+ - Level-Up: - Pin Missile (33)
+             + First Impression (33)
+ - Egg: + Feint, Extreme Speed
+
+Changed Tepig's learnset:
+ - Level-Up: - Roar (39)
+             + Head Charge (39)
+ - TM: - Dig, Fire Punch, Rock Smash
+       + Scald
+
+Changed Eevee's lernset:
+ - TM: - Dig, Shadow Ball
+       + Seed Bomb, Stored Power, Ice Beam, Blizzard, Dark Pulse, Lash Out, Giga Drain, Solar Beam, Thunder, Thunderbolt, Liquidation, Psychic, Overheat,
+         Flamethrower, Fire Blast, Water Pulse, Draining Kiss, Dazzling Gleam, Foul Play, Play Rough, Volt Switch, Thunder Wave, Scald, Expanding Force
+ - Tutor: + Heat Wave, Energy Ball, Aqua Tail, Throat Chop, Muddy Water, Wild Charge, Flare Blitz, Hydro Pump, Leaf Storm, Power Whip, Psycho Boost, Solar Blade
+
+Changed Goomy's learnset:
+ - TM: + Liquidation
+ - Egg: + Dragon Dance
+
+Changed Lileep's learnset:
+ - Egg: + Leech Seed, Baton Pass
+
+Changed Rhyhorn's learnset:
+ - TM: - Thunderbolt, Thunder, Thief, Swords Dance, Sunny Day, Dragon Pulse, Icy Wind, Shock Wave, Rain Dance, Flamethrower, Fire Blast, Blizzard
+ - Tutor: + Wild Charge
+ - Egg: + Submission
+
+Changed Combee's learnset:
+ - Level-Up: - Bug Bite (1)
+             + Poison Sting (4), Bug Bite (5), Slash (10), Roost (15), Air Cutter (16), Defend Order (17), Toxic (19), Attack Order (21), Air Slash (22), Bug Buzz (28), Destiny Bond (30)
+ - TM: + Pounce, Power Gem, Aerial Ace, Sludge Bomb, Agility, Acrobatics, U-turn, Bullet Seed, Giga Drain, Hyper Beam, Leech Life
+ - Tutor: + Fury Cutter, Swagger, Hurricane, Lunge, Rollout
+ - Egg: + Aromatic Mist, Fell Stinger, Confuse Ray, Heal Order, Signal Beam, Silver Wind, Toxic Spikes, Spikes, Venoshock, Endeavor, Skitter Smack
 
 Boss Changes:
 
@@ -281,8 +445,17 @@ Route Bosses are (mostly) mandatory trainers found throughout Hoenn that have cr
 *Note: All trainer Pokémon not in the Important Trainers documents have a Hardy nature and level-up moves.
 Combee and Salandit are now always female.
 Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye ability, an added Ground type, and a separate learnet.
+Added an NPC in Rusturf Tunnel that allows you to change the gender of a Pokémon.
 
 Feature Changes:
+You can no longer enter the Mauville City gym unti you have defeated Brawly.
+Increased the base power of Astonish to 50.
+Wide Lens now boosts accuracy by 30%.
+Zoom Lens now boosts accuracy by 30% all the time and by 50% if the holder moves after the target.
+Eviolite now only boosts Defense.
+Decreased the cost of an Eviolite to 3 BP.
+Assault Vest no longer prevents the use of status moves.
+Increased the cost of an Assault Vest to 3 BP.
 Changed the static Pawniard in Ancient Tomb to a Teddiursa-Bloodmoon.
 Revised the in-game trades from vanilla.
 Seeing Zubat or Glimmet now also allows you to pre-poison a Steel or Poison type.
@@ -296,17 +469,7 @@ Bugfixes:
 
 
 IDEAS:
-Wide & Zoom Lens buffs
-Scald Tepig
-Block Gym 3 Entrance until Badge 2
-Explosion Cosmog
-Buff Astonish
-Mirror Shot Horsea
-Ancient Power, Ominous Wind, Weather Ball, Fling, Headbutt, Skitty
-Gender Changer
-Priority for Spinarak
-Mega Drain Kabuto
-Leech Seed, Baton Pass Lileep
+
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c

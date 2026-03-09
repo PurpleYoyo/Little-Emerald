@@ -7864,7 +7864,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
             "An attack that may shock\n"
             "the foe into flinching."),
         .effect = EFFECT_HIT,
-        .power = 30,
+        .power = 50,
         .type = TYPE_GHOST,
         .accuracy = 100,
         .pp = 15,
@@ -10819,7 +10819,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .effect = EFFECT_HIT,
         .power = 90,
         .type = TYPE_NORMAL,
-        .accuracy = 85,
+        .accuracy = 100,
         .pp = 20,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,

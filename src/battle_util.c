@@ -1396,24 +1396,6 @@ u32 TrySetCantSelectMoveBattleScript(u32 battler)
             limitations++;
         }
     }
-    else if (holdEffect == HOLD_EFFECT_ASSAULT_VEST && IS_MOVE_STATUS(move) && gMovesInfo[move].effect != EFFECT_ME_FIRST)
-    {
-        if ((GetActiveGimmick(gBattlerAttacker) == GIMMICK_DYNAMAX))
-            gCurrentMove = MOVE_MAX_GUARD;
-        else
-            gCurrentMove = move;
-        gLastUsedItem = gBattleMons[battler].item;
-        if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
-        {
-            gPalaceSelectionBattleScripts[battler] = BattleScript_SelectingNotAllowedMoveAssaultVestInPalace;
-            gProtectStructs[battler].palaceUnableToUseMove = TRUE;
-        }
-        else
-        {
-            gSelectionBattleScripts[battler] = BattleScript_SelectingNotAllowedMoveAssaultVest;
-            limitations++;
-        }
-    }
     if (DYNAMAX_BYPASS_CHECK && (GetBattlerAbility(battler) == ABILITY_GORILLA_TACTICS) && *choicedMove != MOVE_NONE
               && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
     {
@@ -1500,9 +1482,6 @@ u8 CheckMoveLimitations(u32 battler, u8 unusableMoves, u16 check)
             unusableMoves |= 1u << i;
         // Choice Items
         else if (check & MOVE_LIMITATION_CHOICE_ITEM && HOLD_EFFECT_CHOICE(holdEffect) && *choicedMove != MOVE_NONE && *choicedMove != MOVE_UNAVAILABLE && *choicedMove != move)
-            unusableMoves |= 1u << i;
-        // Assault Vest
-        else if (check & MOVE_LIMITATION_ASSAULT_VEST && holdEffect == HOLD_EFFECT_ASSAULT_VEST && IS_MOVE_STATUS(move) && gMovesInfo[move].effect != EFFECT_ME_FIRST)
             unusableMoves |= 1u << i;
         // Gravity
         else if (check & MOVE_LIMITATION_GRAVITY && IsGravityPreventingMove(move))
@@ -10073,7 +10052,7 @@ static inline u32 CalcDefenseStat(struct DamageCalculationData *damageCalcData, 
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
         break;
     case HOLD_EFFECT_EVIOLITE:
-        if (CanEvolve(gBattleMons[battlerDef].species))
+        if (usesDefStat)
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
         break;
     case HOLD_EFFECT_ASSAULT_VEST:

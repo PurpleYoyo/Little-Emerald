@@ -8723,7 +8723,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Wide Lenses"),
         .price = 5000,
         .holdEffect = HOLD_EFFECT_WIDE_LENS,
-        .holdEffectParam = 10,
+        .holdEffectParam = 30,
         .description = COMPOUND_STRING(
             "A magnifying lens\n"
             "that boosts the\n"
@@ -8867,7 +8867,7 @@ const struct Item gItemsInfo[] =
         .pluralName = _("Zoom Lenses"),
         .price = 4000,
         .holdEffect = HOLD_EFFECT_ZOOM_LENS,
-        .holdEffectParam = 20,
+        .holdEffectParam = 50,
         .description = COMPOUND_STRING(
             "If the holder moves\n"
             "after the foe, it'll\n"

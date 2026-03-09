@@ -1618,7 +1618,14 @@ u32 GetTotalAccuracy(u32 battlerAtk, u32 battlerDef, u32 move, u32 atkAbility, u
         break;
     case HOLD_EFFECT_ZOOM_LENS:
         if (GetBattlerTurnOrderNum(battlerAtk) > GetBattlerTurnOrderNum(battlerDef))
+        {
             calc = (calc * (100 + atkParam)) / 100;
+        }
+        else
+        {
+            calc = (calc * (100 + 30)) / 100;
+        }
+
         break;
     }
 

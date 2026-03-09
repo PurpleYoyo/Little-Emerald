@@ -265,7 +265,7 @@
 #define VAR_SCOTT_BF_CALL_STEP_COUNTER                   0x40F5
 #define VAR_RIVAL_RAYQUAZA_CALL_STEP_COUNTER             0x40F6
 #define VAR_GYM6_DEFEATED                                0x40F7
-#define VAR_UNUSED_0x40F8                                0x40F8 // Unused Var
+#define VAR_GYM2_DEFEATED                                0x40F8
 #define VAR_MONOTYPE                                     0x40F9
 #define VAR_DIFFICULTY                                   0x40FA
 #define VAR_SANDBOX_MODE                                 0x40FB

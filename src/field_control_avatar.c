@@ -148,14 +148,14 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     else if (heldKeys & DPAD_RIGHT)
         input->dpadDirection = DIR_EAST;
 
-    //if(DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
-    //{
-    //    if ((heldKeys & DEBUG_OVERWORLD_HELD_KEYS) && input->DEBUG_OVERWORLD_TRIGGER_EVENT)
-    //    {
-    //        input->input_field_1_2 = TRUE;
-    //        input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
-    //    }
-    //}
+    if(DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
+    {
+        if ((heldKeys & DEBUG_OVERWORLD_HELD_KEYS) && input->DEBUG_OVERWORLD_TRIGGER_EVENT)
+        {
+            input->input_field_1_2 = TRUE;
+            input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
+        }
+    }
 
     // Diving
     if ((heldKeys & (B_BUTTON)) && input->pressedAButton)
@@ -176,11 +176,12 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
         //input->pressedSelectButton = FALSE;
     }
 
-    if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
-     && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
-    {
-        ScriptContext_SetupScript(EventScript_ToggleAutoRun);
-    }
+    // Auto Run
+    //if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
+    // && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
+    //{
+    //    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
+    //}
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)

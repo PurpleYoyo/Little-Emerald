@@ -8050,6 +8050,47 @@ static void ShiftMoveSlot(struct Pokemon *mon, u8 slotTo, u8 slotFrom)
     SetMonData(mon, MON_DATA_PP_BONUSES, &ppBonuses);
 }
 
+void IsMonMonoGender(void)
+{
+    u16 species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY);
+    u8 gender = GetGenderFromSpeciesAndPersonality(species, personality);
+
+    if (species == SPECIES_COMBEE ||
+        species == SPECIES_SALANDIT ||
+        species == SPECIES_BOUNSWEET ||
+        species == SPECIES_FLABEBE ||
+        species == SPECIES_HAPPINY ||
+        species == SPECIES_HATENNA ||
+        species == SPECIES_MILCERY ||
+        species == SPECIES_PETILIL ||
+        species == SPECIES_PETILIL_FIGHTING ||
+        species == SPECIES_SMOOCHUM ||
+        species == SPECIES_NIDORAN_F ||
+        species == SPECIES_TINKATINK ||
+        species == SPECIES_VULLABY ||
+        species == SPECIES_IMPIDIMP ||
+        species == SPECIES_NIDORAN_M ||
+        species == SPECIES_RUFFLET ||
+        species == SPECIES_TYROGUE)
+        gSpecialVar_Result = TRUE;
+    else
+        gSpecialVar_Result = FALSE;
+}
+
+void IsMonGenderless(void)
+{
+    u16 species = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES);
+    u32 personality = GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY);
+    u8 gender = GetGenderFromSpeciesAndPersonality(species, personality);
+
+    if (gender == MON_MALE ||
+        gender == MON_FEMALE)
+        gSpecialVar_Result = FALSE;
+    else
+        gSpecialVar_Result = TRUE;
+}
+
 void IsSelectedMonEgg(void)
 {
     if (GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_IS_EGG))

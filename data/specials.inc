@@ -575,6 +575,9 @@ gSpecials::
 	def_special GetRandomFossil
 	def_special GetRandomBabyEgg
 	def_special AbilityTutor
+	def_special ChangeMonGender
+	def_special IsMonMonoGender
+	def_special IsMonGenderless
 	def_special HPTypeChanger
 	def_special GetEvGainVar
 	def_special GetAlwaysCatchVar

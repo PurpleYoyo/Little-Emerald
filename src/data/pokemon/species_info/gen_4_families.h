@@ -2148,6 +2148,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
         )
         .levelUpLearnset = sCombeeLevelUpLearnset,
         .teachableLearnset = sCombeeTeachableLearnset,
+        .eggMoveLearnset = sCombeeEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_VESPIQUEN}),
     },
 
