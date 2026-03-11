@@ -370,9 +370,38 @@ Changed Turtwig's learnset:
 Changed Chewtle's learnset:
  - Egg: + Shelter
 
+Changed Cranidos's learnset:
+ - Egg: + Accelerock
+
+Changed Bonsly's learnset:
+ - Egg: + Accelerock
+
+Changed Archen's learnset:
+ - Egg: + Accelerock
+
+Changed Tyrunt's learnset:
+ - Egg: + Accelerock
+
+Changed Bunnelby's learnset:
+ - Egg: + Fissure
+
 Changed Dwebble's learnset:
  - Egg: - Iron Defense, Confide, Counter
         + Shelter
+
+Changed Growlithe-Hisui's learnset:
+ - Level-Up: - Helping Hand (16), Roar (44), Close Combat (52)
+             + Roar (4), Rock Throw (6), Rock Blast (17), Accelerock (24)
+
+Changed Rockruff's learnset:
+ - Level-Up: - Rock Tomb (24)
+             + Rock Tomb (17), Accelerock (24)
+
+Changed Zigzagoon's learnset:
+ - Level-Up: + Extreme Speed (41)
+
+Changed Zigzagoon-Galar's learnset:
+ - Level-Up: + Extreme Speed (41)
 
 Changed Abra's learnset:
  - Level-Up: + Confusion (6), Safeguard (7), Psybeam (16), Psycho Cut (17), Recover (20), Psyshock (23), Future Sight (25), Psychic (28), Calm Mind (31)
@@ -434,7 +463,24 @@ Changed Combee's learnset:
  - Egg: + Aromatic Mist, Fell Stinger, Confuse Ray, Heal Order, Signal Beam, Silver Wind, Toxic Spikes, Spikes, Venoshock, Endeavor, Skitter Smack
 
 Boss Changes:
-
+Raised the level caps and levels of gyms 4-8 and the Pokémon league by 5.
+Raised the levels of the following bosses by 5:
+Magma Hideout Admin Tabitha
+Magma Hideout Leader Maxie
+Mossdeep Space Center Admin Courtney & Leader Maxie
+Weather Institute Admin Shelly
+Mt. Pyre Summit Admin Matt & Leader Archie
+Aqua Hideout Admin Matt
+Seafloor Cavern Archie
+Route 119 Rival
+Lilycove City Rival
+Victory Road Wally
+Mini-Boss Collector
+Mini-Boss Boom Dude
+Mini-Boss Critter
+Mini-Boss Slow Fella
+Mini-Boss Smasher
+Mini-Boss Purkat
 
 Feature Additions:
 Added something I call "Route Bosses".
@@ -448,6 +494,10 @@ Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye abilit
 Added an NPC in Rusturf Tunnel that allows you to change the gender of a Pokémon.
 
 Feature Changes:
+Wing Attack is now 80 base power.
+Razor Wind is now a 1-turn move.
+Razor Wind is now Physical.
+Razor Wind is now Flying type.
 You can no longer enter the Mauville City gym unti you have defeated Brawly.
 Increased the base power of Astonish to 50.
 Wide Lens now boosts accuracy by 30%.
@@ -469,7 +519,18 @@ Bugfixes:
 
 
 IDEAS:
+Rising Voltage Physical?
+Evil Norman team
 
+NOTES:
+B2Bs:
+ - Route 116: Dawson & Sarah
+ - Route 110: Kaleb & Isabel
+ - Route 118: Rose & Deandre
+Doubles:
+ - Route 116: Janice & Jerry
+ - Dewford Gym: Brenden & Lilith
+ - Route 103: Marcos & Rhett
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c

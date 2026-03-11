@@ -4457,6 +4457,7 @@ static const u16 sMarillEggMoveLearnset[] = {
 #if P_GEN_4_CROSS_EVOS
 static const u16 sBonslyEggMoveLearnset[] = {
     MOVE_SELF_DESTRUCT,
+    MOVE_ACCELEROCK,
     MOVE_HEADBUTT,
     MOVE_HARDEN,
     MOVE_DEFENSE_CURL,
@@ -8871,6 +8872,7 @@ static const u16 sCranidosEggMoveLearnset[] = {
     MOVE_ROCK_BLAST,
     MOVE_ROAR,
     MOVE_SMACK_DOWN,
+    MOVE_ACCELEROCK,
     MOVE_ENDEAVOR,
     MOVE_DRAGON_CHEER,
     MOVE_FRUSTRATION,
@@ -11017,6 +11019,7 @@ static const u16 sArchenEggMoveLearnset[] = {
     MOVE_DEFOG,
     MOVE_KNOCK_OFF,
     MOVE_BITE,
+    MOVE_ACCELEROCK,
     MOVE_ALLY_SWITCH,
     MOVE_SWITCHEROO,
     MOVE_DOUBLE_TEAM,
@@ -12485,6 +12488,7 @@ static const u16 sBunnelbyEggMoveLearnset[] = {
     MOVE_SNORE,
     MOVE_MUD_SHOT,
     MOVE_PAYBACK,
+    MOVE_FISSURE,
     MOVE_ROUND,
     MOVE_ENDURE,
     MOVE_GRASS_KNOT,
@@ -13092,6 +13096,7 @@ static const u16 sHelioptileEggMoveLearnset[] = {
 static const u16 sTyruntEggMoveLearnset[] = {
     MOVE_DRAGON_DANCE,
     MOVE_THUNDER_FANG,
+    MOVE_ACCELEROCK,
     MOVE_ICE_FANG,
     MOVE_POISON_FANG,
     MOVE_ROCK_POLISH,
@@ -13243,7 +13248,7 @@ static const u16 sGoomyEggMoveLearnset[] = {
     MOVE_DRAGON_CHEER,
     MOVE_BUBBLE,
     MOVE_ACID_SPRAY,
-    NOVE_DRAGON_DANCE,
+    MOVE_DRAGON_DANCE,
     MOVE_FRUSTRATION,
     MOVE_DOUBLE_TEAM,
     MOVE_ROUND,
