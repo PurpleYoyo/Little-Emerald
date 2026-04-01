@@ -13,7 +13,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpAttack  = 40,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_GRASS),
-        .catchRate = 45,
+        .catchRate = 100,
         .expYield = 62,
         .evYield_Attack = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
@@ -64,7 +64,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sGrookeyLevelUpLearnset,
         .teachableLearnset = sGrookeyTeachableLearnset,
         .eggMoveLearnset = sGrookeyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_THWACKEY}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_THWACKEY}),
     },
 
     [SPECIES_THWACKEY] =
@@ -125,7 +125,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sThwackeyLevelUpLearnset,
         .teachableLearnset = sThwackeyTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_RILLABOOM}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_RILLABOOM}),
     },
 
     [SPECIES_RILLABOOM] =
@@ -258,7 +258,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpAttack  = 40,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_FIRE),
-        .catchRate = 45,
+        .catchRate = 100,
         .expYield = 62,
         .evYield_Speed = 1,
         .genderRatio = PERCENT_FEMALE(12.5),
@@ -309,7 +309,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sScorbunnyLevelUpLearnset,
         .teachableLearnset = sScorbunnyTeachableLearnset,
         .eggMoveLearnset = sScorbunnyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_RABOOT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_RABOOT}),
     },
 
     [SPECIES_RABOOT] =
@@ -370,7 +370,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sRabootLevelUpLearnset,
         .teachableLearnset = sRabootTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_CINDERACE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_CINDERACE}),
     },
 
     [SPECIES_CINDERACE] =
@@ -505,7 +505,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpAttack  = 70,
         .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_WATER),
-        .catchRate = 45,
+        .catchRate = 100,
         .expYield = 62,
         .evYield_Speed = 1,
         .evYield_SpDefense = 1,
@@ -557,7 +557,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSobbleLevelUpLearnset,
         .teachableLearnset = sSobbleTeachableLearnset,
         .eggMoveLearnset = sSobbleEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_DRIZZILE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DRIZZILE}),
     },
 
     [SPECIES_DRIZZILE] =
@@ -618,7 +618,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDrizzileLevelUpLearnset,
         .teachableLearnset = sDrizzileTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 35, SPECIES_INTELEON}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_INTELEON}),
     },
 
     [SPECIES_INTELEON] =
@@ -756,8 +756,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 255,
         .expYield = 55,
         .evYield_HP = 1,
-        .itemRare = ITEM_ORAN_BERRY,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -804,7 +803,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSkwovetLevelUpLearnset,
         .teachableLearnset = sSkwovetTeachableLearnset,
         .eggMoveLearnset = sSkwovetEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_GREEDENT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GREEDENT}),
     },
 
     [SPECIES_GREEDENT] =
@@ -819,8 +818,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 90,
         .expYield = 161,
         .evYield_HP = 2,
-        .itemRare = ITEM_SITRUS_BERRY,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -888,7 +886,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FLYING),
-        .abilities = { ABILITY_KEEN_EYE, ABILITY_UNNERVE, ABILITY_BIG_PECKS },
+        .abilities = { ABILITY_BIG_PECKS, ABILITY_UNNERVE, ABILITY_MIRROR_ARMOR },
         .bodyColor = BODY_COLOR_BLUE,
         .speciesName = _("Rookidee"),
         .cryId = CRY_ROOKIDEE,
@@ -931,7 +929,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sRookideeLevelUpLearnset,
         .teachableLearnset = sRookideeTeachableLearnset,
         .eggMoveLearnset = sRookideeEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CORVISQUIRE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_CORVISQUIRE}),
     },
 
     [SPECIES_CORVISQUIRE] =
@@ -994,7 +992,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sCorvisquireLevelUpLearnset,
         .teachableLearnset = sCorvisquireTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_CORVIKNIGHT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_CORVIKNIGHT}),
     },
 
     [SPECIES_CORVIKNIGHT] =
@@ -1122,13 +1120,13 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_BLIPBUG
     [SPECIES_BLIPBUG] =
     {
-        .baseHP        = 25,
+        .baseHP        = 35,
         .baseAttack    = 20,
-        .baseDefense   = 20,
-        .baseSpeed     = 45,
-        .baseSpAttack  = 25,
-        .baseSpDefense = 45,
-        .types = MON_TYPES(TYPE_BUG),
+        .baseDefense   = 40,
+        .baseSpeed     = 65,
+        .baseSpAttack  = 65,
+        .baseSpDefense = 65,
+        .types = MON_TYPES(TYPE_BUG, TYPE_PSYCHIC),
         .catchRate = 255,
         .expYield = 36,
         .evYield_SpDefense = 1,
@@ -1176,11 +1174,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
             gOverworldPalette_Blipbug,
             gShinyOverworldPalette_Blipbug
         )
-        .tmIlliterate = TRUE,
         .levelUpLearnset = sBlipbugLevelUpLearnset,
         .teachableLearnset = sBlipbugTeachableLearnset,
         .eggMoveLearnset = sBlipbugEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 10, SPECIES_DOTTLER}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DOTTLER}),
     },
 
     [SPECIES_DOTTLER] =
@@ -1195,8 +1192,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 120,
         .expYield = 117,
         .evYield_SpDefense = 2,
-        .itemRare = ITEM_PSYCHIC_SEED,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -1243,7 +1239,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDottlerLevelUpLearnset,
         .teachableLearnset = sDottlerTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_ORBEETLE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ORBEETLE}),
     },
 
     [SPECIES_ORBEETLE] =
@@ -1258,8 +1254,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 45,
         .expYield = 253,
         .evYield_SpDefense = 3,
-        .itemRare = ITEM_PSYCHIC_SEED,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -1324,8 +1319,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 45,
         .expYield = 253,
         .evYield_SpDefense = 3,
-        .itemRare = ITEM_PSYCHIC_SEED,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 15,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -1374,11 +1368,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_NICKIT
     [SPECIES_NICKIT] =
     {
-        .baseHP        = 40,
+        .baseHP        = 55,
         .baseAttack    = 28,
         .baseDefense   = 28,
         .baseSpeed     = 50,
-        .baseSpAttack  = 47,
+        .baseSpAttack  = 67,
         .baseSpDefense = 52,
         .types = MON_TYPES(TYPE_DARK),
         .catchRate = 255,
@@ -1432,7 +1426,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sNickitLevelUpLearnset,
         .teachableLearnset = sNickitTeachableLearnset,
         .eggMoveLearnset = sNickitEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_THIEVUL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_THIEVUL}),
     },
 
     [SPECIES_THIEVUL] =
@@ -1501,11 +1495,11 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
     [SPECIES_GOSSIFLEUR] =
     {
         .baseHP        = 40,
-        .baseAttack    = 40,
+        .baseAttack    = 30,
         .baseDefense   = 60,
         .baseSpeed     = 10,
-        .baseSpAttack  = 40,
-        .baseSpDefense = 60,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 90,
         .types = MON_TYPES(TYPE_GRASS),
         .catchRate = 190,
         .expYield = 50,
@@ -1558,7 +1552,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sGossifleurLevelUpLearnset,
         .teachableLearnset = sGossifleurTeachableLearnset,
         .eggMoveLearnset = sGossifleurEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_ELDEGOSS}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ELDEGOSS}),
     },
 
     [SPECIES_ELDEGOSS] =
@@ -1684,7 +1678,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sWoolooLevelUpLearnset,
         .teachableLearnset = sWoolooTeachableLearnset,
         .eggMoveLearnset = sWoolooEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_DUBWOOL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DUBWOOL}),
     },
 
     [SPECIES_DUBWOOL] =
@@ -1758,7 +1752,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 44,
         .baseSpAttack  = 38,
         .baseSpDefense = 38,
-        .types = MON_TYPES(TYPE_WATER),
+        .types = MON_TYPES(TYPE_WATER, TYPE_ROCK),
         .catchRate = 255,
         .expYield = 57,
         .evYield_Attack = 1,
@@ -1809,7 +1803,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sChewtleLevelUpLearnset,
         .teachableLearnset = sChewtleTeachableLearnset,
         .eggMoveLearnset = sChewtleEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_DREDNAW}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DREDNAW}),
     },
 
     [SPECIES_DREDNAW] =
@@ -1951,7 +1945,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-        .abilities = { ABILITY_BALL_FETCH, ABILITY_NONE, ABILITY_RATTLED },
+        .abilities = { ABILITY_STRONG_JAW, ABILITY_RATTLED, ABILITY_COMPETITIVE },
         .bodyColor = BODY_COLOR_YELLOW,
         .speciesName = _("Yamper"),
         .cryId = CRY_YAMPER,
@@ -1994,7 +1988,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sYamperLevelUpLearnset,
         .teachableLearnset = sYamperTeachableLearnset,
         .eggMoveLearnset = sYamperEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_BOLTUND}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_BOLTUND}),
     },
 
     [SPECIES_BOLTUND] =
@@ -2062,13 +2056,13 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_ROLYCOLY
     [SPECIES_ROLYCOLY] =
     {
-        .baseHP        = 30,
+        .baseHP        = 70,
         .baseAttack    = 40,
-        .baseDefense   = 50,
+        .baseDefense   = 70,
         .baseSpeed     = 30,
         .baseSpAttack  = 40,
         .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_ROCK),
+        .types = MON_TYPES(TYPE_ROCK, TYPE_FIRE),
         .catchRate = 255,
         .expYield = 48,
         .evYield_Defense = 1,
@@ -2077,7 +2071,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL),
-        .abilities = { ABILITY_STEAM_ENGINE, ABILITY_HEATPROOF, ABILITY_FLASH_FIRE },
+        .abilities = { ABILITY_STEAM_ENGINE, ABILITY_FLAME_BODY, ABILITY_FLASH_FIRE },
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Rolycoly"),
         .cryId = CRY_ROLYCOLY,
@@ -2120,7 +2114,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sRolycolyLevelUpLearnset,
         .teachableLearnset = sRolycolyTeachableLearnset,
         .eggMoveLearnset = sRolycolyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CARKOL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_CARKOL}),
     },
 
     [SPECIES_CARKOL] =
@@ -2181,7 +2175,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sCarkolLevelUpLearnset,
         .teachableLearnset = sCarkolTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_COALOSSAL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_COALOSSAL}),
     },
 
     [SPECIES_COALOSSAL] =
@@ -2324,7 +2318,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_ERRATIC,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_RIPEN, ABILITY_GLUTTONY, ABILITY_BULLETPROOF },
+        .abilities = { ABILITY_RIPEN, ABILITY_BULLETPROOF, ABILITY_REGENERATOR },
         .bodyColor = BODY_COLOR_GREEN,
         .speciesName = _("Applin"),
         .cryId = CRY_APPLIN,
@@ -2364,13 +2358,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
             gOverworldPalette_Applin,
             gShinyOverworldPalette_Applin
         )
-        .tmIlliterate = TRUE,
         .levelUpLearnset = sApplinLevelUpLearnset,
         .teachableLearnset = sApplinTeachableLearnset,
         .eggMoveLearnset = sApplinEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_TART_APPLE, SPECIES_FLAPPLE},
-                                {EVO_ITEM, ITEM_SWEET_APPLE, SPECIES_APPLETUN},
-                                {EVO_ITEM, ITEM_SYRUPY_APPLE, SPECIES_DIPPLIN}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_FLAPPLE},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_APPLETUN},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DIPPLIN}),
     },
 
     [SPECIES_FLAPPLE] =
@@ -2673,7 +2666,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDipplinLevelUpLearnset,
         .teachableLearnset = sDipplinTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_DRAGON_CHEER, SPECIES_HYDRAPPLE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_HYDRAPPLE}),
     },
 
     [SPECIES_HYDRAPPLE] =
@@ -2799,7 +2792,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSilicobraLevelUpLearnset,
         .teachableLearnset = sSilicobraTeachableLearnset,
         .eggMoveLearnset = sSilicobraEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_SANDACONDA}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_SANDACONDA}),
     },
 
     [SPECIES_SANDACONDA] =
@@ -3162,7 +3155,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sArrokudaLevelUpLearnset,
         .teachableLearnset = sArrokudaTeachableLearnset,
         .eggMoveLearnset = sArrokudaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 26, SPECIES_BARRASKEWDA}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_BARRASKEWDA}),
     },
 
     [SPECIES_BARRASKEWDA] =
@@ -3230,12 +3223,12 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_TOXEL
     [SPECIES_TOXEL] =
     {
-        .baseHP        = 40,
-        .baseAttack    = 38,
-        .baseDefense   = 35,
-        .baseSpeed     = 40,
-        .baseSpAttack  = 54,
-        .baseSpDefense = 35,
+        .baseHP        = 45,
+        .baseAttack    = 48,
+        .baseDefense   = 40,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 64,
+        .baseSpDefense = 40,
         .types = MON_TYPES(TYPE_ELECTRIC, TYPE_POISON),
         .catchRate = 75,
         .expYield = 48,
@@ -3245,7 +3238,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_RATTLED, ABILITY_STATIC, ABILITY_KLUTZ },
+        .abilities = { ABILITY_PUNK_ROCK, ABILITY_STATIC, ABILITY_TECHNICIAN },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Toxel"),
         .cryId = CRY_TOXEL,
@@ -3288,8 +3281,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sToxelLevelUpLearnset,
         .teachableLearnset = sToxelTeachableLearnset,
         .eggMoveLearnset = sToxelEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL_NATURE_AMPED, 30, SPECIES_TOXTRICITY_AMPED},
-                                {EVO_LEVEL_NATURE_LOW_KEY, 30, SPECIES_TOXTRICITY_LOW_KEY}),
+        .formSpeciesIdTable = sToxelFormSpeciesIdTable,
+        .formChangeTable = sToxelFormChangeTable,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_TOXTRICITY_AMPED},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_TOXTRICITY_LOW_KEY}),
     },
 
     [SPECIES_TOXTRICITY_AMPED] =
@@ -3586,7 +3581,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSizzlipedeLevelUpLearnset,
         .teachableLearnset = sSizzlipedeTeachableLearnset,
         .eggMoveLearnset = sSizzlipedeEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 28, SPECIES_CENTISKORCH}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_CENTISKORCH}),
     },
 
     [SPECIES_CENTISKORCH] =
@@ -3720,7 +3715,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 32,
         .baseSpAttack  = 50,
         .baseSpDefense = 50,
-        .types = MON_TYPES(TYPE_FIGHTING),
+        .types = MON_TYPES(TYPE_FIGHTING, TYPE_WATER),
         .catchRate = 180,
         .expYield = 62,
         .evYield_Attack = 1,
@@ -3772,7 +3767,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sClobbopusLevelUpLearnset,
         .teachableLearnset = sClobbopusTeachableLearnset,
         .eggMoveLearnset = sClobbopusEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_TAUNT, SPECIES_GRAPPLOCT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GRAPPLOCT}),
     },
 
     [SPECIES_GRAPPLOCT] =
@@ -3897,7 +3892,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSinisteaLevelUpLearnset,
         .teachableLearnset = sSinisteaTeachableLearnset,
         .formSpeciesIdTable = sSinisteaFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_CRACKED_POT, SPECIES_POLTEAGEIST_PHONY}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_POLTEAGEIST_PHONY}),
     },
 
     [SPECIES_SINISTEA_ANTIQUE] =
@@ -3961,7 +3956,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSinisteaLevelUpLearnset,
         .teachableLearnset = sSinisteaTeachableLearnset,
         .formSpeciesIdTable = sSinisteaFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_CHIPPED_POT, SPECIES_POLTEAGEIST_ANTIQUE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_POLTEAGEIST_ANTIQUE}),
     },
 
     [SPECIES_POLTEAGEIST_PHONY] =
@@ -4099,7 +4094,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .baseSpeed     = 39,
         .baseSpAttack  = 56,
         .baseSpDefense = 53,
-        .types = MON_TYPES(TYPE_PSYCHIC),
+        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_FAIRY),
         .catchRate = 235,
         .expYield = 53,
         .evYield_SpAttack = 1,
@@ -4151,7 +4146,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sHatennaLevelUpLearnset,
         .teachableLearnset = sHatennaTeachableLearnset,
         .eggMoveLearnset = sHatennaEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_HATTREM}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_HATTREM}),
     },
 
     [SPECIES_HATTREM] =
@@ -4212,7 +4207,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sHattremLevelUpLearnset,
         .teachableLearnset = sHattremTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_HATTERENE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_HATTERENE}),
     },
 
     [SPECIES_HATTERENE] =
@@ -4396,7 +4391,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sImpidimpLevelUpLearnset,
         .teachableLearnset = sImpidimpTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_MORGREM}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_MORGREM}),
     },
 
     [SPECIES_MORGREM] =
@@ -4458,7 +4453,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sMorgremLevelUpLearnset,
         .teachableLearnset = sMorgremTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 42, SPECIES_GRIMMSNARL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_GRIMMSNARL}),
     },
 
 
@@ -4644,15 +4639,15 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sMilceryLevelUpLearnset,
         .teachableLearnset = sMilceryTeachableLearnset,
         .eggMoveLearnset = sMilceryEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL},
-                                {EVO_LEVEL, 0, SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_VANILLA_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_RUBY_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_MATCHA_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_MINT_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_LEMON_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_SALTED_CREAM},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_RUBY_SWIRL},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_CARAMEL_SWIRL},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ALCREMIE_STRAWBERRY_RAINBOW_SWIRL}),
     },
 
 #define ALCREMIE_MISC_INFO(color)                                               \
@@ -4951,18 +4946,17 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
 #if P_FAMILY_SNOM
     [SPECIES_SNOM] =
     {
-        .baseHP        = 30,
-        .baseAttack    = 25,
-        .baseDefense   = 35,
-        .baseSpeed     = 20,
-        .baseSpAttack  = 45,
-        .baseSpDefense = 30,
+        .baseHP        = 35,
+        .baseAttack    = 30,
+        .baseDefense   = 40,
+        .baseSpeed     = 30,
+        .baseSpAttack  = 90,
+        .baseSpDefense = 60,
         .types = MON_TYPES(TYPE_ICE, TYPE_BUG),
         .catchRate = 190,
         .expYield = 37,
         .evYield_SpAttack = 1,
-        .itemRare = ITEM_SNOWBALL,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 20,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -5010,7 +5004,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sSnomLevelUpLearnset,
         .teachableLearnset = sSnomTeachableLearnset,
         .eggMoveLearnset = sSnomEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_FRIENDSHIP_NIGHT, 0, SPECIES_FROSMOTH}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_FROSMOTH}),
     },
 
     [SPECIES_FROSMOTH] =
@@ -5524,8 +5518,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 190,
         .expYield = 66,
         .evYield_Attack = 1,
-        .itemRare = ITEM_LAGGING_TAIL,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -5573,7 +5566,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sCufantLevelUpLearnset,
         .teachableLearnset = sCufantTeachableLearnset,
         .eggMoveLearnset = sCufantEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 34, SPECIES_COPPERAJAH}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_COPPERAJAH}),
     },
 
     [SPECIES_COPPERAJAH] =
@@ -5588,8 +5581,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 90,
         .expYield = 175,
         .evYield_Attack = 2,
-        .itemRare = ITEM_LAGGING_TAIL,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -5652,8 +5644,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .catchRate = 90,
         .expYield = 175,
         .evYield_Attack = 2,
-        .itemRare = ITEM_LAGGING_TAIL,
-        .genderRatio = PERCENT_FEMALE(50),
+                .genderRatio = PERCENT_FEMALE(50),
         .eggCycles = 25,
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
@@ -5968,7 +5959,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_MINERAL, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL, ABILITY_STALWART },
+        .abilities = { ABILITY_LIGHT_METAL, ABILITY_HEAVY_METAL, ABILITY_STAMINA },
         .bodyColor = BODY_COLOR_WHITE,
         .speciesName = _("Duraludon"),
         .cryId = CRY_DURALUDON,
@@ -5988,7 +5979,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .frontPicSize = MON_COORDS_SIZE(56, 64),
         .frontPicYOffset = 0,
         .frontAnimFrames = sAnims_Duraludon,
-        .frontAnimId = ANIM_SHAKE_FLASH_YELLOW_FAST,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .backPic = gMonBackPic_Duraludon,
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
@@ -6012,7 +6003,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .eggMoveLearnset = sDuraludonEggMoveLearnset,
         .formSpeciesIdTable = sDuraludonFormSpeciesIdTable,
         .formChangeTable = sDuraludonFormChangeTable,
-        .evolutions = EVOLUTION({EVO_ITEM, ITEM_METAL_ALLOY, SPECIES_ARCHALUDON}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_ARCHALUDON}),
     },
 
 #if P_GIGANTAMAX_FORMS
@@ -6200,7 +6191,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sDreepyLevelUpLearnset,
         .teachableLearnset = sDreepyTeachableLearnset,
         .eggMoveLearnset = sDreepyEggMoveLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 50, SPECIES_DRAKLOAK}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DRAKLOAK}),
     },
 
     [SPECIES_DRAKLOAK] =
@@ -6262,7 +6253,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         )
         .levelUpLearnset = sDrakloakLevelUpLearnset,
         .teachableLearnset = sDrakloakTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_LEVEL, 60, SPECIES_DRAGAPULT}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_DRAGAPULT}),
     },
 
     [SPECIES_DRAGAPULT] =
@@ -6739,7 +6730,7 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_NONE },
+        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_UNSEEN_FIST },
         .bodyColor = BODY_COLOR_GRAY,
         .speciesName = _("Kubfu"),
         .cryId = CRY_KUBFU,
@@ -6782,10 +6773,10 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sKubfuLevelUpLearnset,
         .teachableLearnset = sKubfuTeachableLearnset,
-        .evolutions = EVOLUTION({EVO_DARK_SCROLL, 0, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_DARKNESS, SPECIES_URSHIFU_SINGLE_STRIKE},
-                                {EVO_WATER_SCROLL, 0, SPECIES_URSHIFU_RAPID_STRIKE},
-                                {EVO_ITEM, ITEM_SCROLL_OF_WATERS, SPECIES_URSHIFU_RAPID_STRIKE}),
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_URSHIFU_SINGLE_STRIKE},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_URSHIFU_SINGLE_STRIKE},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_URSHIFU_RAPID_STRIKE},
+                                {EVO_ITEM, ITEM_OVAL_STONE, SPECIES_URSHIFU_RAPID_STRIKE}),
     },
 
     [SPECIES_URSHIFU_SINGLE_STRIKE] =
@@ -7687,7 +7678,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sEnamorusLevelUpLearnset,
         .teachableLearnset = sEnamorusTeachableLearnset,
         .formSpeciesIdTable = sEnamorusFormSpeciesIdTable,
-        .formChangeTable = sEnamorusFormChangeTable,
     },
 
     [SPECIES_ENAMORUS_THERIAN] =
@@ -7752,7 +7742,6 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .levelUpLearnset = sEnamorusLevelUpLearnset,
         .teachableLearnset = sEnamorusTeachableLearnset,
         .formSpeciesIdTable = sEnamorusFormSpeciesIdTable,
-        .formChangeTable = sEnamorusFormChangeTable,
     },
 #endif //P_FAMILY_ENAMORUS
 

@@ -160,6 +160,8 @@ enum {
 #define GFXTAG_UI       5525
 #define PALTAG_UI       5526
 
+#define MAX_RELEARNER_MOVES max(MAX_LEVEL_UP_MOVES, 25)
+
 static EWRAM_DATA struct
 {
     u8 state;
@@ -365,6 +367,10 @@ static void FreeMoveRelearnerResources(void);
 static void RemoveScrollArrows(void);
 static void HideHeartSpritesAndShowTeachMoveText(bool8);
 
+static void Task_WaitForFadeOut2(u8 taskId);
+void CB2_InitLearnEggMove(void);
+static void CreateEggMovesList(void);
+
 static void VBlankCB_MoveRelearner(void)
 {
     LoadOam();
@@ -416,6 +422,7 @@ void CB2_InitLearnMove(void)
 
     sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
     SetBackdropFromColor(RGB_BLACK);
+    gSpecialVar_0x800B = 0;
     SetMainCallback2(CB2_MoveRelearnerMain);
 }
 
@@ -433,7 +440,11 @@ static void CB2_InitLearnMoveReturnFromSelectMove(void)
 
     InitMoveRelearnerBackgroundLayers();
     InitMoveRelearnerWindows(sMoveRelearnerMenuSate.showContestInfo);
-    CreateLearnableMovesList();
+
+    if (gSpecialVar_0x800B == 0)
+        CreateLearnableMovesList();
+    else
+        CreateEggMovesList();
 
     LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
     LoadSpritePalette(&sMoveRelearnerPalette);
@@ -1005,6 +1016,7 @@ void MoveRelearnerShowHideCategoryIcon(s32 moveId)
             DestroySprite(&gSprites[sMoveRelearnerStruct->categoryIconSpriteId]);
 
         sMoveRelearnerStruct->categoryIconSpriteId = 0xFF;
+        gSprites[sMoveRelearnerStruct->categoryIconSpriteId].invisible = TRUE;
     }
     else
     {
@@ -1014,4 +1026,73 @@ void MoveRelearnerShowHideCategoryIcon(s32 moveId)
         gSprites[sMoveRelearnerStruct->categoryIconSpriteId].invisible = FALSE;
         StartSpriteAnim(&gSprites[sMoveRelearnerStruct->categoryIconSpriteId], GetBattleMoveCategory(moveId));
     }
+}
+
+// Script arguments: The Pokémon to teach is in VAR_0x8004
+void TeachEggMove(void)
+{
+    LockPlayerFieldControls();
+    CreateTask(Task_WaitForFadeOut2, 10);
+    // Fade to black
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+}
+
+static void Task_WaitForFadeOut2(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetMainCallback2(CB2_InitLearnEggMove);
+        gFieldCallback = FieldCB_ContinueScriptHandleMusic;
+        DestroyTask(taskId);
+    }
+}
+
+void CB2_InitLearnEggMove(void)
+{
+    ResetSpriteData();
+    FreeAllSpritePalettes();
+    ResetTasks();
+    ClearScheduledBgCopiesToVram();
+    sMoveRelearnerStruct = AllocZeroed(sizeof(*sMoveRelearnerStruct));
+    sMoveRelearnerStruct->partyMon = gSpecialVar_0x8004;
+    SetVBlankCallback(VBlankCB_MoveRelearner);
+
+    InitMoveRelearnerBackgroundLayers();
+    InitMoveRelearnerWindows(gOriginSummaryScreenPage == PSS_PAGE_CONTEST_MOVES);
+
+    sMoveRelearnerMenuSate.listOffset = 0;
+    sMoveRelearnerMenuSate.listRow = 0;
+    sMoveRelearnerMenuSate.showContestInfo = gOriginSummaryScreenPage == PSS_PAGE_CONTEST_MOVES;
+
+    CreateEggMovesList();
+
+    LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
+    LoadSpritePalette(&sMoveRelearnerPalette);
+    CreateUISprites();
+
+    sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerMenuSate.listOffset, sMoveRelearnerMenuSate.listRow);
+    SetBackdropFromColor(RGB_BLACK);
+    gSpecialVar_0x800B = 1;
+    SetMainCallback2(CB2_MoveRelearnerMain);
+}
+
+static void CreateEggMovesList(void)
+{
+    s32 i;
+    u8 nickname[POKEMON_NAME_LENGTH + 1];
+
+    sMoveRelearnerStruct->numMenuChoices = GetEggMoveTutorMoves(&gPlayerParty[sMoveRelearnerStruct->partyMon], sMoveRelearnerStruct->movesToLearn);
+
+    for (i = 0; i < sMoveRelearnerStruct->numMenuChoices; i++)
+    {
+        sMoveRelearnerStruct->menuItems[i].name = GetMoveName(sMoveRelearnerStruct->movesToLearn[i]);
+        sMoveRelearnerStruct->menuItems[i].id = sMoveRelearnerStruct->movesToLearn[i];
+    }
+
+    GetMonData(&gPlayerParty[sMoveRelearnerStruct->partyMon], MON_DATA_NICKNAME, nickname);
+    StringCopy_Nickname(gStringVar1, nickname);
+    sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].name = gText_Cancel;
+    sMoveRelearnerStruct->menuItems[sMoveRelearnerStruct->numMenuChoices].id = LIST_CANCEL;
+    sMoveRelearnerStruct->numMenuChoices++;
+    sMoveRelearnerStruct->numToShowAtOnce = LoadMoveRelearnerMovesList(sMoveRelearnerStruct->menuItems, sMoveRelearnerStruct->numMenuChoices);
 }

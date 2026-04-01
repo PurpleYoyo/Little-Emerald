@@ -82,6 +82,7 @@ struct Trainer
 {
     /*0x00*/ u32 aiFlags;
     /*0x04*/ const struct TrainerMon *party;
+             const struct TrainerMon *normalParty;
     /*0x08*/ u16 items[MAX_TRAINER_ITEMS];
     /*0x10*/ u8 trainerClass;
     /*0x11*/ u8 encounterMusic_gender; // last bit is gender
@@ -92,6 +93,8 @@ struct Trainer
              u8 startingStatus:6;    // this trainer starts a battle with a given status. see include/constants/battle.h for values
     /*0x1F*/ u8 mugshotColor;
     /*0x20*/ u8 partySize;
+             u8 normalPartySize;
+             bool8 hasNormalParty:1;
 };
 
 struct TrainerClass

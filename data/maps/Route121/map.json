@@ -299,7 +299,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_CARBOS",
+      "trainer_sight_or_berry_tree_id": "ITEM_NUGGET",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_121_CARBOS"
     },
@@ -390,12 +390,12 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
+      "trainer_sight_or_berry_tree_id": "ITEM_HASTY_MINT",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_121_REVIVE"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
       "x": 38,
       "y": 13,
       "elevation": 3,
@@ -403,7 +403,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ZINC",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_ICY_WIND",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_121_ZINC"
     }
@@ -513,7 +513,7 @@
       "x": 58,
       "y": 3,
       "elevation": 3,
-      "item": "ITEM_NUGGET",
+      "item": "ITEM_MAX_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_121_NUGGET"
     },
     {
@@ -521,7 +521,7 @@
       "x": 72,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_FULL_HEAL",
+      "item": "ITEM_WISE_GLASSES",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_121_FULL_HEAL"
     },
     {
@@ -529,7 +529,7 @@
       "x": 68,
       "y": 8,
       "elevation": 3,
-      "item": "ITEM_MAX_REVIVE",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_121_MAX_REVIVE"
     }
   ]

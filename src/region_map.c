@@ -1729,6 +1729,100 @@ void CB2_OpenFlyMap(void)
         ShowBg(0);
         ShowBg(1);
         ShowBg(2);
+        gSpecialVar_0x800B = 0;
+        SetFlyMapCallback(CB_FadeInFlyMap);
+        SetMainCallback2(CB2_FlyMap);
+        gMain.state++;
+        break;
+    }
+}
+
+void CB2_OpenWarpMap(void)
+{
+    switch (gMain.state)
+    {
+    case 0:
+        SetVBlankCallback(NULL);
+        SetGpuReg(REG_OFFSET_DISPCNT, 0);
+        SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG3HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG3VOFS, 0);
+        sFlyMap = Alloc(sizeof(*sFlyMap));
+        if (sFlyMap == NULL)
+        {
+            SetMainCallback2(CB2_Overworld);
+        }
+        else
+        {
+            ResetPaletteFade();
+            ResetSpriteData();
+            FreeSpriteTileRanges();
+            FreeAllSpritePalettes();
+            gMain.state++;
+        }
+        break;
+    case 1:
+        ResetBgsAndClearDma3BusyFlags(0);
+        InitBgsFromTemplates(1, sFlyMapBgTemplates, ARRAY_COUNT(sFlyMapBgTemplates));
+        gMain.state++;
+        break;
+    case 2:
+        InitWindows(sFlyMapWindowTemplates);
+        DeactivateAllTextPrinters();
+        gMain.state++;
+        break;
+    case 3:
+        LoadUserWindowBorderGfx(0, 0x65, BG_PLTT_ID(13));
+        ClearScheduledBgCopiesToVram();
+        gMain.state++;
+        break;
+    case 4:
+        InitRegionMap(&sFlyMap->regionMap, FALSE);
+        CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
+        CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
+        sFlyMap->mapSecId = sFlyMap->regionMap.mapSecId;
+        StringFill(sFlyMap->nameBuffer, CHAR_SPACE, MAP_NAME_LENGTH);
+        sDrawFlyDestTextWindow = TRUE;
+        DrawFlyDestTextWindow();
+        gMain.state++;
+        break;
+    case 5:
+        LZ77UnCompVram(sRegionMapFrameGfxLZ, (u16 *)BG_CHAR_ADDR(3));
+        gMain.state++;
+        break;
+    case 6:
+        LZ77UnCompVram(sRegionMapFrameTilemapLZ, (u16 *)BG_SCREEN_ADDR(30));
+        gMain.state++;
+        break;
+    case 7:
+        LoadPalette(sRegionMapFramePal, BG_PLTT_ID(1), sizeof(sRegionMapFramePal));
+        PutWindowTilemap(WIN_FLY_TO_WHERE);
+        FillWindowPixelBuffer(WIN_FLY_TO_WHERE, PIXEL_FILL(0));
+        AddTextPrinterParameterized(WIN_FLY_TO_WHERE, FONT_NORMAL, gText_WarpToWhere, 0, 1, 0, NULL);
+        ScheduleBgCopyTilemapToVram(0);
+        gMain.state++;
+        break;
+    case 8:
+        LoadFlyDestIcons();
+        gMain.state++;
+        break;
+    case 9:
+        BlendPalettes(PALETTES_ALL, 16, 0);
+        SetVBlankCallback(VBlankCB_FlyMap);
+        gMain.state++;
+        break;
+    case 10:
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
+        ShowBg(0);
+        ShowBg(1);
+        ShowBg(2);
+        gSpecialVar_0x800B = 1;
         SetFlyMapCallback(CB_FadeInFlyMap);
         SetMainCallback2(CB2_FlyMap);
         gMain.state++;
@@ -2013,11 +2107,17 @@ static void CB_ExitFlyMap(void)
                         SetWarpDestinationToMapWarp(sMapHealLocations[sFlyMap->regionMap.mapSecId][0], sMapHealLocations[sFlyMap->regionMap.mapSecId][1], WARP_ID_NONE);
                     break;
                 }
-                ReturnToFieldFromFlyMapSelect();
+                if (gSpecialVar_0x800B == 0)
+                    ReturnToFieldFromFlyMapSelect();
+                else
+                    ReturnToFieldFromWarpMapSelect();
             }
             else
             {
-                SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                if (gSpecialVar_0x800B == 0)
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                else
+                    SetMainCallback2(CB2_ReturnToField);
             }
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();

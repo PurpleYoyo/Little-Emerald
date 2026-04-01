@@ -91,8 +91,12 @@
       "flag": "FLAG_HIDE_SAFARI_ZONE_SOUTH_EAST_EXPANSION"
     }
   ],
-  "warp_events": [],
-  "coord_events": [],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
@@ -107,7 +111,7 @@
       "x": 32,
       "y": 33,
       "elevation": 0,
-      "item": "ITEM_FULL_RESTORE",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE"
     }
   ]

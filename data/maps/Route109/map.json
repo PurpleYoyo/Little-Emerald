@@ -79,27 +79,27 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 15,
-      "y": 17,
+      "x": 16,
+      "y": -1,
       "elevation": 4,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "1",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "Route109_EventScript_Huey",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
-      "x": 24,
-      "y": 13,
+      "x": 34,
+      "y": -1,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "6",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "Route109_EventScript_Edmond",
       "flag": "0"
     },
@@ -312,7 +312,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
       "x": 25,
       "y": 6,
       "elevation": 3,
@@ -320,7 +320,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_WATER_PULSE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_109_POTION"
     },
@@ -347,7 +347,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -378,7 +380,7 @@
       "x": 33,
       "y": 5,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_1"
     },
     {
@@ -386,7 +388,7 @@
       "x": 9,
       "y": 10,
       "elevation": 3,
-      "item": "ITEM_GREAT_BALL",
+      "item": "ITEM_SOFT_SAND",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_GREAT_BALL"
     },
     {
@@ -394,7 +396,7 @@
       "x": 28,
       "y": 20,
       "elevation": 3,
-      "item": "ITEM_ETHER",
+      "item": "ITEM_PEARL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_ETHER"
     },
     {
@@ -402,7 +404,7 @@
       "x": 13,
       "y": 16,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_PEARL_STRING",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_2"
     },
     {
@@ -410,7 +412,7 @@
       "x": 8,
       "y": 42,
       "elevation": 3,
-      "item": "ITEM_HEART_SCALE",
+      "item": "ITEM_PEARL_STRING",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_3"
     }
   ]

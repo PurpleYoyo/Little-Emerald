@@ -1005,8 +1005,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     struct ObjectEvent *objEvent;
 
     // When applying script movements to follower, it may have frozen animation that must be cleared
-    if ((localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen) 
-            || ((objEvent = &gObjectEvents[GetObjectEventIdByLocalId(localId)]) && IS_OW_MON_OBJ(objEvent)))
+    if (localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen)
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
         gSprites[objEvent->spriteId].animCmdIndex = 0; // Reset start frame of animation
@@ -1874,6 +1873,10 @@ bool8 ScrCmd_checkpartymove(struct ScriptContext *ctx)
             break;
         }
     }
+    if (gSpecialVar_Result == PARTY_SIZE && PlayerHasMove(moveId)){  // If no mon have the move, but the player has the HM in bag, use the first mon
+        gSpecialVar_Result = 0;
+        gSpecialVar_0x8004 = GetMonData(&gPlayerParty[0], MON_DATA_SPECIES, NULL);
+    }
     return FALSE;
 }
 
@@ -1918,6 +1921,17 @@ bool8 ScrCmd_showmoneybox(struct ScriptContext *ctx)
     return FALSE;
 }
 
+bool8 ScrCmd_showmoneyboxfish(struct ScriptContext *ctx)
+{
+    u8 x = ScriptReadByte(ctx);
+    u8 y = ScriptReadByte(ctx);
+    u8 ignore = ScriptReadByte(ctx);
+
+    if (!ignore)
+        DrawMoneyBoxFish(GetMoney(&gSaveBlock1Ptr->money), x, y);
+    return FALSE;
+}
+
 bool8 ScrCmd_hidemoneybox(struct ScriptContext *ctx)
 {
     /*u8 x = ScriptReadByte(ctx);
@@ -1934,7 +1948,18 @@ bool8 ScrCmd_updatemoneybox(struct ScriptContext *ctx)
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
-        ChangeAmountInMoneyBox(GetMoney(&gSaveBlock1Ptr->money));
+        ChangeAmountInMoneyBox(GetMoney(&gSaveBlock1Ptr->money), FALSE);
+    return FALSE;
+}
+
+bool8 ScrCmd_updatemoneyboxfish(struct ScriptContext *ctx)
+{
+    u8 UNUSED x = ScriptReadByte(ctx);
+    u8 UNUSED y = ScriptReadByte(ctx);
+    u8 ignore = ScriptReadByte(ctx);
+
+    if (!ignore)
+        ChangeAmountInMoneyBox(GetMoney(&gSaveBlock1Ptr->money), TRUE);
     return FALSE;
 }
 

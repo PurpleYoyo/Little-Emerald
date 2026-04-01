@@ -206,16 +206,16 @@ static u16 GetPrevBall(u16 ballId)
 {
     u16 ballPrev;
     s32 i, j;
-    CompactItemsInBagPocket(&gBagPockets[BALLS_POCKET]);
-    for (i = 0; i < gBagPockets[BALLS_POCKET].capacity; i++)
+    CompactItemsInBagPocket(&gBagPockets[POCKET_POKE_BALLS]);
+    for (i = 0; i < gBagPockets[POCKET_POKE_BALLS].capacity; i++)
     {
-        if (ballId == gBagPockets[BALLS_POCKET].itemSlots[i].itemId)
+        if (ballId == gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId)
         {
             if (i <= 0)
             {
-                for (j = gBagPockets[BALLS_POCKET].capacity - 1; j >= 0; j--)
+                for (j = gBagPockets[POCKET_POKE_BALLS].capacity - 1; j >= 0; j--)
                 {
-                    ballPrev = gBagPockets[BALLS_POCKET].itemSlots[j].itemId;
+                    ballPrev = gBagPockets[POCKET_POKE_BALLS].itemSlots[j].itemId;
                     if (ballPrev != ITEM_NONE)
                         return ballPrev;
                 }
@@ -224,24 +224,24 @@ static u16 GetPrevBall(u16 ballId)
             break;
         }
     }
-    return gBagPockets[BALLS_POCKET].itemSlots[i].itemId;
+    return gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId;
 }
 
 static u32 GetNextBall(u32 ballId)
 {
     u32 ballNext = ITEM_NONE;
     s32 i;
-    CompactItemsInBagPocket(&gBagPockets[BALLS_POCKET]);
-    for (i = 1; i < gBagPockets[BALLS_POCKET].capacity; i++)
+    CompactItemsInBagPocket(&gBagPockets[POCKET_POKE_BALLS]);
+    for (i = 1; i < gBagPockets[POCKET_POKE_BALLS].capacity; i++)
     {
-        if (ballId == gBagPockets[BALLS_POCKET].itemSlots[i-1].itemId)
+        if (ballId == gBagPockets[POCKET_POKE_BALLS].itemSlots[i-1].itemId)
         {
-            ballNext = gBagPockets[BALLS_POCKET].itemSlots[i].itemId;
+            ballNext = gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId;
             break;
         }
     }
     if (ballNext == ITEM_NONE)
-        return gBagPockets[BALLS_POCKET].itemSlots[0].itemId; // Zeroth slot
+        return gBagPockets[POCKET_POKE_BALLS].itemSlots[0].itemId; // Zeroth slot
     else
         return ballNext;
 }
@@ -421,6 +421,16 @@ static void HandleInputChooseAction(u32 battler)
         TryHideLastUsedBall();
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_THROW_BALL, 0);
         PlayerBufferExecCompleted(battler);
+    }
+    else if (JOY_NEW(R_BUTTON))
+    {
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FIRST_BATTLE)))
+        {
+            PlaySE(SE_SELECT);
+            TryHideLastUsedBall();
+            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
+            PlayerBufferExecCompleted(battler);
+        }
     }
 }
 
@@ -776,7 +786,6 @@ void HandleInputChooseMove(u32 battler)
         if (gBattleStruct->zmove.viewing)
         {
             ReloadMoveNames(battler);
-            ChangeGimmickTriggerSprite(gBattleStruct->gimmick.triggerSpriteId, gBattleStruct->gimmick.playerSelect);
         }
         else
         {
@@ -2237,7 +2246,7 @@ void PlayerHandleExpUpdate(u32 battler)
 
 static void PlayerHandleStatusXor(u32 battler)
 {
-    u32 val = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_STATUS) ^ gBattleResources->bufferA[battler][1];
+    u8 val = GetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_STATUS) ^ gBattleResources->bufferA[battler][1];
 
     SetMonData(&gPlayerParty[gBattlerPartyIndexes[battler]], MON_DATA_STATUS, &val);
     PlayerBufferExecCompleted(battler);
