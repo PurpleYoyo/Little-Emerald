@@ -129,23 +129,18 @@ void SubtractMoneyFromVar0x8005(void)
     RemoveMoney(&gSaveBlock1Ptr->money, gSpecialVar_0x8005);
 }
 
-void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed, bool8 fish)
+void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed)
 {
-    PrintMoneyAmount(windowId, CalculateMoneyTextHorizontalPosition(amount, fish), 1, amount, speed, fish);
+    PrintMoneyAmount(windowId, CalculateMoneyTextHorizontalPosition(amount), 1, amount, speed);
 }
 
-static u32 CalculateLeadingSpacesForMoney(u32 numDigits, bool8 fish)
+static u32 CalculateLeadingSpacesForMoney(u32 numDigits)
 {
-    if (!fish)
-    {
-        u32 leadingSpaces = CountDigits(INT_MAX) - StringLength(gStringVar1);
-        return (numDigits > 8) ? leadingSpaces : leadingSpaces - 2;
-    }
-    else
-        return 0;
+    u32 leadingSpaces = CountDigits(INT_MAX) - StringLength(gStringVar1);
+    return (numDigits > 8) ? leadingSpaces : leadingSpaces - 2;
 }
 
-void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed, bool8 fish)
+void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed)
 {
     u8 *txtPtr = gStringVar4;
     u32 numDigits = CountDigits(amount);
@@ -154,7 +149,7 @@ void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed, bool8 fish)
 
     ConvertIntToDecimalStringN(gStringVar1, amount, STR_CONV_MODE_LEFT_ALIGN, maxDigits);
 
-    leadingSpaces = CalculateLeadingSpacesForMoney(numDigits, fish);
+    leadingSpaces = CalculateLeadingSpacesForMoney(numDigits);
 
     while (leadingSpaces-- > 0)
         *(txtPtr++) = CHAR_SPACER;
@@ -166,21 +161,19 @@ void PrintMoneyAmount(u8 windowId, u8 x, u8 y, int amount, u8 speed, bool8 fish)
     AddTextPrinterParameterized(windowId, FONT_NORMAL, gStringVar4, x, y, speed, NULL);
 }
 
-void PrintMoneyAmountInMoneyBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, int amount, bool8 fish)
+void PrintMoneyAmountInMoneyBoxWithBorder(u8 windowId, u16 tileStart, u8 pallete, int amount)
 {
     DrawStdFrameWithCustomTileAndPalette(windowId, FALSE, tileStart, pallete);
-    PrintMoneyAmountInMoneyBox(windowId, amount, 0, fish);
+    PrintMoneyAmountInMoneyBox(windowId, amount, 0);
 }
 
-void ChangeAmountInMoneyBox(int amount, bool8 fish)
+void ChangeAmountInMoneyBox(int amount)
 {
-    PrintMoneyAmountInMoneyBox(sMoneyBoxWindowId, amount, 0, fish);
+    PrintMoneyAmountInMoneyBox(sMoneyBoxWindowId, amount, 0);
 }
 
-u32 CalculateMoneyTextHorizontalPosition(u32 amount, bool8 fish)
+u32 CalculateMoneyTextHorizontalPosition(u32 amount)
 {
-    if (fish)
-        return (CountDigits(amount) > 8) ? 15 : 7;
     return (CountDigits(amount) > 8) ? 34 : 26;
 }
 
@@ -193,21 +186,8 @@ void DrawMoneyBox(int amount, u8 x, u8 y)
     FillWindowPixelBuffer(sMoneyBoxWindowId, PIXEL_FILL(0));
     PutWindowTilemap(sMoneyBoxWindowId);
     CopyWindowToVram(sMoneyBoxWindowId, COPYWIN_MAP);
-    PrintMoneyAmountInMoneyBoxWithBorder(sMoneyBoxWindowId, 0x214, 14, amount, FALSE);
-    AddMoneyLabelObject((8 * x) + 19, (8 * y) + 8);
-}
-
-void DrawMoneyBoxFish(int amount, u8 x, u8 y)
-{
-    struct WindowTemplate template;
-
-    SetWindowTemplateFields(&template, 0, x + 1, y + 1, 6, 2, 15, 8);
-    sMoneyBoxWindowId = AddWindow(&template);
-    FillWindowPixelBuffer(sMoneyBoxWindowId, PIXEL_FILL(0));
-    PutWindowTilemap(sMoneyBoxWindowId);
-    CopyWindowToVram(sMoneyBoxWindowId, COPYWIN_MAP);
-    PrintMoneyAmountInMoneyBoxWithBorder(sMoneyBoxWindowId, 0x214, 14, amount, TRUE);
-    AddMoneyLabelObject((8 * x) + 19, (8 * y) + 8);
+    PrintMoneyAmountInMoneyBoxWithBorder(sMoneyBoxWindowId, 0x214, 14, amount);
+    AddMoneyLabelObject((8 * x) + 19, (8 * y) + 11);
 }
 
 void HideMoneyBox(void)

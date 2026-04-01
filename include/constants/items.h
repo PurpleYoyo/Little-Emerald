@@ -997,34 +997,7 @@
 // HOPO BERRY
 // LEGEND PLATE
 
-#define ITEM_PINK_BOW 829
-
-#define ITEM_LIGHT_INCENSE    830
-#define ITEM_MOON_INCENSE     831
-#define ITEM_PINK_INCENSE     832
-#define ITEM_EGG_INCENSE      833
-#define ITEM_ATTACK_INCENSE   834
-#define ITEM_DEFENSE_INCENSE  835
-#define ITEM_CALM_INCENSE     836
-#define ITEM_ICE_INCENSE      837
-#define ITEM_WEIRD_INCENSE    838
-#define ITEM_METAL_INCENSE    839
-#define ITEM_SOOTHING_INCENSE 840
-#define ITEM_PUNK_INCENSE     841
-
-#define ITEM_INFINITE_CANDY   842
-#define ITEM_MAX_RESTORE      843
-#define ITEM_INFINITE_REPEL   844
-#define ITEM_POKEVIAL         845
-
-#define ITEM_BLANK_MINT       846
-
-#define ITEM_WARP_PANEL       847
-#define ITEM_CAP_CANDY        848
-#define ITEM_EDGE_CANDY       849
-#define ITEM_FLASHLIGHT       850
-
-#define ITEMS_COUNT 851
+#define ITEMS_COUNT 829
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations

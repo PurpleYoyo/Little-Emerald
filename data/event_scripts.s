@@ -63,6 +63,7 @@
 
 	.section script_data, "aw", %progbits
 
+	.set ALLOCATE_SCRIPT_CMD_TABLE, 1
 	.include "data/script_cmd_table.inc"
 
 gSpecialVars::
@@ -705,18 +706,6 @@ Common_ShowEasyChatScreen::
 	fadescreen FADE_FROM_BLACK
 	return
 
-Common_ShowSelectDamageScreen::
-	special ShowSelectDamageScreen
-	return
-
-Common_ShowSelectIvsScreen::
-	special ShowSelectIvsScreen
-	return
-
-Common_ShowSelectEvsScreen::
-	special ShowSelectEvsScreen
-	return
-
 Common_EventScript_ReadyPetalburgGymForBattle::
 	clearflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
@@ -1163,9 +1152,3 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/follower.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
-
-	.include "data/maps/DesertOasis/scripts.inc"
-
-	.include "data/maps/Route111_NoMirageTower/scripts.inc"
-
-	.include "data/maps/DeepWoods/scripts.inc"

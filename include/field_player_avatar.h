@@ -69,6 +69,4 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, u8 direction);
 u8 GetRightSideStairsDirection(u8 direction);
 u8 GetLeftSideStairsDirection(u8 direction);
 
-extern bool8 gRunToggleBtnSet;
-
 #endif // GUARD_FIELD_PLAYER_AVATAR_H

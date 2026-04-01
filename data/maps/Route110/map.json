@@ -273,7 +273,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SCOPE_LENS",
+      "trainer_sight_or_berry_tree_id": "ITEM_DIRE_HIT",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_110_DIRE_HIT"
     },
@@ -422,14 +422,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
-      "x": 11,
+      "x": 10,
       "y": 76,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "Route110_EventScript_Isabel",
       "flag": "0"
     },
@@ -442,7 +442,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "Route110_EventScript_Kaleb",
       "flag": "0"
     },
@@ -481,7 +481,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ELECTIRIZER",
+      "trainer_sight_or_berry_tree_id": "ITEM_ELIXIR",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_110_ELIXIR"
     },
@@ -497,32 +497,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "0x0",
       "flag": "FLAG_HIDE_ROUTE_110_BIRCH"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(ANORITH)",
-      "x": 35,
-      "y": 54,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RivalsAnorith",
-      "flag": "FLAG_HIDE_RIVALS_ANORITH"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(AMAURA)",
-      "x": 35,
-      "y": 54,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "RivalsAmaura",
-      "flag": "FLAG_HIDE_RIVALS_AMAURA"
     }
   ],
   "warp_events": [
@@ -752,7 +726,7 @@
       "x": 35,
       "y": 39,
       "elevation": 3,
-      "item": "ITEM_MAX_REVIVE",
+      "item": "ITEM_REVIVE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE"
     },
     {
@@ -760,7 +734,7 @@
       "x": 33,
       "y": 45,
       "elevation": 3,
-      "item": "ITEM_BIG_NUGGET",
+      "item": "ITEM_GREAT_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL"
     },
     {
@@ -768,7 +742,7 @@
       "x": 4,
       "y": 35,
       "elevation": 3,
-      "item": "ITEM_TM_SHOCK_WAVE",
+      "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_POKE_BALL"
     },
     {
@@ -776,7 +750,7 @@
       "x": 37,
       "y": 67,
       "elevation": 3,
-      "item": "ITEM_STONE_PLATE",
+      "item": "ITEM_FULL_HEAL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL"
     },
     {

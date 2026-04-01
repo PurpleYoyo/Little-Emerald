@@ -4819,9 +4819,9 @@ static void SaveMonDataInStruct(void)
     sPokedexView->sPokemonStats.eggCycles           = gSpeciesInfo[species].eggCycles;
     sPokedexView->sPokemonStats.expYield            = gSpeciesInfo[species].expYield;
     sPokedexView->sPokemonStats.friendship          = gSpeciesInfo[species].friendship;
-    sPokedexView->sPokemonStats.ability0            = GetAbilityBySpecies(species, 0, ABILITY_NONE);
-    sPokedexView->sPokemonStats.ability1            = GetAbilityBySpecies(species, 1, ABILITY_NONE);
-    sPokedexView->sPokemonStats.abilityHidden       = GetAbilityBySpecies(species, 2, ABILITY_NONE);
+    sPokedexView->sPokemonStats.ability0            = GetAbilityBySpecies(species, 0);
+    sPokedexView->sPokemonStats.ability1            = GetAbilityBySpecies(species, 1);
+    sPokedexView->sPokemonStats.abilityHidden       = GetAbilityBySpecies(species, 2);
 }
 
 #define tMonSpriteId data[4]
@@ -5305,7 +5305,6 @@ static void PrintStatsScreen_Moves_Bottom(u8 taskId)
     else //Appeal + Jam
     {
         DestroyCategoryIcon();
-        gSprites[sPokedexView->categoryIconSpriteId].invisible = TRUE;
         //Appeal
         contest_effectValue = gContestEffects[gMovesInfo[move].contestEffect].appeal;
         if (contest_effectValue != 0xFF)

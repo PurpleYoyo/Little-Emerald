@@ -12,45 +12,32 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(TURTWIG)",
-      "x": 2,
-      "y": 3,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "SmashersTurtwig",
-      "flag": "FLAG_HIDE_SMASHERS_TURTWIG"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_LUCY",
+      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
       "x": 2,
       "y": 4,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Miniboss_Smasher",
+      "script": "SootopolisCity_House1_EventScript_BrickBreakBlackBelt",
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
-      "x": 6,
-      "y": 2,
-      "elevation": 0,
+      "graphics_id": "OBJ_EVENT_GFX_KECLEON",
+      "x": 2,
+      "y": 3,
+      "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "SootopolisCity_House1_EventScript_BrickBreakBlackBelt",
+      "script": "SootopolisCity_House1_EventScript_Kecleon",
       "flag": "0"
     }
   ],
@@ -70,10 +57,6 @@
       "dest_warp_id": "4"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

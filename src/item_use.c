@@ -45,7 +45,6 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/map_types.h"
-#include "../include/region_map.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -733,17 +732,17 @@ void ItemUseOutOfBattle_PowderJar(u8 taskId)
 
 void ItemUseOutOfBattle_Berry(u8 taskId)
 {
-    //if (IsPlayerFacingEmptyBerryTreePatch() == TRUE)
-    //{
-    //    sItemUseOnFieldCB = ItemUseOnFieldCB_Berry;
-    //    gFieldCallback = FieldCB_UseItemOnField;
-    //    gBagMenu->newScreenCallback = CB2_ReturnToField;
-    //    Task_FadeAndCloseBagMenu(taskId);
-    //}
-    //else
-    //{
-    ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
-    //}
+    if (IsPlayerFacingEmptyBerryTreePatch() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_Berry;
+        gFieldCallback = FieldCB_UseItemOnField;
+        gBagMenu->newScreenCallback = CB2_ReturnToField;
+        Task_FadeAndCloseBagMenu(taskId);
+    }
+    else
+    {
+        ItemId_GetFieldFunc(gSpecialVar_ItemId)(taskId);
+    }
 }
 
 static void ItemUseOnFieldCB_Berry(u8 taskId)
@@ -806,12 +805,6 @@ void ItemUseOutOfBattle_Medicine(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
-void ItemUseOutOfBattle_MaxRestore(u8 taskId)
-{
-    gItemUseCB = ItemUseCB_MaxRestore;
-    SetUpItemUseCallback(taskId);
-}
-
 void ItemUseOutOfBattle_AbilityCapsule(u8 taskId)
 {
     gItemUseCB = ItemUseCB_AbilityCapsule;
@@ -863,24 +856,6 @@ void ItemUseOutOfBattle_PPUp(u8 taskId)
 void ItemUseOutOfBattle_RareCandy(u8 taskId)
 {
     gItemUseCB = ItemUseCB_RareCandy;
-    SetUpItemUseCallback(taskId);
-}
-
-void ItemUseOutOfBattle_InfiniteRareCandy(u8 taskId)
-{
-    gItemUseCB = ItemUseCB_InfiniteRareCandy;
-    SetUpItemUseCallback(taskId);
-}
-
-void ItemUseOutOfBattle_CapCandy(u8 taskId)
-{
-    gItemUseCB = ItemUseCB_CapCandy;
-    SetUpItemUseCallback(taskId);
-}
-
-void ItemUseOutOfBattle_EdgeCandy(u8 taskId)
-{
-    gItemUseCB = ItemUseCB_EdgeCandy;
     SetUpItemUseCallback(taskId);
 }
 
@@ -939,95 +914,6 @@ static void RemoveUsedItem(void)
     {
         UpdatePyramidBagList();
         UpdatePyramidBagCursorPos();
-    }
-}
-
-void ItemUseOutOfBattle_Pokevial(u8 taskId)
-{
-    u32 i;
-    for (i = 0; i < gPlayerPartyCount; i++)
-        HealPokemon(&gPlayerParty[i]);
-    if (gTasks[taskId].tUsingRegisteredKeyItem) {
-        DisplayItemMessageOnField(taskId, gText_Pokevial, Task_CloseCantUseKeyItemMessage);
-    }
-    else {
-        DisplayItemMessage(taskId, 1, gText_Pokevial, CloseItemMessage);
-    }
-}
-
-void ItemUseOutOfBattle_WarpPanel(u8 taskId)
-{
-    if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(EVER_GRANDE_CITY_SIDNEYS_ROOM))
-    {
-        if (gTasks[taskId].tUsingRegisteredKeyItem) {
-            DisplayItemMessageOnField(taskId, gText_CantUseWarpPanel, Task_CloseCantUseKeyItemMessage);
-        }
-        else {
-            DisplayItemMessage(taskId, 1, gText_CantUseWarpPanel, CloseItemMessage);
-        }
-        return;
-    }
-    SetMainCallback2(CB2_OpenWarpMap);
-}
-
-void ItemUseOutOfBattle_Flashlight(u8 taskId)
-{
-    if (!(gMapHeader.cave == TRUE))
-    {
-        if (gTasks[taskId].tUsingRegisteredKeyItem) {
-            DisplayItemMessageOnField(taskId, gText_CantUseFlashHere, Task_CloseCantUseKeyItemMessage);
-        }
-        else {
-            DisplayItemMessage(taskId, 1, gText_CantUseFlashHere, CloseItemMessage);
-        }
-    }
-    if (FlagGet(FLAG_SYS_USE_FLASH))
-    {
-        if(gTasks[taskId].tUsingRegisteredKeyItem) {
-            DisplayItemMessageOnField(taskId, gText_AlreadyUsedFlash, Task_CloseCantUseKeyItemMessage);
-        }
-        else {
-            DisplayItemMessage(taskId, 1, gText_AlreadyUsedFlash, CloseItemMessage);
-        }
-    }
-    else
-    {
-        if(gTasks[taskId].tUsingRegisteredKeyItem) {
-            DisplayItemMessageOnField(taskId, gText_UseFlash, Task_CloseCantUseKeyItemMessage);
-        }
-        else {
-            DisplayItemMessage(taskId, 1, gText_UseFlash, CloseItemMessage);
-        }
-        PlaySE(SE_M_REFLECT);
-        AnimateFlash(1);
-        SetFlashLevel(0);
-    }
-}
-
-void ItemUseOutOfBattle_InfiniteRepel(u8 taskId)
-{
-    bool8 infiniteRepelOn = FlagGet(OW_FLAG_NO_ENCOUNTER);
-    if (!infiniteRepelOn)
-    {
-        FlagToggle(OW_FLAG_NO_ENCOUNTER);
-        PlaySE(SE_REPEL);
-        if(gTasks[taskId].tUsingRegisteredKeyItem) {
-            DisplayItemMessageOnField(taskId, gText_InfiniteRepelOn, Task_CloseCantUseKeyItemMessage);
-        }
-        else{
-            DisplayItemMessage(taskId, 1, gText_InfiniteRepelOn, CloseItemMessage);
-        }
-    }
-    else
-    {
-        FlagToggle(OW_FLAG_NO_ENCOUNTER);
-        PlaySE(SE_POKENAV_OFF);
-        if (gTasks[taskId].tUsingRegisteredKeyItem){
-            DisplayItemMessageOnField(taskId, gText_InfiniteRepelOff, Task_CloseCantUseKeyItemMessage);
-        }
-        else{
-            DisplayItemMessage(taskId, 1, gText_InfiniteRepelOff, CloseItemMessage);
-        }
     }
 }
 

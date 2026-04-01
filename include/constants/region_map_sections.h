@@ -214,16 +214,7 @@
 #define MAPSEC_ALTERING_CAVE                0xD2
 #define MAPSEC_NAVEL_ROCK                   0xD3
 #define MAPSEC_TRAINER_HILL                 0xD4
-#define MAPSEC_GAME_CORNER                  0xD5
-#define MAPSEC_DEVON_CORP                   0xD6
-#define MAPSEC_DESERT_OASIS                 0xD7
-#define MAPSEC_DEEP_WOODS                   0xD8
-#define MAPSEC_DAYCARE                      0xD9
-#define MAPSEC_WEATHER_INSTITUTE            0xDA
-#define MAPSEC_GAME_CORNER_2                0xDB
-#define MAPSEC_SPACE_CENTER                 0xDC
-#define MAPSEC_OCEANIC_MUSEUM               0xDD
-#define MAPSEC_NONE                         0xDE
+#define MAPSEC_NONE                         0xD5
 
 #define METLOC_SPECIAL_EGG                  0xFD
 #define METLOC_IN_GAME_TRADE                0xFE

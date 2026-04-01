@@ -2,11 +2,11 @@
 #define GUARD_CONSTANTS_TMS_HMS_H
 
 #define FOREACH_TM(F) \
-    F(COVET) \
+    F(FOCUS_PUNCH) \
     F(DRAGON_CLAW) \
     F(WATER_PULSE) \
     F(CALM_MIND) \
-    F(PSYSHOCK) \
+    F(ROAR) \
     F(TOXIC) \
     F(HAIL) \
     F(BULK_UP) \
@@ -21,8 +21,8 @@
     F(PROTECT) \
     F(RAIN_DANCE) \
     F(GIGA_DRAIN) \
-    F(ROOST) \
-    F(POWER_GEM) \
+    F(SAFEGUARD) \
+    F(FRUSTRATION) \
     F(SOLAR_BEAM) \
     F(IRON_TAIL) \
     F(THUNDERBOLT) \
@@ -33,7 +33,7 @@
     F(PSYCHIC) \
     F(SHADOW_BALL) \
     F(BRICK_BREAK) \
-    F(LEECH_LIFE) \
+    F(DOUBLE_TEAM) \
     F(REFLECT) \
     F(SHOCK_WAVE) \
     F(FLAMETHROWER) \
@@ -42,7 +42,7 @@
     F(FIRE_BLAST) \
     F(ROCK_TOMB) \
     F(AERIAL_ACE) \
-    F(EARTH_POWER) \
+    F(TORMENT) \
     F(FACADE) \
     F(SECRET_POWER) \
     F(REST) \
@@ -50,58 +50,8 @@
     F(THIEF) \
     F(STEEL_WING) \
     F(SKILL_SWAP) \
-    F(LOW_SWEEP) \
-    F(OVERHEAT) \
-    F(SCALD) \
-    F(AGILITY) \
-    F(FIRE_FANG) \
-    F(THUNDER_FANG) \
-    F(ICE_FANG) \
-    F(PSYCHIC_FANGS) \
-    F(FIRE_PUNCH) \
-    F(THUNDER_PUNCH) \
-    F(ICE_PUNCH) \
-    F(EXPANDING_FORCE) \
-    F(ACROBATICS) \
-    F(MIRROR_SHOT) \
-    F(FLAME_CHARGE) \
-    F(TRAILBLAZE) \
-    F(POUNCE) \
-    F(CHILLING_WATER) \
-    F(STEALTH_ROCK) \
-    F(BULLDOZE) \
-    F(GUNK_SHOT) \
-    F(ICE_SPINNER) \
-    F(LIQUIDATION) \
-    F(SCALE_SHOT) \
-    F(METAL_CLAW) \
-    F(ICY_WIND) \
-    F(DRAINING_KISS) \
-    F(AIR_CUTTER) \
-    F(AIR_SLASH) \
-    F(STORED_POWER) \
-    F(AVALANCHE) \
-    F(VOLT_SWITCH) \
-    F(FLING) \
-    F(IRON_HEAD) \
-    F(ZEN_HEADBUTT) \
-    F(SHADOW_CLAW) \
-    F(FOUL_PLAY) \
-    F(BODY_SLAM) \
-    F(SLEEP_TALK) \
-    F(LASH_OUT) \
-    F(HYPER_VOICE) \
-    F(SEED_BOMB) \
-    F(DRAIN_PUNCH) \
-    F(DAZZLING_GLEAM) \
-    F(PLAY_ROUGH) \
-    F(POISON_JAB) \
-    F(THUNDER_WAVE) \
-    F(ROCK_SLIDE) \
-    F(SWORDS_DANCE) \
-    F(U_TURN) \
-    F(FLASH_CANNON) \
-    F(DARK_PULSE)
+    F(SNATCH) \
+    F(OVERHEAT)
 
 #define FOREACH_HM(F) \
     F(CUT) \

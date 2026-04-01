@@ -159,41 +159,6 @@ enum ItemHoldEffect
     HOLD_EFFECT_OGERPON_MASK,
     // Gen2 hold effect
     HOLD_EFFECT_BERSERK_GENE,
-    // Type Change Held Items
-    // Specific to Eevee & Eevee Starter
-    HOLD_EFFECT_FIRE_STONE,
-    HOLD_EFFECT_WATER_STONE,
-    HOLD_EFFECT_THUNDER_STONE,
-    HOLD_EFFECT_SUN_STONE,
-    HOLD_EFFECT_MOON_STONE,
-    HOLD_EFFECT_LEAF_STONE,
-    HOLD_EFFECT_ICE_STONE,
-    HOLD_EFFECT_SHINY_STONE,
-    // Specific to Charcadet
-    HOLD_EFFECT_AUSPICIOUS_ARMOR,
-    HOLD_EFFECT_MALICIOUS_ARMOR,
-    // Specific to Elekid
-    HOLD_EFFECT_ELECTIRIZER,
-    // Specific to Magby
-    HOLD_EFFECT_MAGMARIZER,
-    // Specific to Rhyhorn
-    HOLD_EFFECT_PROTECTOR,
-    // Specific to Igglybuff
-    HOLD_EFFECT_PINK_BOW,
-    // Specific to Ralts
-    HOLD_EFFECT_DAWN_STONE,
-    // Specific to Snorunt
-    HOLD_EFFECT_DUSK_STONE,
-
-    // Specific to Duskull
-    HOLD_EFFECT_REAPER_CLOTH,
-
-    HOLD_EFFECT_SOUND_POWER,
-
-    // Specific to Cleffa
-    HOLD_EFFECT_MOON_INCENSE,
-    // Specific to Tyrogue
-    HOLD_EFFECT_DEFENSE_INCENSE,
 };
 
 #define HOLD_EFFECT_CHOICE(holdEffect) ((holdEffect == HOLD_EFFECT_CHOICE_BAND || holdEffect == HOLD_EFFECT_CHOICE_SCARF || holdEffect == HOLD_EFFECT_CHOICE_SPECS))

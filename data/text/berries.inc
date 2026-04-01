@@ -171,7 +171,9 @@ Route104_PrettyPetalFlowerShop_Text_FlowersBringHappiness:
 Route104_PrettyPetalFlowerShop_Text_YouCanHaveThis:
 	.string "Hello!\p"
 	.string "The more attention you give to flowers,\n"
-	.string "the more beautifully they bloom.$"
+	.string "the more beautifully they bloom.\p"
+	.string "You'll like tending flowers. I'm sure\n"
+	.string "of it. You can have this.$"
 
 Route104_PrettyPetalFlowerShop_Text_WailmerPailExplanation:
 	.string "While BERRY plants are growing,\n"

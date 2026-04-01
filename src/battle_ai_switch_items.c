@@ -255,13 +255,6 @@ static bool32 ShouldSwitchIfAllMovesBad(u32 battler)
     }
     else
     {
-        if ((AI_DATA->abilities[battler] == ABILITY_GORILLA_TACTICS
-          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_BAND
-          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_SPECS
-          || AI_DATA->holdEffects[battler] == HOLD_EFFECT_CHOICE_SCARF
-          || gLastMoves[opposingBattler] == MOVE_ENCORE)
-          && AI_GetMoveEffectiveness(gLastMoves[battler], battler, opposingBattler) == AI_EFFECTIVENESS_x0)
-            return SetSwitchinAndSwitch(battler, PARTY_SIZE);
         for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
         {
             aiMove = gBattleMons[battler].moves[moveIndex];
@@ -814,7 +807,7 @@ static bool32 CanMonSurviveHazardSwitchin(u32 battler)
             for (j = 0; j < MAX_MON_MOVES; j++)
             {
                 aiMove = GetMonData(&party[i], MON_DATA_MOVE1 + j, NULL);
-                if (MoveHasAdditionalEffectSelf(aiMove, MOVE_EFFECT_RAPID_SPIN)
+                if (gMovesInfo[aiMove].effect == EFFECT_RAPID_SPIN
                  || (B_DEFOG_EFFECT_CLEARING >= GEN_6 && gMovesInfo[aiMove].effect == EFFECT_DEFOG)
                  || gMovesInfo[aiMove].effect == EFFECT_TIDY_UP)
                 {
@@ -1473,7 +1466,7 @@ static u32 GetSwitchinStatusDamage(u32 battler)
                 statusDamage = maxHP / 16;
             else
                 statusDamage = maxHP / 8;
-            if (ability == ABILITY_HEATPROOF)
+            if(ability == ABILITY_HEATPROOF)
                 statusDamage = statusDamage / 2;
             if (statusDamage == 0)
                 statusDamage = 1;

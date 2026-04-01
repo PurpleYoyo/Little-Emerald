@@ -123,13 +123,6 @@
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
 #define MULTI_BERRY_PLOT                   114
-#define MULTI_PREDAMAGE                    115
-#define MULTI_STATUSES                     116
-#define MULTI_STAT_NAMES_NO_HP             117
-#define MULTI_STAT_NAMES                   118
-#define MULTI_FISH                         119
-#define MULTI_HYPERTRAIN                   120
-#define MULTI_LETTERS                      121
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -172,8 +165,6 @@
 #define STDSTRING_BATTLE_ARENA     27
 #define STDSTRING_BATTLE_PIKE      28
 #define STDSTRING_BATTLE_PYRAMID   29
-#define STDSTRING_INCENSES         30
-#define STDSTRING_MINTS            31
 
 // Dynamic Multichoice Callbacks
 

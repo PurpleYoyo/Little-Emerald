@@ -172,11 +172,6 @@
 static EWRAM_DATA bool8 sStartedPokeBallTask = 0;
 static EWRAM_DATA u16 sCurrItemAndOptionMenuCheck = 0;
 
-EWRAM_DATA bool8 gNormalMode = 0;
-EWRAM_DATA bool8 gSandboxMode = 0;
-EWRAM_DATA bool8 gMonotype = 0;
-EWRAM_DATA bool8 gMonotypeEnabled = 0;
-
 static u8 sBirchSpeechMainTaskId;
 
 // Static ROM declarations
@@ -250,32 +245,6 @@ static void MainMenu_FormatSavegameTime(void);
 static void MainMenu_FormatSavegameBadges(void);
 static void NewGameBirchSpeech_CreateDialogueWindowBorder(u8, u8, u8, u8, u8, u8);
 
-static void Task_NewGameBirchSpeech_BeforeYouBegin(u8 taskId);
-static void NewGameBirchSpeech_ShowDifficultyMenu(void);
-
-static void Task_NewGameBirchSpeech_WaitToShowDifficultyMenu(u8);
-static void Task_NewGameBirchSpeech_ChooseDifficulty(u8);
-static void Task_NewGameBirchSpeech_DifficultyDesc(u8 taskId);
-static void Task_NewGameBirchSpeech_DifficultySelect(u8 taskId);
-
-static void Task_NewGameBirchSpeech_SandboxSelect(u8 taskId);
-static void Task_NewGameBirchSpeech_WaitToShowSandboxMenu(u8);
-static void Task_NewGameBirchSpeech_ChooseSandbox(u8);
-
-static void Task_NewGameBirchSpeech_MonotypeSelect(u8 taskId);
-static void Task_NewGameBirchSpeech_WaitToShowMonotypeMenu(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype1(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype2(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype3(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype4(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype5(u8);
-static void Task_NewGameBirchSpeech_ChooseMonotype6(u8);
-static void Task_NewGameBirchSpeech_MonotypeDesc(u8 taskId);
-
-static void Task_NewGameBirchSpeech_EnableMonotypeSelect(u8 taskId);
-static void Task_NewGameBirchSpeech_WaitToShowEnableMonotypeMenu(u8);
-static void Task_NewGameBirchSpeech_ChooseEnableMonotype(u8);
-static void Task_NewGameBirchSpeech_EnableMonotypeDesc(u8 taskId);
 // .rodata
 
 static const u16 sBirchSpeechBgPals[][16] = {
@@ -433,7 +402,7 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .paletteNum = 15,
         .baseBlock = 1
     },
-    { // gender
+    {
         .bg = 0,
         .tilemapLeft = 3,
         .tilemapTop = 5,
@@ -450,51 +419,6 @@ static const struct WindowTemplate sNewGameBirchSpeechTextWindows[] =
         .height = 10,
         .paletteNum = 15,
         .baseBlock = 0x85
-    },
-    {
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 5,
-        .width = 10,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x85
-    },
-    { // difficulty
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 5,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x6D
-    },
-    { // sandbox
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 5,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x6D
-    },
-    { // enable monotype
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 5,
-        .width = 6,
-        .height = 4,
-        .paletteNum = 15,
-        .baseBlock = 0x6D
-    },
-    { // monotype
-        .bg = 0,
-        .tilemapLeft = 3,
-        .tilemapTop = 3,
-        .width = 8,
-        .height = 8,
-        .paletteNum = 15,
-        .baseBlock = 0x6D
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -551,63 +475,6 @@ static const union AffineAnimCmd *const sSpriteAffineAnimTable_PlayerShrink[] =
 static const struct MenuAction sMenuActions_Gender[] = {
     {COMPOUND_STRING("BOY"), {NULL}},
     {COMPOUND_STRING("GIRL"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Difficulty[] = {
-    {COMPOUND_STRING("NORMAL"), {NULL}},
-    {COMPOUND_STRING("HARD"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Sandbox[] = {
-    {COMPOUND_STRING("YES"), {NULL}},
-    {COMPOUND_STRING("NO"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_EnableMonotype[] = {
-    {COMPOUND_STRING("YES"), {NULL}},
-    {COMPOUND_STRING("NO"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype1[] = {
-    {COMPOUND_STRING("FIRE"), {NULL}},
-    {COMPOUND_STRING("WATER"), {NULL}},
-    {COMPOUND_STRING("GRASS"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype2[] = {
-    {COMPOUND_STRING("ELECTRIC"), {NULL}},
-    {COMPOUND_STRING("BUG"), {NULL}},
-    {COMPOUND_STRING("ROCK"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype3[] = {
-    {COMPOUND_STRING("GROUND"), {NULL}},
-    {COMPOUND_STRING("FIGHTING"), {NULL}},
-    {COMPOUND_STRING("DARK"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype4[] = {
-    {COMPOUND_STRING("PSYCHIC"), {NULL}},
-    {COMPOUND_STRING("FAIRY"), {NULL}},
-    {COMPOUND_STRING("STEEL"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype5[] = {
-    {COMPOUND_STRING("ICE"), {NULL}},
-    {COMPOUND_STRING("GHOST"), {NULL}},
-    {COMPOUND_STRING("DRAGON"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
-};
-
-static const struct MenuAction sMenuActions_Monotype6[] = {
-    {COMPOUND_STRING("POISON"), {NULL}},
-    {COMPOUND_STRING("FLYING"), {NULL}},
-    {COMPOUND_STRING("NORMAL"), {NULL}},
-    {COMPOUND_STRING("MORE"), {NULL}}
 };
 
 static const u8 *const sMalePresetNames[] = {
@@ -1413,8 +1280,6 @@ static void HighlightSelectedMainMenuItem(u8 menuType, u8 selectedMenuItem, s16 
 #define tLotadSpriteId data[9]
 #define tBrendanSpriteId data[10]
 #define tMaySpriteId data[11]
-#define tYesNoType data[12]
-#define tMonoPage data[13]
 
 static void Task_NewGameBirchSpeech_Init(u8 taskId)
 {
@@ -1765,98 +1630,7 @@ static void Task_NewGameBirchSpeech_SoItsPlayerName(u8 taskId)
     NewGameBirchSpeech_ClearWindow(0);
     StringExpandPlaceholders(gStringVar4, gText_Birch_SoItsPlayer);
     AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].tYesNoType = 1;
     gTasks[taskId].func = Task_NewGameBirchSpeech_CreateNameYesNo;
-}
-
-static void NewGameBirchSpeech_ShowDifficultyMenu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[4], 0xF3);
-    FillWindowPixelBuffer(4, PIXEL_FILL(1));
-    PrintMenuTable(4, ARRAY_COUNT(sMenuActions_Difficulty), sMenuActions_Difficulty);
-    InitMenuInUpperLeftCornerNormal(4, ARRAY_COUNT(sMenuActions_Difficulty), 0);
-    PutWindowTilemap(4);
-    CopyWindowToVram(4, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowSandboxMenu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[5], 0xF3);
-    FillWindowPixelBuffer(5, PIXEL_FILL(1));
-    PrintMenuTable(5, ARRAY_COUNT(sMenuActions_Sandbox), sMenuActions_Sandbox);
-    InitMenuInUpperLeftCornerNormal(5, ARRAY_COUNT(sMenuActions_Sandbox), 0);
-    PutWindowTilemap(5);
-    CopyWindowToVram(5, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowEnableMonotypeMenu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[6], 0xF3);
-    FillWindowPixelBuffer(6, PIXEL_FILL(1));
-    PrintMenuTable(6, ARRAY_COUNT(sMenuActions_EnableMonotype), sMenuActions_EnableMonotype);
-    InitMenuInUpperLeftCornerNormal(6, ARRAY_COUNT(sMenuActions_EnableMonotype), 0);
-    PutWindowTilemap(6);
-    CopyWindowToVram(6, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype1Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype1), sMenuActions_Monotype1);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype1), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype2Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype2), sMenuActions_Monotype2);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype2), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype3Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype3), sMenuActions_Monotype3);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype3), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype4Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype4), sMenuActions_Monotype4);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype4), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype5Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype5), sMenuActions_Monotype5);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype5), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
-}
-
-static void NewGameBirchSpeech_ShowMonotype6Menu(void)
-{
-    DrawMainMenuWindowBorder(&sNewGameBirchSpeechTextWindows[7], 0xF3);
-    FillWindowPixelBuffer(7, PIXEL_FILL(1));
-    PrintMenuTable(7, ARRAY_COUNT(sMenuActions_Monotype6), sMenuActions_Monotype6);
-    InitMenuInUpperLeftCornerNormal(7, ARRAY_COUNT(sMenuActions_Monotype6), 0);
-    PutWindowTilemap(7);
-    CopyWindowToVram(7, COPYWIN_FULL);
 }
 
 static void Task_NewGameBirchSpeech_CreateNameYesNo(u8 taskId)
@@ -1872,68 +1646,17 @@ static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8 taskId)
 {
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
-        case 0: // yes
+        case 0:
             PlaySE(SE_SELECT);
-            if (gTasks[taskId].tYesNoType == 1) // gender
-            {
-                gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-                NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
-                NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway2;
-            }
-            else if (gTasks[taskId].tYesNoType == 2) // difficulty
-            {
-                NewGameBirchSpeech_ClearWindow(0);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_SandboxSelect;
-            }
-            else if (gTasks[taskId].tYesNoType == 3) // sandbox
-            {
-                gTasks[taskId].func = Task_NewGameBirchSpeech_EnableMonotypeSelect;
-            }
-            else if (gTasks[taskId].tYesNoType == 4) // enable monotype
-            {
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
-            }
-            else // if (gTasks[taskId].tYesNoType == 5) // monotype
-            {
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
-            }
+            gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+            NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
+            NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
+            gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway2;
             break;
-        case MENU_B_PRESSED: // no
+        case MENU_B_PRESSED:
         case 1:
             PlaySE(SE_SELECT);
-            if (gTasks[taskId].tYesNoType == 1) // gender
-            {
-                gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
-            }
-            else if (gTasks[taskId].tYesNoType == 2) // difficulty
-            {
-                NewGameBirchSpeech_ClearWindow(0);
-                StringExpandPlaceholders(gStringVar4, gText_WhichDifficulty);
-                AddTextPrinterForMessage(TRUE);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowDifficultyMenu;
-            }
-            else if (gTasks[taskId].tYesNoType == 3) // sandbox
-            {
-                NewGameBirchSpeech_ClearWindow(0);
-                StringExpandPlaceholders(gStringVar4, gText_SandboxDesc);
-                AddTextPrinterForMessage(TRUE);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowSandboxMenu;
-            }
-            else if (gTasks[taskId].tYesNoType == 4) // enable monotype
-            {
-                NewGameBirchSpeech_ClearWindow(0);
-                StringExpandPlaceholders(gStringVar4, gText_MonotypeDesc);
-                AddTextPrinterForMessage(TRUE);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowEnableMonotypeMenu;
-            }
-            else // if (gTasks[taskId].tYesNoType == 5) // monotype
-            {
-                NewGameBirchSpeech_ClearWindow(0);
-                StringExpandPlaceholders(gStringVar4, gText_MonotypeDesc);
-                AddTextPrinterForMessage(TRUE);
-                gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowEnableMonotypeMenu;
-            }
+            gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
     }
 }
 
@@ -2021,485 +1744,8 @@ static void Task_NewGameBirchSpeech_AreYouReady(u8 taskId)
         NewGameBirchSpeech_StartFadePlatformOut(taskId, 1);
         StringExpandPlaceholders(gStringVar4, gText_Birch_AreYouReady);
         AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_BeforeYouBegin;
+        gTasks[taskId].func = Task_NewGameBirchSpeech_ShrinkPlayer;
     }
-}
-
-static void Task_NewGameBirchSpeech_BeforeYouBegin(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        StringExpandPlaceholders(gStringVar4, gText_BeforeYouBegin);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_DifficultySelect;
-    }
-}
-
-static void Task_NewGameBirchSpeech_DifficultySelect(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ClearWindow(0);
-        StringExpandPlaceholders(gStringVar4, gText_WhichDifficulty);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowDifficultyMenu;
-    }
-}
-
-static void Task_NewGameBirchSpeech_WaitToShowDifficultyMenu(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ShowDifficultyMenu();
-        gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseDifficulty;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseDifficulty(u8 taskId)
-{
-    int difficulty = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (difficulty)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            VarSet(VAR_DIFFICULTY, NORMAL_DIFFICULTY);
-            gNormalMode = 1;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_DifficultyDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            VarSet(VAR_DIFFICULTY, HARD_DIFFICULTY);
-            gNormalMode = 0;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_DifficultyDesc;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_DifficultyDesc(u8 taskId)
-{
-    const u8 *str;
-    switch (VarGet(VAR_DIFFICULTY))
-    {
-        case NORMAL_DIFFICULTY:
-            str = gText_NormalModeDesc;
-            break;
-        default:
-        case HARD_DIFFICULTY:
-            str = gText_HardModeDesc;
-            break;
-    }
-
-    gTasks[taskId].tYesNoType = 2;
-    NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, str);
-    AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_CreateNameYesNo;
-}
-
-static void Task_NewGameBirchSpeech_SandboxSelect(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ClearWindow(0);
-        StringExpandPlaceholders(gStringVar4, gText_SandboxDesc);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowSandboxMenu;
-    }
-}
-
-static void Task_NewGameBirchSpeech_WaitToShowSandboxMenu(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ShowSandboxMenu();
-        gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseSandbox;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseSandbox(u8 taskId)
-{
-    int sandbox = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (sandbox)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            VarSet(VAR_SANDBOX_MODE, 1);
-            gSandboxMode = 1;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_EnableMonotypeSelect;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            VarSet(VAR_SANDBOX_MODE, 0);
-            gSandboxMode = 0;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_EnableMonotypeSelect;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_EnableMonotypeSelect(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ClearWindow(0);
-        StringExpandPlaceholders(gStringVar4, gText_MonotypeDesc);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowEnableMonotypeMenu;
-    }
-}
-
-static void Task_NewGameBirchSpeech_WaitToShowEnableMonotypeMenu(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        NewGameBirchSpeech_ShowEnableMonotypeMenu();
-        gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseEnableMonotype;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseEnableMonotype(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotypeEnabled = 1;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeSelect;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotypeEnabled = 0;
-            gMonotype = MONOTYPE_NONE;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_EnableMonotypeDesc;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_EnableMonotypeDesc(u8 taskId)
-{
-    const u8 *str;
-    
-    str = gText_NoMonotype;
-
-    gTasks[taskId].tYesNoType = 4;
-    NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, str);
-    AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_CreateNameYesNo;
-}
-
-static void Task_NewGameBirchSpeech_MonotypeSelect(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        gTasks[taskId].tMonoPage = 0;
-        NewGameBirchSpeech_ClearWindow(0);
-        StringExpandPlaceholders(gStringVar4, gText_WhichMonotype);
-        AddTextPrinterForMessage(TRUE);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-    }
-}
-
-static void Task_NewGameBirchSpeech_WaitToShowMonotypeMenu(u8 taskId)
-{
-    if (!RunTextPrintersAndIsPrinter0Active())
-    {
-        switch (gTasks[taskId].tMonoPage)
-        {
-            case 0:
-                NewGameBirchSpeech_ShowMonotype1Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype1;
-                break;
-            case 1:
-                NewGameBirchSpeech_ShowMonotype2Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype2;
-                break;
-            case 2:
-                NewGameBirchSpeech_ShowMonotype3Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype3;
-                break;
-            case 3:
-                NewGameBirchSpeech_ShowMonotype4Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype4;
-                break;
-            case 4:
-                NewGameBirchSpeech_ShowMonotype5Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype5;
-                break;
-            case 5:
-                NewGameBirchSpeech_ShowMonotype6Menu();
-                gTasks[taskId].func = Task_NewGameBirchSpeech_ChooseMonotype6;
-                break;
-        }
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype1(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_FIRE;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_WATER;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_GRASS;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 1;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype2(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_ELECTRIC;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_BUG;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_ROCK;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 2;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype3(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_GROUND;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_FIGHTING;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_DARK;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 3;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype4(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_PSYCHIC;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_FAIRY;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_STEEL;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 4;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype5(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_ICE;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_GHOST;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_DRAGON;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 5;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_ChooseMonotype6(u8 taskId)
-{
-    int monotype = NewGameBirchSpeech_ProcessGenderMenuInput();
-
-    switch (monotype)
-    {
-        case 0:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_POISON;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 1:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_FLYING;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 2:
-            PlaySE(SE_SELECT);
-            gMonotype = MONOTYPE_NORMAL;
-            NewGameBirchSpeech_ClearGenderWindow(4, 1);
-            gTasks[taskId].func = Task_NewGameBirchSpeech_MonotypeDesc;
-            break;
-        case 3:
-            gTasks[taskId].tMonoPage = 0;
-            gTasks[taskId].func = Task_NewGameBirchSpeech_WaitToShowMonotypeMenu;
-            break;
-    }
-}
-
-static void Task_NewGameBirchSpeech_MonotypeDesc(u8 taskId)
-{
-    const u8 *str;
-    
-    switch (gMonotype)
-    {
-        default:
-            str = gText_NoMonotype;
-            break;
-        case MONOTYPE_FIRE:
-            str = gText_ChooseFire;
-            break;
-        case MONOTYPE_BUG:
-            str = gText_ChooseBug;
-            break;
-        case MONOTYPE_WATER:
-            str = gText_ChooseWater;
-            break;
-        case MONOTYPE_ROCK:
-            str = gText_ChooseRock;
-            break;
-        case MONOTYPE_GROUND:
-            str = gText_ChooseGround;
-            break;
-        case MONOTYPE_GRASS:
-            str = gText_ChooseGrass;
-            break;
-        case MONOTYPE_ELECTRIC:
-            str = gText_ChooseElectric;
-            break;
-        case MONOTYPE_DARK:
-            str = gText_ChooseDark;
-            break;
-        case MONOTYPE_DRAGON:
-            str = gText_ChooseDragon;
-            break;
-        case MONOTYPE_STEEL:
-            str = gText_ChooseSteel;
-            break;
-        case MONOTYPE_ICE:
-            str = gText_ChooseIce;
-            break;
-        case MONOTYPE_PSYCHIC:
-            str = gText_ChoosePsychic;
-            break;
-        case MONOTYPE_FIGHTING:
-            str = gText_ChooseFigting;
-            break;
-        case MONOTYPE_GHOST:
-            str = gText_ChooseGhost;
-            break;
-        case MONOTYPE_POISON:
-            str = gText_ChoosePoison;
-            break;
-        case MONOTYPE_FLYING:
-            str = gText_ChooseFlying;
-            break;
-        case MONOTYPE_NORMAL:
-            str = gText_ChooseNormal;
-            break;
-        case MONOTYPE_FAIRY:
-            str = gText_ChooseFairy;
-            break;
-    }
-
-    gTasks[taskId].tYesNoType = 5;
-    NewGameBirchSpeech_ClearGenderWindow(7, 1);
-    NewGameBirchSpeech_ClearWindow(0);
-    StringExpandPlaceholders(gStringVar4, str);
-    AddTextPrinterForMessage(TRUE);
-    gTasks[taskId].func = Task_NewGameBirchSpeech_CreateNameYesNo;
 }
 
 static void Task_NewGameBirchSpeech_ShrinkPlayer(u8 taskId)
@@ -3016,7 +2262,7 @@ static void NewGameBirchSpeech_ClearWindow(u8 windowId)
     u8 bgColor = GetFontAttribute(FONT_NORMAL, FONTATTR_COLOR_BACKGROUND);
     u8 maxCharWidth = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_WIDTH);
     u8 maxCharHeight = GetFontAttribute(FONT_NORMAL, FONTATTR_MAX_LETTER_HEIGHT);
-    u8 winWidth = GetWindowAttribute(windowId, WINDOW_WIDTH) + 10;
+    u8 winWidth = GetWindowAttribute(windowId, WINDOW_WIDTH);
     u8 winHeight = GetWindowAttribute(windowId, WINDOW_HEIGHT);
 
     FillWindowPixelRect(windowId, bgColor, 0, 0, maxCharWidth * winWidth, maxCharHeight * winHeight);

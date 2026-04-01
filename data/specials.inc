@@ -56,7 +56,6 @@ gSpecials::
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
-	def_special Bag_ChooseFossil
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -555,32 +554,3 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
-	def_special ShowSelectDamageScreen
-	def_special ShowSelectIvsScreen
-	def_special ShowSelectEvsScreen
-	def_special IsChosenMonSteelType
-	def_special IsChosenMonPoisonType
-	def_special IsChosenMonFireType
-	def_special IsChosenMonIceType
-	def_special IsChosenMonElectricType
-	def_special IsChosenMonImmuneToSleepDueToAbility
-	def_special IsChosenMonFainted
-	def_special GetInfiniteRepelFlag
-	def_special GetAutoRunFlag
-	def_special TeachEggMove
-	def_special DoesChosenMonHaveEggMoves
-	def_special GetRandomEgg
-	def_special IsPlayerInPokemonLeague
-	def_special HasPlayerDefeatedWinona
-	def_special GetRandomFossil
-	def_special GetRandomBabyEgg
-	def_special AbilityTutor
-	def_special ChangeMonGender
-	def_special IsMonMonoGender
-	def_special IsMonGenderless
-	def_special HPTypeChanger
-	def_special GetEvGainVar
-	def_special GetAlwaysCatchVar
-	def_special GetWalkThroughWallsFlag
-	def_special GetNoTrainersFlag
-	def_special ChooseMonForEeveeMoveTutor

@@ -31,8 +31,6 @@
 #include "constants/songs.h"
 #include "constants/trainer_types.h"
 
-EWRAM_DATA bool8 gRunToggleBtnSet = FALSE;
-
 #define NUM_FORCED_MOVEMENTS 18
 #define NUM_ACRO_BIKE_COLLISIONS 5
 
@@ -668,53 +666,21 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
         }
     }
 
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING || gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER)
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
     {
-        if (heldKeys & B_BUTTON)
-            PlayerWalkFaster(direction);
-        else
-            PlayerWalkFast(direction);
+        // same speed as running
+        PlayerWalkFast(direction);
         return;
     }
 
-    //if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
-    // && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0)
-    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (gRunToggleBtnSet || FlagGet(FLAG_RUNNING_SHOES_TOGGLE) || (heldKeys & B_BUTTON))
-       && FlagGet(FLAG_SYS_B_DASH) && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0)
+    if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_UNDERWATER) && (heldKeys & B_BUTTON) && FlagGet(FLAG_SYS_B_DASH)
+     && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0)
     {
-        if (gRunToggleBtnSet)
-        {
-            gRunToggleBtnSet = FALSE;
-            if (FlagGet(FLAG_RUNNING_SHOES_TOGGLE) == FALSE)
-            {
-                FlagSet(FLAG_RUNNING_SHOES_TOGGLE);
-                PlayerRun(direction);
-                gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
-                return;
-            }
-            else
-            {
-                FlagClear(FLAG_RUNNING_SHOES_TOGGLE);
-                gRunToggleBtnSet = FALSE;
-                if (!(heldKeys & B_BUTTON))
-                {
-                    PlayerWalkNormal(direction);
-                }
-                else
-                {
-                    PlayerRun(direction);
-                    gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
-                }
-                return;
-            } 
-        }
-
         if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
             PlayerRunSlow(direction);
         else
             PlayerRun(direction);
 
-        PlayerRun(direction);
         gPlayerAvatar.flags |= PLAYER_AVATAR_FLAG_DASH;
         return;
     }
@@ -724,8 +690,6 @@ static void PlayerNotOnBikeMoving(u8 direction, u16 heldKeys)
             PlayerWalkSlow(direction);
         else
             PlayerWalkNormal(direction);
-
-        gRunToggleBtnSet = FALSE;
     }
 }
 
@@ -2179,7 +2143,7 @@ static bool32 Fishing_DoesFirstMonInPartyHaveSuctionCupsOrStickyHold(void)
 
 static bool32 Fishing_RollForBite(u32 rod, bool32 isStickyHold)
 {
-    return 100; //((Random() % 100) > CalculateFishingBiteOdds(rod, isStickyHold));
+    return ((Random() % 100) > CalculateFishingBiteOdds(rod, isStickyHold));
 }
 
 static u32 CalculateFishingBiteOdds(u32 rod, bool32 isStickyHold)

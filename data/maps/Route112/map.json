@@ -27,21 +27,6 @@
       "map": "MAP_ROUTE111",
       "offset": -20,
       "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111",
-      "offset": -20,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111_NO_MIRAGE_TOWER",
-      "offset": -20,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111",
-      "offset": -20,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -203,7 +188,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
-      "x": 33,
+      "x": 31,
       "y": 7,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
@@ -216,7 +201,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 33,
+      "x": 31,
       "y": 11,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_LEFT",
@@ -272,9 +257,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -724,12 +724,8 @@
 #define STRINGID_ELECTRICCURRENTISRUNNING             722
 #define STRINGID_SEEMSWEIRD                           723
 #define STRINGID_WAGGLINGAFINGER                      724
-#define STRINGID_PLAYERGOTBP                          725
-#define STRINGID_TRICKWINDROOM                        726
-#define STRINGID_STEAMENGINEABSORBWATER               727
-#define STRINGID_STEAMENGINEABSORBFIRE                728
 
-#define BATTLESTRINGS_COUNT                           729
+#define BATTLESTRINGS_COUNT                           725
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -761,8 +757,6 @@
 #define B_MSG_AVOIDED_ATK  2
 #define B_MSG_AVOIDED_DMG  3
 #define B_MSG_GROUND_MISS  4
-#define B_MSG_WATER_MISS   5
-#define B_MSG_FIRE_MISS    6
 
 // gAbsorbDrainStringIds
 #define B_MSG_ABSORB      0
@@ -1015,8 +1009,7 @@
 #define B_MSG_SET_WONDER_ROOM       6
 #define B_MSG_SET_TAILWIND_PLAYER   7
 #define B_MSG_SET_TAILWIND_OPPONENT 8
-#define B_MSG_SET_TRICKWIND_ROOM    9
-#define B_MSG_STARTING_STATUS_COUNT 10
+#define B_MSG_STARTING_STATUS_COUNT 9
 
 
 // gWrappedStringIds

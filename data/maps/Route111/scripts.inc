@@ -14,6 +14,7 @@ Route111_MapScripts::
 	.byte 0
 
 Route111_OnLoad:
+	call_if_unset FLAG_REGI_DOORS_OPENED, Route111_EventScript_CloseDesertRuins
 	call_if_eq VAR_MIRAGE_TOWER_STATE, 1, Route111_EventScript_ShowTemporaryMirageTower
 	end
 
@@ -130,6 +131,9 @@ Route111_EventScript_MirageTowerDisappear::
 	special StartMirageTowerFossilFallAndSink
 	waitstate
 	setvar VAR_MIRAGE_TOWER_STATE, 2
+	clearflag FLAG_HIDE_DESERT_UNDERPASS_FOSSIL
+	goto_if_set FLAG_CHOSE_CLAW_FOSSIL, Route111_EventScript_RootFossilDisappeared
+	msgbox Route111_Text_ClawFossilDisappeared, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -703,7 +707,7 @@ Route111_Text_MirageTowerHasntBeenSeenSince:
 	.string "the MIRAGE TOWER…$"
 
 Route111_Text_ClawFossilDisappeared:
-	.string "The FOSSIL disappeared into\n"
+	.string "The CLAW FOSSIL disappeared into\n"
 	.string "the sand…$"
 
 Route111_Text_RootFossilDisappeared:
