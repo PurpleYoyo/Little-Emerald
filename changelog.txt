@@ -614,10 +614,12 @@ B2Bs:
  - Route 116: Dawson & Sarah
  - Route 110: Kaleb & Isabel
  - Route 118: Rose & Deandre
+ - Route 112: Shayla & Bryant
 Doubles:
  - Route 116: Janice & Jerry
  - Dewford Gym: Brenden & Lilith
  - Route 103: Marcos & Rhett
+ - Rooute 114: Charlotte & Kai
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c
