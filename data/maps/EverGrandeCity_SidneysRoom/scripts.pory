@@ -55,9 +55,18 @@ EverGrandeCity_SidneysRoom_EventScript_Sidney::
 	waitse
 	removeobject LOCALID_IMPIDIMP
 	setflag FLAG_HIDE_SIDNEYS_IMPIDIMP
+	random 2
+	goto_if_eq VAR_RESULT, 0, EverGrandeCity_SidneysRoom_EventScript_Sidney1
+	goto_if_ne VAR_RESULT, 0, EverGrandeCity_SidneysRoom_EventScript_Sidney2
+	end
+
+EverGrandeCity_SidneysRoom_EventScript_Sidney1::
 	trainerbattle_no_intro TRAINER_SIDNEY, EverGrandeCity_SidneysRoom_Text_Defeat
 	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
-	end
+
+EverGrandeCity_SidneysRoom_EventScript_Sidney2::
+	trainerbattle_no_intro TRAINER_NORMAN_2, EverGrandeCity_SidneysRoom_Text_Defeat
+	goto EverGrandeCity_SidneysRoom_EventScript_Defeated
 
 EverGrandeCity_SidneysRoom_EventScript_PostBattleSpeech::
 	msgbox EverGrandeCity_SidneysRoom_Text_PostBattleSpeech, MSGBOX_DEFAULT

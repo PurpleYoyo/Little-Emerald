@@ -2598,6 +2598,52 @@ void IsChosenMonImmuneToSleepDueToAbility(void)
     gSpecialVar_Result = FALSE;
 }
 
+void DoesEeveeHaveSpecialMove(void)
+{
+    int special_moves[] = {
+        MOVE_BOUNCY_BUBBLE,
+        MOVE_BUZZY_BUZZ,
+        MOVE_SIZZLY_SLIDE,
+        MOVE_GLITZY_GLOW,
+        MOVE_BADDY_BAD,
+        MOVE_SAPPY_SEED,
+        MOVE_FREEZY_FROST,
+        MOVE_SPARKLY_SWIRL,
+        MOVE_VEEVEE_VOLLEY
+    };
+
+    int k;
+
+    for (k = 0; k < 6; k++)
+    {
+        struct Pokemon *pokemon;
+        pokemon = &gPlayerParty[k];
+        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+        {
+            int pokemon_moves[] = {
+                GetMonData(pokemon, MON_DATA_MOVE1),
+                GetMonData(pokemon, MON_DATA_MOVE2),
+                GetMonData(pokemon, MON_DATA_MOVE3),
+                GetMonData(pokemon, MON_DATA_MOVE4),
+            };
+            u8 i, j;
+        
+            for (i = 0; i < 3; i++)
+            {
+                for (j = 0; j < 8; j++)
+                {
+                    if (pokemon_moves[i] == special_moves[j])
+                    {
+                        gSpecialVar_Result = TRUE;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+    gSpecialVar_Result = FALSE;
+}
+
 void HasPlayerDefeatedWinona(void)
 {
     if (FlagGet(FLAG_DEFEATED_FORTREE_GYM))
@@ -3769,7 +3815,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_SS_TIDAL_DESTINATION:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 7;
+        task->tNumItems = 10;
         task->tLeft = 19;
         task->tTop = 1;
         task->tWidth = 10;
@@ -3779,7 +3825,7 @@ void ShowScrollableMultichoice(void)
         break;
     case SCROLL_MULTI_BATTLE_TENT_RULES:
         task->tMaxItemsOnScreen = MAX_SCROLL_MULTI_ON_SCREEN;
-        task->tNumItems = 16;
+        task->tNumItems = 17;
         task->tLeft = 17;
         task->tTop = 1;
         task->tWidth = 12;
@@ -3968,12 +4014,15 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
     },
     [SCROLL_MULTI_SS_TIDAL_DESTINATION] =
     {
-        gText_SlateportCity,
-        gText_BattleFrontier,
-        gText_SouthernIsland,
-        gText_NavelRock,
-        gText_BirthIsland,
-        gText_FarawayIsland,
+        gText_BouncyBubble,
+        gText_BuzzyBuzz,
+        gText_SizzlySlide,
+        gText_GlitzyGlow,
+        gText_BaddyBad,
+        gText_SappySeed,
+        gText_FreezyFrost,
+        gText_SparklySwirl,
+        gText_VeeveeVolley,
         gText_Exit
     },
     [SCROLL_MULTI_BATTLE_TENT_RULES] =
@@ -3993,6 +4042,7 @@ static const u8 *const sScrollableMultichoiceOptions[][MAX_SCROLL_MULTI_LENGTH] 
         gText_GameCorner_ScorchingSands,
         gText_GameCorner_DrillRun,
         gText_GameCorner_BodyPress,
+        gText_GameCorner_RisingVoltage,
         gText_Exit
     },
     [SCROLL_MULTI_FISH] =

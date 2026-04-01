@@ -7213,8 +7213,324 @@ CheaperBPMoveTutor_24:
 	goto CheaperBPMoveTutor_7
 
 
-TestGuy::
+EeveeMovesTutor::
 # 3248 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 3249 "data/scripts/pkmn_center_nurse.pory"
+	faceplayer
+# 3250 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EeveeMovesTutor_Text_0, MSGBOX_YESNO
+# 3251 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq EeveeMovesTutor_2
+# 3257 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3258 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8004, SCROLL_MULTI_SS_TIDAL_DESTINATION
+# 3259 "data/scripts/pkmn_center_nurse.pory"
+	special ShowScrollableMultichoice
+# 3260 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 3261 "data/scripts/pkmn_center_nurse.pory"
+	switch VAR_RESULT
+# 3267 "data/scripts/pkmn_center_nurse.pory"
+	case 0, EeveeMovesTutor_7
+# 3269 "data/scripts/pkmn_center_nurse.pory"
+	case 1, EeveeMovesTutor_8
+# 3271 "data/scripts/pkmn_center_nurse.pory"
+	case 2, EeveeMovesTutor_9
+# 3273 "data/scripts/pkmn_center_nurse.pory"
+	case 3, EeveeMovesTutor_10
+# 3275 "data/scripts/pkmn_center_nurse.pory"
+	case 4, EeveeMovesTutor_11
+# 3277 "data/scripts/pkmn_center_nurse.pory"
+	case 5, EeveeMovesTutor_12
+# 3279 "data/scripts/pkmn_center_nurse.pory"
+	case 6, EeveeMovesTutor_13
+# 3281 "data/scripts/pkmn_center_nurse.pory"
+	case 7, EeveeMovesTutor_14
+# 3283 "data/scripts/pkmn_center_nurse.pory"
+	case 8, EeveeMovesTutor_15
+# 3263 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3264 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3265 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+EeveeMovesTutor_2:
+# 3252 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3253 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3254 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+EeveeMovesTutor_4:
+# 3286 "data/scripts/pkmn_center_nurse.pory"
+	special ChooseMonForEeveeMoveTutor
+# 3287 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 3288 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq EeveeMovesTutor_17
+# 3294 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EeveeMovesTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3295 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+EeveeMovesTutor_7:
+# 3268 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_BOUNCY_BUBBLE
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_8:
+# 3270 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_BUZZY_BUZZ
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_9:
+# 3272 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_SIZZLY_SLIDE
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_10:
+# 3274 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_GLITZY_GLOW
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_11:
+# 3276 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_BADDY_BAD
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_12:
+# 3278 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_SAPPY_SEED
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_13:
+# 3280 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_FREEZY_FROST
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_14:
+# 3282 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_SPARKLY_SWIRL
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_15:
+# 3284 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_VEEVEE_VOLLEY
+	goto EeveeMovesTutor_4
+
+EeveeMovesTutor_17:
+# 3289 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3290 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3291 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+
+VoltTackleTutor::
+# 3299 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 3300 "data/scripts/pkmn_center_nurse.pory"
+	faceplayer
+# 3301 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_set FLAG_TAUGHT_VOLT_TACKLE, VoltTackleTutorNoMore
+# 3302 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutor_Text_0, MSGBOX_YESNO
+# 3303 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq VoltTackleTutor_2
+# 3309 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3310 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3311 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_VOLT_TACKLE
+# 3312 "data/scripts/pkmn_center_nurse.pory"
+	special ChooseMonForMoveTutor
+# 3313 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 3314 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq VoltTackleTutor_5
+# 3320 "data/scripts/pkmn_center_nurse.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 3321 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutor_Text_2, MSGBOX_AUTOCLOSE
+# 3322 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_TAUGHT_VOLT_TACKLE
+# 3323 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+VoltTackleTutor_2:
+# 3304 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3305 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3306 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+VoltTackleTutor_5:
+# 3315 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3316 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3317 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+
+VoltTackleTutorNoMore::
+# 3327 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutorNoMore_Text_0, MSGBOX_AUTOCLOSE
+# 3328 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3329 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+
+RevivalBlessingTutor::
+# 3333 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 3334 "data/scripts/pkmn_center_nurse.pory"
+	faceplayer
+# 3335 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_set FLAG_TAUGHT_REVIVAL_BLESSING, RevivalBlessingTutorNoMore
+# 3336 "data/scripts/pkmn_center_nurse.pory"
+	msgbox RevivalBlessingTutor_Text_0, MSGBOX_YESNO
+# 3337 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq RevivalBlessingTutor_2
+# 3343 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3344 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3345 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_REVIVAL_BLESSING
+# 3346 "data/scripts/pkmn_center_nurse.pory"
+	special ChooseMonForMoveTutor
+# 3347 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 3348 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq RevivalBlessingTutor_5
+# 3354 "data/scripts/pkmn_center_nurse.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 3355 "data/scripts/pkmn_center_nurse.pory"
+	msgbox RevivalBlessingTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3356 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_TAUGHT_REVIVAL_BLESSING
+# 3357 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+RevivalBlessingTutor_2:
+# 3338 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3339 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3340 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+RevivalBlessingTutor_5:
+# 3349 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3350 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3351 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+
+RevivalBlessingTutorNoMore::
+# 3361 "data/scripts/pkmn_center_nurse.pory"
+	msgbox RevivalBlessingTutorNoMore_Text_0, MSGBOX_AUTOCLOSE
+# 3362 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3363 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+
+PlasmaFistsTutor::
+# 3367 "data/scripts/pkmn_center_nurse.pory"
+	lockall
+# 3368 "data/scripts/pkmn_center_nurse.pory"
+	faceplayer
+# 3369 "data/scripts/pkmn_center_nurse.pory"
+	goto_if_set FLAG_TAUGHT_PLASMA_FISTS, PlasmaFistsTutorNoMore
+# 3370 "data/scripts/pkmn_center_nurse.pory"
+	msgbox PlasmaFistsTutor_Text_0, MSGBOX_YESNO
+# 3371 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq PlasmaFistsTutor_2
+# 3377 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3378 "data/scripts/pkmn_center_nurse.pory"
+	msgbox VoltTackleTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3379 "data/scripts/pkmn_center_nurse.pory"
+	setvar VAR_0x8005, MOVE_PLASMA_FISTS
+# 3380 "data/scripts/pkmn_center_nurse.pory"
+	special ChooseMonForMoveTutor
+# 3381 "data/scripts/pkmn_center_nurse.pory"
+	waitstate
+# 3382 "data/scripts/pkmn_center_nurse.pory"
+	compare VAR_RESULT, 0
+	goto_if_eq PlasmaFistsTutor_5
+# 3388 "data/scripts/pkmn_center_nurse.pory"
+	specialvar 0x8007, GetSelectedMonNicknameAndSpecies
+# 3389 "data/scripts/pkmn_center_nurse.pory"
+	msgbox PlasmaFistsTutor_Text_1, MSGBOX_AUTOCLOSE
+# 3390 "data/scripts/pkmn_center_nurse.pory"
+	setflag FLAG_TAUGHT_PLASMA_FISTS
+# 3391 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+PlasmaFistsTutor_2:
+# 3372 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3373 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3374 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+PlasmaFistsTutor_5:
+# 3383 "data/scripts/pkmn_center_nurse.pory"
+	msgbox EventScript_FishermanSalesman_Text_3, MSGBOX_AUTOCLOSE
+# 3384 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3385 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	end
+
+
+PlasmaFistsTutorNoMore::
+# 3395 "data/scripts/pkmn_center_nurse.pory"
+	msgbox PlasmaFistsTutorNoMore_Text_0, MSGBOX_AUTOCLOSE
+# 3396 "data/scripts/pkmn_center_nurse.pory"
+	closemessage
+# 3397 "data/scripts/pkmn_center_nurse.pory"
+	releaseall
+	return
+
+
+TestGuy::
+# 3401 "data/scripts/pkmn_center_nurse.pory"
 	trainerbattle_no_intro TRAINER_WALLY_VR_1, VictoryRoad_1F_Text_WallyEntranceDefeat
 	return
 
@@ -8394,3 +8710,63 @@ CheaperBPMoveTutor_Text_1:
 	.string "You don't have enough Battle Points.\n"
 	.string "Come back later when you have some\l"
 	.string "more.$"
+
+EeveeMovesTutor_Text_0:
+# 3250 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can teach a special move to your\n"
+	.string "Eevee. Would you like me to do that?$"
+
+EeveeMovesTutor_Text_1:
+# 3294 "data/scripts/pkmn_center_nurse.pory"
+	.string "Done! Do note that Eevee can only learn\n"
+	.string "one of the special moves at a time. If\l"
+	.string "Eevee forgets it, I can reteach it or a\l"
+	.string "new special move.$"
+
+VoltTackleTutor_Text_0:
+# 3302 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can teach Volt Tackle to one of your\n"
+	.string "Pokémon. Would you like me to do that?$"
+
+VoltTackleTutor_Text_1:
+# 3310 "data/scripts/pkmn_center_nurse.pory"
+	.string "Which Pokémon would you like me to\n"
+	.string "teach?$"
+
+VoltTackleTutor_Text_2:
+# 3321 "data/scripts/pkmn_center_nurse.pory"
+	.string "Done! Your {STR_VAR_1} now knows\n"
+	.string "Volt Tackle!$"
+
+VoltTackleTutorNoMore_Text_0:
+# 3327 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can only teach Volt Tackle once.$"
+
+RevivalBlessingTutor_Text_0:
+# 3336 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can teach Revival Blessing to one of\n"
+	.string "your Pokémon. Would you like me to do\l"
+	.string "that?$"
+
+RevivalBlessingTutor_Text_1:
+# 3355 "data/scripts/pkmn_center_nurse.pory"
+	.string "Done! Your {STR_VAR_1} now knows\n"
+	.string "Revival Blessing!$"
+
+RevivalBlessingTutorNoMore_Text_0:
+# 3361 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can only teach Revival Blessing once.$"
+
+PlasmaFistsTutor_Text_0:
+# 3370 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can teach Plasma Fists to one of your\n"
+	.string "Pokémon. Would you like me to do that?$"
+
+PlasmaFistsTutor_Text_1:
+# 3389 "data/scripts/pkmn_center_nurse.pory"
+	.string "Done! Your {STR_VAR_1} now knows\n"
+	.string "Plasma Fists!$"
+
+PlasmaFistsTutorNoMore_Text_0:
+# 3395 "data/scripts/pkmn_center_nurse.pory"
+	.string "I can only teach Plasma Fists once.$"

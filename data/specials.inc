@@ -583,3 +583,4 @@ gSpecials::
 	def_special GetAlwaysCatchVar
 	def_special GetWalkThroughWallsFlag
 	def_special GetNoTrainersFlag
+	def_special ChooseMonForEeveeMoveTutor

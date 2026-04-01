@@ -3244,6 +3244,159 @@ script CheaperBPMoveTutor {
 	releaseall
 }
 
+script EeveeMovesTutor {
+	lockall
+	faceplayer
+	msgbox(format("I can teach a special move to your Eevee. Would you like me to do that?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	setvar(VAR_0x8004, SCROLL_MULTI_SS_TIDAL_DESTINATION)
+	special(ShowScrollableMultichoice)
+	waitstate
+	switch (var(VAR_RESULT)) {
+		default:
+			msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+			closemessage
+			releaseall
+			end
+		case 0:
+			setvar(VAR_0x8005, MOVE_BOUNCY_BUBBLE)
+		case 1:
+			setvar(VAR_0x8005, MOVE_BUZZY_BUZZ)
+		case 2:
+			setvar(VAR_0x8005, MOVE_SIZZLY_SLIDE)
+		case 3:
+			setvar(VAR_0x8005, MOVE_GLITZY_GLOW)
+		case 4:
+			setvar(VAR_0x8005, MOVE_BADDY_BAD)
+		case 5:
+			setvar(VAR_0x8005, MOVE_SAPPY_SEED)
+		case 6:
+			setvar(VAR_0x8005, MOVE_FREEZY_FROST)
+		case 7:
+			setvar(VAR_0x8005, MOVE_SPARKLY_SWIRL)
+		case 8:
+			setvar(VAR_0x8005, MOVE_VEEVEE_VOLLEY)
+	}
+	special(ChooseMonForEeveeMoveTutor)
+	waitstate
+	if (var(VAR_RESULT) == 0) { // Pressed 'B' in selection screen
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	msgbox(format("Done! Do note that Eevee can only learn one of the special moves at a time. If Eevee forgets it, I can reteach it or a new special move."), MSGBOX_AUTOCLOSE)
+	releaseall
+}
+
+script VoltTackleTutor {
+	lockall
+	faceplayer
+	goto_if_set(FLAG_TAUGHT_VOLT_TACKLE, VoltTackleTutorNoMore)
+	msgbox(format("I can teach Volt Tackle to one of your Pokémon. Would you like me to do that?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	msgbox(format("Which Pokémon would you like me to teach?"), MSGBOX_AUTOCLOSE)
+	setvar(VAR_0x8005, MOVE_VOLT_TACKLE)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	if (var(VAR_RESULT) == 0) { // Pressed 'B' in selection screen
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+	msgbox(format("Done! Your {STR_VAR_1} now knows Volt Tackle!"), MSGBOX_AUTOCLOSE)
+	setflag(FLAG_TAUGHT_VOLT_TACKLE)
+	releaseall
+}
+
+script VoltTackleTutorNoMore {
+	msgbox(format("I can only teach Volt Tackle once."), MSGBOX_AUTOCLOSE)
+	closemessage
+	releaseall
+}
+
+script RevivalBlessingTutor {
+	lockall
+	faceplayer
+	goto_if_set(FLAG_TAUGHT_REVIVAL_BLESSING, RevivalBlessingTutorNoMore)
+	msgbox(format("I can teach Revival Blessing to one of your Pokémon. Would you like me to do that?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	msgbox(format("Which Pokémon would you like me to teach?"), MSGBOX_AUTOCLOSE)
+	setvar(VAR_0x8005, MOVE_REVIVAL_BLESSING)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	if (var(VAR_RESULT) == 0) { // Pressed 'B' in selection screen
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+	msgbox(format("Done! Your {STR_VAR_1} now knows Revival Blessing!"), MSGBOX_AUTOCLOSE)
+	setflag(FLAG_TAUGHT_REVIVAL_BLESSING)
+	releaseall
+}
+
+script RevivalBlessingTutorNoMore {
+	msgbox(format("I can only teach Revival Blessing once."), MSGBOX_AUTOCLOSE)
+	closemessage
+	releaseall
+}
+
+script PlasmaFistsTutor {
+	lockall
+	faceplayer
+	goto_if_set(FLAG_TAUGHT_PLASMA_FISTS, PlasmaFistsTutorNoMore)
+	msgbox(format("I can teach Plasma Fists to one of your Pokémon. Would you like me to do that?"), MSGBOX_YESNO)
+	if (var(VAR_RESULT) == 0) { // No
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	closemessage
+	msgbox(format("Which Pokémon would you like me to teach?"), MSGBOX_AUTOCLOSE)
+	setvar(VAR_0x8005, MOVE_PLASMA_FISTS)
+	special(ChooseMonForMoveTutor)
+	waitstate
+	if (var(VAR_RESULT) == 0) { // Pressed 'B' in selection screen
+		msgbox(format("I'll be here if you change your mind."), MSGBOX_AUTOCLOSE)
+		closemessage
+		releaseall
+		end
+	}
+	specialvar(0x8007, GetSelectedMonNicknameAndSpecies)
+	msgbox(format("Done! Your {STR_VAR_1} now knows Plasma Fists!"), MSGBOX_AUTOCLOSE)
+	setflag(FLAG_TAUGHT_PLASMA_FISTS)
+	releaseall
+}
+
+script PlasmaFistsTutorNoMore {
+	msgbox(format("I can only teach Plasma Fists once."), MSGBOX_AUTOCLOSE)
+	closemessage
+	releaseall
+}
+
 script TestGuy {
 	trainerbattle_no_intro(TRAINER_WALLY_VR_1, VictoryRoad_1F_Text_WallyEntranceDefeat)	
-}	
+}

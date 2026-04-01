@@ -417,8 +417,9 @@
 #define MOVE_EFFECT_LIGHT_SCREEN        86
 #define MOVE_EFFECT_SALT_CURE           87
 #define MOVE_EFFECT_EERIE_SPELL         88
+#define MOVE_EFFECT_WILD_CHARGE         89
 
-#define NUM_MOVE_EFFECTS                89
+#define NUM_MOVE_EFFECTS                90
 
 #define MOVE_EFFECT_AFFECTS_USER        0x2000
 #define MOVE_EFFECT_CERTAIN             0x4000

@@ -2927,6 +2927,7 @@ extern const u8 gText_GameCorner_ThroatChop[];
 extern const u8 gText_GameCorner_HighJumpKick[];
 extern const u8 gText_GameCorner_JumpKick[];
 extern const u8 gText_GameCorner_MeteorMash[];
+extern const u8 gText_GameCorner_RisingVoltage[];
 
 extern const u8 gText_GameCorner_DracoMeteor[];
 extern const u8 gText_GameCorner_Lunge[];
@@ -2942,6 +2943,16 @@ extern const u8 gText_GameCorner_MeteorBeam[];
 extern const u8 gText_GameCorner_ScorchingSands[];
 extern const u8 gText_GameCorner_DrillRun[];
 extern const u8 gText_GameCorner_BodyPress[];
+
+extern const u8 gText_BouncyBubble[];
+extern const u8 gText_BuzzyBuzz[];
+extern const u8 gText_SizzlySlide[];
+extern const u8 gText_GlitzyGlow[];
+extern const u8 gText_BaddyBad[];
+extern const u8 gText_SappySeed[];
+extern const u8 gText_FreezyFrost[];
+extern const u8 gText_SparklySwirl[];
+extern const u8 gText_VeeveeVolley[];
 
 //extern const u8 gText_GameCorner_[];
 

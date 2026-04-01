@@ -957,7 +957,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .baseSpeed     = 65,
         .baseSpAttack  = 95,
         .baseSpDefense = 90,
-        .types = MON_TYPES(TYPE_PSYCHIC),
+        .types = MON_TYPES(TYPE_PSYCHIC, TYPE_STEEL),
         .catchRate = 45,
         .expYield = 159,
         .evYield_SpAttack = 1,
@@ -3060,6 +3060,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         )
         .tmIlliterate = TRUE,
         .levelUpLearnset = sWurmpleLevelUpLearnset,
+        .eggMoveLearnset = sWurmpleEggMoveLearnset,
         .teachableLearnset = sWurmpleTeachableLearnset,
         .formSpeciesIdTable = sWurmpleFormSpeciesIdTable,
         .formChangeTable = sWurmpleFormChangeTable,
@@ -3399,6 +3400,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gShinyOverworldPalette_Rufflet
         )
         .levelUpLearnset = sRuffletLevelUpLearnset,
+        .eggMoveLearnset = sRuffletEggMoveLearnset,
         .teachableLearnset = sRuffletTeachableLearnset,
         .formSpeciesIdTable = sRuffletFormSpeciesIdTable,
         .formChangeTable = sRuffletFormChangeTable,
@@ -3611,6 +3613,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sMagikarpLevelUpLearnset,
         .teachableLearnset = sMagikarpTeachableLearnset,
+        .eggMoveLearnset = sMagikarpEggMoveLearnset,
     },
 
     [SPECIES_STARYU_SPECIAL] =
@@ -3672,7 +3675,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             gShinyOverworldPalette_Staryu
         )
         .formSpeciesIdTable = sStaryuFormSpeciesIdTable,
-        .levelUpLearnset = sStaryuLevelUpLearnset,
+        .levelUpLearnset = sStaryuSpecialLevelUpLearnset,
         .eggMoveLearnset = sStaryuEggMoveLearnset,
         .teachableLearnset = sStaryuTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_OVAL_STONE, SPECIES_STARMIE}),

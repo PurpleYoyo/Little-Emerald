@@ -1788,6 +1788,7 @@ const u8 gText_GameCorner_ThroatChop[]        = _("Throat Chop");
 const u8 gText_GameCorner_HighJumpKick[]      = _("High Jump Kick");
 const u8 gText_GameCorner_JumpKick[]          = _("Jump Kick");
 const u8 gText_GameCorner_MeteorMash[]        = _("Meteor Mash");
+const u8 gText_GameCorner_RisingVoltage[]     = _("Rising Voltage");
 
 const u8 gText_GameCorner_DracoMeteor[]       = _("Draco Meteor");
 const u8 gText_GameCorner_Lunge[]             = _("Lunge");
@@ -1804,4 +1805,14 @@ const u8 gText_GameCorner_ScorchingSands[]    = _("Scorching Sands");
 const u8 gText_GameCorner_DrillRun[]          = _("Drill Run");
 const u8 gText_GameCorner_BodyPress[]         = _("Body Press");
 
-//const u8 gText_GameCorner_[]    = _("");
+const u8 gText_BouncyBubble[]                 = _("Bouncy Bubble");
+const u8 gText_BuzzyBuzz[]                    = _("Buzzy Buzz");
+const u8 gText_SizzlySlide[]                  = _("Sizzly Slide");
+const u8 gText_GlitzyGlow[]                   = _("Glitzy Glow");
+const u8 gText_BaddyBad[]                     = _("Baddy Bad");
+const u8 gText_SappySeed[]                    = _("Sappy Seed");
+const u8 gText_FreezyFrost[]                  = _("Freezy Frost");
+const u8 gText_SparklySwirl[]                 = _("Sparkly Swirl");
+const u8 gText_VeeveeVolley[]                 = _("Veevee Volley");
+
+//const u8 gText_GameCorner_[]    = _("");  

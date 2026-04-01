@@ -178,7 +178,8 @@ enum {
     CAN_LEARN_MOVE,
     CANNOT_LEARN_MOVE,
     ALREADY_KNOWS_MOVE,
-    CANNOT_LEARN_MOVE_IS_EGG
+    CANNOT_LEARN_MOVE_IS_EGG,
+    ALREADY_KNOWS_EEVEE_MOVE
 };
 
 enum {
@@ -1121,7 +1122,8 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
     struct Pokemon *currentPokemon = &gPlayerParty[slot];
     u16 item = gSpecialVar_ItemId;
 
-    if (gPartyMenu.action == PARTY_ACTION_MOVE_TUTOR)
+    if (gPartyMenu.action == PARTY_ACTION_MOVE_TUTOR ||
+        gPartyMenu.action == PARTY_ACTION_EEVEE_MOVE_TUTOR)
     {
         gSpecialVar_Result = FALSE;
         DisplayPartyPokemonDataToTeachMove(slot, gSpecialVar_0x8005);
@@ -1157,6 +1159,9 @@ static void DisplayPartyPokemonDataToTeachMove(u8 slot, u16 move)
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_NOT_ABLE_2);
         break;
     case ALREADY_KNOWS_MOVE:
+        DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_LEARNED);
+        break;
+    case ALREADY_KNOWS_EEVEE_MOVE:
         DisplayPartyPokemonDescriptionData(slot, PARTYBOX_DESC_LEARNED);
         break;
     default:
@@ -1465,6 +1470,14 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             }
             break;
         case PARTY_ACTION_MOVE_TUTOR:
+            if (IsSelectedMonNotEgg((u8 *)slotPtr))
+            {
+                PlaySE(SE_SELECT);
+                PartyMenuRemoveWindow(&sPartyMenuInternal->windowId[1]);
+                TryTutorSelectedMon(taskId);
+            }
+            break;
+        case PARTY_ACTION_EEVEE_MOVE_TUTOR:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
             {
                 PlaySE(SE_SELECT);
@@ -2209,6 +2222,8 @@ static u8 CanTeachMove(struct Pokemon *mon, u16 move)
         return CANNOT_LEARN_MOVE;
     else if (MonKnowsMove(mon, move) == TRUE)
         return ALREADY_KNOWS_MOVE;
+    else if (MonAlreadyHasEeveeMove(mon) == TRUE)
+        return ALREADY_KNOWS_EEVEE_MOVE;
     else
         return CAN_LEARN_MOVE;
 }
@@ -5294,6 +5309,45 @@ bool8 MonKnowsMove(struct Pokemon *mon, u16 move)
     return FALSE;
 }
 
+bool8 MonAlreadyHasEeveeMove(struct Pokemon *pokemon)
+{
+    int special_moves[] = {
+        MOVE_BOUNCY_BUBBLE,
+        MOVE_BUZZY_BUZZ,
+        MOVE_SIZZLY_SLIDE,
+        MOVE_GLITZY_GLOW,
+        MOVE_BADDY_BAD,
+        MOVE_SAPPY_SEED,
+        MOVE_FREEZY_FROST,
+        MOVE_SPARKLY_SWIRL,
+        MOVE_VEEVEE_VOLLEY
+    };
+
+    if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
+    {
+        int pokemon_moves[] = {
+            GetMonData(pokemon, MON_DATA_MOVE1),
+            GetMonData(pokemon, MON_DATA_MOVE2),
+            GetMonData(pokemon, MON_DATA_MOVE3),
+            GetMonData(pokemon, MON_DATA_MOVE4),
+        };
+        u8 i, j;
+    
+        for (i = 0; i < 3; i++)
+        {
+            for (j = 0; j < 8; j++)
+            {
+                if (pokemon_moves[i] == special_moves[j])
+                {
+                    return TRUE;
+                }
+            }
+        }
+    }
+    
+    return FALSE;
+}
+
 bool8 PlayerHasMove(u16 move)
 {
     u16 item;
@@ -5381,6 +5435,9 @@ void ItemUseCB_TMHM(u8 taskId, TaskFunc task)
         DisplayLearnMoveMessageAndClose(taskId, gText_PkmnCantLearnMove);
         return;
     case ALREADY_KNOWS_MOVE:
+        DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
+        return;
+    case ALREADY_KNOWS_EEVEE_MOVE:
         DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
         return;
     }
@@ -6994,6 +7051,9 @@ static void TryTutorSelectedMon(u8 taskId)
         case ALREADY_KNOWS_MOVE:
             DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
             return;
+        case ALREADY_KNOWS_EEVEE_MOVE:
+            DisplayLearnMoveMessageAndClose(taskId, gText_PkmnAlreadyKnows);
+            return;
         default:
             if (GiveMoveToMon(mon, gPartyMenu.data1) != MON_HAS_MAX_MOVES)
             {
@@ -7409,6 +7469,11 @@ void ChooseMonForTradingBoard(u8 menuType, MainCallback callback)
 void ChooseMonForMoveTutor(void)
 {
     InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_MOVE_TUTOR, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void ChooseMonForEeveeMoveTutor(void)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_EEVEE_MOVE_TUTOR, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 void ChooseMonForWirelessMinigame(void)

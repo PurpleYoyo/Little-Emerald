@@ -4510,10 +4510,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 #if P_FAMILY_PUMPKABOO
     [SPECIES_PUMPKABOO_AVERAGE] =
     {
-        .baseHP        = 49,
+        .baseHP        = 59,
         .baseAttack    = 66,
         .baseDefense   = 70,
-        .baseSpeed     = 51,
+        .baseSpeed     = 41,
         .baseSpAttack  = 44,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_GHOST, TYPE_GRASS),
@@ -4575,10 +4575,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_PUMPKABOO_SMALL] =
     {
-        .baseHP        = 44,
+        .baseHP        = 59,
         .baseAttack    = 66,
         .baseDefense   = 70,
-        .baseSpeed     = 56,
+        .baseSpeed     = 41,
         .baseSpAttack  = 44,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_GHOST, TYPE_GRASS),
@@ -4639,10 +4639,10 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 
     [SPECIES_PUMPKABOO_LARGE] =
     {
-        .baseHP        = 54,
+        .baseHP        = 59,
         .baseAttack    = 66,
         .baseDefense   = 70,
-        .baseSpeed     = 46,
+        .baseSpeed     = 41,
         .baseSpAttack  = 44,
         .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_GHOST, TYPE_GRASS),

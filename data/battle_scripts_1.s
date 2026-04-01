@@ -4124,6 +4124,60 @@ BattleScript_EffectMinimize::
 .endif
 	goto BattleScript_EffectStatUpAfterAtkCanceler
 
+BattleScript_EffectHitNoRecoil::
+	attackcanceler
+BattleScript_HitFromAccCheckNoRecoil::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+BattleScript_HitFromAtkStringNoRecoil::
+	attackstring
+	ppreduce
+BattleScript_HitFromCritCalcNoRecoil::
+	critcalc
+	damagecalc
+	adjustdamage
+BattleScript_HitFromAtkAnimationNoRecoil::
+	call BattleScript_Hit_RetFromAtkAnimationNoRecoil
+BattleScript_TryFaintMonNoRecoil::
+	tryfaintmon BS_TARGET
+BattleScript_MoveEndNoRecoil::
+	moveendcase MOVEEND_COUNT
+	end
+
+BattleScript_EffectHit_RetNoRecoil::
+	attackcanceler
+BattleScript_EffectHit_RetFromAccCheckNoRecoil::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+BattleScript_EffectHit_RetFromCritCalcNoRecoil::
+	critcalc
+	damagecalc
+	adjustdamage
+BattleScript_Hit_RetFromAtkAnimationNoRecoil::
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	setadditionaleffects
+	return
+
+BattleScript_EffectWildCharge::
+	jumpiftype BS_ATTACKER, TYPE_ELECTRIC, BattleScript_WildChargeNoRecoil
+	goto BattleScript_WildChargeDoRecoil
+BattleScript_WildChargeDoRecoil::
+	call BattleScript_EffectHit
+	goto BattleScript_MoveEnd
+BattleScript_WildChargeNoRecoil::
+	call BattleScript_EffectHitNoRecoil
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectCurse::
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_GhostCurse
 	attackcanceler
