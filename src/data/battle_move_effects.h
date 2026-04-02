@@ -1571,7 +1571,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_HIT_SWITCH_TARGET] =
     {
-        .battleScript = BattleScript_EffectHit,
+        .battleScript = BattleScript_EffectHitSwitchTarget,
         .battleTvScore = 0, // TODO: Assign points
     },
 
@@ -2229,12 +2229,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     [EFFECT_RAPID_SPIN] =
     {
         .battleScript = BattleScript_EffectHit,
-        .battleTvScore = 0, // TODO: Assign points
-    },
-
-    [EFFECT_SPECTRAL_THIEF] =
-    {
-        .battleScript = BattleScript_EffectSpectralThief,
         .battleTvScore = 0, // TODO: Assign points
     },
 };
