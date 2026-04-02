@@ -8,6 +8,9 @@
 #include "config/caps.h"
 #include "config/pokemon.h"
 #include "config/overworld.h"
+#include "config/dexnav.h"
+#include "config/summary_screen.h"
+#include "config/ai.h"
 
 #define MONOTYPE_NONE     0
 #define MONOTYPE_FIRE     1
@@ -143,6 +146,7 @@
 #define TYPE_NAME_LENGTH 8
 #define ABILITY_NAME_LENGTH 16
 #define TRAINER_NAME_LENGTH 10
+#define CODE_NAME_LENGTH 11
 
 #define MAX_STAMP_CARD_STAMPS 7
 
