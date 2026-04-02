@@ -630,7 +630,7 @@ static void ShufflePlayerIndices(u32 *data)
 
 static void ReceiveOldManData(OldMan *records, size_t recordSize, u8 multiplayerId)
 {
-    u8 version;
+    enum GameVersion version;
     u16 language;
     OldMan *oldMan;
     u32 mixIndices[MAX_LINK_PLAYERS];
@@ -643,7 +643,7 @@ static void ReceiveOldManData(OldMan *records, size_t recordSize, u8 multiplayer
     if (Link_AnyPartnersPlayingRubyOrSapphire())
         SanitizeReceivedRubyOldMan(oldMan, version, language);
     else
-        SanitizeReceivedEmeraldOldMan(oldMan, version, language);
+        SanitizeReceivedEmeraldOldMan(oldMan, language);
 
     memcpy(sOldManSave, (void *)records + recordSize * mixIndices[multiplayerId], sizeof(OldMan));
     ResetMauvilleOldManFlag();
@@ -770,14 +770,12 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
     bool8 canHoldItem[MAX_LINK_PLAYERS][DAYCARE_MON_COUNT];
     u8 idxs[MAX_LINK_PLAYERS][2];
     u8 numDaycareCanHold;
-    u16 oldSeed;
     bool32 anyRS;
+    rng_value_t localRngState = LocalRandomSeed(gLinkPlayers[0].trainerId);
 
     // Seed RNG to the first player's trainer id so that
     // every player has the same random swap occur
     // (see the other use of Random2 in this function)
-    oldSeed = Random2();
-    SeedRng2(gLinkPlayers[0].trainerId);
     linkPlayerCount = GetLinkPlayerCount();
     for (i = 0; i < MAX_LINK_PLAYERS; i++)
     {
@@ -789,7 +787,8 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
     anyRS = Link_AnyPartnersPlayingRubyOrSapphire();
     for (i = 0; i < GetLinkPlayerCount(); i++)
     {
-        u32 language, version;
+        enum Language language;
+        enum GameVersion version;
 
         mixMail = (void *)records + i * recordSize;
         language = gLinkPlayers[i].language;
@@ -797,7 +796,7 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
 
         for (j = 0; j < mixMail->numDaycareMons; j++)
         {
-            u16 otNameLanguage, nicknameLanguage;
+            enum Language otNameLanguage, nicknameLanguage;
             struct DaycareMail *daycareMail = &mixMail->mail[j];
 
             if (daycareMail->message.itemId == ITEM_NONE)
@@ -901,13 +900,13 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
             // Both daycare slots can hold an item, choose which one to use.
             // If either one is the only one to have associated mail, use that one.
             // If both do or don't have associated mail, choose one randomly.
-            u32 itemId1, itemId2;
+            enum Item itemId1, itemId2;
             idxs[j][MULTIPLAYER_ID] = i;
             itemId1 = GetDaycareMailItemId(&mixMail->mail[0]);
             itemId2 = GetDaycareMailItemId(&mixMail->mail[1]);
 
             if ((!itemId1 && !itemId2) || (itemId1 && itemId2))
-                idxs[j][DAYCARE_SLOT] = Random2() % 2;
+                idxs[j][DAYCARE_SLOT] = LocalRandom32(&localRngState) % 2;
             else if (itemId1 && !itemId2)
                 idxs[j][DAYCARE_SLOT] = 0;
             else if (!itemId1 && itemId2)
@@ -958,13 +957,12 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
     mixMail = (void *)records + multiplayerId * recordSize;
     memcpy(&gSaveBlock1Ptr->daycare.mons[0].mail, &mixMail->mail[0], sizeof(struct DaycareMail));
     memcpy(&gSaveBlock1Ptr->daycare.mons[1].mail, &mixMail->mail[1], sizeof(struct DaycareMail));
-    SeedRng(oldSeed);
 }
 
 
 static void ReceiveGiftItem(u16 *item, u8 multiplayerId)
 {
-    if (multiplayerId != 0 && *item != ITEM_NONE && GetPocketByItemId(*item) == POCKET_KEY_ITEMS)
+    if (multiplayerId != 0 && *item != ITEM_NONE && GetItemPocket(*item) == POCKET_KEY_ITEMS)
     {
         if (!CheckBagHasItem(*item, 1) && !CheckPCHasItem(*item, 1) && AddBagItem(*item, 1))
         {

@@ -3,7 +3,7 @@
 
 ASSUMPTIONS
 {
-    ASSUME(gMovesInfo[MOVE_COACHING].effect == EFFECT_COACHING);
+    ASSUME(GetMoveEffect(MOVE_COACHING) == EFFECT_COACHING);
 }
 
 DOUBLE_BATTLE_TEST("Coaching raises Attack and Defense of ally by 1 stage each")
@@ -25,7 +25,7 @@ DOUBLE_BATTLE_TEST("Coaching raises Attack and Defense of ally by 1 stage each")
 DOUBLE_BATTLE_TEST("Coaching bypasses Protect")
 {
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_PROTECT].effect == EFFECT_PROTECT);
+        ASSUME(GetMoveEffect(MOVE_PROTECT) == EFFECT_PROTECT);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -42,7 +42,7 @@ DOUBLE_BATTLE_TEST("Coaching bypasses Protect")
 DOUBLE_BATTLE_TEST("Coaching bypasses Crafty Shield")
 {
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_CRAFTY_SHIELD].effect == EFFECT_PROTECT);
+        ASSUME(GetMoveEffect(MOVE_CRAFTY_SHIELD) == EFFECT_PROTECT);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -60,7 +60,7 @@ DOUBLE_BATTLE_TEST("Coaching fails if all allies are is semi-invulnerable")
 {
     KNOWN_FAILING; // Coaching succeeds
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_FLY].effect == EFFECT_SEMI_INVULNERABLE);
+        ASSUME(GetMoveEffect(MOVE_FLY) == EFFECT_SEMI_INVULNERABLE);
         PLAYER(SPECIES_WOBBUFFET);
         PLAYER(SPECIES_HAWLUCHA);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -75,7 +75,7 @@ DOUBLE_BATTLE_TEST("Coaching fails if all allies are is semi-invulnerable")
             MESSAGE("Hawlucha's Attack rose!");
             MESSAGE("Hawlucha's Defense rose!");
         }
-        MESSAGE("But it failed!");
+        MESSAGE("Hawlucha avoided the attack!");
     }
 }
 
@@ -100,14 +100,14 @@ DOUBLE_BATTLE_TEST("Coaching fails if there's no ally")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WYNAUT) { HP(1); };
+        PLAYER(SPECIES_WYNAUT) { HP(1); }
         OPPONENT(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(playerLeft, MOVE_TACKLE, target: playerRight); }
+        TURN { MOVE(playerLeft, MOVE_SCRATCH, target: playerRight); }
         TURN { MOVE(playerLeft, MOVE_COACHING, target: playerRight); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, playerLeft);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         MESSAGE("Wynaut fainted!");
         MESSAGE("Wobbuffet used Coaching!");
         NONE_OF {
@@ -116,5 +116,25 @@ DOUBLE_BATTLE_TEST("Coaching fails if there's no ally")
             MESSAGE("Wynaut's Defense rose!");
         }
         MESSAGE("But it failed!");
+    }
+}
+
+AI_DOUBLE_BATTLE_TEST("AI uses Coaching")
+{
+    enum Move move;
+    PARAMETRIZE { move = MOVE_HEADBUTT; }
+    PARAMETRIZE { move = MOVE_DAZZLING_GLEAM; }
+
+    GIVEN {
+        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT);
+        PLAYER(SPECIES_WOBBUFFET) { Moves(MOVE_POUND, MOVE_CELEBRATE); }
+        PLAYER(SPECIES_WOBBUFFET) { Moves(MOVE_POUND, MOVE_CELEBRATE); }
+        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_COACHING, MOVE_POUND); }
+        OPPONENT(SPECIES_WOBBUFFET) { Moves(move); }
+    } WHEN {
+        if (move == MOVE_HEADBUTT)
+            TURN { EXPECT_MOVE(opponentLeft, MOVE_COACHING); }
+        else
+            TURN {  NOT_EXPECT_MOVE(opponentLeft, MOVE_COACHING); }
     }
 }

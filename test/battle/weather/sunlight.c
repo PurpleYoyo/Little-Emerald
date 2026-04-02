@@ -4,8 +4,8 @@
 // Please add Sunlight interactions with move, item and ability effects on their respective files.
 ASSUMPTIONS
 {
-    ASSUME(gMovesInfo[MOVE_EMBER].type == TYPE_FIRE);
-    ASSUME(gMovesInfo[MOVE_WATER_GUN].type == TYPE_WATER);
+    ASSUME(GetMoveType(MOVE_EMBER) == TYPE_FIRE);
+    ASSUME(GetMoveType(MOVE_WATER_GUN) == TYPE_WATER);
 }
 
 SINGLE_BATTLE_TEST("Sunlight multiplies the power of Fire-type moves by 1.5x", s16 damage)
@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Sunlight multiplies the power of Water-type moves by 0.5x", 
 
 SINGLE_BATTLE_TEST("Sunny Day fails if Primordial Sea is active")
 {
-    u32 item;
+    enum Item item;
 
     PARAMETRIZE { item = ITEM_NONE; }
     PARAMETRIZE { item = ITEM_BLUE_ORB; }

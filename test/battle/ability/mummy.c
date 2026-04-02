@@ -3,21 +3,23 @@
 
 SINGLE_BATTLE_TEST("Mummy/Lingering Aroma replace the attacker's ability on contact")
 {
-    u32 move, ability, species;
+    enum Move move;
+    u32 species;
+    enum Ability ability;
 
     PARAMETRIZE { move = MOVE_AQUA_JET; ability = ABILITY_MUMMY; species = SPECIES_YAMASK; }
-    PARAMETRIZE { move = MOVE_WATER_GUN; ability = ABILITY_MUMMY; species = SPECIES_YAMASK;}
+    PARAMETRIZE { move = MOVE_WATER_GUN; ability = ABILITY_MUMMY; species = SPECIES_YAMASK; }
     PARAMETRIZE { move = MOVE_AQUA_JET; ability = ABILITY_LINGERING_AROMA; species = SPECIES_OINKOLOGNE; }
     PARAMETRIZE { move = MOVE_WATER_GUN; ability = ABILITY_LINGERING_AROMA; species = SPECIES_OINKOLOGNE; }
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_AQUA_JET].makesContact);
-        ASSUME(!gMovesInfo[MOVE_WATER_GUN].makesContact);
+        ASSUME(MoveMakesContact(MOVE_AQUA_JET));
+        ASSUME(!MoveMakesContact(MOVE_WATER_GUN));
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(species) { Ability(ability); }
     } WHEN {
         TURN { MOVE(player, move); }
     } SCENE {
-        if (gMovesInfo[move].makesContact) {
+        if (MoveMakesContact(move)) {
             ABILITY_POPUP(opponent, ability);
             if (ability == ABILITY_MUMMY)
                 MESSAGE("Wobbuffet acquired Mummy!");
@@ -37,13 +39,13 @@ SINGLE_BATTLE_TEST("Mummy/Lingering Aroma replace the attacker's ability on cont
 
 SINGLE_BATTLE_TEST("Mummy and Lingering Aroma don't replace each other")
 {
-    u32 ability1, species1, ability2, species2;
+    enum Ability ability1, species1, ability2, species2;
 
     PARAMETRIZE { ability1 = ability2 = ABILITY_MUMMY; species1 = species2 = SPECIES_YAMASK; }
     PARAMETRIZE { ability1 = ABILITY_MUMMY; species1 = SPECIES_YAMASK; ability2 = ABILITY_LINGERING_AROMA; species2 = SPECIES_OINKOLOGNE; }
     PARAMETRIZE { ability1 = ability2 = ABILITY_LINGERING_AROMA; species1 = species2 = SPECIES_OINKOLOGNE; }
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_AQUA_JET].makesContact);
+        ASSUME(MoveMakesContact(MOVE_AQUA_JET));
         PLAYER(species1) { Ability(ability1); Speed(2); }
         OPPONENT(species2) { Ability(ability2); Speed(1); }
     } WHEN {
@@ -66,7 +68,8 @@ SINGLE_BATTLE_TEST("Mummy and Lingering Aroma don't replace each other")
 
 SINGLE_BATTLE_TEST("Mummy doesn't replace abilities that can't be suppressed")
 {
-    u32 species, ability;
+    u32 species;
+    enum Ability ability;
 
     PARAMETRIZE { species = SPECIES_ARCEUS; ability = ABILITY_MULTITYPE; }
     PARAMETRIZE { species = SPECIES_AEGISLASH; ability = ABILITY_STANCE_CHANGE; }

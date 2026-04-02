@@ -1434,6 +1434,18 @@ static const u16 sGrowlitheEggMoveLearnset[] = {
     MOVE_BIDE,
     MOVE_UNAVAILABLE,
 };
+
+#if P_HISUIAN_FORMS
+static const u16 sGrowlitheHisuiEggMoveLearnset[] = {
+    MOVE_DOUBLE_KICK,
+    MOVE_THRASH,
+    MOVE_DOUBLE_EDGE,
+    MOVE_MORNING_SUN,
+    MOVE_COVET,
+    MOVE_HEAD_SMASH,
+    MOVE_UNAVAILABLE,
+};
+#endif
 #endif //P_FAMILY_GROWLITHE
 
 static const u16 sGrowlitheHisuiEggMoveLearnset[] = {
@@ -5236,6 +5248,22 @@ static const u16 sQwilfishEggMoveLearnset[] = {
     MOVE_CURSE,
     MOVE_UNAVAILABLE,
 };
+
+#if P_HISUIAN_FORMS
+static const u16 sQwilfishHisuiEggMoveLearnset[] = {
+    MOVE_SUPERSONIC,
+    MOVE_BUBBLE_BEAM,
+    MOVE_HAZE,
+    MOVE_SELF_DESTRUCT,
+    MOVE_FLAIL,
+    MOVE_ASTONISH,
+    MOVE_WATER_PULSE,
+    MOVE_AQUA_JET,
+    MOVE_ACID_SPRAY,
+    MOVE_AQUA_TAIL,
+    MOVE_UNAVAILABLE,
+};
+#endif
 #endif //P_FAMILY_QWILFISH
 
 static const u16 sQwilfishHisuiEggMoveLearnset[] = {
@@ -5402,6 +5430,19 @@ static const u16 sSneaselEggMoveLearnset[] = {
     MOVE_LASER_FOCUS,
     MOVE_UNAVAILABLE,
 };
+
+#if P_HISUIAN_FORMS
+static const u16 sSneaselHisuiEggMoveLearnset[] = {
+    MOVE_COUNTER,
+    MOVE_FAKE_OUT,
+    MOVE_FEINT,
+    MOVE_DOUBLE_HIT,
+    MOVE_NIGHT_SLASH,
+    MOVE_SWITCHEROO,
+    MOVE_QUICK_GUARD,
+    MOVE_UNAVAILABLE,
+};
+#endif
 #endif //P_FAMILY_SNEASEL
 
 static const u16 sSneaselHisuiEggMoveLearnset[] = {
@@ -10773,6 +10814,13 @@ static const u16 sBasculinEggMoveLearnset[] = {
     MOVE_FLIP_TURN,
     MOVE_UNAVAILABLE,
 };
+#if P_HISUIAN_FORMS
+static const u16 sBasculinWhiteStripedEggMoveLearnset[] = {
+    MOVE_ENDEAVOR,
+    MOVE_LAST_RESPECTS,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_BASCULIN
 
 static const u16 sBasculinWhiteStripedEggMoveLearnset[] = {
@@ -11294,6 +11342,16 @@ static const u16 sZoruaEggMoveLearnset[] = {
     MOVE_ASSURANCE,
     MOVE_UNAVAILABLE,
 };
+
+#if P_HISUIAN_FORMS
+static const u16 sZoruaHisuiEggMoveLearnset[] = {
+    MOVE_DETECT,
+    MOVE_MEMENTO,
+    MOVE_EXTRASENSORY,
+    MOVE_COMEUPPANCE,
+    MOVE_UNAVAILABLE,
+};
+#endif
 #endif //P_FAMILY_ZORUA
 
 static const u16 sZoruaHisuiEggMoveLearnset[] = {

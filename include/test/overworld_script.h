@@ -42,6 +42,18 @@
 
 #define RUN_OVERWORLD_SCRIPT(...) RunScriptImmediately(OVERWORLD_SCRIPT(__VA_ARGS__))
 
+// Make important constants available.
+// TODO: Find a better approach to this.
+asm(".set FALSE, 0\n"
+    ".set TRUE, 1\n"
+    ".set PARTY_SIZE, " STR(PARTY_SIZE) "\n"
+    ".set VARS_START, " STR(VARS_START) "\n"
+    ".set VARS_END, " STR(VARS_END) "\n"
+    ".set MON_GENDER_MAY_CUTE_CHARM, " STR(MON_GENDER_MAY_CUTE_CHARM) "\n"
+    ".set NATURE_MAY_SYNCHRONIZE, " STR(NATURE_MAY_SYNCHRONIZE) "\n"
+    ".set SPECIAL_VARS_START, " STR(SPECIAL_VARS_START) "\n"
+    ".set SPECIAL_VARS_END, " STR(SPECIAL_VARS_END) "\n");
+
 // Make overworld script macros available.
 asm(".include \"constants/gba_constants.inc\"\n"
     ".include \"asm/macros/asm.inc\"\n"

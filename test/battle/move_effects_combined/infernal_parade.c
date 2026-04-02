@@ -3,8 +3,8 @@
 
 ASSUMPTIONS
 {
-    ASSUME(gMovesInfo[MOVE_INFERNAL_PARADE].effect == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
-    ASSUME(gMovesInfo[MOVE_INFERNAL_PARADE].argument == STATUS1_ANY);
+    ASSUME(GetMoveEffect(MOVE_INFERNAL_PARADE) == EFFECT_DOUBLE_POWER_ON_ARG_STATUS);
+    ASSUME(GetMoveEffectArg_Status(MOVE_INFERNAL_PARADE) == STATUS1_ANY);
     ASSUME(MoveHasAdditionalEffect(MOVE_INFERNAL_PARADE, MOVE_EFFECT_BURN) == TRUE);
 }
 
@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Infernal Parade's power doubles if the target has a status c
     PARAMETRIZE { status1 = STATUS1_TOXIC_POISON; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Status1(status1); };
+        OPPONENT(SPECIES_WOBBUFFET) { Status1(status1); }
     } WHEN {
         TURN { MOVE(player, MOVE_INFERNAL_PARADE); }
     } SCENE {

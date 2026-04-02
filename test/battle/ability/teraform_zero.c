@@ -6,8 +6,8 @@ DOUBLE_BATTLE_TEST("Teraform Zero clears weather and terrain upon activation")
     GIVEN {
         PLAYER(SPECIES_TERAPAGOS_TERASTAL);
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_KYOGRE) {Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_TAPU_KOKO) {Ability(ABILITY_ELECTRIC_SURGE); }
+        OPPONENT(SPECIES_KYOGRE) { Ability(ABILITY_DRIZZLE); }
+        OPPONENT(SPECIES_TAPU_KOKO) { Ability(ABILITY_ELECTRIC_SURGE); }
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
     } SCENE {
@@ -22,9 +22,9 @@ DOUBLE_BATTLE_TEST("Teraform Zero can be supressed")
     GIVEN {
         PLAYER(SPECIES_TERAPAGOS_TERASTAL);
         PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WEEZING) {Ability(ABILITY_NEUTRALIZING_GAS); }
-        OPPONENT(SPECIES_KYOGRE) {Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_TAPU_KOKO) {Ability(ABILITY_ELECTRIC_SURGE); }
+        PLAYER(SPECIES_WEEZING) { Ability(ABILITY_NEUTRALIZING_GAS); }
+        OPPONENT(SPECIES_KYOGRE) { Ability(ABILITY_DRIZZLE); }
+        OPPONENT(SPECIES_TAPU_KOKO) { Ability(ABILITY_ELECTRIC_SURGE); }
     } WHEN {
         TURN { SWITCH(playerRight, 2); MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
     } SCENE {
@@ -39,11 +39,12 @@ DOUBLE_BATTLE_TEST("Teraform Zero can be supressed")
 SINGLE_BATTLE_TEST("Teraform Zero can be replaced")
 {
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_WORRY_SEED].effect == EFFECT_WORRY_SEED);
-        ASSUME(gMovesInfo[MOVE_REST].effect == EFFECT_REST);
+        ASSUME(GetMoveEffect(MOVE_WORRY_SEED) == EFFECT_OVERWRITE_ABILITY);
+        ASSUME(GetMoveEffect(MOVE_REST) == EFFECT_REST);
         PLAYER(SPECIES_TERAPAGOS);
         OPPONENT(SPECIES_WHIMSICOTT) { Ability(ABILITY_PRANKSTER); }
     } WHEN {
+        TURN { MOVE(opponent, MOVE_POUND); }
         TURN { MOVE(opponent, MOVE_WORRY_SEED); MOVE(player, MOVE_REST, gimmick: GIMMICK_TERA); }
     } SCENE {
         MESSAGE("The opposing Whimsicott used Worry Seed!");
@@ -57,7 +58,7 @@ SINGLE_BATTLE_TEST("Teraform Zero can be replaced")
 SINGLE_BATTLE_TEST("Teraform Zero cannot be swapped")
 {
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_SKILL_SWAP].effect == EFFECT_SKILL_SWAP);
+        ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
         PLAYER(SPECIES_TERAPAGOS);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
@@ -71,7 +72,7 @@ SINGLE_BATTLE_TEST("Teraform Zero cannot be swapped")
 SINGLE_BATTLE_TEST("Teraform Zero cannot be copied")
 {
     GIVEN {
-        ASSUME(gMovesInfo[MOVE_ROLE_PLAY].effect == EFFECT_ROLE_PLAY);
+        ASSUME(GetMoveEffect(MOVE_ROLE_PLAY) == EFFECT_ROLE_PLAY);
         PLAYER(SPECIES_TERAPAGOS);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
@@ -84,19 +85,18 @@ SINGLE_BATTLE_TEST("Teraform Zero cannot be copied")
 
 DOUBLE_BATTLE_TEST("Teraform Zero shouldn't cause Neutralizing Gas to show it's popup when trying to activate")
 {
-    KNOWN_FAILING; // #5010
     GIVEN {
         PLAYER(SPECIES_TERAPAGOS_TERASTAL);
-        PLAYER(SPECIES_ABSOL) {Ability(ABILITY_PRESSURE); }
-        PLAYER(SPECIES_WEEZING) {Ability(ABILITY_NEUTRALIZING_GAS); }
-        OPPONENT(SPECIES_KYOGRE) {Ability(ABILITY_DRIZZLE); }
-        OPPONENT(SPECIES_TAPU_KOKO) {Ability(ABILITY_ELECTRIC_SURGE); }
+        PLAYER(SPECIES_ABSOL) { Ability(ABILITY_PRESSURE); }
+        PLAYER(SPECIES_WEEZING) { Ability(ABILITY_NEUTRALIZING_GAS); }
+        OPPONENT(SPECIES_KYOGRE) { Ability(ABILITY_DRIZZLE); }
+        OPPONENT(SPECIES_TAPU_KOKO) { Ability(ABILITY_ELECTRIC_SURGE); }
     } WHEN {
         TURN {  SWITCH(playerRight, 2); MOVE(playerLeft, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
     } SCENE {
         MESSAGE("Terapagos is storing energy!");
-        MESSAGE("Terapagos terastalized into the Stellar type!");
+        MESSAGE("Terapagos terastallized into the Stellar type!");
         NOT ABILITY_POPUP(playerRight, ABILITY_NEUTRALIZING_GAS);
-        MESSAGE("Terapagos used Celebreate!");
+        MESSAGE("Terapagos used Celebrate!");
     }
 }

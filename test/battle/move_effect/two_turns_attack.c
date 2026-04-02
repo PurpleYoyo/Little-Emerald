@@ -3,20 +3,14 @@
 
 ASSUMPTIONS
 {
-    ASSUME(gMovesInfo[MOVE_RAZOR_WIND].effect == EFFECT_TWO_TURNS_ATTACK);
-    ASSUME(gMovesInfo[MOVE_SKULL_BASH].effect == EFFECT_TWO_TURNS_ATTACK);
+    ASSUME(GetMoveEffect(MOVE_RAZOR_WIND) == EFFECT_TWO_TURNS_ATTACK);
+    ASSUME(GetMoveEffect(MOVE_SKULL_BASH) == EFFECT_TWO_TURNS_ATTACK);
     ASSUME(MoveHasAdditionalEffectSelf(MOVE_SKULL_BASH, MOVE_EFFECT_DEF_PLUS_1) == TRUE);
-    ASSUME(gMovesInfo[MOVE_SKY_ATTACK].effect == EFFECT_TWO_TURNS_ATTACK);
-
-    // Solar Beam - check for sun
-    ASSUME(gMovesInfo[MOVE_SOLAR_BEAM].effect == EFFECT_SOLAR_BEAM);
-    ASSUME(HIHALF(gMovesInfo[MOVE_SOLAR_BLADE].argument) == B_WEATHER_SUN);
-    ASSUME(gMovesInfo[MOVE_SOLAR_BLADE].effect == EFFECT_SOLAR_BEAM);
-    ASSUME(HIHALF(gMovesInfo[MOVE_SOLAR_BLADE].argument) == B_WEATHER_SUN);
+    ASSUME(GetMoveEffect(MOVE_SKY_ATTACK) == EFFECT_TWO_TURNS_ATTACK);
 
     // Electro shot - check for rain
-    ASSUME(HIHALF(gMovesInfo[MOVE_ELECTRO_SHOT].argument) == B_WEATHER_RAIN);
-    ASSUME(gMovesInfo[MOVE_ELECTRO_SHOT].effect == EFFECT_TWO_TURNS_ATTACK);
+    ASSUME(GetMoveTwoTurnAttackWeather(MOVE_ELECTRO_SHOT) == B_WEATHER_RAIN);
+    ASSUME(GetMoveEffect(MOVE_ELECTRO_SHOT) == EFFECT_TWO_TURNS_ATTACK);
     ASSUME(MoveHasAdditionalEffectSelf(MOVE_ELECTRO_SHOT, MOVE_EFFECT_SP_ATK_PLUS_1) == TRUE);
 }
 
@@ -72,6 +66,36 @@ SINGLE_BATTLE_TEST("Razor Wind doesn't need to charge with Power Herb")
         // For some reason, this breaks with and only with Razor Wind...
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_WIND, player);
         HP_BAR(opponent);
+    }
+}
+
+DOUBLE_BATTLE_TEST("Razor Wind successfully KOs both opponents")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_POWER_HERB); }
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET) { HP(1); }
+        OPPONENT(SPECIES_WYNAUT) { HP(1); }
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_RAZOR_WIND); }
+    } SCENE {
+        if (B_UPDATED_MOVE_DATA >= GEN_5) {
+            NOT MESSAGE("Wobbuffet whipped up a whirlwind!");
+            MESSAGE("Wobbuffet used Razor Wind!");
+        } else
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_WIND, playerLeft);
+        if (B_UPDATED_MOVE_DATA < GEN_5)
+            MESSAGE("Wobbuffet whipped up a whirlwind!");
+        else
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_WIND, playerLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
+        MESSAGE("Wobbuffet became fully charged due to its Power Herb!");
+        if (B_UPDATED_MOVE_DATA < GEN_5)
+            MESSAGE("Wobbuffet used Razor Wind!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_WIND, playerLeft);
+        HP_BAR(opponentLeft);
+        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The opposing Wynaut fainted!");
     }
 }
 
@@ -195,7 +219,7 @@ SINGLE_BATTLE_TEST("Sky Attack doesn't need to charge with Power Herb")
 
 SINGLE_BATTLE_TEST("Solar Beam and Solar Blade can be used instantly in Sunlight")
 {
-    u32 move1, move2;
+    enum Move move1, move2;
     PARAMETRIZE { move1 = MOVE_SPLASH; move2 = MOVE_SOLAR_BEAM; }
     PARAMETRIZE { move1 = MOVE_SUNNY_DAY; move2 = MOVE_SOLAR_BEAM; }
     PARAMETRIZE { move1 = MOVE_SPLASH; move2 = MOVE_SOLAR_BLADE; }
@@ -207,42 +231,33 @@ SINGLE_BATTLE_TEST("Solar Beam and Solar Blade can be used instantly in Sunlight
         TURN { MOVE(opponent, move1); MOVE(player, move2); }
         TURN { SKIP_TURN(player); }
     } SCENE {
-        if (move1 == MOVE_SUNNY_DAY) {
-            NOT MESSAGE("Wobbuffet absorbed light!");
+        // Potential visual bug. 
+        // The script has the B_WAIT_TIME_LONG waitmessage but it does not wait
+        if (move2 == MOVE_SOLAR_BEAM) {
+            MESSAGE("Wobbuffet used Solar Beam!");
         } else {
-            if (move2 == MOVE_SOLAR_BEAM) {
-                if (B_UPDATED_MOVE_DATA >= GEN_5)
-                {
-                    MESSAGE("Wobbuffet used Solar Beam!");
-                    MESSAGE("Wobbuffet absorbed light!");
-                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                } else {
-                    NOT MESSAGE("Wobbuffet used Solar Beam!");
-                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                    MESSAGE("Wobbuffet absorbed light!");
-                }
+            MESSAGE("Wobbuffet used Solar Blade!");
+        }
+        MESSAGE("Wobbuffet absorbed light!");
+
+        if (move2 == MOVE_SOLAR_BEAM) {
+            if (move1 == MOVE_SPLASH) {
                 MESSAGE("Wobbuffet used Solar Beam!");
-            } else {
-                if (B_UPDATED_MOVE_DATA >= GEN_5) {
-                    MESSAGE("Wobbuffet used Solar Blade!");
-                    MESSAGE("Wobbuffet absorbed light!");
-                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                } else {
-                    NOT MESSAGE("Wobbuffet used Solar Blade!");
-                    ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                    MESSAGE("Wobbuffet absorbed light!");
-                }
+            }
+            ANIMATION(ANIM_TYPE_MOVE, move2, player);
+        } else {
+            if (move1 == MOVE_SPLASH) {
                 MESSAGE("Wobbuffet used Solar Blade!");
             }
             ANIMATION(ANIM_TYPE_MOVE, move2, player);
-            HP_BAR(opponent);
         }
+        HP_BAR(opponent);
     }
 }
 
 SINGLE_BATTLE_TEST("Solar Beam's power is halved in Rain", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_RAIN_DANCE; }
     GIVEN {
@@ -260,7 +275,7 @@ SINGLE_BATTLE_TEST("Solar Beam's power is halved in Rain", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Blade's power is halved in Rain", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_RAIN_DANCE; }
     GIVEN {
@@ -278,12 +293,12 @@ SINGLE_BATTLE_TEST("Solar Blade's power is halved in Rain", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Beam's power is halved in a Sandstorm", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_SANDSTORM; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); }
     } WHEN {
         TURN { MOVE(opponent, move); MOVE(player, MOVE_SOLAR_BEAM); }
         TURN { SKIP_TURN(player); }
@@ -296,12 +311,12 @@ SINGLE_BATTLE_TEST("Solar Beam's power is halved in a Sandstorm", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Blade's power is halved in a Sandstorm", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_SANDSTORM; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); }
     } WHEN {
         TURN { MOVE(opponent, move); MOVE(player, MOVE_SOLAR_BLADE); }
         TURN { SKIP_TURN(player); }
@@ -314,12 +329,12 @@ SINGLE_BATTLE_TEST("Solar Blade's power is halved in a Sandstorm", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Beam's power is halved in Hail", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_HAIL; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); }
     } WHEN {
         TURN { MOVE(opponent, move); MOVE(player, MOVE_SOLAR_BEAM); }
         TURN { SKIP_TURN(player); }
@@ -332,12 +347,12 @@ SINGLE_BATTLE_TEST("Solar Beam's power is halved in Hail", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Blade's power is halved in Hail", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_HAIL; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_SAFETY_GOGGLES); }
     } WHEN {
         TURN { MOVE(opponent, move); MOVE(player, MOVE_SOLAR_BLADE); }
         TURN { SKIP_TURN(player); }
@@ -350,7 +365,7 @@ SINGLE_BATTLE_TEST("Solar Blade's power is halved in Hail", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Beam's power is halved in Snow", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_SNOWSCAPE; }
     GIVEN {
@@ -368,7 +383,7 @@ SINGLE_BATTLE_TEST("Solar Beam's power is halved in Snow", s16 damage)
 
 SINGLE_BATTLE_TEST("Solar Blade's power is halved in Snow", s16 damage)
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_CELEBRATE; }
     PARAMETRIZE { move = MOVE_SNOWSCAPE; }
     GIVEN {
@@ -402,6 +417,8 @@ SINGLE_BATTLE_TEST("Electro Shot needs a charging Turn")
         // Attack turn
         MESSAGE("Wobbuffet used Electro Shot!");
         HP_BAR(opponent);
+    } THEN {
+        EXPECT_EQ(player->statStages[STAT_SPATK], DEFAULT_STAT_STAGE + 1);
     }
 }
 

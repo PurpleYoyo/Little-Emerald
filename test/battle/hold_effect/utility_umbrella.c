@@ -5,8 +5,8 @@
 ASSUMPTIONS
 {
     ASSUME(gItemsInfo[ITEM_UTILITY_UMBRELLA].holdEffect == HOLD_EFFECT_UTILITY_UMBRELLA);
-    ASSUME(gMovesInfo[MOVE_EMBER].type == TYPE_FIRE);
-    ASSUME(gMovesInfo[MOVE_WATER_GUN].type == TYPE_WATER);
+    ASSUME(GetMoveType(MOVE_EMBER) == TYPE_FIRE);
+    ASSUME(GetMoveType(MOVE_WATER_GUN) == TYPE_WATER);
 }
 
 SINGLE_BATTLE_TEST("Utility Umbrella blocks Sun damage modifiers", s16 damage)
@@ -18,7 +18,7 @@ SINGLE_BATTLE_TEST("Utility Umbrella blocks Sun damage modifiers", s16 damage)
     PARAMETRIZE { setupMove = MOVE_SUNNY_DAY; attackingMove = MOVE_WATER_GUN; heldItem = ITEM_NONE; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(heldItem); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(heldItem); }
     } WHEN {
         TURN { MOVE(opponent, setupMove); }
         TURN { MOVE(player, attackingMove); }
@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Utility Umbrella blocks Rain damage modifiers", s16 damage)
     PARAMETRIZE { setupMove = MOVE_RAIN_DANCE; attackingMove = MOVE_WATER_GUN; heldItem = ITEM_NONE; }
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { Item(heldItem); };
+        OPPONENT(SPECIES_WOBBUFFET) { Item(heldItem); }
     } WHEN {
         TURN { MOVE(opponent, setupMove); }
         TURN { MOVE(player, attackingMove); }

@@ -3,7 +3,7 @@
 
 ASSUMPTIONS
 {
-    ASSUME(gMovesInfo[MOVE_GUARD_SPLIT].effect == EFFECT_GUARD_SPLIT);
+    ASSUME(GetMoveEffect(MOVE_GUARD_SPLIT) == EFFECT_GUARD_SPLIT);
 }
 
 SINGLE_BATTLE_TEST("Guard Split averages users and targets Def and Sp. Def stats")
@@ -20,3 +20,7 @@ SINGLE_BATTLE_TEST("Guard Split averages users and targets Def and Sp. Def stats
         EXPECT_EQ(player->spDefense, opponent->spDefense);
     }
 }
+
+TO_DO_BATTLE_TEST("Stat stages use Guard Split's altered stats")
+TO_DO_BATTLE_TEST("Assault Vest uses Guard Split's altered stats")
+TO_DO_BATTLE_TEST("Eviolite uses Guard Split's altered stats")

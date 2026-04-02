@@ -1,6 +1,7 @@
 #ifndef GUARD_CONSTANTS_PARTY_MENU_H
 #define GUARD_CONSTANTS_PARTY_MENU_H
 
+#define PC_MON_CHOSEN 0xFE
 #define PARTY_NOTHING_CHOSEN 0xFF
 
 #define AILMENT_NONE  0
@@ -48,7 +49,7 @@
 #define PARTY_ACTION_CHOOSE_AND_CLOSE   11
 #define PARTY_ACTION_MOVE_TUTOR         12
 #define PARTY_ACTION_MINIGAME           13
-#define PARTY_ACTION_REUSABLE_ITEM      14  // Unused. The only reusable items are handled separately
+#define PARTY_ACTION_SEND_MON_TO_BOX    14
 #define PARTY_ACTION_CHOOSE_FAINTED_MON 15
 #define PARTY_ACTION_EEVEE_MOVE_TUTOR   16
 
@@ -82,6 +83,10 @@
 #define PARTY_MSG_ALREADY_HOLDING_ONE       26
 #define PARTY_MSG_WHICH_APPLIANCE           27
 #define PARTY_MSG_CHOOSE_SECOND_FUSION      28
+#define PARTY_MSG_NO_POKEMON                29
+#define PARTY_MSG_CHOOSE_MON_FOR_BOX        30
+#define PARTY_MSG_MOVE_ITEM_WHERE           31
+
 #define PARTY_MSG_NONE                      127
 
 // IDs for DisplayPartyPokemonDescriptionText, to display a message in the party pokemon's box
@@ -105,5 +110,23 @@
 #define SELECTWINDOW_MOVES       3
 #define SELECTWINDOW_CATALOG     4
 #define SELECTWINDOW_ZYGARDECUBE 5
+
+enum PcMonSelectionType
+{
+    SELECT_PC_MON_NORMAL,
+    SELECT_PC_MON_TRADE, // Also used for Lotad / Seedot size check
+    SELECT_PC_MON_DAYCARE,
+    SELECT_PC_MON_MOVE_TUTOR,
+    SELECT_PC_MON_MOVE_DELETER,
+    SELECT_PC_MON_MOVE_RELEARNER,
+};
+
+enum CanMoveBeLearned
+{
+    CAN_LEARN_MOVE,
+    CANNOT_LEARN_MOVE,
+    ALREADY_KNOWS_MOVE,
+    CANNOT_LEARN_MOVE_IS_EGG
+};
 
 #endif // GUARD_CONSTANTS_PARTY_MENU_H
