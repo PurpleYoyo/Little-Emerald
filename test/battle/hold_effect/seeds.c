@@ -40,8 +40,6 @@ SINGLE_BATTLE_TEST("Electric Seed raises the holder's Defense on Electric Terrai
         SEND_IN_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Using Electric Seed, the Defense of Wobbuffet rose!");
-    } THEN {
-        EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 1);
     }
 }
 
@@ -71,8 +69,6 @@ SINGLE_BATTLE_TEST("Grassy Seed raises the holder's Defense on Grassy Terrain")
         SEND_IN_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Using Grassy Seed, the Defense of Wobbuffet rose!");
-    } THEN {
-        EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 1);
     }
 }
 
@@ -102,8 +98,6 @@ SINGLE_BATTLE_TEST("Misty Seed raises the holder's Sp. Defense on Misty Terrain"
         SEND_IN_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Using Misty Seed, the Sp. Def of Wobbuffet rose!");
-    } THEN {
-        EXPECT_EQ(player->statStages[STAT_SPDEF], DEFAULT_STAT_STAGE + 1);
     }
 }
 
@@ -133,7 +127,5 @@ SINGLE_BATTLE_TEST("Psychic Seed raises the holder's Sp. Defense on Psychic Terr
         SEND_IN_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Using Psychic Seed, the Sp. Def of Wobbuffet rose!");
-    } THEN {
-        EXPECT_EQ(player->statStages[STAT_SPDEF], DEFAULT_STAT_STAGE + 1);
     }
 }

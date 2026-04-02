@@ -7098,7 +7098,6 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sSinistchaLevelUpLearnset,
         .teachableLearnset = sSinistchaTeachableLearnset,
-        .formSpeciesIdTable = sSinistchaFormSpeciesIdTable,
     },
     [SPECIES_SINISTCHA_MASTERPIECE] =
     {
@@ -7160,7 +7159,6 @@ const struct SpeciesInfo gSpeciesInfoGen9[] =
         )
         .levelUpLearnset = sSinistchaLevelUpLearnset,
         .teachableLearnset = sSinistchaTeachableLearnset,
-        .formSpeciesIdTable = sSinistchaFormSpeciesIdTable,
     },
 #endif //P_FAMILY_POLTCHAGEIST
 
