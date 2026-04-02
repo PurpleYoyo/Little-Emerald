@@ -4,7 +4,7 @@ Changes since the last release (v1.4):
 Pokémon Changes:
 All sizes of Pumpkaboo now have the same base stats - the same as Pumpkaboo-Super.
 Chingling-Mega is now Psychic/Steel type.
-Pawmi is now Electric/Fighting type.
+Pawmi is now Electric/Fighting type. 
 Staryu is now Water/Psychic type.
 Misdreavus is now Ghost/Fairy type.
 Rookidee is no longer Steel type.
