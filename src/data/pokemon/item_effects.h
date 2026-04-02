@@ -160,6 +160,11 @@ const u8 gItemEffect_MaxElixir[7] = {
     [6] = ITEM6_HEAL_PP_FULL,
 };
 
+const u8 gItemEffect_MaxRestore[7] = {
+    [4] = ITEM4_HEAL_PP,
+    [6] = ITEM6_HEAL_PP_FULL,
+};
+
 const u8 gItemEffect_YellowFlute[6] = {
     [3] = ITEM3_CONFUSION,
 };

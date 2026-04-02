@@ -270,7 +270,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_ILLUMINATE] =
     {
         .name = _("Illuminate"),
-        .description = COMPOUND_STRING("Encounter rate increases."),
+        .description = COMPOUND_STRING("Raises accuracy."),
         .aiRating = 0,
         .breakable = TRUE,
     },
@@ -278,7 +278,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_TRACE] =
     {
         .name = _("Trace"),
-        .description = COMPOUND_STRING("Copies special ability."),
+        .description = COMPOUND_STRING("Copies foe's ability."),
         .aiRating = 6,
         .cantBeCopied = TRUE,
         .cantBeTraced = TRUE,
@@ -309,7 +309,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_MAGMA_ARMOR] =
     {
         .name = _("Magma Armor"),
-        .description = COMPOUND_STRING("Prevents freezing."),
+        .description = COMPOUND_STRING("Blocks crits and freeze."),
         .aiRating = 1,
         .breakable = TRUE,
     },
@@ -641,7 +641,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_HEATPROOF] =
     {
         .name = _("Heatproof"),
-        .description = COMPOUND_STRING("Heat and burn protection."),
+        .description = COMPOUND_STRING("Immunity to Fire moves."),
         .aiRating = 5,
         .breakable = TRUE,
     },
@@ -1582,7 +1582,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_BATTLE_BOND] =
     {
         .name = _("Battle Bond"),
-        .description = COMPOUND_STRING("Changes form after a KO."),
+        .description = COMPOUND_STRING("Raises stats after a KO."),
         .aiRating = 6,
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
@@ -1606,7 +1606,7 @@ const struct Ability gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_CORROSION] =
     {
         .name = _("Corrosion"),
-        .description = COMPOUND_STRING("Poisons any type."),
+        .description = COMPOUND_STRING("Poison hits any type."),
         .aiRating = 5,
     },
 

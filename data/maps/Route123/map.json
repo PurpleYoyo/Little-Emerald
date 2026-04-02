@@ -286,7 +286,7 @@
       "flag": "FLAG_TEMP_13"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
       "x": 31,
       "y": 8,
       "elevation": 3,
@@ -294,7 +294,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_CALCIUM",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM_CHILLING_WATER",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_123_CALCIUM"
     },
@@ -437,7 +437,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
+      "trainer_sight_or_berry_tree_id": "ITEM_NUGGET",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_123_ULTRA_BALL"
     },
@@ -450,7 +450,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ELIXIR",
+      "trainer_sight_or_berry_tree_id": "ITEM_QUIET_MINT",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_123_ELIXIR"
     },
@@ -580,7 +580,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_REVIVAL_HERB",
+      "trainer_sight_or_berry_tree_id": "ITEM_MAX_REVIVE",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_123_REVIVAL_HERB"
     }
@@ -786,7 +786,7 @@
       "x": 75,
       "y": 1,
       "elevation": 3,
-      "item": "ITEM_SUPER_REPEL",
+      "item": "ITEM_HARD_STONE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_SUPER_REPEL"
     },
     {
@@ -809,7 +809,7 @@
       "x": 12,
       "y": 1,
       "elevation": 3,
-      "item": "ITEM_REVIVE",
+      "item": "ITEM_LIECHI_BERRY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE"
     },
     {
@@ -817,7 +817,7 @@
       "x": 91,
       "y": 15,
       "elevation": 3,
-      "item": "ITEM_HYPER_POTION",
+      "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_123_HYPER_POTION"
     },
     {
