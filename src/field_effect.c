@@ -1,7 +1,6 @@
 #include "global.h"
 #include "data.h"
 #include "decompress.h"
-#include "event_data.h"
 #include "event_object_movement.h"
 #include "field_camera.h"
 #include "field_control_avatar.h"
@@ -14,7 +13,6 @@
 #include "fldeff.h"
 #include "gpu_regs.h"
 #include "main.h"
-#include "malloc.h"
 #include "mirage_tower.h"
 #include "menu.h"
 #include "metatile_behavior.h"
@@ -30,10 +28,9 @@
 #include "trainer_pokemon_sprites.h"
 #include "trig.h"
 #include "util.h"
+#include "constants/field_effects.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
-#include "constants/field_effects.h"
-#include "constants/flags.h"
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
@@ -42,7 +39,6 @@
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
 EWRAM_DATA s32 gFieldEffectArguments[8] = {0};
-EWRAM_DATA bool8 gSkipShowMonAnim = FALSE;
 
 // Static type declarations
 
@@ -77,6 +73,11 @@ static void SpriteCB_PokeballGlow(struct Sprite *);
 static void Task_UseFly(u8);
 static void FieldCallback_FlyIntoMap(void);
 static void Task_FlyIntoMap(u8);
+
+static void Task_UseWarp(u8);
+static void FieldCallback_UseWarp(void);
+static void FieldCallback_WarpIntoMap(void);
+static void Task_WarpIntoMap(u8);
 
 static void Task_FallWarpFieldEffect(u8);
 static bool8 FallWarpEffect_Init(struct Task *);
@@ -898,20 +899,8 @@ bool8 FieldEffectActiveListContains(u8 id)
 u8 CreateTrainerSprite(u8 trainerSpriteID, s16 x, s16 y, u8 subpriority, u8 *buffer)
 {
     struct SpriteTemplate spriteTemplate;
-    bool32 alloced = FALSE;
-
-    // Allocate memory for buffer
-    if (buffer == NULL)
-    {
-        buffer = Alloc(TRAINER_PIC_SIZE + PLTT_SIZEOF(16));
-        alloced = TRUE;
-    }
-
     LoadCompressedSpritePaletteOverrideBuffer(&gTrainerSprites[trainerSpriteID].palette, buffer);
     LoadCompressedSpriteSheetOverrideBuffer(&gTrainerSprites[trainerSpriteID].frontPic, buffer);
-    if (alloced)
-        Free(buffer);
-
     spriteTemplate.tileTag = gTrainerSprites[trainerSpriteID].frontPic.tag;
     spriteTemplate.paletteTag = gTrainerSprites[trainerSpriteID].palette.tag;
     spriteTemplate.oam = &sOam_64x64;
@@ -1396,6 +1385,83 @@ static void Task_UseFly(u8 taskId)
         WarpIntoMap();
         SetMainCallback2(CB2_LoadMap);
         gFieldCallback = FieldCallback_FlyIntoMap;
+        DestroyTask(taskId);
+    }
+}
+
+void ReturnToFieldFromWarpMapSelect(void)
+{
+    SetMainCallback2(CB2_ReturnToField);
+    gFieldCallback = FieldCallback_UseWarp;
+}
+
+void FieldCallback_UseWarp(void)
+{
+    FadeInFromBlack();
+    CreateTask(Task_UseWarp, 0);
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+}
+
+static void Task_UseWarp(u8 taskId)
+{
+    struct Task *task;
+    task = &gTasks[taskId];
+    if (!task->data[0])
+    {
+        if (!IsWeatherNotFadingIn())
+            return;
+
+        gFieldEffectArguments[0] = GetCursorSelectionMonId();
+        if ((int)gFieldEffectArguments[0] > PARTY_SIZE - 1)
+            gFieldEffectArguments[0] = 0;
+
+        //FieldEffectStart(FLDEFF_USE_FLY);
+        task->data[0]++;
+    }
+    if (!FieldEffectActiveListContains(FLDEFF_USE_FLY))
+    {
+        Overworld_ResetStateAfterFly();
+        WarpIntoMap();
+        SetMainCallback2(CB2_LoadMap);
+        gFieldCallback = FieldCallback_WarpIntoMap;
+        DestroyTask(taskId);
+    }
+}
+
+static void FieldCallback_WarpIntoMap(void)
+{
+    Overworld_PlaySpecialMapMusic();
+    FadeInFromBlack();
+    CreateTask(Task_WarpIntoMap, 0);
+    //gObjectEvents[gPlayerAvatar.objectEventId].invisible = TRUE;
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
+    {
+        ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_WEST);
+    }
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    gFieldCallback = NULL;
+}
+
+static void Task_WarpIntoMap(u8 taskId)
+{
+    struct Task *task;
+    task = &gTasks[taskId];
+    if (task->data[0] == 0)
+    {
+        if (gPaletteFade.active)
+        {
+            return;
+        }
+        //FieldEffectStart(FLDEFF_FLY_IN);
+        task->data[0]++;
+    }
+    if (!FieldEffectActiveListContains(FLDEFF_FLY_IN))
+    {
+        UnlockPlayerFieldControls();
+        UnfreezeObjectEvents();
         DestroyTask(taskId);
     }
 }
@@ -1887,7 +1953,7 @@ static bool8 WaterfallFieldEffect_ShowMon(struct Task *task, struct ObjectEvent 
     {
         ObjectEventClearHeldMovementIfFinished(objectEvent);
         gFieldEffectArguments[0] = task->tMonId;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
     return FALSE;
@@ -1958,7 +2024,7 @@ static bool8 DiveFieldEffect_ShowMon(struct Task *task)
 {
     LockPlayerFieldControls();
     gFieldEffectArguments[0] = task->data[15];
-    FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+    //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     task->data[0]++;
     return FALSE;
 }
@@ -3074,7 +3140,7 @@ static void SurfFieldEffect_ShowMon(struct Task *task)
     if (ObjectEventCheckHeldMovementStatus(objectEvent))
     {
         gFieldEffectArguments[0] = task->tMonId | SHOW_MON_CRY_NO_DUCKING;
-        FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
         task->tState++;
     }
 }
@@ -3247,8 +3313,7 @@ static void FlyOutFieldEffect_ShowMon(struct Task *task)
     {
         task->tState++;
         gFieldEffectArguments[0] = task->tMonId;
-        if (!gSkipShowMonAnim)
-            FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
+        //FieldEffectStart(FLDEFF_FIELD_MOVE_SHOW_MON_INIT);
     }
 }
 
@@ -3497,7 +3562,6 @@ static void StartFlyBirdReturnToBall(u8 spriteId)
 u8 FldEff_FlyIn(void)
 {
     CreateTask(Task_FlyIn, 254);
-    gSkipShowMonAnim = FALSE; // Clears this variable so flying via the party menu keeps the show mon animation
     return 0;
 }
 
@@ -3948,21 +4012,6 @@ static void Task_MoveDeoxysRock(u8 taskId)
             }
             break;
     }
-}
-
-u8 FldEff_CaveDust(void)
-{
-    u8 spriteId;
-
-    SetSpritePosToOffsetMapCoords((s16 *)&gFieldEffectArguments[0], (s16 *)&gFieldEffectArguments[1], 8, 8);
-    spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_CAVE_DUST], gFieldEffectArguments[0], gFieldEffectArguments[1], 0xFF);
-    if (spriteId != MAX_SPRITES)
-    {
-        gSprites[spriteId].coordOffsetEnabled = TRUE;
-        gSprites[spriteId].data[0] = 22;
-    }
-
-    return spriteId;
 }
 
 #undef tState

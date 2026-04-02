@@ -680,10 +680,6 @@ static u8 ProcessRegionMapInput_Full(void)
     {
         input = MAP_INPUT_B_BUTTON;
     }
-    else if (JOY_NEW(R_BUTTON))
-    {
-        input = MAP_INPUT_R_BUTTON;
-    }
     if (input == MAP_INPUT_MOVE_START)
     {
         sRegionMap->cursorMovementFrameCounter = 4;
@@ -762,10 +758,6 @@ static u8 ProcessRegionMapInput_Zoomed(void)
     if (JOY_NEW(B_BUTTON))
     {
         input = MAP_INPUT_B_BUTTON;
-    }
-    else if (JOY_NEW(R_BUTTON))
-    {
-        input = MAP_INPUT_R_BUTTON;
     }
     if (input == MAP_INPUT_MOVE_START)
     {
@@ -1737,6 +1729,100 @@ void CB2_OpenFlyMap(void)
         ShowBg(0);
         ShowBg(1);
         ShowBg(2);
+        gSpecialVar_0x800B = 0;
+        SetFlyMapCallback(CB_FadeInFlyMap);
+        SetMainCallback2(CB2_FlyMap);
+        gMain.state++;
+        break;
+    }
+}
+
+void CB2_OpenWarpMap(void)
+{
+    switch (gMain.state)
+    {
+    case 0:
+        SetVBlankCallback(NULL);
+        SetGpuReg(REG_OFFSET_DISPCNT, 0);
+        SetGpuReg(REG_OFFSET_BG0HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG0VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG1HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG1VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG2VOFS, 0);
+        SetGpuReg(REG_OFFSET_BG2HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG3HOFS, 0);
+        SetGpuReg(REG_OFFSET_BG3VOFS, 0);
+        sFlyMap = Alloc(sizeof(*sFlyMap));
+        if (sFlyMap == NULL)
+        {
+            SetMainCallback2(CB2_Overworld);
+        }
+        else
+        {
+            ResetPaletteFade();
+            ResetSpriteData();
+            FreeSpriteTileRanges();
+            FreeAllSpritePalettes();
+            gMain.state++;
+        }
+        break;
+    case 1:
+        ResetBgsAndClearDma3BusyFlags(0);
+        InitBgsFromTemplates(1, sFlyMapBgTemplates, ARRAY_COUNT(sFlyMapBgTemplates));
+        gMain.state++;
+        break;
+    case 2:
+        InitWindows(sFlyMapWindowTemplates);
+        DeactivateAllTextPrinters();
+        gMain.state++;
+        break;
+    case 3:
+        LoadUserWindowBorderGfx(0, 0x65, BG_PLTT_ID(13));
+        ClearScheduledBgCopiesToVram();
+        gMain.state++;
+        break;
+    case 4:
+        InitRegionMap(&sFlyMap->regionMap, FALSE);
+        CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
+        CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
+        sFlyMap->mapSecId = sFlyMap->regionMap.mapSecId;
+        StringFill(sFlyMap->nameBuffer, CHAR_SPACE, MAP_NAME_LENGTH);
+        sDrawFlyDestTextWindow = TRUE;
+        DrawFlyDestTextWindow();
+        gMain.state++;
+        break;
+    case 5:
+        LZ77UnCompVram(sRegionMapFrameGfxLZ, (u16 *)BG_CHAR_ADDR(3));
+        gMain.state++;
+        break;
+    case 6:
+        LZ77UnCompVram(sRegionMapFrameTilemapLZ, (u16 *)BG_SCREEN_ADDR(30));
+        gMain.state++;
+        break;
+    case 7:
+        LoadPalette(sRegionMapFramePal, BG_PLTT_ID(1), sizeof(sRegionMapFramePal));
+        PutWindowTilemap(WIN_FLY_TO_WHERE);
+        FillWindowPixelBuffer(WIN_FLY_TO_WHERE, PIXEL_FILL(0));
+        AddTextPrinterParameterized(WIN_FLY_TO_WHERE, FONT_NORMAL, gText_WarpToWhere, 0, 1, 0, NULL);
+        ScheduleBgCopyTilemapToVram(0);
+        gMain.state++;
+        break;
+    case 8:
+        LoadFlyDestIcons();
+        gMain.state++;
+        break;
+    case 9:
+        BlendPalettes(PALETTES_ALL, 16, 0);
+        SetVBlankCallback(VBlankCB_FlyMap);
+        gMain.state++;
+        break;
+    case 10:
+        SetGpuReg(REG_OFFSET_BLDCNT, 0);
+        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
+        ShowBg(0);
+        ShowBg(1);
+        ShowBg(2);
+        gSpecialVar_0x800B = 1;
         SetFlyMapCallback(CB_FadeInFlyMap);
         SetMainCallback2(CB2_FlyMap);
         gMain.state++;
@@ -2000,48 +2086,42 @@ static void CB_ExitFlyMap(void)
             FreeRegionMapIconResources();
             if (sFlyMap->choseFlyLocation)
             {
-                struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
-
-                SetFlyDestination(tempRegionMap);
-                ReturnToFieldFromFlyMapSelect();
+                switch (sFlyMap->regionMap.mapSecId)
+                {
+                case MAPSEC_SOUTHERN_ISLAND:
+                    SetWarpDestinationToHealLocation(HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR);
+                    break;
+                case MAPSEC_BATTLE_FRONTIER:
+                    SetWarpDestinationToHealLocation(HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST);
+                    break;
+                case MAPSEC_LITTLEROOT_TOWN:
+                    SetWarpDestinationToHealLocation(gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
+                    break;
+                case MAPSEC_EVER_GRANDE_CITY:
+                    SetWarpDestinationToHealLocation(FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && sFlyMap->regionMap.posWithinMapSec == 0 ? HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE : HEAL_LOCATION_EVER_GRANDE_CITY);
+                    break;
+                default:
+                    if (sMapHealLocations[sFlyMap->regionMap.mapSecId][2] != HEAL_LOCATION_NONE)
+                        SetWarpDestinationToHealLocation(sMapHealLocations[sFlyMap->regionMap.mapSecId][2]);
+                    else
+                        SetWarpDestinationToMapWarp(sMapHealLocations[sFlyMap->regionMap.mapSecId][0], sMapHealLocations[sFlyMap->regionMap.mapSecId][1], WARP_ID_NONE);
+                    break;
+                }
+                if (gSpecialVar_0x800B == 0)
+                    ReturnToFieldFromFlyMapSelect();
+                else
+                    ReturnToFieldFromWarpMapSelect();
             }
             else
             {
-                SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                if (gSpecialVar_0x800B == 0)
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                else
+                    SetMainCallback2(CB2_ReturnToField);
             }
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();
         }
         break;
     }
-}
-
-u32 FilterFlyDestination(struct RegionMap* regionMap)
-{
-    switch (regionMap->mapSecId)
-    {
-    case MAPSEC_SOUTHERN_ISLAND:
-        return HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR;
-    case MAPSEC_BATTLE_FRONTIER:
-        return HEAL_LOCATION_BATTLE_FRONTIER_OUTSIDE_EAST;
-    case MAPSEC_LITTLEROOT_TOWN:
-        return (gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
-    case MAPSEC_EVER_GRANDE_CITY:
-        return (FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && regionMap->posWithinMapSec == 0 ? HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE : HEAL_LOCATION_EVER_GRANDE_CITY);
-    default:
-        if (sMapHealLocations[regionMap->mapSecId][2] != HEAL_LOCATION_NONE)
-            return sMapHealLocations[regionMap->mapSecId][2];
-        else
-            return WARP_ID_NONE;
-    }
-}
-
-void SetFlyDestination(struct RegionMap* regionMap)
-{
-    u32 flyDestination = FilterFlyDestination(regionMap);
-
-    if (flyDestination != WARP_ID_NONE)
-        SetWarpDestinationToHealLocation(flyDestination);
-    else
-        SetWarpDestinationToMapWarp(sMapHealLocations[regionMap->mapSecId][0], sMapHealLocations[regionMap->mapSecId][1], WARP_ID_NONE);
 }
