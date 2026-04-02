@@ -4,7 +4,7 @@
 #include "coord_event_weather.h"
 #include "daycare.h"
 #include "debug.h"
-#include "utilities.h"
+#include "dexnav.h"
 #include "faraway_island.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -39,8 +39,6 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
-#include "constants/items.h"
-#include "event_scripts.h"
 
 static EWRAM_DATA u8 sWildEncounterImmunitySteps = 0;
 static EWRAM_DATA u16 sPrevMetatileBehavior = 0;
@@ -94,13 +92,10 @@ void FieldClearPlayerInput(struct FieldInput *input)
     input->heldDirection2 = FALSE;
     input->tookStep = FALSE;
     input->pressedBButton = FALSE;
-    input->input_field_1_0 = FALSE;
+    input->pressedRButton = FALSE;
     input->input_field_1_1 = FALSE;
     input->input_field_1_2 = FALSE;
     input->input_field_1_3 = FALSE;
-    input->input_field_1_5 = FALSE;
-    input->input_field_1_6 = FALSE;
-    input->input_field_1_7 = FALSE;
     input->dpadDirection = 0;
 }
 
@@ -122,6 +117,8 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
                 input->pressedAButton = TRUE;
             if (newKeys & B_BUTTON)
                 input->pressedBButton = TRUE;
+            if (newKeys & R_BUTTON && !FlagGet(DN_FLAG_SEARCHING))
+                input->pressedRButton = TRUE;
         }
 
         if (heldKeys & (DPAD_UP | DPAD_DOWN | DPAD_LEFT | DPAD_RIGHT))
@@ -156,32 +153,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
             input->DEBUG_OVERWORLD_TRIGGER_EVENT = FALSE;
         }
     }
-
-    // Diving
-    if ((heldKeys & (B_BUTTON)) && input->pressedAButton)
-    {
-        input->input_field_1_5 = TRUE;
-    }
-
-    // Emerging
-    if ((heldKeys & (A_BUTTON)) && input->pressedBButton)
-    {
-        input->input_field_1_6 = TRUE;
-    }
-
-    // Utilities Menu
-    if ((newKeys & (L_BUTTON))) // && input->pressedSelectButton)
-    {
-        input->input_field_1_7 = TRUE;
-        //input->pressedSelectButton = FALSE;
-    }
-
-    // Auto Run
-    //if ((newKeys & R_BUTTON) && (!ArePlayerFieldControlsLocked()) && (FlagGet(FLAG_SYS_B_DASH))
-    // && (gPlayerAvatar.flags & (PLAYER_AVATAR_FLAG_DASH | PLAYER_AVATAR_FLAG_ON_FOOT)))
-    //{
-    //    ScriptContext_SetupScript(EventScript_ToggleAutoRun);
-    //}
 }
 
 int ProcessPlayerFieldInput(struct FieldInput *input)
@@ -204,7 +175,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     if (TryRunOnFrameMapScript() == TRUE)
         return TRUE;
 
-    if ((input->input_field_1_6) && TrySetupDiveEmergeScript() == TRUE)
+    if (input->pressedBButton && TrySetupDiveEmergeScript() == TRUE)
         return TRUE;
     if (input->tookStep)
     {
@@ -246,7 +217,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         if (TryDoorWarp(&position, metatileBehavior, playerDirection) == TRUE)
             return TRUE;
     }
-    if ((input->input_field_1_5) && TrySetupDiveDownScript() == TRUE)
+    if (input->pressedAButton && TrySetupDiveDownScript() == TRUE)
         return TRUE;
     if (input->pressedStartButton)
     {
@@ -254,7 +225,14 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         ShowStartMenu();
         return TRUE;
     }
+    
+    if (input->tookStep && TryFindHiddenPokemon())
+        return TRUE;
+    
     if (input->pressedSelectButton && UseRegisteredKeyItemOnField() == TRUE)
+        return TRUE;
+    
+    if (input->pressedRButton && TryStartDexNavSearch())
         return TRUE;
 
     if(input->input_field_1_2 && DEBUG_OVERWORLD_MENU && !DEBUG_OVERWORLD_IN_MENU)
@@ -263,25 +241,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
         FreezeObjectEvents();
         Debug_ShowMainMenu();
         return TRUE;
-    }
-
-    // Utilities Menu
-    if(input->input_field_1_7)
-    {
-        if (VarGet(VAR_SANDBOX_MODE) == 1)
-        {
-            PlaySE(SE_WIN_OPEN);
-            FreezeObjectEvents();
-            Base_ShowMainMenu();
-            return TRUE;
-        }
-        else
-        {
-            PlaySE(SE_WIN_OPEN);
-            FreezeObjectEvents();
-            Utilities_ShowMainMenu();
-            return TRUE;
-        }
     }
 
     return FALSE;
@@ -316,7 +275,7 @@ static u16 GetPlayerCurMetatileBehavior(int runningState)
 static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatileBehavior, u8 direction)
 {
     const u8 *script = GetInteractionScript(position, metatileBehavior, direction);
-    if (script == NULL)
+    if (script == NULL || Script_HasNoEffect(script))
         return FALSE;
 
     // Don't play interaction sound for certain scripts.
@@ -326,8 +285,7 @@ static bool8 TryStartInteractionScript(struct MapPosition *position, u16 metatil
      && script != SecretBase_EventScript_RecordMixingPC
      && script != SecretBase_EventScript_DollInteract
      && script != SecretBase_EventScript_CushionInteract
-     && script != EventScript_PC
-     && script != BerryTreeScript)
+     && script != EventScript_PC)
         PlaySE(SE_SELECT);
 
     ScriptContext_SetupScript(script);
@@ -578,9 +536,7 @@ static const u8 *GetInteractedMetatileScript(struct MapPosition *position, u8 me
 
 static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metatileBehavior, u8 direction)
 {
-    //if (FlagGet(FLAG_BADGE05_GET) == TRUE && PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
-    if (FlagGet(FLAG_BADGE05_GET) == TRUE && (PartyHasMonWithSurf() == TRUE || CheckBagHasItem(ITEM_HM03 ,1)) && IsPlayerFacingSurfableFishableWater() == TRUE)
-
+    if (FlagGet(FLAG_BADGE05_GET) == TRUE && PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
         return EventScript_UseSurf;
 
     if (MetatileBehavior_IsWaterfall(metatileBehavior) == TRUE)
@@ -634,7 +590,12 @@ static bool8 TryStartCoordEventScript(struct MapPosition *position)
 
     if (script == NULL)
         return FALSE;
-    ScriptContext_SetupScript(script);
+
+    struct ScriptContext ctx;
+    if (!RunScriptImmediatelyUntilEffect(SCREFF_V1 | SCREFF_HARDWARE, script, &ctx))
+        return FALSE;
+
+    ScriptContext_ContinueScript(&ctx);
     return TRUE;
 }
 

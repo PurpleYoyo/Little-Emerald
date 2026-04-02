@@ -1,9 +1,16 @@
-.macro def_special ptr
+@ 'requests_effects' should be set to 1 if the special contains a call
+@ to 'Script_RequestEffects', which allows it to be analyzed with
+@ 'RunScriptImmediatelyUntilEffect'.
+.macro def_special ptr:req, requests_effects=0
 .global SPECIAL_\ptr
 .set SPECIAL_\ptr, __special__
 .set __special__, __special__ + 1
+	.if \requests_effects == 0
 	.4byte \ptr
-	.endm
+	.else
+	.4byte \ptr + ROM_SIZE
+	.endif
+.endm
 
 .set __special__, 0
 		.align 2
@@ -56,7 +63,6 @@ gSpecials::
 	def_special ObjectEventInteractionGetBerryName
 	def_special ObjectEventInteractionGetBerryCountString
 	def_special Bag_ChooseBerry
-	def_special Bag_ChooseFossil
 	def_special ObjectEventInteractionPlantBerryTree
 	def_special ObjectEventInteractionPickBerryTree
 	def_special ObjectEventInteractionRemoveBerryTree
@@ -298,7 +304,7 @@ gSpecials::
 	def_special WaitWeather
 	def_special BufferEReaderTrainerName
 	def_special GetSlotMachineId
-	def_special GetPlayerFacingDirection
+	def_special GetPlayerFacingDirection, requests_effects=TRUE
 	def_special FoundAbandonedShipRoom1Key
 	def_special FoundAbandonedShipRoom2Key
 	def_special FoundAbandonedShipRoom4Key
@@ -555,32 +561,5 @@ gSpecials::
 	def_special Script_GetChosenMonOffensiveIVs
 	def_special Script_GetChosenMonDefensiveIVs
 	def_special UseBlankMessageToCancelPokemonPic
-	def_special ShowSelectDamageScreen
-	def_special ShowSelectIvsScreen
-	def_special ShowSelectEvsScreen
-	def_special IsChosenMonSteelType
-	def_special IsChosenMonPoisonType
-	def_special IsChosenMonFireType
-	def_special IsChosenMonIceType
-	def_special IsChosenMonElectricType
-	def_special IsChosenMonImmuneToSleepDueToAbility
-	def_special IsChosenMonFainted
-	def_special GetInfiniteRepelFlag
-	def_special GetAutoRunFlag
-	def_special TeachEggMove
-	def_special DoesChosenMonHaveEggMoves
-	def_special GetRandomEgg
-	def_special IsPlayerInPokemonLeague
-	def_special HasPlayerDefeatedWinona
-	def_special GetRandomFossil
-	def_special GetRandomBabyEgg
-	def_special AbilityTutor
-	def_special ChangeMonGender
-	def_special IsMonMonoGender
-	def_special IsMonGenderless
-	def_special HPTypeChanger
-	def_special GetEvGainVar
-	def_special GetAlwaysCatchVar
-	def_special GetWalkThroughWallsFlag
-	def_special GetNoTrainersFlag
-	def_special ChooseMonForEeveeMoveTutor
+	def_special EnterCode
+	def_special GetCodeFeedback

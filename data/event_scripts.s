@@ -20,6 +20,7 @@
 #include "constants/contest.h"
 #include "constants/daycare.h"
 #include "constants/decorations.h"
+#include "constants/difficulty.h"
 #include "constants/easy_chat.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
@@ -88,7 +89,7 @@ gSpecialVars::
 	.4byte gSpecialVar_MonBoxId
 	.4byte gSpecialVar_MonBoxPos
 	.4byte gSpecialVar_Unused_0x8014
-	.4byte gTrainerBattleOpponent_A
+	.4byte gTrainerBattleParameter + 2 // gTrainerBattleParameter.params.opponentA
 
 	.include "data/specials.inc"
 
@@ -706,18 +707,6 @@ Common_ShowEasyChatScreen::
 	fadescreen FADE_FROM_BLACK
 	return
 
-Common_ShowSelectDamageScreen::
-	special ShowSelectDamageScreen
-	return
-
-Common_ShowSelectIvsScreen::
-	special ShowSelectIvsScreen
-	return
-
-Common_ShowSelectEvsScreen::
-	special ShowSelectEvsScreen
-	return
-
 Common_EventScript_ReadyPetalburgGymForBattle::
 	clearflag FLAG_HIDE_PETALBURG_GYM_GREETER
 	setflag FLAG_PETALBURG_MART_EXPANDED_ITEMS
@@ -1164,9 +1153,4 @@ EventScript_VsSeekerChargingDone::
 	.include "data/scripts/follower.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
-
-	.include "data/maps/DesertOasis/scripts.inc"
-
-	.include "data/maps/Route111_NoMirageTower/scripts.inc"
-
-	.include "data/maps/DeepWoods/scripts.inc"
+	.include "data/scripts/dexnav.inc"
