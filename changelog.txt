@@ -1,0 +1,640 @@
+Version 1.5 - Updated the version number to v1.5!
+Changes since the last release (v1.4):
+
+Pokémon Changes:
+All sizes of Pumpkaboo now have the same base stats - the same as Pumpkaboo-Super.
+Chingling-Mega is now Psychic/Steel type.
+Pawmi is now Electric/Fighting type. 
+Staryu is now Water/Psychic type.
+Misdreavus is now Ghost/Fairy type.
+Rookidee is no longer Steel type.
+Psyduck is no longer Psychic type.
+Phanpy's abilities are now: Sturdy/Cute Charm/Sand Veil
+Lileep's abilities are now: Suction Cups/Storm Drain/Poison Heal
+Sneasel's abilities are now: Inner Focus/Pickpocket/Technician
+Sneasel-Hisui's abilities are now: Inner Focus/Pickpocket/Unburden
+Pumpkaboo's abilities are now: Insomnia/Frisk/Heatproof
+
+Changed Cleffa's base stats (from v1.4):
+ HP: 50 -> 60
+ Atk: 25
+ Def: 55
+ SpA: 45 -> 60
+ SpD: 55 -> 70
+ Spe: 15
+ Total: 245 -> 285
+ 
+Changed Lechonk's base stats (from v1.4):
+ HP: 69 -> 74
+ Atk: 55
+ Def: 40
+ SpA: 35
+ SpD: 45
+ Spe: 35
+ Total: 279 -> 284
+  
+Changed Kricketot's base stats (from v1.4):
+ HP: 57
+ Atk: 55 -> 65
+ Def: 41
+ SpA: 25
+ SpD: 41
+ Spe: 25
+ Total: 274 -> 284
+ 
+Changed Scatterbug's base stats (from v1.4):
+ HP: 58
+ Atk: 50 -> 35
+ Def: 40 -> 45
+ SpA: 37 -> 57
+ SpD: 40 -> 45
+ Spe: 45 -> 55
+ Total: 270 -> 295
+ 
+Changed Bounsweet's base stats (from v1.4):
+ HP: 42
+ Atk: 50 -> 55
+ Def: 58
+ SpA: 30
+ SpD: 58
+ Spe: 32 -> 42
+ Total: 270 -> 285
+ 
+Changed Skitty's base stats (from Vanilla):
+ HP: 50 -> 60
+ Atk: 45 -> 50
+ Def: 45 -> 50
+ SpA: 35
+ SpD: 35
+ Spe: 50 -> 70
+ Total: 260 -> 300
+ 
+Changed Cosmog's base stats (from Vanilla):
+ HP: 43 -> 103
+ Atk: 29 -> 54
+ Def: 31 -> 21
+ SpA: 29 -> 54
+ SpD: 31 -> 21
+ Spe: 37
+ Total: 200 -> 290
+ 
+Changed Pichu's base stats (from Vanilla):
+ HP: 20 -> 30
+ Atk: 40 -> 50
+ Def: 15 -> 25
+ SpA: 35 -> 50
+ SpD: 35 -> 55
+ Spe: 60 -> 80
+ Total: 205 -> 290
+ 
+Changed Tyrogue's base stats (from Vanilla):
+ HP: 35 -> 50
+ Atk: 35 -> 40
+ Def: 35
+ SpA: 35
+ SpD: 35 -> 70
+ Spe: 35 -> 50
+ Total: 210 -> 280
+ 
+Changed Poochyena's base stats (from Vanilla):
+ HP: 35 -> 50
+ Atk: 55 -> 70
+ Def: 35 -> 50
+ SpA: 30
+ SpD: 30
+ Spe: 35 -> 50
+ Total: 220 -> 280
+
+Changed Wooper's base stats (from Vanilla):
+ HP: 55 -> 70
+ Atk: 45 -> 60
+ Def: 45 -> 60
+ SpA: 25 -> 40
+ SpD: 25 -> 40
+ Spe: 15
+ Total: 210 -> 285
+
+Changed Wooper-Paldea's base stats (from Vanilla):
+ HP: 55 -> 80
+ Atk: 45
+ Def: 45
+ SpA: 25
+ SpD: 25 -> 75
+ Spe: 15
+ Total: 210 -> 285
+
+Changed Pawmi's base stats (from Vanilla):
+ HP: 45
+ Atk: 50 -> 70
+ Def: 20 -> 45
+ SpA: 40 -> 45
+ SpD: 25 -> 30
+ Spe: 60
+ Total: 240 -> 295
+
+Changed Rolycoly's base stats (from Vanilla):
+ HP: 30 -> 70
+ Atk: 40
+ Def: 50 -> 70
+ SpA: 40
+ SpD: 50
+ Spe: 30
+ Total: 240 -> 300
+ 
+Changed Charcadet-Psychic's base stats (from v1.4):
+ HP: 40
+ Atk: 50 -> 30
+ Def: 40 -> 80
+ SpA: 50 -> 80
+ SpD: 40
+ Spe: 35 -> 50
+ Total: 255 -> 320
+ 
+Changed Charcadet-Ghost's base stats (from v1.4):
+ HP: 40 -> 30
+ Atk: 50 -> 80
+ Def: 40
+ SpA: 50 -> 30
+ SpD: 40 -> 80
+ Spe: 35 -> 60
+ Total: 255 -> 320
+ 
+Changed Whismur's base stats (from Vanilla):
+ HP: 64 -> 74
+ Atk: 51
+ Def: 23 -> 33
+ SpA: 51
+ SpD: 23 -> 43
+ Spe: 28 -> 48
+ Total: 240 -> 300
+ 
+Changed Combee's base stats (from Vanilla):
+ HP: 30 -> 50
+ Atk: 30 -> 40
+ Def: 42 -> 62
+ SpA: 30 -> 40
+ SpD: 42 -> 62
+ Spe: 70 -> 40
+ Total: 244 -> 294 
+ 
+Changed Wiglett's base stats (from Vanilla):
+ HP: 10
+ Atk: 55 -> 95
+ Def: 25
+ SpA: 35
+ SpD: 25
+ Spe: 95
+ Total: 245 -> 285
+ 
+Changed Noibat's base stats (from Vanilla):
+ HP: 40
+ Atk: 30
+ Def: 35 -> 40
+ SpA: 45 -> 60
+ SpD: 40
+ Spe: 55 -> 75
+ Total: 245 -> 285 
+ 
+Changed Zubat's base stats (from Vanilla):
+ HP: 40
+ Atk: 45 -> 50
+ Def: 35 -> 40
+ SpA: 30 -> 40
+ SpD: 40
+ Spe: 55 -> 100
+ Total: 245 -> 310
+ 
+Changed Flittle's base stats (from Vanilla):
+ HP: 30 -> 50
+ Atk: 35
+ Def: 30
+ SpA: 55 -> 60
+ SpD: 30
+ Spe: 75
+ Total: 255 -> 280 
+ 
+Changed Spinarak's base stats (from Vanilla):
+ HP: 40
+ Atk: 60 -> 95
+ Def: 40
+ SpA: 40
+ SpD: 40
+ Spe: 30
+ Total: 250 -> 285 
+ 
+Changed Slugma's base stats (from Vanilla):
+ HP: 40
+ Atk: 40
+ Def: 40 -> 60
+ SpA: 70
+ SpD: 40
+ Spe: 20
+ Total: 250 -> 270 
+ 
+Changed Swinub's base stats (from Vanilla):
+ HP: 50 -> 60
+ Atk: 50 -> 70
+ Def: 40 -> 50
+ SpA: 30
+ SpD: 30
+ Spe: 50
+ Total: 250 -> 290 
+ 
+Changed Fomantis's base stats (from Vanilla):
+ HP: 40
+ Atk: 55 -> 65
+ Def: 35 -> 50
+ SpA: 50 -> 40
+ SpD: 35 -> 50
+ Spe: 35 -> 30
+ Total: 250 -> 275
+ 
+Changed Gossifleur's base stats (from Vanilla):
+ HP: 40
+ Atk: 40 -> 30
+ Def: 60
+ SpA: 40 -> 50
+ SpD: 60 -> 90
+ Spe: 10
+ Total: 250 -> 280 
+ 
+Set Teddiursa-Bloodmoon's base stats:
+ HP: 60
+ Atk: 50
+ Def: 50
+ SpA: 80
+ SpD: 50
+ Spe: 40
+
+Learnset Changes:
+Toxic has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Poison type Pokémon (except Sneasel-Hisui) can learn Toxic via TM.
+The full list of non Poison type Pokémon with access to Toxic is:
+ - Happiny
+ - Lechonk
+ - Milcery
+ - Wurmple
+ - Eevee
+ - Goomy
+ - Lileep
+ - Combee
+
+Sandstorm has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Rock/Ground type Pokémon can learn Sandstorm via TM.
+The full list of non Rock/Ground type Pokémon with access to Sandstorm is:
+ - Bergmite
+ - Teddiursa
+ - Nidoran♀
+ - Nidoran♂
+ - Lechonk
+ - Lickitung
+ - Rellor
+ - Cufant
+ - Tympole
+ - Shellos
+ - Lillipup
+ - Greavard
+ - Cacnea
+ - Helioptile
+ - Wiglett
+
+Rain Dance has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Water type Pokémon (except for Wimpod and Clobbopus) can learn Rain Dance via TM.
+The full list of non Water type Pokémon with access to Rain Dance is:
+ - Eevee
+ - Goomy
+ - Cubchoo
+ - Azurill
+ - Qwilfish-Hisui
+ - Anorith
+ - Smoochum
+ - Shelmet
+ - Paras
+ - Helioptile
+ - Croagunk
+ - Morelull
+
+Snowscape has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Ice type Pokémon can learn Snowscape via TM.
+The full list of non Ice type Pokémon with access to Snowscape is:
+ - Clamperl
+ - Eevee
+ - Mime Jr.
+ - Shellder
+ - Crabrawler
+ - Slowpoke
+ - Slowpoke-Galar
+
+Sunny Day has been removed from every Pokémon's learnset unless otherwise noted.
+Every available Fire type Pokémon can learn Sunny Day via TM.
+The full list of non Fire type Pokémon with access to Sunny Day is:
+ - Ponyta-Galar
+ - Eevee
+ - Cubone
+ - Bulbasaur
+ - Oddish
+ - Bellsprout
+ - Exeggcute
+ - Tangela
+ - Hoppip
+ - Seedot
+ - Cherubi
+ - Sewaddle
+ - Cottonee
+ - Petilil
+ - Deerling-Spring
+ - Deerling-Autumn
+ - Deerling-Winter
+ - Chikorita
+ - Budew
+ - Fomantis
+ - Bounsweet
+ - Helioptile
+
+Rising Voltage was moved from the following Pokémons' Egg Move learnsets to their Tutor move learnsets:
+- Helioptile, Yamper, Electrike
+
+Changed Tynamo's learnset:
+ - Tutor: + Rising Voltage
+
+Changed Joltik's learnset:
+ - Tutor: + Rising Voltage
+
+Changed Chinchou's learnset:
+ - Tutor: + Rising Voltage
+
+Changed Honedge's learnset:
+ - TM: - Rock Smash, Shock Wave
+       + Light Screen
+ - Tutor: + Power Whip, Meteor Beam, Outrage, Thrash, Drill Run, Heavy Slam, Stone Edge, Megahorn, Focus Blast
+
+Changed Machop's learnset:
+ - TM: - Fire Blast, Light Screen, Flamethrower
+ - Tutor: - Metronome
+          + Hammer Arm, Stone Edge, Head Smash
+ - Egg: - Mega Kick, Double Team, Curse, Mud-Slap, Captivate, Fissure
+
+Changed Tirtouga's learnset:
+ - Egg: - Iron Defense
+        + Shelter
+
+Changed Turtwig's learnset:
+ - Egg: + Shelter
+
+Changed Chewtle's learnset:
+ - Egg: + Shelter
+
+Changed Cranidos's learnset:
+ - Egg: + Accelerock
+
+Changed Bonsly's learnset:
+ - Egg: + Accelerock
+
+Changed Archen's learnset:
+ - Egg: + Accelerock
+
+Changed Tyrunt's learnset:
+ - Egg: + Accelerock
+
+Changed Bunnelby's learnset:
+ - Egg: + Fissure
+
+Changed Dwebble's learnset:
+ - Egg: - Iron Defense, Confide, Counter
+        + Shelter
+
+Changed Growlithe-Hisui's learnset:
+ - Level-Up: - Helping Hand (16), Roar (44), Close Combat (52)
+             + Roar (4), Rock Throw (6), Rock Blast (17), Accelerock (24)
+
+Changed Rockruff's learnset:
+ - Level-Up: - Rock Tomb (24)
+             + Rock Tomb (17), Accelerock (24)
+
+Changed Staryu-Special's learnset:
+ - Level-Up: - Water Gun (4), Tri Attack (21), Psybeam (24), Brine (28), Light Screen (32), Power Gem (36), Surf (44)
+             + Aqua Jet (4), Take Down (21), Zen Headbutt (24), Flip Turn (28), Reflect (32), Rock Slide (36), Waterfall (44)
+
+Changed Zigzagoon's learnset:
+ - Level-Up: + Extreme Speed (41)
+
+Changed Zigzagoon-Galar's learnset:
+ - Level-Up: + Extreme Speed (41)
+
+Changed Abra's learnset:
+ - Level-Up: + Confusion (6), Safeguard (7), Psybeam (16), Psycho Cut (17), Recover (20), Psyshock (23), Future Sight (25), Psychic (28), Calm Mind (31)
+ - TM: - Body Slam, Foul Play, Thief
+       + Hyper Beam, Brick Break, Agility, Expanding Force
+ - Tutor: - Double-Edge, Swagger
+          + Focus Blast, Psycho Boost
+ - Egg: - Curse, Counter
+        + Tri Attack, Confuse Ray, Sucker Punch
+
+Changed Patrat's learnset:
+ - Level-Up: + Hone Claws (14)
+ - Egg: + Gravity
+
+Changed Skitty's learnset:
+ - TM: + Fling
+ - Egg: + Ancient Power, Ominous Wind, Headbutt, Weather Ball
+
+Changed Horsea's learnset:
+ - TM: + Mirror Shot
+
+Changed Fomantis's learnset:
+ - Level-Up: + First Impression (31)
+
+Changed Shinx's learnset:
+ - Level-Up: - Spark (16)
+             + Spark (1), Rising Voltage (21),Zing Zap (31), Volt Tackle (56)
+ - Egg: + Nuzzle
+
+Changed Elekid's learnset:
+ - Level-Up: - Plasma Fists (63)
+
+Changed Pawmi's learnset:
+ - Level-Up: - Revival Blessing (63)
+             + Double Shock (56)
+
+Changed Rellor's learnset:
+ - Level-Up: - Revival Blessing (63)
+
+Changed Spinarak's learnset:
+ - Level-Up: - Pin Missile (33)
+             + First Impression (33)
+ - Egg: + Feint, Extreme Speed
+
+Changed Tepig's learnset:
+ - Level-Up: - Roar (39)
+             + Head Charge (39)
+ - TM: - Dig, Fire Punch, Rock Smash
+       + Scald
+
+Changed Eevee's lernset:
+ - TM: - Dig, Shadow Ball
+       + Seed Bomb, Stored Power, Ice Beam, Blizzard, Dark Pulse, Lash Out, Giga Drain, Solar Beam, Thunder, Thunderbolt, Liquidation, Psychic, Overheat,
+         Flamethrower, Fire Blast, Water Pulse, Draining Kiss, Dazzling Gleam, Foul Play, Play Rough, Volt Switch, Thunder Wave, Scald, Expanding Force
+ - Tutor: + Heat Wave, Energy Ball, Aqua Tail, Throat Chop, Muddy Water, Wild Charge, Flare Blitz, Hydro Pump, Leaf Storm, Power Whip, Psycho Boost, Solar Blade
+
+Changed Goomy's learnset:
+ - TM: + Liquidation
+ - Egg: + Dragon Dance
+
+Changed Lileep's learnset:
+ - Egg: + Leech Seed, Baton Pass
+
+Changed Rhyhorn's learnset:
+ - TM: - Thunderbolt, Thunder, Thief, Swords Dance, Sunny Day, Dragon Pulse, Icy Wind, Shock Wave, Rain Dance, Flamethrower, Fire Blast, Blizzard
+ - Tutor: + Wild Charge
+ - Egg: + Submission
+
+Changed Combee's learnset:
+ - Level-Up: - Bug Bite (1)
+             + Poison Sting (4), Bug Bite (5), Slash (10), Roost (15), Air Cutter (16), Defend Order (17), Toxic (19), Attack Order (21), Air Slash (22), Bug Buzz (28), Destiny Bond (30)
+ - TM: + Pounce, Power Gem, Aerial Ace, Sludge Bomb, Agility, Acrobatics, U-turn, Bullet Seed, Giga Drain, Hyper Beam, Leech Life
+ - Tutor: + Fury Cutter, Swagger, Hurricane, Lunge, Rollout
+ - Egg: + Aromatic Mist, Fell Stinger, Confuse Ray, Heal Order, Signal Beam, Silver Wind, Toxic Spikes, Spikes, Venoshock, Endeavor, Skitter Smack
+
+Boss Changes:
+Raised the level caps and levels of gyms 4-8 and the Pokémon league by 5.
+Raised the levels of the following bosses by 5:
+ - Magma Hideout Admin Tabitha
+ - Magma Hideout Leader Maxie
+ - Mossdeep Space Center Admin Courtney & Leader Maxie
+ - Weather Institute Admin Shelly
+ - Mt. Pyre Summit Admin Matt & Leader Archie
+ - Aqua Hideout Admin Matt
+ - Seafloor Cavern Archie
+ - Route 119 Rival
+ - Lilycove City Rival
+ - Victory Road Wally
+ - Mini-Boss Collector
+ - Mini-Boss Boom Dude
+ - Mini-Boss Critter
+ - Mini-Boss Slow Fella
+ - Mini-Boss Smasher
+ - Mini-Boss Purkat
+Changed Norman's Eevee-Partner to a normal Eevee.
+Elite Four Sidney will now have one of two possible teams in Hard Mode. The only difference between them is team order.
+Changed Elite Four Sidney's team:
+ - Hard Mode:
+   Edited Impidimmp - Moves: Misty Terrain/Nature Power/Reflect/Parting Shot, Held Item: Assault Vest
+   Edited Zorua - Moves: Nasty Plot/Sludge Bomb/Extrasensory/Burning Jealousy, Held Item: Focus Sash
+
+Feature Additions:
+Added special, one-time use Move Tutors throughout Hoenn:
+ - Revival Blessing:
+   - Rellor
+   - Pawmi
+ - Plasma Fists:
+   - Elekid
+   - Pichu
+ - Volt Tackle:
+   - Elekid
+   - Pichu
+   - Voltorb
+   - Electrike
+   - Blitzle
+   - Shinx
+   - Tynamo
+   - Pawmi
+   - Voltorb-Hisui
+   - Toxel
+   - Wattrel
+   - Geodude-Alola
+   - Grubbin
+> Added a special Move Tutor than can teach Eevee one of the following moves:
+  - Bouncy Bubble
+  - Buzzy Buzz
+  - Sizzly Slide
+  - Glitzy Glow
+  - Baddy Bad
+  - Sappy Seed
+  - Freezy Frost
+  - Sparkly Swirl
+  - Veevee Volley
+> This Move Tutor is infinitely re-usable, however, you can only teach one of these moves to an Eevee.
+> If you have Eevee forget the move and come back, you can teach it a new one.
+Gave Hisuian forms egg moves.
+Added something I call "Route Bosses".
+Route Bosses are (mostly) mandatory trainers found throughout Hoenn that have crafted teams in Hard Mode.
+ - The idea is that they're the strongest trainer in their area.
+ - Their teams are docmented in the Hard Mode Important Trainers sheet.
+ - Their Pokémon have Hardy natures, no items (mostly), and level-up moves in Normal Mode.
+*Note: All trainer Pokémon not in the Important Trainers documents have a Hardy nature and level-up moves.
+Combee and Salandit are now always female.
+Added Teddiursa-Bloodmoon, a new form with adjusted stats, the Mind's Eye ability, an added Ground type, and a separate learnet.
+Added an NPC in Rusturf Tunnel that allows you to change the gender of a Pokémon.
+Added Rising Voltage to the 1 BP move tutor.
+
+Move Changes:
+Rising Voltage is now Physical.
+Wing Attack is now 80 base power.
+Razor Wind is now a 1-turn move.
+Razor Wind is now Physical.
+Razor Wind is now Flying type.
+Spark is now 60 base power.
+Thunder Fang is now 75 base power.
+Fire Fang is now 75 base power.
+Ice Fang is now 75 base power.
+Wild Charge is now 100 base power.
+Wild Charge no longer deals recoil damage to the user if it is an Electric type.
+ - It deals 25% of the damage dealt in recoil to the user if it is not an Electric type.
+Volt Tackle now deals 25% of the damage dealt in recoil to the user.
+Zap Cannon now has 70 accuracy.
+Inferno now has 70 accuracy.
+Inferno is now 120 base power.
+
+Feature Changes:
+You can no longer enter the Mauville City gym until you have defeated Brawly.
+Increased the base power of Astonish to 50.
+Wide Lens now boosts accuracy by 30%.
+Zoom Lens now boosts accuracy by 30% all the time and by 50% if the holder moves after the target.
+Eviolite now only boosts Defense.
+Decreased the cost of an Eviolite to 3 BP.
+Assault Vest no longer prevents the use of status moves.
+Increased the cost of an Assault Vest to 3 BP.
+Changed the static Pawniard in Ancient Tomb to a Teddiursa-Bloodmoon.
+Revised the in-game trades from vanilla.
+Seeing Zubat or Glimmet now also allows you to pre-poison a Steel or Poison type.
+Raised the level of most random trainer Pokémon.
+Added more Pokémon to most random trainers.
+Changed many random trainers' Pokémon.
+Made the entrance to Deep Woods a bit more noticeable.
+Moved Speedy Kid to Route 117.
+
+Bugfixes:
+
+
+IDEAS:
+Darumaka
+
+NOTES:
+B2Bs:
+ - Route 116: Dawson & Sarah
+ - Route 110: Kaleb & Isabel
+ - Route 118: Rose & Deandre
+ - Route 112: Shayla & Bryant
+Doubles:
+ - Route 116: Janice & Jerry
+ - Dewford Gym: Brenden & Lilith
+ - Route 103: Marcos & Rhett
+ - Rooute 114: Charlotte & Kai
+
+DISABLE DEBUG MENU BEFORE RELEASE
+src/field_control_avatar.c
+include/debug.h9
+
+NOTES:
+b - dusk/dawn stone palettes                              |
+b - norman's eevee-starter showing up as eevee in calc    |
+b - natures incorrect in set getter                       |
+b - calc import formes                                    |
+
+f - random weather/terrain miniboss
+f - illegal abilities miniboss
+f - gyms 6 and 7 non linear
+f - fast surf work with auto run
+f - revival blessing kys
+f - statics run
+f - berry random
