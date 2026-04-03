@@ -357,10 +357,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
-      "x": 9,
-      "y": 41,
+      "x": 11,
+      "y": 44,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -377,7 +377,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_SEA_INCENSE",
+      "trainer_sight_or_berry_tree_id": "ITEM_POKE_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_104_POKE_BALL"
     },
@@ -403,7 +403,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_ROSE_INCENSE",
+      "trainer_sight_or_berry_tree_id": "ITEM_X_ACCURACY",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_104_X_ACCURACY"
     },
@@ -421,7 +421,7 @@
       "flag": "FLAG_TEMP_11"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 5,
       "y": 8,
       "elevation": 3,
@@ -429,7 +429,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_TM_SUNNY_DAY",
+      "trainer_sight_or_berry_tree_id": "ITEM_POTION",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_104_POTION"
     },
@@ -588,7 +588,7 @@
       "x": 7,
       "y": 6,
       "elevation": 3,
-      "item": "ITEM_REVIVE",
+      "item": "ITEM_SUPER_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_SUPER_POTION"
     },
     {
@@ -596,7 +596,7 @@
       "x": 3,
       "y": 9,
       "elevation": 3,
-      "item": "ITEM_NUGGET",
+      "item": "ITEM_POKE_BALL",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL"
     },
     {
@@ -604,7 +604,7 @@
       "x": 14,
       "y": 55,
       "elevation": 3,
-      "item": "ITEM_RARE_CANDY",
+      "item": "ITEM_POTION",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POTION"
     },
     {
@@ -612,7 +612,7 @@
       "x": 16,
       "y": 72,
       "elevation": 3,
-      "item": "ITEM_PEARL_STRING",
+      "item": "ITEM_ANTIDOTE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_ANTIDOTE"
     },
     {
@@ -620,7 +620,7 @@
       "x": 16,
       "y": 64,
       "elevation": 3,
-      "item": "ITEM_PEARL",
+      "item": "ITEM_HEART_SCALE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE"
     }
   ]

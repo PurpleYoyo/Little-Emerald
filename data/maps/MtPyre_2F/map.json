@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
@@ -36,7 +36,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_BLANK_MINT",
+      "trainer_sight_or_berry_tree_id": "ITEM_ULTRA_BALL",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_MT_PYRE_2F_ULTRA_BALL"
     },
@@ -156,10 +156,6 @@
       "dest_warp_id": "5"
     }
   ],
-  "coord_events": [
-
-  ],
-  "bg_events": [
-
-  ]
+  "coord_events": [],
+  "bg_events": []
 }

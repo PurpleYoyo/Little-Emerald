@@ -206,16 +206,16 @@ static u16 GetPrevBall(u16 ballId)
 {
     u16 ballPrev;
     s32 i, j;
-    CompactItemsInBagPocket(&gBagPockets[POCKET_POKE_BALLS]);
-    for (i = 0; i < gBagPockets[POCKET_POKE_BALLS].capacity; i++)
+    CompactItemsInBagPocket(&gBagPockets[BALLS_POCKET]);
+    for (i = 0; i < gBagPockets[BALLS_POCKET].capacity; i++)
     {
-        if (ballId == gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId)
+        if (ballId == gBagPockets[BALLS_POCKET].itemSlots[i].itemId)
         {
             if (i <= 0)
             {
-                for (j = gBagPockets[POCKET_POKE_BALLS].capacity - 1; j >= 0; j--)
+                for (j = gBagPockets[BALLS_POCKET].capacity - 1; j >= 0; j--)
                 {
-                    ballPrev = gBagPockets[POCKET_POKE_BALLS].itemSlots[j].itemId;
+                    ballPrev = gBagPockets[BALLS_POCKET].itemSlots[j].itemId;
                     if (ballPrev != ITEM_NONE)
                         return ballPrev;
                 }
@@ -224,24 +224,24 @@ static u16 GetPrevBall(u16 ballId)
             break;
         }
     }
-    return gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId;
+    return gBagPockets[BALLS_POCKET].itemSlots[i].itemId;
 }
 
 static u32 GetNextBall(u32 ballId)
 {
     u32 ballNext = ITEM_NONE;
     s32 i;
-    CompactItemsInBagPocket(&gBagPockets[POCKET_POKE_BALLS]);
-    for (i = 1; i < gBagPockets[POCKET_POKE_BALLS].capacity; i++)
+    CompactItemsInBagPocket(&gBagPockets[BALLS_POCKET]);
+    for (i = 1; i < gBagPockets[BALLS_POCKET].capacity; i++)
     {
-        if (ballId == gBagPockets[POCKET_POKE_BALLS].itemSlots[i-1].itemId)
+        if (ballId == gBagPockets[BALLS_POCKET].itemSlots[i-1].itemId)
         {
-            ballNext = gBagPockets[POCKET_POKE_BALLS].itemSlots[i].itemId;
+            ballNext = gBagPockets[BALLS_POCKET].itemSlots[i].itemId;
             break;
         }
     }
     if (ballNext == ITEM_NONE)
-        return gBagPockets[POCKET_POKE_BALLS].itemSlots[0].itemId; // Zeroth slot
+        return gBagPockets[BALLS_POCKET].itemSlots[0].itemId; // Zeroth slot
     else
         return ballNext;
 }
@@ -421,16 +421,6 @@ static void HandleInputChooseAction(u32 battler)
         TryHideLastUsedBall();
         BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_THROW_BALL, 0);
         PlayerBufferExecCompleted(battler);
-    }
-    else if (JOY_NEW(R_BUTTON))
-    {
-        if (!(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FIRST_BATTLE)))
-        {
-            PlaySE(SE_SELECT);
-            TryHideLastUsedBall();
-            BtlController_EmitTwoReturnValues(battler, BUFFER_B, B_ACTION_RUN, 0);
-            PlayerBufferExecCompleted(battler);
-        }
     }
 }
 
@@ -1420,14 +1410,6 @@ void Task_PlayerController_RestoreBgmAfterCry(u8 taskId)
 #define tExpTask_gainedExp_2    data[4] // Stored as two half-words containing a word.
 #define tExpTask_frames         data[10]
 
-static void DynamaxModifyHPLevelUp(struct Pokemon *mon, u32 battler, u32 oldMaxHP)
-{
-    ApplyDynamaxHPMultiplier(mon);
-    gBattleScripting.levelUpHP = GetMonData(mon, MON_DATA_MAX_HP) - oldMaxHP; // overwrite levelUpHP since it overflows
-    gBattleMons[battler].hp += gBattleScripting.levelUpHP;
-    SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
-}
-
 static s32 GetTaskExpValue(u8 taskId)
 {
     return (u16)(gTasks[taskId].tExpTask_gainedExp_1) | (gTasks[taskId].tExpTask_gainedExp_2 << 16);
@@ -1446,16 +1428,21 @@ static void Task_GiveExpToMon(u8 taskId)
         u8 level = GetMonData(mon, MON_DATA_LEVEL);
         u32 currExp = GetMonData(mon, MON_DATA_EXP);
         u32 nextLvlExp = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
-        u32 oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
 
         if (currExp + gainedExp >= nextLvlExp)
         {
             SetMonData(mon, MON_DATA_EXP, &nextLvlExp);
+            gBattleStruct->dynamax.levelUpHP = GetMonData(mon, MON_DATA_HP) \
+                + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
             CalculateMonStats(mon);
 
             // Reapply Dynamax HP multiplier after stats are recalculated.
             if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && monId == gBattlerPartyIndexes[battler])
-                DynamaxModifyHPLevelUp(mon, battler, oldMaxHP);
+            {
+                ApplyDynamaxHPMultiplier(battler, mon);
+                gBattleMons[battler].hp = gBattleStruct->dynamax.levelUpHP;
+                SetMonData(mon, MON_DATA_HP, &gBattleMons[battler].hp);
+            }
 
             gainedExp -= nextLvlExp - currExp;
             BtlController_EmitTwoReturnValues(battler, BUFFER_B, RET_VALUE_LEVELED_UP, gainedExp);
@@ -1504,7 +1491,6 @@ static void Task_GiveExpWithExpBar(u8 taskId)
 {
     u8 level;
     u16 species;
-    u32 oldMaxHP;
     s32 currExp, expOnNextLvl, newExpPoints;
 
     if (gTasks[taskId].tExpTask_frames < 13)
@@ -1516,27 +1502,31 @@ static void Task_GiveExpWithExpBar(u8 taskId)
         u8 monId = gTasks[taskId].tExpTask_monId;
         s32 gainedExp = GetTaskExpValue(taskId);
         u8 battler = gTasks[taskId].tExpTask_battler;
-        struct Pokemon *mon = &gPlayerParty[monId];
 
         newExpPoints = MoveBattleBar(battler, gHealthboxSpriteIds[battler], EXP_BAR, 0);
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[battler]);
         if (newExpPoints == -1) // The bar has been filled with given exp points.
         {
             m4aSongNumStop(SE_EXP);
-            level = GetMonData(mon, MON_DATA_LEVEL);
-            currExp = GetMonData(mon, MON_DATA_EXP);
-            species = GetMonData(mon, MON_DATA_SPECIES);
-            oldMaxHP = GetMonData(mon, MON_DATA_MAX_HP);
+            level = GetMonData(&gPlayerParty[monId], MON_DATA_LEVEL);
+            currExp = GetMonData(&gPlayerParty[monId], MON_DATA_EXP);
+            species = GetMonData(&gPlayerParty[monId], MON_DATA_SPECIES);
             expOnNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1];
 
             if (currExp + gainedExp >= expOnNextLvl)
             {
-                SetMonData(mon, MON_DATA_EXP, &expOnNextLvl);
-                CalculateMonStats(mon);
+                SetMonData(&gPlayerParty[monId], MON_DATA_EXP, &expOnNextLvl);
+                gBattleStruct->dynamax.levelUpHP = GetMonData(&gPlayerParty[monId], MON_DATA_HP) \
+                    + UQ_4_12_TO_INT((gBattleScripting.levelUpHP * UQ_4_12(1.5)) + UQ_4_12_ROUND);
+                CalculateMonStats(&gPlayerParty[monId]);
 
                 // Reapply Dynamax HP multiplier after stats are recalculated.
                 if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX && monId == gBattlerPartyIndexes[battler])
-                    DynamaxModifyHPLevelUp(mon, battler, oldMaxHP);
+                {
+                    ApplyDynamaxHPMultiplier(battler, &gPlayerParty[monId]);
+                    gBattleMons[battler].hp = gBattleStruct->dynamax.levelUpHP;
+                    SetMonData(&gPlayerParty[monId], MON_DATA_HP, &gBattleMons[battler].hp);
+                }
 
                 gainedExp -= expOnNextLvl - currExp;
                 BtlController_EmitTwoReturnValues(battler, BUFFER_B, RET_VALUE_LEVELED_UP, gainedExp);
@@ -1545,7 +1535,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
             else
             {
                 currExp += gainedExp;
-                SetMonData(mon, MON_DATA_EXP, &currExp);
+                SetMonData(&gPlayerParty[monId], MON_DATA_EXP, &currExp);
                 gBattlerControllerFuncs[battler] = Controller_WaitForString;
                 DestroyTask(taskId);
             }
@@ -2054,6 +2044,7 @@ static void PlayerHandleChooseAction(u32 battler)
     ActionSelectionCreateCursorAt(gActionSelectionCursor[battler], 0);
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
     BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
+    BreakStringAutomatic(gDisplayedStringBattle, WindowWidthPx(B_WIN_ACTION_PROMPT), 2, FONT_NORMAL);
 
     if (B_SHOW_PARTNER_TARGET && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && IsBattlerAlive(B_POSITION_PLAYER_RIGHT))
     {

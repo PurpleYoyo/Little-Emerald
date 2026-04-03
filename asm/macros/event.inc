@@ -1320,13 +1320,6 @@
 	.byte \disable
 	.endm
 
-	.macro showmoneyboxfish x:req, y:req, disable=0
-	.byte 0xe5
-	.byte \x
-	.byte \y
-	.byte \disable
-	.endm
-
 	@ Destroys the window created by showmoneybox. Consumption of the x and y arguments was dummied out.
 	.macro hidemoneybox
 	.byte 0x94
@@ -1338,13 +1331,6 @@
 	@ If 'disable' is set to anything but 0 then this command does nothing.
 	.macro updatemoneybox disable=0
 	.byte 0x95
-	.byte 0  @ \x
-	.byte 0  @ \y
-	.byte \disable
-	.endm
-
-	.macro updatemoneyboxfish disable=0
-	.byte 0xe6
 	.byte 0  @ \x
 	.byte 0  @ \y
 	.byte \disable
@@ -2216,43 +2202,6 @@
 	.2byte \slot
 	.endm
 
-	.macro canuntrain stat:req, slot:req
-	callnative CanUnTrain
-	.byte \stat
-	.2byte \slot
-	.endm
-
-	.macro untrain stat:req, slot:req
-	callnative UnTrain
-	.byte \stat
-	.2byte \slot
-	.endm
-
-	.macro checkpartydamp
-	callnative CheckPartyDamp
-	.endm
-
-	.macro checkpartytrickroom
-	callnative CheckPartyTrickRoom
-	.endm
-
-	.macro checkpartychoicescarf
-	callnative CheckPartyChoiceScarf
-	.endm
-
-	.macro checkpartychoicespecs
-	callnative CheckPartyChoiceSpecs
-	.endm
-
-	.macro checkpartychoiceband
-	callnative CheckPartyChoiceBand
-	.endm
-
-	.macro sethypertrainstat stat:req
-	callnative SetHyperTrainingStat
-	.2byte \stat
-	.endm
-
 	@ Sets VAR_RESULT to TRUE if the Pokemon has the Gigantamax Factor,
 	@ or to FALSE otherwise.
 	.macro hasgigantamaxfactor slot:req
@@ -2304,17 +2253,6 @@
 	.macro setstatus1 status1:req, slot:req
 	callnative Script_SetStatus1
 	.2byte \status1
-	.2byte \slot
-	.endm
-
-	.macro sethp hp:req, slot:req
-	callnative Script_SetHP
-	.2byte \hp
-	.2byte \slot
-	.endm
-
-	.macro selectdamage slot:req
-	callnative Script_SelectDamage
 	.2byte \slot
 	.endm
 
@@ -2499,7 +2437,3 @@
 	.2byte \dest
 	.endm
 
-    .macro givebp amount:req
-	callnative GiveBP
-	.2byte \amount
-	.endm

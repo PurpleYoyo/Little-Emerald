@@ -81,8 +81,8 @@ void SetUpBattleVarsAndBirchZigzagoon(void)
     {
         ZeroEnemyPartyMons();
         CreateMon(&gEnemyParty[0], SPECIES_ZIGZAGOON, 2, USE_RANDOM_IVS, 0, 0, OT_ID_PLAYER_ID, 0);
-        //i = 0;
-        //SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &i);
+        i = 0;
+        SetMonData(&gEnemyParty[0], MON_DATA_HELD_ITEM, &i);
     }
 }
 
@@ -1601,7 +1601,6 @@ static u32 GetBattlerMonData(u32 battler, struct Pokemon *party, u32 monId, u8 *
         battleMon.spAttack = GetMonData(&party[monId], MON_DATA_SPATK);
         battleMon.spDefense = GetMonData(&party[monId], MON_DATA_SPDEF);
         battleMon.abilityNum = GetMonData(&party[monId], MON_DATA_ABILITY_NUM);
-        battleMon.lockedAbility = GetMonData(&party[monId], MON_DATA_LOCKED_ABILITY);
         battleMon.otId = GetMonData(&party[monId], MON_DATA_OT_ID);
         battleMon.metLevel = GetMonData(&party[monId], MON_DATA_MET_LEVEL);
         battleMon.isShiny = GetMonData(&party[monId], MON_DATA_IS_SHINY);

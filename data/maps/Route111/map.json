@@ -27,16 +27,6 @@
       "map": "MAP_ROUTE112",
       "offset": 20,
       "direction": "left"
-    },
-    {
-      "map": "MAP_DESERT_OASIS",
-      "offset": 46,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE112",
-      "offset": 20,
-      "direction": "left"
     }
   ],
   "object_events": [
@@ -262,7 +252,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_TM_BALL",
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 33,
       "y": 104,
       "elevation": 3,
@@ -374,7 +364,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_CALM_INCENSE",
+      "trainer_sight_or_berry_tree_id": "ITEM_HP_UP",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_111_HP_UP"
     },
@@ -582,7 +572,7 @@
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_REVIVE",
+      "trainer_sight_or_berry_tree_id": "ITEM_ELIXIR",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_ROUTE_111_ELIXIR"
     },
@@ -598,6 +588,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route111_EventScript_Hiker",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
+      "x": 20,
+      "y": 53,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "0x0",
+      "flag": "FLAG_HIDE_ROUTE_111_DESERT_FOSSIL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
@@ -624,19 +627,6 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route111_EventScript_RockSmashTipFatMan",
       "flag": "FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_FOSSIL",
-      "x": 1,
-      "y": 46,
-      "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
-      "movement_range_x": 1,
-      "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "0x0",
-      "flag": "FLAG_HIDE_ROUTE_111_DESERT_FOSSIL"
     }
   ],
   "warp_events": [

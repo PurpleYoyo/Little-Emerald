@@ -13,7 +13,6 @@ u32 FieldEffectStart(u8);
 bool8 FieldEffectActiveListContains(u8 id);
 void FieldEffectActiveListClear(void);
 void ReturnToFieldFromFlyMapSelect(void);
-void ReturnToFieldFromWarpMapSelect(void);
 void FieldCallback_UseFly(void);
 u8 AddNewGameBirchObject(s16, s16, u8);
 void FieldEffectStop(struct Sprite *sprite, u8 id);

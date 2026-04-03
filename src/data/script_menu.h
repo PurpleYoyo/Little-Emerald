@@ -70,88 +70,6 @@ static const struct MenuAction MultichoiceList_StatusInfo[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_Statuses[] =
-{
-    {gText_Psn},
-    {gText_Par},
-    {gText_Slp},
-    {gText_Brn},
-    {gText_Frz},
-    {gText_Toxic},
-};
-
-static const struct MenuAction MultichoiceList_StatNames[] =
-{
-    {gText_HP4},
-    {gText_Attack3},
-    {gText_Defense3},
-    {gText_SpAtk4},
-    {gText_SpDef4},
-    {gText_Speed2},
-};
-
-static const struct MenuAction MultichoiceList_Letters[] =
-{
-    {gText_A},
-    {gText_B},
-    {gText_C},
-    {gText_D},
-    {gText_E},
-    {gText_F},
-    {gText_G},
-    {gText_H},
-    {gText_I},
-    {gText_J},
-    {gText_K},
-    {gText_L},
-    {gText_M},
-    {gText_N},
-    {gText_O},
-    {gText_P},
-    {gText_Q},
-    {gText_R},
-    {gText_S},
-    {gText_T},
-    {gText_U},
-    {gText_V},
-    {gText_W},
-    {gText_Z},
-};
-
-static const struct MenuAction MultichoiceList_HyperTrain[] =
-{
-    {gText_HyperTrain},
-    {gText_UnTrain},
-};
-
-static const struct MenuAction MultichoiceList_Fish[] =
-{
-    {gText_Fish_Magikarp},
-    {gText_Fish_Goldeen},
-    {gText_Fish_Remoraid},
-    {gText_Fish_Feebas},
-    {gText_Fish_Finneon},
-    {gText_Fish_Tynamo},
-    {gText_Fish_Arrokuda},
-    {gText_Fish_Barboach},
-    {gText_Fish_Chinchou},
-    {gText_Fish_Carvanha},
-    {gText_Fish_Qwilfish},
-    {gText_Fish_Basculin},
-    {gText_Fish_Cosmog},
-    {gText_Exit},
-};
-
-static const struct MenuAction MultichoiceList_StatNamesNoHP[] =
-{
-    {gText_Attack3},
-    {gText_Defense3},
-    {gText_SpAtk4},
-    {gText_SpDef4},
-    {gText_Speed2},
-    {gText_Exit},
-};
-
 static const struct MenuAction MultichoiceList_BrineyOffDewford[] =
 {
     {gText_Dewford},
@@ -349,15 +267,11 @@ static const struct MenuAction MultichoiceList_GameCornerDolls[] =
 
 static const struct MenuAction MultichoiceList_GameCornerTMs[] =
 {
-    {gText_GameCorner_LeechLifeTM},
-    {gText_GameCorner_DarkPulseTM},
-    {gText_GameCorner_EarthPowerTM},
-    {gText_GameCorner_FlashCannonTM},
-    {gText_GameCorner_IceBeamTM},
-    {gText_GameCorner_IceSpinnerTM},
-    {gText_GameCorner_PsychicTM},
-    {gText_GameCorner_ShadowBallTM},
-    {gText_GameCorner_ThunderboltTM},
+    {gText_TM32AndPrice},
+    {gText_TM29AndPrice},
+    {gText_TM35AndPrice},
+    {gText_TM24AndPrice},
+    {gText_TM13AndPrice},
     {gText_Exit},
 };
 
@@ -869,12 +783,6 @@ static const struct MenuAction MultichoiceList_Exit[] =
     {gText_Exit},
 };
 
-static const struct MenuAction MultichoiceList_PreDamage[] =
-{
-    {gText_PreDamage},
-    {gText_PreStatus},
-};
-
 struct MultichoiceListStruct
 {
     const struct MenuAction *list;
@@ -998,13 +906,6 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
     [MULTI_BERRY_PLOT]                 = MULTICHOICE(MultichoiceList_BerryPlot),
-    [MULTI_PREDAMAGE]                  = MULTICHOICE(MultichoiceList_PreDamage),
-    [MULTI_STATUSES]                   = MULTICHOICE(MultichoiceList_Statuses),
-    [MULTI_STAT_NAMES_NO_HP]           = MULTICHOICE(MultichoiceList_StatNamesNoHP),
-    [MULTI_STAT_NAMES]                 = MULTICHOICE(MultichoiceList_StatNames),
-    [MULTI_FISH]                       = MULTICHOICE(MultichoiceList_Fish),
-    [MULTI_HYPERTRAIN]                 = MULTICHOICE(MultichoiceList_HyperTrain),
-    [MULTI_LETTERS]                    = MULTICHOICE(MultichoiceList_Letters),
 };
 
 const u8 *const gStdStrings[] =
@@ -1039,8 +940,6 @@ const u8 *const gStdStrings[] =
     [STDSTRING_BATTLE_ARENA] = gText_BattleArena,
     [STDSTRING_BATTLE_PIKE] = gText_BattlePike,
     [STDSTRING_BATTLE_PYRAMID] = gText_BattlePyramid,
-    [STDSTRING_INCENSES] = gText_Incenses,
-    [STDSTRING_MINTS] = gText_Mints,
 };
 
 static const u8 sLinkServicesMultichoiceIds[] =

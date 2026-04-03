@@ -3,21 +3,21 @@
 #include "event_data.h"
 #include "caps.h"
 #include "pokemon.h"
-#include "main_menu.h"
+
 
 u32 GetCurrentLevelCap(void)
 {
     static const u32 sLevelCapFlagMap[][2] =
     {
         {FLAG_BADGE01_GET, 15},
-        {FLAG_BADGE02_GET, 20},
-        {FLAG_BADGE03_GET, 25},
-        {FLAG_BADGE04_GET, 35},
-        {FLAG_BADGE05_GET, 40},
-        {FLAG_BADGE06_GET, 45},
-        {FLAG_BADGE07_GET, 50},
-        {FLAG_BADGE08_GET, 55},
-        {FLAG_IS_CHAMPION, 67},
+        {FLAG_BADGE02_GET, 19},
+        {FLAG_BADGE03_GET, 24},
+        {FLAG_BADGE04_GET, 29},
+        {FLAG_BADGE05_GET, 31},
+        {FLAG_BADGE06_GET, 33},
+        {FLAG_BADGE07_GET, 42},
+        {FLAG_BADGE08_GET, 46},
+        {FLAG_IS_CHAMPION, 58},
     };
 
     u32 i;
@@ -110,7 +110,7 @@ u32 GetCurrentEVCap(void)
     {
         return VarGet(B_EV_CAP_VARIABLE);
     }
-    else if (VarGet(VAR_EV_GAIN) == 0)
+    else if (B_EV_CAP_TYPE == EV_CAP_NO_GAIN)
     {
         return 0;
     }

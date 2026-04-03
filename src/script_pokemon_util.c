@@ -27,8 +27,6 @@
 #include "constants/abilities.h"
 #include "constants/items.h"
 #include "constants/battle_frontier.h"
-#include "../include/menu.h"
-#include "strings.h"
 
 static void CB2_ReturnFromChooseHalfParty(void);
 static void CB2_ReturnFromChooseBattleFrontierParty(void);
@@ -102,109 +100,6 @@ static bool8 CheckPartyMonHasHeldItem(u16 item)
             return TRUE;
     }
     return FALSE;
-}
-
-void CheckPartyDamp(void)
-{
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        u16 ability;
-        struct Pokemon *pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-        {
-            ability = GetMonAbility(pokemon);
-            if (ability == ABILITY_DAMP)
-            {
-                gSpecialVar_Result = TRUE;
-                return;
-            }
-        }
-    }
-    gSpecialVar_Result = FALSE;
-}
-
-void CheckPartyTrickRoom(void)
-{
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        struct Pokemon *pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-        {
-            if (MonKnowsMove(&gPlayerParty[i], MOVE_TRICK_ROOM) == TRUE)
-            {
-                gSpecialVar_Result = TRUE;
-                return;
-            }
-        }
-    }
-    gSpecialVar_Result = FALSE;
-}
-
-void CheckPartyChoiceScarf(void)
-{
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        u16 item;
-        struct Pokemon *pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-        {
-            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
-            if (item == ITEM_CHOICE_SCARF)
-            {
-                gSpecialVar_Result = TRUE;
-                return;
-            }
-        }
-    }
-    gSpecialVar_Result = FALSE;
-}
-
-void CheckPartyChoiceSpecs(void)
-{
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        u16 item;
-        struct Pokemon *pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-        {
-            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
-            if (item == ITEM_CHOICE_SPECS)
-            {
-                gSpecialVar_Result = TRUE;
-                return;
-            }
-        }
-    }
-    gSpecialVar_Result = FALSE;
-}
-
-void CheckPartyChoiceBand(void)
-{
-    int i;
-
-    for (i = 0; i < PARTY_SIZE; i++)
-    {
-        u16 item;
-        struct Pokemon *pokemon = &gPlayerParty[i];
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
-        {
-            item = GetMonData(pokemon, MON_DATA_HELD_ITEM);
-            if (item == ITEM_CHOICE_BAND)
-            {
-                gSpecialVar_Result = TRUE;
-                return;
-            }
-        }
-    }
-    gSpecialVar_Result = FALSE;
 }
 
 bool8 DoesPartyHaveEnigmaBerry(void)
@@ -345,54 +240,16 @@ void CanHyperTrain(struct ScriptContext *ctx)
 {
     u32 stat = ScriptReadByte(ctx);
     u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    
-    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
+    if (stat < NUM_STATS
+     && partyIndex < PARTY_SIZE
+     && !GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP + stat)
+     && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV + stat) < MAX_PER_STAT_IVS)
     {
-        switch (stat)
-        {
-            case 0:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 1:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_ATK)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 2:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_DEF)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 3:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPATK)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 4:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPDEF)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 5:
-                if (!GetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPEED)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) < MAX_PER_STAT_IVS)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-        }
+        gSpecialVar_Result = TRUE;
+    }
+    else
+    {
+        gSpecialVar_Result = FALSE;
     }
 }
 
@@ -403,153 +260,9 @@ void HyperTrain(struct ScriptContext *ctx)
     if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
     {
         bool32 data = TRUE;
-        switch (stat)
-        {
-            case 0:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP, &data);
-                break;
-            case 1:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_ATK, &data);
-                break;
-            case 2:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_DEF, &data);
-                break;
-            case 3:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPATK, &data);
-                break;
-            case 4:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPDEF, &data);
-                break;
-            case 5:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_SPEED, &data);            
-                break;
-        }
+        SetMonData(&gPlayerParty[partyIndex], MON_DATA_HYPER_TRAINED_HP + stat, &data);
         CalculateMonStats(&gPlayerParty[partyIndex]);
     }
-}
-
-void CanUnTrain(struct ScriptContext *ctx)
-{
-    u32 stat = ScriptReadByte(ctx);
-    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    
-    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
-    {
-        switch (stat)
-        {
-            case 0:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 1:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 2:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 3:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 4:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-            case 5:
-                if (!(GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) == 0)
-                  && GetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV) > 0)
-                    gSpecialVar_Result = TRUE;
-                else
-                    gSpecialVar_Result = FALSE;
-                break;
-        }
-    }
-}
-
-void UnTrain(struct ScriptContext *ctx)
-{
-    u32 stat = ScriptReadByte(ctx);
-    u32 partyIndex = VarGet(ScriptReadHalfword(ctx));
-    if (stat < NUM_STATS && partyIndex < PARTY_SIZE)
-    {
-        //bool32 data = TRUE;
-        u32 data = 0;
-        switch (stat)
-        {
-            case 0:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_HP_IV, &data);
-                break;
-            case 1:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_ATK_IV, &data);
-                break;
-            case 2:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_DEF_IV, &data);
-                break;
-            case 3:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPATK_IV, &data);
-                break;
-            case 4:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPDEF_IV, &data);
-                break;
-            case 5:
-                SetMonData(&gPlayerParty[partyIndex], MON_DATA_SPEED_IV, &data);            
-                break;
-        }
-        CalculateMonStats(&gPlayerParty[partyIndex]);
-    }
-}
-
-void SetHyperTrainingStat(struct ScriptContext *ctx)
-{
-
-    u32 stat = VarGet(ScriptReadHalfword(ctx));
-    switch (stat)
-    {
-        case 0: // HP
-            StringCopy(gStringVar3, gText_HP4);
-            break;
-        case 1: // Attack
-            StringCopy(gStringVar3, gText_Attack3);
-            break;
-        case 2: // Defense
-            StringCopy(gStringVar3, gText_Defense3);
-            break;
-        case 3: // Special Attack
-            StringCopy(gStringVar3, gText_SpAtk4);
-            break;
-        case 4: // Special Defense
-            StringCopy(gStringVar3, gText_SpDef4);
-            break;
-        case 5: // Speed
-            StringCopy(gStringVar3, gText_Speed2);
-            break;
-    }
-}
-
-void GiveBP(struct ScriptContext *ctx)
-{
-    u32 amount = VarGet(ScriptReadHalfword(ctx));
-    if (gSaveBlock2Ptr->frontier.battlePoints + amount > MAX_BATTLE_FRONTIER_POINTS)
-        gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
-    else
-        gSaveBlock2Ptr->frontier.battlePoints = gSaveBlock2Ptr->frontier.battlePoints + amount;
 }
 
 void HasGigantamaxFactor(struct ScriptContext *ctx)
@@ -674,11 +387,11 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
     {
         abilityNum = GetMonData(&mon, MON_DATA_PERSONALITY) & 1;
     }
-    else if (abilityNum > NUM_NORMAL_ABILITY_SLOTS || GetAbilityBySpecies(species, abilityNum, ABILITY_NONE) == ABILITY_NONE)
+    else if (abilityNum > NUM_NORMAL_ABILITY_SLOTS || GetAbilityBySpecies(species, abilityNum) == ABILITY_NONE)
     {
         do {
             abilityNum = Random() % NUM_ABILITY_SLOTS; // includes hidden abilities
-        } while (GetAbilityBySpecies(species, abilityNum, ABILITY_NONE) == ABILITY_NONE);
+        } while (GetAbilityBySpecies(species, abilityNum) == ABILITY_NONE);
     }
     SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
 
@@ -743,25 +456,12 @@ static u32 ScriptGiveMonParameterized(u8 side, u8 slot, u16 species, u8 level, u
 
 u32 ScriptGiveMon(u16 species, u8 level, u16 item)
 {
-    u8 abilityNum = 1 + Random() % (2 - 1 + 1);
-    if (species == SPECIES_SNIVY
-     || species == SPECIES_SCORBUNNY
-     || species == SPECIES_SQUIRTLE)
-    {
-        if (abilityNum == 1)
-            abilityNum = 0;
-        else
-            abilityNum = 2;
-    }
-    else
-        abilityNum = 0;
-
     u8 evs[NUM_STATS]        = {0, 0, 0, 0, 0, 0};
     u8 ivs[NUM_STATS]        = {MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1,   // We pass "MAX_PER_STAT_IVS + 1" here to ensure that
                                 MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1, MAX_PER_STAT_IVS + 1};  // ScriptGiveMonParameterized won't touch the stats' IV.
     u16 moves[MAX_MON_MOVES] = {MOVE_NONE, MOVE_NONE, MOVE_NONE, MOVE_NONE};
 
-    return ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, abilityNum, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES);
+    return ScriptGiveMonParameterized(0, PARTY_SIZE, species, level, item, ITEM_POKE_BALL, NUM_NATURES, NUM_ABILITY_PERSONALITY, MON_GENDERLESS, evs, ivs, moves, FALSE, FALSE, NUMBER_OF_MON_TYPES);
 }
 
 #define PARSE_FLAG(n, default_) (flags & (1 << (n))) ? VarGet(ScriptReadHalfword(ctx)) : (default_)
@@ -873,20 +573,6 @@ void Script_GetChosenMonDefensiveIVs(void)
     ConvertIntToDecimalStringN(gStringVar1, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_HP_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_DEF_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
     ConvertIntToDecimalStringN(gStringVar3, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPDEF_IV), STR_CONV_MODE_LEFT_ALIGN, 3);
-}
-
-void Script_SetHP(struct ScriptContext *ctx)
-{
-    u32 hp = VarGet(ScriptReadHalfword(ctx));
-    u32 slot = VarGet(ScriptReadHalfword(ctx));
-
-    u16 species;
-    species = GetMonData(&gPlayerParty[slot], MON_DATA_SPECIES);
-            
-    if (species != SPECIES_NONE
-     && species != SPECIES_EGG
-     && GetMonData(&gPlayerParty[slot], MON_DATA_HP) != 0)
-        SetMonData(&gPlayerParty[slot], MON_DATA_HP, &hp);
 }
 
 void Script_SetStatus1(struct ScriptContext *ctx)

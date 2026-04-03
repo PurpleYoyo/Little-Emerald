@@ -27,21 +27,6 @@
       "map": "MAP_ROUTE111",
       "offset": -20,
       "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111",
-      "offset": -20,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111_NO_MIRAGE_TOWER",
-      "offset": -20,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_ROUTE111",
-      "offset": -20,
-      "direction": "right"
     }
   ],
   "object_events": [
@@ -272,9 +257,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

@@ -1138,7 +1138,7 @@ static bool32 CanEndureHit(u32 battler, u32 battlerTarget, u32 move)
         return FALSE;
     if (gMovesInfo[move].strikeCount > 1 && !(gMovesInfo[move].effect == EFFECT_DRAGON_DARTS && IsValidDoubleBattle(battlerTarget)))
         return FALSE;
-    if (AI_DATA->holdEffects[battlerTarget] == HOLD_EFFECT_FOCUS_SASH || gBattleMons[battlerTarget].species == SPECIES_RALTS_FIGHTING)
+    if (AI_DATA->holdEffects[battlerTarget] == HOLD_EFFECT_FOCUS_SASH)
         return TRUE;
 
     if (!DoesBattlerIgnoreAbilityChecks(AI_DATA->abilities[battler], move))
@@ -1547,7 +1547,7 @@ bool32 ShouldTryOHKO(u32 battlerAtk, u32 battlerDef, u32 atkAbility, u32 defAbil
     gPotentialItemEffectBattler = battlerDef;
     if (holdEffect == HOLD_EFFECT_FOCUS_BAND && (Random() % 100) < AI_DATA->holdEffectParams[battlerDef])
         return FALSE;   //probabilistically speaking, focus band should activate so dont OHKO
-    else if ((holdEffect == HOLD_EFFECT_FOCUS_SASH || gBattleMons[battlerDef].species == SPECIES_RALTS_FIGHTING) && AtMaxHp(battlerDef))
+    else if (holdEffect == HOLD_EFFECT_FOCUS_SASH && AtMaxHp(battlerDef))
         return FALSE;
 
     if (!DoesBattlerIgnoreAbilityChecks(atkAbility, move) && defAbility == ABILITY_STURDY)
@@ -3030,7 +3030,7 @@ bool32 AI_CanBeInfatuated(u32 battlerAtk, u32 battlerDef, u32 defAbility)
     if ((gBattleMons[battlerDef].status2 & STATUS2_INFATUATION)
       || AI_DATA->effectiveness[battlerAtk][battlerDef][AI_THINKING_STRUCT->movesetIndex] == AI_EFFECTIVENESS_x0
       || defAbility == ABILITY_OBLIVIOUS
-      //|| !AreBattlersOfOppositeGender(battlerAtk, battlerDef)
+      || !AreBattlersOfOppositeGender(battlerAtk, battlerDef)
       || AI_IsAbilityOnSide(battlerDef, ABILITY_AROMA_VEIL))
         return FALSE;
     return TRUE;
@@ -4011,13 +4011,10 @@ bool32 AI_ShouldCopyStatChanges(u32 battlerAtk, u32 battlerDef)
 //TODO - track entire opponent party data to determine hazard effectiveness
 bool32 AI_ShouldSetUpHazards(u32 battlerAtk, u32 battlerDef, struct AiLogicData *aiData)
 {
-    u32 holdEffectDef = GetBattlerHoldEffect(battlerDef, TRUE);
-    
     if (aiData->abilities[battlerDef] == ABILITY_MAGIC_BOUNCE
      || CountUsablePartyMons(battlerDef) == 0
      || HasMoveWithAdditionalEffect(battlerDef, MOVE_EFFECT_RAPID_SPIN)
-     || HasMoveEffect(battlerDef, EFFECT_DEFOG)
-     || (gBattleMons[battlerDef].species == SPECIES_DUSKULL && holdEffectDef == HOLD_EFFECT_REAPER_CLOTH))
+     || HasMoveEffect(battlerDef, EFFECT_DEFOG))
         return FALSE;
 
     return TRUE;

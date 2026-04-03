@@ -1861,12 +1861,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 0, // TODO: Assign points
     },
 
-    [EFFECT_WILD_CHARGE] =
-    {
-        .battleScript = BattleScript_EffectWildCharge,
-        .battleTvScore = 0, // TODO: Assign points
-    },
-
     [EFFECT_STUFF_CHEEKS] =
     {
         .battleScript = BattleScript_EffectStuffCheeks,

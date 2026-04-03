@@ -308,8 +308,8 @@ static const s8 sCenterToCornerVecXs[8] ={-32, -16, -16, -32, -32};
 // [TRAINER_CLASS_XYZ] = { _("name"), <money=5>, <ball=BALL_POKE> }
 const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
 {
-    [TRAINER_CLASS_PKMN_TRAINER_1] = { _("MINI-BOSS") },
-    [TRAINER_CLASS_PKMN_TRAINER_2] = { _("CREATOR") },
+    [TRAINER_CLASS_PKMN_TRAINER_1] = { _("{PKMN} TRAINER") },
+    [TRAINER_CLASS_PKMN_TRAINER_2] = { _("{PKMN} TRAINER") },
     [TRAINER_CLASS_HIKER] = { _("HIKER"), 10 },
     [TRAINER_CLASS_TEAM_AQUA] = { _("TEAM AQUA") },
     [TRAINER_CLASS_PKMN_BREEDER] = { _("{PKMN} BREEDER"), 10, B_TRAINER_CLASS_POKE_BALLS >= GEN_8 ? BALL_HEAL : BALL_FRIEND },
@@ -1931,32 +1931,23 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         if (firstTrainer == TRUE)
             ZeroEnemyPartyMons();
 
-        if (VarGet(VAR_DIFFICULTY) == NORMAL_DIFFICULTY && trainer->hasNormalParty == TRUE)
-            monsCount = trainer->normalPartySize;
-        else
-            monsCount = trainer->partySize;
-
         if (battleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
         {
-            if (monsCount > PARTY_SIZE / 2)
+            if (trainer->partySize > PARTY_SIZE / 2)
                 monsCount = PARTY_SIZE / 2;
-            //else
-            //    monsCount = trainer->partySize;
+            else
+                monsCount = trainer->partySize;
         }
-        //else
-        //{
-        //    monsCount = trainer->partySize;
-        //}
+        else
+        {
+            monsCount = trainer->partySize;
+        }
 
         for (i = 0; i < monsCount; i++)
         {
             s32 ball = -1;
             u32 personalityHash = GeneratePartyHash(trainer, i);
-            const struct TrainerMon *partyData;
-            if (VarGet(VAR_DIFFICULTY) == NORMAL_DIFFICULTY && trainer->hasNormalParty == TRUE)
-                partyData = trainer->normalParty;
-            else
-                partyData = trainer->party;
+            const struct TrainerMon *partyData = trainer->party;
             u32 otIdType = OT_ID_RANDOM_NO_SHINY;
             u32 fixedOtId = 0;
             u32 ability = 0;
@@ -3513,7 +3504,7 @@ static void DoBattleIntro(void)
                 gBattleMons[battler].types[0] = gSpeciesInfo[gBattleMons[battler].species].types[0];
                 gBattleMons[battler].types[1] = gSpeciesInfo[gBattleMons[battler].species].types[1];
                 gBattleMons[battler].types[2] = TYPE_MYSTERY;
-                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum, gBattleMons[battler].lockedAbility);
+                gBattleMons[battler].ability = GetAbilityBySpecies(gBattleMons[battler].species, gBattleMons[battler].abilityNum);
                 gBattleStruct->hpOnSwitchout[GetBattlerSide(battler)] = gBattleMons[battler].hp;
                 gBattleMons[battler].status2 = 0;
                 for (i = 0; i < NUM_BATTLE_STATS; i++)
@@ -5475,7 +5466,6 @@ static void HandleEndTurn_BattleWon(void)
         gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
     }
 
-    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5512,7 +5502,6 @@ static void HandleEndTurn_BattleLost(void)
         gBattlescriptCurrInstr = BattleScript_LocalBattleLost;
     }
 
-    gSpecialVar_0x8007 = 1;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5547,7 +5536,6 @@ static void HandleEndTurn_RanFromBattle(void)
         }
     }
 
-    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5558,7 +5546,6 @@ static void HandleEndTurn_MonFled(void)
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
     gBattlescriptCurrInstr = BattleScript_WildMonFled;
 
-    gSpecialVar_0x8007 = 0;
     gBattleMainFunc = HandleEndTurn_FinishBattle;
 }
 
@@ -5613,7 +5600,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
-        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9 || gSpecialVar_0x8007 == 1)
+        if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 
         // Undo Dynamax HP multiplier before recalculating stats.
@@ -5921,45 +5908,36 @@ u32 GetDynamicMoveType(struct Pokemon *mon, u32 move, u32 battler, u8 *ateBoost)
         break;
     case EFFECT_HIDDEN_POWER:
         {
-            u8 hiddenPowerType = GetMonData(mon, MON_DATA_HIDDEN_POWER_TYPE);
-            if (hiddenPowerType == TYPE_NONE)
+            u32 typeBits = 0;
+            if (gMain.inBattle)
             {
-                u32 typeBits = 0;
-                if (gMain.inBattle)
-                {
-                    typeBits = ((gBattleMons[battler].hpIV & 1) << 0)
-                            | ((gBattleMons[battler].attackIV & 1) << 1)
-                            | ((gBattleMons[battler].defenseIV & 1) << 2)
-                            | ((gBattleMons[battler].speedIV & 1) << 3)
-                            | ((gBattleMons[battler].spAttackIV & 1) << 4)
-                            | ((gBattleMons[battler].spDefenseIV & 1) << 5);
-                }
-                else
-                {
-                    typeBits = ((GetMonData(mon, MON_DATA_HP_IV) & 1) << 0)
-                            | ((GetMonData(mon, MON_DATA_ATK_IV) & 1) << 1)
-                            | ((GetMonData(mon, MON_DATA_DEF_IV) & 1) << 2)
-                            | ((GetMonData(mon, MON_DATA_SPEED_IV) & 1) << 3)
-                            | ((GetMonData(mon, MON_DATA_SPATK_IV) & 1) << 4)
-                            | ((GetMonData(mon, MON_DATA_SPDEF_IV) & 1) << 5);
-                }
-    
-                // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
-                // The final + 2 skips past TYPE_NONE and Normal.
-                moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
-                if (moveType >= TYPE_MYSTERY)
-                    moveType++;
-                return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
+                typeBits = ((gBattleMons[battler].hpIV & 1) << 0)
+                        | ((gBattleMons[battler].attackIV & 1) << 1)
+                        | ((gBattleMons[battler].defenseIV & 1) << 2)
+                        | ((gBattleMons[battler].speedIV & 1) << 3)
+                        | ((gBattleMons[battler].spAttackIV & 1) << 4)
+                        | ((gBattleMons[battler].spDefenseIV & 1) << 5);
             }
             else
             {
-                return ((hiddenPowerType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
+                typeBits = ((GetMonData(mon, MON_DATA_HP_IV) & 1) << 0)
+                        | ((GetMonData(mon, MON_DATA_ATK_IV) & 1) << 1)
+                        | ((GetMonData(mon, MON_DATA_DEF_IV) & 1) << 2)
+                        | ((GetMonData(mon, MON_DATA_SPEED_IV) & 1) << 3)
+                        | ((GetMonData(mon, MON_DATA_SPATK_IV) & 1) << 4)
+                        | ((GetMonData(mon, MON_DATA_SPDEF_IV) & 1) << 5);
             }
+
+            // Subtract 6 instead of 1 below because 5 types are excluded (TYPE_NONE, TYPE_NORMAL, TYPE_MYSTERY, TYPE_FAIRY and TYPE_STELLAR)
+            // The final + 2 skips past TYPE_NONE and Normal.
+            moveType = ((NUMBER_OF_MON_TYPES - 6) * typeBits) / 63 + 2;
+            if (moveType >= TYPE_MYSTERY)
+                moveType++;
+            return ((moveType | F_DYNAMIC_TYPE_IGNORE_PHYSICALITY) & 0x3F);
         }
         break;
     case EFFECT_CHANGE_TYPE_ON_ITEM:
-        //if (holdEffect == gMovesInfo[move].argument)
-        if (holdEffect == HOLD_EFFECT_FIRE_STONE || holdEffect == HOLD_EFFECT_WATER_STONE || holdEffect == HOLD_EFFECT_THUNDER_STONE || holdEffect == HOLD_EFFECT_LEAF_STONE || holdEffect == HOLD_EFFECT_ICE_STONE || holdEffect == HOLD_EFFECT_SUN_STONE || holdEffect == HOLD_EFFECT_MOON_STONE || holdEffect == HOLD_EFFECT_SHINY_STONE)
+        if (holdEffect == gMovesInfo[move].argument)
             return ItemId_GetSecondaryId(heldItem);
         break;
     case EFFECT_REVELATION_DANCE:

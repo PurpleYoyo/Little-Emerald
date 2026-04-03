@@ -402,12 +402,9 @@ extern const u8 SecretBase_Text_Trainer9Defeated[];
 extern const u8 EventScript_UseStrength[];
 extern const u8 EventScript_FailSweetScent[];
 extern const u8 EventScript_UseFlash[];
-extern const u8 EventScript_CantUseFlashHere[];
-extern const u8 EventScript_AlreadyUsedFlash[];
 extern const u8 EventScript_UseCut[];
 extern const u8 EventScript_UseRockSmash[];
 extern const u8 EventScript_UseDig[];
-extern const u8 EventScript_UseCutGrass[];
 
 //player pc
 extern const u8 LittlerootTown_BrendansHouse_2F_EventScript_TurnOffPlayerPC[];
@@ -547,7 +544,6 @@ extern const u8 LittlerootTown_BrendansHouse_2F_EventScript_PC[];
 extern const u8 LittlerootTown_MaysHouse_2F_EventScript_PC[];
 extern const u8 EventScript_PC[];
 extern const u8 EventScript_AccessPokemonBoxLink[];
-extern const u8 EventScript_UseWarpPanel[];
 extern const u8 EventScript_TestSignpostMsg[];
 extern const u8 EventScript_HiddenItemScript[];
 extern const u8 EventScript_TV[];
@@ -657,22 +653,5 @@ extern const u8 Common_Movement_FollowerSafeEnd[];
 extern const u8 EventScript_CancelMessageBox[];
 extern const u8 Common_EventScript_ShowPokemonCenterSign[];
 extern const u8 Common_EventScript_ShowPokemartSign[];
-
-extern const u8 EventScript_UseInfiniteRepel[];
-
-extern const u8 EventScript_ToggleAutoRun[];
-
-extern const u8 EventScript_Pokevial[];
-
-extern const u8 EventScript_HatchEgg[];
-
-extern const u8 EventScript_SetIvs[];
-extern const u8 EventScript_SetEvs[];
-extern const u8 EventScript_GiveMaxMoney[];
-extern const u8 EventScript_GiveMaxBP[];
-extern const u8 EventScript_ToggleEvGain[];
-extern const u8 EventScript_ToggleAlwaysCatch[];
-extern const u8 EventScript_ToggleNoTrainers[];
-extern const u8 EventScript_ToggleWalkThroughWalls[];
 
 #endif // GUARD_EVENT_SCRIPTS_H
