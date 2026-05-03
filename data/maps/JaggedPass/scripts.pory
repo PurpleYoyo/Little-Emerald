@@ -1,5 +1,7 @@
 raw `
 .set LOCALID_HIDEOUT_GUARD, 5
+.set LOCALID_AUTUMN, 6
+.set LOCALID_ETHAN, 2
 
 JaggedPass_MapScripts::
 	map_script MAP_SCRIPT_ON_RESUME, JaggedPass_OnResume
@@ -268,3 +270,39 @@ JaggedPass_Text_AutumnPostBattle:
 	.string "a little up the hill from here?$"
 
 `
+
+script JaggedPass_B2B_Right {
+	lockall
+	applymovement(LOCALID_ETHAN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_ETHAN, Common_Movement_Delay48)
+	waitmovement(0)
+	trainerbattle_no_intro(TRAINER_ETHAN_1, JaggedPass_Text_EthanDefeat)
+	applymovement(LOCALID_AUTUMN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_AUTUMN, Common_Movement_Delay48)
+	waitmovement(0)
+	applymovement(LOCALID_AUTUMN, Movement_RightOne)
+	waitmovement(0)
+	trainerbattle_no_intro(TRAINER_AUTUMN, JaggedPass_Text_AutumnDefeat)
+	setvar(VAR_JAGGED_PASS_B2B, 1)
+	releaseall
+}
+
+script JaggedPass_B2B_Left {
+	lockall
+	applymovement(LOCALID_ETHAN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_ETHAN, Common_Movement_Delay48)
+	waitmovement(0)
+	applymovement(LOCALID_ETHAN, Movement_LeftOne)
+	waitmovement(0)
+	trainerbattle_no_intro(TRAINER_ETHAN_1, JaggedPass_Text_EthanDefeat)
+	applymovement(LOCALID_AUTUMN, Common_Movement_ExclamationMark)
+	waitmovement(0)
+	applymovement(LOCALID_AUTUMN, Common_Movement_Delay48)
+	waitmovement(0)
+	trainerbattle_no_intro(TRAINER_AUTUMN, JaggedPass_Text_AutumnDefeat)
+	setvar(VAR_JAGGED_PASS_B2B, 1)
+	releaseall
+}

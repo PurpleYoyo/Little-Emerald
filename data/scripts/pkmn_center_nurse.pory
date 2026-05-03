@@ -2785,6 +2785,11 @@ script Movement_LeftOne {
 	step_end
 }
 
+script Movement_RightOne {
+	walk_right
+	step_end
+}
+
 script NoGrassBeforeStarterUp {
 	msgbox(format("You don't have a Pokémon yet, better not step into the tall grass!"), MSGBOX_AUTOCLOSE)
 	applymovement(OBJ_EVENT_ID_PLAYER, Movement_UpOne)

@@ -5504,8 +5504,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "An attack that increases\n"
             "in power with friendship."),
-        .effect = EFFECT_RETURN,
-        .power = 1,
+        .effect = EFFECT_HIT,
+        .power = 105,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,
@@ -5548,8 +5548,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_DYNAMAX] =
         .description = COMPOUND_STRING(
             "An attack that is stronger\n"
             "if the Trainer is disliked."),
-        .effect = EFFECT_FRUSTRATION,
-        .power = 1,
+        .effect = EFFECT_HIT,
+        .power = 105,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 20,

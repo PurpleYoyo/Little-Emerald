@@ -2,6 +2,19 @@ Version 1.5 - Updated the version number to v1.5!
 Changes since the last release (v1.4):
 
 Pokémon Changes:
+Cleffa-Mega's ability is now Magic Bounce.
+Bellsprout's abilities are now: Chlorophyll/Gluttony/Innards Out.
+Snorunt-Ghost's abilities are now: Snow Cloak/Cursed Body/Snow Warning.
+Tepig's abilities are now: Blaze/Thick Fat/Mold Breaker.
+Golett's abilities are now: Iron Fist/No Guard/Unseen Fist.
+Flabébé's abilities are now: Flower Veil/Symbiosis/Fairy Aura.
+Espurr's abilities are now: Prankster/Trace/Psychic Surge.
+Glimmet's abilities are now: Toxic Debris/Corrosion/Adaptability.
+Phanpy's abilities are now: Sturdy/Cute Charm/Dry Skin.
+Slugma's ablities are now: Magma Armor/Flame Body/Weak Armor.
+Litleo's ablities are now: Moxie/Unnerve/Drought.
+Quaxly is now Water/Fighting type.
+Starly is now Fighting/Flying type.
 All sizes of Pumpkaboo now have the same base stats - the same as Pumpkaboo-Super.
 Chingling-Mega is now Psychic/Steel type.
 Pawmi is now Electric/Fighting type.
@@ -9,11 +22,11 @@ Staryu is now Water/Psychic type.
 Misdreavus is now Ghost/Fairy type.
 Rookidee is no longer Steel type.
 Psyduck is no longer Psychic type.
-Phanpy's abilities are now: Sturdy/Cute Charm/Sand Veil
-Lileep's abilities are now: Suction Cups/Storm Drain/Poison Heal
-Sneasel's abilities are now: Inner Focus/Pickpocket/Technician
-Sneasel-Hisui's abilities are now: Inner Focus/Pickpocket/Unburden
-Pumpkaboo's abilities are now: Insomnia/Frisk/Heatproof
+Phanpy's abilities are now: Sturdy/Cute Charm/Sand Veil.
+Lileep's abilities are now: Suction Cups/Storm Drain/Poison Heal.
+Sneasel's abilities are now: Inner Focus/Pickpocket/Technician.
+Sneasel-Hisui's abilities are now: Inner Focus/Pickpocket/Unburden.
+Pumpkaboo's abilities are now: Insomnia/Frisk/Heatproof.
 
 Changed Cleffa's base stats (from v1.4):
  HP: 50 -> 60
@@ -225,11 +238,11 @@ Changed Spinarak's base stats (from Vanilla):
 Changed Slugma's base stats (from Vanilla):
  HP: 40
  Atk: 40
- Def: 40 -> 60
+ Def: 40 -> 90
  SpA: 70
  SpD: 40
  Spe: 20
- Total: 250 -> 270 
+ Total: 250 -> 300
  
 Changed Swinub's base stats (from Vanilla):
  HP: 50 -> 60
@@ -313,6 +326,7 @@ The full list of non Water type Pokémon with access to Rain Dance is:
  - Helioptile
  - Croagunk
  - Morelull
+ - Phanpy
 
 Snowscape has been removed from every Pokémon's learnset unless otherwise noted.
 Every available Ice type Pokémon can learn Snowscape via TM.
@@ -354,6 +368,13 @@ The full list of non Fire type Pokémon with access to Sunny Day is:
 Rising Voltage was moved from the following Pokémons' Egg Move learnsets to their Tutor move learnsets:
 - Helioptile, Yamper, Electrike
 
+Changed Quaxly's learnset:
+ - Level-Up: + Aqua Step (41), Jet Punch (51)
+ - Egg: + Triple Axel, Triple Kick, Triple Dive, Dual Wingbeat, Dual Chop
+
+Changed Flittle's learnset:
+ - TM: + Dazzling Gleam
+
 Changed Tynamo's learnset:
  - Tutor: + Rising Voltage
 
@@ -362,6 +383,14 @@ Changed Joltik's learnset:
 
 Changed Chinchou's learnset:
  - Tutor: + Rising Voltage
+
+Changed Phanpy's learnset:
+ - Level-Up: - Tackle (1), Flail (6)
+             + Flail (1), Water Gun (5), High Horsepower (20), Earthquake (31)
+ - TM: - Thief, Seed Bomb, Rock Smash
+       + Covet, Water Pulse, Scald, Chilling Water, Bullet Seed
+ - Tutor: + Hydro Pump, Muddy Water
+ - Egg: - Counter
 
 Changed Honedge's learnset:
  - TM: - Rock Smash, Shock Wave
@@ -480,8 +509,18 @@ Changed Goomy's learnset:
  - TM: + Liquidation
  - Egg: + Dragon Dance
 
+Changed Binacle's learnset:
+ - Egg: + Aqua Jet, Ice Shard
+
 Changed Lileep's learnset:
  - Egg: + Leech Seed, Baton Pass
+
+Changed Starly's learnset:
+ - Tutor: + Close Combat
+
+Changed Diglett-Alola's learnset:
+ - TM: + Fling
+ - Egg: + Endeavor
 
 Changed Rhyhorn's learnset:
  - TM: - Thunderbolt, Thunder, Thief, Swords Dance, Sunny Day, Dragon Pulse, Icy Wind, Shock Wave, Rain Dance, Flamethrower, Fire Blast, Blizzard
@@ -520,16 +559,21 @@ Changed Elite Four Sidney's team:
  - Hard Mode:
    Edited Impidimmp - Moves: Misty Terrain/Nature Power/Reflect/Parting Shot, Held Item: Assault Vest
    Edited Zorua - Moves: Nasty Plot/Sludge Bomb/Extrasensory/Burning Jealousy, Held Item: Focus Sash
+Changed Leader Flannery's team:
+ - Hard Mode:
+   - Slugma
+   + Liteo @ Heat Rock
+     - Ability: Drought, Moves: Flamethrower/Hyper Voice/Sunny Day/Solar Beam, Nature: Bold
 
 Feature Additions:
 Added special, one-time use Move Tutors throughout Hoenn:
- - Revival Blessing:
+ - Revival Blessing - Fallarbor Town (Woman on the left of town):
    - Rellor
    - Pawmi
- - Plasma Fists:
+ - Plasma Fists - Mosdeep City (Boy next to the Space Center):
    - Elekid
    - Pichu
- - Volt Tackle:
+ - Volt Tackle - Mosdeep City (Boy next to the Space Center):
    - Elekid
    - Pichu
    - Voltorb
@@ -543,7 +587,7 @@ Added special, one-time use Move Tutors throughout Hoenn:
    - Wattrel
    - Geodude-Alola
    - Grubbin
-> Added a special Move Tutor than can teach Eevee one of the following moves:
+> Added a special Move Tutor than can teach Eevee one of the following moves to the 6th floor in Mt. Pyre:
   - Bouncy Bubble
   - Buzzy Buzz
   - Sizzly Slide
@@ -568,6 +612,7 @@ Added an NPC in Rusturf Tunnel that allows you to change the gender of a Pokémo
 Added Rising Voltage to the 1 BP move tutor.
 
 Move Changes:
+Return and Frustration are now always 105 base power.
 Rising Voltage is now Physical.
 Wing Attack is now 80 base power.
 Razor Wind is now a 1-turn move.
@@ -610,18 +655,27 @@ IDEAS:
 Darumaka
 
 NOTES:
-B2Bs:
+I noted every Double Battle that has to be fought as a Double Battle.
  - Route 116: Dawson & Sarah
  - Route 110: Kaleb & Isabel
  - Route 118: Rose & Deandre
-Doubles:
+ - Route 112: Shayla & Bryant
+ - Route 114: Kai & Charlotte
+ - Route 113: Lung & Wyatt (Back to back with Lawrence)
+ - Route 114: Angelina & Lucas
+ - Route 113: Lung & Wyatt
  - Route 116: Janice & Jerry
  - Dewford Gym: Brenden & Lilith
  - Route 103: Marcos & Rhett
+ - Route 115: Marlene & Hector
+ - Route 115: Alix & Helene
+ - Mt. Chimney: Magma Grunt 1 & 2
+ - Route 118: Jonas & Kayley
+ - Mt. Pyre: Aqua Grunt 3 & 4
 
 DISABLE DEBUG MENU BEFORE RELEASE
 src/field_control_avatar.c
-include/debug.h9
+include/config/debug.h
 
 NOTES:
 b - dusk/dawn stone palettes                              |
