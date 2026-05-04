@@ -9117,7 +9117,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_DEREK] =
+    [TRAINER_DEREK] = // Monti
     {
         .trainerName = _("MONTI"),
         .trainerClass = TRAINER_CLASS_POKEMANIAC,
@@ -9994,7 +9994,7 @@ F_TRAINER_FEMALE |
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
             {
-            .species = SPECIES_CLEFAIRY,
+            .species = SPECIES_CLEFFA,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .lvl = 52,
@@ -11228,8 +11228,6 @@ F_TRAINER_FEMALE |
     },
     [TRAINER_ROXANNE_1] =
     {
-        .hasNormalParty = TRUE,
-        .normalPartySize = 3,
         .trainerName = _("ROXANNE"),
         .trainerClass = TRAINER_CLASS_LEADER,
         .trainerPic = TRAINER_PIC_LEADER_ROXANNE,
@@ -11239,6 +11237,8 @@ F_TRAINER_FEMALE |
         .doubleBattle = FALSE,
         .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 6,
+		.hasNormalParty = TRUE,
+        .normalPartySize = 3,
         .normalParty = (const struct TrainerMon[])
         {
         
@@ -14574,7 +14574,7 @@ F_TRAINER_FEMALE |
             },
         },
     },
-    [TRAINER_QUINCY] =
+    [TRAINER_QUINCY] = // rae
     {
         .trainerName = _("rae"),
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
@@ -25397,7 +25397,7 @@ F_TRAINER_FEMALE |
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_AZUMARILL,
+            .species = SPECIES_AZURILL,
             .gender = TRAINER_MON_RANDOM_GENDER,
             .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
             .lvl = 26,
